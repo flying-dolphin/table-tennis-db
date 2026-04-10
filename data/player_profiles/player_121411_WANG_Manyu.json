@@ -8,18 +8,18 @@
   "rank": 2,
   "points": 9848,
   "rank_change": 0,
-  "scraped_at": "2026-04-10T16:31:02.860638",
+  "scraped_at": "2026-04-10T17:49:33.226709",
   "gender": "Female",
   "birth_year": 1999,
   "age": 27,
+  "style": "Right-Hand Attack (ShakeHand)",
   "playing_hand": "Right",
-  "grip": "Shakehand",
+  "grip": "ShakeHand",
   "current_rank": 2,
-  "ranking_week": "15/2026 (Apr 7th, 2026",
+  "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 2,
-  "career_best_week": "15/2026\tEvents: 100",
-  "career_stats": {},
-  "current_year_stats": {
+  "career_best_week": "15/2026",
+  "career_stats": {
     "events": 100,
     "matches": 486,
     "wins": 417,
@@ -27,73 +27,82 @@
     "wtt_senior_titles": 7,
     "all_senior_titles": 17
   },
+  "current_year_stats": {
+    "events": 5,
+    "matches": 23,
+    "wins": 18,
+    "loses": 5,
+    "games": 102,
+    "games_won": 70,
+    "games_lost": 32,
+    "points_played": 1862,
+    "points_won": 1054,
+    "points_lost": 808,
+    "wtt_senior_titles": 0,
+    "all_senior_titles": 0
+  },
   "recent_matches": [
     {
-      "event": "ITTF Men's & Women's",
-      "player": "World Cup Macao 2026 Presented by Galaxy Entertainment Group\nSUN Yingsha",
+      "event": "ITTF Men's & Women's World Cup Macao 2026",
+      "player": "Presented by Galaxy Entertainment Group SUN Yingsha",
       "player_country": "CHN",
       "opponent": "WANG Manyu",
       "opponent_country": "CHN",
       "stage": "WS Main Draw - Final",
-      "score": "4 - 1 (11:9 11:8 13:11 8:11 11:7",
+      "score": "4 - 1 (11:9 11:8 13:11 8:11 11:7 )",
       "result": "LOST"
     },
     {
-      "event": "ITTF Men's & Women's",
-      "player": "World Cup Macao 2026 Presented by Galaxy Entertainment Group\nSHIN Yubin",
+      "event": "ITTF Men's & Women's World Cup Macao 2026",
+      "player": "Presented by Galaxy Entertainment Group SHIN Yubin",
       "player_country": "KOR",
       "opponent": "WANG Manyu",
       "opponent_country": "CHN",
       "stage": "WS Main Draw - SemiFinal",
-      "score": "2 - 4 (8:11 13:11 13:11 6:11 7:11 5:11",
+      "score": "2 - 4 (8:11 13:11 13:11 6:11 7:11 5:11 )",
       "result": "WON"
     },
     {
-      "event": "ITTF Men's & Women's",
-      "player": "World Cup Macao 2026 Presented by Galaxy Entertainment Group\nHASHIMOTO Honoka",
+      "event": "ITTF Men's & Women's World Cup Macao 2026",
+      "player": "Presented by Galaxy Entertainment Group HASHIMOTO Honoka",
       "player_country": "JPN",
       "opponent": "WANG Manyu",
       "opponent_country": "CHN",
       "stage": "WS Main Draw - QuarterFinal",
-      "score": "2 - 4 (11:8 8:11 11:13 11:8 5:11 9:11",
+      "score": "2 - 4 (11:8 8:11 11:13 11:8 5:11 9:11 )",
       "result": "WON"
     },
     {
-      "event": "ITTF Men's & Women's",
-      "player": "World Cup Macao 2026 Presented by Galaxy Entertainment Group\nITO Mima",
+      "event": "ITTF Men's & Women's World Cup Macao 2026",
+      "player": "Presented by Galaxy Entertainment Group ITO Mima",
       "player_country": "JPN",
       "opponent": "WANG Manyu",
       "opponent_country": "CHN",
       "stage": "WS Main Draw - R16",
-      "score": "0 - 4 (9:11 6:11 5:11 3:11",
+      "score": "0 - 4 (9:11 6:11 5:11 3:11 )",
       "result": "WON"
     },
     {
-      "event": "ITTF Men's & Women's",
-      "player": "World Cup Macao 2026 Presented by Galaxy Entertainment Group\nWANG Manyu",
+      "event": "ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group",
+      "player": "WANG Manyu",
       "player_country": "CHN",
       "opponent": "AKULA Sreeja",
       "opponent_country": "IND",
       "stage": "WS Qualification -",
-      "score": "3 - 0 (11:8 11:7 11:3",
+      "score": "3 - 0 (11:8 11:7 11:3 )",
       "result": "WON"
     },
     {
-      "event": "ITTF Men's & Women's",
-      "player": "World Cup Macao 2026 Presented by Galaxy Entertainment Group\nWANG Manyu",
+      "event": "ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group",
+      "player": "WANG Manyu",
       "player_country": "CHN",
       "opponent": "YU Fu",
       "opponent_country": "POR",
       "stage": "WS Qualification -",
-      "score": "3 - 0 (11:5 11:3 11:6",
+      "score": "3 - 0 (11:5 11:3 11:6 )",
       "result": "WON"
     }
   ],
-  "raw_table_data": {
-    "labels": "Values",
-    "wins (18)": "18",
-    "loses (5)": "5",
-    "wins (417)": "417",
-    "loses (69)": "69"
-  }
+  "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121411_Headshot_R_WANG_Manyu.png",
+  "avatar_file_path": "data/player_avatars/player_121411_WANG_Manyu.png"
 }
