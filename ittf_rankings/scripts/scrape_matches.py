@@ -763,6 +763,21 @@ def merge_player_data(existing: dict[str, Any], player_data: dict[str, Any]) -> 
 
     captured_at = player_data.get("captured_at", utc_now_iso())
 
+    for field in [
+        "schema_version",
+        "player_id",
+        "player_name",
+        "english_name",
+        "country",
+        "country_code",
+        "continent",
+        "rank",
+        "from_date",
+    ]:
+        value = player_data.get(field)
+        if value not in (None, ""):
+            existing[field] = value
+
     # 构建已有 events 的去重 key，避免重复写入
     existing_keys = _scraped_event_keys(existing)
 
@@ -776,7 +791,6 @@ def merge_player_data(existing: dict[str, Any], player_data: dict[str, Any]) -> 
         )["events"].append(event)
         existing_keys.add(key)
 
-    existing["from_date"] = player_data.get("from_date")
     existing["captured_at"] = captured_at
     existing["updated_at"] = utc_now_iso()
     return existing
@@ -965,14 +979,29 @@ def run(args: argparse.Namespace) -> int:
 
             if not player_output:
                 player_output = {
+                    "schema_version": "match.v2",
                     "player_id": player_id,
                     "player_name": player_name,
+                    "english_name": player_name,
+                    "country": player.get("country", ""),
                     "country_code": country_code,
+                    "continent": player.get("continent", ""),
                     "rank": rank,
+                    "from_date": from_date.isoformat(),
                     "years": {},
                     "created_at": utc_now_iso(),
                     "updated_at": utc_now_iso(),
                 }
+            else:
+                player_output.setdefault("schema_version", "match.v2")
+                player_output.setdefault("player_id", player_id)
+                player_output.setdefault("player_name", player_name)
+                player_output.setdefault("english_name", player_name)
+                player_output.setdefault("country", player.get("country", ""))
+                player_output.setdefault("country_code", country_code)
+                player_output.setdefault("continent", player.get("continent", ""))
+                player_output.setdefault("rank", rank)
+                player_output.setdefault("from_date", from_date.isoformat())
 
             ck = checkpoint.key(player_id, player_name, from_date.isoformat())
 
@@ -993,6 +1022,15 @@ def run(args: argparse.Namespace) -> int:
                     out_file=out_file,
                     player_output=player_output,
                 )
+                player_data["schema_version"] = "match.v2"
+                player_data["player_id"] = player_id
+                player_data["player_name"] = player_name
+                player_data["english_name"] = player_name
+                player_data["country"] = player.get("country", player_data.get("country", ""))
+                player_data["country_code"] = country_code
+                player_data["continent"] = player.get("continent", player_data.get("continent", ""))
+                player_data["rank"] = rank
+                player_data["from_date"] = from_date.isoformat()
                 # 统计总 event 数（网页 events 数量 = 我们的 JSON 总 event 数）
                 total_events_in_json = sum(
                     len(year_data.get("events", []))
