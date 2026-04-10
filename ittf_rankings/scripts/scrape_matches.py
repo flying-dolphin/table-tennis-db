@@ -457,35 +457,52 @@ def absolute_url(href: str) -> str:
 def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) -> bool:
     search_key = f"{player_name} ({country_code})" if country_code else player_name
 
+    logger.info("[autocomplete] start player=%s country=%s search_key=%s", player_name, country_code or "", search_key)
+
     search_input = page.locator("input[type='text']").first
-    if search_input.count() == 0:
+    input_count = search_input.count()
+    logger.info("[autocomplete] text inputs found, using first locator count=%s", input_count)
+    if input_count == 0:
+        logger.warning("[autocomplete] no text input found")
         return False
 
     def wait_and_click_option(target_text: str, fallback_text: str) -> bool:
-        for _ in range(12):
+        for attempt in range(12):
             exact = page.get_by_text(target_text, exact=True).first
             try:
-                if exact.count() > 0 and exact.is_visible():
+                exact_count = exact.count()
+            except Exception:
+                exact_count = 0
+            logger.info("[autocomplete] attempt=%s exact_count=%s target=%s", attempt + 1, exact_count, target_text)
+            try:
+                if exact_count > 0 and exact.is_visible():
+                    logger.info("[autocomplete] exact option visible, trying click: %s", target_text)
                     try:
                         exact.scroll_into_view_if_needed()
-                    except Exception:
-                        pass
+                    except Exception as exc:
+                        logger.info("[autocomplete] exact scroll skipped: %s", exc)
                     try:
                         exact.click(timeout=2000)
-                    except Exception:
+                        logger.info("[autocomplete] exact click ok")
+                    except Exception as exc:
+                        logger.warning("[autocomplete] exact click failed: %s", exc)
                         try:
                             exact.click(force=True, timeout=2000)
-                        except Exception:
+                            logger.info("[autocomplete] exact force click ok")
+                        except Exception as exc2:
+                            logger.warning("[autocomplete] exact force click failed, fallback mouse: %s", exc2)
                             move_mouse_to_locator(page, exact)
+                            logger.info("[autocomplete] exact mouse click ok")
                     return True
-            except Exception:
-                pass
+            except Exception as exc:
+                logger.info("[autocomplete] exact option probe failed: %s", exc)
 
             candidates = page.locator("li, .ui-menu-item, [role='option'], .dropdown-item")
             try:
                 count = min(candidates.count(), 20)
             except Exception:
                 count = 0
+            logger.info("[autocomplete] attempt=%s candidate_count=%s", attempt + 1, count)
 
             for i in range(count):
                 item = candidates.nth(i)
@@ -495,39 +512,58 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                     txt = " ".join((item.inner_text() or "").split())
                     if not txt:
                         continue
+                    logger.info("[autocomplete] candidate[%s]=%s", i, txt[:120])
                     if target_text in txt or fallback_text in txt:
+                        logger.info("[autocomplete] matched candidate[%s], trying click", i)
                         try:
                             item.scroll_into_view_if_needed()
-                        except Exception:
-                            pass
+                        except Exception as exc:
+                            logger.info("[autocomplete] candidate scroll skipped: %s", exc)
                         try:
                             item.click(timeout=2000)
-                        except Exception:
+                            logger.info("[autocomplete] candidate click ok")
+                        except Exception as exc:
+                            logger.warning("[autocomplete] candidate click failed: %s", exc)
                             try:
                                 item.click(force=True, timeout=2000)
-                            except Exception:
+                                logger.info("[autocomplete] candidate force click ok")
+                            except Exception as exc2:
+                                logger.warning("[autocomplete] candidate force click failed, fallback mouse: %s", exc2)
                                 move_mouse_to_locator(page, item)
+                                logger.info("[autocomplete] candidate mouse click ok")
                         return True
-                except Exception:
+                except Exception as exc:
+                    logger.info("[autocomplete] candidate[%s] probe failed: %s", i, exc)
                     continue
 
             time.sleep(0.25)
+        logger.warning("[autocomplete] no option matched after retries for target=%s fallback=%s", target_text, fallback_text)
         return False
 
     short_query = player_name[:20]
+    logger.info("[autocomplete] typing short query=%s", short_query)
     type_like_human(page, search_input, short_query)
+    try:
+        logger.info("[autocomplete] input value after short query=%s", search_input.input_value())
+    except Exception as exc:
+        logger.info("[autocomplete] could not read input after short query: %s", exc)
     time.sleep(random.uniform(0.8, 1.6))
     if wait_and_click_option(search_key, player_name):
-        logger.info("Autocomplete selected by short query: %s", search_key)
+        logger.info("[autocomplete] selected by short query: %s", search_key)
         return True
 
+    logger.info("[autocomplete] typing full query=%s", search_key)
     type_like_human(page, search_input, search_key)
+    try:
+        logger.info("[autocomplete] input value after full query=%s", search_input.input_value())
+    except Exception as exc:
+        logger.info("[autocomplete] could not read input after full query: %s", exc)
     time.sleep(random.uniform(0.8, 1.8))
     if wait_and_click_option(search_key, player_name):
-        logger.info("Autocomplete selected by full query: %s", search_key)
+        logger.info("[autocomplete] selected by full query: %s", search_key)
         return True
 
-    logger.warning("Autocomplete option not selected: %s", search_key)
+    logger.warning("[autocomplete] option not selected: %s", search_key)
     return False
 
 
