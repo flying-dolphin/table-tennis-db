@@ -498,6 +498,12 @@ def main():
         action="store_true",
         help="强制重新登录（不复用已有 session）",
     )
+    parser.add_argument(
+        "--cdp-url",
+        default=None,
+        type=str,
+        help="CDP browser 地址，填入则复用已有登录态（如 http://localhost:3456）",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir).resolve()
@@ -535,13 +541,24 @@ def main():
         logger.error("需要 playwright: pip install playwright && playwright install chromium")
         sys.exit(1)
 
-    profile = random.choice([
-        {"viewport": {"width": 1280, "height": 800}, "dpr": 1.0},
-        {"viewport": {"width": 1366, "height": 768}, "dpr": 1.25},
-    ])
+    use_cdp = bool(args.cdp_url)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        if use_cdp:
+            # 复用 CDP browser，天然携带登录态，不需要 storage_state
+            cdp_url = args.cdp_url.rstrip("/")
+            try:
+                import urllib.request
+                resp = urllib.request.urlopen(f"{cdp_url}/json/protocol", timeout=5)
+                targets = json.loads(resp.read().decode())
+                ws_url = targets[0]["webSocketDebuggerUrl"]
+                logger.info("连接 CDP browser: %s", ws_url[:60])
+                browser = p.chromium.connect_over_cdp(ws_url)
+            except Exception as exc:
+                logger.error("无法连接 CDP browser %s: %s", cdp_url, exc)
+                sys.exit(1)
+        else:
+            browser = p.chromium.launch(headless=True)
         context = browser.new_context(
             viewport=profile["viewport"],
             locale="en-US",
@@ -559,10 +576,12 @@ def main():
         )
         page = context.new_page()
         try:
-            if storage_state.exists():
-                ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), args.init_session)
-            else:
-                ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), True)
+            if not use_cdp:
+                # 非 CDP 模式才需要确保登录
+                if storage_state.exists():
+                    ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), args.init_session)
+                else:
+                    ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), True)
             total_updated = 0
             for i, pf in enumerate(files, 1):
                 logger.info("[%d/%d] 处理 %s", i, len(files), pf.name)
