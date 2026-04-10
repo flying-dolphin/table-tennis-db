@@ -498,7 +498,7 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                 logger.info("[autocomplete] exact option probe failed: %s", exc)
 
             autocomplete_root = page.locator(
-                "ul.ui-autocomplete:visible, ul[id*='ui-id']:visible, .ui-autocomplete:visible, [role='listbox']:visible"
+                "ul.dropdown-menu[role='menu']:visible, ul.ui-autocomplete:visible, ul[id*='ui-id']:visible, .ui-autocomplete:visible, [role='listbox']:visible"
             ).first
             root_count = 0
             try:
@@ -507,10 +507,10 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                 root_count = 0
 
             if root_count > 0:
-                candidates = autocomplete_root.locator("li, .ui-menu-item, [role='option']")
+                candidates = autocomplete_root.locator("li a[data-value], li > a, li, .ui-menu-item, [role='option']")
                 logger.info("[autocomplete] using scoped autocomplete container")
             else:
-                candidates = page.locator("li.ui-menu-item, ul.ui-autocomplete li, [role='listbox'] [role='option']")
+                candidates = page.locator("ul.dropdown-menu[role='menu'] li a[data-value], ul.dropdown-menu[role='menu'] li > a, li.ui-menu-item, ul.ui-autocomplete li, [role='listbox'] [role='option']")
                 logger.info("[autocomplete] autocomplete container not found, using narrow fallback selectors")
 
             try:
@@ -525,9 +525,10 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                     if not item.is_visible():
                         continue
                     txt = " ".join((item.inner_text() or "").split())
+                    data_value = item.get_attribute("data-value") if item.count() > 0 else None
                     if not txt:
                         continue
-                    logger.info("[autocomplete] candidate[%s]=%s", i, txt[:120])
+                    logger.info("[autocomplete] candidate[%s]=%s data-value=%s", i, txt[:120], data_value)
                     if target_text in txt or fallback_text in txt:
                         logger.info("[autocomplete] matched candidate[%s], trying click", i)
                         try:
