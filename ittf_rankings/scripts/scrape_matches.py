@@ -294,7 +294,9 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
             score_b = int(m.group(2))
             break
 
-    game_scores = [f"{a}:{b}" for a, b in GAME_RE.findall(row_text)]
+    raw_games = GAME_RE.findall(row_text)
+    game_scores = [f"{a}:{b}" for a, b in raw_games]
+    game_objects = [{"player": int(a), "opponent": int(b)} for a, b in raw_games]
     if score_idx == -1 and not game_scores:
         return None
 
@@ -371,7 +373,8 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
         "stage": stage,
         "round": round_text,
         "match_score": match_score,
-        "games": game_scores,
+        "games": game_objects,
+        "games_display": game_scores,
         "winner": winner,
         "all_players_in_row": all_names,
         "side_a": side_a,
@@ -379,6 +382,7 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
         "teammates": teammates,
         "opponents": opponents,
         "result_for_player": result_for_player,
+        "result": result_for_player,
         "perspective": perspective,
         "raw_row_text": row_text,
     }

@@ -31,6 +31,7 @@ export type MatchRow = {
   teammates?: string[];
   winner?: string;
   games?: Array<{ [key: string]: unknown }> | string[];
+  games_display?: string[];
   perspective?: string;
   raw_row_text?: string;
   side_a?: string | string[];

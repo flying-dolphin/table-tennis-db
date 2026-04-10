@@ -144,7 +144,7 @@ function main() {
               matchScore: match.match_score ?? null,
               opponents: JSON.stringify(match.opponents ?? []),
               teammates: JSON.stringify(match.teammates ?? []),
-              games: JSON.stringify(match.games ?? []),
+              games: JSON.stringify(match.games ?? match.games_display ?? []),
               rawRowText: match.raw_row_text ?? null,
               sideA: typeof match.side_a === 'string' ? match.side_a : JSON.stringify(match.side_a ?? null),
               sideB: typeof match.side_b === 'string' ? match.side_b : JSON.stringify(match.side_b ?? null),
