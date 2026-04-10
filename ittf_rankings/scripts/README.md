@@ -1,18 +1,83 @@
 # ITTF scripts
 
-当前脚本已经开始按“共享 Playwright 基础设施 + 独立业务抓取器”重构。
+当前脚本已重构为“共享 Playwright 基础设施 + 独立业务抓取器”的结构，比赛抓取与排名抓取目前都已跑通，规则文件抓取链路也已具备下载、提取和翻译提示生成能力。
+
+## 当前状态总结
+
+### 已经稳定可用
+
+#### 1. `scrape_matches.py`
+
+当前主力脚本，负责比赛抓取。
+
+能力：
+- 基于 Playwright / 现有 Chrome CDP 会话抓取
+- 支持断点续抓
+- 支持增量写入
+- 支持手动登录 / 复用已登录浏览器
+- 已修复 autocomplete 真实站点 DOM 适配问题
+- 已修复 CDP 首跳不必要的 sleep
+- 已补齐更清晰的 match schema 顶层字段
+
+当前已确认有效的关键点：
+- autocomplete 真实下拉结构是：
+  - `ul.dropdown-menu[role='menu']`
+  - `li > a[data-value]`
+- 候选项点击必须命中 `a[data-value]` 本身，不能只点外层 `li`
+- CDP 连接后第一页导航应直接进行，不需要先 sleep
+
+#### 2. `scrape_rankings.py`
+
+负责公开 ranking 页面抓取。
+
+能力：
+- 直接抓公开 ranking 页面，不依赖登录
+- 支持 `women / men / women_doubles / men_doubles / mixed`
+- 输出结构化 JSON
+- 保存 HTML snapshot 便于调试
+- 已和现有 `women_singles_top50.json` 做过实际对比校验，核心字段对齐
+
+#### 3. `scrape_regulations.py`
+
+负责规则文件链路。
+
+当前能力：
+- 优先通过 requests 发现 PDF 链接
+- 失败时 fallback 到 Playwright
+- 下载最新 PDF
+- 提取 PDF 内容到 Markdown
+- 生成中文翻译 prompt 文件
+- 输出 regulations metadata JSON
+
+当前限制：
+- ITTF 规则入口仍可能受 403 / Cloudflare 影响
+- 因此这条线在真实站点上仍可能需要半自动辅助
+
+---
 
 ## 推荐入口
 
-### 1. 比赛抓取
+### 比赛抓取
 
 ```bash
 python scrape_matches.py
 ```
 
-- 主力脚本
-- 基于 Playwright
-- 支持手动登录、session 复用、风控检测、断点续抓、增量保存
+常见场景：
+
+```bash
+# 使用默认 players 文件抓取
+python scrape_matches.py
+
+# 仅抓某一个球员
+python scrape_matches.py --player-name "DOO Hoi Kem"
+
+# 复用已开启的 Chrome CDP
+python scrape_matches.py --cdp-port 9222 --player-name "DOO Hoi Kem"
+
+# 初始化 session（手动登录一次）
+python scrape_matches.py --init-session
+```
 
 兼容入口仍保留：
 
@@ -22,36 +87,17 @@ python ittf_matches_playwright.py
 
 它现在只是转调到 `scrape_matches.py`。
 
-### 2. 排名抓取
+### 排名抓取
 
 ```bash
 python scrape_rankings.py --category women --top 50
 ```
 
-- 基于 Playwright
-- 当前可抓取公开 ranking 页面并输出结构化 JSON
-- 同时保存 HTML snapshot，方便调试解析
-
-支持类别：
-- `women`
-- `men`
-- `women_doubles`
-- `men_doubles`
-- `mixed`
-
-### 3. 规则文件抓取
+### 规则文件抓取
 
 ```bash
 python scrape_regulations.py
 ```
-
-当前流程：
-- 默认优先用 requests 发现 PDF 链接
-- 静态发现失败时 fallback 到 Playwright
-- 下载最新 PDF
-- 提取 PDF 文本为 Markdown
-- 生成中文翻译 prompt 文件
-- 输出处理结果 JSON
 
 可选参数示例：
 
@@ -60,6 +106,8 @@ python scrape_regulations.py --skip-download
 python scrape_regulations.py --skip-extract
 python scrape_regulations.py --skip-translate-prompt
 ```
+
+---
 
 ## 共享模块
 
@@ -71,6 +119,56 @@ python scrape_regulations.py --skip-translate-prompt
 - `checkpoint.py`：断点续抓
 - `capture.py`：JSON 保存、原始响应抓取、文件名清洗
 
+说明：
+- 共享模块本身不是这次 autocomplete 回归问题的根因
+- 真正的回归点主要出现在 `scrape_matches.py` 的业务层 autocomplete 逻辑
+
+---
+
+## 关键经验 / 已踩坑记录
+
+### 1. 不要把 autocomplete 候选项扫成全页 `li`
+
+真实站点里会先扫到导航菜单，比如：
+- HOME
+- MATCHES
+- PROFILES
+- RANKINGS
+
+这会导致“看起来找到候选项，实际上命中的是菜单”。
+
+### 2. 真实候选项必须命中 `a[data-value]`
+
+真实 DOM 示例：
+
+```html
+<ul role="menu" class="dropdown-menu">
+  <li><a href="#" data-value="115543">DOO Hoi Kem (HKG)</a></li>
+</ul>
+```
+
+只有点到这个 anchor 本身，站点才会把球员真正选中。
+
+### 3. CDP 首跳不要先 sleep
+
+CDP 刚连接后，如果先 sleep：
+- 页面会保持空白
+- 一旦后续逻辑提前退出，会显得像“什么都没做就报错”
+
+正确做法：
+- CDP 连上后直接导航第一页
+- 后续交互再保留 human-like delay
+
+### 4. `click ok` 不等于站点真的选中了
+
+Playwright 报 click 成功，只说明动作发出去了。
+还要结合：
+- 输入框 value 是否变化
+- dropdown 是否消失
+- 页面是否进入下一状态
+
+---
+
 ## 旧脚本状态
 
 以下脚本已不再是推荐入口，建议视作历史版本或过渡文件：
@@ -81,23 +179,57 @@ python scrape_regulations.py --skip-translate-prompt
 
 更早期的实验性脚本已放到 `scripts/archive/`。
 
+---
+
 ## Schema 对齐说明
 
-当前三条数据线已经开始往统一 schema 收口：
+当前三条数据线已经开始往统一 schema 收口。
 
-- `scrape_rankings.py`
-  - 产出 `category_key`
-  - 产出 `player_id` / `profile_url`
-- `scrape_matches.py`
-  - 建议继续补齐 `english_name` / `country` / `continent` / `schema_version`
-- `scrape_regulations.py`
-  - 产出单独的 regulations metadata JSON
-  - 示例见 `data/regulations_schema.example.json`
+### `scrape_rankings.py`
+已产出：
+- `category_key`
+- `player_id`
+- `profile_url`
+
+### `scrape_matches.py`
+当前顶层已补齐：
+- `schema_version`
+- `player_id`
+- `player_name`
+- `english_name`
+- `country`
+- `country_code`
+- `continent`
+- `rank`
+- `from_date`
+
+match row 当前已较统一：
+- `result_for_player`
+- `result`
+- `games`
+- `games_display`
+
+### `scrape_regulations.py`
+产出：
+- `source_url`
+- `discovery_method`
+- `pdf_links`
+- `latest_pdf`
+- `downloaded_to`
+- `pdf_hash`
+- `markdown_path`
+- `translation_prompt_path`
+
+示例见：
+- `data/regulations_schema.example.json`
 
 web 导入层已经开始兼容这些扩展字段。
 
+---
+
 ## 下一步建议
 
-- 继续增强 `scrape_matches.py` 的 schema 完整度
+- 继续观察 `scrape_matches.py` 在更多球员上的稳定性
+- 视需要降低 autocomplete 相关诊断日志级别
 - 在 web 侧决定是否正式引入 regulations 数据表
 - 再决定是否让旧 `ittf_rankings_updater.py` 完全退役
