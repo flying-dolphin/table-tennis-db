@@ -29,7 +29,7 @@ python scrape_rankings.py --category women --top 50
 ```
 
 - 基于 Playwright
-- 当前可抓取 ranking 页面并输出结构化 JSON
+- 当前可抓取公开 ranking 页面并输出结构化 JSON
 - 同时保存 HTML snapshot，方便调试解析
 
 支持类别：
@@ -45,9 +45,21 @@ python scrape_rankings.py --category women --top 50
 python scrape_regulations.py
 ```
 
+当前流程：
 - 默认优先用 requests 发现 PDF 链接
 - 静态发现失败时 fallback 到 Playwright
-- 输出发现结果 JSON，供后续下载、转换、翻译流程使用
+- 下载最新 PDF
+- 提取 PDF 文本为 Markdown
+- 生成中文翻译 prompt 文件
+- 输出处理结果 JSON
+
+可选参数示例：
+
+```bash
+python scrape_regulations.py --skip-download
+python scrape_regulations.py --skip-extract
+python scrape_regulations.py --skip-translate-prompt
+```
 
 ## 共享模块
 
@@ -71,6 +83,6 @@ python scrape_regulations.py
 
 ## 下一步建议
 
-- 继续提升 `scrape_rankings.py` 的页面解析精度
-- 将规则文件的下载、PDF 转 Markdown、翻译流程接入 `scrape_regulations.py`
-- 统一输出数据 schema，减少 web 导入层反复调整
+- 继续增强 `scrape_matches.py` 的可复用程度
+- 统一 ranking / matches / regulations 的 schema
+- 再决定是否让旧 `ittf_rankings_updater.py` 完全退役
