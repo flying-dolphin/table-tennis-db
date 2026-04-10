@@ -45,6 +45,8 @@ DEFAULT_FROM_DATE = "2024-01-01"
 
 SCORE_RE = re.compile(r"(\d+)\s*-\s*(\d+)")
 GAME_RE = re.compile(r"(\d+):(\d+)")
+# 球员名字格式: "Name (COUNTRY)", "Name Surname (COUNTRY)", 或 "UPPER Surname (COUNTRY)"
+PLAYER_NAME_RE = re.compile(r"([A-Z][A-Za-z]*(?:\s+[A-Z][A-Za-z]*)+)\s*\(([A-Z]{3})\)")
 
 # UA 与 sec-ch-ua 版本绑定为配对结构，避免版本不一致被检测
 # 按 OS 分组，运行时按实际系统选取，确保 UA / platform / DPR 三者自洽
@@ -300,6 +302,36 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
     if score_idx == -1 and not game_scores:
         return None
 
+    # 从所有 cell 文本中提取球员名字（格式: "Name (COUNTRY)"）
+    all_players_found: list[tuple[str, str]] = []  # (full_match, country_code)
+    for text in cell_texts:
+        for m in PLAYER_NAME_RE.finditer(text):
+            all_players_found.append((m.group(0), m.group(2)))
+
+    # 去重并保持顺序
+    seen_names: set[str] = set()
+    unique_players: list[str] = []
+    for full_name, _ in all_players_found:
+        if full_name not in seen_names:
+            seen_names.add(full_name)
+            unique_players.append(full_name)
+
+    # 根据比分位置分割 side_a 和 side_b
+    side_a: list[str] = []
+    side_b: list[str] = []
+    if score_idx >= 0 and unique_players:
+        # 简单策略：前一半是 side_a，后一半是 side_b
+        # 对于单打：1个球员 vs 1个球员
+        # 对于双打：2个球员 vs 2个球员
+        mid = len(unique_players) // 2
+        side_a = unique_players[:mid] if mid > 0 else unique_players[:1]
+        side_b = unique_players[mid:] if mid > 0 else unique_players[1:]
+    elif unique_players:
+        # 没有比分列时，尝试用 "vs" 或 "-" 分割
+        side_a = unique_players[:1]
+        side_b = unique_players[1:] if len(unique_players) > 1 else []
+
+    # 同时保留 anchor 提取的名字作为备用（如果上面的方法失败）
     anchor_names_by_cell: list[list[str]] = []
     for c in cells:
         names = [" ".join((a.inner_text() or "").split()) for a in c.query_selector_all("a")]
@@ -312,17 +344,11 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
             if n not in all_names:
                 all_names.append(n)
 
-    side_a: list[str] = []
-    side_b: list[str] = []
-    if score_idx >= 0:
-        for i in range(score_idx):
-            for n in anchor_names_by_cell[i]:
-                if n not in side_a:
-                    side_a.append(n)
-        for i in range(score_idx + 1, len(anchor_names_by_cell)):
-            for n in anchor_names_by_cell[i]:
-                if n not in side_b:
-                    side_b.append(n)
+    # 如果正则提取失败，回退到 anchor 方法
+    if not side_a and not side_b and all_names:
+        mid = len(all_names) // 2
+        side_a = all_names[:mid] if mid > 0 else all_names[:1]
+        side_b = all_names[mid:] if mid > 0 else all_names[1:]
 
     winner = ""
     winner_m = re.search(r"Winner:\s*([^|]+)", row_text, flags=re.IGNORECASE)
@@ -376,7 +402,7 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
         "games": game_objects,
         "games_display": game_scores,
         "winner": winner,
-        "all_players_in_row": all_names,
+        "all_players_in_row": unique_players if unique_players else all_names,
         "side_a": side_a,
         "side_b": side_b,
         "teammates": teammates,
