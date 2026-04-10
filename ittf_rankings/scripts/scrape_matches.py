@@ -497,7 +497,22 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
             except Exception as exc:
                 logger.info("[autocomplete] exact option probe failed: %s", exc)
 
-            candidates = page.locator("li, .ui-menu-item, [role='option'], .dropdown-item")
+            autocomplete_root = page.locator(
+                "ul.ui-autocomplete:visible, ul[id*='ui-id']:visible, .ui-autocomplete:visible, [role='listbox']:visible"
+            ).first
+            root_count = 0
+            try:
+                root_count = autocomplete_root.count()
+            except Exception:
+                root_count = 0
+
+            if root_count > 0:
+                candidates = autocomplete_root.locator("li, .ui-menu-item, [role='option']")
+                logger.info("[autocomplete] using scoped autocomplete container")
+            else:
+                candidates = page.locator("li.ui-menu-item, ul.ui-autocomplete li, [role='listbox'] [role='option']")
+                logger.info("[autocomplete] autocomplete container not found, using narrow fallback selectors")
+
             try:
                 count = min(candidates.count(), 20)
             except Exception:
