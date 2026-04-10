@@ -81,8 +81,23 @@ python scrape_regulations.py --skip-translate-prompt
 
 更早期的实验性脚本已放到 `scripts/archive/`。
 
+## Schema 对齐说明
+
+当前三条数据线已经开始往统一 schema 收口：
+
+- `scrape_rankings.py`
+  - 产出 `category_key`
+  - 产出 `player_id` / `profile_url`
+- `scrape_matches.py`
+  - 建议继续补齐 `english_name` / `country` / `continent` / `schema_version`
+- `scrape_regulations.py`
+  - 产出单独的 regulations metadata JSON
+  - 示例见 `data/regulations_schema.example.json`
+
+web 导入层已经开始兼容这些扩展字段。
+
 ## 下一步建议
 
-- 继续增强 `scrape_matches.py` 的可复用程度
-- 统一 ranking / matches / regulations 的 schema
+- 继续增强 `scrape_matches.py` 的 schema 完整度
+- 在 web 侧决定是否正式引入 regulations 数据表
 - 再决定是否让旧 `ittf_rankings_updater.py` 完全退役

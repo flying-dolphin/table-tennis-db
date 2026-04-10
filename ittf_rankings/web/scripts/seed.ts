@@ -63,6 +63,7 @@ function main() {
     for (const player of rankingFile.rankings) {
       const slug = slugifyName(player.english_name);
       const playerRow = upsertPlayer({
+        playerExternalId: player.player_id ?? undefined,
         slug,
         chineseName: player.name,
         englishName: player.english_name,
@@ -79,12 +80,15 @@ function main() {
 
     for (const file of matchFiles) {
       const slug = slugifyName(file.player_name);
+      const rankingPlayer = rankingFile.rankings.find((item) => slugifyName(item.english_name) === slug);
       const playerRow = upsertPlayer({
-        playerExternalId: file.player_id,
+        playerExternalId: file.player_id ?? rankingPlayer?.player_id ?? undefined,
         slug,
-        chineseName: rankingFile.rankings.find((item) => slugifyName(item.english_name) === slug)?.name ?? file.player_name,
-        englishName: file.player_name,
-        countryCode: file.country_code,
+        chineseName: rankingPlayer?.name ?? file.player_name,
+        englishName: file.english_name ?? file.player_name,
+        country: file.country ?? rankingPlayer?.country,
+        countryCode: file.country_code ?? rankingPlayer?.country_code,
+        continent: file.continent ?? rankingPlayer?.continent,
       });
 
       const sourceResult = db

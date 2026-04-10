@@ -1,0 +1,12 @@
+{
+  "source_url": "https://ittf.com/rankings",
+  "discovery_method": "requests|playwright|manual",
+  "pdf_links": [
+    "https://example.com/ITTF-Ranking-Regulations.pdf"
+  ],
+  "latest_pdf": "https://example.com/ITTF-Ranking-Regulations.pdf",
+  "downloaded_to": "/absolute/path/to/ITTF-Ranking-Regulations.pdf",
+  "pdf_hash": "md5-hash",
+  "markdown_path": "/absolute/path/to/ITTF-Ranking-Regulations.md",
+  "translation_prompt_path": "/absolute/path/to/ITTF-Ranking-Regulations.translation_prompt.txt"
+}

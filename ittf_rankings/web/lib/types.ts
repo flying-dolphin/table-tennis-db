@@ -7,12 +7,15 @@ export type RankingPlayer = {
   country_code: string;
   continent: string;
   points: number;
+  player_id?: string | null;
+  profile_url?: string | null;
 };
 
 export type RankingFile = {
   update_date: string;
   week: string;
   category: string;
+  category_key?: string;
   total_players: number;
   rankings: RankingPlayer[];
 };
@@ -22,15 +25,16 @@ export type MatchRow = {
   stage?: string;
   sub_event?: string;
   result_for_player?: string;
+  result?: string;
   match_score?: string;
   opponents?: string[];
   teammates?: string[];
   winner?: string;
-  games?: Array<{ [key: string]: unknown }>;
+  games?: Array<{ [key: string]: unknown }> | string[];
   perspective?: string;
   raw_row_text?: string;
-  side_a?: string;
-  side_b?: string;
+  side_a?: string | string[];
+  side_b?: string | string[];
   all_players_in_row?: string[];
 };
 
@@ -45,13 +49,28 @@ export type EventRow = {
 };
 
 export type MatchFile = {
-  player_id: string;
+  player_id: string | null;
   player_name: string;
+  english_name?: string;
+  country?: string;
   country_code?: string;
+  continent?: string;
   rank?: number;
   from_date?: string;
   captured_at?: string;
   created_at?: string;
   updated_at?: string;
+  schema_version?: string;
   years: Record<string, { captured_at?: string; events: EventRow[] }>;
+};
+
+export type RegulationsFile = {
+  source_url: string;
+  discovery_method: string;
+  pdf_links: string[];
+  latest_pdf: string;
+  downloaded_to?: string | null;
+  pdf_hash?: string | null;
+  markdown_path?: string | null;
+  translation_prompt_path?: string | null;
 };
