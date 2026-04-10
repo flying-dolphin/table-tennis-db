@@ -7,9 +7,11 @@ Backfill start_date / end_date for existing matches_complete JSON files.
 
 用法:
     python backfill_event_dates.py                    # dry-run
-    python backfill_event_dates.py --apply           # 实际写入
-    python backfill_event_dates.py --players-file X  # 只处理指定球员
+    python backfill_event_dates.py --apply             # 实际写入
+    python backfill_event_dates.py --players-file X     # 只处理指定球员
 """
+
+from __future__ import annotations
 
 import argparse
 import json
@@ -37,7 +39,43 @@ logging.basicConfig(
 logger = logging.getLogger("backfill_event_dates")
 
 
-# ── 解析函数（与 scrape_matches.py 保持一致）────────────────────────────────────
+# ── CDP 自动检测（与 scrape_matches.py 完全一致）───────────────────────────────
+
+def _try_connect_cdp(p: Any, cdp_port: int) -> tuple[bool, Any, Any]:
+    """尝试连接已有 Chrome（CDP 模式），复用其登录 session。
+    返回 (via_cdp, browser, context)；连接失败时返回 (False, None, None)。
+    """
+    import urllib.request as _urllib_req
+
+    cdp_url = f"http://localhost:{cdp_port}"
+    try:
+        _urllib_req.urlopen(f"{cdp_url}/json/version", timeout=2)
+    except Exception as exc:
+        logger.info(
+            "No Chrome with remote debugging found at %s (%s) — will launch new browser.\n"
+            "  To reuse an existing session (avoids re-login), start Chrome first:\n"
+            "    /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome \\\n"
+            "      --remote-debugging-port=%s \\\n"
+            "      --user-data-dir=\"$HOME/.chrome-ittf-profile\" \\\n"
+            "      --no-first-run --no-default-browser-check\n"
+            "  Log in to ITTF once; session persists across runs.",
+            cdp_url, exc, cdp_port,
+        )
+        return False, None, None
+
+    try:
+        browser = p.chromium.connect_over_cdp(cdp_url)
+        contexts = browser.contexts
+        context = contexts[0] if contexts else browser.new_context()
+        logger.info("Connected to existing Chrome via CDP at %s (context has %s page(s))",
+                    cdp_url, len(context.pages))
+        return True, browser, context
+    except Exception as exc:
+        logger.warning("CDP handshake failed: %s — falling back to new browser", exc)
+        return False, None, None
+
+
+# ── 解析函数（与 scrape_matches.py 保持一致）─────────────────────────────────
 
 def normalize_space(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip())
@@ -71,17 +109,15 @@ def parse_event_rows(page: Any) -> list[dict[str, Any]]:
             start_date = cell_texts[4].strip() if len(cell_texts) > 4 else ""
             end_date = cell_texts[5].strip() if len(cell_texts) > 5 else ""
 
-            events.append(
-                {
-                    "match_count": int(first_text),
-                    "event_name": event_name,
-                    "event_type": event_type,
-                    "event_year": year_str,
-                    "start_date": start_date,
-                    "end_date": end_date,
-                    "href": href,
-                }
-            )
+            events.append({
+                "match_count": int(first_text),
+                "event_name": event_name,
+                "event_type": event_type,
+                "event_year": year_str,
+                "start_date": start_date,
+                "end_date": end_date,
+                "href": href,
+            })
     return events
 
 
@@ -115,24 +151,28 @@ def _event_sort_date(event: dict[str, Any]) -> Optional[date]:
     return None
 
 
-# ── scrape_matches.py 中的球员搜索 + autocomplete 逻辑 ────────────────────────
+def event_key(event: dict) -> str:
+    year = event.get("event_year") or event.get("year") or ""
+    return f"{event.get('event_name', '')}||{year}"
+
+
+# ── 球员搜索 + autocomplete（与 scrape_matches.py 完全一致）───────────────────
 
 def click_go(page: Any) -> bool:
-    """点击 Go 按钮，提交球员搜索。"""
-    try:
-        btn = page.locator("button[type='submit'], input[type='submit'], .btn-primary, button:has-text('Go')").first
-        if btn.count() > 0:
-            btn.click()
-            return True
-    except Exception:
-        pass
-    try:
-        btn = page.locator("form button[type='submit']").first
-        if btn.count() > 0:
-            btn.click()
-            return True
-    except Exception:
-        pass
+    """点击 Go / Submit 按钮。"""
+    selectors = [
+        "button[type='submit']", "input[type='submit']",
+        ".btn-primary", "button:has-text('Go')", "button:has-text('Search')",
+        "form button[type='submit']",
+    ]
+    for sel in selectors:
+        try:
+            btn = page.locator(sel).first
+            if btn.count() > 0 and btn.is_visible():
+                btn.click()
+                return True
+        except Exception:
+            continue
     return False
 
 
@@ -140,17 +180,11 @@ def open_or_select_autocomplete(
     page: Any,
     player_name: str,
     country_code: str,
-    delay_cfg: DelayConfig,
 ) -> bool:
-    """
-    复刻 scrape_matches.py 的球员搜索流程：
-    1. 在搜索框输入球员名（带国家代码）
-    2. 等待 autocomplete 下拉出现
-    3. 点击匹配的 autocomplete 项
-    """
+    """在搜索框输入球员名，点击 autocomplete 匹配项。"""
     search_key = f"{player_name} ({country_code})"
 
-    # 找到搜索输入框
+    # 找输入框
     input_locators = [
         page.locator("input[id*='player'][id*='search']"),
         page.locator("input[id*='search'][id*='player']"),
@@ -163,7 +197,7 @@ def open_or_select_autocomplete(
     input_handle = None
     for loc in input_locators:
         try:
-            if loc.count() > 0:
+            if loc.count() > 0 and loc.first.is_visible():
                 input_handle = loc.first
                 break
         except Exception:
@@ -173,7 +207,7 @@ def open_or_select_autocomplete(
         logger.warning("[autocomplete] 未找到搜索输入框")
         return False
 
-    # 清空并输入球员名
+    # 清空并输入
     try:
         input_handle.click(click_count=3)
         input_handle.press("Control+a") if sys.platform != "darwin" else input_handle.press("Meta+a")
@@ -190,15 +224,13 @@ def open_or_select_autocomplete(
 
     human_sleep(1.5, 3.0, "wait for autocomplete dropdown")
 
-    # 等待 autocomplete 出现
+    # 找下拉列表
     dropdown_selectors = [
         "ul.autocomplete-list li", "ul.typeahead li",
         "div.autocomplete-list li", "div.typeahead li",
-        "ul.dropdown-menu li a",
-        ".ui-autocomplete li",
+        "ul.dropdown-menu li a", ".ui-autocomplete li",
         "[role='listbox'] li", "[role='option']",
-        "ul.list-group li",
-        "div.list-group-item",
+        "ul.list-group li", "div.list-group-item",
         "ul li.dropdown-item",
     ]
     option_handle = None
@@ -215,16 +247,15 @@ def open_or_select_autocomplete(
         logger.warning("[autocomplete] 未找到下拉选项")
         return False
 
-    # 尝试精确匹配
+    # 精确匹配
     matched = False
-    for attempt in range(5):
+    for _attempt in range(5):
         try:
             all_opts = page.locator(
-                "ul.autocomplete-list li, ul.typeahead li, [role='listbox'] li, [role='option']"
+                "ul.autocomplete-list li, ul.typeahead li, "
+                "[role='listbox'] li, [role='option']"
             ).all()
-            count = len(all_opts)
-            for idx in range(count):
-                opt = all_opts[idx]
+            for opt in all_opts:
                 txt = (opt.inner_text() or "").strip()
                 if player_name.upper() in txt.upper() and country_code.upper() in txt.upper():
                     try:
@@ -232,7 +263,7 @@ def open_or_select_autocomplete(
                         if data_val:
                             opt.click()
                             matched = True
-                            logger.info("[autocomplete] 点击了 data-value 选项: %s", data_val)
+                            logger.info("[autocomplete] 点击 data-value: %s", data_val)
                             break
                     except Exception:
                         pass
@@ -249,7 +280,7 @@ def open_or_select_autocomplete(
         except Exception:
             pass
 
-        # 兜底：直接点击第一个出现的选项
+        # 兜底：点击第一个
         try:
             first_opt = page.locator("ul.autocomplete-list li, ul.typeahead li").first
             if first_opt.count() > 0:
@@ -276,13 +307,7 @@ def select_and_load_player_events(
     country_code: str,
     delay_cfg: DelayConfig,
 ) -> bool:
-    """
-    完整流程：
-    1. guarded_goto(SEARCH_URL)
-    2. open_or_select_autocomplete()
-    3. click_go()
-    4. 等待页面加载
-    """
+    """完整流程：打开搜索页 → autocomplete 选球员 → 点击搜索 → 等待加载。"""
     logger.info("导航到搜索页: %s", SEARCH_URL)
     try:
         guarded_goto(page, SEARCH_URL, delay_cfg, "open search page")
@@ -292,13 +317,13 @@ def select_and_load_player_events(
 
     human_sleep(1.0, 2.0, "search page settle")
 
-    if not open_or_select_autocomplete(page, player_name, country_code, delay_cfg):
+    if not open_or_select_autocomplete(page, player_name, country_code):
         return False
 
     human_sleep(0.3, 0.8, "before search click")
 
     if not click_go(page):
-        logger.warning("点击 Go 按钮失败")
+        logger.warning("点击搜索按钮失败")
 
     try:
         page.wait_for_load_state("networkidle", timeout=15000)
@@ -312,14 +337,14 @@ def select_and_load_player_events(
     return True
 
 
-# ── 分页抓取（与 scrape_matches.py 一致）────────────────────────────────────
+# ── 分页抓取 ────────────────────────────────────────────────────────────────
 
 def collect_events_with_pagination(
     page: Any,
     from_date: Optional[date],
     max_pages: int = 50,
 ) -> list[dict[str, Any]]:
-    """抓取所有赛事行，支持翻页；遇到 from_date 截止时停止。"""
+    """抓取所有赛事行，遇到 from_date 截止时停止。"""
     all_events: list[dict[str, Any]] = []
     reached_cutoff = False
 
@@ -349,7 +374,10 @@ def collect_events_with_pagination(
         # 点击下一页
         next_clicked = False
         try:
-            next_btn = page.locator("li.page-item:not(.disabled) a[rel='next'], a[rel='next']").first
+            next_btn = page.locator(
+                "li.page-item:not(.disabled) a[rel='next'], "
+                "a[rel='next']"
+            ).first
             if next_btn.count() > 0:
                 next_btn.click()
                 page.wait_for_load_state("networkidle", timeout=8000)
@@ -379,13 +407,7 @@ def collect_events_with_pagination(
     return all_events
 
 
-# ── 主逻辑 ───────────────────────────────────────────────────────────────────
-
-def event_key(event: dict) -> str:
-    # event_year 兼容 parse_event_rows 新格式和 matches_complete 文件中的已有格式
-    year = event.get("event_year") or event.get("year") or ""
-    return f"{event.get('event_name', '')}||{year}"
-
+# ── 主逻辑 ────────────────────────────────────────────────────────────────
 
 def backfill_player(
     page: Any,
@@ -393,25 +415,25 @@ def backfill_player(
     from_year: Optional[int],
     dry_run: bool,
 ) -> tuple[int, int]:
-    """完整流程：搜索球员 → 抓列表 → 回填已有 events。返回 (updated, total_fetched)。"""
+    """搜索球员 → 抓列表 → 回填已有 events。返回 (updated, total_fetched)。"""
     with open(player_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     player_name = data.get("player_name", "")
     country_code = data.get("country_code", "")
-    player_id = data.get("player_id") or data.get("player_external_id")
 
     if not player_name:
         logger.warning("文件 %s 缺少 player_name，跳过", player_file.name)
         return 0, 0
 
-    from_date = date(from_year, 1, 1) if from_year else None
     delay_cfg = DelayConfig(
         min_request_sec=2.0,
         max_request_sec=5.0,
         min_player_gap_sec=1.0,
         max_player_gap_sec=3.0,
     )
+
+    from_date = date(from_year, 1, 1) if from_year else None
 
     logger.info("处理 %s (%s)", player_name, country_code)
 
@@ -420,14 +442,13 @@ def backfill_player(
         return 0, 0
 
     events = collect_events_with_pagination(page, from_date)
-
     if not events:
         logger.info("  无赛事数据")
         return 0, 0
 
     logger.info("  抓取到 %d 条赛事记录", len(events))
 
-    # 过滤掉无意义的占位事件
+    # 过滤无意义的占位事件
     meaningful = [e for e in events if e.get("event_name")]
     new_map: dict[str, dict] = {event_key(e): e for e in meaningful}
 
@@ -456,13 +477,28 @@ def backfill_player(
     return updated, len(events)
 
 
-def main():
+def run(args: argparse.Namespace) -> int:
+    default_dir = Path(__file__).parent.parent / "data"
+    default_storage = default_dir / "session" / "ittf_storage_state.json"
+
     parser = argparse.ArgumentParser(description="回填 matches_complete 中的 start_date / end_date")
     parser.add_argument(
         "--output-dir",
-        default=str(Path(__file__).parent.parent / "data" / "matches_complete"),
+        default=str(default_dir / "matches_complete"),
         type=str,
-        help="matches_complete 目录 (默认: <script-dir>/../data/matches_complete)",
+        help="matches_complete 目录",
+    )
+    parser.add_argument(
+        "--storage-state",
+        default=str(default_storage),
+        type=str,
+        help="浏览器登录状态文件",
+    )
+    parser.add_argument(
+        "--cdp-port",
+        default=9222,
+        type=int,
+        help="CDP 远程调试端口 (默认: 9222)",
     )
     parser.add_argument(
         "--players-file",
@@ -487,47 +523,37 @@ def main():
         default=3.0,
         help="每个球员之间等待秒数 (默认: 3.0)",
     )
-    parser.add_argument(
-        "--storage-state",
-        default=str(Path(__file__).parent.parent / "data" / "session" / "ittf_storage_state.json"),
-        type=str,
-        help="浏览器登录状态文件",
-    )
-    parser.add_argument(
-        "--init-session",
-        action="store_true",
-        help="强制重新登录（不复用已有 session）",
-    )
-    parser.add_argument(
-        "--cdp-url",
-        default=None,
-        type=str,
-        help="CDP browser 地址，填入则复用已有登录态（如 http://localhost:3456）",
-    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir).resolve()
     storage_state = Path(args.storage_state)
+
     if not output_dir.exists():
         logger.error("目录不存在: %s", output_dir)
-        sys.exit(1)
+        return 1
 
     all_files = sorted(output_dir.glob("*.json"))
     if args.players_file:
-        matched = [
-            f for f in all_files
-            if args.players_file in f.name
-        ]
+        matched = [f for f in all_files if args.players_file in f.name]
         if not matched:
             logger.error("找不到匹配 '%s' 的文件", args.players_file)
-            sys.exit(1)
+            return 1
         files = matched
     else:
         files = all_files
 
     logger.info("共 %d 个文件待处理 (dry-run=%s)", len(files), not args.apply)
 
-    # delay_cfg 用于 ensure_logged_in（页面加载），独立于球员处理逻辑
+    # 优先 playwright，patchright 次之（与 scrape_matches.py 一致）
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        try:
+            from patchright.sync_api import sync_playwright
+        except ImportError:
+            logger.error("需要 playwright 或 patchright")
+            return 2
+
     login_delay_cfg = DelayConfig(
         min_request_sec=2.0,
         max_request_sec=5.0,
@@ -535,53 +561,40 @@ def main():
         max_player_gap_sec=3.0,
     )
 
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
-        logger.error("需要 playwright: pip install playwright && playwright install chromium")
-        sys.exit(1)
-
-    use_cdp = bool(args.cdp_url)
+    profile = random.choice([
+        {"viewport": {"width": 1280, "height": 800}, "dpr": 1.0},
+        {"viewport": {"width": 1366, "height": 768}, "dpr": 1.25},
+    ])
 
     with sync_playwright() as p:
-        if use_cdp:
-            # 复用 CDP browser，天然携带登录态，不需要 storage_state
-            cdp_url = args.cdp_url.rstrip("/")
-            try:
-                import urllib.request
-                resp = urllib.request.urlopen(f"{cdp_url}/json/protocol", timeout=5)
-                targets = json.loads(resp.read().decode())
-                ws_url = targets[0]["webSocketDebuggerUrl"]
-                logger.info("连接 CDP browser: %s", ws_url[:60])
-                browser = p.chromium.connect_over_cdp(ws_url)
-            except Exception as exc:
-                logger.error("无法连接 CDP browser %s: %s", cdp_url, exc)
-                sys.exit(1)
-        else:
+        # 优先复用已有 Chrome CDP session（保留登录态）
+        via_cdp, browser, context = _try_connect_cdp(p, args.cdp_port)
+
+        if not via_cdp:
             browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            viewport=profile["viewport"],
-            locale="en-US",
-            timezone_id="Asia/Shanghai",
-            user_agent=(
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-            ),
-            device_scale_factor=profile["dpr"],
-            color_scheme="light",
-            extra_http_headers={
-                "Accept-Language": "en-US,en;q=0.9",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            },
-        )
-        page = context.new_page()
+            context = browser.new_context(
+                viewport=profile["viewport"],
+                locale="en-US",
+                timezone_id="Asia/Shanghai",
+                user_agent=(
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/122.0.0.0 Safari/537.36"
+                ),
+                device_scale_factor=profile["dpr"],
+                color_scheme="light",
+                extra_http_headers={
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                },
+            )
+            # 新启动的 browser 才需要 ensure_logged_in
+            page = context.new_page()
+            ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), False)
+        else:
+            page = context.new_page()
+
         try:
-            if not use_cdp:
-                # 非 CDP 模式才需要确保登录
-                if storage_state.exists():
-                    ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), args.init_session)
-                else:
-                    ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), True)
             total_updated = 0
             for i, pf in enumerate(files, 1):
                 logger.info("[%d/%d] 处理 %s", i, len(files), pf.name)
@@ -600,12 +613,20 @@ def main():
                     logger.info("  等待 %.1f 秒后继续...", wait)
                     time.sleep(wait)
         finally:
-            browser.close()
+            if not via_cdp:
+                browser.close()
+            else:
+                # CDP 模式只关闭我们新建的 page，不关闭 browser
+                try:
+                    page.close()
+                except Exception:
+                    pass
 
     logger.info("完成，共更新 %d 个 event 条目", total_updated)
     if not args.apply:
         logger.info("(本次为 dry-run，加 --apply 才真正写入)")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(run(sys.argv[1:]))
