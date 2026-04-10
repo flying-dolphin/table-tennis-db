@@ -1,0 +1,129 @@
+{
+  "event_meta": {
+    "match_count": 2,
+    "event_name": "WTT Star Contender Ljubljana 2025",
+    "event_type": "WTT Contender Series",
+    "year": "2025",
+    "href": "/index.php/player-matches/list/31?resetfilters=1&abc=131100&vw_matches___player_a_id[value][]=131100&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=131100&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=131100&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=131100&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091"
+  },
+  "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=131100&vw_matches___player_a_id[value][]=131100&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=131100&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=131100&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=131100&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091",
+  "captured_at": "2026-04-09T08:56:16.758691+00:00",
+  "captured_json_responses": [
+    {
+      "url": "https://results.ittf.link/manifest.json",
+      "status": 200,
+      "json": {
+        "id": "link.ittf.results",
+        "short_name": "TT Results & Stats",
+        "name": "TT Results & Stats",
+        "description": "Install TT Results & Stats PWA App for an app-like experience.\nEnjoy the following features:\n ✨ [H2H]\n ⚡️ [Profiles]\n 🌟 [Rankings]\n on the go!",
+        "categories": [
+          "sports"
+        ],
+        "start_url": "index.php?utm_source=pwa",
+        "scope": "https://results.ittf.link",
+        "orientation": "any",
+        "display": "standalone",
+        "display_override": [
+          "standalone"
+        ],
+        "theme_color": "#f0f0f0",
+        "background_color": "#000000",
+        "screenshots": [
+          {
+            "src": "images/iconset/richerui-desktop.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "form_factor": "wide"
+          },
+          {
+            "src": "images/iconset/richerui-mobile.png",
+            "sizes": "360x640",
+            "type": "image/png",
+            "form_factor": "narrow"
+          }
+        ],
+        "icons": [
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-36x36.png",
+            "sizes": "36x36",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/app-icon-512x512.png#joomlaImage://local-images/iconset/app-icon-512x512.png?width=512&height=512",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ],
+        "gcm_sender_id": "482941778795"
+      }
+    }
+  ],
+  "parsed_matches": [
+    {
+      "sub_event": "WS",
+      "stage": "Main Draw",
+      "round": "R32",
+      "match_score": "3-0",
+      "games": [
+        "11:4",
+        "11:7",
+        "11:8"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | PAVADE Prithika (FRA) | SAMARA Elizabeta (ROU) | WS | Main Draw | R32 | 3 - 0 | 11:4 11:7 11:8 | PAVADE Prithika"
+    },
+    {
+      "sub_event": "WS",
+      "stage": "Main Draw",
+      "round": "R16",
+      "match_score": "0-3",
+      "games": [
+        "5:11",
+        "11:13",
+        "5:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | PAVADE Prithika (FRA) | ODO Satsuki (JPN) | WS | Main Draw | R16 | 0 - 3 | 5:11 11:13 5:11 | ODO Satsuki"
+    }
+  ]
+}

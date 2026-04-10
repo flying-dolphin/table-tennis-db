@@ -1,0 +1,627 @@
+{
+  "event_meta": {
+    "match_count": 19,
+    "event_name": "ITTF World Youth Championships Cluj-Napoca 2025",
+    "event_type": "ITTF World Youth Championships",
+    "year": "2025",
+    "href": "/index.php/player-matches/list/31?resetfilters=1&abc=144628&vw_matches___player_a_id[value][]=144628&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=144628&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=144628&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=144628&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3118"
+  },
+  "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=144628&vw_matches___player_a_id[value][]=144628&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=144628&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=144628&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=144628&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3118",
+  "captured_at": "2026-04-09T08:24:27.791222+00:00",
+  "captured_json_responses": [
+    {
+      "url": "https://results.ittf.link/manifest.json",
+      "status": 200,
+      "json": {
+        "id": "link.ittf.results",
+        "short_name": "TT Results & Stats",
+        "name": "TT Results & Stats",
+        "description": "Install TT Results & Stats PWA App for an app-like experience.\nEnjoy the following features:\n ✨ [H2H]\n ⚡️ [Profiles]\n 🌟 [Rankings]\n on the go!",
+        "categories": [
+          "sports"
+        ],
+        "start_url": "index.php?utm_source=pwa",
+        "scope": "https://results.ittf.link",
+        "orientation": "any",
+        "display": "standalone",
+        "display_override": [
+          "standalone"
+        ],
+        "theme_color": "#f0f0f0",
+        "background_color": "#000000",
+        "screenshots": [
+          {
+            "src": "images/iconset/richerui-desktop.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "form_factor": "wide"
+          },
+          {
+            "src": "images/iconset/richerui-mobile.png",
+            "sizes": "360x640",
+            "type": "image/png",
+            "form_factor": "narrow"
+          }
+        ],
+        "icons": [
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-36x36.png",
+            "sizes": "36x36",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "https://results.ittf.link/images/iconset/app-icon-512x512.png#joomlaImage://local-images/iconset/app-icon-512x512.png?width=512&height=512",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ],
+        "gcm_sender_id": "482941778795"
+      }
+    },
+    {
+      "url": "https://results.ittf.link/index.php?option=com_jrealtimeanalytics&format=json",
+      "status": 200,
+      "json": {
+        "storing": [
+          {
+            "corefile": "Server stats",
+            "status": false,
+            "details": "An error occurred for database query on server stats: Duplicate entry 'a1fed2d43757b8d0e23ce5566bb1f166-2026-04-09-https://results.i...' for key 'PRIMARY'"
+          }
+        ],
+        "configparams": {
+          "daemonrefresh": "2",
+          "realtimerefresh": "2",
+          "maxlifetime_session": "30",
+          "daemontimeout": "5",
+          "guestprefix": "Visitor",
+          "cpanelstats_period_interval": "day",
+          "geolocation_mode": "ip",
+          "devicedectection_mode": "useragent",
+          "devicedectection_mode_width_phones": "640",
+          "devicedectection_mode_width_tablets": "1024",
+          "heatmap_status": "1",
+          "heatmap_max_valid_width": "350",
+          "heatmap_max_valid_height": "50",
+          "heatmap_css_selectors_exclusion": "",
+          "heatmap_timeout": "200",
+          "stats_calendar_type": "date",
+          "track_query_string": "1",
+          "registration_email": "dmessinisgr@gmail.com",
+          "default_period_interval": "day",
+          "details_stats": "1",
+          "geolocation_stats": "1",
+          "os_stats": "1",
+          "browser_stats": "1",
+          "device_stats": "1",
+          "landing_stats": "1",
+          "leaveoff_stats": "1",
+          "visitsbypage_stats": "1",
+          "visitsbyuser_stats": "1",
+          "visitsbyip_stats": "1",
+          "referral_stats": "1",
+          "searchkeys_stats": "1",
+          "xtd_singleuser_stats": "1",
+          "show_usergroup": "0",
+          "show_referral": "1",
+          "show_email_address": "0",
+          "auto_execute_sitespeed": "0",
+          "ipaddress": "",
+          "ipv6address": "",
+          "iprange_start": "",
+          "iprange_end": "",
+          "ipv6range_start": "",
+          "ipv6range_end": "",
+          "ip_multiple": "",
+          "ipv6_multiple": "",
+          "iprange_multiple": "",
+          "ipv6range_multiple": "",
+          "daemon_exclusions": [
+            "0"
+          ],
+          "groups_exclusions": [
+            "6",
+            "7",
+            "3",
+            "4",
+            "5",
+            "8",
+            "16"
+          ],
+          "countrycode_exclusions": [
+            "0"
+          ],
+          "useragents_exclusions": "googlebot,bingbot,acontbot,baiduspider,slurp,google,duckduckbot,yandexbot,Sogou,facebookexternalhit,ia_archiver",
+          "useragent_empty_exclude": "1",
+          "daily_stats": "0",
+          "realtime_stats": "0",
+          "visualmap_stats": "0",
+          "visitors_counter": "0",
+          "visitors_counter_position": "0",
+          "visitors_counter_bypage": "0",
+          "module_default_period_interval": "day",
+          "module_start_date": "",
+          "module_end_date": "",
+          "gdpr_integration": "0",
+          "gcenabled": "1",
+          "probability": "30",
+          "gc_serverstats_enabled": "1",
+          "gc_serverstats_period": "1",
+          "caching": "1",
+          "cache_lifetime": "15",
+          "offset_type": "joomla",
+          "anonymize_ipaddress": "0",
+          "gdpr_ip_pseudonymisation": "0",
+          "direct_track_extensions": [
+            "0"
+          ],
+          "shared_session_support": "1",
+          "geolocation_php_func": "file",
+          "use_gd_ttf_font": "1",
+          "cloudflare_ip_masking": "0",
+          "server_ip_override": "",
+          "backend_host_info": "0",
+          "backend_geolocation_service": "geoiplookup",
+          "stats_geolocation_service": "geoplugin",
+          "report_mailfrom": "",
+          "report_fromname": "",
+          "report_byemail": "0",
+          "report_addresses": "",
+          "report_format": "emailxls",
+          "report_frequency": "7",
+          "overview_report_type": "0",
+          "report_script_jquery_onload_event": "0",
+          "includejquery": "1",
+          "noconflict": "1",
+          "scripts_loading": "defer",
+          "start_application_event": "afterdispatch",
+          "enable_debug": "0",
+          "analytics_api": "data",
+          "ga_property_id": "365601462",
+          "ga_domain": "",
+          "wm_domain": "",
+          "ga_api_key": "",
+          "ga_client_id": "",
+          "ga_client_secret": "",
+          "pagespeed_insights_analysis": "1",
+          "pagespeed_api_key": "",
+          "pagespeed_http_transport": "curl",
+          "pagespeed_analysis_strategy": "desktop"
+        }
+      }
+    }
+  ],
+  "parsed_matches": [
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "3-2",
+      "games": [
+        "7:11",
+        "12:10",
+        "7:11",
+        "11:8",
+        "15:13"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | HUYNH Jade (FRA) | QIN Yuxuan (CHN) | U19WT | Main Draw | QuarterFinal | 3 - 2 | 7:11 12:10 7:11 11:8 15:13 | HUYNH Jade"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "1-3",
+      "games": [
+        "7:11",
+        "6:11",
+        "13:11",
+        "8:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | HOCHART Leana (FRA) | QIN Yuxuan (CHN) | U19WT | Main Draw | QuarterFinal | 1 - 3 | 7:11 6:11 13:11 8:11 | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "3-2",
+      "games": [
+        "11:6",
+        "11:9",
+        "10:12",
+        "5:11",
+        "11:8"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | QIN Yuxuan (CHN) | WU Ying Syuan (TPE) | U19WT | Main Draw | SemiFinal | 3 - 2 | 11:6 11:9 10:12 5:11 11:8 | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "R32",
+      "match_score": "1-3",
+      "games": [
+        "8:11",
+        "15:13",
+        "3:11",
+        "13:15"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | ABIODUN Tiago (POR) | MEI-ROSU Bianca (ROU) | LI Hechen (CHN) | QIN Yuxuan (CHN) | U19XD | Main Draw | R32 | 1 - 3 | 8:11 15:13 3:11 13:15 | LI Hechen | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "R16",
+      "match_score": "3-0",
+      "games": [
+        "11:7",
+        "13:11",
+        "11:8"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | LI Hechen (CHN) | QIN Yuxuan (CHN) | FORMELA Rafal (POL) | BOGDANOWICZ Natalia (POL) | U19XD | Main Draw | R16 | 3 - 0 | 11:7 13:11 11:8 | LI Hechen | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "0-3",
+      "games": [
+        "9:11",
+        "4:11",
+        "5:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | OJIO Yuna (JPN) | QIN Yuxuan (CHN) | U19WT | Main Draw | Final | 0 - 3 | 9:11 4:11 5:11 | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "3-0",
+      "games": [
+        "11:7",
+        "11:9",
+        "11:6"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | AOKI Sachi (JPN) | QIN Yuxuan (CHN) | U19WT | Main Draw | Final | 3 - 0 | 11:7 11:9 11:6 | AOKI Sachi"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "R16",
+      "match_score": "3-1",
+      "games": [
+        "11:6",
+        "11:2",
+        "9:11",
+        "12:10"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | ZONG Geman (CHN) | QIN Yuxuan (CHN) | SU Tsz Tung (HKG) | PSIHOGIOS Constantina (AUS) | U19WD | Main Draw | R16 | 3 - 1 | 11:6 11:2 9:11 12:10 | ZONG Geman | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "1-3",
+      "games": [
+        "7:11",
+        "11:6",
+        "7:11",
+        "7:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | KURMANGALIYEV Alan (KAZ) | GODA Hana (EGY) | LI Hechen (CHN) | QIN Yuxuan (CHN) | U19XD | Main Draw | QuarterFinal | 1 - 3 | 7:11 11:6 7:11 7:11 | LI Hechen | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "3-0",
+      "games": [
+        "11:6",
+        "11:3",
+        "11:8"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | ZONG Geman (CHN) | QIN Yuxuan (CHN) | MASSART Lilou (BEL) | BERZOSA Maria (ESP) | U19WD | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:3 11:8 | ZONG Geman | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "0-3",
+      "games": [
+        "9:11",
+        "10:12",
+        "9:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | KIM Gaon (KOR) | CHOI Nahyun (KOR) | LI Hechen (CHN) | QIN Yuxuan (CHN) | U19XD | Main Draw | SemiFinal | 0 - 3 | 9:11 10:12 9:11 | LI Hechen | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "R32",
+      "match_score": "1-4",
+      "games": [
+        "7:11",
+        "7:11",
+        "11:7",
+        "5:11",
+        "5:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | CRUZ Kheith (PHI) | QIN Yuxuan (CHN) | U19WS | Main Draw | R32 | 1 - 4 | 7:11 7:11 11:7 5:11 5:11 | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "R16",
+      "match_score": "3-4",
+      "games": [
+        "11:9",
+        "13:11",
+        "6:11",
+        "9:11",
+        "13:11",
+        "6:11",
+        "9:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | MEI-ROSU Bianca (ROU) | QIN Yuxuan (CHN) | U19WS | Main Draw | R16 | 3 - 4 | 11:9 13:11 6:11 9:11 13:11 6:11 9:11 | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "3-0",
+      "games": [
+        "11:7",
+        "13:11",
+        "11:5"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | ZONG Geman (CHN) | QIN Yuxuan (CHN) | YEH Yi-Tian (TPE) | WU Ying Syuan (TPE) | U19WD | Main Draw | SemiFinal | 3 - 0 | 11:7 13:11 11:5 | ZONG Geman | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "3-1",
+      "games": [
+        "6:11",
+        "11:9",
+        "11:5",
+        "11:9"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | LI Hechen (CHN) | QIN Yuxuan (CHN) | CHIRITA Iulian (ROU) | HURSEY Anna (WAL) | U19XD | Main Draw | Final | 3 - 1 | 6:11 11:9 11:5 11:9 | LI Hechen | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "3-4",
+      "games": [
+        "9:11",
+        "11:8",
+        "7:11",
+        "11:7",
+        "6:11",
+        "12:10",
+        "4:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | GODA Hana (EGY) | QIN Yuxuan (CHN) | U19WS | Main Draw | QuarterFinal | 3 - 4 | 9:11 11:8 7:11 11:7 6:11 12:10 4:11 | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "2-3",
+      "games": [
+        "11:4",
+        "11:5",
+        "7:11",
+        "8:11",
+        "12:14"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | ZONG Geman (CHN) | QIN Yuxuan (CHN) | GRIESEL Mia (GER) | HURSEY Anna (WAL) | U19WD | Main Draw | Final | 2 - 3 | 11:4 11:5 7:11 8:11 12:14 | GRIESEL Mia | HURSEY Anna"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "1-4",
+      "games": [
+        "11:6",
+        "9:11",
+        "5:11",
+        "3:11",
+        "5:11"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | HURSEY Anna (WAL) | QIN Yuxuan (CHN) | U19WS | Main Draw | SemiFinal | 1 - 4 | 11:6 9:11 5:11 3:11 5:11 | QIN Yuxuan"
+    },
+    {
+      "sub_event": "",
+      "stage": "Main Draw",
+      "round": "",
+      "match_score": "4-2",
+      "games": [
+        "11:9",
+        "11:6",
+        "10:12",
+        "11:7",
+        "8:11",
+        "11:9"
+      ],
+      "winner": "",
+      "all_players_in_row": [],
+      "side_a": [],
+      "side_b": [],
+      "teammates": [],
+      "opponents": [],
+      "result_for_player": "unknown",
+      "perspective": "unknown",
+      "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | QIN Yuxuan (CHN) | ZONG Geman (CHN) | U19WS | Main Draw | Final | 4 - 2 | 11:9 11:6 10:12 11:7 8:11 11:9 | QIN Yuxuan"
+    }
+  ]
+}
