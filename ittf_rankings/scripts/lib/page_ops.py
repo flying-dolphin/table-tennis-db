@@ -16,8 +16,10 @@ def guarded_goto(
     reason: str,
     referer: str | None = None,
     retries: int = 2,
+    sleep_first: bool = True,
 ) -> None:
-    human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, reason)
+    if sleep_first:
+        human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, reason)
 
     goto_kwargs: dict[str, Any] = {"wait_until": "domcontentloaded", "timeout": 45000}
     if referer:

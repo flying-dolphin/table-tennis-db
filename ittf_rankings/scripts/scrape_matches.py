@@ -17,6 +17,7 @@ import argparse
 import json
 import logging
 import platform
+import random
 import re
 import sys
 import time
@@ -968,7 +969,7 @@ def run(args: argparse.Namespace) -> int:
 
         if via_cdp:
             # CDP 模式：session 已在真实 Chrome 中，只做一次轻量验证
-            guarded_goto(page, SEARCH_URL, delay_cfg, "verify CDP session")
+            guarded_goto(page, SEARCH_URL, delay_cfg, "verify CDP session", sleep_first=False)
             if page.locator("input[name='username']").count() > 0:
                 print("\n=== CDP session requires login ===")
                 print("1) Complete login in the opened browser window")
