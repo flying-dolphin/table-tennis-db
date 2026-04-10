@@ -6,3 +6,5 @@ node_modules/
 .next/
 web/db/*.sqlite-shm
 web/db/*.sqlite-wal
+data/checkpoints/
+data/session/
