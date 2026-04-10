@@ -467,9 +467,16 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
             try:
                 if exact.count() > 0 and exact.is_visible():
                     try:
-                        move_mouse_to_locator(page, exact)
+                        exact.scroll_into_view_if_needed()
                     except Exception:
-                        exact.click()
+                        pass
+                    try:
+                        exact.click(timeout=2000)
+                    except Exception:
+                        try:
+                            exact.click(force=True, timeout=2000)
+                        except Exception:
+                            move_mouse_to_locator(page, exact)
                     return True
             except Exception:
                 pass
@@ -490,9 +497,16 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                         continue
                     if target_text in txt or fallback_text in txt:
                         try:
-                            move_mouse_to_locator(page, item)
+                            item.scroll_into_view_if_needed()
                         except Exception:
-                            item.click()
+                            pass
+                        try:
+                            item.click(timeout=2000)
+                        except Exception:
+                            try:
+                                item.click(force=True, timeout=2000)
+                            except Exception:
+                                move_mouse_to_locator(page, item)
                         return True
                 except Exception:
                     continue
