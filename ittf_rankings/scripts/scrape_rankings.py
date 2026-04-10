@@ -10,6 +10,7 @@ import json
 import logging
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -177,20 +178,21 @@ def parse_ranking_rows(page: Any, top_n: int) -> list[dict[str, Any]]:
 
 
 def extract_update_meta(page: Any, category: str) -> tuple[str, str]:
-    body_text = normalize_space(page.locator("body").inner_text())
+    html = page.content()
 
     week = ""
-    week_match = re.search(r"(20\d{2}\s*Week\s*\d+)", body_text, re.IGNORECASE)
+    week_match = re.search(r'fab_rank_ws___Week":(\d+)', html)
     if week_match:
-        week = normalize_space(week_match.group(1))
+        week_num = int(week_match.group(1))
+        year = datetime.now().year
+        week = f"{year}年第{week_num}周"
 
     update_date = ""
-    date_match = re.search(r"(20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})", body_text)
+    date_match = re.search(r'(20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})', html)
     if date_match:
         update_date = date_match.group(1)
-
-    if not update_date:
-        update_date = category
+    else:
+        update_date = datetime.now().strftime("%Y年%m月%d日")
 
     return week, update_date
 
