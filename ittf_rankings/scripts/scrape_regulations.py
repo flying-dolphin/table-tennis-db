@@ -46,6 +46,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
     parser.add_argument("--output", default="data/regulations/latest_regulations.json")
+    parser.add_argument("--download-dir", default="../docs")
+    parser.add_argument("--skip-download", action="store_true")
     return parser
 
 
@@ -110,6 +112,19 @@ def discover_pdf_links_via_playwright(args: argparse.Namespace) -> list[str]:
     return sorted(set(links))
 
 
+def download_latest_pdf(url: str, download_dir: Path) -> Path:
+    import requests
+
+    download_dir.mkdir(parents=True, exist_ok=True)
+    filename = url.split("/")[-1] or "latest_regulations.pdf"
+    pdf_path = download_dir / filename
+
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=60)
+    response.raise_for_status()
+    pdf_path.write_bytes(response.content)
+    return pdf_path
+
+
 def run(args: argparse.Namespace) -> int:
     output_path = Path(args.output)
 
@@ -125,11 +140,21 @@ def run(args: argparse.Namespace) -> int:
         logger.error("No regulations PDF links discovered")
         return 2
 
+    latest_pdf = links[0]
+    downloaded_to = None
+    if not args.skip_download:
+        try:
+            downloaded_to = str(download_latest_pdf(latest_pdf, Path(args.download_dir)).resolve())
+            logger.info("Downloaded latest regulations PDF: %s", downloaded_to)
+        except Exception as exc:
+            logger.warning("Failed to download latest regulations PDF: %s", exc)
+
     payload = {
         "source_url": RANKINGS_URL,
         "discovery_method": discovery_method,
         "pdf_links": links,
-        "latest_pdf": links[0],
+        "latest_pdf": latest_pdf,
+        "downloaded_to": downloaded_to,
     }
     save_json(output_path, payload)
     logger.info("Saved regulations discovery JSON: %s", output_path)

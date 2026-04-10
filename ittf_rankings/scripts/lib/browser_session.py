@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -21,6 +22,12 @@ def ensure_logged_in(
 
     is_login_form = page.locator("input[name='username']").count() > 0
     if is_login_form:
+        if not sys.stdin.isatty():
+            raise RuntimeError(
+                "Manual login required, but no interactive TTY is available. "
+                "Run with an existing storage state or use an interactive browser session first."
+            )
+
         print("\n=== Manual login required ===")
         print("1) Complete login in the opened browser window")
         print("2) If MFA/captcha appears, complete it manually")
