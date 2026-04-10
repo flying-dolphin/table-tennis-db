@@ -419,7 +419,12 @@ def download_player_avatar(page: Any, player_info: dict[str, Any], avatar_dir: P
         ext = Path(parsed.path).suffix or ".png"
         safe_name = sanitize_filename(player_info.get("english_name", player_info.get("name", player_info.get("player_id", "unknown"))))
         file_path = avatar_dir / f"player_{player_info.get('player_id')}_{safe_name}{ext}"
-        req = urllib.request.Request(best_url, headers={"User-Agent": "Mozilla/5.0"})
+        # URL-encode the path to handle spaces and special characters
+        encoded_path = urllib.parse.quote(parsed.path, safe='/')
+        encoded_url = urllib.parse.urlunparse((
+            parsed.scheme, parsed.netloc, encoded_path, parsed.params, parsed.query, parsed.fragment
+        ))
+        req = urllib.request.Request(encoded_url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=60) as resp:
             content = resp.read()
         file_path.write_bytes(content)
