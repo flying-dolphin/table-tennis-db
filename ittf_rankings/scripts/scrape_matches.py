@@ -507,11 +507,11 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                 root_count = 0
 
             if root_count > 0:
-                candidates = autocomplete_root.locator("li a[data-value], li > a, li, .ui-menu-item, [role='option']")
+                candidates = autocomplete_root.locator("li > a[data-value]")
                 logger.info("[autocomplete] using scoped autocomplete container")
             else:
-                candidates = page.locator("ul.dropdown-menu[role='menu'] li a[data-value], ul.dropdown-menu[role='menu'] li > a, li.ui-menu-item, ul.ui-autocomplete li, [role='listbox'] [role='option']")
-                logger.info("[autocomplete] autocomplete container not found, using narrow fallback selectors")
+                candidates = page.locator("ul.dropdown-menu[role='menu'] li > a[data-value]")
+                logger.info("[autocomplete] autocomplete container not found, using a[data-value] fallback selectors")
 
             try:
                 count = min(candidates.count(), 20)
@@ -529,8 +529,13 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                     if not txt:
                         continue
                     logger.info("[autocomplete] candidate[%s]=%s data-value=%s", i, txt[:120], data_value)
-                    if target_text in txt or fallback_text in txt:
+                    if (target_text in txt or fallback_text in txt) and data_value:
                         logger.info("[autocomplete] matched candidate[%s], trying click", i)
+                        before_value = None
+                        try:
+                            before_value = search_input.input_value()
+                        except Exception:
+                            pass
                         try:
                             item.scroll_into_view_if_needed()
                         except Exception as exc:
@@ -547,6 +552,13 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                                 logger.warning("[autocomplete] candidate force click failed, fallback mouse: %s", exc2)
                                 move_mouse_to_locator(page, item)
                                 logger.info("[autocomplete] candidate mouse click ok")
+
+                        time.sleep(0.4)
+                        try:
+                            after_value = search_input.input_value()
+                        except Exception:
+                            after_value = None
+                        logger.info("[autocomplete] input before click=%s after click=%s", before_value, after_value)
                         return True
                 except Exception as exc:
                     logger.info("[autocomplete] candidate[%s] probe failed: %s", i, exc)
