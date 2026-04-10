@@ -567,60 +567,18 @@ def run(args: argparse.Namespace) -> int:
     ])
 
     with sync_playwright() as p:
-        # 优先复用已有 Chrome CDP session（保留登录态）
         via_cdp, browser, context = _try_connect_cdp(p, args.cdp_port)
 
         if not via_cdp:
-            browser = p.chromium.launch(headless=True)
-            context = browser.new_context(
-                viewport=profile["viewport"],
-                locale="en-US",
-                timezone_id="Asia/Shanghai",
-                user_agent=(
-                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/122.0.0.0 Safari/537.36"
-                ),
-                device_scale_factor=profile["dpr"],
-                color_scheme="light",
-                extra_http_headers={
-                    "Accept-Language": "en-US,en;q=0.9",
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                },
-            )
-            # 新启动的 browser 才需要 ensure_logged_in
-            page = context.new_page()
-            ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), False)
-        else:
-            page = context.new_page()
+            logger.error("无可用的 Chrome CDP session，请先启动带 remote debugging 的 Chrome 后再运行。")
+            logger.error("启动方式：")
+            logger.error("  /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome \\")
+            logger.error("    --remote-debugging-port=%s \\", args.cdp_port)
+            logger.error("    --user-data-dir=\"$HOME/.chrome-ittf-profile\"")
+            logger.error("  然后在打开的浏览器中登录 ITTF 网站")
+            return 1
 
-        try:
-            total_updated = 0
-            for i, pf in enumerate(files, 1):
-                logger.info("[%d/%d] 处理 %s", i, len(files), pf.name)
-                try:
-                    updated, ev_count = backfill_player(
-                        page, pf,
-                        from_year=args.from_year,
-                        dry_run=not args.apply,
-                    )
-                    total_updated += updated
-                except Exception as e:
-                    logger.error("处理 %s 时出错: %s", pf.name, e)
-
-                if i < len(files):
-                    wait = args.delay + random.uniform(0, 1.0)
-                    logger.info("  等待 %.1f 秒后继续...", wait)
-                    time.sleep(wait)
-        finally:
-            if not via_cdp:
-                browser.close()
-            else:
-                # CDP 模式只关闭我们新建的 page，不关闭 browser
-                try:
-                    page.close()
-                except Exception:
-                    pass
+        page = context.new_page()
 
     logger.info("完成，共更新 %d 个 event 条目", total_updated)
     if not args.apply:
