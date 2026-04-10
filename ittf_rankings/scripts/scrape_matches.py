@@ -995,20 +995,31 @@ def run(args: argparse.Namespace) -> int:
                 name = (p.get("english_name") or "").strip()
                 country = (p.get("country_code") or "").strip()
                 if target_country_code:
-                    # 同时匹配 name 和 country
                     if name.lower() == target_player_name.lower() and country.lower() == target_country_code.lower():
                         filtered_players.append(p)
                         break
                 else:
-                    # 只匹配 name（不区分大小写）
                     if name.lower() == target_player_name.lower():
                         filtered_players.append(p)
                         break
-            if not filtered_players:
-                logger.error("Player not found: %s (country: %s)", target_player_name, target_country_code or "any")
-                return 2
-            players = filtered_players
-            logger.info("Filtered to target player: %s (%s)", target_player_name, target_country_code or "any")
+
+            if filtered_players:
+                players = filtered_players
+                logger.info("Filtered to target player from players file: %s (%s)", target_player_name, target_country_code or "any")
+            else:
+                logger.warning(
+                    "Target player not found in players file, falling back to direct page search: %s (%s)",
+                    target_player_name,
+                    target_country_code or "any",
+                )
+                players = [{
+                    "english_name": target_player_name,
+                    "country_code": target_country_code or "",
+                    "player_id": None,
+                    "rank": 0,
+                    "country": "",
+                    "continent": "",
+                }]
 
         for i, player in enumerate(players, start=1):
             player_name = (player.get("english_name") or "").strip()
