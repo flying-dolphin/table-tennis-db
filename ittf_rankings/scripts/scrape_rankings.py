@@ -14,7 +14,6 @@ from pathlib import Path
 from typing import Any
 
 from lib.anti_bot import DelayConfig, RiskControlTriggered
-from lib.browser_session import ensure_logged_in
 from lib.capture import save_json
 from lib.page_ops import guarded_goto
 
@@ -26,12 +25,13 @@ logging.basicConfig(
 logger = logging.getLogger("ittf_ranking_scraper")
 
 BASE_URL = "https://results.ittf.link"
+PUBLIC_RANKING_BASE = f"{BASE_URL}/index.php/ittf-rankings"
 RANKING_URLS = {
-    "women": f"{BASE_URL}/ittf-rankings/ittf-ranking-women-singles",
-    "men": f"{BASE_URL}/ittf-rankings/ittf-ranking-men-singles",
-    "women_doubles": f"{BASE_URL}/ittf-rankings/ittf-ranking-women-doubles",
-    "men_doubles": f"{BASE_URL}/ittf-rankings/ittf-ranking-men-doubles",
-    "mixed": f"{BASE_URL}/ittf-rankings/ittf-ranking-mixed-doubles",
+    "women": f"{PUBLIC_RANKING_BASE}/ittf-ranking-women-singles",
+    "men": f"{PUBLIC_RANKING_BASE}/ittf-ranking-men-singles",
+    "women_doubles": f"{PUBLIC_RANKING_BASE}/ittf-ranking-women-doubles",
+    "men_doubles": f"{PUBLIC_RANKING_BASE}/ittf-ranking-men-doubles",
+    "mixed": f"{PUBLIC_RANKING_BASE}/ittf-ranking-mixed-doubles",
 }
 CATEGORY_META = {
     "women": "女子单打",
@@ -40,7 +40,6 @@ CATEGORY_META = {
     "men_doubles": "男子双打",
     "mixed": "混合双打",
 }
-SEARCH_URL = f"{BASE_URL}/index.php/matches/players-matches-per-event"
 
 COUNTRY_NAMES = {
     "CHN": "中国", "JPN": "日本", "KOR": "韩国", "GER": "德国",
@@ -65,8 +64,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="ITTF ranking scraper")
     parser.add_argument("--category", choices=sorted(RANKING_URLS.keys()), default="women")
     parser.add_argument("--top", type=int, default=50)
-    parser.add_argument("--storage-state", default="data/session/ittf_storage_state.json")
-    parser.add_argument("--init-session", action="store_true", help="Open browser for manual login and save storage state")
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
     parser.add_argument("--snapshot-dir", default="data/ranking_snapshots")
@@ -111,50 +108,65 @@ def extract_player_id_from_href(href: str | None) -> str | None:
 
 def parse_ranking_rows(page: Any, top_n: int) -> list[dict[str, Any]]:
     rankings: list[dict[str, Any]] = []
-    tables = page.locator("table")
-    if tables.count() == 0:
+    target_table = page.locator("table#list_58_com_fabrik_58")
+    if target_table.count() == 0:
+        target_table = page.locator("table")
+    if target_table.count() == 0:
         return rankings
 
-    target_table = tables.first
-    rows = target_table.locator("tbody tr")
+    rows = target_table.first.locator("tbody tr")
     row_count = rows.count()
 
     for idx in range(row_count):
         row = rows.nth(idx)
         cells = row.locator("td")
-        if cells.count() < 5:
+        cell_count = cells.count()
+        if cell_count < 8:
             continue
 
-        cell_texts = [normalize_space(cells.nth(i).inner_text()) for i in range(cells.count())]
-        rank = parse_int(cell_texts[0], default=-1)
+        cell_texts = [normalize_space(cells.nth(i).inner_text()) for i in range(cell_count)]
+        rank = parse_int(cell_texts[1] if len(cell_texts) > 1 else "", default=-1)
         if rank <= 0:
             continue
 
-        name_link = None
+        change = parse_int(cell_texts[2] if len(cell_texts) > 2 else "0")
+        points = parse_int(cell_texts[3] if len(cell_texts) > 3 else "0")
+        english_name = normalize_space(cell_texts[4] if len(cell_texts) > 4 else "")
+        country_code = ""
+        try:
+            flag_img = cells.nth(5).locator("img").first
+            if flag_img.count() > 0:
+                country_code = normalize_space(flag_img.get_attribute("title") or "")
+        except Exception:
+            country_code = ""
+
+        association = normalize_space(cell_texts[6] if len(cell_texts) > 6 else "")
+        continent_raw = normalize_space(cell_texts[7] if len(cell_texts) > 7 else "")
+
+        href = None
         try:
             name_link = cells.nth(4).locator("a").first
-        except Exception:
-            name_link = None
-
-        english_name = normalize_space(cell_texts[4]) if len(cell_texts) > 4 else ""
-        href = None
-        if name_link and name_link.count() > 0:
-            try:
+            if name_link.count() > 0:
                 href = name_link.get_attribute("href")
-            except Exception:
-                href = None
+        except Exception:
+            href = None
+
+        profile_url = None
+        if href:
+            profile_url = BASE_URL + href if href.startswith("/") else href
+            profile_url = profile_url.replace("/../", "/")
 
         player = {
             "rank": rank,
             "name": english_name,
             "english_name": english_name,
-            "points": parse_int(cell_texts[3] if len(cell_texts) > 3 else "0"),
-            "change": parse_int(cell_texts[1] if len(cell_texts) > 1 else "0"),
-            "country": translate_country(cell_texts[5] if len(cell_texts) > 5 else "", cell_texts[5] if len(cell_texts) > 5 else ""),
-            "country_code": cell_texts[5] if len(cell_texts) > 5 else "",
-            "continent": translate_continent(cell_texts[6] if len(cell_texts) > 6 else "", cell_texts[6] if len(cell_texts) > 6 else ""),
+            "points": points,
+            "change": change,
+            "country": translate_country(country_code, association),
+            "country_code": country_code,
+            "continent": translate_continent(continent_raw, continent_raw),
             "player_id": extract_player_id_from_href(href),
-            "profile_url": f"{BASE_URL}{href}" if href and href.startswith("/") else href,
+            "profile_url": profile_url,
         }
         rankings.append(player)
 
@@ -167,19 +179,20 @@ def parse_ranking_rows(page: Any, top_n: int) -> list[dict[str, Any]]:
 def extract_update_meta(page: Any, category: str) -> tuple[str, str]:
     body_text = normalize_space(page.locator("body").inner_text())
 
+    week = ""
     week_match = re.search(r"(20\d{2}\s*Week\s*\d+)", body_text, re.IGNORECASE)
-    if not week_match:
-        week_match = re.search(r"(Week\s*\d+)\D+(20\d{2})", body_text, re.IGNORECASE)
-    week = week_match.group(1) if week_match else ""
+    if week_match:
+        week = normalize_space(week_match.group(1))
 
-    update_match = re.search(r"(20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})", body_text)
-    update_date = update_match.group(1) if update_match else ""
+    update_date = ""
+    date_match = re.search(r"(20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})", body_text)
+    if date_match:
+        update_date = date_match.group(1)
 
     if not update_date:
-        title_text = normalize_space(page.title())
-        update_date = title_text if title_text else ""
+        update_date = category
 
-    return week, update_date or category
+    return week, update_date
 
 
 def build_output(rankings: list[dict[str, Any]], category: str, week: str, update_date: str) -> dict[str, Any]:
@@ -194,7 +207,6 @@ def build_output(rankings: list[dict[str, Any]], category: str, week: str, updat
 
 
 def run(args: argparse.Namespace) -> int:
-    storage_state = Path(args.storage_state)
     snapshot_dir = Path(args.snapshot_dir)
     snapshot_dir.mkdir(parents=True, exist_ok=True)
 
@@ -217,11 +229,10 @@ def run(args: argparse.Namespace) -> int:
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=args.headless, slow_mo=args.slow_mo)
-        context = browser.new_context(storage_state=str(storage_state) if storage_state.exists() else None)
+        context = browser.new_context()
         page = context.new_page()
 
         try:
-            ensure_logged_in(page, SEARCH_URL, delay_cfg, storage_state, args.init_session)
             guarded_goto(page, target_url, delay_cfg, f"open ranking page: {args.category}")
 
             table_count = page.locator("table").count()
