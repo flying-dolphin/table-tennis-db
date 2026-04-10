@@ -456,8 +456,31 @@ def absolute_url(href: str) -> str:
 def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) -> bool:
     search_key = f"{player_name} ({country_code})" if country_code else player_name
 
-    search_input = page.locator("input[type='text']").first
+    # 优先使用更精确的选择器定位搜索框
+    search_input = page.locator("input#autocomplete_player, input[name*='player'], input[placeholder*='player' i], input[placeholder*='search' i]").first
     if search_input.count() == 0:
+        # 回退到通用选择器，但排除登录表单
+        inputs = page.locator("input[type='text']").all()
+        for inp in inputs:
+            try:
+                # 检查是否在登录表单中
+                parent_form = inp.locator("xpath=ancestor::form").first
+                if parent_form.count() > 0:
+                    form_action = parent_form.get_attribute("action") or ""
+                    if "login" in form_action.lower() or parent_form.locator("input[name='password']").count() > 0:
+                        continue
+                # 检查 placeholder 是否包含 player/search
+                placeholder = inp.get_attribute("placeholder") or ""
+                if "player" in placeholder.lower() or "search" in placeholder.lower():
+                    search_input = inp
+                    break
+            except Exception:
+                continue
+        if search_input.count() == 0 and inputs:
+            search_input = inputs[0]  # 最后回退到第一个文本输入框
+    
+    if search_input.count() == 0:
+        logger.error("No search input found on page")
         return False
 
     def wait_and_click_option(target_text: str, fallback_text: str) -> bool:
