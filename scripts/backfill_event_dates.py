@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from lib.anti_bot import DelayConfig, human_sleep
+from lib.browser_session import ensure_logged_in
 from lib.page_ops import guarded_goto
 
 BASE_URL = "https://results.ittf.link"
@@ -66,7 +67,7 @@ def parse_event_rows(page: Any) -> list[dict[str, Any]]:
             cell_texts = [(c.inner_text() or "").strip() for c in cells]
             event_name = cell_texts[1] if len(cell_texts) > 1 else ""
             event_type = cell_texts[2] if len(cell_texts) > 2 else ""
-            event_year = cell_texts[3] if len(cell_texts) > 3 else ""
+            year_str = cell_texts[3] if len(cell_texts) > 3 else ""
             start_date = cell_texts[4].strip() if len(cell_texts) > 4 else ""
             end_date = cell_texts[5].strip() if len(cell_texts) > 5 else ""
 
@@ -75,7 +76,7 @@ def parse_event_rows(page: Any) -> list[dict[str, Any]]:
                     "match_count": int(first_text),
                     "event_name": event_name,
                     "event_type": event_type,
-                    "year": event_year,
+                    "event_year": year_str,
                     "start_date": start_date,
                     "end_date": end_date,
                     "href": href,
@@ -97,7 +98,7 @@ def _event_sort_date(event: dict[str, Any]) -> Optional[date]:
     texts = [
         str(event.get("event_name", "") or ""),
         str(event.get("event_type", "") or ""),
-        str(event.get("year", "") or ""),
+        str(event.get("event_year", "") or ""),
     ]
     for part in texts:
         for m in re.finditer(r"\b(20\d{2})\b", part):
@@ -106,7 +107,7 @@ def _event_sort_date(event: dict[str, Any]) -> Optional[date]:
                 return date(y, 12, 31)
 
     try:
-        y = int(str(event.get("year", "") or "0"))
+        y = int(str(event.get("event_year", "") or event.get("year", "") or "0"))
         if y > 0:
             return date(y, 12, 31)
     except Exception:
@@ -381,7 +382,9 @@ def collect_events_with_pagination(
 # ── 主逻辑 ───────────────────────────────────────────────────────────────────
 
 def event_key(event: dict) -> str:
-    return f"{event.get('event_name', '')}||{event.get('year', '')}"
+    # event_year 兼容 parse_event_rows 新格式和 matches_complete 文件中的已有格式
+    year = event.get("event_year") or event.get("year") or ""
+    return f"{event.get('event_name', '')}||{year}"
 
 
 def backfill_player(
@@ -424,7 +427,9 @@ def backfill_player(
 
     logger.info("  抓取到 %d 条赛事记录", len(events))
 
-    new_map: dict[str, dict] = {event_key(e): e for e in events}
+    # 过滤掉无意义的占位事件
+    meaningful = [e for e in events if e.get("event_name")]
+    new_map: dict[str, dict] = {event_key(e): e for e in meaningful}
 
     updated = 0
     years = data.get("years", {})
@@ -455,9 +460,9 @@ def main():
     parser = argparse.ArgumentParser(description="回填 matches_complete 中的 start_date / end_date")
     parser.add_argument(
         "--output-dir",
-        default="data/matches_complete",
+        default=str(Path(__file__).parent.parent / "data" / "matches_complete"),
         type=str,
-        help="matches_complete 目录 (默认: data/matches_complete)",
+        help="matches_complete 目录 (默认: <script-dir>/../data/matches_complete)",
     )
     parser.add_argument(
         "--players-file",
@@ -482,9 +487,21 @@ def main():
         default=3.0,
         help="每个球员之间等待秒数 (默认: 3.0)",
     )
+    parser.add_argument(
+        "--storage-state",
+        default=str(Path(__file__).parent.parent / "data" / "session" / "ittf_storage_state.json"),
+        type=str,
+        help="浏览器登录状态文件",
+    )
+    parser.add_argument(
+        "--init-session",
+        action="store_true",
+        help="强制重新登录（不复用已有 session）",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir).resolve()
+    storage_state = Path(args.storage_state)
     if not output_dir.exists():
         logger.error("目录不存在: %s", output_dir)
         sys.exit(1)
@@ -504,10 +521,18 @@ def main():
 
     logger.info("共 %d 个文件待处理 (dry-run=%s)", len(files), not args.apply)
 
+    # delay_cfg 用于 ensure_logged_in（页面加载），独立于球员处理逻辑
+    login_delay_cfg = DelayConfig(
+        min_request_sec=2.0,
+        max_request_sec=5.0,
+        min_player_gap_sec=1.0,
+        max_player_gap_sec=3.0,
+    )
+
     try:
-        from patchright.sync_api import sync_playwright
+        from playwright.sync_api import sync_playwright
     except ImportError:
-        logger.error("需要 patchright: pip install patchright && python -m patchright install chromium")
+        logger.error("需要 playwright: pip install playwright && playwright install chromium")
         sys.exit(1)
 
     profile = random.choice([
@@ -534,6 +559,10 @@ def main():
         )
         page = context.new_page()
         try:
+            if storage_state.exists():
+                ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), args.init_session)
+            else:
+                ensure_logged_in(page, SEARCH_URL, login_delay_cfg, str(storage_state), True)
             total_updated = 0
             for i, pf in enumerate(files, 1):
                 logger.info("[%d/%d] 处理 %s", i, len(files), pf.name)
