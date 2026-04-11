@@ -182,6 +182,8 @@ def parse_event_rows(page: Any) -> list[dict[str, Any]]:
             event_name = cell_texts[1] if len(cell_texts) > 1 else ""
             event_type = cell_texts[2] if len(cell_texts) > 2 else ""
             event_year = cell_texts[3] if len(cell_texts) > 3 else ""
+            start_date = cell_texts[4].strip() if len(cell_texts) > 4 else ""
+            end_date = cell_texts[5].strip() if len(cell_texts) > 5 else ""
 
             events.append(
                 {
@@ -189,6 +191,8 @@ def parse_event_rows(page: Any) -> list[dict[str, Any]]:
                     "event_name": event_name,
                     "event_type": event_type,
                     "year": event_year,
+                    "start_date": start_date,
+                    "end_date": end_date,
                     "href": href,
                 }
             )
@@ -211,6 +215,16 @@ def dedupe_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def _event_sort_date(event: dict[str, Any]) -> date | None:
     """尽量从 event 字段解析日期，失败时回退到 year=YYYY-12-31。"""
+    # 优先使用页面抓取的 start_date 字段（格式 YYYY-MM-DD）
+    start = str(event.get("start_date", "") or "").strip()
+    if start:
+        for fmt in ("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d"):
+            try:
+                from datetime import datetime
+                return datetime.strptime(start, fmt).date()
+            except Exception:
+                pass
+
     texts = [
         str(event.get("event_name", "") or ""),
         str(event.get("event_type", "") or ""),
