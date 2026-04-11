@@ -168,57 +168,123 @@ def write_translation_prompt(md_path: Path) -> Path:
     return prompt_path
 
 
-def run(args: argparse.Namespace) -> int:
-    output_path = Path(args.output)
+def fetch_regulations(
+    download_dir: Path,
+    output_path: Path | None = None,
+    skip_download: bool = False,
+    skip_extract: bool = False,
+    headless: bool = True,
+    slow_mo: int = 100,
+) -> dict:
+    """
+    获取规则文件的完整流程，返回结果字典供外部调用。
+    
+    Returns:
+        {
+            "success": bool,
+            "links": list[str],
+            "latest_pdf": str | None,
+            "downloaded_file": Path | None,
+            "pdf_hash": str | None,
+            "md_path": Path | None,
+            "prompt_path": Path | None,
+            "discovery_method": str,
+            "error": str | None,
+        }
+    """
+    result = {
+        "success": False,
+        "links": [],
+        "latest_pdf": None,
+        "downloaded_file": None,
+        "pdf_hash": None,
+        "md_path": None,
+        "prompt_path": None,
+        "discovery_method": "",
+        "error": None,
+    }
 
+    # 发现 PDF 链接
     try:
         links = discover_pdf_links_via_requests()
-        discovery_method = "requests"
+        result["discovery_method"] = "requests"
     except Exception as exc:
         logger.warning("Static PDF discovery failed, falling back to Playwright: %s", exc)
+        args = argparse.Namespace(headless=headless, slow_mo=slow_mo)
         links = discover_pdf_links_via_playwright(args)
-        discovery_method = "playwright"
+        result["discovery_method"] = "playwright"
 
     if not links:
-        logger.error("No regulations PDF links discovered")
-        return 2
+        result["error"] = "No regulations PDF links discovered"
+        logger.error(result["error"])
+        return result
 
+    result["links"] = links
+    result["latest_pdf"] = links[0]
     latest_pdf = links[0]
-    downloaded_to = None
-    md_path = None
-    prompt_path = None
+
+    downloaded_file = None
+    md_file = None
+    prompt_file = None
     pdf_hash = None
 
-    if not args.skip_download:
+    if not skip_download:
         try:
-            downloaded_file = download_latest_pdf(latest_pdf, Path(args.download_dir))
-            downloaded_to = str(downloaded_file.resolve())
+            downloaded_file = download_latest_pdf(latest_pdf, download_dir)
             pdf_hash = get_file_hash(downloaded_file)
-            logger.info("Downloaded latest regulations PDF: %s", downloaded_to)
+            logger.info("Downloaded latest regulations PDF: %s", downloaded_file)
 
-            if not args.skip_extract:
+            if not skip_extract:
                 md_file = downloaded_file.with_suffix('.md')
                 if extract_pdf_to_markdown(downloaded_file, md_file):
-                    md_path = str(md_file.resolve())
-                    if not args.skip_translate_prompt:
-                        prompt_file = write_translation_prompt(md_file)
-                        prompt_path = str(prompt_file.resolve())
-                        logger.info("Saved translation prompt: %s", prompt_path)
+                    logger.info("Extracted markdown: %s", md_file)
+                    prompt_file = write_translation_prompt(md_file)
+                    logger.info("Saved translation prompt: %s", prompt_file)
         except Exception as exc:
             logger.warning("Failed to process latest regulations PDF: %s", exc)
+            result["error"] = str(exc)
 
-    payload = {
-        "source_url": RANKINGS_URL,
-        "discovery_method": discovery_method,
-        "pdf_links": links,
-        "latest_pdf": latest_pdf,
-        "downloaded_to": downloaded_to,
-        "pdf_hash": pdf_hash,
-        "markdown_path": md_path,
-        "translation_prompt_path": prompt_path,
-    }
-    save_json(output_path, payload)
-    logger.info("Saved regulations discovery JSON: %s", output_path)
+    result["downloaded_file"] = downloaded_file
+    result["pdf_hash"] = pdf_hash
+    result["md_path"] = md_file
+    result["prompt_path"] = prompt_file
+    result["success"] = downloaded_file is not None
+
+    # 保存 JSON 元数据（如果指定了输出路径）
+    if output_path:
+        payload = {
+            "source_url": RANKINGS_URL,
+            "discovery_method": result["discovery_method"],
+            "pdf_links": links,
+            "latest_pdf": latest_pdf,
+            "downloaded_to": str(downloaded_file.resolve()) if downloaded_file else None,
+            "pdf_hash": pdf_hash,
+            "markdown_path": str(md_file.resolve()) if md_file else None,
+            "translation_prompt_path": str(prompt_file.resolve()) if prompt_file else None,
+        }
+        save_json(output_path, payload)
+        logger.info("Saved regulations discovery JSON: %s", output_path)
+
+    return result
+
+
+def run(args: argparse.Namespace) -> int:
+    output_path = Path(args.output)
+    download_dir = Path(args.download_dir)
+
+    result = fetch_regulations(
+        download_dir=download_dir,
+        output_path=output_path,
+        skip_download=args.skip_download,
+        skip_extract=args.skip_extract,
+        headless=args.headless,
+        slow_mo=args.slow_mo,
+    )
+
+    if result["error"] and not result["links"]:
+        return 2
+    if not result["success"] and not args.skip_download:
+        return 1
     return 0
 
 

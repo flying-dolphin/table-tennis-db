@@ -37,21 +37,41 @@
 - 保存 HTML snapshot 便于调试
 - 已和现有 `women_singles_top50.json` 做过实际对比校验，核心字段对齐
 
-#### 3. `scrape_regulations.py`
+#### 3. `regulations_manager.py`
 
-负责规则文件链路。
+规则文件管理入口脚本，负责完整的规则文件生命周期管理。
+
+当前能力：
+- 调用 `scrape_regulations` 模块获取最新规则 PDF
+- 将 PDF 转换为 Markdown 格式
+- 翻译成中文（支持 MiniMax API 或生成翻译提示文件）
+- 状态管理，避免重复处理
+- 支持守护进程模式，每3天自动检查更新
+
+使用方法：
+```bash
+python regulations_manager.py              # 运行一次检查
+python regulations_manager.py --force      # 强制重新处理
+python regulations_manager.py --daemon     # 持续运行，每3天检查
+python regulations_manager.py --translate  # 仅翻译已有PDF
+python regulations_manager.py --api --api-key YOUR_KEY  # 使用API翻译
+```
+
+#### 4. `scrape_regulations.py`
+
+规则文件抓取模块，提供底层抓取能力。
 
 当前能力：
 - 优先通过 requests 发现 PDF 链接
 - 失败时 fallback 到 Playwright
 - 下载最新 PDF
-- 提取 PDF 内容到 Markdown
-- 生成中文翻译 prompt 文件
-- 输出 regulations metadata JSON
+- 提供 `fetch_regulations()` 函数供外部调用
 
 当前限制：
 - ITTF 规则入口仍可能受 403 / Cloudflare 影响
 - 因此这条线在真实站点上仍可能需要半自动辅助
+
+通常不直接调用，而是通过 `regulations_manager.py` 使用。
 
 ---
 
@@ -93,18 +113,37 @@ python ittf_matches_playwright.py
 python scrape_rankings.py --category women --top 50
 ```
 
-### 规则文件抓取
+### 规则文件管理
+
+完整生命周期管理（推荐）：
 
 ```bash
-python scrape_regulations.py
+python regulations_manager.py
 ```
 
 可选参数示例：
 
 ```bash
-python scrape_regulations.py --skip-download
-python scrape_regulations.py --skip-extract
-python scrape_regulations.py --skip-translate-prompt
+# 强制重新处理
+python regulations_manager.py --force
+
+# 仅翻译已有PDF
+python regulations_manager.py --translate
+
+# 使用 MiniMax API 翻译
+python regulations_manager.py --api --api-key YOUR_KEY
+
+# 显示浏览器窗口（调试用）
+python regulations_manager.py --no-headless
+
+# 守护进程模式
+python regulations_manager.py --daemon
+```
+
+底层抓取模块（通常不直接使用）：
+
+```bash
+python scrape_regulations.py
 ```
 
 ---
@@ -118,10 +157,77 @@ python scrape_regulations.py --skip-translate-prompt
 - `page_ops.py`：安全 goto / 翻页等 page 操作封装
 - `checkpoint.py`：断点续抓
 - `capture.py`：JSON 保存、原始响应抓取、文件名清洗
+- `translator.py`：**通用翻译模块**（人名、术语、赛事、文档翻译）
 
-说明：
-- 共享模块本身不是这次 autocomplete 回归问题的根因
-- 真正的回归点主要出现在 `scrape_matches.py` 的业务层 autocomplete 逻辑
+### 翻译模块 (`lib/translator.py`)
+
+功能：
+- 维护中英文词典（`data/translation_dict.json`）
+- 优先查词典，未命中则调用 LLM API 翻译
+- 自动将新翻译结果保存到词典
+- 支持批量翻译和缓存
+- 默认使用 MiniMax API
+
+#### 使用示例
+
+```python
+from lib.translator import Translator
+
+# 初始化翻译器
+translator = Translator(api_key="your_key")
+
+# 翻译运动员名（优先查词典）
+cn_name = translator.translate("Ma Long", category="players")
+# 输出: 马龙
+
+# 翻译赛事名
+event_name = translator.translate("Grand Smash", category="events")
+# 输出: 大满贯
+
+# 翻译术语
+term = translator.translate("Round of 16", category="terms")
+# 输出: 十六强
+
+# 批量翻译
+results = translator.translate_batch(
+    ["Ma Long", "Fan Zhendong", "Sun Yingsha"], 
+    category="players"
+)
+
+# 翻译完整文档
+translated_doc = translator.translate_document(content, doc_type="regulations")
+```
+
+#### 词典文件 (`data/translation_dict.json`)
+
+词典分类：
+- `players`: 运动员人名（已预置30+常见球员）
+- `terms`: 通用术语（积分、轮次、赛制等）
+- `events`: 赛事名称（世锦赛、大满贯、WTT系列等）
+- `countries`: 国家/地区代码和名称
+- `others`: 其他词汇
+
+#### 运行示例脚本
+
+```bash
+# 基础翻译演示（仅使用词典）
+python translate_example.py --basic
+
+# 完整演示（包括API翻译，需要API Key）
+python translate_example.py --api-key YOUR_KEY
+
+# 批量翻译测试
+python translate_example.py --batch-test
+```
+
+#### 词典统计
+
+```python
+translator = Translator()
+stats = translator.get_stats()
+print(stats)
+# {'total': 91, 'players': 30, 'terms': 29, 'events': 10, 'countries': 22, 'others': 0}
+```
 
 ---
 
@@ -174,10 +280,18 @@ Playwright 报 click 成功，只说明动作发出去了。
 以下脚本已不再是推荐入口，建议视作历史版本或过渡文件：
 
 - `ittf_matches_playwright.py`：兼容入口
-- `ittf_rankings_updater.py`：旧规则文档更新脚本
+- `ittf_rankings_updater.py`：**旧规则文档更新脚本，已被 `regulations_manager.py` 替代**
 - `ittf_process.py`：已有排名 JSON 的处理/展示脚本
 
 更早期的实验性脚本已放到 `scripts/archive/`。
+
+### 迁移说明
+
+如果你之前使用 `ittf_rankings_updater.py`：
+- 原有功能已迁移到 `regulations_manager.py`
+- 命令行参数基本保持一致
+- 新增 `--api` 参数支持直接调用 MiniMax API 翻译
+- 状态文件改为 `.regulations_manager_state.json`
 
 ---
 

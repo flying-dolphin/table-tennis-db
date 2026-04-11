@@ -30,6 +30,7 @@ from lib.browser_session import ensure_logged_in
 from lib.capture import capture_json_responses_for_page, sanitize_filename, save_json
 from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.page_ops import click_next_page_if_any, guarded_goto
+from lib.translator import Translator
 
 
 logging.basicConfig(
@@ -907,6 +908,63 @@ def merge_player_data(existing: dict[str, Any], player_data: dict[str, Any]) -> 
     return existing
 
 
+def translate_matches_data(data: dict[str, Any], translator: Translator) -> dict[str, Any]:
+    """翻译比赛数据为中文"""
+    result = data.copy()
+    
+    # 翻译运动员姓名
+    if 'player_name' in result and result['player_name']:
+        result['player_name_zh'] = translator.translate(result['player_name'], category='players', use_api=True)
+    
+    # 翻译国家代码
+    if 'country_code' in result and result['country_code']:
+        result['country_code_zh'] = translator.translate(result['country_code'], category='countries', use_api=True)
+    
+    # 翻译每年的赛事数据
+    if 'years' in result:
+        for year, year_data in result['years'].items():
+            if 'events' in year_data:
+                for event in year_data['events']:
+                    # 翻译赛事名称
+                    if 'event_name' in event and event['event_name']:
+                        event['event_name_zh'] = translator.translate(event['event_name'], category='events', use_api=True)
+                    
+                    # 翻译赛事类型
+                    if 'event_type' in event and event['event_type']:
+                        event['event_type_zh'] = translator.translate(event['event_type'], category='events', use_api=True)
+                    
+                    # 翻译比赛数据
+                    if 'matches' in event:
+                        for match in event['matches']:
+                            # 翻译阶段
+                            if 'stage' in match and match['stage']:
+                                match['stage_zh'] = translator.translate(match['stage'], category='terms', use_api=True)
+                            
+                            # 翻译轮次
+                            if 'round' in match and match['round']:
+                                original = match['round']
+                                if original.startswith('R') and original[1:].isdigit():
+                                    match['round_zh'] = f"第{original[1:]}轮"
+                                else:
+                                    match['round_zh'] = translator.translate(original, category='terms', use_api=True)
+                            
+                            # 翻译子赛事类型
+                            if 'sub_event' in match and match['sub_event']:
+                                sub_event_map = {
+                                    'WS': '女子单打',
+                                    'MS': '男子单打',
+                                    'WD': '女子双打',
+                                    'MD': '男子双打',
+                                    'XD': '混合双打',
+                                    'XT': '混合团体',
+                                    'WT': '女子团体',
+                                    'MT': '男子团体',
+                                }
+                                match['sub_event_zh'] = sub_event_map.get(match['sub_event'], match['sub_event'])
+    
+    return result
+
+
 def _try_connect_cdp(p: Any, cdp_port: int) -> tuple[bool, Any, Any]:
     """尝试连接已有 Chrome（CDP 模式），复用其登录 session。
     返回 (via_cdp, browser, context)；连接失败时返回 (False, None, None)。
@@ -958,9 +1016,21 @@ def run(args: argparse.Namespace) -> int:
 
     players_file = Path(args.players_file)
     output_dir = Path(args.output_dir)
+    
+    # 创建 orig 和 cn 子目录
+    output_orig_dir = output_dir / "orig"
+    output_cn_dir = output_dir / "cn"
+    output_orig_dir.mkdir(parents=True, exist_ok=True)
+    output_cn_dir.mkdir(parents=True, exist_ok=True)
+    
     raw_dir = Path(args.raw_dir)
     storage_state = Path(args.storage_state)
     checkpoint_file = Path(args.checkpoint)
+    
+    # 初始化翻译器
+    translator = Translator()
+    translator_stats = translator.get_stats()
+    logger.info("Translator loaded: %s", translator_stats)
 
     from_date = parse_from_date(args.from_date)
     delay_cfg = DelayConfig(
@@ -1090,10 +1160,13 @@ def run(args: argparse.Namespace) -> int:
 
             logger.info("[%s/%s] Player: %s (%s)", i, len(players), player_name, country_code)
 
-            out_file = output_dir / f"{sanitize_filename(player_name)}.json"
-            if out_file.exists():
+            orig_file = output_orig_dir / f"{sanitize_filename(player_name)}.json"
+            cn_file = output_cn_dir / f"{sanitize_filename(player_name)}.json"
+            
+            # 从 orig 目录读取现有数据
+            if orig_file.exists():
                 try:
-                    player_output = json.loads(out_file.read_text(encoding="utf-8"))
+                    player_output = json.loads(orig_file.read_text(encoding="utf-8"))
                 except Exception:
                     player_output = {}
             else:
@@ -1164,13 +1237,25 @@ def run(args: argparse.Namespace) -> int:
                         f"No events found for {player_name} ({country_code}) since {from_date}. "
                         f"This should never happen for a real player — possible parsing or network issue."
                     )
-                # player_data 此时已是完整的 player_output，直接用
-                save_json(out_file, player_data)
+                # 保存原始数据到 orig 目录
+                save_json(orig_file, player_data)
+                logger.info("Saved original: %s", orig_file)
+                
+                # 翻译并保存中文版本到 cn 目录 (unless disabled)
+                if not args.no_translate:
+                    player_data_cn = translate_matches_data(player_data, translator)
+                    save_json(cn_file, player_data_cn)
+                    logger.info("Saved Chinese: %s", cn_file)
+                else:
+                    logger.debug("Translation skipped (--no-translate)")
+                
                 checkpoint.mark_done(ck)
                 logger.info("Completed %s (%s events in JSON)", player_name, total_events_in_json)
             except RiskControlTriggered as exc:
                 checkpoint.mark_failed(ck, f"risk_control: {exc}")
-                save_json(out_file, player_output)
+                # 风险触发时也保存已获取的数据
+                if orig_file:
+                    save_json(orig_file, player_output)
                 logger.error("Risk control triggered: %s", exc)
                 logger.error("Stop immediately to protect account/session.")
                 if not via_cdp:
@@ -1219,6 +1304,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--stop-on-error", action="store_true")
     parser.add_argument("--player-name", type=str, default=None, help="Scrape only a specific player by English name (case-insensitive)")
     parser.add_argument("--player-country", type=str, default=None, help="Country code for the specific player (optional, used with --player-name)")
+    parser.add_argument("--no-translate", action="store_true", help="Skip translation, save only original data")
     return parser
 
 

@@ -20,6 +20,7 @@ from typing import Any
 from lib.anti_bot import DelayConfig, RiskControlTriggered, human_sleep
 from lib.capture import save_json, sanitize_filename
 from lib.page_ops import guarded_goto
+from lib.translator import Translator
 
 logging.basicConfig(
     level=logging.INFO,
@@ -76,6 +77,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--db-path", default="web/db/ittf_rankings.sqlite")
     parser.add_argument("--scrape-profiles", action="store_true", help="Scrape individual player profiles")
     parser.add_argument("--output", default=None)
+    parser.add_argument("--no-translate", action="store_true", help="Skip translation, save only original data")
     return parser
 
 
@@ -114,7 +116,7 @@ def extract_player_id_from_href(href: str | None) -> str | None:
     return None
 
 
-def parse_ranking_rows(page: Any, top_n: int) -> list[dict[str, Any]]:
+def parse_ranking_rows(page: Any, top_n: int, translator: Translator | None = None, translate_names: bool = True) -> list[dict[str, Any]]:
     rankings: list[dict[str, Any]] = []
     target_table = page.locator("table#list_58_com_fabrik_58")
     if target_table.count() == 0:
@@ -164,15 +166,31 @@ def parse_ranking_rows(page: Any, top_n: int) -> list[dict[str, Any]]:
             profile_url = BASE_URL + href if href.startswith("/") else href
             profile_url = profile_url.replace("/../", "/")
 
+        # 根据 translate_names 参数决定是否翻译
+        if translate_names:
+            # 翻译模式：查词典转换
+            display_name = english_name
+            if translator:
+                translated = translator.translate(english_name, category='players', use_api=False)
+                if translated != english_name:  # 词典命中
+                    display_name = translated
+            country_name = translate_country(country_code, association)
+            continent_name = translate_continent(continent_raw, continent_raw)
+        else:
+            # 无翻译模式：保持原始英文
+            display_name = english_name
+            country_name = country_code or association
+            continent_name = continent_raw
+
         player = {
             "rank": rank,
-            "name": english_name,
+            "name": display_name,
             "english_name": english_name,
             "points": points,
             "change": change,
-            "country": translate_country(country_code, association),
+            "country": country_name,
             "country_code": country_code,
-            "continent": translate_continent(continent_raw, continent_raw),
+            "continent": continent_name,
             "player_id": extract_player_id_from_href(href),
             "profile_url": profile_url,
         }
@@ -350,11 +368,13 @@ def scrape_player_profile(
     profile_url: str,
     player_info: dict[str, Any],
     delay_cfg: DelayConfig,
-    profile_dir: Path,
+    profile_orig_dir: Path,
+    profile_cn_dir: Path,
     avatar_dir: Path,
-    db_path: Path
+    db_path: Path,
+    translator: Translator,
 ) -> dict[str, Any] | None:
-    """Scrape player profile page and save to JSON and DB."""
+    """Scrape player profile page and save to JSON (orig + cn) and DB."""
     if not profile_url:
         return None
 
@@ -376,15 +396,21 @@ def scrape_player_profile(
         if avatar_meta:
             profile_data.update(avatar_meta)
 
-        # Save to JSON file
+        # Save original (English) profile to orig directory
         safe_name = sanitize_filename(player_info.get("english_name", player_info.get("name", player_id)))
         json_filename = f"player_{player_id}_{safe_name}.json"
-        json_path = profile_dir / json_filename
-        save_json(json_path, profile_data)
-        logger.info("Saved player profile JSON: %s", json_path)
+        orig_path = profile_orig_dir / json_filename
+        save_json(orig_path, profile_data)
+        logger.info("Saved original profile: %s", orig_path)
 
-        # Save to database
-        save_player_profile_to_db(db_path, player_id, profile_data, str(json_path))
+        # Translate and save Chinese version to cn directory
+        profile_cn = translate_profile_data(profile_data, translator)
+        cn_path = profile_cn_dir / json_filename
+        save_json(cn_path, profile_cn)
+        logger.info("Saved Chinese profile: %s", cn_path)
+
+        # Save to database (use original data)
+        save_player_profile_to_db(db_path, player_id, profile_data, str(orig_path))
         logger.info("Saved player profile to DB: %s", player_id)
 
         return profile_data
@@ -615,12 +641,127 @@ def parse_stats_cell(cell_text: str, prefix: str) -> dict[str, Any]:
     return stats
 
 
+def translate_profile_data(profile_data: dict[str, Any], translator: Translator) -> dict[str, Any]:
+    """翻译运动员档案数据为中文"""
+    data = profile_data.copy()
+    
+    # 翻译运动员姓名
+    if 'name' in data and data['name']:
+        data['name_zh'] = translator.translate(data['name'], category='players', use_api=True)
+    
+    # 翻译国家代码
+    if 'country_code' in data and data['country_code']:
+        data['country_code_zh'] = translator.translate(data['country_code'], category='countries', use_api=True)
+    
+    # 翻译性别
+    if 'gender' in data and data['gender']:
+        gender_map = {'Female': '女', 'Male': '男'}
+        data['gender_zh'] = gender_map.get(data['gender'], data['gender'])
+    
+    # 翻译打法风格
+    if 'style' in data and data['style']:
+        style = data['style']
+        parts = []
+        if 'right' in style.lower():
+            parts.append('右手')
+        elif 'left' in style.lower():
+            parts.append('左手')
+        if 'attack' in style.lower():
+            parts.append('进攻型')
+        elif 'defense' in style.lower():
+            parts.append('防守型')
+        elif 'all-round' in style.lower():
+            parts.append('全面型')
+        if 'shakehand' in style.lower():
+            parts.append('(横拍)')
+        elif 'penhold' in style.lower():
+            parts.append('(直拍)')
+        data['style_zh'] = ''.join(parts) if parts else style
+    
+    # 翻译持拍手
+    if 'playing_hand' in data and data['playing_hand']:
+        hand_map = {'Right': '右手', 'Left': '左手'}
+        data['playing_hand_zh'] = hand_map.get(data['playing_hand'], data['playing_hand'])
+    
+    # 翻译握拍方式
+    if 'grip' in data and data['grip']:
+        grip_map = {'ShakeHand': '横拍', 'Penhold': '直拍'}
+        data['grip_zh'] = grip_map.get(data['grip'], data['grip'])
+    
+    # 翻译近期比赛
+    if 'recent_matches' in data and data['recent_matches']:
+        for match in data['recent_matches']:
+            # 翻译赛事名称
+            if 'event' in match and match['event']:
+                match['event_zh'] = translator.translate(match['event'], category='events', use_api=True)
+            
+            # 翻译对手姓名
+            if 'opponent' in match and match['opponent']:
+                match['opponent_zh'] = translator.translate(match['opponent'], category='players', use_api=True)
+            
+            # 翻译对手国家
+            if 'opponent_country' in match and match['opponent_country']:
+                match['opponent_country_zh'] = translator.translate(match['opponent_country'], category='countries', use_api=True)
+            
+            # 翻译比赛阶段
+            if 'stage' in match and match['stage']:
+                stage = match['stage']
+                parts = stage.split(' - ')
+                translated_parts = []
+                for part in parts:
+                    part = part.strip()
+                    if part.startswith('WS'):
+                        translated_parts.append('女子单打' + part[2:].strip())
+                    elif part.startswith('MS'):
+                        translated_parts.append('男子单打' + part[2:].strip())
+                    elif part.startswith('XD'):
+                        translated_parts.append('混合双打' + part[2:].strip())
+                    elif part.startswith('WD'):
+                        translated_parts.append('女子双打' + part[2:].strip())
+                    elif part.startswith('MD'):
+                        translated_parts.append('男子双打' + part[2:].strip())
+                    else:
+                        translated_parts.append(translator.translate(part, category='terms', use_api=True))
+                match['stage_zh'] = ' - '.join(translated_parts)
+            
+            # 翻译结果
+            if 'result' in match and match['result']:
+                result_map = {'WON': '胜', 'LOST': '负', 'DRAW': '平'}
+                match['result_zh'] = result_map.get(match['result'], match['result'])
+    
+    return data
+
+
+def translate_ranking_data(ranking_data: dict[str, Any], translator: Translator) -> dict[str, Any]:
+    """翻译排名数据为中文"""
+    data = ranking_data.copy()
+    
+    # 翻译每个排名条目
+    if 'rankings' in data and data['rankings']:
+        for player in data['rankings']:
+            # 翻译姓名
+            if 'name' in player and player['name']:
+                player['name_zh'] = translator.translate(player['name'], category='players', use_api=True)
+            
+            # 翻译国家代码（如果country是英文）
+            if 'country_code' in player and player['country_code']:
+                player['country_code_zh'] = translator.translate(player['country_code'], category='countries', use_api=True)
+    
+    return data
+
+
 def run(args: argparse.Namespace) -> int:
     snapshot_dir = Path(args.snapshot_dir)
     snapshot_dir.mkdir(parents=True, exist_ok=True)
 
     profile_dir = Path(args.profile_dir)
     profile_dir.mkdir(parents=True, exist_ok=True)
+    
+    # 创建 orig 和 cn 子目录
+    profile_orig_dir = profile_dir / "orig"
+    profile_cn_dir = profile_dir / "cn"
+    profile_orig_dir.mkdir(parents=True, exist_ok=True)
+    profile_cn_dir.mkdir(parents=True, exist_ok=True)
 
     avatar_dir = Path(args.avatar_dir)
     avatar_dir.mkdir(parents=True, exist_ok=True)
@@ -630,6 +771,10 @@ def run(args: argparse.Namespace) -> int:
     init_player_profiles_table(db_path)
 
     output_path = Path(args.output) if args.output else Path(f"data/{args.category}_top{args.top}.json")
+    output_cn_path = output_path.with_suffix('').with_name(output_path.stem + "_cn").with_suffix('.json')
+    
+    # 初始化翻译器
+    translator = Translator()
 
     delay_cfg = DelayConfig(
         min_request_sec=3.0,
@@ -665,7 +810,7 @@ def run(args: argparse.Namespace) -> int:
             snapshot_path.write_text(html, encoding="utf-8")
             logger.info("Saved ranking snapshot: %s", snapshot_path)
 
-            rankings = parse_ranking_rows(page, args.top)
+            rankings = parse_ranking_rows(page, args.top, translator, translate_names=not args.no_translate)
             if not rankings:
                 logger.error("Parsed 0 ranking rows from page: %s", target_url)
                 browser.close()
@@ -682,9 +827,11 @@ def run(args: argparse.Namespace) -> int:
                             player.get("profile_url"),
                             player,
                             delay_cfg,
-                            profile_dir,
+                            profile_orig_dir,
+                            profile_cn_dir,
                             avatar_dir,
-                            db_path
+                            db_path,
+                            translator,
                         )
                         # Delay between players to avoid rate limiting
                         if idx < len(rankings) - 1:
@@ -692,8 +839,18 @@ def run(args: argparse.Namespace) -> int:
 
             week, update_date = extract_update_meta(page, args.category)
             payload = build_output(rankings, args.category, week, update_date)
+            
+            # Save original ranking
             save_json(output_path, payload)
             logger.info("Saved ranking JSON: %s", output_path)
+            
+            # Translate and save Chinese version (unless disabled)
+            if not args.no_translate:
+                payload_cn = translate_ranking_data(payload, translator)
+                save_json(output_cn_path, payload_cn)
+                logger.info("Saved Chinese ranking JSON: %s", output_cn_path)
+            else:
+                logger.info("Translation skipped ( --no-translate )")
         except RiskControlTriggered as exc:
             logger.error("Risk control triggered: %s", exc)
             browser.close()
