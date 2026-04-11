@@ -466,6 +466,7 @@ def backfill_player(
     new_map: dict[str, dict] = {event_key(e): e for e in meaningful}
 
     updated = 0
+    updated_events = 0  # 真正更新的 event 数量
     years = data.get("years", {})
     for _year_key, year_data in years.items():
         year_events: list[dict] = year_data.get("events", [])
@@ -473,19 +474,24 @@ def backfill_player(
             key = event_key(ev)
             if key in new_map:
                 new_ev = new_map[key]
+                event_updated = False
                 if new_ev.get("start_date") and not ev.get("start_date"):
                     ev["start_date"] = new_ev["start_date"]
                     updated += 1
+                    event_updated = True
                 if new_ev.get("end_date") and not ev.get("end_date"):
                     ev["end_date"] = new_ev["end_date"]
                     updated += 1
+                    event_updated = True
+                if event_updated:
+                    updated_events += 1
 
     if updated > 0 and not dry_run:
         with open(player_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        logger.info("  ✓ 更新了 %d 个条目的日期字段", updated)
+        logger.info("  ✓ 更新了 %d 个 events (共 %d 个日期字段)", updated_events, updated)
     elif updated > 0:
-        logger.info("  [dry-run] 本次应更新 %d 个条目", updated)
+        logger.info("  [dry-run] 本次应更新 %d 个 events (共 %d 个日期字段)", updated_events, updated)
 
     return updated, len(events)
 
