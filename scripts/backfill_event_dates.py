@@ -246,7 +246,13 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                 try:
                     if not item.is_visible():
                         continue
-                    txt = " ".join((item.inner_text() or "").split())
+                    # inner_text 可能超时，设置短超时快速跳过 stale 元素
+                    try:
+                        raw_text = item.inner_text(timeout=2000)
+                    except Exception:
+                        logger.info("[autocomplete] candidate[%s] inner_text timeout, skipping", i)
+                        continue
+                    txt = " ".join((raw_text or "").split())
                     data_value = item.get_attribute("data-value") if item.count() > 0 else None
                     if not txt:
                         continue
