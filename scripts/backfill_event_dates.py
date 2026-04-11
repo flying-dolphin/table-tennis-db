@@ -24,7 +24,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Optional
 
-from lib.anti_bot import DelayConfig, human_sleep
+from lib.anti_bot import DelayConfig, human_sleep, type_like_human
 from lib.page_ops import guarded_goto
 
 BASE_URL = "https://results.ittf.link"
@@ -191,21 +191,10 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
         return False
 
     try:
-        input_handle.click(click_count=3)
-        if sys.platform != "darwin":
-            input_handle.press("Control+a")
-        else:
-            input_handle.press("Meta+a")
-        time.sleep(0.1)
-        input_handle.type_(search_key, delay=50)
+        type_like_human(page, input_handle, search_key)
     except Exception:
-        try:
-            input_handle.fill("")
-            time.sleep(0.2)
-            input_handle.type_(search_key, delay=50)
-        except Exception:
-            logger.warning("[autocomplete] 输入失败")
-            return False
+        logger.warning("[autocomplete] 输入失败")
+        return False
 
     human_sleep(1.5, 3.0, "wait for autocomplete dropdown")
 
