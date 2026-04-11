@@ -178,112 +178,143 @@ def click_go(page: Any) -> bool:
 
 
 def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) -> bool:
-    """在搜索框输入球员名，点击 autocomplete 匹配项。"""
-    search_key = f"{player_name} ({country_code})"
+    """在搜索框输入球员名，点击 autocomplete 匹配项。与 scrape_matches.py 完全一致。"""
+    search_key = f"{player_name} ({country_code})" if country_code else player_name
 
-    input_locators = [
-        page.locator("input[id*='player'][id*='search']"),
-        page.locator("input[id*='search'][id*='player']"),
-        page.locator("input[id='player_name'], input[id='player_name_auto']"),
-        page.locator("input[placeholder*='player' i], input[placeholder*='search' i]"),
-        page.locator("input[type='text'][id*='player']"),
-        page.locator("input.autocomplete-input"),
-        page.locator("input.form-control[type='text']"),
-        page.locator("input[type='text']").first,  # 与 scrape_matches.py 一致的兜底选择器
-    ]
-    input_handle = None
-    for loc in input_locators:
-        try:
-            if loc.count() > 0 and loc.first.is_visible():
-                input_handle = loc.first
-                break
-        except Exception:
-            continue
-
-    if not input_handle:
-        logger.warning("[autocomplete] 未找到搜索输入框")
+    search_input = page.locator("input[type='text']").first
+    input_count = search_input.count()
+    logger.info("[autocomplete] text inputs found, using first locator count=%s", input_count)
+    if input_count == 0:
+        logger.warning("[autocomplete] no text input found")
         return False
 
+    def wait_and_click_option(target_text: str, fallback_text: str) -> bool:
+        for attempt in range(12):
+            exact = page.get_by_text(target_text, exact=True).first
+            try:
+                exact_count = exact.count()
+            except Exception:
+                exact_count = 0
+            logger.info("[autocomplete] attempt=%s exact_count=%s target=%s", attempt + 1, exact_count, target_text)
+            try:
+                if exact_count > 0 and exact.is_visible():
+                    logger.info("[autocomplete] exact option visible, trying click: %s", target_text)
+                    try:
+                        exact.scroll_into_view_if_needed()
+                    except Exception as exc:
+                        logger.info("[autocomplete] exact scroll skipped: %s", exc)
+                    try:
+                        exact.click(timeout=2000)
+                        logger.info("[autocomplete] exact click ok")
+                    except Exception as exc:
+                        logger.warning("[autocomplete] exact click failed: %s", exc)
+                        try:
+                            exact.click(force=True, timeout=2000)
+                            logger.info("[autocomplete] exact force click ok")
+                        except Exception as exc2:
+                            logger.warning("[autocomplete] exact force click failed, fallback mouse: %s", exc2)
+                            move_mouse_to_locator(page, exact)
+                            logger.info("[autocomplete] exact mouse click ok")
+                    return True
+            except Exception as exc:
+                logger.info("[autocomplete] exact option probe failed: %s", exc)
+
+            autocomplete_root = page.locator(
+                "ul.dropdown-menu[role='menu']:visible, ul.ui-autocomplete:visible, ul[id*='ui-id']:visible, .ui-autocomplete:visible, [role='listbox']:visible"
+            ).first
+            root_count = 0
+            try:
+                root_count = autocomplete_root.count()
+            except Exception:
+                root_count = 0
+
+            if root_count > 0:
+                candidates = autocomplete_root.locator("li > a[data-value]")
+                logger.info("[autocomplete] using scoped autocomplete container")
+            else:
+                candidates = page.locator("ul.dropdown-menu[role='menu'] li > a[data-value]")
+                logger.info("[autocomplete] autocomplete container not found, using a[data-value] fallback selectors")
+
+            try:
+                count = min(candidates.count(), 20)
+            except Exception:
+                count = 0
+            logger.info("[autocomplete] attempt=%s candidate_count=%s", attempt + 1, count)
+
+            for i in range(count):
+                item = candidates.nth(i)
+                try:
+                    if not item.is_visible():
+                        continue
+                    txt = " ".join((item.inner_text() or "").split())
+                    data_value = item.get_attribute("data-value") if item.count() > 0 else None
+                    if not txt:
+                        continue
+                    logger.info("[autocomplete] candidate[%s]=%s data-value=%s", i, txt[:120], data_value)
+                    if (target_text in txt or fallback_text in txt) and data_value:
+                        logger.info("[autocomplete] matched candidate[%s], trying click", i)
+                        before_value = None
+                        try:
+                            before_value = search_input.input_value()
+                        except Exception:
+                            pass
+                        try:
+                            item.scroll_into_view_if_needed()
+                        except Exception as exc:
+                            logger.info("[autocomplete] candidate scroll skipped: %s", exc)
+                        try:
+                            item.click(timeout=2000)
+                            logger.info("[autocomplete] candidate click ok")
+                        except Exception as exc:
+                            logger.warning("[autocomplete] candidate click failed: %s", exc)
+                            try:
+                                item.click(force=True, timeout=2000)
+                                logger.info("[autocomplete] candidate force click ok")
+                            except Exception as exc2:
+                                logger.warning("[autocomplete] candidate force click failed, fallback mouse: %s", exc2)
+                                move_mouse_to_locator(page, item)
+                                logger.info("[autocomplete] candidate mouse click ok")
+
+                        time.sleep(0.4)
+                        try:
+                            after_value = search_input.input_value()
+                        except Exception:
+                            after_value = None
+                        logger.info("[autocomplete] input before click=%s after click=%s", before_value, after_value)
+                        return True
+                except Exception as exc:
+                    logger.info("[autocomplete] candidate[%s] probe failed: %s", i, exc)
+                    continue
+
+            time.sleep(0.25)
+        logger.warning("[autocomplete] no option matched after retries for target=%s fallback=%s", target_text, fallback_text)
+        return False
+
+    short_query = player_name[:20]
+    logger.info("[autocomplete] typing short query=%s", short_query)
+    type_like_human(page, search_input, short_query)
     try:
-        type_like_human(page, input_handle, search_key)
-    except Exception:
-        logger.warning("[autocomplete] 输入失败")
-        return False
+        logger.info("[autocomplete] input value after short query=%s", search_input.input_value())
+    except Exception as exc:
+        logger.info("[autocomplete] could not read input after short query: %s", exc)
+    time.sleep(random.uniform(0.8, 1.6))
+    if wait_and_click_option(search_key, player_name):
+        logger.info("[autocomplete] selected by short query: %s", search_key)
+        return True
 
-    human_sleep(1.5, 3.0, "wait for autocomplete dropdown")
+    logger.info("[autocomplete] typing full query=%s", search_key)
+    type_like_human(page, search_input, search_key)
+    try:
+        logger.info("[autocomplete] input value after full query=%s", search_input.input_value())
+    except Exception as exc:
+        logger.info("[autocomplete] could not read input after full query: %s", exc)
+    time.sleep(random.uniform(0.8, 1.8))
+    if wait_and_click_option(search_key, player_name):
+        logger.info("[autocomplete] selected by full query: %s", search_key)
+        return True
 
-    dropdown_selectors = [
-        "ul.autocomplete-list li", "ul.typeahead li",
-        "div.autocomplete-list li", "div.typeahead li",
-        "ul.dropdown-menu li a", ".ui-autocomplete li",
-        "[role='listbox'] li", "[role='option']",
-        "ul.list-group li", "div.list-group-item",
-        "ul li.dropdown-item",
-    ]
-    option_handle = None
-    for sel in dropdown_selectors:
-        try:
-            opts = page.locator(sel)
-            if opts.count() > 0:
-                option_handle = opts.first
-                break
-        except Exception:
-            continue
-
-    if not option_handle:
-        logger.warning("[autocomplete] 未找到下拉选项")
-        return False
-
-    matched = False
-    for _ in range(5):
-        try:
-            all_opts = page.locator(
-                "ul.autocomplete-list li, ul.typeahead li, "
-                "[role='listbox'] li, [role='option']"
-            ).all()
-            for opt in all_opts:
-                txt = (opt.inner_text() or "").strip()
-                if player_name.upper() in txt.upper() and country_code.upper() in txt.upper():
-                    try:
-                        data_val = opt.get_attribute("data-value")
-                        if data_val:
-                            opt.click()
-                            matched = True
-                            logger.info("[autocomplete] 点击 data-value: %s", data_val)
-                            break
-                    except Exception:
-                        pass
-                    try:
-                        opt.click()
-                        matched = True
-                        break
-                    except Exception:
-                        pass
-                if matched:
-                    break
-            if matched:
-                break
-        except Exception:
-            pass
-
-        try:
-            first_opt = page.locator("ul.autocomplete-list li, ul.typeahead li").first
-            if first_opt.count() > 0:
-                first_opt.click()
-                matched = True
-                logger.info("[autocomplete] 兜底点击第一个选项")
-                break
-        except Exception:
-            pass
-
-        human_sleep(0.5, 1.0, "retry autocomplete")
-
-    if not matched:
-        logger.warning("[autocomplete] 未能匹配到球员选项")
-        return False
-
-    human_sleep(0.5, 1.2, "after autocomplete selection")
-    return True
+    logger.warning("[autocomplete] option not selected: %s", search_key)
+    return False
 
 
 def select_and_load_player_events(
