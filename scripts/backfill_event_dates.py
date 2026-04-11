@@ -24,7 +24,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Optional
 
-from lib.anti_bot import DelayConfig, human_sleep, type_like_human
+from lib.anti_bot import DelayConfig, human_sleep, move_mouse_to_locator, type_like_human
 from lib.page_ops import guarded_goto
 
 BASE_URL = "https://results.ittf.link"
@@ -147,20 +147,33 @@ def event_key(event: dict) -> str:
 # ── 球员搜索 + autocomplete ──────────────────────────────────────────────────
 
 def click_go(page: Any) -> bool:
-    """点击 Go / Submit 按钮。"""
-    selectors = [
-        "button[type='submit']", "input[type='submit']",
-        ".btn-primary", "button:has-text('Go')", "button:has-text('Search')",
-        "form button[type='submit']",
+    """点击 Go / Submit 按钮，与 scrape_matches.py 一致。"""
+    candidates = [
+        "button:has-text('Go')",
+        "input[type='button'][value='Go'][name='filter']",
+        "input[type='button'][value='Go']",
+        "input[type='submit'][value='Go']",
+        "button[type='submit']",
     ]
-    for sel in selectors:
+    for sel in candidates:
+        loc = page.locator(sel).first
         try:
-            btn = page.locator(sel).first
-            if btn.count() > 0 and btn.is_visible():
-                btn.click()
+            if loc.count() > 0 and loc.is_visible():
+                move_mouse_to_locator(page, loc)
                 return True
         except Exception:
             continue
+    try:
+        btn_values = []
+        for el in page.query_selector_all("input[type='button'], input[type='submit'], button"):
+            val = (el.get_attribute("value") or el.inner_text() or "").strip()
+            cls = (el.get_attribute("class") or "").strip()
+            name = (el.get_attribute("name") or "").strip()
+            if val:
+                btn_values.append({"value": val, "name": name, "class": cls[:80]})
+        logger.warning("Go button candidates on page: %s", btn_values[:20])
+    except Exception:
+        pass
     return False
 
 
@@ -176,6 +189,7 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
         page.locator("input[type='text'][id*='player']"),
         page.locator("input.autocomplete-input"),
         page.locator("input.form-control[type='text']"),
+        page.locator("input[type='text']").first,  # 与 scrape_matches.py 一致的兜底选择器
     ]
     input_handle = None
     for loc in input_locators:
