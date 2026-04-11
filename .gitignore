@@ -8,4 +8,7 @@ web/db/*.sqlite-shm
 web/db/*.sqlite-wal
 data/checkpoints/
 data/session/
+scripts/.*
 .env
+.vscode
+.claude
