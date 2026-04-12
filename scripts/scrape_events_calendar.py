@@ -28,7 +28,7 @@ from lib.browser_session import ensure_logged_in
 from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep
 from lib.page_ops import guarded_goto
-from lib.translator import translate_text
+from lib.translator import Translator, Category
 
 logging.basicConfig(
     level=logging.INFO,
@@ -232,23 +232,47 @@ def _extract_date_from_text(text: str) -> str:
 
 # ── 翻译处理 ────────────────────────────────────────────────────────────────
 
+# 初始化翻译器（全局实例）
+_translator: Translator | None = None
+
+
+def _get_translator(dry_run: bool = True) -> Translator:
+    """获取或创建翻译器实例"""
+    global _translator
+    if _translator is None:
+        _translator = Translator(auto_save=True)
+    return _translator
+
+
 def translate_event(event: dict[str, Any], dry_run: bool = True) -> dict[str, Any]:
     """翻译单个赛事信息"""
     translated = event.copy()
+    translator = _get_translator(dry_run)
 
     # 翻译赛事名称
     if event.get("name"):
-        result = translate_text(event["name"], dry_run=dry_run)
-        translated["name_zh"] = result.get("text", event["name"])
-        translated["name_translation_method"] = result.get("method", "unknown")
+        if dry_run:
+            # dry-run: 只查词典，不调用 API
+            result = translator.translate(event["name"], category="events", use_api=False)
+            translated["name_zh"] = result
+            translated["name_translation_method"] = "dict" if result != event["name"] else "skipped"
+        else:
+            result = translator.translate(event["name"], category="events", use_api=True)
+            translated["name_zh"] = result
+            translated["name_translation_method"] = "api" if result != event["name"] else "unchanged"
 
     # 翻译地点
     if event.get("location"):
-        result = translate_text(event["location"], dry_run=dry_run)
-        translated["location_zh"] = result.get("text", event["location"])
-        translated["location_translation_method"] = result.get("method", "unknown")
+        if dry_run:
+            result = translator.translate(event["location"], category="others", use_api=False)
+            translated["location_zh"] = result
+            translated["location_translation_method"] = "dict" if result != event["location"] else "skipped"
+        else:
+            result = translator.translate(event["location"], category="others", use_api=True)
+            translated["location_zh"] = result
+            translated["location_translation_method"] = "api" if result != event["location"] else "unchanged"
 
-    # 日期通常不需要翻译，但可以标准化格式
+    # 日期标准化
     if event.get("date"):
         translated["date_standardized"] = _standardize_date(event["date"])
 
