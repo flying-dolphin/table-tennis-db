@@ -446,11 +446,24 @@ def scrape_events_calendar(
         logger.info("Parsed %s events from page", len(events))
 
         if not events:
-            logger.warning("No events found on page, saving raw result anyway")
+            logger.error("No events found on page, treating as failure")
             # 保存原始页面内容供调试
             body_text = page.inner_text("body")
             result_data["raw_page_preview"] = body_text[:2000]
             result_data["error"] = "No events parsed from page"
+
+            # 关闭浏览器
+            if via_cdp:
+                page.close()
+            else:
+                browser.close()
+
+            # 不标记 checkpoint 也不保存文件（避免覆盖有效数据）
+            return {
+                "success": False,
+                "error": "No events parsed from page",
+                "data": result_data,
+            }
         else:
             result_data["events"] = events
 
