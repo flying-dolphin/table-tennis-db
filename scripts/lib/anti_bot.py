@@ -8,6 +8,7 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+# 风控页面检测关键词（页面被拦截/验证时才会出现）
 RISK_PATTERNS = [
     "captcha",
     "verify you are human",
@@ -16,7 +17,7 @@ RISK_PATTERNS = [
     "forbidden",
     "temporarily blocked",
     "security check",
-    "cloudflare",
+    "blocked",
 ]
 
 
@@ -45,12 +46,29 @@ def detect_risk(page: Any) -> str | None:
 
     try:
         body_text = page.inner_text("body").lower()
+        title = page.title().lower()
     except Exception:
         body_text = ""
+        title = ""
 
+    # 1. 通用风控关键词检测
     for pattern in RISK_PATTERNS:
-        if pattern in body_text:
+        if pattern in body_text or pattern in title:
             return f"risk text detected: {pattern}"
+
+    # 2. Cloudflare 挑战页面检测（更精确）
+    # 只有当同时包含 "cloudflare" 和挑战页面特征时才认为是风控
+    if "cloudflare" in body_text or "cloudflare" in title:
+        risk_indicators = [
+            "just a moment",
+            "checking your browser",
+            "please wait",
+            "challenge",
+            "cf-challenge",
+        ]
+        if any(ind in body_text or ind in title for ind in risk_indicators):
+            return "risk text detected: cloudflare challenge"
+
     return None
 
 

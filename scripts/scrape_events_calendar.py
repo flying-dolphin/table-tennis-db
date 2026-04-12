@@ -361,7 +361,8 @@ def scrape_events_calendar(
 
     # 确保输出目录存在
     output_dir.mkdir(parents=True, exist_ok=True)
-    output_file = output_dir / f"events_calendar_{year}.json"
+    raw_output_file = output_dir / f"events_calendar_{year}.json"
+    translated_output_file = output_dir / f"events_calendar_{year}_cn.json"
     checkpoint_file = output_dir / f"checkpoint_{year}.json"
 
     checkpoint = CheckpointStore(checkpoint_file)
@@ -370,16 +371,17 @@ def scrape_events_calendar(
     # 检查是否已完成。仅在不需要补翻译时复用缓存。
     if checkpoint.is_done(ck_key):
         logger.info("Year %s already scraped, loading from output file", year)
-        if output_file.exists():
-            data = json.loads(output_file.read_text(encoding="utf-8"))
-            needs_translation = (
-                not skip_translate
-                and dry_run_translate is False
-                and data.get("summary", {}).get("with_translation", 0) == 0
-            )
-            if not needs_translation:
-                return {"success": True, "data": data, "source": "cache", "output_file": str(output_file)}
-            logger.info("Cached data missing applied translations, will continue to translate and overwrite output")
+        if raw_output_file.exists():
+            # 检查是否需要翻译
+            if not skip_translate and not dry_run_translate:
+                # 检查翻译文件是否存在
+                if translated_output_file.exists():
+                    data = json.loads(translated_output_file.read_text(encoding="utf-8"))
+                    return {"success": True, "data": data, "source": "cache", "output_file": str(translated_output_file)}
+                logger.info("Cached data missing translations, will translate raw data")
+            else:
+                data = json.loads(raw_output_file.read_text(encoding="utf-8"))
+                return {"success": True, "data": data, "source": "cache", "output_file": str(raw_output_file)}
         else:
             logger.warning("Output file not found, will re-scrape")
 
@@ -400,16 +402,8 @@ def scrape_events_calendar(
         max_player_gap_sec=15.0,
     )
 
-    result_data = {
-        "year": year,
-        "url": calendar_url,
-        "scraped_at": utc_now_iso(),
-        "events": [],
-        "summary": {
-            "total": 0,
-            "with_translation": 0,
-        }
-    }
+    scraped_at = utc_now_iso()
+    events: list[dict[str, Any]] = []
 
     with sync_playwright() as p:
         # 优先 CDP 连接已有 Chrome
@@ -468,8 +462,6 @@ def scrape_events_calendar(
             logger.error("No events found on page, treating as failure")
             # 保存原始页面内容供调试
             body_text = page.inner_text("body")
-            result_data["raw_page_preview"] = body_text[:2000]
-            result_data["error"] = "No events parsed from page"
 
             # 关闭浏览器
             if via_cdp:
@@ -477,21 +469,20 @@ def scrape_events_calendar(
             else:
                 browser.close()
 
+            error_data = {
+                "year": year,
+                "url": calendar_url,
+                "scraped_at": scraped_at,
+                "error": "No events parsed from page",
+                "raw_page_preview": body_text[:2000],
+            }
+
             # 不标记 checkpoint 也不保存文件（避免覆盖有效数据）
             return {
                 "success": False,
                 "error": "No events parsed from page",
-                "data": result_data,
+                "data": error_data,
             }
-        else:
-            result_data["events"] = events
-
-            # 翻译
-            if not skip_translate:
-                logger.info("Translating events (dry_run=%s)...", dry_run_translate)
-                translated_events = translate_all_events(events, dry_run=dry_run_translate)
-                result_data["events"] = translated_events
-                result_data["summary"]["with_translation"] = len(translated_events)
 
         result_data["summary"]["total"] = len(events)
 
@@ -501,12 +492,53 @@ def scrape_events_calendar(
         else:
             browser.close()
 
-    # 保存结果
-    output_file.write_text(
-        json.dumps(result_data, ensure_ascii=False, indent=2),
+    # 先保存原始抓取结果（无翻译）
+    raw_result_data = {
+        "year": year,
+        "url": calendar_url,
+        "scraped_at": scraped_at,
+        "events": events,  # 原始事件数据
+        "summary": {
+            "total": len(events),
+        }
+    }
+    raw_output_file.write_text(
+        json.dumps(raw_result_data, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
-    logger.info("Saved to %s", output_file)
+    logger.info("原始数据已保存: %s", raw_output_file)
+
+    # 翻译（如果启用）
+    result_data = raw_result_data.copy()
+    translated_file_path = None
+    if not skip_translate and events:
+        logger.info("开始翻译 (dry_run=%s)...", dry_run_translate)
+        translated_events = translate_all_events(events, dry_run=dry_run_translate)
+        
+        translated_result_data = {
+            "year": year,
+            "url": calendar_url,
+            "scraped_at": scraped_at,
+            "translated_at": utc_now_iso(),
+            "events": translated_events,
+            "summary": {
+                "total": len(events),
+                "with_translation": len(translated_events),
+            }
+        }
+        
+        # 保存翻译结果到单独的文件
+        if not dry_run_translate:
+            translated_output_file.write_text(
+                json.dumps(translated_result_data, ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+            logger.info("翻译数据已保存: %s", translated_output_file)
+            translated_file_path = str(translated_output_file)
+            result_data = translated_result_data
+        else:
+            # dry-run 模式下，使用包含翻译标记的结果
+            result_data = translated_result_data
 
     # 标记完成
     checkpoint.mark_done(ck_key)
@@ -514,7 +546,9 @@ def scrape_events_calendar(
     return {
         "success": True,
         "data": result_data,
-        "output_file": str(output_file),
+        "output_file": translated_file_path if translated_file_path else str(raw_output_file),
+        "raw_file": str(raw_output_file),
+        "translated_file": translated_file_path,
     }
 
 

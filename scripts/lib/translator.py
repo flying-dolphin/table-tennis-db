@@ -224,6 +224,12 @@ class LLMTranslator:
     ) -> str | None:
         """使用MiniMax API翻译"""
         
+        if not self.api_key:
+            logger.error("MiniMax API Key 未配置")
+            return None
+        
+        logger.info(f"开始使用 MiniMax API 翻译: {text}")
+        
         # 根据分类构建不同的提示词
         category_prompts = {
             "players": """请将以下乒乓球运动员的英文名翻译成中文人名。
@@ -250,8 +256,8 @@ class LLMTranslator:
 3. 只返回中文，不要解释""",
             "others": """请将以下内容翻译成中文。
 要求：
-1. 如果是人名，使用标准中文译名
-2. 如果是术语，保持专业性
+1. 如果是人名，使用标准中文译名。如果是国家简拼，使用标准中文国家名称
+2. 如果是乒乓球术语，保持专业性
 3. 只返回中文翻译，不要解释"""
         }
         
@@ -265,17 +271,21 @@ class LLMTranslator:
         try:
             import urllib.request
             
+            # MiniMax 标准 API 端点（不需要 bot_setting）
+            # chatcompletion_pro 需要 bot_setting 参数，是 Agent 平台专用
+            api_url = 'https://api.minimax.chat/v1/text/chatcompletion_v2'
+            
             data = json.dumps({
-                "model": "MiniMax-Text-01",
+                "model": "MiniMax-M2.7",
                 "messages": [
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
-                "temperature": 0.1  # 低温度，更确定性的翻译
+                "temperature": 0.1
             }).encode('utf-8')
             
             req = urllib.request.Request(
-                'https://api.minimax.chat/v1/text/chatcompletion_pro',
+                api_url,
                 data=data,
                 headers={
                     'Content-Type': 'application/json',
@@ -285,13 +295,33 @@ class LLMTranslator:
             )
             
             with urllib.request.urlopen(req, timeout=60) as response:
-                result = json.loads(response.read().decode('utf-8'))
-                if 'choices' in result and len(result['choices']) > 0:
-                    translated = result['choices'][0]['message']['content'].strip()
-                    # 清理可能的引号
+                response_body = response.read().decode('utf-8')
+                logger.info(f"MiniMax API 原始响应: {response_body[:500]}")
+                result = json.loads(response_body)
+                
+                # 优先尝试标准 OpenAI 格式 (choices)
+                choices = result.get('choices')
+                if choices and len(choices) > 0:
+                    translated = choices[0]['message']['content'].strip()
                     translated = translated.strip('"\'')
-                    logger.debug(f"API翻译: {text} -> {translated}")
+                    logger.info(f"API翻译成功: {text} -> {translated}")
                     return translated
+                
+                # 备用：MiniMax 特有格式 (reply 字段)
+                reply = result.get('reply', '')
+                if reply:
+                    translated = reply.strip()
+                    translated = translated.strip('"\'')
+                    logger.info(f"API翻译成功(reply): {text} -> {translated}")
+                    return translated
+                
+                # 检查错误信息
+                base_resp = result.get('base_resp', {})
+                status_msg = base_resp.get('status_msg', '')
+                if status_msg:
+                    logger.warning(f"API返回错误: {status_msg}")
+                else:
+                    logger.warning(f"API返回异常结构: {result}")
             
             return None
             
@@ -379,6 +409,7 @@ class Translator:
         # 未命中，调用API
         if use_api:
             api_result = self.llm.translate(text, context, category)
+            logger.info(f"API翻译结果: {text} -> {api_result}")
             if api_result:
                 # 保存到词典
                 if self.auto_save:
@@ -451,6 +482,9 @@ class Translator:
             if len(content) > max_length:
                 logger.warning(f"文档较长({len(content)}字符)，将分段翻译")
             
+            # MiniMax 标准 API 端点
+            api_url = 'https://api.minimax.chat/v1/text/chatcompletion_v2'
+            
             data = json.dumps({
                 "model": "MiniMax-Text-01",
                 "messages": [
@@ -461,7 +495,7 @@ class Translator:
             }).encode('utf-8')
             
             req = urllib.request.Request(
-                'https://api.minimax.chat/v1/text/chatcompletion_pro',
+                api_url,
                 data=data,
                 headers={
                     'Content-Type': 'application/json',
@@ -472,8 +506,16 @@ class Translator:
             
             with urllib.request.urlopen(req, timeout=120) as response:
                 result = json.loads(response.read().decode('utf-8'))
-                if 'choices' in result and len(result['choices']) > 0:
-                    return result['choices'][0]['message']['content'].strip()
+                
+                # 优先尝试标准 OpenAI 格式
+                choices = result.get('choices')
+                if choices and len(choices) > 0:
+                    return choices[0]['message']['content'].strip()
+                
+                # 备用：MiniMax 特有格式
+                reply = result.get('reply', '')
+                if reply:
+                    return reply.strip()
             
             return content
             
