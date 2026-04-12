@@ -7,6 +7,7 @@
 - 优先查词典，未命中则调用LLM API翻译
 - 自动将新翻译结果保存到词典
 - 支持批量翻译和缓存
+- 分词查词典 + 批量API翻译合并，减少API调用
 
 支持的API：
 - MiniMax（默认）
@@ -14,15 +15,15 @@
 
 使用方法：
     from lib.translator import Translator
-    
+
     translator = Translator(api_key="your_key")
-    
+
     # 单条翻译
     cn_name = translator.translate("Zhang Jike", category="players")
-    
-    # 批量翻译
+
+    # 批量翻译（分词查词典 + 批量API）
     results = translator.translate_batch(
-        ["Ma Long", "Fan Zhendong"], 
+        ["Ma Long", "Fan Zhendong"],
         category="players"
     )
 """
@@ -31,7 +32,9 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import logging
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Literal
@@ -54,12 +57,12 @@ Category = Literal["players", "terms", "events", "countries", "others"]
 
 class TranslationDict:
     """翻译词典管理器"""
-    
+
     def __init__(self, dict_path: Path | str | None = None):
         self.dict_path = Path(dict_path) if dict_path else DEFAULT_DICT_PATH
         self._data: dict = {}
         self._load()
-    
+
     def _load(self) -> None:
         """加载词典文件"""
         if self.dict_path.exists():
@@ -73,7 +76,7 @@ class TranslationDict:
         else:
             self._data = self._init_empty_dict()
             self._save()  # 创建空词典文件
-    
+
     def _save(self) -> None:
         """保存词典到文件"""
         try:
@@ -83,7 +86,7 @@ class TranslationDict:
             logger.debug(f"词典已保存: {self.dict_path}")
         except Exception as e:
             logger.error(f"保存词典失败: {e}")
-    
+
     def _init_empty_dict(self) -> dict:
         """初始化空词典结构"""
         return {
@@ -99,45 +102,45 @@ class TranslationDict:
             "countries": {},    # 国家/地区
             "others": {}        # 其他词汇
         }
-    
+
     def lookup(self, text: str, category: Category | None = None) -> str | None:
         """
         查询词典
-        
+
         Args:
             text: 要查询的英文文本
             category: 指定分类查询，None则查询所有分类
-            
+
         Returns:
             中文翻译或None（未命中）
         """
         text_normalized = text.strip().lower()
-        
+
         if category:
             if category not in self._data:
                 return None
             entry = self._data[category].get(text_normalized)
             return entry["translated"] if entry else None
-        
+
         # 查询所有分类
         for cat in ["players", "terms", "events", "countries", "others"]:
             if cat in self._data:
                 entry = self._data[cat].get(text_normalized)
                 if entry:
                     return entry["translated"]
-        
+
         return None
-    
+
     def add(
-        self, 
-        original: str, 
-        translated: str, 
+        self,
+        original: str,
+        translated: str,
         category: Category = "others",
         source: str = "api"
     ) -> None:
         """
         添加新词条到词典
-        
+
         Args:
             original: 原文
             translated: 译文
@@ -146,24 +149,58 @@ class TranslationDict:
         """
         if category not in self._data:
             category = "others"
-        
+
         original_normalized = original.strip().lower()
-        
+
         self._data[category][original_normalized] = {
             "original": original.strip(),
             "translated": translated.strip(),
             "source": source,
             "updated_at": datetime.now().isoformat()
         }
-        
+
         # 更新元数据
         total = sum(len(self._data[cat]) for cat in ["players", "terms", "events", "countries", "others"])
         self._data["metadata"]["updated_at"] = datetime.now().isoformat()
         self._data["metadata"]["total_entries"] = total
-        
+
         self._save()
         logger.debug(f"已添加词条 [{category}]: {original} -> {translated}")
-    
+
+    def add_many(
+        self,
+        entries: list[tuple[str, str, Category]],
+        source: str = "api"
+    ) -> None:
+        """
+        批量添加词条到词典（单次保存）
+
+        Args:
+            entries: [(原文, 译文, 分类), ...]
+            source: 翻译来源
+        """
+        for original, translated, category in entries:
+            if category not in self._data:
+                self._data[category] = {}
+
+            original_normalized = original.strip().lower()
+            # 已有词条不覆盖（保持原有来源优先级）
+            if original_normalized not in self._data[category]:
+                self._data[category][original_normalized] = {
+                    "original": original.strip(),
+                    "translated": translated.strip(),
+                    "source": source,
+                    "updated_at": datetime.now().isoformat()
+                }
+
+        # 更新元数据
+        total = sum(len(self._data[cat]) for cat in ["players", "terms", "events", "countries", "others"])
+        self._data["metadata"]["updated_at"] = datetime.now().isoformat()
+        self._data["metadata"]["total_entries"] = total
+
+        self._save()
+        logger.debug(f"批量添加 {len(entries)} 个词条")
+
     def get_stats(self) -> dict:
         """获取词典统计信息"""
         return {
@@ -178,58 +215,82 @@ class TranslationDict:
 
 class LLMTranslator:
     """LLM API 翻译器
-    
+
     API Key 优先级：
     1. 传入的参数 api_key
     2. 环境变量 MINIMAX_API_KEY（从 .env 文件自动加载）
     """
-    
+
     def __init__(self, api_key: str | None = None, provider: str = "minimax"):
         # 优先级：传入参数 > 环境变量（从 .env 加载）
         self.api_key = api_key or os.environ.get("MINIMAX_API_KEY")
         self.provider = provider.lower()
-    
+
     def translate(
-        self, 
-        text: str, 
+        self,
+        text: str,
         context: str | None = None,
         category: Category = "others"
     ) -> str | None:
         """
-        使用LLM API翻译
-        
+        使用LLM API翻译单条文本
+
         Args:
             text: 要翻译的文本
             context: 上下文信息（帮助翻译更准确）
             category: 文本分类
-            
+
         Returns:
             翻译结果或None（失败）
         """
         if not self.api_key:
             logger.warning("未配置API Key，跳过API翻译")
             return None
-        
+
         if self.provider == "minimax":
             return self._translate_minimax(text, context, category)
         else:
             logger.error(f"不支持的翻译提供商: {self.provider}")
             return None
-    
+
+    def translate_batch_raw(
+        self,
+        texts: list[str],
+        category: Category = "others"
+    ) -> dict[str, str] | None:
+        """
+        批量调用 LLM API 翻译多条文本（原始结果，不查词典）
+
+        Args:
+            texts: 要翻译的文本列表
+            category: 文本分类
+
+        Returns:
+            dict: {原文: 译文}，如果失败返回 None
+        """
+        if not texts:
+            return {}
+
+        if not self.api_key:
+            logger.error("未配置 MiniMax API Key")
+            return None
+
+        return self._translate_minimax_batch(texts, category)
+
     def _translate_minimax(
-        self, 
-        text: str, 
+        self,
+        text: str,
         context: str | None,
         category: Category
     ) -> str | None:
-        """使用MiniMax API翻译"""
-        
+        """使用MiniMax API翻译单条"""
+
         if not self.api_key:
             logger.error("MiniMax API Key 未配置")
             return None
-        
-        logger.info(f"开始使用 MiniMax API 翻译: {text}")
-        
+
+        logger.debug(f"开始使用 MiniMax API 翻译: {text}")
+
         # 根据分类构建不同的提示词
         category_prompts = {
             "players": """请将以下乒乓球运动员的英文名翻译成中文人名。
@@ -260,21 +321,19 @@ class LLMTranslator:
 2. 如果是乒乓球术语，保持专业性
 3. 只返回中文翻译，不要解释"""
         }
-        
+
         system_prompt = category_prompts.get(category, category_prompts["others"])
-        
+
         if context:
             user_prompt = f"上下文：{context}\n\n待翻译内容：{text}"
         else:
             user_prompt = f"待翻译内容：{text}"
-        
+
         try:
             import urllib.request
-            
-            # MiniMax 标准 API 端点（不需要 bot_setting）
-            # chatcompletion_pro 需要 bot_setting 参数，是 Agent 平台专用
+
             api_url = 'https://api.minimax.chat/v1/text/chatcompletion_v2'
-            
+
             data = json.dumps({
                 "model": "MiniMax-M2.7",
                 "messages": [
@@ -283,7 +342,7 @@ class LLMTranslator:
                 ],
                 "temperature": 0.1
             }).encode('utf-8')
-            
+
             req = urllib.request.Request(
                 api_url,
                 data=data,
@@ -293,28 +352,27 @@ class LLMTranslator:
                 },
                 method='POST'
             )
-            
+
             with urllib.request.urlopen(req, timeout=60) as response:
                 response_body = response.read().decode('utf-8')
-                logger.info(f"MiniMax API 原始响应: {response_body[:500]}")
                 result = json.loads(response_body)
-                
+
                 # 优先尝试标准 OpenAI 格式 (choices)
                 choices = result.get('choices')
                 if choices and len(choices) > 0:
                     translated = choices[0]['message']['content'].strip()
                     translated = translated.strip('"\'')
-                    logger.info(f"API翻译成功: {text} -> {translated}")
+                    logger.debug(f"API翻译成功: {text} -> {translated}")
                     return translated
-                
+
                 # 备用：MiniMax 特有格式 (reply 字段)
                 reply = result.get('reply', '')
                 if reply:
                     translated = reply.strip()
                     translated = translated.strip('"\'')
-                    logger.info(f"API翻译成功(reply): {text} -> {translated}")
+                    logger.debug(f"API翻译成功(reply): {text} -> {translated}")
                     return translated
-                
+
                 # 检查错误信息
                 base_resp = result.get('base_resp', {})
                 status_msg = base_resp.get('status_msg', '')
@@ -322,34 +380,136 @@ class LLMTranslator:
                     logger.warning(f"API返回错误: {status_msg}")
                 else:
                     logger.warning(f"API返回异常结构: {result}")
-            
+
             return None
-            
+
         except Exception as e:
             logger.error(f"MiniMax API调用失败: {e}")
+            return None
+
+    def _translate_minimax_batch(
+        self,
+        texts: list[str],
+        category: Category
+    ) -> dict[str, str] | None:
+        """
+        批量调用 MiniMax API 翻译多条文本
+
+        Args:
+            texts: 要翻译的文本列表
+            category: 文本分类
+
+        Returns:
+            dict: {原文: 译文}，如果失败返回 None
+        """
+        if not texts:
+            return {}
+
+        if not self.api_key:
+            logger.error("未配置 MiniMax API Key")
+            return None
+
+        # 构建批量翻译的 prompt
+        items_text = "\n".join(texts)
+
+        system_prompt = """你是一个专业的乒乓球赛事翻译助手。
+请将以下英文赛事名称翻译成中文。
+每行一个，格式必须严格为：原文|译文
+不要添加任何解释、序号或其他内容。"""
+
+        user_prompt = f"""请翻译以下乒乓球赛事名称：
+
+{items_text}
+
+格式要求：
+1. 每行一个，格式为：原文|译文
+2. 只返回翻译结果，不要任何解释
+3. 保持原文完全一致，不要修改大小写或标点
+4. 赛事名称中的 WTT、World、Championship 等保留英文"""
+
+        try:
+            import urllib.request
+
+            api_url = 'https://api.minimax.chat/v1/text/chatcompletion_v2'
+
+            data = json.dumps({
+                "model": "MiniMax-M2.7",
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                "temperature": 0.1
+            }).encode('utf-8')
+
+            req = urllib.request.Request(
+                api_url,
+                data=data,
+                headers={
+                    'Content-Type': 'application/json',
+                    'Authorization': f'Bearer {self.api_key}'
+                },
+                method='POST'
+            )
+
+            with urllib.request.urlopen(req, timeout=120) as response:
+                response_body = response.read().decode('utf-8')
+                logger.debug(f"API 原始响应: {response_body[:500]}")
+
+                result = json.loads(response_body)
+
+                # 优先尝试标准 OpenAI 格式
+                choices = result.get('choices')
+                if choices and len(choices) > 0:
+                    reply = choices[0]['message']['content'].strip()
+                else:
+                    # 备用：MiniMax 特有格式
+                    reply = result.get('reply', '')
+
+                if not reply:
+                    logger.warning(f"API 返回为空, choices={choices}, result_keys={list(result.keys())}")
+                    return None
+
+                # 解析返回的翻译结果
+                # 格式：原文|译文
+                translations = {}
+                for line in reply.splitlines():
+                    line = line.strip()
+                    if '|' in line:
+                        parts = line.split('|', 1)
+                        if len(parts) == 2:
+                            original = parts[0].strip()
+                            translated = parts[1].strip()
+                            if original and translated:
+                                translations[original] = translated
+
+                logger.info(f"批量翻译成功: 提交 {len(texts)} 条，解析出 {len(translations)} 条")
+                return translations
+
+        except Exception as e:
+            logger.error(f"批量翻译 API 调用失败: {e}")
             return None
 
 
 class Translator:
     """
     通用翻译器（词典 + API）
-    
+
     使用示例：
         translator = Translator(api_key="your_key")
-        
+
         # 翻译运动员名
         cn_name = translator.translate("Ma Long", category="players")
-        
+
         # 翻译术语
         term = translator.translate("Round of 16", category="terms")
-        
-        # 批量翻译（带缓存）
+
+        # 批量翻译（分词查词典 + 批量API，节省token）
         names = ["Fan Zhendong", "Sun Yingsha", "Wang Chuqin"]
         results = translator.translate_batch(names, category="players")
     """
-    
+
     def __init__(
-        self, 
+        self,
         api_key: str | None = None,
         dict_path: Path | str | None = None,
         provider: str = "minimax",
@@ -357,7 +517,7 @@ class Translator:
     ):
         """
         初始化翻译器
-        
+
         Args:
             api_key: LLM API密钥（默认从MINIMAX_API_KEY环境变量读取）
             dict_path: 词典文件路径
@@ -368,94 +528,262 @@ class Translator:
         self.llm = LLMTranslator(api_key, provider)
         self.auto_save = auto_save
         self._cache: dict[str, str] = {}  # 运行时缓存
-    
+
     def translate(
-        self, 
-        text: str, 
+        self,
+        text: str,
         category: Category = "others",
         context: str | None = None,
         use_api: bool = True
     ) -> str:
         """
         翻译单个文本
-        
+
         Args:
             text: 要翻译的原文
             category: 文本分类（players/terms/events/countries/others）
             context: 上下文信息，帮助API更准确翻译
             use_api: 词典未命中时是否调用API
-            
+
         Returns:
             中文翻译（如果失败则返回原文）
         """
         if not text or not isinstance(text, str):
             return text
-        
+
         text = text.strip()
         if not text:
             return text
-        
+
         # 检查运行时缓存
         cache_key = f"{category}:{text.lower()}"
         if cache_key in self._cache:
             return self._cache[cache_key]
-        
+
         # 检查词典
         result = self.dictionary.lookup(text, category)
         if result:
             self._cache[cache_key] = result
             return result
-        
+
         # 未命中，调用API
         if use_api:
             api_result = self.llm.translate(text, context, category)
-            logger.info(f"API翻译结果: {text} -> {api_result}")
             if api_result:
                 # 保存到词典
                 if self.auto_save:
                     self.dictionary.add(text, api_result, category, source="api")
                 self._cache[cache_key] = api_result
                 return api_result
-        
+
         # 翻译失败，返回原文
         return text
-    
+
+    def _word_lookup(self, text: str, category: Category) -> tuple[dict[str, str], list[str], list[str]]:
+        """
+        分词查词典
+
+        Args:
+            text: 原文
+            category: 分类
+
+        Returns:
+            (known_dict, known_words, unknown_words)
+            known_dict: {原词: 译文}
+            known_words: 原词列表（已有翻译）
+            unknown_words: 原词列表（无翻译）
+        """
+        words = text.strip().split()
+        known_dict = {}
+        known_words = []
+        unknown_words = []
+
+        for w in words:
+            w_lower = w.strip().lower()
+            if not w_lower:
+                continue
+            translation = self.dictionary.lookup(w, category)
+            if translation:
+                known_dict[w_lower] = translation
+                known_words.append(w)
+            else:
+                unknown_words.append(w)
+
+        return known_dict, known_words, unknown_words
+
     def translate_batch(
-        self, 
-        texts: list[str], 
+        self,
+        texts: list[str],
         category: Category = "others",
         context: str | None = None,
         use_api: bool = True
     ) -> dict[str, str]:
         """
-        批量翻译
-        
+        批量翻译（分词查词典 + 批量API）
+
+        流程：
+        1. 对每条文本按空格分词，逐个查词典
+        2. 收集所有未知词（单词）和完整文本分开处理：
+           - 单词：批量API翻译 → 存入 new_word_translations → 存入词典
+           - 完整文本：批量API翻译 → 存入 full_text_results
+        3. 组装时优先用完整文本翻译，单词翻译作为降级
+        4. 完整文本翻译结果存入词典
+
         Args:
             texts: 要翻译的文本列表
             category: 文本分类
-            context: 上下文信息
+            context: 上下文信息（帮助翻译更准确）
             use_api: 是否使用API翻译未命中的词条
-            
+
         Returns:
             dict: {原文: 译文}
         """
         results = {}
+
+        # 快速路径：全部文本已在缓存/词典中
+        cache_hits = {}
+        texts_to_api = []
+
         for text in texts:
-            results[text] = self.translate(text, category, context, use_api)
+            text = text.strip()
+            if not text:
+                results[text] = ""
+                continue
+
+            cache_key = f"{category}:{text.lower()}"
+            if cache_key in self._cache:
+                cache_hits[text] = self._cache[cache_key]
+                continue
+
+            dict_result = self.dictionary.lookup(text, category)
+            if dict_result:
+                self._cache[cache_key] = dict_result
+                cache_hits[text] = dict_result
+                continue
+
+            texts_to_api.append(text)
+
+        # 全部命中缓存/词典
+        if not texts_to_api:
+            results.update(cache_hits)
+            logger.info(f"批量翻译: 全部 {len(cache_hits)} 条命中缓存/词典")
+            return results
+
+        logger.info(f"批量翻译: 命中 {len(cache_hits)}/{len(texts)} 条，API翻译 {len(texts_to_api)} 条")
+
+        # ---- 分词查词典 + 批量API ----
+        # 区分：单词（1个词）vs 完整文本（多个词）
+        single_words: list[str] = []      # 未知单词，逐个调API
+        multi_texts: list[str] = []       # 多词文本，批量调API
+        texts_word_info: dict[str, tuple[dict[str, str], list[str], list[str]]] = {}
+
+        for text in texts_to_api:
+            known_dict, known_words, unknown_words = self._word_lookup(text, category)
+            texts_word_info[text] = (known_dict, known_words, unknown_words)
+
+            if len(text.split()) == 1:
+                # 单词，单独调API
+                single_words.append(text)
+            else:
+                multi_texts.append(text)
+
+        logger.info(f"  分词查词典: {len(single_words)} 个单词 + {len(multi_texts)} 个多词文本")
+
+        # 单词批量API翻译 → new_word_translations
+        new_word_translations: dict[str, str] = {}
+        if single_words and use_api:
+            word_batch = self.llm.translate_batch_raw(single_words, category)
+            if word_batch:
+                new_word_translations.update(word_batch)
+                # 新单词存入词典
+                new_entries = [
+                    (w, new_word_translations[w], category)
+                    for w in single_words
+                    if w in new_word_translations
+                ]
+                if new_entries and self.auto_save:
+                    self.dictionary.add_many(new_entries, source="api")
+                logger.info(f"  单词翻译: {len(new_word_translations)}/{len(single_words)} 条有结果")
+            else:
+                logger.warning(f"  单词批量API翻译失败")
+
+        # 多词文本批量API翻译 → full_text_results
+        full_text_results: dict[str, str] = {}
+        if multi_texts and use_api:
+            for i in range(0, len(multi_texts), 20):
+                batch = multi_texts[i:i + 20]
+                batch_result = self.llm.translate_batch_raw(batch, category)
+                if batch_result:
+                    full_text_results.update(batch_result)
+                else:
+                    # 降级：逐条翻译
+                    for text in batch:
+                        single = self.llm.translate(text, context, category)
+                        if single:
+                            full_text_results[text] = single
+                time.sleep(0.5)
+            logger.info(f"  完整文本翻译: {len(full_text_results)}/{len(multi_texts)} 条有结果")
+
+        # 组装最终结果
+        new_full_text_entries: list[tuple[str, str, Category]] = []
+
+        for text in texts_to_api:
+            known_dict, known_words, unknown_words = texts_word_info[text]
+            words = text.split()
+
+            if len(words) == 1:
+                # 单词：直接用 API 结果（new_word_translations）
+                if text in new_word_translations:
+                    translated = new_word_translations[text]
+                else:
+                    translated = text
+            elif text in full_text_results:
+                # 多词文本：优先用完整翻译（API 考虑了完整语境，结果最准确）
+                translated = full_text_results[text]
+            elif not unknown_words:
+                # 多词但无未知词 → 全部已知词组合
+                translated = "".join(known_dict.get(w.lower(), w) for w in words)
+            else:
+                # 部分未知词且无完整翻译 → 混用已知词 + 单词翻译（最后降级）
+                translated_parts = []
+                for w in words:
+                    w_lower = w.lower()
+                    if w_lower in known_dict:
+                        translated_parts.append(known_dict[w_lower])
+                    elif w in new_word_translations:
+                        translated_parts.append(new_word_translations[w])
+                    else:
+                        translated_parts.append(w)
+                translated = "".join(translated_parts)
+
+            results[text] = translated
+            cache_key = f"{category}:{text.lower()}"
+            self._cache[cache_key] = translated
+
+            # 完整文本新词条
+            if self.auto_save and translated != text and text not in [kv[0] for kv in new_full_text_entries]:
+                new_full_text_entries.append((text, translated, category))
+
+        # 存完整文本翻译到词典
+        if new_full_text_entries:
+            self.dictionary.add_many(new_full_text_entries, source="api")
+            logger.info(f"  新增完整文本词条: {len(new_full_text_entries)}")
+
+        results.update(cache_hits)
         return results
-    
+
     def translate_document(
-        self, 
+        self,
         content: str,
         doc_type: str = "general"
     ) -> str:
         """
         翻译完整文档（如规则文档）
-        
+
         Args:
             content: 文档内容
             doc_type: 文档类型（general/regulations/match_report）
-            
+
         Returns:
             翻译后的中文文档
         """
@@ -463,7 +791,7 @@ class Translator:
         if not self.llm.api_key:
             logger.warning("未配置API Key，无法翻译文档")
             return content
-        
+
         system_prompt = """你是一个专业的体育文档翻译助手。
 请将以下ITTF相关文档翻译成中文。
 
@@ -476,24 +804,24 @@ class Translator:
 
         try:
             import urllib.request
-            
+
             # 分段处理长文档
             max_length = 6000
             if len(content) > max_length:
                 logger.warning(f"文档较长({len(content)}字符)，将分段翻译")
-            
+
             # MiniMax 标准 API 端点
             api_url = 'https://api.minimax.chat/v1/text/chatcompletion_v2'
-            
+
             data = json.dumps({
-                "model": "MiniMax-Text-01",
+                "model": "MiniMax-M2.7",
                 "messages": [
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": f"请翻译以下内容：\n\n{content[:max_length]}"}
                 ],
                 "temperature": 0.1
             }).encode('utf-8')
-            
+
             req = urllib.request.Request(
                 api_url,
                 data=data,
@@ -503,35 +831,35 @@ class Translator:
                 },
                 method='POST'
             )
-            
+
             with urllib.request.urlopen(req, timeout=120) as response:
                 result = json.loads(response.read().decode('utf-8'))
-                
+
                 # 优先尝试标准 OpenAI 格式
                 choices = result.get('choices')
                 if choices and len(choices) > 0:
                     return choices[0]['message']['content'].strip()
-                
+
                 # 备用：MiniMax 特有格式
                 reply = result.get('reply', '')
                 if reply:
                     return reply.strip()
-            
+
             return content
-            
+
         except Exception as e:
             logger.error(f"文档翻译失败: {e}")
             return content
-    
+
     def add_manual_translation(
-        self, 
-        original: str, 
-        translated: str, 
+        self,
+        original: str,
+        translated: str,
         category: Category = "others"
     ) -> None:
         """
         手动添加翻译词条（用于人工校对后的结果）
-        
+
         Args:
             original: 原文
             translated: 译文
@@ -540,11 +868,11 @@ class Translator:
         self.dictionary.add(original, translated, category, source="manual")
         cache_key = f"{category}:{original.lower()}"
         self._cache[cache_key] = translated
-    
+
     def get_stats(self) -> dict:
         """获取词典统计信息"""
         return self.dictionary.get_stats()
-    
+
     def export_dict(self, output_path: Path | str) -> None:
         """导出词典到指定路径"""
         try:
@@ -559,18 +887,18 @@ class Translator:
 
 # 便捷函数：快速翻译（使用默认配置）
 def quick_translate(
-    text: str, 
+    text: str,
     category: Category = "others",
     api_key: str | None = None
 ) -> str:
     """
     快速翻译函数（使用默认配置）
-    
+
     Args:
         text: 要翻译的文本
         category: 分类
         api_key: API密钥（默认从环境变量读取）
-        
+
     Returns:
         中文翻译
     """
@@ -581,10 +909,10 @@ def quick_translate(
 if __name__ == "__main__":
     # 测试
     logging.basicConfig(level=logging.INFO)
-    
+
     translator = Translator()
     print(f"词典统计: {translator.get_stats()}")
-    
+
     # 测试翻译
     test_names = ["Ma Long", "Fan Zhendong", "Test Player XYZ"]
     for name in test_names:

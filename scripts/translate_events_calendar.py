@@ -32,6 +32,8 @@ from dotenv import load_dotenv
 PROJECT_ROOT = Path(__file__).parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
 
+from lib.translator import Translator
+
 logger = logging.getLogger("translate_events")
 
 DEFAULT_DATA_DIR = Path(__file__).parent.parent / "data" / "events_calendar"
@@ -295,10 +297,8 @@ def translate_events(
     success_count = 0
     unchanged_count = 0
 
-    api_key = os.environ.get("MINIMAX_API_KEY")
-    if not api_key:
-        logger.error("未配置 MiniMax API Key，请检查 .env 文件中的 MINIMAX_API_KEY")
-        return {"success": False, "error": "未配置 MiniMax API Key", "output_file": str(output_file)}
+    # 初始化 Translator（复用词典，支持分词查词典 + 批量API翻译）
+    translator = Translator()
 
     try:
         for batch_idx in range(completed_batches, total_batches):
@@ -320,35 +320,19 @@ def translate_events(
                 if location:
                     locations_to_translate.append(location)
 
-            # 批量翻译名称 - 失败直接报错
+            # 批量翻译名称 - 使用 Translator 分词查词典 + 批量API
             name_translations = {}
             if names_to_translate:
-                logger.info(f"  批量翻译 {len(names_to_translate)} 个赛事名称...")
-                name_result = _call_minimax_batch(names_to_translate, api_key)
-                if name_result is None:
-                    logger.error(f"  ❌ 名称批量翻译 API 调用失败")
-                    return {
-                        "success": False,
-                        "error": "名称批量翻译 API 调用失败",
-                        "output_file": str(output_file),
-                        "partial": True,
-                    }
+                logger.info(f"  批量翻译 {len(names_to_translate)} 个赛事名称（分词查词典）...")
+                name_result = translator.translate_batch(names_to_translate, category="events")
                 name_translations.update(name_result)
                 time.sleep(0.5)
 
-            # 批量翻译地点 - 失败直接报错
+            # 批量翻译地点 - 使用 Translator 分词查词典 + 批量API
             location_translations = {}
             if locations_to_translate:
-                logger.info(f"  批量翻译 {len(locations_to_translate)} 个地点...")
-                location_result = _call_minimax_batch(locations_to_translate, api_key)
-                if location_result is None:
-                    logger.error(f"  ❌ 地点批量翻译 API 调用失败")
-                    return {
-                        "success": False,
-                        "error": "地点批量翻译 API 调用失败",
-                        "output_file": str(output_file),
-                        "partial": True,
-                    }
+                logger.info(f"  批量翻译 {len(locations_to_translate)} 个地点（分词查词典）...")
+                location_result = translator.translate_batch(locations_to_translate, category="countries")
                 location_translations.update(location_result)
                 time.sleep(0.5)
 
@@ -503,6 +487,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> None:
+    # 配置根日志，确保 INFO 级别消息可见
+    logging.basicConfig(level=logging.INFO, format="%(message)s", force=True)
     parser = build_parser()
     args = parser.parse_args()
 
