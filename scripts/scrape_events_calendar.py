@@ -48,27 +48,29 @@ DEFAULT_FROM_YEAR = 2024  # 最早抓取的年份
 # ── 页面解析 ────────────────────────────────────────────────────────────────
 
 def parse_events_calendar(page: Any) -> list[dict[str, Any]]:
+    logger.info("Current page URL during parse: %s", getattr(page, 'url', ''))
     """
     从 ITTF 赛事日历页面解析所有赛事信息。
-    赛事通常以表格或列表形式展示，每行包含：赛事名称、时间、地点。
+
+    当前 ITTF 年度赛历页面的主体内容是一个按月份分组的列表，
+    每条赛事记录通常是一个 li/a 文本节点，格式类似：
+    02-05 Jan: WTT Youth Contender Vadodara 2026 (IND)
     """
     events: list[dict[str, Any]] = []
 
-    # 尝试多种选择器来定位赛事列表
     selectors_to_try = [
-        # 表格形式
+        ".content.page-content li",
+        ".page-content li",
+        ".content li",
+        "main li",
+        "article li",
+        # 保留旧兜底
         "table.events-calendar tbody tr",
         "table tbody tr",
         "table tr",
-        # 列表形式
         ".event-item",
         ".event-row",
         ".calendar-event",
-        "[class*='event']",
-        # 通用容器
-        "main table",
-        "article table",
-        ".content table",
     ]
 
     rows = None
@@ -84,96 +86,38 @@ def parse_events_calendar(page: Any) -> list[dict[str, Any]]:
             continue
 
     if not rows:
-        # 兜底：尝试获取整个页面的文本结构
         logger.warning("No event rows found with standard selectors, trying fallback")
-        body_text = page.inner_text("body")
-        logger.debug("Page body preview: %s", body_text[:500])
-        return events
+        content_text = ""
+        for selector in [".content.page-content", ".page-content", ".content", "body"]:
+            try:
+                content_text = page.locator(selector).first.inner_text()
+                if content_text and content_text.strip():
+                    logger.info("Fallback text source: %s (len=%s)", selector, len(content_text))
+                    break
+            except Exception:
+                continue
+        return _parse_events_from_text(content_text)
 
     for row in rows:
         try:
-            cells = row.locator("td, li, .event-cell").all()
-            if len(cells) < 2:
-                continue
-
-            # 提取每列文本
-            cell_texts = [" ".join((c.inner_text() or "").split()) for c in cells]
-            cell_texts = [t for t in cell_texts if t]  # 过滤空文本
-
-            if not cell_texts:
-                continue
-
-            # 尝试识别赛事名称、时间、地点
-            event_name = ""
-            event_date = ""
-            event_location = ""
-
-            # 常见模式：
-            # 1. 赛事名称 | 日期 | 地点
-            # 2. 日期 | 赛事名称 | 地点
-            # 3. 赛事名称 - 日期 - 地点
-
-            # 尝试从链接中提取赛事名称
-            links = row.locator("a[href*='event']").all()
-            if links:
-                event_name = " ".join((link.inner_text() or "").split() for link in links)
-
-            if not event_name:
-                # 使用第一个非日期的单元格作为赛事名称
-                for cell_text in cell_texts:
-                    if not _is_date_string(cell_text) and not _is_location_string(cell_text):
-                        event_name = cell_text
-                        break
-
-            # 尝试提取日期（包含数字和月份的文本）
-            for cell_text in cell_texts:
-                if _is_date_string(cell_text):
-                    event_date = cell_text
-                    break
-
-            # 尝试提取地点（包含城市名、国家名的文本）
-            for cell_text in cell_texts:
-                if _is_location_string(cell_text):
-                    event_location = cell_text
-                    break
-
-            # 如果日期为空，尝试从赛事名称中提取
-            if not event_date and event_name:
-                date_from_name = _extract_date_from_text(event_name)
-                if date_from_name:
-                    event_date = date_from_name
-
-            # 尝试从 href 中提取赛事slug
-            event_slug = ""
-            if links:
-                href = links[0].get_attribute("href") or ""
-                if "/event/" in href or "/tournament/" in href:
-                    event_slug = href.split("/")[-1].rstrip("/")
-
-            if event_name:
-                events.append({
-                    "name": event_name,
-                    "date": event_date,
-                    "location": event_location,
-                    "slug": event_slug,
-                    "href": links[0].get_attribute("href") if links else "",
-                    "raw_text": " | ".join(cell_texts),
-                })
-                logger.debug("Parsed event: %s | %s | %s", event_name, event_date, event_location)
+            row_text = " ".join((row.inner_text() or "").split())
+            event = _parse_event_line(row_text)
+            if event:
+                links = row.locator("a").all()
+                if links:
+                    link_text = " ".join(" ".join((link.inner_text() or "").split()) for link in links)
+                    if link_text and not event["name"]:
+                        event["name"] = link_text
+                    href = links[0].get_attribute("href") or ""
+                    event["href"] = href
+                    if href and ("/event/" in href or "/tournament/" in href):
+                        event["slug"] = href.split("/")[-1].rstrip("/")
+                events.append(event)
         except Exception as exc:
             logger.debug("Failed to parse row: %s", exc)
             continue
 
-    # 去重
-    seen = set()
-    unique_events = []
-    for event in events:
-        key = event.get("name", "") + event.get("date", "")
-        if key and key not in seen:
-            seen.add(key)
-            unique_events.append(event)
-
-    return unique_events
+    return _dedupe_events(events)
 
 
 def _is_date_string(text: str) -> bool:
@@ -215,19 +159,82 @@ def _is_location_string(text: str) -> bool:
 def _extract_date_from_text(text: str) -> str:
     """从文本中提取日期"""
     import re
-    # 匹配各种日期格式
     patterns = [
-        r"(\w+\s+\d{1,2}\s*-\s*\w+\s+\d{1,2},?\s*\d{4})",  # Jan 15 - Feb 20, 2026
-        r"(\d{1,2}\s+\w+\s*-\s*\d{1,2}\s+\w+\s+\d{4})",  # 15 Jan - 20 Feb 2026
-        r"(\w+\s+\d{1,2},?\s*\d{4})",  # January 15, 2026
-        r"(\d{1,2}\s+\w+\s+\d{4})",  # 15 January 2026
-        r"(\d{4}-\d{2}-\d{2})",  # 2026-01-15
+        r"(\w+\s+\d{1,2}\s*-\s*\w+\s+\d{1,2},?\s*\d{4})",
+        r"(\d{1,2}\s+\w+\s*-\s*\d{1,2}\s+\w+\s+\d{4})",
+        r"(\w+\s+\d{1,2},?\s*\d{4})",
+        r"(\d{1,2}\s+\w+\s+\d{4})",
+        r"(\d{4}-\d{2}-\d{2})",
+        r"(\d{1,2}\s*[\-–]\s*\d{1,2}\s+\w+)",
+        r"(\d{1,2}\s+\w+\s*[\-–]\s*\d{1,2}\s+\w+)",
     ]
     for pattern in patterns:
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
             return match.group(1)
     return ""
+
+
+def _parse_event_line(line: str) -> dict[str, Any] | None:
+    import re
+
+    text = " ".join((line or "").split())
+    if not text:
+        return None
+
+    if text.lower() in {
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december",
+    }:
+        return None
+
+    if text.startswith("Notes:") or text.startswith("STARTS IN"):
+        return None
+
+    match = re.match(
+        r"^(?P<date>.+?):\s*(?P<name>.+?)\s*\((?P<location>[A-Z]{3}|TBD)\)\**\s*(?P<status>.*)$",
+        text,
+    )
+    if not match:
+        return None
+
+    date = match.group("date").strip()
+    name = match.group("name").strip()
+    location = match.group("location").strip()
+    status = match.group("status").strip()
+
+    if date.startswith("Week "):
+        return None
+
+    return {
+        "name": name,
+        "date": date,
+        "location": location,
+        "slug": "",
+        "href": "",
+        "raw_text": text,
+        "status": status,
+    }
+
+
+def _parse_events_from_text(text: str) -> list[dict[str, Any]]:
+    events: list[dict[str, Any]] = []
+    for line in (text or "").splitlines():
+        event = _parse_event_line(line)
+        if event:
+            events.append(event)
+    return _dedupe_events(events)
+
+
+def _dedupe_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    seen = set()
+    unique_events = []
+    for event in events:
+        key = f"{event.get('date', '')}|{event.get('name', '')}|{event.get('location', '')}"
+        if key and key not in seen:
+            seen.add(key)
+            unique_events.append(event)
+    return unique_events
 
 
 # ── 翻译处理 ────────────────────────────────────────────────────────────────
@@ -360,13 +367,21 @@ def scrape_events_calendar(
     checkpoint = CheckpointStore(checkpoint_file)
     ck_key = f"events_calendar_{year}"
 
-    # 检查是否已完成
+    # 检查是否已完成。仅在不需要补翻译时复用缓存。
     if checkpoint.is_done(ck_key):
         logger.info("Year %s already scraped, loading from output file", year)
         if output_file.exists():
             data = json.loads(output_file.read_text(encoding="utf-8"))
-            return {"success": True, "data": data, "source": "cache"}
-        logger.warning("Output file not found, will re-scrape")
+            needs_translation = (
+                not skip_translate
+                and dry_run_translate is False
+                and data.get("summary", {}).get("with_translation", 0) == 0
+            )
+            if not needs_translation:
+                return {"success": True, "data": data, "source": "cache", "output_file": str(output_file)}
+            logger.info("Cached data missing applied translations, will continue to translate and overwrite output")
+        else:
+            logger.warning("Output file not found, will re-scrape")
 
     # 启动浏览器
     try:
@@ -410,15 +425,13 @@ def scrape_events_calendar(
             logger.info("New browser launched (headless=%s)", headless)
 
         page = context.new_page()
+        logger.info("Navigating to %s", calendar_url)
+        page.goto(calendar_url, wait_until="domcontentloaded", timeout=30000)
+        human_sleep(2.0, 4.0, "initial page load")
 
         if via_cdp:
             logger.info("Connected to existing Chrome via CDP")
         else:
-            # 等待用户确认 Cloudflare（如果有）
-            logger.info("Navigating to %s", calendar_url)
-            page.goto(calendar_url, wait_until="domcontentloaded", timeout=30000)
-            human_sleep(2.0, 4.0, "initial page load")
-
             # 检测 Cloudflare 或其他风控
             if _check_cloudflare_challenge(page):
                 logger.warning("Cloudflare challenge detected!")
@@ -440,6 +453,12 @@ def scrape_events_calendar(
             page.wait_for_load_state("domcontentloaded", timeout=15000)
 
         human_sleep(2.0, 5.0, "page settle")
+
+        # 再次等待赛历主体出现，避免在 CDP 连接场景下过早解析
+        try:
+            page.locator(".content.page-content li, .page-content li").first.wait_for(timeout=10000)
+        except Exception:
+            logger.warning("Event list items did not appear before timeout, continuing with fallback parse")
 
         # 解析赛事
         events = parse_events_calendar(page)
