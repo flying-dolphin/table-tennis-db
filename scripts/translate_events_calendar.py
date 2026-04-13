@@ -34,6 +34,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
 
 from lib.translator import Translator
+from validate_events_translation import validate_translation_file
 
 logger = logging.getLogger("translate_events")
 
@@ -387,6 +388,15 @@ def translate_events(
     ):
         logger.info(f"翻译已完成，跳过: {output_file}")
         existing_data = json.loads(output_file.read_text(encoding="utf-8"))
+        validation = validate_translation_file(output_file, input_file)
+        if not validation.get("ok"):
+            return {
+                "success": False,
+                "error": f"已存在翻译文件校验失败: {validation.get('checks', [])}",
+                "data": existing_data,
+                "output_file": str(output_file),
+                "partial": True,
+            }
         return {
             "success": True,
             "data": existing_data,
@@ -545,14 +555,16 @@ def translate_events(
     )
     logger.info(f"翻译完成，已保存: {output_file}")
 
+    validation = validate_translation_file(output_file, input_file)
     all_translated = failed_count == 0 and len(translated_events) == total_events
+    all_translated = all_translated and bool(validation.get("ok"))
 
     return {
         "success": all_translated,
         "data": output_data,
         "output_file": str(output_file),
         "partial": not all_translated,
-        "error": None if all_translated else "仍有未翻译成功的事件",
+        "error": None if all_translated else f"仍有未翻译成功的事件或校验失败: {validation.get('checks', [])}",
         "stats": {
             "total": total_events,
             "translated": success_count,

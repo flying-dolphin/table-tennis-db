@@ -29,6 +29,7 @@ from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep
 from lib.page_ops import guarded_goto
 from lib.translator import Translator, Category
+from validate_events_translation import validate_translation_file
 
 logging.basicConfig(
     level=logging.INFO,
@@ -364,6 +365,7 @@ def scrape_events_calendar(
     cdp_port: int = 9222,
     skip_translate: bool = False,
     dry_run_translate: bool = True,
+    force: bool = False,
 ) -> dict[str, Any]:
     """
     抓取指定年份的 ITTF 赛事日历。
@@ -387,13 +389,16 @@ def scrape_events_calendar(
     output_dir.mkdir(parents=True, exist_ok=True)
     raw_output_file = output_dir / f"events_calendar_{year}.json"
     translated_output_file = output_dir / f"events_calendar_{year}_cn.json"
-    checkpoint_file = output_dir / f"checkpoint_{year}.json"
+    checkpoint_scrape_file = output_dir / f"checkpoint_scrape_{year}.json"
+    checkpoint_translate_file = output_dir / f"checkpoint_translate_{year}.json"
 
-    checkpoint = CheckpointStore(checkpoint_file)
-    ck_key = f"events_calendar_{year}"
+    scrape_checkpoint = CheckpointStore(checkpoint_scrape_file)
+    translate_checkpoint = CheckpointStore(checkpoint_translate_file)
+    ck_scrape_key = f"events_calendar_scrape_{year}"
+    ck_translate_key = f"events_calendar_translate_{year}"
 
     # 检查是否已完成。仅在不需要补翻译时复用缓存。
-    if checkpoint.is_done(ck_key):
+    if not force and scrape_checkpoint.is_done(ck_scrape_key):
         logger.info("Year %s already scraped, loading from output file", year)
         if raw_output_file.exists():
             raw_data = json.loads(raw_output_file.read_text(encoding="utf-8"))
@@ -401,7 +406,7 @@ def scrape_events_calendar(
             # 检查是否需要翻译
             if not skip_translate and not dry_run_translate:
                 # 检查翻译文件是否存在
-                if translated_output_file.exists():
+                if translate_checkpoint.is_done(ck_translate_key) and translated_output_file.exists():
                     data = json.loads(translated_output_file.read_text(encoding="utf-8"))
                     if _is_translated_file_complete(data, expected_total):
                         return {"success": True, "data": data, "source": "cache", "output_file": str(translated_output_file)}
@@ -511,8 +516,6 @@ def scrape_events_calendar(
                 "data": error_data,
             }
 
-        result_data["summary"]["total"] = len(events)
-
         # 关闭浏览器
         if via_cdp:
             page.close()
@@ -534,6 +537,9 @@ def scrape_events_calendar(
         encoding="utf-8"
     )
     logger.info("原始数据已保存: %s", raw_output_file)
+
+    # 原始抓取完成 checkpoint
+    scrape_checkpoint.mark_done(ck_scrape_key)
 
     # 翻译（如果启用）
     result_data = raw_result_data.copy()
@@ -561,14 +567,19 @@ def scrape_events_calendar(
                 encoding="utf-8"
             )
             logger.info("翻译数据已保存: %s", translated_output_file)
+            validation = validate_translation_file(translated_output_file, raw_output_file)
+            if validation.get("ok"):
+                translate_checkpoint.mark_done(ck_translate_key)
+            else:
+                translate_checkpoint.mark_failed(
+                    ck_translate_key,
+                    f"translation incomplete: failed={validation.get('failed_events', 0)}",
+                )
             translated_file_path = str(translated_output_file)
             result_data = translated_result_data
         else:
             # dry-run 模式下，使用包含翻译标记的结果
             result_data = translated_result_data
-
-    # 标记完成
-    checkpoint.mark_done(ck_key)
 
     return {
         "success": True,
@@ -714,6 +725,7 @@ def main() -> None:
             cdp_port=args.cdp_port,
             skip_translate=args.skip_translate,
             dry_run_translate=dry_run_translate,
+            force=args.force,
         )
 
         if result.get("success"):
