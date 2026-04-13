@@ -49,7 +49,7 @@ def demo_basic_translation(api_key: str | None = None):
         ("Harimoto Tomokazu", "players"),
         ("World Championships", "events"),
         ("Round of 16", "terms"),
-        ("CHN", "countries"),
+        ("CHN", "locations"),
     ]
     
     print("\n从词典翻译（无需API调用）:\n")
@@ -176,7 +176,7 @@ def demo_profile_translation(api_key: str | None = None):
     profile_fields = {
         "players": ["Player Name", "Date of Birth", "Playing Style", "Grip"],
         "terms": ["World Ranking", "Career Titles", "Wins/Losses", "Win Rate"],
-        "countries": ["China", "Japan", "Germany"],
+        "locations": ["China", "Japan", "Germany"],
     }
     
     print("\nProfile字段翻译:\n")

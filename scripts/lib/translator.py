@@ -37,7 +37,7 @@ import logging
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 # 加载 .env 文件中的环境变量
 from dotenv import load_dotenv
@@ -49,10 +49,10 @@ load_dotenv(PROJECT_ROOT / ".env")
 logger = logging.getLogger(__name__)
 
 # 默认词典路径
-DEFAULT_DICT_PATH = Path(__file__).parent.parent / "data" / "translation_dict.json"
+DEFAULT_DICT_PATH = Path(__file__).parent.parent / "data" / "translation_dict_v2.json"
 
 # 词典分类
-Category = Literal["players", "terms", "events", "countries", "others"]
+Category = Literal["players", "terms", "events", "locations", "others"]
 
 
 class TranslationDict:
@@ -60,7 +60,7 @@ class TranslationDict:
 
     def __init__(self, dict_path: Path | str | None = None):
         self.dict_path = Path(dict_path) if dict_path else DEFAULT_DICT_PATH
-        self._data: dict = {}
+        self._entries: dict[str, dict[str, Any]] = {}
         self._load()
 
     def _load(self) -> None:
@@ -68,39 +68,101 @@ class TranslationDict:
         if self.dict_path.exists():
             try:
                 with open(self.dict_path, 'r', encoding='utf-8') as f:
-                    self._data = json.load(f)
+                    raw = json.load(f)
+                self._entries = self._normalize_entries(raw)
                 logger.debug(f"已加载词典: {self.dict_path}")
             except Exception as e:
                 logger.warning(f"加载词典失败: {e}，将创建新词典")
-                self._data = self._init_empty_dict()
+                self._entries = {}
         else:
-            self._data = self._init_empty_dict()
+            self._entries = {}
             self._save()  # 创建空词典文件
 
     def _save(self) -> None:
         """保存词典到文件"""
         try:
             self.dict_path.parent.mkdir(parents=True, exist_ok=True)
+            payload = self._serialize()
             with open(self.dict_path, 'w', encoding='utf-8') as f:
-                json.dump(self._data, f, ensure_ascii=False, indent=2)
+                json.dump(payload, f, ensure_ascii=False, indent=2)
             logger.debug(f"词典已保存: {self.dict_path}")
         except Exception as e:
             logger.error(f"保存词典失败: {e}")
 
-    def _init_empty_dict(self) -> dict:
-        """初始化空词典结构"""
+    def _source_priority(self, source: str) -> int:
+        priorities = {"manual": 4, "dict": 3, "api": 2, "unknown": 1}
+        return priorities.get((source or "unknown").lower(), 1)
+
+    def _all_categories(self) -> list[str]:
+        return ["players", "terms", "events", "locations", "others"]
+
+    def _build_validators(self, categories: list[str]) -> dict[str, str]:
+        validators: dict[str, str] = {}
+        for category in categories:
+            if category == "locations":
+                validators[category] = "location"
+            elif category == "players":
+                validators[category] = "player_name"
+            elif category == "events":
+                validators[category] = "event_name"
+            else:
+                validators[category] = "none"
+        return validators
+
+    def _normalize_categories(self, categories: list[str]) -> list[str]:
+        normalized = []
+        for category in categories:
+            if category not in self._all_categories():
+                continue
+            if category not in normalized:
+                normalized.append(category)
+        return sorted(normalized)
+
+    def _normalize_key(self, text: str) -> str:
+        return (text or "").strip().lower()
+
+    def _normalize_entries(self, raw: dict[str, Any]) -> dict[str, dict[str, Any]]:
+        """只接受 V2 entries 结构。"""
+        entries = raw.get("entries", {})
+        if not isinstance(entries, dict):
+            raise ValueError("词典必须为 V2 entries 结构")
+
+        normalized: dict[str, dict[str, Any]] = {}
+        for key, value in entries.items():
+            if not isinstance(value, dict):
+                continue
+            normalized_key = self._normalize_key(key)
+            if not normalized_key:
+                continue
+            categories = value.get("categories", [])
+            if not isinstance(categories, list):
+                categories = []
+            categories = self._normalize_categories(categories)
+            validators = value.get("validators")
+            if not isinstance(validators, dict):
+                raise ValueError(f"词条 {key} 缺少 validators")
+            if any(category not in self._all_categories() for category in categories):
+                raise ValueError(f"词条 {key} 包含未知 categories: {categories}")
+            normalized[normalized_key] = {
+                "original": (value.get("original") or key).strip(),
+                "translated": (value.get("translated") or "").strip(),
+                "categories": categories,
+                "source": (value.get("source") or "unknown").strip().lower(),
+                "review_status": (value.get("review_status") or "pending").strip().lower(),
+                "validators": validators,
+                "updated_at": (value.get("updated_at") or datetime.now().isoformat()).strip(),
+            }
+        return normalized
+
+    def _serialize(self) -> dict[str, Any]:
+        now = datetime.now().isoformat()
         return {
             "metadata": {
-                "version": "1.0",
-                "created_at": datetime.now().isoformat(),
-                "updated_at": datetime.now().isoformat(),
-                "total_entries": 0
+                "version": "2.0",
+                "updated_at": now,
+                "total_entries": len(self._entries),
             },
-            "players": {},      # 运动员人名
-            "terms": {},        # 通用术语
-            "events": {},       # 赛事名称
-            "countries": {},    # 国家/地区
-            "others": {}        # 其他词汇
+            "entries": self._entries,
         }
 
     def lookup(self, text: str, category: Category | None = None) -> str | None:
@@ -114,22 +176,57 @@ class TranslationDict:
         Returns:
             中文翻译或None（未命中）
         """
-        text_normalized = text.strip().lower()
-
+        text_normalized = self._normalize_key(text)
+        entry = self._entries.get(text_normalized)
+        if not entry:
+            return None
         if category:
-            if category not in self._data:
+            if category not in entry.get("categories", []):
+                if category == "locations":
+                    fallback_entry = self._entries.get(text_normalized)
+                    if fallback_entry and "others" in fallback_entry.get("categories", []):
+                        return fallback_entry.get("translated")
                 return None
-            entry = self._data[category].get(text_normalized)
-            return entry["translated"] if entry else None
+        return entry.get("translated")
 
-        # 查询所有分类
-        for cat in ["players", "terms", "events", "countries", "others"]:
-            if cat in self._data:
-                entry = self._data[cat].get(text_normalized)
-                if entry:
-                    return entry["translated"]
+    def _upsert_entry(
+        self,
+        original: str,
+        translated: str,
+        category: Category,
+        source: str,
+    ) -> None:
+        normalized = self._normalize_key(original)
+        if not normalized:
+            return
+        now = datetime.now().isoformat()
 
-        return None
+        incoming_source = (source or "unknown").strip().lower()
+        if normalized not in self._entries:
+            self._entries[normalized] = {
+                "original": original.strip(),
+                "translated": translated.strip(),
+                "categories": [category],
+                "source": incoming_source,
+                "review_status": "pending",
+                "validators": self._build_validators([category]),
+                "updated_at": now,
+            }
+            return
+
+        entry = self._entries[normalized]
+        categories = set(entry.get("categories", []))
+        categories.add(category)
+        entry["categories"] = sorted(categories)
+        entry["validators"] = self._build_validators(entry["categories"])
+
+        existing_source = str(entry.get("source", "unknown")).lower()
+        should_replace = self._source_priority(incoming_source) >= self._source_priority(existing_source)
+        if should_replace:
+            entry["original"] = original.strip()
+            entry["translated"] = translated.strip()
+            entry["source"] = incoming_source
+            entry["updated_at"] = now
 
     def add(
         self,
@@ -147,23 +244,9 @@ class TranslationDict:
             category: 分类
             source: 翻译来源 (dict/api/manual)
         """
-        if category not in self._data:
+        if category not in self._all_categories():
             category = "others"
-
-        original_normalized = original.strip().lower()
-
-        self._data[category][original_normalized] = {
-            "original": original.strip(),
-            "translated": translated.strip(),
-            "source": source,
-            "updated_at": datetime.now().isoformat()
-        }
-
-        # 更新元数据
-        total = sum(len(self._data[cat]) for cat in ["players", "terms", "events", "countries", "others"])
-        self._data["metadata"]["updated_at"] = datetime.now().isoformat()
-        self._data["metadata"]["total_entries"] = total
-
+        self._upsert_entry(original, translated, category, source)
         self._save()
         logger.debug(f"已添加词条 [{category}]: {original} -> {translated}")
 
@@ -180,37 +263,34 @@ class TranslationDict:
             source: 翻译来源
         """
         for original, translated, category in entries:
-            if category not in self._data:
-                self._data[category] = {}
-
-            original_normalized = original.strip().lower()
-            # 已有词条不覆盖（保持原有来源优先级）
-            if original_normalized not in self._data[category]:
-                self._data[category][original_normalized] = {
-                    "original": original.strip(),
-                    "translated": translated.strip(),
-                    "source": source,
-                    "updated_at": datetime.now().isoformat()
-                }
-
-        # 更新元数据
-        total = sum(len(self._data[cat]) for cat in ["players", "terms", "events", "countries", "others"])
-        self._data["metadata"]["updated_at"] = datetime.now().isoformat()
-        self._data["metadata"]["total_entries"] = total
+            if category not in self._all_categories():
+                category = "others"
+            self._upsert_entry(original, translated, category, source)
 
         self._save()
         logger.debug(f"批量添加 {len(entries)} 个词条")
 
     def get_stats(self) -> dict:
         """获取词典统计信息"""
+        categories = self._all_categories()
+        counts = {cat: 0 for cat in categories}
+        for entry in self._entries.values():
+            for cat in entry.get("categories", []):
+                if cat in counts:
+                    counts[cat] += 1
+        total = sum(counts.values())
         return {
-            "total": self._data["metadata"]["total_entries"],
-            "players": len(self._data.get("players", {})),
-            "terms": len(self._data.get("terms", {})),
-            "events": len(self._data.get("events", {})),
-            "countries": len(self._data.get("countries", {})),
-            "others": len(self._data.get("others", {}))
+            "total": total,
+            "players": counts["players"],
+            "terms": counts["terms"],
+            "events": counts["events"],
+            "locations": counts["locations"],
+            "others": counts["others"],
         }
+
+    def dump(self) -> dict[str, Any]:
+        """导出当前格式数据。"""
+        return self._serialize()
 
 
 class LLMTranslator:
@@ -225,6 +305,69 @@ class LLMTranslator:
         # 优先级：传入参数 > 环境变量（从 .env 加载）
         self.api_key = api_key or os.environ.get("MINIMAX_API_KEY")
         self.provider = provider.lower()
+
+    @staticmethod
+    def _build_batch_prompts(category: Category) -> tuple[str, str]:
+        """按分类构建批量翻译提示词。"""
+        prompt_by_category = {
+            "players": (
+                "你是专业乒乓球人名翻译助手。\n"
+                "将英文运动员姓名翻译成标准中文译名。\n"
+                "每行严格输出：原文|译文\n"
+                "不要解释，不要序号。"
+            ),
+            "terms": (
+                "你是专业乒乓球术语翻译助手。\n"
+                "将英文术语翻译为中文体育术语。\n"
+                "每行严格输出：原文|译文\n"
+                "不要解释，不要序号。"
+            ),
+            "events": (
+                "你是专业乒乓球赛事翻译助手。\n"
+                "将英文赛事名称翻译为中文赛事名称。\n"
+                "每行严格输出：原文|译文\n"
+                "不要解释，不要序号。"
+            ),
+            "locations": (
+                "你是地点名称翻译助手。\n"
+                "输入可能是三位地区代码、国家名、城市名或其他地名。\n"
+                "必须翻译成标准中文地名，不得翻译成赛事名、组织名或描述语。\n"
+                "每行严格输出：原文|译文\n"
+                "不要解释，不要序号。"
+            ),
+            "others": (
+                "你是通用翻译助手。\n"
+                "将输入翻译成简体中文。\n"
+                "每行严格输出：原文|译文\n"
+                "不要解释，不要序号。"
+            ),
+        }
+        system_prompt = prompt_by_category.get(category, prompt_by_category["others"])
+        user_prompt = (
+            "请翻译以下内容：\n\n{texts}\n\n"
+            "格式要求：\n"
+            "1. 每行一个，格式为：原文|译文\n"
+            "2. 只返回翻译结果，不要任何解释\n"
+            "3. 保持原文完全一致，不要修改大小写或标点"
+        )
+        return system_prompt, user_prompt
+
+    @staticmethod
+    def _is_valid_location_translation(original: str, translated: str) -> bool:
+        """地点翻译结果校验，过滤明显污染词条。"""
+        if not translated:
+            return False
+
+        banned_tokens = ["WTT", "冠军赛", "公开赛", "挑战赛", "乒联", "联盟", "赛事", "锦标赛"]
+        if any(token in translated for token in banned_tokens):
+            return False
+
+        # 常见国家代码场景下，不应保留英文大写代码本身
+        is_code = bool(re.fullmatch(r"[A-Z]{3}", original.strip()))
+        if is_code and translated.strip().upper() == original.strip().upper():
+            return False
+
+        return True
 
     def translate(
         self,
@@ -310,10 +453,10 @@ class LLMTranslator:
 1. 使用官方中文赛事名称（如 World Championships -> 世界锦标赛）
 2. 保留赛事级别信息（如 Grand Smash, WTT Series）
 3. 只返回中文翻译，不要解释""",
-            "countries": """请将以下国家/地区代码或名称翻译成中文。
+            "locations": """请将以下地点代码、国家名、城市名或其他地名翻译成中文。
 要求：
-1. 使用标准中文国家名称
-2. 如果是国家代码（如 CHN, JPN），请翻译为国家名
+1. 使用标准中文地名或国家/地区名称
+2. 如果是地点代码（如 CHN, JPN, TBD 以外的三位代码），请翻译为对应地名
 3. 只返回中文，不要解释""",
             "others": """请将以下内容翻译成中文。
 要求：
@@ -409,23 +552,9 @@ class LLMTranslator:
             logger.error("未配置 MiniMax API Key")
             return None
 
-        # 构建批量翻译的 prompt
         items_text = "\n".join(texts)
-
-        system_prompt = """你是一个专业的乒乓球赛事翻译助手。
-请将以下英文赛事名称翻译成中文。
-每行一个，格式必须严格为：原文|译文
-不要添加任何解释、序号或其他内容。"""
-
-        user_prompt = f"""请翻译以下乒乓球赛事名称：
-
-{items_text}
-
-格式要求：
-1. 每行一个，格式为：原文|译文
-2. 只返回翻译结果，不要任何解释
-3. 保持原文完全一致，不要修改大小写或标点
-4. 赛事名称中的 WTT、World、Championship 等保留英文"""
+        system_prompt, user_prompt_template = self._build_batch_prompts(category)
+        user_prompt = user_prompt_template.format(texts=items_text)
 
         try:
             import urllib.request
@@ -480,6 +609,14 @@ class LLMTranslator:
                             original = parts[0].strip()
                             translated = parts[1].strip()
                             if original and translated:
+                                if category == "locations":
+                                    if not self._is_valid_location_translation(original, translated):
+                                        logger.warning(
+                                            "丢弃可疑地点翻译: %s -> %s",
+                                            original,
+                                            translated,
+                                        )
+                                        continue
                                 translations[original] = translated
 
                 logger.info(f"批量翻译成功: 提交 {len(texts)} 条，解析出 {len(translations)} 条")
@@ -541,7 +678,7 @@ class Translator:
 
         Args:
             text: 要翻译的原文
-            category: 文本分类（players/terms/events/countries/others）
+            category: 文本分类（players/terms/events/locations/others）
             context: 上下文信息，帮助API更准确翻译
             use_api: 词典未命中时是否调用API
 
@@ -879,7 +1016,7 @@ class Translator:
             output_path = Path(output_path)
             output_path.parent.mkdir(parents=True, exist_ok=True)
             with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump(self.dictionary._data, f, ensure_ascii=False, indent=2)
+                json.dump(self.dictionary.dump(), f, ensure_ascii=False, indent=2)
             logger.info(f"词典已导出: {output_path}")
         except Exception as e:
             logger.error(f"导出词典失败: {e}")

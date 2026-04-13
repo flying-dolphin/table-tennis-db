@@ -651,7 +651,7 @@ def translate_profile_data(profile_data: dict[str, Any], translator: Translator)
     
     # 翻译国家代码
     if 'country_code' in data and data['country_code']:
-        data['country_code_zh'] = translator.translate(data['country_code'], category='countries', use_api=True)
+        data['country_code_zh'] = translator.translate(data['country_code'], category='locations', use_api=True)
     
     # 翻译性别
     if 'gender' in data and data['gender']:
@@ -701,7 +701,7 @@ def translate_profile_data(profile_data: dict[str, Any], translator: Translator)
             
             # 翻译对手国家
             if 'opponent_country' in match and match['opponent_country']:
-                match['opponent_country_zh'] = translator.translate(match['opponent_country'], category='countries', use_api=True)
+                match['opponent_country_zh'] = translator.translate(match['opponent_country'], category='locations', use_api=True)
             
             # 翻译比赛阶段
             if 'stage' in match and match['stage']:
@@ -745,7 +745,7 @@ def translate_ranking_data(ranking_data: dict[str, Any], translator: Translator)
             
             # 翻译国家代码（如果country是英文）
             if 'country_code' in player and player['country_code']:
-                player['country_code_zh'] = translator.translate(player['country_code'], category='countries', use_api=True)
+                player['country_code_zh'] = translator.translate(player['country_code'], category='locations', use_api=True)
     
     return data
 

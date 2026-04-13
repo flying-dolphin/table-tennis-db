@@ -932,7 +932,7 @@ def translate_matches_data(data: dict[str, Any], translator: Translator) -> dict
     
     # 翻译国家代码
     if 'country_code' in result and result['country_code']:
-        result['country_code_zh'] = translator.translate(result['country_code'], category='countries', use_api=True)
+        result['country_code_zh'] = translator.translate(result['country_code'], category='locations', use_api=True)
     
     # 翻译每年的赛事数据
     if 'years' in result:

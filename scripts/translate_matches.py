@@ -46,7 +46,7 @@ def translate_matches_data(data: dict, translator: Translator) -> dict:
     # 翻译国家代码
     if result.get('country_code'):
         result['country_code_zh'] = translator.translate(
-            result['country_code'], category='countries', use_api=True
+            result['country_code'], category='locations', use_api=True
         )
     
     # 翻译每年的赛事数据

@@ -14,6 +14,7 @@ ITTF Events Calendar 翻译脚本
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import os
@@ -182,7 +183,7 @@ def _save_progress(
     total_events: int,
     batch_size: int,
     success_count: int,
-    unchanged_count: int,
+    failed_count: int,
     completed_batches: int,
     total_batches: int,
 ) -> None:
@@ -191,6 +192,7 @@ def _save_progress(
         "year": data.get("year"),
         "url": data.get("url"),
         "scraped_at": data.get("scraped_at"),
+        "source_hash": data.get("source_hash", ""),
         "translated_at": datetime.now().isoformat(),
         "batch_size": batch_size,
         "progress": {
@@ -204,7 +206,7 @@ def _save_progress(
             "total": total_events,
             "processed": len(translated_events),
             "translated": success_count,
-            "unchanged": unchanged_count,
+            "failed": failed_count,
             "batches": total_batches,
         }
     }
@@ -214,6 +216,89 @@ def _save_progress(
         encoding="utf-8"
     )
     logger.info(f"[进度保存] 已处理 {len(translated_events)}/{total_events} 条")
+
+
+def _compute_source_hash(data: dict[str, Any]) -> str:
+    """计算输入数据哈希，用于断点续传完整性校验。"""
+    payload = {
+        "year": data.get("year"),
+        "url": data.get("url"),
+        "events": data.get("events", []),
+    }
+    raw = json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def _count_translation_stats(events: list[dict[str, Any]]) -> tuple[int, int]:
+    """从已翻译事件回算 fully_translated/failed 计数。"""
+    translated = 0
+    failed = 0
+    for event in events:
+        if _is_event_fully_translated(event):
+            translated += 1
+        else:
+            failed += 1
+    return translated, failed
+
+
+def _is_value_translated(original: str, translated: str) -> bool:
+    if not original:
+        return True
+    if not translated:
+        return False
+    return translated.strip() != original.strip()
+
+
+def _is_event_fully_translated(event: dict[str, Any]) -> bool:
+    """事件中所有需要翻译的字段都成功转为中文时，才视为完成。"""
+    name_ok = _is_value_translated(event.get("name", ""), event.get("name_zh", ""))
+    location_ok = _is_value_translated(event.get("location", ""), event.get("location_zh", ""))
+    return name_ok and location_ok
+
+
+def _count_completed_batches(events: list[dict[str, Any]], batch_size: int) -> int:
+    """只统计前缀中“完全翻译成功”的批次，用于断点续传。"""
+    completed = 0
+    for start in range(0, len(events), batch_size):
+        batch = events[start:start + batch_size]
+        if len(batch) < batch_size:
+            break
+        if all(_is_event_fully_translated(event) for event in batch):
+            completed += 1
+            continue
+        break
+    return completed
+
+
+def _validate_resume_data(
+    existing_data: dict[str, Any],
+    total_events: int,
+    total_batches: int,
+    batch_size: int,
+    source_hash: str,
+) -> tuple[bool, str]:
+    """校验已有输出是否可用于继续翻译。"""
+    progress = existing_data.get("progress", {})
+    completed_batches = int(progress.get("completed_batches", 0) or 0)
+    processed_events = int(progress.get("processed_events", 0) or 0)
+    existing_events = existing_data.get("events", [])
+    existing_total = int(progress.get("total_events", 0) or 0)
+    existing_source_hash = existing_data.get("source_hash", "")
+
+    if existing_source_hash and existing_source_hash != source_hash:
+        return False, "source_hash 不匹配"
+    if existing_total and existing_total != total_events:
+        return False, "total_events 不匹配"
+    if completed_batches < 0 or completed_batches > total_batches:
+        return False, "completed_batches 超出范围"
+    if processed_events < 0 or processed_events > total_events:
+        return False, "processed_events 超出范围"
+    if not isinstance(existing_events, list):
+        return False, "events 结构非法"
+    if len(existing_events) != processed_events:
+        return False, "processed_events 与 events 长度不一致"
+
+    return True, ""
 
 
 def translate_events(
@@ -258,18 +343,32 @@ def translate_events(
 
     total_events = len(events)
     total_batches = (total_events + batch_size - 1) // batch_size
+    source_hash = _compute_source_hash(data)
 
     # 检查是否已存在翻译文件（用于断点续传）
     if resume and output_file.exists():
         try:
             existing_data = json.loads(output_file.read_text(encoding="utf-8"))
-            existing_progress = existing_data.get("progress", {})
-            completed_batches = existing_progress.get("completed_batches", 0)
-            if completed_batches > 0:
-                logger.info(f"发现已有翻译进度: {completed_batches}/{total_batches} 批次")
-                logger.info(f"将从第 {completed_batches + 1} 批次继续翻译...")
-                translated_events = existing_data.get("events", [])
+            valid, reason = _validate_resume_data(
+                existing_data=existing_data,
+                total_events=total_events,
+                total_batches=total_batches,
+                batch_size=batch_size,
+                source_hash=source_hash,
+            )
+            if valid:
+                existing_progress = existing_data.get("progress", {})
+                completed_batches = int(existing_progress.get("completed_batches", 0) or 0)
+                existing_events = existing_data.get("events", [])
+                completed_batches = _count_completed_batches(existing_events, batch_size)
+                translated_events = existing_events[:completed_batches * batch_size]
+                if completed_batches > 0:
+                    logger.info(f"发现已成功翻译批次: {completed_batches}/{total_batches}")
+                    logger.info(f"将从第 {completed_batches + 1} 批次继续翻译...")
+                else:
+                    logger.info("未发现可复用的完整翻译批次，将从头翻译")
             else:
+                logger.warning(f"已有输出不满足续传条件，回退从头翻译: {reason}")
                 translated_events = []
                 completed_batches = 0
         except (json.JSONDecodeError, KeyError):
@@ -280,7 +379,12 @@ def translate_events(
         completed_batches = 0
 
     # 如果全部完成且 skip_existing，跳过
-    if skip_existing and completed_batches >= total_batches:
+    if (
+        skip_existing
+        and completed_batches >= total_batches
+        and len(translated_events) == total_events
+        and all(_is_event_fully_translated(event) for event in translated_events)
+    ):
         logger.info(f"翻译已完成，跳过: {output_file}")
         existing_data = json.loads(output_file.read_text(encoding="utf-8"))
         return {
@@ -294,8 +398,7 @@ def translate_events(
     logger.info(f"输出文件: {output_file}")
 
     # 批量翻译所有事件
-    success_count = 0
-    unchanged_count = 0
+    success_count, failed_count = _count_translation_stats(translated_events)
 
     # 初始化 Translator（复用词典，支持分词查词典 + 批量API翻译）
     translator = Translator()
@@ -332,7 +435,7 @@ def translate_events(
             location_translations = {}
             if locations_to_translate:
                 logger.info(f"  批量翻译 {len(locations_to_translate)} 个地点（分词查词典）...")
-                location_result = translator.translate_batch(locations_to_translate, category="countries")
+                location_result = translator.translate_batch(locations_to_translate, category="locations")
                 location_translations.update(location_result)
                 time.sleep(0.5)
 
@@ -347,12 +450,9 @@ def translate_events(
                 if name:
                     if name in name_translations:
                         translated["name_zh"] = name_translations[name]
-                        translated["name_translation_method"] = "api"
+                        translated["name_translation_method"] = "translated"
                         if name_translations[name] != name:
-                            success_count += 1
                             logger.info(f"    {name[:40]} -> {name_translations[name][:40]}")
-                        else:
-                            unchanged_count += 1
                     else:
                         translated["name_zh"] = name
                         translated["name_translation_method"] = "unchanged"
@@ -361,7 +461,7 @@ def translate_events(
                 if location:
                     if location in location_translations:
                         translated["location_zh"] = location_translations[location]
-                        translated["location_translation_method"] = "api"
+                        translated["location_translation_method"] = "translated"
                     else:
                         translated["location_zh"] = location
                         translated["location_translation_method"] = "unchanged"
@@ -372,16 +472,18 @@ def translate_events(
 
                 translated_events.append(translated)
 
+            success_count, failed_count = _count_translation_stats(translated_events)
+
             # ✅ 每批次翻译完成后立即保存进度
             _save_progress(
                 output_file=output_file,
-                data=data,
+                data={**data, "source_hash": source_hash},
                 translated_events=translated_events,
                 total_events=total_events,
                 batch_size=batch_size,
                 success_count=success_count,
-                unchanged_count=unchanged_count,
-                completed_batches=batch_idx + 1,
+                failed_count=failed_count,
+                completed_batches=_count_completed_batches(translated_events, batch_size),
                 total_batches=total_batches,
             )
 
@@ -391,15 +493,16 @@ def translate_events(
 
     except KeyboardInterrupt:
         logger.warning("用户中断，保留已翻译的结果")
+        completed_batches_safe = _count_completed_batches(translated_events, batch_size)
         _save_progress(
             output_file=output_file,
-            data=data,
+            data={**data, "source_hash": source_hash},
             translated_events=translated_events,
             total_events=total_events,
             batch_size=batch_size,
             success_count=success_count,
-            unchanged_count=unchanged_count,
-            completed_batches=batch_idx,
+            failed_count=failed_count,
+            completed_batches=completed_batches_safe,
             total_batches=total_batches,
         )
         return {
@@ -415,13 +518,21 @@ def translate_events(
         "year": data.get("year"),
         "url": data.get("url"),
         "scraped_at": data.get("scraped_at"),
+        "source_hash": source_hash,
         "translated_at": datetime.now().isoformat(),
         "batch_size": batch_size,
+        "progress": {
+            "completed_batches": _count_completed_batches(translated_events, batch_size),
+            "total_batches": total_batches,
+            "processed_events": len(translated_events),
+            "total_events": total_events,
+        },
         "events": translated_events,
         "summary": {
             "total": total_events,
+            "processed": len(translated_events),
             "translated": success_count,
-            "unchanged": unchanged_count,
+            "failed": failed_count,
             "batches": total_batches,
         }
     }
@@ -434,14 +545,18 @@ def translate_events(
     )
     logger.info(f"翻译完成，已保存: {output_file}")
 
+    all_translated = failed_count == 0 and len(translated_events) == total_events
+
     return {
-        "success": True,
+        "success": all_translated,
         "data": output_data,
         "output_file": str(output_file),
+        "partial": not all_translated,
+        "error": None if all_translated else "仍有未翻译成功的事件",
         "stats": {
             "total": total_events,
             "translated": success_count,
-            "unchanged": unchanged_count,
+            "failed": failed_count,
             "batches": total_batches,
         }
     }
@@ -522,12 +637,12 @@ def main() -> None:
                 logger.info("翻译完成！")
                 logger.info(f"总赛事数: {stats.get('total', 0)}")
                 logger.info(f"成功翻译: {stats.get('translated', 0)}")
-                logger.info(f"未变化: {stats.get('unchanged', 0)}")
+                logger.info(f"翻译失败: {stats.get('failed', 0)}")
                 logger.info(f"批次数: {stats.get('batches', 0)}")
                 logger.info(f"输出文件: {result['output_file']}")
                 logger.info("=" * 50)
         elif result.get("partial"):
-            logger.error(f"翻译中断，请检查网络或 API 配置后重试")
+            logger.error(f"翻译未全部成功: {result.get('error', '存在未翻译事件')}")
             logger.info(f"已翻译的结果已保存: {result['output_file']}")
             sys.exit(1)
         else:

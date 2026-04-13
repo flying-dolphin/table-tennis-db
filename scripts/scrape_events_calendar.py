@@ -271,11 +271,11 @@ def translate_event(event: dict[str, Any], dry_run: bool = True) -> dict[str, An
     # 翻译地点
     if event.get("location"):
         if dry_run:
-            result = translator.translate(event["location"], category="others", use_api=False)
+            result = translator.translate(event["location"], category="locations", use_api=False)
             translated["location_zh"] = result
             translated["location_translation_method"] = "dict" if result != event["location"] else "skipped"
         else:
-            result = translator.translate(event["location"], category="others", use_api=True)
+            result = translator.translate(event["location"], category="locations", use_api=True)
             translated["location_zh"] = result
             translated["location_translation_method"] = "api" if result != event["location"] else "unchanged"
 
@@ -330,6 +330,30 @@ def translate_all_events(events: list[dict[str, Any]], dry_run: bool = True) -> 
     return translated_events
 
 
+def _is_translated_file_complete(data: dict[str, Any], expected_total: int) -> bool:
+    """校验翻译文件是否完整。"""
+    events = data.get("events", [])
+    if not isinstance(events, list):
+        return False
+
+    progress = data.get("progress", {})
+    processed = progress.get("processed_events")
+    total = progress.get("total_events")
+    completed_batches = progress.get("completed_batches")
+    total_batches = progress.get("total_batches")
+
+    if progress:
+        if processed != len(events):
+            return False
+        if total != expected_total:
+            return False
+        if completed_batches is not None and total_batches is not None and completed_batches != total_batches:
+            return False
+
+    # 无 progress 的旧文件：至少保证 events 数量完整
+    return len(events) == expected_total
+
+
 # ── 主流程 ──────────────────────────────────────────────────────────────────
 
 def scrape_events_calendar(
@@ -372,16 +396,19 @@ def scrape_events_calendar(
     if checkpoint.is_done(ck_key):
         logger.info("Year %s already scraped, loading from output file", year)
         if raw_output_file.exists():
+            raw_data = json.loads(raw_output_file.read_text(encoding="utf-8"))
+            expected_total = len(raw_data.get("events", []))
             # 检查是否需要翻译
             if not skip_translate and not dry_run_translate:
                 # 检查翻译文件是否存在
                 if translated_output_file.exists():
                     data = json.loads(translated_output_file.read_text(encoding="utf-8"))
-                    return {"success": True, "data": data, "source": "cache", "output_file": str(translated_output_file)}
+                    if _is_translated_file_complete(data, expected_total):
+                        return {"success": True, "data": data, "source": "cache", "output_file": str(translated_output_file)}
+                    logger.warning("翻译缓存文件不完整，将基于原始数据重新翻译")
                 logger.info("Cached data missing translations, will translate raw data")
             else:
-                data = json.loads(raw_output_file.read_text(encoding="utf-8"))
-                return {"success": True, "data": data, "source": "cache", "output_file": str(raw_output_file)}
+                return {"success": True, "data": raw_data, "source": "cache", "output_file": str(raw_output_file)}
         else:
             logger.warning("Output file not found, will re-scrape")
 

@@ -54,7 +54,7 @@ def translate_profile_data(data: dict, translator: Translator) -> dict:
     # 翻译国家
     if result.get('country_code'):
         result['country_code_zh'] = translator.translate(
-            result['country_code'], category='countries', use_api=True
+            result['country_code'], category='locations', use_api=True
         )
     
     # 翻译性别
@@ -109,7 +109,7 @@ def translate_profile_data(data: dict, translator: Translator) -> dict:
             # 对手国家
             if match.get('opponent_country'):
                 match['opponent_country_zh'] = translator.translate(
-                    match['opponent_country'], category='countries', use_api=True
+                    match['opponent_country'], category='locations', use_api=True
                 )
             
             # 阶段

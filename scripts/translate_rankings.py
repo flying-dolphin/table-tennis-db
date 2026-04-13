@@ -44,7 +44,7 @@ def translate_ranking_data(data: dict, translator: Translator) -> dict:
             # 翻译国家代码
             if player.get('country_code'):
                 player['country_code_zh'] = translator.translate(
-                    player['country_code'], category='countries', use_api=True
+                    player['country_code'], category='locations', use_api=True
                 )
     
     return result

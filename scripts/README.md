@@ -162,7 +162,7 @@ python scrape_regulations.py
 ### 翻译模块 (`lib/translator.py`)
 
 功能：
-- 维护中英文词典（`data/translation_dict.json`）
+- 维护中英文词典（`data/translation_dict_v2.json`）
 - 优先查词典，未命中则调用 LLM API 翻译
 - 自动将新翻译结果保存到词典
 - 支持批量翻译和缓存
@@ -198,13 +198,13 @@ results = translator.translate_batch(
 translated_doc = translator.translate_document(content, doc_type="regulations")
 ```
 
-#### 词典文件 (`data/translation_dict.json`)
+#### 词典文件 (`data/translation_dict_v2.json`)
 
 词典分类：
 - `players`: 运动员人名（已预置30+常见球员）
 - `terms`: 通用术语（积分、轮次、赛制等）
 - `events`: 赛事名称（世锦赛、大满贯、WTT系列等）
-- `countries`: 国家/地区代码和名称
+- `locations`: 国家/地区代码、国家名和其他地名
 - `others`: 其他词汇
 
 #### 运行示例脚本
@@ -226,7 +226,7 @@ python translate_example.py --batch-test
 translator = Translator()
 stats = translator.get_stats()
 print(stats)
-# {'total': 91, 'players': 30, 'terms': 29, 'events': 10, 'countries': 22, 'others': 0}
+# {'total': 91, 'players': 30, 'terms': 29, 'events': 10, 'locations': 22, 'others': 0}
 ```
 
 ---
