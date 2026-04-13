@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-ITTF ranking scraper based on the shared Playwright utilities.
+ITTF ranking scraper — Women's Singles Top N.
+
+Scrapes ranking data from https://www.ittf.com/rankings/, including
+each player's points breakdown details.
+
+Supports checkpoint-based resume for long-running scrapes.
 """
 
 from __future__ import annotations
@@ -9,18 +14,16 @@ import argparse
 import json
 import logging
 import re
-import sqlite3
 import sys
-import urllib.parse
-import urllib.request
+import hashlib
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from lib.anti_bot import DelayConfig, RiskControlTriggered, human_sleep
-from lib.capture import save_json, sanitize_filename
+from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep
+from lib.capture import save_json
+from lib.checkpoint import CheckpointStore
 from lib.page_ops import guarded_goto
-from lib.translator import Translator
 
 logging.basicConfig(
     level=logging.INFO,
@@ -29,752 +32,564 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ittf_ranking_scraper")
 
-BASE_URL = "https://results.ittf.link"
-PUBLIC_RANKING_BASE = f"{BASE_URL}/index.php/ittf-rankings"
-RANKING_URLS = {
-    "women": f"{PUBLIC_RANKING_BASE}/ittf-ranking-women-singles",
-    "men": f"{PUBLIC_RANKING_BASE}/ittf-ranking-men-singles",
-    "women_doubles": f"{PUBLIC_RANKING_BASE}/ittf-ranking-women-doubles",
-    "men_doubles": f"{PUBLIC_RANKING_BASE}/ittf-ranking-men-doubles",
-    "mixed": f"{PUBLIC_RANKING_BASE}/ittf-ranking-mixed-doubles",
-}
-CATEGORY_META = {
-    "women": "女子单打",
-    "men": "男子单打",
-    "women_doubles": "女子双打",
-    "men_doubles": "男子双打",
-    "mixed": "混合双打",
-}
+RANKINGS_INDEX_URL = "https://www.ittf.com/rankings/"
 
-COUNTRY_NAMES = {
-    "CHN": "中国", "JPN": "日本", "KOR": "韩国", "GER": "德国",
-    "FRA": "法国", "USA": "美国", "HKG": "中国香港", "TPE": "中国台北",
-    "MAC": "中国澳门", "SGP": "新加坡", "BRA": "巴西", "EGY": "埃及",
-    "IND": "印度", "ROU": "罗马尼亚", "AUT": "奥地利", "NED": "荷兰",
-    "SWE": "瑞典", "POL": "波兰", "ESP": "西班牙", "ITA": "意大利",
-    "ENG": "英格兰", "WAL": "威尔士", "SCO": "苏格兰", "AUS": "澳大利亚",
-    "NZL": "新西兰", "CAN": "加拿大", "MEX": "墨西哥", "ARG": "阿根廷",
-    "PUR": "波多黎各", "DOM": "多米尼加", "CZE": "捷克", "RUS": "俄罗斯",
-    "UKR": "乌克兰", "TUR": "土耳其", "IRI": "伊朗", "THA": "泰国",
-    "VIE": "越南", "INA": "印度尼西亚", "MAS": "马来西亚", "PHI": "菲律宾",
-    "PAK": "巴基斯坦", "KAZ": "哈萨克斯坦", "UZB": "乌兹别克斯坦",
-    "SIN": "新加坡", "AIN": "中立运动员", "POR": "葡萄牙",
-}
-CONTINENT_NAMES = {
-    "ASIA": "亚洲", "EUROPE": "欧洲", "AMERICA": "美洲", "AFRICA": "非洲", "OCEANIA": "大洋洲",
-}
 
+def _player_key(player: dict[str, Any]) -> str:
+    """Best-effort stable player key for checkpointing/caching."""
+    url = (player.get("player_url") or "").strip()
+    name = (player.get("name") or "").strip()
+    country = (player.get("country") or "").strip()
+    if url:
+        m = re.search(r"(\d{4,})", url)
+        if m:
+            return f"id:{m.group(1)}"
+    raw = f"{name}|{country}|{url}"
+    return "h:" + hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
+
+
+def _find_latest_output_file(output_dir: Path) -> Path | None:
+    candidates = list(output_dir.glob("women_singles_top*_week*.json"))
+    if not candidates:
+        return None
+    try:
+        return max(candidates, key=lambda p: p.stat().st_mtime)
+    except Exception:
+        return candidates[-1]
+
+
+def _load_cached_breakdowns(output_dir: Path) -> tuple[str | None, dict[str, list[dict[str, Any]]]]:
+    """Load cached points_breakdown from the latest output file (best-effort)."""
+    latest = _find_latest_output_file(output_dir)
+    if not latest or not latest.exists():
+        return None, {}
+
+    try:
+        payload = json.loads(latest.read_text(encoding="utf-8"))
+    except Exception:
+        return None, {}
+
+    ranking_date = payload.get("ranking_date")
+    rankings = payload.get("rankings") or []
+    if not isinstance(rankings, list):
+        return ranking_date, {}
+
+    cached: dict[str, list[dict[str, Any]]] = {}
+    for p in rankings:
+        if not isinstance(p, dict):
+            continue
+        breakdown = p.get("points_breakdown") or []
+        if not breakdown:
+            continue
+        cached[_player_key(p)] = breakdown
+
+    return ranking_date, cached
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="ITTF ranking scraper")
-    parser.add_argument("--category", choices=sorted(RANKING_URLS.keys()), default="women")
-    parser.add_argument("--top", type=int, default=50)
-    parser.add_argument("--headless", action="store_true")
-    parser.add_argument("--slow-mo", type=int, default=100)
-    parser.add_argument("--snapshot-dir", default="data/ranking_snapshots")
-    parser.add_argument("--profile-dir", default="data/player_profiles")
-    parser.add_argument("--avatar-dir", default="data/player_avatars")
-    parser.add_argument("--db-path", default="web/db/ittf_rankings.sqlite")
-    parser.add_argument("--scrape-profiles", action="store_true", help="Scrape individual player profiles")
-    parser.add_argument("--output", default=None)
-    parser.add_argument("--no-translate", action="store_true", help="Skip translation, save only original data")
+    parser = argparse.ArgumentParser(description="ITTF ranking scraper (Women's Singles)")
+    parser.add_argument("--top", type=int, default=100, help="Number of top players to scrape (default: 100)")
+    parser.add_argument("--headless", action="store_true", help="Run browser in headless mode")
+    parser.add_argument("--slow-mo", type=int, default=100, help="Slow motion delay in ms")
+    parser.add_argument("--output-dir", default="data/rankings/orig", help="Output directory")
+    parser.add_argument("--checkpoint", default="data/rankings/checkpoint_rankings.json", help="Checkpoint file path")
+    parser.add_argument("--force", action="store_true", help="Ignore checkpoint, rescrape all")
+    parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing output files")
+    parser.add_argument("--no-translate", action="store_true", help="Skip translation")
     return parser
 
 
-def normalize_space(value: str) -> str:
-    return re.sub(r"\s+", " ", value or "").strip()
+# ---------------------------------------------------------------------------
+# Ranking list parsing
+# ---------------------------------------------------------------------------
 
-
-def parse_int(text: str, default: int = 0) -> int:
-    cleaned = re.sub(r"[^\d+-]", "", text or "")
-    if cleaned in {"", "+", "-"}:
-        return default
+def find_womens_singles_url(page: Any) -> str | None:
+    """Find the Women's Singles ranking link on the ITTF rankings index page."""
+    # 显式等待关键链接出现，避免在 Cloudflare 重定向验证期间短暂的白屏阶段过早解析
     try:
-        return int(cleaned)
-    except ValueError:
-        return default
+        page.locator("a", has_text=re.compile(r"women.*singles", re.IGNORECASE)).first.wait_for(timeout=15000)
+    except Exception:
+        pass
 
+    # Look for links containing "women" and "singles" text
+    links = page.locator("a")
+    count = links.count()
+    for i in range(count):
+        try:
+            link = links.nth(i)
+            text = (link.inner_text() or "").strip().lower()
+            href = link.get_attribute("href") or ""
+            # Match variations: "Women's Singles", "Women Singles", etc.
+            if "women" in text and "singles" in text and href:
+                full_url = href if href.startswith("http") else f"https://www.ittf.com{href}"
+                logger.info("Found Women's Singles link: %s -> %s", text, full_url)
+                return full_url
+        except Exception:
+            continue
 
-def translate_country(code: str, fallback: str = "") -> str:
-    if code in COUNTRY_NAMES:
-        return COUNTRY_NAMES[code]
-    return fallback or code
+    logger.warning("Could not find Women's Singles link by text, trying href patterns...")
+    # Fallback: look for href patterns
+    for i in range(count):
+        try:
+            link = links.nth(i)
+            href = (link.get_attribute("href") or "").lower()
+            if "women" in href and "singles" in href and "ranking" in href:
+                full_url = href if href.startswith("http") else f"https://www.ittf.com{href}"
+                logger.info("Found Women's Singles link by href: %s", full_url)
+                return full_url
+        except Exception:
+            continue
 
-
-def translate_continent(code: str, fallback: str = "") -> str:
-    if code in CONTINENT_NAMES:
-        return CONTINENT_NAMES[code]
-    return fallback or code
-
-
-def extract_player_id_from_href(href: str | None) -> str | None:
-    if not href:
-        return None
-    match = re.search(r"player_id_raw=(\d+)", href)
-    if match:
-        return match.group(1)
     return None
 
 
-def parse_ranking_rows(page: Any, top_n: int, translator: Translator | None = None, translate_names: bool = True) -> list[dict[str, Any]]:
+def parse_ranking_table(page: Any, top_n: int) -> list[dict[str, Any]]:
+    """Parse the ranking table from the current page.
+
+    Returns a list of player dicts with: rank, name, country, points, player_url.
+    Handles pagination if needed to collect up to top_n players.
+    """
     rankings: list[dict[str, Any]] = []
-    target_table = page.locator("table#list_58_com_fabrik_58")
-    if target_table.count() == 0:
-        target_table = page.locator("table")
-    if target_table.count() == 0:
-        return rankings
 
-    rows = target_table.first.locator("tbody tr")
-    row_count = rows.count()
-
-    for idx in range(row_count):
-        row = rows.nth(idx)
-        cells = row.locator("td")
-        cell_count = cells.count()
-        if cell_count < 8:
-            continue
-
-        cell_texts = [normalize_space(cells.nth(i).inner_text()) for i in range(cell_count)]
-        rank = parse_int(cell_texts[1] if len(cell_texts) > 1 else "", default=-1)
-        if rank <= 0:
-            continue
-
-        change = parse_int(cell_texts[2] if len(cell_texts) > 2 else "0")
-        points = parse_int(cell_texts[3] if len(cell_texts) > 3 else "0")
-        english_name = normalize_space(cell_texts[4] if len(cell_texts) > 4 else "")
-        country_code = ""
-        try:
-            flag_img = cells.nth(5).locator("img").first
-            if flag_img.count() > 0:
-                country_code = normalize_space(flag_img.get_attribute("title") or "")
-        except Exception:
-            country_code = ""
-
-        association = normalize_space(cell_texts[6] if len(cell_texts) > 6 else "")
-        continent_raw = normalize_space(cell_texts[7] if len(cell_texts) > 7 else "")
-
-        href = None
-        try:
-            name_link = cells.nth(4).locator("a").first
-            if name_link.count() > 0:
-                href = name_link.get_attribute("href")
-        except Exception:
-            href = None
-
-        profile_url = None
-        if href:
-            profile_url = BASE_URL + href if href.startswith("/") else href
-            profile_url = profile_url.replace("/../", "/")
-
-        # 根据 translate_names 参数决定是否翻译
-        if translate_names:
-            # 翻译模式：查词典转换
-            display_name = english_name
-            if translator:
-                translated = translator.translate(english_name, category='players', use_api=False)
-                if translated != english_name:  # 词典命中
-                    display_name = translated
-            country_name = translate_country(country_code, association)
-            continent_name = translate_continent(continent_raw, continent_raw)
-        else:
-            # 无翻译模式：保持原始英文
-            display_name = english_name
-            country_name = country_code or association
-            continent_name = continent_raw
-
-        player = {
-            "rank": rank,
-            "name": display_name,
-            "english_name": english_name,
-            "points": points,
-            "change": change,
-            "country": country_name,
-            "country_code": country_code,
-            "continent": continent_name,
-            "player_id": extract_player_id_from_href(href),
-            "profile_url": profile_url,
-        }
-        rankings.append(player)
-
+    while len(rankings) < top_n:
+        rows_added = _parse_current_page_rows(page, rankings, top_n)
+        if rows_added == 0 and len(rankings) == 0:
+            logger.error("No ranking rows found on page")
+            break
         if len(rankings) >= top_n:
             break
+        # Try next page
+        if not _click_next_page(page):
+            logger.info("No more pages, collected %d players", len(rankings))
+            break
+        human_sleep(2.0, 4.0, "wait for next page")
 
-    return rankings
-
-
-def extract_update_meta(page: Any, category: str) -> tuple[str, str]:
-    html = page.content()
-
-    week = ""
-    week_match = re.search(r'fab_rank_ws___Week":(\d+)', html)
-    if week_match:
-        week_num = int(week_match.group(1))
-        year = datetime.now().year
-        week = f"{year}年第{week_num}周"
-
-    update_date = ""
-    date_match = re.search(r'(20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})', html)
-    if date_match:
-        update_date = date_match.group(1)
-    else:
-        update_date = datetime.now().strftime("%Y年%m月%d日")
-
-    return week, update_date
+    return rankings[:top_n]
 
 
-def build_output(rankings: list[dict[str, Any]], category: str, week: str, update_date: str) -> dict[str, Any]:
-    return {
-        "update_date": update_date,
-        "week": week,
-        "category": CATEGORY_META[category],
-        "category_key": category,
-        "total_players": len(rankings),
-        "rankings": rankings,
-    }
-
-
-def init_player_profiles_table(db_path: Path) -> None:
-    """Initialize or migrate player_profiles table."""
-    conn = sqlite3.connect(str(db_path))
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS player_profiles (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            player_id TEXT UNIQUE NOT NULL,
-            player_external_id TEXT,
-            name TEXT NOT NULL,
-            english_name TEXT,
-            country TEXT,
-            country_code TEXT,
-            gender TEXT,
-            birth_year INTEGER,
-            age INTEGER,
-            playing_hand TEXT,
-            grip TEXT,
-            current_rank INTEGER,
-            ranking_week TEXT,
-            career_best_rank INTEGER,
-            career_best_week TEXT,
-            career_stats JSON,
-            current_year_stats JSON,
-            recent_matches JSON,
-            avatar_url TEXT,
-            avatar_file_path TEXT,
-            profile_data JSON,
-            profile_url TEXT,
-            json_file_path TEXT,
-            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-    existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(player_profiles)")}
-    required_cols = {
-        "gender": "TEXT",
-        "birth_year": "INTEGER",
-        "age": "INTEGER",
-        "current_rank": "INTEGER",
-        "ranking_week": "TEXT",
-        "career_best_rank": "INTEGER",
-        "career_best_week": "TEXT",
-        "career_stats": "JSON",
-        "current_year_stats": "JSON",
-        "recent_matches": "JSON",
-        "avatar_url": "TEXT",
-        "avatar_file_path": "TEXT",
-    }
-    for col, col_type in required_cols.items():
-        if col not in existing_cols:
-            conn.execute(f"ALTER TABLE player_profiles ADD COLUMN {col} {col_type}")
-    conn.execute("""
-        CREATE INDEX IF NOT EXISTS idx_player_profiles_player_id 
-        ON player_profiles(player_id)
-    """)
-    conn.commit()
-    conn.close()
-
-
-def save_player_profile_to_db(
-    db_path: Path,
-    player_id: str,
-    profile_data: dict[str, Any],
-    json_file_path: str
-) -> None:
-    """Save player profile to SQLite database."""
-    conn = sqlite3.connect(str(db_path))
-    try:
-        conn.execute("""
-            INSERT INTO player_profiles (
-                player_id, player_external_id, name, english_name, country,
-                country_code, gender, birth_year, age, playing_hand, grip,
-                current_rank, ranking_week, career_best_rank, career_best_week,
-                career_stats, current_year_stats, recent_matches, avatar_url,
-                avatar_file_path, profile_data, profile_url, json_file_path, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(player_id) DO UPDATE SET
-                name = excluded.name,
-                english_name = excluded.english_name,
-                country = excluded.country,
-                country_code = excluded.country_code,
-                gender = excluded.gender,
-                birth_year = excluded.birth_year,
-                age = excluded.age,
-                playing_hand = excluded.playing_hand,
-                grip = excluded.grip,
-                current_rank = excluded.current_rank,
-                ranking_week = excluded.ranking_week,
-                career_best_rank = excluded.career_best_rank,
-                career_best_week = excluded.career_best_week,
-                career_stats = excluded.career_stats,
-                current_year_stats = excluded.current_year_stats,
-                recent_matches = excluded.recent_matches,
-                avatar_url = excluded.avatar_url,
-                avatar_file_path = excluded.avatar_file_path,
-                profile_data = excluded.profile_data,
-                profile_url = excluded.profile_url,
-                json_file_path = excluded.json_file_path,
-                updated_at = excluded.updated_at
-        """, (
-            player_id,
-            profile_data.get("player_id"),
-            profile_data.get("name", ""),
-            profile_data.get("english_name", ""),
-            profile_data.get("country", ""),
-            profile_data.get("country_code", ""),
-            profile_data.get("gender"),
-            profile_data.get("birth_year"),
-            profile_data.get("age"),
-            profile_data.get("playing_hand"),
-            profile_data.get("grip"),
-            profile_data.get("current_rank"),
-            profile_data.get("ranking_week"),
-            profile_data.get("career_best_rank"),
-            profile_data.get("career_best_week"),
-            json.dumps(profile_data.get("career_stats"), ensure_ascii=False) if profile_data.get("career_stats") else None,
-            json.dumps(profile_data.get("current_year_stats"), ensure_ascii=False) if profile_data.get("current_year_stats") else None,
-            json.dumps(profile_data.get("recent_matches"), ensure_ascii=False) if profile_data.get("recent_matches") else None,
-            profile_data.get("avatar_url"),
-            profile_data.get("avatar_file_path"),
-            json.dumps(profile_data, ensure_ascii=False),
-            profile_data.get("profile_url"),
-            json_file_path,
-            datetime.now().isoformat()
-        ))
-        conn.commit()
-    finally:
-        conn.close()
-
-
-def scrape_player_profile(
+def _parse_current_page_rows(
     page: Any,
-    profile_url: str,
-    player_info: dict[str, Any],
-    delay_cfg: DelayConfig,
-    profile_orig_dir: Path,
-    profile_cn_dir: Path,
-    avatar_dir: Path,
-    db_path: Path,
-    translator: Translator,
-) -> dict[str, Any] | None:
-    """Scrape player profile page and save to JSON (orig + cn) and DB."""
-    if not profile_url:
+    rankings: list[dict[str, Any]],
+    top_n: int,
+) -> int:
+    """Parse ranking rows from the current page and append to rankings list.
+
+    The ITTF ranking page uses a table structure. We look for tables and try
+    to identify the ranking table by its content (has numeric ranks, player
+    names, country codes, and points).
+
+    Returns the number of rows added.
+    """
+    added = 0
+
+    # Try to find the ranking table
+    tables = page.locator("table")
+    table_count = tables.count()
+    if table_count == 0:
+        logger.warning("No tables found on page")
+        return 0
+
+    # Try each table to find the one with ranking data
+    for t_idx in range(table_count):
+        table = tables.nth(t_idx)
+        rows = table.locator("tbody tr")
+        row_count = rows.count()
+        if row_count == 0:
+            rows = table.locator("tr")
+            row_count = rows.count()
+        if row_count < 2:
+            continue
+
+        for r_idx in range(row_count):
+            if len(rankings) >= top_n:
+                break
+            row = rows.nth(r_idx)
+            player = _try_parse_row(page, row)
+            if player:
+                rankings.append(player)
+                added += 1
+
+        if added > 0:
+            break  # Found the right table
+
+    return added
+
+
+def _try_parse_row(page: Any, row: Any) -> dict[str, Any] | None:
+    """Try to parse a single table row as a ranking entry.
+
+    Returns a player dict or None if the row doesn't look like a ranking entry.
+    """
+    cells = row.locator("td")
+    cell_count = cells.count()
+    if cell_count < 3:
         return None
 
-    player_id = player_info.get("player_id")
-    if not player_id:
+    # Collect all cell texts
+    cell_texts = []
+    for i in range(cell_count):
+        try:
+            cell_texts.append(cells.nth(i).inner_text().strip())
+        except Exception:
+            cell_texts.append("")
+
+    # Find rank (first cell that looks like a number)
+    rank = None
+    rank_idx = -1
+    for i, text in enumerate(cell_texts):
+        cleaned = re.sub(r"[^\d]", "", text)
+        if cleaned and 1 <= int(cleaned) <= 9999:
+            rank = int(cleaned)
+            rank_idx = i
+            break
+
+    if rank is None or rank_idx < 0:
         return None
 
-    try:
-        # Navigate to profile page
-        guarded_goto(page, profile_url, delay_cfg, f"open profile: {player_info.get('name', player_id)}")
+    # The remaining cells after rank should contain: name, country, points
+    # Try to identify them heuristically
+    name = ""
+    country = ""
+    points = 0
+    player_url = None
 
-        # Wait for content to load
-        page.wait_for_load_state("networkidle", timeout=10000)
-        human_sleep(1.0, 2.0, "let profile page settle")
-
-        # Extract profile information
-        profile_data = extract_profile_info(page, player_info, profile_url)
-        avatar_meta = download_player_avatar(page, player_info, avatar_dir)
-        if avatar_meta:
-            profile_data.update(avatar_meta)
-
-        # Save original (English) profile to orig directory
-        safe_name = sanitize_filename(player_info.get("english_name", player_info.get("name", player_id)))
-        json_filename = f"player_{player_id}_{safe_name}.json"
-        orig_path = profile_orig_dir / json_filename
-        save_json(orig_path, profile_data)
-        logger.info("Saved original profile: %s", orig_path)
-
-        # Translate and save Chinese version to cn directory
-        profile_cn = translate_profile_data(profile_data, translator)
-        cn_path = profile_cn_dir / json_filename
-        save_json(cn_path, profile_cn)
-        logger.info("Saved Chinese profile: %s", cn_path)
-
-        # Save to database (use original data)
-        save_player_profile_to_db(db_path, player_id, profile_data, str(orig_path))
-        logger.info("Saved player profile to DB: %s", player_id)
-
-        return profile_data
-
-    except Exception as exc:
-        logger.warning("Failed to scrape profile for %s: %s", player_id, exc)
-        return None
-
-
-def download_player_avatar(page: Any, player_info: dict[str, Any], avatar_dir: Path) -> dict[str, Any] | None:
-    """Download player avatar image from profile page."""
-    try:
-        avatar_dir.mkdir(parents=True, exist_ok=True)
-        candidates = page.locator("img")
-        count = candidates.count()
-        best_url = None
-        for idx in range(count):
-            try:
-                src = candidates.nth(idx).get_attribute("src") or ""
-                if not src:
-                    continue
-                src_lower = src.lower()
-                if "headshot" in src_lower or ("wtt-media" in src_lower and any(ext in src_lower for ext in [".png", ".jpg", ".jpeg", ".webp"])):
-                    best_url = src
+    # Look for the player name - usually has a link
+    for i in range(rank_idx + 1, cell_count):
+        cell = cells.nth(i)
+        link = cell.locator("a").first
+        try:
+            if link.count() > 0:
+                name = link.inner_text().strip()
+                href = link.get_attribute("href") or ""
+                if href and name:
+                    player_url = href if href.startswith("http") else f"https://www.ittf.com{href}"
                     break
-            except Exception:
-                continue
-        if not best_url:
-            return None
+        except Exception:
+            continue
 
-        parsed = urllib.parse.urlparse(best_url)
-        ext = Path(parsed.path).suffix or ".png"
-        safe_name = sanitize_filename(player_info.get("english_name", player_info.get("name", player_info.get("player_id", "unknown"))))
-        file_path = avatar_dir / f"player_{player_info.get('player_id')}_{safe_name}{ext}"
-        # URL-encode the path to handle spaces and special characters
-        encoded_path = urllib.parse.quote(parsed.path, safe='/')
-        encoded_url = urllib.parse.urlunparse((
-            parsed.scheme, parsed.netloc, encoded_path, parsed.params, parsed.query, parsed.fragment
-        ))
-        req = urllib.request.Request(encoded_url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            content = resp.read()
-        file_path.write_bytes(content)
-        return {
-            "avatar_url": best_url,
-            "avatar_file_path": str(file_path),
-        }
-    except Exception as exc:
-        logger.warning("Failed to download avatar for %s: %s", player_info.get("player_id"), exc)
+    # If no link found, try text-based approach
+    if not name:
+        # Name is usually the longest text cell after rank
+        remaining = [(i, cell_texts[i]) for i in range(rank_idx + 1, cell_count)]
+        remaining.sort(key=lambda x: len(x[1]), reverse=True)
+        if remaining:
+            name = remaining[0][1]
+
+    # Look for country code (2-3 uppercase letters)
+    for i in range(rank_idx + 1, cell_count):
+        text = cell_texts[i].strip()
+        # Also check for flag image title attribute
+        try:
+            img = cells.nth(i).locator("img").first
+            if img.count() > 0:
+                title = img.get_attribute("title") or img.get_attribute("alt") or ""
+                if title and len(title) <= 5:
+                    country = title.strip()
+                    continue
+        except Exception:
+            pass
+        if re.fullmatch(r"[A-Z]{2,3}", text):
+            country = text
+
+    # Look for points (numeric value, usually > 100 for top players)
+    for i in range(cell_count - 1, rank_idx, -1):
+        text = re.sub(r"[,\s]", "", cell_texts[i])
+        if text.isdigit() and int(text) > 0:
+            points = int(text)
+            break
+
+    if not name:
         return None
 
-
-def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: str) -> dict[str, Any]:
-    """Extract detailed profile information from player page."""
-    profile_data: dict[str, Any] = {
-        "player_id": player_info.get("player_id"),
-        "name": player_info.get("name", ""),
-        "english_name": player_info.get("english_name", ""),
-        "country": player_info.get("country", ""),
-        "country_code": player_info.get("country_code", ""),
-        "profile_url": profile_url,
-        "rank": player_info.get("rank"),
-        "points": player_info.get("points"),
-        "rank_change": player_info.get("change"),
-        "scraped_at": datetime.now().isoformat(),
+    return {
+        "rank": rank,
+        "name": name,
+        "country": country,
+        "points": points,
+        "player_url": player_url,
+        "points_breakdown": [],  # Filled in later
     }
 
-    try:
-        main = page.locator("main") if page.locator("main").count() > 0 else page.locator("body")
-        main_content = main.inner_text()
 
-        stats_table = None
-        tables = page.locator("main table") if page.locator("main table").count() > 0 else page.locator("table")
-        for i in range(tables.count()):
-            table = tables.nth(i)
-            try:
-                headers = [normalize_space(x) for x in table.locator("tr").first.locator("th,td").all_inner_texts()]
-                if "Profile" in headers and "Career *" in headers and "Current Year *" in headers:
-                    stats_table = table
-                    break
-            except Exception:
+def _click_next_page(page: Any) -> bool:
+    """Try to click the next page button. Returns True if successful."""
+    selectors = [
+        "a.next",
+        "li.next:not(.disabled) a",
+        "a[aria-label='Next']",
+        "a:has-text('Next')",
+        "button:has-text('Next')",
+        ".pagination a:has-text('›')",
+        ".pagination a:has-text('»')",
+    ]
+    for sel in selectors:
+        try:
+            loc = page.locator(sel).first
+            if loc.count() > 0 and loc.is_visible():
+                loc.click()
+                page.wait_for_load_state("networkidle", timeout=10000)
+                return True
+        except Exception:
+            continue
+    return False
+
+
+# ---------------------------------------------------------------------------
+# Points breakdown scraping
+# ---------------------------------------------------------------------------
+
+def scrape_points_breakdown(page: Any, player_url: str, delay_cfg: DelayConfig) -> list[dict[str, Any]]:
+    """Navigate to a player's ranking detail page and extract their points breakdown.
+
+    Returns a list of dicts with: event, category, expires_on, position, points.
+    """
+    breakdown: list[dict[str, Any]] = []
+
+    try:
+        guarded_goto(page, player_url, delay_cfg, f"open player ranking detail")
+        page.wait_for_load_state("networkidle", timeout=15000)
+        human_sleep(1.0, 2.0, "let player page settle")
+
+        # Look for the points breakdown table
+        tables = page.locator("table")
+        table_count = tables.count()
+
+        for t_idx in range(table_count):
+            table = tables.nth(t_idx)
+            # Check if this looks like a points breakdown table
+            # by looking at headers: Event, Category, Expires on, Position, Points
+            headers = _get_table_headers(table)
+            if not headers:
                 continue
 
-        profile_cell_text = ""
-        career_cell_text = ""
-        current_year_cell_text = ""
-        if stats_table is not None:
-            rows = stats_table.locator("tr")
-            for i in range(rows.count()):
-                cells = rows.nth(i).locator("td")
-                if cells.count() >= 5:
-                    name_cell = normalize_space(cells.nth(1).inner_text())
-                    if player_info.get("player_id") and player_info["player_id"] in name_cell:
-                        profile_cell_text = normalize_space(cells.nth(2).inner_text())
-                        career_cell_text = normalize_space(cells.nth(3).inner_text())
-                        current_year_cell_text = normalize_space(cells.nth(4).inner_text())
-                        break
+            # Match header patterns (case-insensitive)
+            header_lower = [h.lower() for h in headers]
+            has_event = any("event" in h for h in header_lower)
+            has_points = any("point" in h for h in header_lower)
 
-        text_content = profile_cell_text or main_content
+            if not (has_event and has_points):
+                continue
 
-        profile_lines = [normalize_space(line) for line in profile_cell_text.splitlines() if normalize_space(line)]
-        if profile_lines:
-            first_line = profile_lines[0]
-            if re.fullmatch(r'[A-Z ]+', first_line):
-                profile_data["country_en"] = first_line.strip()
+            # Found the points breakdown table — map column indices
+            col_map = _map_breakdown_columns(headers)
+            rows = table.locator("tbody tr")
+            row_count = rows.count()
 
-        gender_match = re.search(r'Gender:\s*(\w+)', text_content, re.IGNORECASE)
-        if gender_match:
-            profile_data["gender"] = gender_match.group(1).capitalize()
+            for r_idx in range(row_count):
+                row = rows.nth(r_idx)
+                entry = _parse_breakdown_row(row, col_map)
+                if entry:
+                    breakdown.append(entry)
 
-        birth_year_match = re.search(r'Birth Year:\s*(\d{4})', text_content, re.IGNORECASE)
-        if birth_year_match:
-            profile_data["birth_year"] = int(birth_year_match.group(1))
+            if breakdown:
+                break  # Found the right table
 
-        age_match = re.search(r'Age:\s*(\d+)', text_content, re.IGNORECASE)
-        if age_match:
-            profile_data["age"] = int(age_match.group(1))
+    except RiskControlTriggered:
+        raise
+    except Exception as exc:
+        logger.warning("Failed to scrape points breakdown from %s: %s", player_url, exc)
 
-        style_match = re.search(r'Style:\s*(.+?)(?=\s*Ranking:|$)', text_content, re.IGNORECASE)
-        if style_match:
-            style_str = style_match.group(1).strip()
-            profile_data["style"] = style_str
-            if "right" in style_str.lower():
-                profile_data["playing_hand"] = "Right"
-            elif "left" in style_str.lower():
-                profile_data["playing_hand"] = "Left"
-            grip_match = re.search(r'\(([^)]+)\)', style_str)
-            if grip_match:
-                profile_data["grip"] = grip_match.group(1).strip()
+    return breakdown
 
-        ranking_match = re.search(r'Ranking:\s*(\d+)\s*\|\s*Week:\s*(.+?)(?=\s*Career Best\*\*:|$)', text_content)
-        if ranking_match:
-            profile_data["current_rank"] = int(ranking_match.group(1))
-            profile_data["ranking_week"] = ranking_match.group(2).strip()
 
-        career_best_match = re.search(r'Career Best\*\*:\s*(\d+)\s*\|\s*Week:\s*([^\n]+)', text_content)
-        if career_best_match:
-            profile_data["career_best_rank"] = int(career_best_match.group(1))
-            profile_data["career_best_week"] = career_best_match.group(2).strip()
+def _get_table_headers(table: Any) -> list[str]:
+    """Extract header texts from a table element."""
+    headers: list[str] = []
+    try:
+        # Try thead th first
+        ths = table.locator("thead th")
+        if ths.count() > 0:
+            for i in range(ths.count()):
+                headers.append(ths.nth(i).inner_text().strip())
+            return headers
 
-        if career_cell_text:
-            profile_data["career_stats"] = parse_stats_cell(career_cell_text, "career")
-        if current_year_cell_text:
-            profile_data["current_year_stats"] = parse_stats_cell(current_year_cell_text, "current_year")
+        # Try first row th/td
+        first_row = table.locator("tr").first
+        cells = first_row.locator("th, td")
+        for i in range(cells.count()):
+            headers.append(cells.nth(i).inner_text().strip())
+    except Exception:
+        pass
+    return headers
 
-        recent_matches = []
-        recent_section_match = re.search(r'Recent Singles Matches:\s*(.+?)(?:Results in Singles Matches in WTT Events:|Results in Singles Matches in ITTF Individual Events:|$)', main_content, re.DOTALL)
-        if recent_section_match:
-            recent_text = normalize_space(recent_section_match.group(1))
-            chunks = re.findall(r'(.+?Result:\s*(?:WON|LOST))(?=\s+(?:ITTF|WTT)\b|$)', recent_text)
-            for chunk in chunks:
-                chunk = chunk.strip()
-                if ' vs ' not in chunk or 'Result:' not in chunk:
-                    continue
-                player_name = re.escape(player_info.get("english_name", "").strip())
-                m = re.search(rf'^(.*?)\s+({player_name})\s+\(([A-Z]{{3}})\)\s+vs\s+([A-Z][A-Za-z\-\s]+)\s+\(([A-Z]{{3}})\)\s+(.*?)\s*\|\s*(.*?)\s*Result:\s*(WON|LOST)$', chunk)
-                if not m:
-                    m = re.search(r'^(.*?)\s+([A-Z][A-Za-z\-\s]+)\s+\(([A-Z]{3})\)\s+vs\s+([A-Z][A-Za-z\-\s]+)\s+\(([A-Z]{3})\)\s+(.*?)\s*\|\s*(.*?)\s*Result:\s*(WON|LOST)$', chunk)
-                if not m:
-                    continue
-                recent_matches.append({
-                    "event": normalize_space(m.group(1)),
-                    "player": normalize_space(m.group(2)),
-                    "player_country": m.group(3),
-                    "opponent": normalize_space(m.group(4)),
-                    "opponent_country": m.group(5),
-                    "stage": normalize_space(m.group(6)),
-                    "score": normalize_space(m.group(7)),
-                    "result": m.group(8),
-                })
-        if recent_matches:
-            profile_data["recent_matches"] = recent_matches
+
+def _map_breakdown_columns(headers: list[str]) -> dict[str, int]:
+    """Map breakdown field names to column indices based on header texts."""
+    col_map: dict[str, int] = {}
+    for i, h in enumerate(headers):
+        h_lower = h.lower().strip()
+        if "event" in h_lower and "event" not in col_map:
+            col_map["event"] = i
+        elif "categor" in h_lower:
+            col_map["category"] = i
+        elif "expir" in h_lower:
+            col_map["expires_on"] = i
+        elif "position" in h_lower or "pos" == h_lower:
+            col_map["position"] = i
+        elif "point" in h_lower:
+            col_map["points"] = i
+    return col_map
+
+
+def _parse_breakdown_row(row: Any, col_map: dict[str, int]) -> dict[str, Any] | None:
+    """Parse a single points breakdown row."""
+    cells = row.locator("td")
+    cell_count = cells.count()
+    if cell_count < 2:
+        return None
+
+    cell_texts = []
+    for i in range(cell_count):
+        try:
+            cell_texts.append(cells.nth(i).inner_text().strip())
+        except Exception:
+            cell_texts.append("")
+
+    def get_col(field: str) -> str:
+        idx = col_map.get(field)
+        if idx is not None and idx < len(cell_texts):
+            return cell_texts[idx]
+        return ""
+
+    event = get_col("event")
+    if not event:
+        return None
+
+    points_text = re.sub(r"[,\s]", "", get_col("points"))
+    points = int(points_text) if points_text.isdigit() else 0
+
+    return {
+        "event": event,
+        "category": get_col("category"),
+        "expires_on": get_col("expires_on"),
+        "position": get_col("position"),
+        "points": points,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Ranking metadata
+# ---------------------------------------------------------------------------
+
+def extract_ranking_meta(page: Any) -> tuple[str, str]:
+    """Try to extract ranking week and date from the current page.
+
+    Returns (ranking_week, ranking_date) as strings.
+    """
+    ranking_week = ""
+    ranking_date = ""
+
+    try:
+        body_text = page.inner_text("body")
+
+        # Look for week info: "Week 16", "Week 16, 2026", etc.
+        week_match = re.search(r"Week\s*(\d+)(?:\s*[,/]\s*(20\d{2}))?", body_text, re.IGNORECASE)
+        if week_match:
+            week_num = week_match.group(1)
+            year = week_match.group(2) or str(datetime.now().year)
+            ranking_week = f"Week {week_num}, {year}"
+
+        # Look for date: "14 April 2026", "2026-04-14", "April 14, 2026", etc.
+        date_match = re.search(
+            r"(\d{1,2}\s+\w+\s+20\d{2}|20\d{2}[-/.]\d{1,2}[-/.]\d{1,2}|\w+\s+\d{1,2},?\s+20\d{2})",
+            body_text,
+        )
+        if date_match:
+            ranking_date = date_match.group(1).strip()
 
     except Exception as exc:
-        logger.warning("Error extracting profile details: %s", exc)
+        logger.warning("Failed to extract ranking meta: %s", exc)
 
-    return profile_data
+    if not ranking_week:
+        ranking_week = f"Week {datetime.now().isocalendar()[1]}, {datetime.now().year}"
+    if not ranking_date:
+        ranking_date = datetime.now().strftime("%Y-%m-%d")
 
-
-def parse_stats_cell(cell_text: str, prefix: str) -> dict[str, Any]:
-    """Parse stats from a table cell text."""
-    stats = {}
-    
-    # Events
-    events_match = re.search(r'Events:\s*(\d+)', cell_text)
-    if events_match:
-        stats["events"] = int(events_match.group(1))
-    
-    # Matches
-    matches_match = re.search(r'Matches:\s*(\d+)', cell_text)
-    if matches_match:
-        stats["matches"] = int(matches_match.group(1))
-    
-    # Wins
-    wins_match = re.search(r'Wins:\s*(\d+)', cell_text)
-    if wins_match:
-        stats["wins"] = int(wins_match.group(1))
-    
-    # Loses
-    loses_match = re.search(r'Loses:\s*(\d+)', cell_text)
-    if loses_match:
-        stats["loses"] = int(loses_match.group(1))
-    
-    # Games
-    games_match = re.search(r'Games:\s*(\d+)\s*\(W:\s*(\d+)\s*,\s*L:\s*(\d+)\)', cell_text)
-    if games_match:
-        stats["games"] = int(games_match.group(1))
-        stats["games_won"] = int(games_match.group(2))
-        stats["games_lost"] = int(games_match.group(3))
-    
-    # Points
-    points_match = re.search(r'Points:\s*(\d+)\s*\(W:\s*(\d+)\s*,\s*L:\s*(\d+)\)', cell_text)
-    if points_match:
-        stats["points_played"] = int(points_match.group(1))
-        stats["points_won"] = int(points_match.group(2))
-        stats["points_lost"] = int(points_match.group(3))
-    
-    # WTT Senior Titles
-    wtt_match = re.search(r'WTT Senior Titles:\s*(\d+)', cell_text)
-    if wtt_match:
-        stats["wtt_senior_titles"] = int(wtt_match.group(1))
-    
-    # All Senior Titles
-    all_titles_match = re.search(r'All Senior Titles:\s*(\d+)', cell_text)
-    if all_titles_match:
-        stats["all_senior_titles"] = int(all_titles_match.group(1))
-    
-    return stats
+    return ranking_week, ranking_date
 
 
-def translate_profile_data(profile_data: dict[str, Any], translator: Translator) -> dict[str, Any]:
-    """翻译运动员档案数据为中文"""
-    data = profile_data.copy()
-    
-    # 翻译运动员姓名
-    if 'name' in data and data['name']:
-        data['name_zh'] = translator.translate(data['name'], category='players', use_api=True)
-    
-    # 翻译国家代码
-    if 'country_code' in data and data['country_code']:
-        data['country_code_zh'] = translator.translate(data['country_code'], category='locations', use_api=True)
-    
-    # 翻译性别
-    if 'gender' in data and data['gender']:
-        gender_map = {'Female': '女', 'Male': '男'}
-        data['gender_zh'] = gender_map.get(data['gender'], data['gender'])
-    
-    # 翻译打法风格
-    if 'style' in data and data['style']:
-        style = data['style']
-        parts = []
-        if 'right' in style.lower():
-            parts.append('右手')
-        elif 'left' in style.lower():
-            parts.append('左手')
-        if 'attack' in style.lower():
-            parts.append('进攻型')
-        elif 'defense' in style.lower():
-            parts.append('防守型')
-        elif 'all-round' in style.lower():
-            parts.append('全面型')
-        if 'shakehand' in style.lower():
-            parts.append('(横拍)')
-        elif 'penhold' in style.lower():
-            parts.append('(直拍)')
-        data['style_zh'] = ''.join(parts) if parts else style
-    
-    # 翻译持拍手
-    if 'playing_hand' in data and data['playing_hand']:
-        hand_map = {'Right': '右手', 'Left': '左手'}
-        data['playing_hand_zh'] = hand_map.get(data['playing_hand'], data['playing_hand'])
-    
-    # 翻译握拍方式
-    if 'grip' in data and data['grip']:
-        grip_map = {'ShakeHand': '横拍', 'Penhold': '直拍'}
-        data['grip_zh'] = grip_map.get(data['grip'], data['grip'])
-    
-    # 翻译近期比赛
-    if 'recent_matches' in data and data['recent_matches']:
-        for match in data['recent_matches']:
-            # 翻译赛事名称
-            if 'event' in match and match['event']:
-                match['event_zh'] = translator.translate(match['event'], category='events', use_api=True)
-            
-            # 翻译对手姓名
-            if 'opponent' in match and match['opponent']:
-                match['opponent_zh'] = translator.translate(match['opponent'], category='players', use_api=True)
-            
-            # 翻译对手国家
-            if 'opponent_country' in match and match['opponent_country']:
-                match['opponent_country_zh'] = translator.translate(match['opponent_country'], category='locations', use_api=True)
-            
-            # 翻译比赛阶段
-            if 'stage' in match and match['stage']:
-                stage = match['stage']
-                parts = stage.split(' - ')
-                translated_parts = []
-                for part in parts:
-                    part = part.strip()
-                    if part.startswith('WS'):
-                        translated_parts.append('女子单打' + part[2:].strip())
-                    elif part.startswith('MS'):
-                        translated_parts.append('男子单打' + part[2:].strip())
-                    elif part.startswith('XD'):
-                        translated_parts.append('混合双打' + part[2:].strip())
-                    elif part.startswith('WD'):
-                        translated_parts.append('女子双打' + part[2:].strip())
-                    elif part.startswith('MD'):
-                        translated_parts.append('男子双打' + part[2:].strip())
-                    else:
-                        translated_parts.append(translator.translate(part, category='terms', use_api=True))
-                match['stage_zh'] = ' - '.join(translated_parts)
-            
-            # 翻译结果
-            if 'result' in match and match['result']:
-                result_map = {'WON': '胜', 'LOST': '负', 'DRAW': '平'}
-                match['result_zh'] = result_map.get(match['result'], match['result'])
-    
-    return data
+# ---------------------------------------------------------------------------
+# Cloudflare handling
+# ---------------------------------------------------------------------------
+
+def _page_has_real_content(page: Any) -> bool:
+    """Check if the page has loaded real ITTF content (not a challenge/interstitial)."""
+    try:
+        title = page.title().lower()
+        # Cloudflare / generic interstitials
+        if any(kw in title for kw in ["just a moment", "checking", "cloudflare", "attention"]):
+            return False
+
+        # Challenge page selectors
+        challenge_selectors = [
+            "#challenge-form", "#cf-challenge-title", "[data-ray]",
+            "#challenge-title", ".challenge-title",
+            "iframe[src*='challenges.cloudflare']",
+        ]
+        for sel in challenge_selectors:
+            if page.locator(sel).count() > 0:
+                return False
+
+        # Positive check: page should have links or meaningful text
+        body_text = page.inner_text("body")
+        if len(body_text.strip()) < 100:
+            return False
+
+        return True
+    except Exception:
+        return False
 
 
-def translate_ranking_data(ranking_data: dict[str, Any], translator: Translator) -> dict[str, Any]:
-    """翻译排名数据为中文"""
-    data = ranking_data.copy()
-    
-    # 翻译每个排名条目
-    if 'rankings' in data and data['rankings']:
-        for player in data['rankings']:
-            # 翻译姓名
-            if 'name' in player and player['name']:
-                player['name_zh'] = translator.translate(player['name'], category='players', use_api=True)
-            
-            # 翻译国家代码（如果country是英文）
-            if 'country_code' in player and player['country_code']:
-                player['country_code_zh'] = translator.translate(player['country_code'], category='locations', use_api=True)
-    
-    return data
+def _navigate_with_cf_handling(page: Any, url: str, delay_cfg: DelayConfig, reason: str, sleep_first: bool = True) -> None:
+    """Navigate to URL, wait for Cloudflare/interstitial to be cleared manually if needed."""
+    if sleep_first:
+        human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, reason)
 
+    page.goto(url, wait_until="domcontentloaded", timeout=45000)
+
+    try:
+        page.wait_for_load_state("networkidle", timeout=12000)
+    except Exception:
+        pass
+
+    if not _page_has_real_content(page):
+        logger.warning("Page does not appear to have loaded real content (possible Cloudflare challenge).")
+        logger.warning("If you see a verification page, please complete it in the browser.")
+        input("Press ENTER after the real page has loaded...")
+        # Wait for page to settle after user interaction
+        try:
+            page.wait_for_load_state("networkidle", timeout=15000)
+        except Exception:
+            pass
+        human_sleep(2.0, 4.0, "after manual verification")
+
+    # Final risk check
+    risk = detect_risk(page)
+    if risk:
+        raise RiskControlTriggered(risk)
+
+
+# ---------------------------------------------------------------------------
+# Main flow
+# ---------------------------------------------------------------------------
 
 def run(args: argparse.Namespace) -> int:
-    snapshot_dir = Path(args.snapshot_dir)
-    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    profile_dir = Path(args.profile_dir)
-    profile_dir.mkdir(parents=True, exist_ok=True)
-    
-    # 创建 orig 和 cn 子目录
-    profile_orig_dir = profile_dir / "orig"
-    profile_cn_dir = profile_dir / "cn"
-    profile_orig_dir.mkdir(parents=True, exist_ok=True)
-    profile_cn_dir.mkdir(parents=True, exist_ok=True)
+    checkpoint_path = Path(args.checkpoint)
+    checkpoint = CheckpointStore(checkpoint_path)
+    if getattr(args, "rebuild_checkpoint", False):
+        checkpoint.reset()
 
-    avatar_dir = Path(args.avatar_dir)
-    avatar_dir.mkdir(parents=True, exist_ok=True)
-
-    db_path = Path(args.db_path)
-    db_path.parent.mkdir(parents=True, exist_ok=True)
-    init_player_profiles_table(db_path)
-
-    output_path = Path(args.output) if args.output else Path(f"data/{args.category}_top{args.top}.json")
-    output_cn_path = output_path.with_suffix('').with_name(output_path.stem + "_cn").with_suffix('.json')
-    
-    # 初始化翻译器
-    translator = Translator()
+    # If checkpoint is missing/empty, bootstrap from existing output files (orig data).
+    cached_date, cached_breakdowns = _load_cached_breakdowns(output_dir)
+    if (not checkpoint_path.exists()) or (not checkpoint.has_any_completed()):
+        if cached_date and cached_breakdowns:
+            with checkpoint.bulk():
+                for pk in cached_breakdowns.keys():
+                    ck = f"rankings|{cached_date}|player:{pk}|breakdown"
+                    if not checkpoint.is_done(ck):
+                        checkpoint.mark_done(ck, meta={"bootstrapped_from": "latest_output"})
 
     delay_cfg = DelayConfig(
         min_request_sec=3.0,
@@ -786,10 +601,8 @@ def run(args: argparse.Namespace) -> int:
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
-        logger.error("Please install Playwright first: pip install playwright && playwright install")
+        logger.error("Please install Playwright: pip install playwright && playwright install")
         return 2
-
-    target_url = RANKING_URLS[args.category]
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=args.headless, slow_mo=args.slow_mo)
@@ -797,60 +610,77 @@ def run(args: argparse.Namespace) -> int:
         page = context.new_page()
 
         try:
-            guarded_goto(page, target_url, delay_cfg, f"open ranking page: {args.category}")
+            # Step 1: Navigate to rankings index page (no sleep before first navigation)
+            logger.info("Navigating to ITTF rankings index: %s", RANKINGS_INDEX_URL)
+            _navigate_with_cf_handling(page, RANKINGS_INDEX_URL, delay_cfg, "open rankings index", sleep_first=False)
 
-            table_count = page.locator("table").count()
-            if table_count == 0:
-                logger.error("No table found on ranking page: %s", target_url)
+            # Step 2: Find and click Women's Singles link
+            ws_url = find_womens_singles_url(page)
+            if not ws_url:
+                logger.error("Could not find Women's Singles link on %s", RANKINGS_INDEX_URL)
                 browser.close()
                 return 3
 
-            html = page.content()
-            snapshot_path = snapshot_dir / f"{args.category}.html"
-            snapshot_path.write_text(html, encoding="utf-8")
-            logger.info("Saved ranking snapshot: %s", snapshot_path)
+            logger.info("Navigating to Women's Singles ranking: %s", ws_url)
+            _navigate_with_cf_handling(page, ws_url, delay_cfg, "open women's singles ranking")
 
-            rankings = parse_ranking_rows(page, args.top, translator, translate_names=not args.no_translate)
+            # Step 3: Extract ranking metadata
+            ranking_week, ranking_date = extract_ranking_meta(page)
+            logger.info("Ranking week: %s, date: %s", ranking_week, ranking_date)
+
+            # Step 4: Parse ranking table
+            logger.info("Parsing ranking table (top %d)...", args.top)
+            rankings = parse_ranking_table(page, args.top)
             if not rankings:
-                logger.error("Parsed 0 ranking rows from page: %s", target_url)
+                logger.error("Parsed 0 ranking rows")
                 browser.close()
                 return 5
 
-            # Scrape player profiles if enabled
-            if args.scrape_profiles:
-                logger.info("Starting profile scraping for %d players...", len(rankings))
-                for idx, player in enumerate(rankings):
-                    if player.get("profile_url"):
-                        logger.info("[%d/%d] Scraping profile: %s", idx + 1, len(rankings), player.get("english_name", player.get("name")))
-                        scrape_player_profile(
-                            page,
-                            player.get("profile_url"),
-                            player,
-                            delay_cfg,
-                            profile_orig_dir,
-                            profile_cn_dir,
-                            avatar_dir,
-                            db_path,
-                            translator,
-                        )
-                        # Delay between players to avoid rate limiting
-                        if idx < len(rankings) - 1:
-                            human_sleep(delay_cfg.min_player_gap_sec, delay_cfg.max_player_gap_sec, "between player profiles")
+            logger.info("Parsed %d ranking entries", len(rankings))
 
-            week, update_date = extract_update_meta(page, args.category)
-            payload = build_output(rankings, args.category, week, update_date)
-            
-            # Save original ranking
-            save_json(output_path, payload)
-            logger.info("Saved ranking JSON: %s", output_path)
-            
-            # Translate and save Chinese version (unless disabled)
-            if not args.no_translate:
-                payload_cn = translate_ranking_data(payload, translator)
-                save_json(output_cn_path, payload_cn)
-                logger.info("Saved Chinese ranking JSON: %s", output_cn_path)
-            else:
-                logger.info("Translation skipped ( --no-translate )")
+            # Step 5: Scrape points breakdown for each player
+            for idx, player in enumerate(rankings):
+                player_url = player.get("player_url")
+                if not player_url:
+                    logger.warning("[%d/%d] No URL for player: %s", idx + 1, len(rankings), player.get("name"))
+                    continue
+
+                pk = _player_key(player)
+                ck = f"rankings|{ranking_date}|player:{pk}|breakdown"
+                if (not args.force) and checkpoint.is_done(ck):
+                    cached = cached_breakdowns.get(pk)
+                    if cached:
+                        player["points_breakdown"] = cached
+                        logger.info("[%d/%d] Skipping (checkpoint+cache): %s", idx + 1, len(rankings), player["name"])
+                        continue
+                    logger.info("[%d/%d] Checkpoint done but no cache found, will rescrape: %s", idx + 1, len(rankings), player["name"])
+
+                logger.info("[%d/%d] Scraping points breakdown: %s", idx + 1, len(rankings), player["name"])
+                try:
+                    breakdown = scrape_points_breakdown(page, player_url, delay_cfg)
+                    player["points_breakdown"] = breakdown
+                    logger.info("  -> %d breakdown entries", len(breakdown))
+                    checkpoint.mark_done(ck, meta={"player_url": player_url, "rank": player.get("rank")})
+                    cached_breakdowns[pk] = breakdown
+                except RiskControlTriggered as exc:
+                    logger.error("Risk control triggered at player %s: %s", player["name"], exc)
+                    checkpoint.mark_failed(ck, str(exc), meta={"player_url": player_url})
+                    # Save partial results before exiting
+                    _save_output(output_dir, rankings, ranking_week, ranking_date, args.top)
+                    browser.close()
+                    return 4
+                except Exception as exc:
+                    logger.warning("  -> Failed: %s", exc)
+                    checkpoint.mark_failed(ck, str(exc), meta={"player_url": player_url})
+
+                # Delay between players
+                if idx < len(rankings) - 1:
+                    human_sleep(delay_cfg.min_player_gap_sec, delay_cfg.max_player_gap_sec, "between players")
+
+            # Step 6: Save output
+            output_path = _save_output(output_dir, rankings, ranking_week, ranking_date, args.top)
+            logger.info("Saved ranking data: %s", output_path)
+
         except RiskControlTriggered as exc:
             logger.error("Risk control triggered: %s", exc)
             browser.close()
@@ -858,8 +688,36 @@ def run(args: argparse.Namespace) -> int:
 
         browser.close()
 
-    logger.info("Ranking scrape completed: %s rows", len(rankings))
+    logger.info("Ranking scrape completed: %d players", len(rankings))
     return 0
+
+
+def _save_output(
+    output_dir: Path,
+    rankings: list[dict[str, Any]],
+    ranking_week: str,
+    ranking_date: str,
+    top_n: int,
+) -> Path:
+    """Build and save the output JSON."""
+    # Extract week number for filename
+    week_match = re.search(r"Week\s*(\d+)", ranking_week)
+    week_num = week_match.group(1) if week_match else str(datetime.now().isocalendar()[1])
+
+    payload = {
+        "category": "women_singles",
+        "ranking_week": ranking_week,
+        "ranking_date": ranking_date,
+        "scraped_at": datetime.now().isoformat(),
+        "top_n": top_n,
+        "total_players": len(rankings),
+        "rankings": rankings,
+    }
+
+    filename = f"women_singles_top{top_n}_week{week_num}.json"
+    output_path = output_dir / filename
+    save_json(output_path, payload)
+    return output_path
 
 
 def main() -> None:
