@@ -28,23 +28,24 @@ ittf_rankings/
 
 ## 常用脚本
 
-### 1. 抓取排名
+### 1. 抓取排名数据（含 points breakdown）
 
 ```bash
-python scripts/scrape_rankings.py --category women --top 50 --headless
+python scripts/run_rankings.py --top 100 --headless
 ```
 
-### 2. 抓取排名 + 运动员 profile + 头像
+输出：`data/rankings/orig/women_singles_top100_week{W}.json`
+
+### 2. 抓取运动员 profile + 头像
 
 ```bash
-python scripts/scrape_rankings.py --category women --top 50 --scrape-profiles --headless
+python scripts/run_profiles.py --category women --top 50 --headless
 ```
 
-输出会写到：
-- `data/ranking_snapshots/`
-- `data/player_profiles/`
-- `data/player_avatars/`
-- `web/db/ittf_rankings.sqlite`
+输出：
+- `data/player_profiles/orig/` — 原始运动员档案
+- `data/player_profiles/cn/` — 中文翻译版
+- `data/player_avatars/` — 运动员头像
 
 ### 3. 抓取运动员比赛记录
 

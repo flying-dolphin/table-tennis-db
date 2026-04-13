@@ -92,18 +92,40 @@ python scripts/scrape_matches.py
 python scripts/translate_matches.py --file data/matches_complete/xxx.json
 ```
 
-## Rankings 抓取与翻译
+## Rankings 抓取
 
-抓取排名：
+从 https://www.ittf.com/rankings/ 抓取 Women's Singles 排名 + points breakdown：
 
 ```bash
-python scripts/scrape_rankings.py --category women --top 50
+python scripts/run_rankings.py --top 100 --headless
 ```
+
+常用参数：
+- `--top N`：抓取前 N 名（默认 100）
+- `--force`：忽略 checkpoint 重新抓取
+- `--output-dir`：输出目录（默认 `data/rankings/orig`）
+
+输出：`data/rankings/orig/women_singles_top{N}_week{W}.json`
+
+## Player Profiles 抓取
+
+从 results.ittf.link 抓取运动员详情档案：
+
+```bash
+python scripts/run_profiles.py --category women --top 50 --headless
+```
+
+输出：
+- `data/player_profiles/orig/` — 原始档案
+- `data/player_profiles/cn/` — 中文翻译版
+- `data/player_avatars/` — 头像
+
+## Rankings 翻译
 
 翻译排名文件：
 
 ```bash
-python scripts/translate_rankings.py --file data/rankings/women_singles_top50.json
+python scripts/translate_rankings.py --file data/rankings/orig/women_singles_top100_week16.json
 ```
 
 ## Regulations（规则文档）
