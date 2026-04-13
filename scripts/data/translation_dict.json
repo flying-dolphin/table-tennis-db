@@ -834,7 +834,7 @@
     },
     "ittf world para challenger sao paulo 2026": {
       "original": "ITTF World Para Challenger Sao Paulo 2026",
-      "translated": "国际乒联世界帕拉挑战赛 圣保罗 2026",
+      "translated": "国际乒联世界残疾人挑战赛 圣保罗 2026",
       "source": "api",
       "updated_at": "2026-04-13T00:00:19.571105"
     },
@@ -900,7 +900,7 @@
     },
     "ittf world para elite taipei city 2026": {
       "original": "ITTF World Para Elite Taipei City 2026",
-      "translated": "2026年ITTF世界帕拉精英赛（台北）",
+      "translated": "2026年ITTF世界残疾人精英赛（台北）",
       "source": "api",
       "updated_at": "2026-04-13T00:03:29.342034"
     },
@@ -1044,7 +1044,7 @@
     },
     "united states smash 2026": {
       "original": "United States Smash 2026",
-      "translated": "2026美国斯玛什",
+      "translated": "2026美国大满贯",
       "source": "api",
       "updated_at": "2026-04-13T00:08:01.243180"
     },
@@ -1296,7 +1296,7 @@
     },
     "ittf world para future ammann 2026": {
       "original": "ITTF World Para Future Ammann 2026",
-      "translated": "国际乒联帕拉乒乓球阿姆阿姆未来赛 2026",
+      "translated": "国际乒联残疾人乒乓球阿姆阿姆未来赛 2026",
       "source": "api",
       "updated_at": "2026-04-13T00:13:00.376848"
     },
@@ -1452,7 +1452,7 @@
     },
     "ittf world para future region de murcia 2026": {
       "original": "ITTF World Para Future Region De Murcia 2026",
-      "translated": "国际乒联世界帕拉乒乓球穆尔西亚未来赛区2026",
+      "translated": "国际乒联世界残疾人乒乓球穆尔西亚未来赛区2026",
       "source": "api",
       "updated_at": "2026-04-13T00:15:38.192141"
     },
@@ -1476,7 +1476,7 @@
     },
     "ittf world para challenger kefalonia 2026": {
       "original": "ITTF World Para Challenger Kefalonia 2026",
-      "translated": "世界帕拉挑战赛 - 凯法利尼亚 2026",
+      "translated": "世界残疾人挑战赛 - 凯法利尼亚 2026",
       "source": "api",
       "updated_at": "2026-04-13T00:16:20.088152"
     },
@@ -1488,7 +1488,7 @@
     },
     "asian para games aichi-nagoya 2026": {
       "original": "Asian Para Games Aichi-Nagoya 2026",
-      "translated": "爱知·名古屋2026年亚洲帕拉运动会",
+      "translated": "爱知·名古屋2026年亚洲残疾人运动会",
       "source": "api",
       "updated_at": "2026-04-13T00:16:34.077890"
     },
@@ -1602,7 +1602,7 @@
     },
     "ittf world para championships pattaya 2026": {
       "original": "ITTF World Para Championships Pattaya 2026",
-      "translated": "2026年芭提雅国际乒联世界帕拉锦标赛",
+      "translated": "2026年芭提雅国际乒联世界残疾人锦标赛",
       "source": "api",
       "updated_at": "2026-04-13T00:18:29.333129"
     },
@@ -1952,7 +1952,7 @@
     },
     "mac": {
       "original": "MAC",
-      "translated": "澳门",
+      "translated": "中国澳门",
       "source": "api",
       "updated_at": "2026-04-13T01:26:15.180244"
     },
@@ -2066,12 +2066,6 @@
     }
   },
   "others": {
-    "ind": {
-      "original": "IND",
-      "translated": "研究性新药（IND）",
-      "source": "api",
-      "updated_at": "2026-04-12T23:06:21.264842"
-    },
     "usa": {
       "original": "USA",
       "translated": "美国",
@@ -2128,7 +2122,7 @@
     },
     "par": {
       "original": "PAR",
-      "translated": "帕尔",
+      "translated": "巴拉圭",
       "source": "api",
       "updated_at": "2026-04-12T23:44:50.505485"
     },
@@ -2146,7 +2140,7 @@
     },
     "lba": {
       "original": "LBA",
-      "translated": "您好，LBA 这个缩写可能有多种含义。请您提供更多上下文信息，例如：\n\n- 是否指某个具体的人名？\n- 是否指某个组织或机构的缩写？\n- 是否出现在特定的句子或段落中？\n\n这样我可以为您提供更准确的翻译。",
+      "translated": "利比亚",
       "source": "api",
       "updated_at": "2026-04-12T23:46:14.249040"
     },
@@ -2230,7 +2224,7 @@
     },
     "esp": {
       "original": "ESP",
-      "translated": "ESP：超感官知觉",
+      "translated": "西班牙",
       "source": "api",
       "updated_at": "2026-04-12T23:55:47.666092"
     },
@@ -2248,7 +2242,7 @@
     },
     "mac": {
       "original": "MAC",
-      "translated": "MAC",
+      "translated": "中国澳门",
       "source": "api",
       "updated_at": "2026-04-12T23:56:53.786682"
     },
@@ -2263,12 +2257,6 @@
       "translated": "哈萨克斯坦",
       "source": "api",
       "updated_at": "2026-04-12T23:57:33.497999"
-    },
-    "dom": {
-      "original": "DOM",
-      "translated": "文档对象模型（Document Object Model）",
-      "source": "api",
-      "updated_at": "2026-04-12T23:57:45.715271"
     },
     "lux": {
       "original": "LUX",
@@ -2326,7 +2314,7 @@
     },
     "tpe": {
       "original": "TPE",
-      "translated": "中华台北",
+      "translated": "中国台北",
       "source": "api",
       "updated_at": "2026-04-13T00:03:36.303409"
     },
@@ -2344,7 +2332,7 @@
     },
     "ngr": {
       "original": "NGR",
-      "translated": "无好球回放",
+      "translated": "尼日利亚",
       "source": "api",
       "updated_at": "2026-04-13T00:04:29.592576"
     },
@@ -2410,7 +2398,7 @@
     },
     "hkg": {
       "original": "HKG",
-      "translated": "香港",
+      "translated": "中国香港",
       "source": "api",
       "updated_at": "2026-04-13T00:08:40.730170"
     },
@@ -2434,7 +2422,7 @@
     },
     "gui": {
       "original": "GUI",
-      "translated": "图形用户界面",
+      "translated": "几内亚",
       "source": "api",
       "updated_at": "2026-04-13T00:09:39.175059"
     },
@@ -2500,13 +2488,13 @@
     },
     "mar": {
       "original": "MAR",
-      "translated": "三月（如果是月份缩写）",
+      "translated": "摩洛哥",
       "source": "api",
       "updated_at": "2026-04-13T00:16:12.983127"
     },
     "gre": {
       "original": "GRE",
-      "translated": "GRE考试",
+      "translated": "希腊",
       "source": "api",
       "updated_at": "2026-04-13T00:16:23.939669"
     },
@@ -2530,7 +2518,7 @@
     },
     "bot": {
       "original": "BOT",
-      "translated": "底部",
+      "translated": "博茨瓦纳",
       "source": "api",
       "updated_at": "2026-04-13T00:18:14.443223"
     },
