@@ -13,6 +13,7 @@ Strategy:
 from __future__ import annotations
 
 import argparse
+import json
 import hashlib
 import logging
 import sys
@@ -20,8 +21,10 @@ from pathlib import Path
 from urllib.parse import urljoin
 
 from lib.anti_bot import DelayConfig, RiskControlTriggered
+from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import save_json
-from lib.page_ops import guarded_goto
+from lib.checkpoint import CheckpointStore
+from lib.navigation_runtime import open_page_with_verification
 
 logging.basicConfig(
     level=logging.INFO,
@@ -43,6 +46,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
     parser.add_argument("--output", default="data/regulations/latest_regulations.json")
+    parser.add_argument("--checkpoint", default="data/regulations/checkpoint_regulations.json", help="Checkpoint file path")
+    parser.add_argument("--force", action="store_true", help="Force redownload/re-extract (ignore checkpoint)")
+    parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing output JSON")
     parser.add_argument("--download-dir", default="../docs")
     parser.add_argument("--skip-download", action="store_true")
     parser.add_argument("--skip-extract", action="store_true")
@@ -83,12 +89,16 @@ def discover_pdf_links_via_playwright(args: argparse.Namespace) -> list[str]:
     delay_cfg = DelayConfig(3.0, 8.0, 5.0, 10.0)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=args.headless, slow_mo=args.slow_mo)
-        context = browser.new_context()
-        page = context.new_page()
+        via_cdp, browser, context, page = open_browser_page(
+            p,
+            use_cdp=False,
+            launch_kwargs={"headless": args.headless, "slow_mo": args.slow_mo},
+            context_kwargs={},
+            log_prefix="regulations",
+        )
 
         try:
-            guarded_goto(page, RANKINGS_URL, delay_cfg, "open rankings page for regulations discovery")
+            open_page_with_verification(page, RANKINGS_URL, delay_cfg, "open rankings page for regulations discovery")
             anchors = page.locator("a")
             links: list[str] = []
             for i in range(anchors.count()):
@@ -102,10 +112,10 @@ def discover_pdf_links_via_playwright(args: argparse.Namespace) -> list[str]:
                 links.append(urljoin(RANKINGS_URL, href))
         except RiskControlTriggered as exc:
             logger.error("Risk control triggered: %s", exc)
-            browser.close()
+            close_browser_page(via_cdp, browser, page)
             return []
 
-        browser.close()
+        close_browser_page(via_cdp, browser, page)
     return sorted(set(links))
 
 
@@ -142,7 +152,7 @@ def extract_pdf_to_markdown(pdf_path: Path, md_path: Path) -> bool:
             if page_text:
                 full_text += f"\n\n## 第 {i} 页\n\n{page_text}"
 
-        md_path.write_text(full_text.strip() + "\n", encoding="utf-8")
+        md_path.write_text(full_text.strip() + "\n", encoding="utf-8", newline="")
         logger.info("Saved markdown: %s", md_path)
         return True
     except Exception as exc:
@@ -164,7 +174,7 @@ def write_translation_prompt(md_path: Path) -> Path:
 
 {content}"""
     prompt_path = md_path.with_suffix(".translation_prompt.txt")
-    prompt_path.write_text(prompt, encoding="utf-8")
+    prompt_path.write_text(prompt, encoding="utf-8", newline="")
     return prompt_path
 
 
@@ -175,6 +185,8 @@ def fetch_regulations(
     skip_extract: bool = False,
     headless: bool = True,
     slow_mo: int = 100,
+    checkpoint: CheckpointStore | None = None,
+    force: bool = False,
 ) -> dict:
     """
     获取规则文件的完整流程，返回结果字典供外部调用。
@@ -223,6 +235,37 @@ def fetch_regulations(
     result["latest_pdf"] = links[0]
     latest_pdf = links[0]
 
+    ck = None
+    if checkpoint is not None:
+        ck = "regulations|latest:" + hashlib.sha1(latest_pdf.encode("utf-8")).hexdigest()[:16]
+
+        # Bootstrap checkpoint from existing output JSON if checkpoint missing/empty.
+        if output_path and ((not checkpoint.path.exists()) or (not checkpoint.has_any_completed())) and output_path.exists():
+            try:
+                prev = json.loads(output_path.read_text(encoding="utf-8"))
+                prev_url = prev.get("latest_pdf")
+                prev_dl = prev.get("downloaded_to")
+                if prev_url and prev_url == latest_pdf and prev_dl and Path(prev_dl).exists():
+                    checkpoint.mark_done(ck, meta={"bootstrapped_from": str(output_path)})
+            except Exception:
+                pass
+
+        # If already done and outputs exist, skip re-downloading unless forced.
+        if (not force) and checkpoint.is_done(ck) and (not skip_download):
+            if output_path and output_path.exists():
+                try:
+                    prev = json.loads(output_path.read_text(encoding="utf-8"))
+                    prev_dl = prev.get("downloaded_to")
+                    if prev_dl and Path(prev_dl).exists():
+                        result["downloaded_file"] = Path(prev_dl)
+                        result["pdf_hash"] = prev.get("pdf_hash")
+                        result["md_path"] = Path(prev.get("markdown_path")) if prev.get("markdown_path") else None
+                        result["prompt_path"] = Path(prev.get("translation_prompt_path")) if prev.get("translation_prompt_path") else None
+                        result["success"] = True
+                        return result
+                except Exception:
+                    pass
+
     downloaded_file = None
     md_file = None
     prompt_file = None
@@ -243,12 +286,26 @@ def fetch_regulations(
         except Exception as exc:
             logger.warning("Failed to process latest regulations PDF: %s", exc)
             result["error"] = str(exc)
+            if checkpoint is not None and ck:
+                checkpoint.mark_failed(ck, str(exc), meta={"latest_pdf": latest_pdf})
 
     result["downloaded_file"] = downloaded_file
     result["pdf_hash"] = pdf_hash
     result["md_path"] = md_file
     result["prompt_path"] = prompt_file
     result["success"] = downloaded_file is not None
+
+    if checkpoint is not None and ck and result["success"]:
+        checkpoint.mark_done(
+            ck,
+            meta={
+                "latest_pdf": latest_pdf,
+                "downloaded_to": str(downloaded_file.resolve()) if downloaded_file else None,
+                "pdf_hash": pdf_hash,
+                "markdown_path": str(md_file.resolve()) if md_file else None,
+                "prompt_path": str(prompt_file.resolve()) if prompt_file else None,
+            },
+        )
 
     # 保存 JSON 元数据（如果指定了输出路径）
     if output_path:
@@ -271,6 +328,9 @@ def fetch_regulations(
 def run(args: argparse.Namespace) -> int:
     output_path = Path(args.output)
     download_dir = Path(args.download_dir)
+    checkpoint = CheckpointStore(Path(args.checkpoint))
+    if getattr(args, "rebuild_checkpoint", False) and (not args.force):
+        checkpoint.reset()
 
     result = fetch_regulations(
         download_dir=download_dir,
@@ -279,6 +339,8 @@ def run(args: argparse.Namespace) -> int:
         skip_extract=args.skip_extract,
         headless=args.headless,
         slow_mo=args.slow_mo,
+        checkpoint=checkpoint,
+        force=bool(args.force),
     )
 
     if result["error"] and not result["links"]:

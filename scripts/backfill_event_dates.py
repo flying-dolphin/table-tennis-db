@@ -493,7 +493,7 @@ def backfill_player(
                     updated_events += 1
 
     if updated > 0 and not dry_run:
-        with open(player_file, "w", encoding="utf-8") as f:
+        with open(player_file, "w", encoding="utf-8", newline="") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         logger.info("  ✓ 更新了 %d 个 events (共 %d 个日期字段)", updated_events, updated)
     elif updated > 0:

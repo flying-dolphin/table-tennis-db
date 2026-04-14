@@ -292,7 +292,7 @@ def save_player_data(player_data):
     safe_name = player_data['name'].replace(' ', '_')
     filepath = MATCHES_DIR / f"{safe_name}_{player_data['player_id']}.json"
     
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(filepath, 'w', encoding='utf-8', newline='') as f:
         json.dump(player_data, f, ensure_ascii=False, indent=2)
     
     logger.info(f"已保存: {filepath}")
@@ -320,7 +320,7 @@ def scrape_top50():
     if not players:
         return
     
-    with open(PLAYERS_FILE, 'w', encoding='utf-8') as f:
+    with open(PLAYERS_FILE, 'w', encoding='utf-8', newline='') as f:
         json.dump(players, f, ensure_ascii=False, indent=2)
     
     # 逐个抓取

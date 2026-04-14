@@ -16,15 +16,16 @@ import re
 import sqlite3
 import sys
 import urllib.parse
-import urllib.request
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from lib.anti_bot import DelayConfig, RiskControlTriggered, human_sleep
+from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import save_json, sanitize_filename
 from lib.checkpoint import CheckpointStore
-from lib.page_ops import guarded_goto
+from lib.navigation_runtime import open_page_with_verification
+from lib.page_ops import click_next_page_if_any, guarded_goto
 from lib.translator import Translator
 
 logging.basicConfig(
@@ -76,15 +77,16 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--top", type=int, default=50)
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
+    parser.add_argument("--cdp-port", type=int, default=9222, help="CDP remote debugging port (default: 9222)")
+    parser.add_argument("--cdp-only", action="store_true", help="Require connecting to an existing CDP Chrome; do not launch a new browser")
     parser.add_argument("--snapshot-dir", default="data/ranking_snapshots")
     parser.add_argument("--profile-dir", default="data/player_profiles")
     parser.add_argument("--avatar-dir", default="data/player_avatars")
     parser.add_argument("--db-path", default="web/db/ittf_rankings.sqlite")
     parser.add_argument("--output", default=None)
-    parser.add_argument("--checkpoint", default="data/player_profiles/checkpoint_profiles.json", help="Checkpoint file path")
+    parser.add_argument("--checkpoint", default="data/player_profiles/checkpoint_scrape_profiles.json", help="Scrape checkpoint file path")
     parser.add_argument("--force", action="store_true", help="Force rescrape (ignore checkpoint)")
     parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing orig/cn files")
-    parser.add_argument("--no-translate", action="store_true", help="Skip translation, save only original data")
     return parser
 
 
@@ -124,86 +126,104 @@ def extract_player_id_from_href(href: str | None) -> str | None:
 
 
 def parse_ranking_rows(page: Any, top_n: int, translator: Translator | None = None, translate_names: bool = True) -> list[dict[str, Any]]:
+    """Parse ranking rows from the ranking list page, following pagination if needed."""
     rankings: list[dict[str, Any]] = []
-    target_table = page.locator("table#list_58_com_fabrik_58")
-    if target_table.count() == 0:
-        target_table = page.locator("table")
-    if target_table.count() == 0:
-        return rankings
+    while len(rankings) < top_n:
+        target_table = page.locator("table#list_58_com_fabrik_58")
+        if target_table.count() == 0:
+            target_table = page.locator("table")
+        if target_table.count() == 0:
+            break
 
-    rows = target_table.first.locator("tbody tr")
-    row_count = rows.count()
+        rows = target_table.first.locator("tbody tr")
+        row_count = rows.count()
 
-    for idx in range(row_count):
-        row = rows.nth(idx)
-        cells = row.locator("td")
-        cell_count = cells.count()
-        if cell_count < 8:
-            continue
+        rows_added = 0
+        for idx in range(row_count):
+            if len(rankings) >= top_n:
+                break
 
-        cell_texts = [normalize_space(cells.nth(i).inner_text()) for i in range(cell_count)]
-        rank = parse_int(cell_texts[1] if len(cell_texts) > 1 else "", default=-1)
-        if rank <= 0:
-            continue
+            row = rows.nth(idx)
+            cells = row.locator("td")
+            cell_count = cells.count()
+            if cell_count < 8:
+                continue
 
-        change = parse_int(cell_texts[2] if len(cell_texts) > 2 else "0")
-        points = parse_int(cell_texts[3] if len(cell_texts) > 3 else "0")
-        english_name = normalize_space(cell_texts[4] if len(cell_texts) > 4 else "")
-        country_code = ""
-        try:
-            flag_img = cells.nth(5).locator("img").first
-            if flag_img.count() > 0:
-                country_code = normalize_space(flag_img.get_attribute("title") or "")
-        except Exception:
+            cell_texts = [normalize_space(cells.nth(i).inner_text()) for i in range(cell_count)]
+            rank = parse_int(cell_texts[1] if len(cell_texts) > 1 else "", default=-1)
+            if rank <= 0:
+                continue
+
+            expected_rank = len(rankings) + 1
+            if rank != expected_rank:
+                raise RuntimeError(
+                    f"Ranking pagination mismatch on {page.url}: expected position {expected_rank}, got {rank}. "
+                    "Next page navigation is likely broken."
+                )
+
+            change = parse_int(cell_texts[2] if len(cell_texts) > 2 else "0")
+            points = parse_int(cell_texts[3] if len(cell_texts) > 3 else "0")
+            english_name = normalize_space(cell_texts[4] if len(cell_texts) > 4 else "")
             country_code = ""
+            try:
+                flag_img = cells.nth(5).locator("img").first
+                if flag_img.count() > 0:
+                    country_code = normalize_space(flag_img.get_attribute("title") or "")
+            except Exception:
+                country_code = ""
 
-        association = normalize_space(cell_texts[6] if len(cell_texts) > 6 else "")
-        continent_raw = normalize_space(cell_texts[7] if len(cell_texts) > 7 else "")
+            association = normalize_space(cell_texts[6] if len(cell_texts) > 6 else "")
+            continent_raw = normalize_space(cell_texts[7] if len(cell_texts) > 7 else "")
 
-        href = None
-        try:
-            name_link = cells.nth(4).locator("a").first
-            if name_link.count() > 0:
-                href = name_link.get_attribute("href")
-        except Exception:
             href = None
+            try:
+                name_link = cells.nth(4).locator("a").first
+                if name_link.count() > 0:
+                    href = name_link.get_attribute("href")
+            except Exception:
+                href = None
 
-        profile_url = None
-        if href:
-            profile_url = BASE_URL + href if href.startswith("/") else href
-            profile_url = profile_url.replace("/../", "/")
+            profile_url = None
+            if href:
+                profile_url = BASE_URL + href if href.startswith("/") else href
+                profile_url = profile_url.replace("/../", "/")
 
-        # 根据 translate_names 参数决定是否翻译
-        if translate_names:
-            # 翻译模式：查词典转换
-            display_name = english_name
-            if translator:
-                translated = translator.translate(english_name, category='players', use_api=False)
-                if translated != english_name:  # 词典命中
-                    display_name = translated
-            country_name = translate_country(country_code, association)
-            continent_name = translate_continent(continent_raw, continent_raw)
-        else:
-            # 无翻译模式：保持原始英文
-            display_name = english_name
-            country_name = country_code or association
-            continent_name = continent_raw
+            # 根据 translate_names 参数决定是否翻译
+            if translate_names:
+                # 翻译模式：查词典转换
+                display_name = english_name
+                if translator:
+                    translated = translator.translate(english_name, category='players', use_api=False)
+                    if translated != english_name:  # 词典命中
+                        display_name = translated
+                country_name = translate_country(country_code, association)
+                continent_name = translate_continent(continent_raw, continent_raw)
+            else:
+                # 无翻译模式：保持原始英文
+                display_name = english_name
+                country_name = country_code or association
+                continent_name = continent_raw
 
-        player = {
-            "rank": rank,
-            "name": display_name,
-            "english_name": english_name,
-            "points": points,
-            "change": change,
-            "country": country_name,
-            "country_code": country_code,
-            "continent": continent_name,
-            "player_id": extract_player_id_from_href(href),
-            "profile_url": profile_url,
-        }
-        rankings.append(player)
+            player = {
+                "rank": rank,
+                "name": display_name,
+                "english_name": english_name,
+                "points": points,
+                "change": change,
+                "country": country_name,
+                "country_code": country_code,
+                "continent": continent_name,
+                "player_id": extract_player_id_from_href(href),
+                "profile_url": profile_url,
+            }
+            rankings.append(player)
+            rows_added += 1
 
         if len(rankings) >= top_n:
+            break
+        if rows_added == 0:
+            break
+        if not click_next_page_if_any(page):
             break
 
     return rankings
@@ -376,32 +396,27 @@ def scrape_player_profile(
     player_info: dict[str, Any],
     delay_cfg: DelayConfig,
     profile_orig_dir: Path,
-    profile_cn_dir: Path,
     avatar_dir: Path,
     db_path: Path,
-    translator: Translator,
     checkpoint: CheckpointStore | None = None,
     category: str | None = None,
     force: bool = False,
-) -> dict[str, Any] | None:
-    """Scrape player profile page and save to JSON (orig + cn) and DB."""
+) -> tuple[dict[str, Any] | None, bool]:
+    """Scrape player profile page and save to JSON (orig only) and DB."""
     if not profile_url:
-        return None
+        return None, False
 
     player_id = player_info.get("player_id")
     if not player_id:
-        return None
+        return None, False
 
     # Stable checkpoint keys (per-player, scoped by category).
     cat = category or ""
     ck_base = f"profile|{cat}|player:{player_id}"
     ck_scrape = f"{ck_base}|scrape"
-    ck_translate = f"{ck_base}|translate"
-
     safe_name = sanitize_filename(player_info.get("english_name", player_info.get("name", player_id)))
     json_filename = f"player_{player_id}_{safe_name}.json"
     orig_path = profile_orig_dir / json_filename
-    cn_path = profile_cn_dir / json_filename
 
     # Default: if checkpoint says scraped and orig file exists, skip web work.
     if checkpoint is not None and (not force) and checkpoint.is_done(ck_scrape) and orig_path.exists():
@@ -415,20 +430,8 @@ def scrape_player_profile(
             # Fall through to web scraping.
             pass
         else:
-            # If translation is enabled, allow completing missing cn from orig without hitting the web.
-            if (not player_info.get("_no_translate", False)) and profile_data:
-                if (not checkpoint.is_done(ck_translate)) or (not cn_path.exists()):
-                    try:
-                        profile_cn = translate_profile_data(profile_data, translator)
-                        save_json(cn_path, profile_cn)
-                        checkpoint.mark_done(ck_translate, meta={"source": "orig_cache", "cn_path": str(cn_path)})
-                        logger.info("Saved Chinese profile (from cache): %s", cn_path)
-                    except Exception as exc:
-                        logger.warning("Failed to translate cached profile for %s: %s", player_id, exc)
-                        checkpoint.mark_failed(ck_translate, str(exc), meta={"source": "orig_cache", "cn_path": str(cn_path)})
-
             logger.info("Skipping profile scrape (checkpoint): %s", player_id)
-            return profile_data or None
+            return profile_data or None, False
 
     try:
         # Navigate to profile page
@@ -436,7 +439,6 @@ def scrape_player_profile(
 
         # Wait for content to load
         page.wait_for_load_state("networkidle", timeout=10000)
-        human_sleep(1.0, 2.0, "let profile page settle")
 
         # Extract profile information
         profile_data = extract_profile_info(page, player_info, profile_url)
@@ -450,29 +452,17 @@ def scrape_player_profile(
         if checkpoint is not None:
             checkpoint.mark_done(ck_scrape, meta={"orig_path": str(orig_path), "profile_url": profile_url})
 
-        # Translate and save Chinese version to cn directory
-        try:
-            profile_cn = translate_profile_data(profile_data, translator)
-            save_json(cn_path, profile_cn)
-            logger.info("Saved Chinese profile: %s", cn_path)
-            if checkpoint is not None:
-                checkpoint.mark_done(ck_translate, meta={"cn_path": str(cn_path)})
-        except Exception as exc:
-            logger.warning("Failed to translate profile for %s: %s", player_id, exc)
-            if checkpoint is not None:
-                checkpoint.mark_failed(ck_translate, str(exc), meta={"cn_path": str(cn_path)})
-
         # Save to database (use original data)
         save_player_profile_to_db(db_path, player_id, profile_data, str(orig_path))
         logger.info("Saved player profile to DB: %s", player_id)
 
-        return profile_data
+        return profile_data, True
 
     except Exception as exc:
         logger.warning("Failed to scrape profile for %s: %s", player_id, exc)
         if checkpoint is not None:
             checkpoint.mark_failed(ck_scrape, str(exc), meta={"profile_url": profile_url})
-        return None
+        return None, False
 
 
 def download_player_avatar(page: Any, player_info: dict[str, Any], avatar_dir: Path) -> dict[str, Any] | None:
@@ -696,122 +686,12 @@ def parse_stats_cell(cell_text: str, prefix: str) -> dict[str, Any]:
     return stats
 
 
-def translate_profile_data(profile_data: dict[str, Any], translator: Translator) -> dict[str, Any]:
-    """翻译运动员档案数据为中文"""
-    data = profile_data.copy()
-    
-    # 翻译运动员姓名
-    if 'name' in data and data['name']:
-        data['name_zh'] = translator.translate(data['name'], category='players', use_api=True)
-    
-    # 翻译国家代码
-    if 'country_code' in data and data['country_code']:
-        data['country_code_zh'] = translator.translate(data['country_code'], category='locations', use_api=True)
-    
-    # 翻译性别
-    if 'gender' in data and data['gender']:
-        gender_map = {'Female': '女', 'Male': '男'}
-        data['gender_zh'] = gender_map.get(data['gender'], data['gender'])
-    
-    # 翻译打法风格
-    if 'style' in data and data['style']:
-        style = data['style']
-        parts = []
-        if 'right' in style.lower():
-            parts.append('右手')
-        elif 'left' in style.lower():
-            parts.append('左手')
-        if 'attack' in style.lower():
-            parts.append('进攻型')
-        elif 'defense' in style.lower():
-            parts.append('防守型')
-        elif 'all-round' in style.lower():
-            parts.append('全面型')
-        if 'shakehand' in style.lower():
-            parts.append('(横拍)')
-        elif 'penhold' in style.lower():
-            parts.append('(直拍)')
-        data['style_zh'] = ''.join(parts) if parts else style
-    
-    # 翻译持拍手
-    if 'playing_hand' in data and data['playing_hand']:
-        hand_map = {'Right': '右手', 'Left': '左手'}
-        data['playing_hand_zh'] = hand_map.get(data['playing_hand'], data['playing_hand'])
-    
-    # 翻译握拍方式
-    if 'grip' in data and data['grip']:
-        grip_map = {'ShakeHand': '横拍', 'Penhold': '直拍'}
-        data['grip_zh'] = grip_map.get(data['grip'], data['grip'])
-    
-    # 翻译近期比赛
-    if 'recent_matches' in data and data['recent_matches']:
-        for match in data['recent_matches']:
-            # 翻译赛事名称
-            if 'event' in match and match['event']:
-                match['event_zh'] = translator.translate(match['event'], category='events', use_api=True)
-            
-            # 翻译对手姓名
-            if 'opponent' in match and match['opponent']:
-                match['opponent_zh'] = translator.translate(match['opponent'], category='players', use_api=True)
-            
-            # 翻译对手国家
-            if 'opponent_country' in match and match['opponent_country']:
-                match['opponent_country_zh'] = translator.translate(match['opponent_country'], category='locations', use_api=True)
-            
-            # 翻译比赛阶段
-            if 'stage' in match and match['stage']:
-                stage = match['stage']
-                parts = stage.split(' - ')
-                translated_parts = []
-                for part in parts:
-                    part = part.strip()
-                    if part.startswith('WS'):
-                        translated_parts.append('女子单打' + part[2:].strip())
-                    elif part.startswith('MS'):
-                        translated_parts.append('男子单打' + part[2:].strip())
-                    elif part.startswith('XD'):
-                        translated_parts.append('混合双打' + part[2:].strip())
-                    elif part.startswith('WD'):
-                        translated_parts.append('女子双打' + part[2:].strip())
-                    elif part.startswith('MD'):
-                        translated_parts.append('男子双打' + part[2:].strip())
-                    else:
-                        translated_parts.append(translator.translate(part, category='terms', use_api=True))
-                match['stage_zh'] = ' - '.join(translated_parts)
-            
-            # 翻译结果
-            if 'result' in match and match['result']:
-                result_map = {'WON': '胜', 'LOST': '负', 'DRAW': '平'}
-                match['result_zh'] = result_map.get(match['result'], match['result'])
-    
-    return data
-
-
-def translate_ranking_data(ranking_data: dict[str, Any], translator: Translator) -> dict[str, Any]:
-    """翻译排名数据为中文"""
-    data = ranking_data.copy()
-    
-    # 翻译每个排名条目
-    if 'rankings' in data and data['rankings']:
-        for player in data['rankings']:
-            # 翻译姓名
-            if 'name' in player and player['name']:
-                player['name_zh'] = translator.translate(player['name'], category='players', use_api=True)
-            
-            # 翻译国家代码（如果country是英文）
-            if 'country_code' in player and player['country_code']:
-                player['country_code_zh'] = translator.translate(player['country_code'], category='locations', use_api=True)
-    
-    return data
-
-
 def _bootstrap_profiles_checkpoint_from_orig(
     checkpoint: CheckpointStore,
     category: str,
     profile_orig_dir: Path,
-    profile_cn_dir: Path,
 ) -> None:
-    """If checkpoint is missing/empty, infer completed players from existing orig/cn files."""
+    """If checkpoint is missing/empty, infer completed players from existing orig files."""
     if checkpoint.path.exists() and checkpoint.has_any_completed():
         return
 
@@ -827,12 +707,8 @@ def _bootstrap_profiles_checkpoint_from_orig(
             player_id = m.group(1)
             ck_base = f"profile|{category}|player:{player_id}"
             ck_scrape = f"{ck_base}|scrape"
-            ck_translate = f"{ck_base}|translate"
             if not checkpoint.is_done(ck_scrape):
                 checkpoint.mark_done(ck_scrape, meta={"bootstrapped_from": str(p)})
-            cn_path = profile_cn_dir / p.name
-            if cn_path.exists() and (not checkpoint.is_done(ck_translate)):
-                checkpoint.mark_done(ck_translate, meta={"bootstrapped_from": str(cn_path)})
 
 
 def run(args: argparse.Namespace) -> int:
@@ -842,11 +718,9 @@ def run(args: argparse.Namespace) -> int:
     profile_dir = Path(args.profile_dir)
     profile_dir.mkdir(parents=True, exist_ok=True)
     
-    # 创建 orig 和 cn 子目录
+    # 创建 orig 子目录
     profile_orig_dir = profile_dir / "orig"
-    profile_cn_dir = profile_dir / "cn"
     profile_orig_dir.mkdir(parents=True, exist_ok=True)
-    profile_cn_dir.mkdir(parents=True, exist_ok=True)
 
     avatar_dir = Path(args.avatar_dir)
     avatar_dir.mkdir(parents=True, exist_ok=True)
@@ -856,14 +730,10 @@ def run(args: argparse.Namespace) -> int:
     init_player_profiles_table(db_path)
 
     output_path = Path(args.output) if args.output else Path(f"data/{args.category}_top{args.top}.json")
-    output_cn_path = output_path.with_suffix('').with_name(output_path.stem + "_cn").with_suffix('.json')
-    
-    # 初始化翻译器
-    translator = Translator()
     checkpoint = CheckpointStore(Path(args.checkpoint))
     if getattr(args, "rebuild_checkpoint", False):
         checkpoint.reset()
-    _bootstrap_profiles_checkpoint_from_orig(checkpoint, args.category, profile_orig_dir, profile_cn_dir)
+    _bootstrap_profiles_checkpoint_from_orig(checkpoint, args.category, profile_orig_dir)
 
     delay_cfg = DelayConfig(
         min_request_sec=3.0,
@@ -881,52 +751,63 @@ def run(args: argparse.Namespace) -> int:
     target_url = RANKING_URLS[args.category]
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=args.headless, slow_mo=args.slow_mo)
-        context = browser.new_context()
-        page = context.new_page()
+        try:
+            via_cdp, browser, context, page = open_browser_page(
+                p,
+                use_cdp=True,
+                cdp_port=int(getattr(args, "cdp_port", 9222)),
+                cdp_only=bool(getattr(args, "cdp_only", False)),
+                launch_kwargs={"headless": args.headless, "slow_mo": args.slow_mo},
+                context_kwargs={},
+                log_prefix="profiles",
+            )
+        except RuntimeError as exc:
+            logger.error("%s", exc)
+            return 6
 
         try:
-            guarded_goto(page, target_url, delay_cfg, f"open ranking page: {args.category}")
+            open_page_with_verification(page, target_url, delay_cfg, f"open ranking page: {args.category}")
 
             table_count = page.locator("table").count()
             if table_count == 0:
                 logger.error("No table found on ranking page: %s", target_url)
-                browser.close()
+                close_browser_page(via_cdp, browser, page)
                 return 3
 
             html = page.content()
             snapshot_path = snapshot_dir / f"{args.category}.html"
-            snapshot_path.write_text(html, encoding="utf-8")
+            snapshot_path.write_text(html, encoding="utf-8", newline="")
             logger.info("Saved ranking snapshot: %s", snapshot_path)
 
-            rankings = parse_ranking_rows(page, args.top, translator, translate_names=not args.no_translate)
+            rankings = parse_ranking_rows(page, args.top, None, translate_names=False)
             if not rankings:
                 logger.error("Parsed 0 ranking rows from page: %s", target_url)
-                browser.close()
+                close_browser_page(via_cdp, browser, page)
                 return 5
 
             # Scrape player profiles (always enabled)
             logger.info("Starting profile scraping for %d players...", len(rankings))
             for idx, player in enumerate(rankings):
                 if player.get("profile_url"):
-                    player["_no_translate"] = bool(args.no_translate)
                     logger.info("[%d/%d] Scraping profile: %s", idx + 1, len(rankings), player.get("english_name", player.get("name")))
-                    scrape_player_profile(
+                    profile_data, scraped_now = scrape_player_profile(
                         page,
                         player.get("profile_url"),
                         player,
                         delay_cfg,
                         profile_orig_dir,
-                        profile_cn_dir,
                         avatar_dir,
                         db_path,
-                        translator,
                         checkpoint=checkpoint,
                         category=args.category,
                         force=bool(args.force),
                     )
+                    if profile_data is None:
+                        logger.error("Profile scrape failed: %s", player.get("english_name", player.get("name")))
+                        close_browser_page(via_cdp, browser, page)
+                        return 4
                     # Delay between players to avoid rate limiting
-                    if idx < len(rankings) - 1:
+                    if scraped_now and idx < len(rankings) - 1:
                         human_sleep(delay_cfg.min_player_gap_sec, delay_cfg.max_player_gap_sec, "between player profiles")
 
             week, update_date = extract_update_meta(page, args.category)
@@ -935,20 +816,12 @@ def run(args: argparse.Namespace) -> int:
             # Save original ranking
             save_json(output_path, payload)
             logger.info("Saved ranking JSON: %s", output_path)
-            
-            # Translate and save Chinese version (unless disabled)
-            if not args.no_translate:
-                payload_cn = translate_ranking_data(payload, translator)
-                save_json(output_cn_path, payload_cn)
-                logger.info("Saved Chinese ranking JSON: %s", output_cn_path)
-            else:
-                logger.info("Translation skipped ( --no-translate )")
         except RiskControlTriggered as exc:
             logger.error("Risk control triggered: %s", exc)
-            browser.close()
+            close_browser_page(via_cdp, browser, page)
             return 4
 
-        browser.close()
+        close_browser_page(via_cdp, browser, page)
 
     logger.info("Ranking scrape completed: %s rows", len(rankings))
     return 0

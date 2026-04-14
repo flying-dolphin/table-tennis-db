@@ -256,7 +256,7 @@ def save_json(rankings, category, update_date, output_file):
         "total_players": len(rankings),
         "rankings": rankings
     }
-    with open(output_file, 'w', encoding='utf-8') as f:
+    with open(output_file, 'w', encoding='utf-8', newline='') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     return output_file
 
@@ -339,7 +339,7 @@ def main():
     if args.html or args.output:
         output_file = args.output or args.input.replace('.json', '.html')
         html = generate_html(rankings, category, update_date)
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(output_file, 'w', encoding='utf-8', newline='') as f:
             f.write(html)
         print(f"✅ HTML页面已生成: {output_file}")
     

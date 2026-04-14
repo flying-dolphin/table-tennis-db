@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import time
+from urllib.parse import urljoin
 from typing import Any
 
 from .anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep, move_mouse_to_locator
@@ -55,11 +56,16 @@ def guarded_goto(
 
 def click_next_page_if_any(page: Any) -> bool:
     candidates = [
+        "a[rel='next']",
         "li.next:not(.disabled) a",
         "a[aria-label='Next']",
-        "a:has-text('Next')",
+        "a[title='Next']",
+        ".pagination a:has-text('Next')",
+        ".pagination a:has-text('›')",
+        ".pagination a:has-text('»')",
         "button:has-text('Next')",
     ]
+
     for sel in candidates:
         loc = page.locator(sel).first
         try:
@@ -67,12 +73,32 @@ def click_next_page_if_any(page: Any) -> bool:
                 continue
             if not loc.is_visible():
                 continue
+
             cls = (loc.get_attribute("class") or "").lower()
             aria_disabled = (loc.get_attribute("aria-disabled") or "").lower()
             if "disabled" in cls or aria_disabled == "true":
                 continue
+
+            href = (loc.get_attribute("href") or "").strip()
+            if href:
+                next_url = urljoin(page.url, href)
+                prev_url = page.url
+                logger.info("Navigating to next page: %s", next_url)
+                page.goto(next_url, wait_until="domcontentloaded", timeout=45000)
+                try:
+                    page.wait_for_load_state("networkidle", timeout=10000)
+                except Exception:
+                    pass
+                if page.url == prev_url:
+                    continue
+                return True
+
             move_mouse_to_locator(page, loc)
-            page.wait_for_load_state("networkidle", timeout=10000)
+            logger.info("Clicked next page button without href; waiting for navigation")
+            try:
+                page.wait_for_load_state("networkidle", timeout=10000)
+            except Exception:
+                pass
             return True
         except Exception:
             continue

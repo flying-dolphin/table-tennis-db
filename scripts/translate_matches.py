@@ -1,13 +1,6 @@
 #!/usr/bin/env python3
 """
-翻译脚本：将 matches_complete/orig 中的数据翻译成中文，保存到 cn 目录
-
-使用前请在项目根目录创建 .env 文件并配置 API Key:
-    MINIMAX_API_KEY=your_api_key_here
-
-使用方法:
-    python scripts/translate_matches.py              # 翻译所有文件
-    python scripts/translate_matches.py --file SUN_Yingsha.json  # 仅翻译指定文件
+Translate match files from orig to cn.
 """
 
 from __future__ import annotations
@@ -15,147 +8,119 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import sys
 from pathlib import Path
 
-import sys
 sys.path.insert(0, str(Path(__file__).parent))
 
+from lib.capture import save_json
+from lib.checkpoint import CheckpointStore
 from lib.translator import Translator
+from lib.translation_tree import translate_json_tree
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).parent.parent
 ORIG_DIR = PROJECT_ROOT / "data" / "matches_complete" / "orig"
 CN_DIR = PROJECT_ROOT / "data" / "matches_complete" / "cn"
+CHECKPOINT_PATH = PROJECT_ROOT / "data" / "matches_complete" / "checkpoint_translate_matches.json"
+
+
+def _translate_ck(filename: str) -> str:
+    return f"matches|file:{filename}|translate"
+
+
+def bootstrap_checkpoint(checkpoint: CheckpointStore, orig_dir: Path, cn_dir: Path) -> None:
+    if checkpoint.path.exists() and checkpoint.has_any_completed():
+        return
+    if not orig_dir.exists():
+        return
+    with checkpoint.bulk():
+        for orig_file in sorted(orig_dir.glob("*.json")):
+            cn_file = cn_dir / orig_file.name
+            if not cn_file.exists():
+                continue
+            try:
+                json.loads(cn_file.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            ck = _translate_ck(orig_file.name)
+            if not checkpoint.is_done(ck):
+                checkpoint.mark_done(ck, meta={"bootstrapped_from": str(cn_file)})
 
 
 def translate_matches_data(data: dict, translator: Translator) -> dict:
-    """翻译比赛数据为中文"""
-    result = data.copy()
-    
-    # 翻译运动员姓名
-    if result.get('player_name'):
-        result['player_name_zh'] = translator.translate(
-            result['player_name'], category='players', use_api=True
-        )
-    
-    # 翻译国家代码
-    if result.get('country_code'):
-        result['country_code_zh'] = translator.translate(
-            result['country_code'], category='locations', use_api=True
-        )
-    
-    # 翻译每年的赛事数据
-    if 'years' in result:
-        for year, year_data in result['years'].items():
-            if 'events' not in year_data:
-                continue
-                
-            for event in year_data['events']:
-                # 翻译赛事名称
-                if event.get('event_name'):
-                    event['event_name_zh'] = translator.translate(
-                        event['event_name'], category='events', use_api=True
-                    )
-                
-                # 翻译赛事类型
-                if event.get('event_type'):
-                    event['event_type_zh'] = translator.translate(
-                        event['event_type'], category='events', use_api=True
-                    )
-                
-                # 翻译比赛数据
-                if 'matches' in event:
-                    for match in event['matches']:
-                        # 翻译阶段
-                        if match.get('stage'):
-                            match['stage_zh'] = translator.translate(
-                                match['stage'], category='terms', use_api=True
-                            )
-                        
-                        # 翻译轮次
-                        if match.get('round'):
-                            original = match['round']
-                            if original.startswith('R') and original[1:].isdigit():
-                                match['round_zh'] = f"第{original[1:]}轮"
-                            else:
-                                match['round_zh'] = translator.translate(
-                                    original, category='terms', use_api=True
-                                )
-                        
-                        # 翻译子赛事类型
-                        if match.get('sub_event'):
-                            sub_event_map = {
-                                'WS': '女子单打', 'MS': '男子单打',
-                                'WD': '女子双打', 'MD': '男子双打',
-                                'XD': '混合双打', 'XT': '混合团体',
-                                'WT': '女子团体', 'MT': '男子团体',
-                            }
-                            match['sub_event_zh'] = sub_event_map.get(
-                                match['sub_event'], match['sub_event']
-                            )
-    
-    return result
+    translated = translate_json_tree(data, translator)
+    if not isinstance(translated, dict):
+        raise TypeError("match data must be a dict")
+    return translated
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description='翻译 matches 数据为中文',
-        epilog='请确保项目根目录的 .env 文件已配置 MINIMAX_API_KEY'
-    )
-    parser.add_argument('--file', type=str, help='仅翻译指定文件')
-    args = parser.parse_args()
-    
-    if not ORIG_DIR.exists():
-        logger.error(f"原始数据目录不存在: {ORIG_DIR}")
-        logger.error("请先运行抓取脚本获取原始数据")
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Translate match files from orig to cn")
+    parser.add_argument("--file", type=str, help="Translate only one file from orig/")
+    parser.add_argument("--orig-dir", default=str(ORIG_DIR))
+    parser.add_argument("--cn-dir", default=str(CN_DIR))
+    parser.add_argument("--checkpoint", default=str(CHECKPOINT_PATH))
+    parser.add_argument("--force", action="store_true", help="Ignore checkpoint and regenerate cn files")
+    parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing cn files")
+    return parser
+
+
+def run(args: argparse.Namespace) -> int:
+    orig_dir = Path(args.orig_dir)
+    cn_dir = Path(args.cn_dir)
+    checkpoint = CheckpointStore(Path(args.checkpoint))
+    if args.rebuild_checkpoint:
+        checkpoint.reset()
+
+    if not orig_dir.exists():
+        logger.error("Orig directory does not exist: %s", orig_dir)
         return 1
-    
-    CN_DIR.mkdir(parents=True, exist_ok=True)
-    
+
+    cn_dir.mkdir(parents=True, exist_ok=True)
+    bootstrap_checkpoint(checkpoint, orig_dir, cn_dir)
+
     translator = Translator()
-    stats_before = translator.get_stats()
-    logger.info(f"词典统计: {stats_before}")
-    
-    # 获取要处理的文件
     if args.file:
-        files = [ORIG_DIR / args.file]
+        files = [orig_dir / args.file]
     else:
-        files = list(ORIG_DIR.glob('*.json'))
-    
-    logger.info(f"找到 {len(files)} 个文件待翻译")
-    
-    success = 0
+        files = sorted(orig_dir.glob("*.json"))
+
     for file_path in files:
+        if not file_path.exists():
+            logger.error("Orig file does not exist: %s", file_path)
+            return 1
+
+        ck = _translate_ck(file_path.name)
+        cn_file = cn_dir / file_path.name
+
+        if (not args.force) and checkpoint.is_done(ck) and cn_file.exists():
+            try:
+                json.loads(cn_file.read_text(encoding="utf-8"))
+                logger.info("Skipping translated file (checkpoint): %s", file_path.name)
+                continue
+            except Exception:
+                logger.warning("Checkpoint done but cn file unreadable, re-translating: %s", cn_file)
+
         try:
-            logger.info(f"处理: {file_path.name}")
-            
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
+            data = json.loads(file_path.read_text(encoding="utf-8"))
             translated = translate_matches_data(data, translator)
-            
-            output_path = CN_DIR / file_path.name
-            with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump(translated, f, ensure_ascii=False, indent=2)
-            
-            logger.info(f"已保存: {output_path}")
-            success += 1
-            
-        except Exception as e:
-            logger.error(f"翻译失败 {file_path.name}: {e}")
-    
-    stats_after = translator.get_stats()
-    new_entries = stats_after['total'] - stats_before['total']
-    
-    logger.info(f"\n翻译完成: {success}/{len(files)} 个文件")
-    logger.info(f"新增词典词条: {new_entries}")
-    
+            save_json(cn_file, translated)
+            checkpoint.mark_done(ck, meta={"orig_path": str(file_path), "cn_path": str(cn_file)})
+            logger.info("Translated: %s", file_path.name)
+        except Exception as exc:
+            checkpoint.mark_failed(ck, str(exc), meta={"orig_path": str(file_path), "cn_path": str(cn_file)})
+            logger.error("Translate failed: %s (%s)", file_path.name, exc)
+            return 1
+
     return 0
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+    return run(args)
 
 
 if __name__ == "__main__":

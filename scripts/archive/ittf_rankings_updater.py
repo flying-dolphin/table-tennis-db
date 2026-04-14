@@ -140,7 +140,7 @@ def extract_pdf_to_markdown(pdf_path, md_path):
             if page_text:
                 full_text += f"\n\n## 第 {i+1} 页\n\n{page_text}"
         
-        with open(md_path, 'w', encoding='utf-8') as f:
+        with open(md_path, 'w', encoding='utf-8', newline='') as f:
             f.write(full_text)
         
         logger.info(f"已提取文本到: {md_path}")
@@ -171,7 +171,7 @@ def translate_to_chinese(md_path, cn_path, use_api=False, api_key=None):
             logger.info("使用MiniMax API翻译...")
             translated = translate_with_minimax(content, api_key)
             if translated:
-                with open(cn_path, 'w', encoding='utf-8') as f:
+                with open(cn_path, 'w', encoding='utf-8', newline='') as f:
                     f.write(translated)
                 logger.info(f"中文文档已保存: {cn_path}")
                 return True
@@ -192,7 +192,7 @@ def translate_to_chinese(md_path, cn_path, use_api=False, api_key=None):
 {content}"""
         
         prompt_path = md_path.with_suffix('.translation_prompt.txt')
-        with open(prompt_path, 'w', encoding='utf-8') as f:
+        with open(prompt_path, 'w', encoding='utf-8', newline='') as f:
             f.write(translation_prompt)
         
         logger.info(f"翻译提示已保存到: {prompt_path}")
@@ -287,7 +287,7 @@ def save_state(state):
     """保存运行状态"""
     import json
     
-    with open(STATE_FILE, 'w') as f:
+    with open(STATE_FILE, 'w', newline='') as f:
         json.dump(state, f, indent=2)
 
 

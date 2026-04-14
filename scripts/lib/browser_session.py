@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 import logging
-import sys
 from pathlib import Path
 from typing import Any
 
 from .anti_bot import DelayConfig, RiskControlTriggered, detect_risk
-from .page_ops import guarded_goto
+from .navigation_runtime import open_page_with_verification, prompt_manual_verification
 
 logger = logging.getLogger(__name__)
 
@@ -18,21 +17,20 @@ def ensure_logged_in(
     storage_state_file: Path,
     init_session: bool,
 ) -> None:
-    guarded_goto(page, search_url, delay_cfg, "open search page for login check")
+    open_page_with_verification(page, search_url, delay_cfg, "open search page for login check")
 
     is_login_form = page.locator("input[name='username']").count() > 0
     if is_login_form:
-        if not sys.stdin.isatty():
-            raise RuntimeError(
-                "Manual login required, but no interactive TTY is available. "
-                "Run with an existing storage state or use an interactive browser session first."
-            )
-
-        print("\n=== Manual login required ===")
-        print("1) Complete login in the opened browser window")
-        print("2) If MFA/captcha appears, complete it manually")
-        print("3) Return here and press ENTER")
-        input("Press ENTER after login is completed...")
+        prompt_manual_verification(
+            [
+                "",
+                "=== Manual login required ===",
+                "1) Complete login in the opened browser window",
+                "2) If MFA/captcha appears, complete it manually",
+                "3) Return here and press ENTER",
+            ],
+            "Press ENTER after login is completed...",
+        )
 
         risk = detect_risk(page)
         if risk:

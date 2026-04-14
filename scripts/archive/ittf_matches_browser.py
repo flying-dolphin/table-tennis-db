@@ -71,7 +71,7 @@ def load_state():
 
 def save_state(state):
     """保存状态"""
-    with open(STATE_FILE, 'w') as f:
+    with open(STATE_FILE, 'w', newline='') as f:
         json.dump(state, f, indent=2)
 
 
@@ -313,7 +313,7 @@ def run_browser_scraper(username, password, headless=True):
                     output_file = MATCHES_DIR / f"{safe_name}_{player.get('rank', 0)}_{YEAR_START}.json"
                     MATCHES_DIR.mkdir(parents=True, exist_ok=True)
                     
-                    with open(output_file, 'w', encoding='utf-8') as f:
+                    with open(output_file, 'w', encoding='utf-8', newline='') as f:
                         json.dump(player_matches, f, ensure_ascii=False, indent=2)
                     
                     logger.info(f"  ✓ 获取到 {len(player_matches['events'])} 个赛事")

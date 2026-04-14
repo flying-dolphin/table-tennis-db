@@ -3,12 +3,11 @@
 ITTF Events Calendar Scraper
 
 抓取 ITTF 官网历年赛事日历页面，提取赛事名称、时间和地点，
-然后调用翻译模块进行中文化处理。
+并将原始结果保存到 orig 目录。
 
 用法:
     python scrape_events_calendar.py --year 2026
-    python scrape_events_calendar.py --year 2025 --output data/events_calendar_2025.json
-    python scrape_events_calendar.py --year 2024 --apply
+    python scrape_events_calendar.py --year 2025 --output data/events_calendar/orig/events_calendar_2025.json
 
 URL 格式: https://www.ittf.com/{year}-events-calendar/
 """
@@ -19,17 +18,15 @@ import argparse
 import json
 import logging
 import sys
-import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.browser_session import ensure_logged_in
 from lib.checkpoint import CheckpointStore, utc_now_iso
-from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep
-from lib.page_ops import guarded_goto
-from lib.translator import Translator, Category
-from validate_events_translation import validate_translation_file
+from lib.anti_bot import DelayConfig, RiskControlTriggered
+from lib.navigation_runtime import open_page_with_verification
 
 logging.basicConfig(
     level=logging.INFO,
@@ -42,7 +39,7 @@ logger = logging.getLogger("ittf_events_calendar")
 # ── 默认配置 ────────────────────────────────────────────────────────────────
 
 BASE_URL = "https://www.ittf.com"
-DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "data" / "events_calendar"
+DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "data" / "events_calendar" / "orig"
 DEFAULT_FROM_YEAR = 2024  # 最早抓取的年份
 
 
@@ -238,123 +235,6 @@ def _dedupe_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return unique_events
 
 
-# ── 翻译处理 ────────────────────────────────────────────────────────────────
-
-# 初始化翻译器（全局实例）
-_translator: Translator | None = None
-
-
-def _get_translator(dry_run: bool = True) -> Translator:
-    """获取或创建翻译器实例"""
-    global _translator
-    if _translator is None:
-        _translator = Translator(auto_save=True)
-    return _translator
-
-
-def translate_event(event: dict[str, Any], dry_run: bool = True) -> dict[str, Any]:
-    """翻译单个赛事信息"""
-    translated = event.copy()
-    translator = _get_translator(dry_run)
-
-    # 翻译赛事名称
-    if event.get("name"):
-        if dry_run:
-            # dry-run: 只查词典，不调用 API
-            result = translator.translate(event["name"], category="events", use_api=False)
-            translated["name_zh"] = result
-            translated["name_translation_method"] = "dict" if result != event["name"] else "skipped"
-        else:
-            result = translator.translate(event["name"], category="events", use_api=True)
-            translated["name_zh"] = result
-            translated["name_translation_method"] = "api" if result != event["name"] else "unchanged"
-
-    # 翻译地点
-    if event.get("location"):
-        if dry_run:
-            result = translator.translate(event["location"], category="locations", use_api=False)
-            translated["location_zh"] = result
-            translated["location_translation_method"] = "dict" if result != event["location"] else "skipped"
-        else:
-            result = translator.translate(event["location"], category="locations", use_api=True)
-            translated["location_zh"] = result
-            translated["location_translation_method"] = "api" if result != event["location"] else "unchanged"
-
-    # 日期标准化
-    if event.get("date"):
-        translated["date_standardized"] = _standardize_date(event["date"])
-
-    return translated
-
-
-def _standardize_date(date_str: str) -> str:
-    """标准化日期格式"""
-    import re
-    if not date_str:
-        return ""
-
-    # 尝试转换月份为中文
-    month_map = {
-        "jan": "1月", "january": "1月",
-        "feb": "2月", "february": "2月",
-        "mar": "3月", "march": "3月",
-        "apr": "4月", "april": "4月",
-        "may": "5月",
-        "jun": "6月", "june": "6月",
-        "jul": "7月", "july": "7月",
-        "aug": "8月", "august": "8月",
-        "sep": "9月", "september": "9月",
-        "oct": "10月", "october": "10月",
-        "nov": "11月", "november": "11月",
-        "dec": "12月", "december": "12月",
-    }
-
-    result = date_str
-    for eng, chn in month_map.items():
-        result = result.lower().replace(eng, chn)
-
-    return result
-
-
-def translate_all_events(events: list[dict[str, Any]], dry_run: bool = True) -> list[dict[str, Any]]:
-    """翻译所有赛事信息"""
-    translated_events = []
-    for event in events:
-        translated = translate_event(event, dry_run=dry_run)
-        translated_events.append(translated)
-        logger.info("Translated: %s (%s) - %s",
-                    event.get("name", ""),
-                    translated.get("name_zh", ""),
-                    event.get("location", ""))
-        # 避免请求过快
-        time.sleep(0.5)
-    return translated_events
-
-
-def _is_translated_file_complete(data: dict[str, Any], expected_total: int) -> bool:
-    """校验翻译文件是否完整。"""
-    events = data.get("events", [])
-    if not isinstance(events, list):
-        return False
-
-    progress = data.get("progress", {})
-    processed = progress.get("processed_events")
-    total = progress.get("total_events")
-    completed_batches = progress.get("completed_batches")
-    total_batches = progress.get("total_batches")
-
-    if progress:
-        if processed != len(events):
-            return False
-        if total != expected_total:
-            return False
-        if completed_batches is not None and total_batches is not None and completed_batches != total_batches:
-            return False
-
-    # 无 progress 的旧文件：至少保证 events 数量完整
-    return len(events) == expected_total
-
-
 # ── 主流程 ──────────────────────────────────────────────────────────────────
 
 def scrape_events_calendar(
@@ -363,8 +243,6 @@ def scrape_events_calendar(
     headless: bool = False,
     slow_mo: int = 100,
     cdp_port: int = 9222,
-    skip_translate: bool = False,
-    dry_run_translate: bool = True,
     force: bool = False,
 ) -> dict[str, Any]:
     """
@@ -376,9 +254,6 @@ def scrape_events_calendar(
         headless: 是否无头模式运行
         slow_mo: 慢动作延迟（毫秒）
         cdp_port: CDP 端口，用于连接已有 Chrome
-        skip_translate: 跳过翻译步骤
-        dry_run_translate: 翻译是否 dry-run
-
     Returns:
         结果字典
     """
@@ -388,32 +263,28 @@ def scrape_events_calendar(
     # 确保输出目录存在
     output_dir.mkdir(parents=True, exist_ok=True)
     raw_output_file = output_dir / f"events_calendar_{year}.json"
-    translated_output_file = output_dir / f"events_calendar_{year}_cn.json"
     checkpoint_scrape_file = output_dir / f"checkpoint_scrape_{year}.json"
-    checkpoint_translate_file = output_dir / f"checkpoint_translate_{year}.json"
 
     scrape_checkpoint = CheckpointStore(checkpoint_scrape_file)
-    translate_checkpoint = CheckpointStore(checkpoint_translate_file)
     ck_scrape_key = f"events_calendar_scrape_{year}"
-    ck_translate_key = f"events_calendar_translate_{year}"
 
-    # 检查是否已完成。仅在不需要补翻译时复用缓存。
+    # Bootstrap checkpoints from existing output files when checkpoint is missing/empty.
+    if (not checkpoint_scrape_file.exists()) or (not scrape_checkpoint.has_any_completed()):
+        if raw_output_file.exists():
+            try:
+                raw_data = json.loads(raw_output_file.read_text(encoding="utf-8"))
+                expected_total = len(raw_data.get("events", []))
+                if expected_total > 0:
+                    scrape_checkpoint.mark_done(ck_scrape_key, meta={"bootstrapped_from": str(raw_output_file)})
+            except Exception:
+                pass
+
+    # 检查是否已完成。
     if not force and scrape_checkpoint.is_done(ck_scrape_key):
         logger.info("Year %s already scraped, loading from output file", year)
         if raw_output_file.exists():
             raw_data = json.loads(raw_output_file.read_text(encoding="utf-8"))
-            expected_total = len(raw_data.get("events", []))
-            # 检查是否需要翻译
-            if not skip_translate and not dry_run_translate:
-                # 检查翻译文件是否存在
-                if translate_checkpoint.is_done(ck_translate_key) and translated_output_file.exists():
-                    data = json.loads(translated_output_file.read_text(encoding="utf-8"))
-                    if _is_translated_file_complete(data, expected_total):
-                        return {"success": True, "data": data, "source": "cache", "output_file": str(translated_output_file)}
-                    logger.warning("翻译缓存文件不完整，将基于原始数据重新翻译")
-                logger.info("Cached data missing translations, will translate raw data")
-            else:
-                return {"success": True, "data": raw_data, "source": "cache", "output_file": str(raw_output_file)}
+            return {"success": True, "data": raw_data, "source": "cache", "output_file": str(raw_output_file)}
         else:
             logger.warning("Output file not found, will re-scrape")
 
@@ -439,37 +310,28 @@ def scrape_events_calendar(
 
     with sync_playwright() as p:
         # 优先 CDP 连接已有 Chrome
-        via_cdp, browser, context = _try_connect_cdp(p, cdp_port)
-
-        if not via_cdp:
-            # 新启动浏览器
-            browser = p.chromium.launch(headless=headless, slow_mo=slow_mo)
-            context = browser.new_context(
-                viewport={"width": 1280, "height": 900},
-                locale="en-US",
-            )
-            logger.info("New browser launched (headless=%s)", headless)
-
-        page = context.new_page()
+        via_cdp, browser, context, page = open_browser_page(
+            p,
+            use_cdp=True,
+            cdp_port=cdp_port,
+            cdp_only=False,
+            launch_kwargs={"headless": headless, "slow_mo": slow_mo},
+            context_kwargs={"viewport": {"width": 1280, "height": 900}, "locale": "en-US"},
+            log_prefix="events_calendar",
+        )
         logger.info("Navigating to %s", calendar_url)
-        page.goto(calendar_url, wait_until="domcontentloaded", timeout=30000)
-        human_sleep(2.0, 4.0, "initial page load")
-
-        if via_cdp:
-            logger.info("Connected to existing Chrome via CDP")
-        else:
-            # 检测 Cloudflare 或其他风控
-            if _check_cloudflare_challenge(page):
-                logger.warning("Cloudflare challenge detected!")
-                logger.warning("Please complete the verification in the browser window.")
-                logger.warning("Press ENTER here after completing verification...")
-                input("Press ENTER after completing Cloudflare verification...")
-                human_sleep(2.0, 4.0, "after manual verification")
-
-        # 通用风控检测
-        risk = detect_risk(page)
-        if risk:
-            raise RiskControlTriggered(risk)
+        open_page_with_verification(
+            page,
+            calendar_url,
+            delay_cfg,
+            "initial page load",
+            check_cloudflare=True,
+            manual_prompt_lines=[
+                "Cloudflare challenge detected!",
+                "Please complete the verification in the browser window.",
+            ],
+            manual_prompt="Press ENTER after completing Cloudflare verification...",
+        )
 
         # 等待页面加载完成
         try:
@@ -477,8 +339,6 @@ def scrape_events_calendar(
         except Exception:
             logger.warning("networkidle timeout, using domcontentloaded")
             page.wait_for_load_state("domcontentloaded", timeout=15000)
-
-        human_sleep(2.0, 5.0, "page settle")
 
         # 再次等待赛历主体出现，避免在 CDP 连接场景下过早解析
         try:
@@ -495,11 +355,7 @@ def scrape_events_calendar(
             # 保存原始页面内容供调试
             body_text = page.inner_text("body")
 
-            # 关闭浏览器
-            if via_cdp:
-                page.close()
-            else:
-                browser.close()
+            close_browser_page(via_cdp, browser, page)
 
             error_data = {
                 "year": year,
@@ -509,18 +365,18 @@ def scrape_events_calendar(
                 "raw_page_preview": body_text[:2000],
             }
 
-            # 不标记 checkpoint 也不保存文件（避免覆盖有效数据）
+            scrape_checkpoint.mark_failed(
+                ck_scrape_key,
+                "No events parsed from page",
+                meta={"url": calendar_url},
+            )
             return {
                 "success": False,
                 "error": "No events parsed from page",
                 "data": error_data,
             }
 
-        # 关闭浏览器
-        if via_cdp:
-            page.close()
-        else:
-            browser.close()
+        close_browser_page(via_cdp, browser, page)
 
     # 先保存原始抓取结果（无翻译）
     raw_result_data = {
@@ -534,110 +390,21 @@ def scrape_events_calendar(
     }
     raw_output_file.write_text(
         json.dumps(raw_result_data, ensure_ascii=False, indent=2),
-        encoding="utf-8"
+        encoding="utf-8",
+        newline="",
     )
     logger.info("原始数据已保存: %s", raw_output_file)
 
     # 原始抓取完成 checkpoint
     scrape_checkpoint.mark_done(ck_scrape_key)
 
-    # 翻译（如果启用）
-    result_data = raw_result_data.copy()
-    translated_file_path = None
-    if not skip_translate and events:
-        logger.info("开始翻译 (dry_run=%s)...", dry_run_translate)
-        translated_events = translate_all_events(events, dry_run=dry_run_translate)
-        
-        translated_result_data = {
-            "year": year,
-            "url": calendar_url,
-            "scraped_at": scraped_at,
-            "translated_at": utc_now_iso(),
-            "events": translated_events,
-            "summary": {
-                "total": len(events),
-                "with_translation": len(translated_events),
-            }
-        }
-        
-        # 保存翻译结果到单独的文件
-        if not dry_run_translate:
-            translated_output_file.write_text(
-                json.dumps(translated_result_data, ensure_ascii=False, indent=2),
-                encoding="utf-8"
-            )
-            logger.info("翻译数据已保存: %s", translated_output_file)
-            validation = validate_translation_file(translated_output_file, raw_output_file)
-            if validation.get("ok"):
-                translate_checkpoint.mark_done(ck_translate_key)
-            else:
-                translate_checkpoint.mark_failed(
-                    ck_translate_key,
-                    f"translation incomplete: failed={validation.get('failed_events', 0)}",
-                )
-            translated_file_path = str(translated_output_file)
-            result_data = translated_result_data
-        else:
-            # dry-run 模式下，使用包含翻译标记的结果
-            result_data = translated_result_data
-
     return {
         "success": True,
-        "data": result_data,
-        "output_file": translated_file_path if translated_file_path else str(raw_output_file),
+        "data": raw_result_data,
+        "output_file": str(raw_output_file),
         "raw_file": str(raw_output_file),
-        "translated_file": translated_file_path,
+        "translated_file": None,
     }
-
-
-def _try_connect_cdp(p: Any, cdp_port: int) -> tuple[bool, Any, Any]:
-    """尝试连接已有 Chrome（CDP 模式）"""
-    import urllib.request
-
-    cdp_url = f"http://localhost:{cdp_port}"
-    try:
-        urllib.request.urlopen(f"{cdp_url}/json/version", timeout=2)
-    except Exception:
-        return False, None, None
-
-    try:
-        browser = p.chromium.connect_over_cdp(cdp_url)
-        contexts = browser.contexts
-        context = contexts[0] if contexts else browser.new_context()
-        logger.info("Connected to existing Chrome via CDP at %s", cdp_url)
-        return True, browser, context
-    except Exception as exc:
-        logger.warning("CDP handshake failed: %s", exc)
-        return False, None, None
-
-
-def _check_cloudflare_challenge(page: Any) -> bool:
-    """检测 Cloudflare 挑战页面"""
-    try:
-        # Cloudflare 挑战页面特征
-        selectors = [
-            "#challenge-title",
-            ".challenge-title",
-            "#cf-challenge-title",
-            "[data-ray]",
-            "#challenge-form",
-        ]
-        for selector in selectors:
-            if page.locator(selector).count() > 0:
-                return True
-
-        # 检查页面标题或内容
-        title = page.title()
-        if "Just a moment" in title or "Cloudflare" in title:
-            return True
-
-        # 检查 URL 是否包含 challenge
-        if "challenges.cloudflare" in page.url:
-            return True
-
-    except Exception:
-        pass
-    return False
 
 
 # ── CLI ─────────────────────────────────────────────────────────────────────
@@ -656,7 +423,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--output", "-o",
         type=str,
         default=None,
-        help="输出文件路径（默认: data/events_calendar/events_calendar_{year}.json）",
+        help="输出文件路径（默认: data/events_calendar/orig/events_calendar_{year}.json）",
     )
     parser.add_argument(
         "--cdp-port",
@@ -676,19 +443,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="慢动作延迟毫秒（默认: 100）",
     )
     parser.add_argument(
-        "--skip-translate",
-        action="store_true",
-        help="跳过翻译步骤",
-    )
-    parser.add_argument(
-        "--apply",
-        action="store_true",
-        help="实际执行翻译（不加此参数则 dry-run）",
-    )
-    parser.add_argument(
         "--force",
         action="store_true",
         help="强制重新抓取（忽略 checkpoint）",
+    )
+    parser.add_argument(
+        "--rebuild-checkpoint",
+        action="store_true",
+        help="基于现有输出文件重建 checkpoint",
     )
     return parser
 
@@ -714,17 +476,20 @@ def main() -> None:
             logger.info("Loaded existing data from %s: %s events",
                         output_file, data.get("summary", {}).get("total", 0))
 
-    dry_run_translate = not args.apply
-
     try:
+        # Rebuild checkpoints on demand: ensure subsequent runs can skip via checkpoint safely.
+        if getattr(args, "rebuild_checkpoint", False) and not args.force:
+            out_dir = output_dir
+            ck_scrape = CheckpointStore(out_dir / f"checkpoint_scrape_{args.year}.json")
+            ck_scrape.reset()
+            # Bootstrapping is handled inside scrape_events_calendar() based on output file presence/completeness.
+
         result = scrape_events_calendar(
             year=args.year,
             output_dir=output_dir,
             headless=args.headless,
             slow_mo=args.slow_mo,
             cdp_port=args.cdp_port,
-            skip_translate=args.skip_translate,
-            dry_run_translate=dry_run_translate,
             force=args.force,
         )
 
@@ -735,10 +500,6 @@ def main() -> None:
             logger.info("抓取完成！")
             logger.info("年份: %s", data.get("year"))
             logger.info("赛事数量: %s", summary.get("total", 0))
-            if not args.skip_translate:
-                logger.info("翻译数量: %s", summary.get("with_translation", 0))
-                if dry_run_translate:
-                    logger.info("(翻译为 dry-run 模式，使用 --apply 执行实际翻译)")
             logger.info("输出文件: %s", result.get("output_file"))
             logger.info("=" * 50)
         else:

@@ -83,7 +83,7 @@ class TranslationDict:
         try:
             self.dict_path.parent.mkdir(parents=True, exist_ok=True)
             payload = self._serialize()
-            with open(self.dict_path, 'w', encoding='utf-8') as f:
+            with open(self.dict_path, 'w', encoding='utf-8', newline='') as f:
                 json.dump(payload, f, ensure_ascii=False, indent=2)
             logger.debug(f"词典已保存: {self.dict_path}")
         except Exception as e:
@@ -1015,7 +1015,7 @@ class Translator:
         try:
             output_path = Path(output_path)
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_path, 'w', encoding='utf-8') as f:
+            with open(output_path, 'w', encoding='utf-8', newline='') as f:
                 json.dump(self.dictionary.dump(), f, ensure_ascii=False, indent=2)
             logger.info(f"词典已导出: {output_path}")
         except Exception as e:

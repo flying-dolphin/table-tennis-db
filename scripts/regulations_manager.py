@@ -86,7 +86,7 @@ def save_state(state):
     """保存运行状态"""
     import json
     
-    with open(STATE_FILE, 'w', encoding='utf-8') as f:
+    with open(STATE_FILE, 'w', encoding='utf-8', newline='') as f:
         json.dump(state, f, indent=2)
 
 
@@ -126,7 +126,7 @@ def translate_document_with_translator(
             translated = translator.translate_document(content, doc_type="regulations")
             
             if translated and translated != content:
-                with open(cn_path, 'w', encoding='utf-8') as f:
+                with open(cn_path, 'w', encoding='utf-8', newline='') as f:
                     f.write(translated)
                 logger.info(f"中文文档已保存: {cn_path}")
                 
@@ -151,7 +151,7 @@ def translate_document_with_translator(
 {content}"""
         
         prompt_path = md_path.with_suffix('.translation_prompt.txt')
-        with open(prompt_path, 'w', encoding='utf-8') as f:
+        with open(prompt_path, 'w', encoding='utf-8', newline='') as f:
             f.write(translation_prompt)
         
         logger.info(f"翻译提示已保存到: {prompt_path}")
@@ -219,7 +219,7 @@ def process_pdf(pdf_path: Path, force: bool = False, use_api: bool = False, api_
                 if page_text:
                     full_text += f"\n\n## 第 {i+1} 页\n\n{page_text}"
             
-            with open(md_path, 'w', encoding='utf-8') as f:
+            with open(md_path, 'w', encoding='utf-8', newline='') as f:
                 f.write(full_text)
             
             logger.info(f"已提取文本到: {md_path}")

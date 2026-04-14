@@ -26,11 +26,12 @@ from pathlib import Path
 from typing import Any
 
 from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep, move_mouse_to_locator, type_like_human
+from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.browser_session import ensure_logged_in
 from lib.capture import capture_json_responses_for_page, sanitize_filename, save_json
 from lib.checkpoint import CheckpointStore, utc_now_iso
+from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import click_next_page_if_any, guarded_goto
-from lib.translator import Translator
 
 
 logging.basicConfig(
@@ -49,6 +50,17 @@ SCORE_RE = re.compile(r"(\d+)\s*-\s*(\d+)")
 GAME_RE = re.compile(r"(\d+):(\d+)")
 # 球员名字格式: "Name (COUNTRY)", "Name Surname (COUNTRY)", 或 "UPPER Surname (COUNTRY)"
 PLAYER_NAME_RE = re.compile(r"([A-Z][A-Za-z]*(?:\s+[A-Z][A-Za-z]*)+)\s*\(([A-Z]{3})\)")
+
+
+def _ck_player_base(checkpoint: CheckpointStore, player_id: Any, player_name: str, from_date_str: str) -> str:
+    # Prefix to avoid collisions with other uses of CheckpointStore.
+    return "matches|" + checkpoint.key(player_id, player_name, from_date_str)
+
+
+def _ck_event(ck_player: str, event_year: Any, event_name: str) -> str:
+    raw = f"{event_year}|{event_name}"
+    h = hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
+    return f"{ck_player}|event:{h}"
 
 # UA 与 sec-ch-ua 版本绑定为配对结构，避免版本不一致被检测
 # 按 OS 分组，运行时按实际系统选取，确保 UA / platform / DPR 三者自洽
@@ -662,6 +674,9 @@ def scrape_player(
     from_date: date,
     delay_cfg: DelayConfig,
     raw_dir: Path,
+    checkpoint: CheckpointStore | None = None,
+    ck_player: str | None = None,
+    force: bool = False,
     out_file: Path | None = None,
     player_output: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
@@ -706,7 +721,7 @@ def scrape_player(
     # 直接从 JSON 文件重新加载，计算已有的 events 数量（不依赖传入的 player_output）
     existing_event_count = 0
     existing_event_keys: set[tuple[str, str]] = set()
-    if out_file is not None and out_file.exists():
+    if (not force) and out_file is not None and out_file.exists():
         try:
             fresh_data = json.loads(out_file.read_text(encoding="utf-8"))
             logger.debug("Loaded JSON from %s, keys: %s", out_file, list(fresh_data.keys()))
@@ -736,6 +751,19 @@ def scrape_player(
             logger.warning("Failed to load existing data from %s: %s", out_file, exc)
     else:
         logger.debug("No existing JSON file: %s", out_file)
+
+    # Best-effort: keep checkpoint consistent with existing output file (per-event done marks).
+    if (not force) and checkpoint is not None and ck_player and existing_event_keys:
+        try:
+            with checkpoint.bulk():
+                for (ey, en) in existing_event_keys:
+                    if not en:
+                        continue
+                    ck = _ck_event(ck_player, ey, en)
+                    if not checkpoint.is_done(ck):
+                        checkpoint.mark_done(ck, meta={"bootstrapped_from": str(out_file) if out_file else None})
+        except Exception:
+            pass
 
     # 判断逻辑：数据只会增加，只需判断是否有新增
     new_event_count = len(events) - existing_event_count
@@ -782,10 +810,15 @@ def scrape_player(
 
         event_year = event.get("year", "unknown")
         event_key = (str(event_year), event.get("event_name", ""))
-        if event_key in already_scraped:
+        if (not force) and event_key in already_scraped:
             logger.info("Skip [%s/%s] already scraped: [%s] %s",
                         idx, len(events), event_year, event.get("event_name", ""))
             continue
+
+        # If checkpoint says done but output JSON doesn't include it, we must rescrape.
+        ck_event = _ck_event(ck_player, event_year, event.get("event_name", "")) if (checkpoint is not None and ck_player) else None
+        if (not force) and ck_event and checkpoint is not None and checkpoint.is_done(ck_event):
+            logger.info("Checkpoint done but event missing in output JSON, will rescrape: [%s] %s", event_year, event.get("event_name", ""))
 
         detail_url = absolute_url(href)
         logger.info("Event %s/%s [%s]: %s", idx, len(events), event_year, detail_url)
@@ -825,6 +858,17 @@ def scrape_player(
             merge_player_data(player_output, result)
             save_json(out_file, player_output)
             logger.debug("Incremental save: %s event(s) written to %s", idx, out_file.name)
+
+        if checkpoint is not None and ck_event:
+            checkpoint.mark_done(
+                ck_event,
+                meta={
+                    "event_year": event_year,
+                    "event_name": event.get("event_name", ""),
+                    "detail_url": detail_url,
+                    "raw_capture_file": str(raw_file),
+                },
+            )
 
     # 校验：对比实际抓取的 event 数量和期望数量
     newly_captured = len(result.get("events", []))
@@ -922,102 +966,6 @@ def merge_player_data(existing: dict[str, Any], player_data: dict[str, Any]) -> 
     return existing
 
 
-def translate_matches_data(data: dict[str, Any], translator: Translator) -> dict[str, Any]:
-    """翻译比赛数据为中文"""
-    result = data.copy()
-    
-    # 翻译运动员姓名
-    if 'player_name' in result and result['player_name']:
-        result['player_name_zh'] = translator.translate(result['player_name'], category='players', use_api=True)
-    
-    # 翻译国家代码
-    if 'country_code' in result and result['country_code']:
-        result['country_code_zh'] = translator.translate(result['country_code'], category='locations', use_api=True)
-    
-    # 翻译每年的赛事数据
-    if 'years' in result:
-        for year, year_data in result['years'].items():
-            if 'events' in year_data:
-                for event in year_data['events']:
-                    # 翻译赛事名称
-                    if 'event_name' in event and event['event_name']:
-                        event['event_name_zh'] = translator.translate(event['event_name'], category='events', use_api=True)
-                    
-                    # 翻译赛事类型
-                    if 'event_type' in event and event['event_type']:
-                        event['event_type_zh'] = translator.translate(event['event_type'], category='events', use_api=True)
-                    
-                    # 翻译比赛数据
-                    if 'matches' in event:
-                        for match in event['matches']:
-                            # 翻译阶段
-                            if 'stage' in match and match['stage']:
-                                match['stage_zh'] = translator.translate(match['stage'], category='terms', use_api=True)
-                            
-                            # 翻译轮次
-                            if 'round' in match and match['round']:
-                                original = match['round']
-                                if original.startswith('R') and original[1:].isdigit():
-                                    match['round_zh'] = f"第{original[1:]}轮"
-                                else:
-                                    match['round_zh'] = translator.translate(original, category='terms', use_api=True)
-                            
-                            # 翻译子赛事类型
-                            if 'sub_event' in match and match['sub_event']:
-                                sub_event_map = {
-                                    'WS': '女子单打',
-                                    'MS': '男子单打',
-                                    'WD': '女子双打',
-                                    'MD': '男子双打',
-                                    'XD': '混合双打',
-                                    'XT': '混合团体',
-                                    'WT': '女子团体',
-                                    'MT': '男子团体',
-                                }
-                                match['sub_event_zh'] = sub_event_map.get(match['sub_event'], match['sub_event'])
-    
-    return result
-
-
-def _try_connect_cdp(p: Any, cdp_port: int) -> tuple[bool, Any, Any]:
-    """尝试连接已有 Chrome（CDP 模式），复用其登录 session。
-    返回 (via_cdp, browser, context)；连接失败时返回 (False, None, None)。
-    """
-    import urllib.request as _urllib_req
-
-    cdp_url = f"http://localhost:{cdp_port}"
-    try:
-        _urllib_req.urlopen(f"{cdp_url}/json/version", timeout=2)
-    except Exception as exc:
-        logger.info(
-            "No Chrome with remote debugging found at %s (%s) — will launch new browser.\n"
-            "  To reuse an existing session (avoids re-login), start a dedicated Chrome instance first:\n"
-            "    macOS:\n"
-            "      /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome \\\n"
-            "        --remote-debugging-port=%s \\\n"
-            "        --user-data-dir=\"$HOME/.chrome-ittf-profile\" \\\n"
-            "        --no-first-run --no-default-browser-check\n"
-            "    Windows:\n"
-            "      \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\"\n"
-            "        --remote-debugging-port=%s\n"
-            "        --user-data-dir=\"%%USERPROFILE%%\\.chrome-ittf-profile\"\n"
-            "  Log in to ITTF in that window once; the session persists across runs.",
-            cdp_url, exc, cdp_port, cdp_port,
-        )
-        return False, None, None
-
-    try:
-        browser = p.chromium.connect_over_cdp(cdp_url)
-        contexts = browser.contexts
-        context = contexts[0] if contexts else browser.new_context()
-        logger.info("Connected to existing Chrome via CDP at %s (context has %s page(s))",
-                    cdp_url, len(context.pages))
-        return True, browser, context
-    except Exception as exc:
-        logger.warning("CDP handshake failed: %s — falling back to new browser", exc)
-        return False, None, None
-
-
 def run(args: argparse.Namespace) -> int:
     # 解析指定 player 参数（如果有的话）
     target_player_name = getattr(args, 'player_name', None)
@@ -1033,19 +981,12 @@ def run(args: argparse.Namespace) -> int:
     
     # 创建 orig 和 cn 子目录
     output_orig_dir = output_dir / "orig"
-    output_cn_dir = output_dir / "cn"
     output_orig_dir.mkdir(parents=True, exist_ok=True)
-    output_cn_dir.mkdir(parents=True, exist_ok=True)
     
     raw_dir = Path(args.raw_dir)
     storage_state = Path(args.storage_state)
     checkpoint_file = Path(args.checkpoint)
     
-    # 初始化翻译器
-    translator = Translator()
-    translator_stats = translator.get_stats()
-    logger.info("Translator loaded: %s", translator_stats)
-
     from_date = parse_from_date(args.from_date)
     delay_cfg = DelayConfig(
         min_request_sec=args.min_delay,
@@ -1062,41 +1003,41 @@ def run(args: argparse.Namespace) -> int:
     logger.info("Loaded %s players, from_date=%s", len(players), from_date)
 
     checkpoint = CheckpointStore(checkpoint_file)
+    if getattr(args, "rebuild_checkpoint", False):
+        checkpoint.reset()
 
     with sync_playwright() as p:
-        # 优先 CDP 连接已有 Chrome（保留登录 session），连不上才新启动
-        via_cdp, browser, context = _try_connect_cdp(p, args.cdp_port)
+        profile = random.choice(select_browser_profiles())
+        chosen_viewport = random.choice(profile["viewport_choices"])
+        chosen_dpr = random.choice(profile["dpr_choices"])
+        context_kwargs: dict[str, Any] = {
+            "viewport": chosen_viewport,
+            "locale": "en-US",
+            "timezone_id": "Asia/Shanghai",
+            "user_agent": profile["user_agent"],
+            "device_scale_factor": chosen_dpr,
+            "color_scheme": "light",
+            "extra_http_headers": {
+                "Accept-Language": "en-US,en;q=0.9",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+                "sec-ch-ua": profile["sec_ch_ua"],
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": profile["sec_ch_ua_platform"],
+            },
+        }
+        if storage_state.exists():
+            context_kwargs["storage_state"] = str(storage_state)
 
+        via_cdp, browser, context, page = open_browser_page(
+            p,
+            use_cdp=True,
+            cdp_port=args.cdp_port,
+            cdp_only=False,
+            launch_kwargs={"headless": args.headless, "slow_mo": args.slow_mo},
+            context_kwargs=context_kwargs,
+            log_prefix="matches",
+        )
         if not via_cdp:
-            # patchright 新启动：在编译层已消除自动化标识
-            browser = p.chromium.launch(
-                headless=args.headless,
-                slow_mo=args.slow_mo,
-            )
-
-            # 按当前 OS 选取配置，UA / sec-ch-ua / platform / DPR / viewport 全部自洽
-            profile = random.choice(select_browser_profiles())
-            chosen_viewport = random.choice(profile["viewport_choices"])
-            chosen_dpr = random.choice(profile["dpr_choices"])
-
-            context_kwargs: dict[str, Any] = {
-                "viewport": chosen_viewport,
-                "locale": "en-US",
-                "timezone_id": "Asia/Shanghai",
-                "user_agent": profile["user_agent"],
-                "device_scale_factor": chosen_dpr,
-                "color_scheme": "light",
-                "extra_http_headers": {
-                    "Accept-Language": "en-US,en;q=0.9",
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-                    "sec-ch-ua": profile["sec_ch_ua"],
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": profile["sec_ch_ua_platform"],
-                },
-            }
-            if storage_state.exists():
-                context_kwargs["storage_state"] = str(storage_state)
-
             logger.info(
                 "New browser context: ua=...%s viewport=%sx%s dpr=%.2f",
                 profile["user_agent"][-30:],
@@ -1104,30 +1045,20 @@ def run(args: argparse.Namespace) -> int:
                 chosen_viewport["height"],
                 chosen_dpr,
             )
-            context = browser.new_context(**context_kwargs)
-
-        page = context.new_page()
 
         if via_cdp:
             # CDP 模式：session 已在真实 Chrome 中，只做一次轻量验证
-            guarded_goto(page, SEARCH_URL, delay_cfg, "verify CDP session", sleep_first=False)
-            if page.locator("input[name='username']").count() > 0:
-                print("\n=== CDP session requires login ===")
-                print("1) Complete login in the opened browser window")
-                print("2) Return here and press ENTER")
-                input("Press ENTER after login is completed...")
-                if page.locator("input[name='username']").count() > 0:
-                    raise RuntimeError("Login not completed. Aborting.")
+            verify_cdp_session_or_prompt(page, SEARCH_URL, delay_cfg)
         else:
             try:
-                ensure_logged_in(page, delay_cfg, storage_state, args.init_session)
+                ensure_logged_in(page, SEARCH_URL, delay_cfg, storage_state, args.init_session)
             except Exception:
-                browser.close()
+                close_browser_page(via_cdp, browser, page)
                 raise
 
             if args.init_session:
                 logger.info("Session initialized. Exiting due to --init-session.")
-                browser.close()
+                close_browser_page(via_cdp, browser, page)
                 return 0
 
         # 如果指定了 player_name，只抓取该 player
@@ -1175,8 +1106,6 @@ def run(args: argparse.Namespace) -> int:
             logger.info("[%s/%s] Player: %s (%s)", i, len(players), player_name, country_code)
 
             orig_file = output_orig_dir / f"{sanitize_filename(player_name)}.json"
-            cn_file = output_cn_dir / f"{sanitize_filename(player_name)}.json"
-            
             # 从 orig 目录读取现有数据
             if orig_file.exists():
                 try:
@@ -1212,14 +1141,45 @@ def run(args: argparse.Namespace) -> int:
                 player_output.setdefault("rank", rank)
                 player_output.setdefault("from_date", from_date.isoformat())
 
-            ck = checkpoint.key(player_id, player_name, from_date.isoformat())
+            ck_player = _ck_player_base(checkpoint, player_id, player_name, from_date.isoformat())
 
-            # 始终调用 scrape_player：它会访问网页对比实际 event 数量，
-            # 只有网页 events > JSON events 时才会真正抓取 detail 页面
-            if args.force and checkpoint.is_done(ck):
-                logger.info("Force rescraping %s since %s (checkpoint cleared)", player_name, from_date)
-            else:
-                logger.info("Scraping/verifying %s since %s", player_name, from_date)
+            # Bootstrap per-event checkpoints from existing orig output (when checkpoint is missing/empty or rebuild requested).
+            if (not args.force) and (getattr(args, "rebuild_checkpoint", False) or (not checkpoint.has_any_completed())) and orig_file.exists():
+                try:
+                    fresh = json.loads(orig_file.read_text(encoding="utf-8"))
+                    years = fresh.get("years", {}) if isinstance(fresh, dict) else {}
+                    with checkpoint.bulk():
+                        for year_str, year_data in (years or {}).items():
+                            try:
+                                y = int(year_str)
+                                if y > 0 and y < from_date.year:
+                                    continue
+                            except Exception:
+                                pass
+                            for ev in (year_data or {}).get("events", []) or []:
+                                ey = ev.get("event_year", year_str)
+                                en = ev.get("event_name", "")
+                                if not en:
+                                    continue
+                                ck_event = _ck_event(ck_player, ey, en)
+                                if not checkpoint.is_done(ck_event):
+                                    checkpoint.mark_done(ck_event, meta={"bootstrapped_from": str(orig_file)})
+                except Exception:
+                    pass
+
+            # --force: clear existing events (from from_date.year onwards) so rescrape can overwrite.
+            if args.force and isinstance(player_output, dict) and player_output.get("years"):
+                years = player_output.get("years", {})
+                if isinstance(years, dict):
+                    for yk in list(years.keys()):
+                        try:
+                            yi = int(yk)
+                            if yi >= from_date.year:
+                                years.pop(yk, None)
+                        except Exception:
+                            continue
+
+            logger.info("Scraping/verifying %s since %s (force=%s)", player_name, from_date, bool(args.force))
             try:
                 player_data = scrape_player(
                     page=page,
@@ -1228,6 +1188,9 @@ def run(args: argparse.Namespace) -> int:
                     from_date=from_date,
                     delay_cfg=delay_cfg,
                     raw_dir=raw_dir,
+                    checkpoint=checkpoint,
+                    ck_player=ck_player,
+                    force=bool(args.force),
                     out_file=orig_file,
                     player_output=player_output,
                 )
@@ -1255,40 +1218,26 @@ def run(args: argparse.Namespace) -> int:
                 save_json(orig_file, player_data)
                 logger.info("Saved original: %s", orig_file)
                 
-                # 翻译并保存中文版本到 cn 目录 (unless disabled)
-                if not args.no_translate:
-                    player_data_cn = translate_matches_data(player_data, translator)
-                    save_json(cn_file, player_data_cn)
-                    logger.info("Saved Chinese: %s", cn_file)
-                else:
-                    logger.debug("Translation skipped (--no-translate)")
-                
-                checkpoint.mark_done(ck)
+                checkpoint.mark_done(ck_player, meta={"orig_path": str(orig_file)})
                 logger.info("Completed %s (%s events in JSON)", player_name, total_events_in_json)
             except RiskControlTriggered as exc:
-                checkpoint.mark_failed(ck, f"risk_control: {exc}")
+                checkpoint.mark_failed(ck_player, f"risk_control: {exc}")
                 # 风险触发时也保存已获取的数据
                 if orig_file:
                     save_json(orig_file, player_output)
                 logger.error("Risk control triggered: %s", exc)
                 logger.error("Stop immediately to protect account/session.")
-                if not via_cdp:
-                    browser.close()
+                close_browser_page(via_cdp, browser, page)
                 return 3
             except Exception as exc:
-                checkpoint.mark_failed(ck, str(exc))
+                checkpoint.mark_failed(ck_player, str(exc))
                 logger.error("Failed %s: %s", player_name, exc)
-                if args.stop_on_error:
-                    if not via_cdp:
-                        browser.close()
-                    return 4
+                close_browser_page(via_cdp, browser, page)
+                return 4
 
             human_sleep(delay_cfg.min_player_gap_sec, delay_cfg.max_player_gap_sec, "gap between players")
 
-        if via_cdp:
-            page.close()  # 只关闭新开的标签页，保留用户原有 Chrome 窗口
-        else:
-            browser.close()
+        close_browser_page(via_cdp, browser, page)
 
     logger.info("Completed.")
     return 0
@@ -1315,10 +1264,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-player-gap", type=float, default=45.0)
 
     parser.add_argument("--force", action="store_true", help="Ignore checkpoint completed marks")
-    parser.add_argument("--stop-on-error", action="store_true")
+    parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing orig outputs")
     parser.add_argument("--player-name", type=str, default=None, help="Scrape only a specific player by English name (case-insensitive)")
     parser.add_argument("--player-country", type=str, default=None, help="Country code for the specific player (optional, used with --player-name)")
-    parser.add_argument("--no-translate", action="store_true", help="Skip translation, save only original data")
     return parser
 
 

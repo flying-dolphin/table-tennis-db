@@ -333,7 +333,7 @@ def run_scraper(username, password, headless=True):
             if player_data['years']:
                 safe_name = player_name.replace(' ', '_')
                 output_file = OUTPUT_DIR / f"{safe_name}_{rank}.json"
-                with open(output_file, 'w', encoding='utf-8') as f:
+                with open(output_file, 'w', encoding='utf-8', newline='') as f:
                     json.dump(player_data, f, ensure_ascii=False, indent=2)
                 logger.info(f"  → 已保存")
             
