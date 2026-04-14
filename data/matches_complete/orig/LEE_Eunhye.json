@@ -1,0 +1,5107 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "LEE Eunhye",
+  "english_name": "LEE Eunhye",
+  "country": "KOR",
+  "country_code": "KOR",
+  "continent": "",
+  "rank": 32,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-14T10:20:57.552853+00:00",
+      "events": [
+        {
+          "event_name": "WTT Champions Chongqing 2026 Presented by AITO",
+          "event_type": "WTT Champions",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3235",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2026_1_WTT_Champions_Chongqing_2026_Presented_by_AITO.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "9:11",
+                "11:7"
+              ],
+              "winner": "DIAZ Adriana",
+              "all_players_in_row": [
+                "DIAZ Adriana (PUR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "DIAZ Adriana (PUR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | DIAZ Adriana (PUR) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 3 - 1 | 11:7 11:5 9:11 11:7 | DIAZ Adriana"
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2026_2_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "3:11",
+                "6:11"
+              ],
+              "winner": "NAGASAKI Miyu",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | LEE Eunhye (KOR) | NAGASAKI Miyu (JPN) | WS | Main Draw | R64 | 0 - 3 | 8:11 3:11 6:11 | NAGASAKI Miyu"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Chennai 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3233",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2026_3_WTT_Star_Contender_Chennai_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "8:11",
+                "11:1",
+                "4:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "SCHREINER Franziska (GER)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "SCHREINER Franziska (GER)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | SCHREINER Franziska (GER) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 1 - 3 | 9:11 8:11 11:1 4:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "9:11",
+                "8:11",
+                "13:15"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | HUANG Yu-Jie (TPE) | LEE Eunhye (KOR) | WS | Main Draw | R16 | 1 - 3 | 11:6 9:11 8:11 13:15 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "7:11",
+                "8:11"
+              ],
+              "winner": "HIRANO Miu",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | LEE Eunhye (KOR) | HIRANO Miu (JPN) | WS | Main Draw | QuarterFinal | 0 - 3 | 3:11 7:11 8:11 | HIRANO Miu"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3232",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2026_4_WTT_Star_Contender_Doha_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "9:11",
+                "11:8",
+                "5:11"
+              ],
+              "winner": "BATRA Manika",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "BATRA Manika (IND)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Doha 2026 | LEE Eunhye (KOR) | BATRA Manika (IND) | WS | Main Draw | R32 | 1 - 3 | 10:12 9:11 11:8 5:11 | BATRA Manika"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Champions Doha 2026",
+          "event_type": "WTT Champions",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3231",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2026_5_WTT_Champions_Doha_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "5:11",
+                "3:11"
+              ],
+              "winner": "HAN Ying",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "HAN Ying (GER)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "HAN Ying (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Champions Doha 2026 | LEE Eunhye (KOR) | HAN Ying (GER) | WS | Main Draw | R32 | 0 - 3 | 7:11 5:11 3:11 | HAN Ying"
+            }
+          ]
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-14T10:20:57.552853+00:00",
+      "events": [
+        {
+          "event_name": "ITTF Mixed Team World Cup Chengdu 2025",
+          "event_type": "ITTF World Cup",
+          "event_year": "2025",
+          "match_count": 10,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3263",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_6_ITTF_Mixed_Team_World_Cup_Chengdu_2025.json",
+          "matches": [
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:1",
+                "11:9"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | MOYLAND Sally (USA) | XT | Qualification | 3 - 0 | 11:8 11:1 11:9 | LEE Eunhye"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:5",
+                "12:10"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | YUAN Jia Nan (FRA) | XT | Qualification | 3 - 0 | 11:4 11:5 12:10 | LEE Eunhye"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "WANG Manyu",
+              "all_players_in_row": [
+                "WANG Manyu (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "WANG Manyu (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | WANG Manyu (CHN) | LEE Eunhye (KOR) | XT | Qualification | 3 - 0 | 11:7 11:7 11:8 | WANG Manyu"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | ZHU Chengzhu (HKG) | XT | Qualification | 2 - 1 | 11:6 11:8 9:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:9",
+                "7:11"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | HARIMOTO Miwa (JPN) | LEE Eunhye (KOR) | XT | Qualification | 2 - 1 | 13:11 11:9 7:11 | HARIMOTO Miwa"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "3:11",
+                "6:11"
+              ],
+              "winner": "WINTER Sabine",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | WINTER Sabine (GER) | XT | Qualification | 1 - 2 | 11:7 3:11 6:11 | WINTER Sabine"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "8:11",
+                "11:8"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | RAKOVAC Lea (CRO) | XT | Qualification | 1 - 2 | 9:11 8:11 11:8 | RAKOVAC Lea"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-1",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 0,
+                  "opponent": 0
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "14:12",
+                "0:0"
+              ],
+              "winner": "",
+              "all_players_in_row": [
+                "KUAI Man (CHN)",
+                "WANG Manyu (CHN)",
+                "LEE Eunhye (KOR)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_a": [
+                "KUAI Man (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
+                "WANG Manyu (CHN)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | KUAI Man (CHN) | WANG Manyu (CHN) | LEE Eunhye (KOR) | CHOI Hyojoo (KOR) | XT | Main Draw | SemiFinal | 1 - 1 | 5:11 14:12 0:0"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Position Draw",
+              "round": "2",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "11:9",
+                "12:10"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | WINTER Sabine (GER) | XT | Position Draw | 2 | 2 - 1 | 5:11 11:9 12:10 | LEE Eunhye"
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Position Draw",
+              "round": "2",
+              "match_score": "1-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:6",
+                "1:11"
+              ],
+              "winner": "WINTER Sabine",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "CHOI Hyojoo (KOR)",
+                "WINTER Sabine (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
+                "CHOI Hyojoo (KOR)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | CHOI Hyojoo (KOR) | WINTER Sabine (GER) | MITTELHAM Nina (GER) | XT | Position Draw | 2 | 1 - 2 | 9:11 11:6 1:11 | WINTER Sabine | MITTELHAM Nina"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Muscat 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3176",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_7_WTT_Star_Contender_Muscat_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:6",
+                "7:11",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LUTZ Camille (FRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "LUTZ Camille (FRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | LUTZ Camille (FRA) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 2 - 3 | 11:9 11:6 7:11 8:11 6:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "HAYATA Hina (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "HAYATA Hina (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | HAYATA Hina (JPN) | LEE Eunhye (KOR) | WS | Main Draw | R16 | 0 - 3 | 7:11 9:11 6:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "8:11",
+                "10:12"
+              ],
+              "winner": "JOO Cheonhui",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | LEE Eunhye (KOR) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 0 - 3 | 8:11 8:11 10:12 | JOO Cheonhui"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Champions Frankfurt 2025",
+          "event_type": "WTT Champions",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3100",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_8_WTT_Champions_Frankfurt_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "12:10",
+                "11:8"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | LEE Eunhye (KOR) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 0 | 11:3 12:10 11:8 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "HAYATA Hina",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | LEE Eunhye (KOR) | HAYATA Hina (JPN) | WS | Main Draw | R16 | 0 - 3 | 6:11 9:11 6:11 | HAYATA Hina"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Champions Montpellier 2025",
+          "event_type": "WTT Champions",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3099",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_9_WTT_Champions_Montpellier_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:6",
+                "12:10"
+              ],
+              "winner": "TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "TAKAHASHI Bruna (BRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "TAKAHASHI Bruna (BRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Champions Montpellier 2025 | TAKAHASHI Bruna (BRA) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 3 - 0 | 11:8 11:6 12:10 | TAKAHASHI Bruna"
+            }
+          ]
+        },
+        {
+          "event_name": "ITTF-ATTU Asian Team Championships Bhubaneswar 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3166",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_10_ITTF-ATTU_Asian_Team_Championships_Bhubaneswar_2025.json",
+          "matches": [
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "4:11",
+                "10:12"
+              ],
+              "winner": "NG Wing Lam",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Team Championships Bhubaneswar 2025 | LEE Eunhye (KOR) | NG Wing Lam (HKG) | WT | Main Draw | QuarterFinal | 0 - 3 | 11:13 4:11 10:12 | NG Wing Lam"
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "4:11",
+                "10:12"
+              ],
+              "winner": "WANG Yidi",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Team Championships Bhubaneswar 2025 | LEE Eunhye (KOR) | WANG Yidi (CHN) | WT | Main Draw | SemiFinal | 0 - 3 | 8:11 4:11 10:12 | WANG Yidi"
+            }
+          ]
+        },
+        {
+          "event_name": "China Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3098",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_11_China_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:7",
+                "11:5"
+              ],
+              "winner": "JOO Cheonhui",
+              "all_players_in_row": [
+                "JOO Cheonhui (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "JOO Cheonhui (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | China Smash 2025 | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 3 - 0 | 11:6 11:7 11:5 | JOO Cheonhui"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Almaty 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3096",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_12_WTT_Contender_Almaty_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "8:11",
+                "11:9",
+                "11:8"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | LEE Eunhye (KOR) | DRAGOMAN Andreea (ROU) | WS | Main Draw | R32 | 3 - 1 | 11:9 8:11 11:9 11:8 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "9:11",
+                "5:11",
+                "7:11"
+              ],
+              "winner": "XU Yi",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "XU Yi (CHN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | LEE Eunhye (KOR) | XU Yi (CHN) | WS | Main Draw | R16 | 1 - 3 | 11:8 9:11 5:11 7:11 | XU Yi"
+            }
+          ]
+        },
+        {
+          "event_name": "Europe Smash - Sweden 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3128",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_13_Europe_Smash_-_Sweden_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "8:11",
+                "9:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | RAKOVAC Lea (CRO) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 0 - 3 | 5:11 8:11 9:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "9:11",
+                "11:5",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "CHENG I-Ching (TPE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CHENG I-Ching (TPE) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 2 - 3 | 11:8 9:11 11:5 9:11 6:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "0:11",
+                "6:11"
+              ],
+              "winner": "ITO Mima",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "ITO Mima (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LEE Eunhye (KOR) | ITO Mima (JPN) | WS | Main Draw | R16 | 0 - 3 | 6:11 0:11 6:11 | ITO Mima"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Foz do Iguazu 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3093",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_14_WTT_Star_Contender_Foz_do_Iguazu_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "JOO Cheonhui",
+              "all_players_in_row": [
+                "ORTEGA Daniela (CHI)",
+                "VEGA Paulina (CHI)",
+                "JOO Cheonhui (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "ORTEGA Daniela (CHI)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_b": [
+                "VEGA Paulina (CHI)",
+                "LEE Eunhye (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | ORTEGA Daniela (CHI) | VEGA Paulina (CHI) | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | WD | Main Draw | R16 | 0 - 3 | 7:11 6:11 6:11 | JOO Cheonhui | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:8",
+                "12:10"
+              ],
+              "winner": "JOO Cheonhui",
+              "all_players_in_row": [
+                "JOO Cheonhui (KOR)",
+                "LEE Eunhye (KOR)",
+                "BATRA Manika (IND)",
+                "GHOSH Swastika (IND)"
+              ],
+              "side_a": [
+                "JOO Cheonhui (KOR)",
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)",
+                "GHOSH Swastika (IND)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | BATRA Manika (IND) | GHOSH Swastika (IND) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:8 12:10 | JOO Cheonhui | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:3",
+                "11:3"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "MENDES Maria (BRA)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "MENDES Maria (BRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | LEE Eunhye (KOR) | MENDES Maria (BRA) | WS | Main Draw | R32 | 3 - 0 | 11:3 11:3 11:3 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:7",
+                "3:11",
+                "11:2"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "ODO Satsuki (JPN)",
+                "JOO Cheonhui (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_b": [
+                "ODO Satsuki (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | WD | Main Draw | SemiFinal | 3 - 1 | 11:6 11:7 3:11 11:2 | HARIMOTO Miwa | ODO Satsuki"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 16,
+                  "opponent": 18
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "16:18",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "CHENG I-Ching",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | LEE Eunhye (KOR) | CHENG I-Ching (TPE) | WS | Main Draw | R16 | 0 - 3 | 16:18 9:11 5:11 | CHENG I-Ching"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Buenos Aires 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3175",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_15_WTT_Contender_Buenos_Aires_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "8:11",
+                "2:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "RIOS Valentina (CHI)",
+                "VEGA Sofia (CHI)",
+                "LEE Eunhye (KOR)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_a": [
+                "RIOS Valentina (CHI)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
+                "VEGA Sofia (CHI)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | RIOS Valentina (CHI) | VEGA Sofia (CHI) | LEE Eunhye (KOR) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 0 - 3 | 8:11 8:11 2:11 | LEE Eunhye | JOO Cheonhui"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:6",
+                "13:11"
+              ],
+              "winner": "NAGASAKI Miyu",
+              "all_players_in_row": [
+                "NAGASAKI Miyu (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "NAGASAKI Miyu (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | NAGASAKI Miyu (JPN) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 3 - 0 | 12:10 11:6 13:11 | NAGASAKI Miyu"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "ODO Satsuki (JPN)",
+                "LEE Eunhye (KOR)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
+                "ODO Satsuki (JPN)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | LEE Eunhye (KOR) | JOO Cheonhui (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:7 11:6 | HARIMOTO Miwa | ODO Satsuki"
+            }
+          ]
+        },
+        {
+          "event_name": "United States Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3082",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_16_United_States_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "8:11",
+                "5:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "SHAN Xiaona (GER)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "SHAN Xiaona (GER)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | United States Smash 2025 | SHAN Xiaona (GER) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 0 - 3 | 9:11 8:11 5:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "WANG Manyu",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | United States Smash 2025 | LEE Eunhye (KOR) | WANG Manyu (CHN) | WS | Main Draw | R32 | 0 - 3 | 4:11 9:11 9:11 | WANG Manyu"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3092",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_17_WTT_Contender_Zagreb_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "11:5",
+                "11:6"
+              ],
+              "winner": "QIAN Tianyi",
+              "all_players_in_row": [
+                "QIAN Tianyi (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "QIAN Tianyi (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | QIAN Tianyi (CHN) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 3 - 0 | 11:1 11:5 11:6 | QIAN Tianyi"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_18_WTT_Star_Contender_Ljubljana_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:4",
+                "11:4",
+                "11:4"
+              ],
+              "winner": "FAN Shuhan",
+              "all_players_in_row": [
+                "FAN Shuhan (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "FAN Shuhan (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | FAN Shuhan (CHN) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 3 - 1 | 9:11 11:4 11:4 11:4 | FAN Shuhan"
+            }
+          ]
+        },
+        {
+          "event_name": "ITTF World Table Tennis Championships Finals Doha 2025",
+          "event_type": "ITTF WTTC",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3108",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_19_ITTF_World_Table_Tennis_Championships_Finals_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:8",
+                "9:11",
+                "14:12"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "LEE Eunhye (KOR)",
+                "BERGSTROM Linda (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | KIM Nayeong (KOR) | LEE Eunhye (KOR) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R64 | 3 - 1 | 11:7 11:8 9:11 14:12 | KIM Nayeong | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R128",
+              "match_score": "4-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "8:11",
+                "11:9",
+                "11:8",
+                "12:10",
+                "11:8"
+              ],
+              "winner": "LUTZ Charlotte",
+              "all_players_in_row": [
+                "LUTZ Charlotte (FRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "LUTZ Charlotte (FRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LUTZ Charlotte (FRA) | LEE Eunhye (KOR) | WS | Main Draw | R128 | 4 - 2 | 7:11 8:11 11:9 11:8 12:10 11:8 | LUTZ Charlotte"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "12:10",
+                "13:15",
+                "10:12"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "BAJOR Natalia (POL)",
+                "KUKULKOVA Tatiana (SVK)",
+                "KIM Nayeong (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "BAJOR Natalia (POL)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
+                "KUKULKOVA Tatiana (SVK)",
+                "LEE Eunhye (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | BAJOR Natalia (POL) | KUKULKOVA Tatiana (SVK) | KIM Nayeong (KOR) | LEE Eunhye (KOR) | WD | Main Draw | R32 | 1 - 3 | 7:11 12:10 13:15 10:12 | KIM Nayeong | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:8",
+                "9:11",
+                "11:5"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)",
+                "LI Yu-Jhun (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | KIM Nayeong (KOR) | LEE Eunhye (KOR) | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | WD | Main Draw | R16 | 3 - 1 | 12:10 11:8 9:11 11:5 | KIM Nayeong | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:5",
+                "11:8"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "KIHARA Miyuu (JPN)",
+                "KIM Nayeong (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
+                "KIHARA Miyuu (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | HARIMOTO Miwa (JPN) | KIHARA Miyuu (JPN) | KIM Nayeong (KOR) | LEE Eunhye (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:5 11:8 | HARIMOTO Miwa | KIHARA Miyuu"
+            }
+          ]
+        },
+        {
+          "event_name": "ITTF Men's and Women's World Cup Macao 2025",
+          "event_type": "ITTF World Cup",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3109",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_20_ITTF_Men_s_and_Women_s_World_Cup_Macao_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "11:8",
+                "7:11"
+              ],
+              "winner": "WINTER Sabine",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | LEE Eunhye (KOR) | WINTER Sabine (GER) | WS | Qualification | 1 - 3 | 4:11 7:11 11:8 7:11 | WINTER Sabine"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:2",
+                "11:5",
+                "11:8"
+              ],
+              "winner": "CHEN Xingtong",
+              "all_players_in_row": [
+                "CHEN Xingtong (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "CHEN Xingtong (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | CHEN Xingtong (CHN) | LEE Eunhye (KOR) | WS | Qualification | 3 - 1 | 9:11 11:2 11:5 11:8 | CHEN Xingtong"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Taiyuan 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3088",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_21_WTT_Contender_Taiyuan_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:9",
+                "3:11",
+                "4:11"
+              ],
+              "winner": "KIHARA Miyuu",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "KIHARA Miyuu (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "KIHARA Miyuu (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | LEE Eunhye (KOR) | KIHARA Miyuu (JPN) | WS | Main Draw | R32 | 1 - 3 | 10:12 11:9 3:11 4:11 | KIHARA Miyuu"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:13",
+                "11:7",
+                "9:11",
+                "13:15"
+              ],
+              "winner": "ITO Yuan",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "PARK Gahyeon (KOR)",
+                "ITO Yuan (JPN)",
+                "YOO Siwoo (KOR)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "ITO Yuan (JPN)"
+              ],
+              "side_b": [
+                "PARK Gahyeon (KOR)",
+                "YOO Siwoo (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | LEE Eunhye (KOR) | PARK Gahyeon (KOR) | ITO Yuan (JPN) | YOO Siwoo (KOR) | WD | Main Draw | R16 | 2 - 3 | 11:2 11:13 11:7 9:11 13:15 | ITO Yuan | YOO Siwoo"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Champions Incheon 2025",
+          "event_type": "WTT Champions",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3087",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_22_WTT_Champions_Incheon_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "5:11",
+                "6:11",
+                "11:6",
+                "7:11"
+              ],
+              "winner": "SAMARA Elizabeta",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Champions Incheon 2025 | LEE Eunhye (KOR) | SAMARA Elizabeta (ROU) | WS | Main Draw | R32 | 2 - 3 | 11:7 5:11 6:11 11:6 7:11 | SAMARA Elizabeta"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Chennai 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3133",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_23_WTT_Star_Contender_Chennai_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:2",
+                "11:7",
+                "6:11",
+                "11:8"
+              ],
+              "winner": "SHIN Yubin",
+              "all_players_in_row": [
+                "SHIN Yubin (KOR)",
+                "RYU Hanna (KOR)",
+                "LEE Eunhye (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_a": [
+                "SHIN Yubin (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
+                "RYU Hanna (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | SHIN Yubin (KOR) | RYU Hanna (KOR) | LEE Eunhye (KOR) | KIM Nayeong (KOR) | WD | Main Draw | R16 | 3 - 2 | 7:11 11:2 11:7 6:11 11:8 | SHIN Yubin | RYU Hanna"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "5:11",
+                "9:11",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "VIVARELLI Debora (ITA)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "VIVARELLI Debora (ITA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | LEE Eunhye (KOR) | VIVARELLI Debora (ITA) | WS | Main Draw | R32 | 3 - 2 | 12:10 5:11 9:11 11:4 11:9 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:8",
+                "10:12",
+                "10:12",
+                "8:11"
+              ],
+              "winner": "SHIN Yubin",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | LEE Eunhye (KOR) | SHIN Yubin (KOR) | WS | Main Draw | R16 | 2 - 3 | 11:8 11:8 10:12 10:12 8:11 | SHIN Yubin"
+            }
+          ]
+        },
+        {
+          "event_name": "ITTF-ATTU Asian Cup Shenzhen 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3122",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2025_24_ITTF-ATTU_Asian_Cup_Shenzhen_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:3",
+                "11:5"
+              ],
+              "winner": "WANG Manyu",
+              "all_players_in_row": [
+                "WANG Manyu (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "WANG Manyu (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Cup Shenzhen 2025 | WANG Manyu (CHN) | LEE Eunhye (KOR) | WS | Qualification | 3 - 0 | 11:6 11:3 11:5 | WANG Manyu"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "13:11",
+                "11:5"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "SHAHSAVARI Neda (IRI)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "SHAHSAVARI Neda (IRI)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Cup Shenzhen 2025 | LEE Eunhye (KOR) | SHAHSAVARI Neda (IRI) | WS | Qualification | 3 - 0 | 11:8 13:11 11:5 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "12:10",
+                "11:4",
+                "6:11",
+                "7:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "HUANG Yi-Hua (TPE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Cup Shenzhen 2025 | HUANG Yi-Hua (TPE) | LEE Eunhye (KOR) | WS | Qualification | 2 - 3 | 6:11 12:10 11:4 6:11 7:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "SUN Yingsha",
+              "all_players_in_row": [
+                "SUN Yingsha (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "SUN Yingsha (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Cup Shenzhen 2025 | SUN Yingsha (CHN) | LEE Eunhye (KOR) | WS | Main Draw | R16 | 3 - 0 | 11:3 11:4 11:9 | SUN Yingsha"
+            }
+          ]
+        }
+      ]
+    },
+    "2023": {
+      "captured_at": "2026-04-14T10:20:57.552853+00:00",
+      "events": [
+        {
+          "event_name": "WTT Contender Zagreb 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2692",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2023_25_WTT_Contender_Zagreb_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | LEE Eunhye (KOR) | TAKAHASHI Bruna (BRA) | WS | Main Draw | R32 | 0 - 3 | 7:11 9:11 9:11 | TAKAHASHI Bruna"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:9",
+                "4:11",
+                "11:4",
+                "11:5"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | LEE Eunhye (KOR) | AKULA Sreeja (IND) | WS | Qualification | QR16 | 3 - 2 | 7:11 11:9 4:11 11:4 11:5 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "9:11",
+                "6:11",
+                "11:8",
+                "11:9"
+              ],
+              "winner": "CHASSELIN Pauline",
+              "all_players_in_row": [
+                "CHASSELIN Pauline (FRA)",
+                "COK Isa (FRA)",
+                "LEE Eunhye (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "CHASSELIN Pauline (FRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
+                "COK Isa (FRA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | CHASSELIN Pauline (FRA) | COK Isa (FRA) | LEE Eunhye (KOR) | YANG Ha Eun (KOR) | WD | Qualification | QR8 | 3 - 2 | 11:5 9:11 6:11 11:8 11:9 | CHASSELIN Pauline | COK Isa"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:9"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "KLEE Sophia (GER)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "KLEE Sophia (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | LEE Eunhye (KOR) | KLEE Sophia (GER) | WS | Qualification | QR32 | 3 - 0 | 11:8 11:9 11:9 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "4:11",
+                "7:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "ARLIA Nicole (ITA)",
+                "MONFARDINI Gaia (ITA)",
+                "LEE Eunhye (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "ARLIA Nicole (ITA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
+                "MONFARDINI Gaia (ITA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | LEE Eunhye (KOR) | YANG Ha Eun (KOR) | WD | Qualification | QR16 | 0 - 3 | 4:11 4:11 7:11 | LEE Eunhye | YANG Ha Eun"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:5"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "GOI Rui Xuan (SGP)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "GOI Rui Xuan (SGP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | LEE Eunhye (KOR) | GOI Rui Xuan (SGP) | WS | Qualification | QR64 | 3 - 0 | 11:6 11:4 11:5 | LEE Eunhye"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Tunis 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2691",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2023_26_WTT_Contender_Tunis_2023.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "10:12",
+                "9:11"
+              ],
+              "winner": "HIRANO Miu",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "YANG Ha Eun (KOR)",
+                "HIRANO Miu (JPN)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Tunis 2023 | LEE Eunhye (KOR) | YANG Ha Eun (KOR) | HIRANO Miu (JPN) | NAGASAKI Miyu (JPN) | WD | Main Draw | R16 | 0 - 3 | 8:11 10:12 9:11 | HIRANO Miu | NAGASAKI Miyu"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "HIRANO Miu",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Tunis 2023 | LEE Eunhye (KOR) | HIRANO Miu (JPN) | WS | Main Draw | R32 | 0 - 3 | 2:11 9:11 4:11 | HIRANO Miu"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Lagos 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2693",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2023_27_WTT_Contender_Lagos_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "BELLO Fatimo (NGR)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "BELLO Fatimo (NGR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | LEE Eunhye (KOR) | BELLO Fatimo (NGR) | WS | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:6 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "7:11",
+                "11:5",
+                "13:15",
+                "6:11"
+              ],
+              "winner": "BAJOR Natalia",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "YANG Ha Eun (KOR)",
+                "BAJOR Natalia (POL)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "VARADY Barbora (SVK)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | LEE Eunhye (KOR) | YANG Ha Eun (KOR) | BAJOR Natalia (POL) | VARADY Barbora (SVK) | WD | Main Draw | R16 | 2 - 3 | 12:10 7:11 11:5 13:15 6:11 | BAJOR Natalia | VARADY Barbora"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:5",
+                "6:11",
+                "11:6"
+              ],
+              "winner": "PAVADE Prithika",
+              "all_players_in_row": [
+                "PAVADE Prithika (FRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "PAVADE Prithika (FRA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | PAVADE Prithika (FRA) | LEE Eunhye (KOR) | WS | Main Draw | R16 | 3 - 1 | 11:8 11:5 6:11 11:6 | PAVADE Prithika"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Bangkok 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2695",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2023_28_WTT_Star_Contender_Bangkok_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 16,
+                  "opponent": 18
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "16:18",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "RYU Hanna (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "RYU Hanna (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | RYU Hanna (KOR) | LEE Eunhye (KOR) | WS | Qualification | QR64 | 0 - 3 | 16:18 9:11 4:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "1:11",
+                "5:11",
+                "2:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "SREECHAK Wiranchana (THA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "SREECHAK Wiranchana (THA)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | SREECHAK Wiranchana (THA) | LEE Eunhye (KOR) | WS | Qualification | QR32 | 0 - 3 | 1:11 5:11 2:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:4",
+                "11:5"
+              ],
+              "winner": "KIM Hayeong",
+              "all_players_in_row": [
+                "KIM Hayeong (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "KIM Hayeong (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | KIM Hayeong (KOR) | LEE Eunhye (KOR) | WS | Qualification | QR16 | 3 - 0 | 11:5 11:4 11:5 | KIM Hayeong"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Goa 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2696",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2023_29_WTT_Star_Contender_Goa_2023.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "7:11",
+                "11:3",
+                "11:6"
+              ],
+              "winner": "KIM Hayeong",
+              "all_players_in_row": [
+                "KIM Hayeong (KOR)",
+                "LEE Eunhye (KOR)",
+                "LAM Yee Lok (HKG)",
+                "ZHANG Wenjing (HKG)"
+              ],
+              "side_a": [
+                "KIM Hayeong (KOR)",
+                "LAM Yee Lok (HKG)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)",
+                "ZHANG Wenjing (HKG)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Goa 2023 | KIM Hayeong (KOR) | LEE Eunhye (KOR) | LAM Yee Lok (HKG) | ZHANG Wenjing (HKG) | WD | Qualification | QR16 | 3 - 1 | 11:6 7:11 11:3 11:6 | KIM Hayeong | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "13:15",
+                "7:11",
+                "11:9",
+                "5:11"
+              ],
+              "winner": "GHORPADE Yashaswini",
+              "all_players_in_row": [
+                "KIM Hayeong (KOR)",
+                "LEE Eunhye (KOR)",
+                "GHORPADE Yashaswini (IND)",
+                "SAINI Suhana (IND)"
+              ],
+              "side_a": [
+                "KIM Hayeong (KOR)",
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)",
+                "SAINI Suhana (IND)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Goa 2023 | KIM Hayeong (KOR) | LEE Eunhye (KOR) | GHORPADE Yashaswini (IND) | SAINI Suhana (IND) | WD | Qualification | QR8 | 2 - 3 | 11:9 13:15 7:11 11:9 5:11 | GHORPADE Yashaswini | SAINI Suhana"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "1:11",
+                "5:11",
+                "9:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LI Ching Wan (HKG)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "LI Ching Wan (HKG)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Goa 2023 | LI Ching Wan (HKG) | LEE Eunhye (KOR) | WS | Qualification | QR32 | 0 - 3 | 1:11 5:11 9:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "6:11",
+                "11:6",
+                "11:8"
+              ],
+              "winner": "MUKHERJEE Sutirtha",
+              "all_players_in_row": [
+                "MUKHERJEE Sutirtha (IND)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "MUKHERJEE Sutirtha (IND)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Goa 2023 | MUKHERJEE Sutirtha (IND) | LEE Eunhye (KOR) | WS | Qualification | QR16 | 3 - 1 | 11:9 6:11 11:6 11:8 | MUKHERJEE Sutirtha"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:13",
+                "11:5",
+                "11:7"
+              ],
+              "winner": "KIM Hayeong",
+              "all_players_in_row": [
+                "KIM Hayeong (KOR)",
+                "LEE Eunhye (KOR)",
+                "PAVADE Prithika (FRA)",
+                "LUTZ Camille (FRA)"
+              ],
+              "side_a": [
+                "KIM Hayeong (KOR)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)",
+                "LUTZ Camille (FRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Goa 2023 | KIM Hayeong (KOR) | LEE Eunhye (KOR) | PAVADE Prithika (FRA) | LUTZ Camille (FRA) | WD | Main Draw | R16 | 3 - 1 | 11:7 11:13 11:5 11:7 | KIM Hayeong | LEE Eunhye"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:9",
+                "12:10"
+              ],
+              "winner": "NAGASAKI Miyu",
+              "all_players_in_row": [
+                "NAGASAKI Miyu (JPN)",
+                "HARIMOTO Miwa (JPN)",
+                "KIM Hayeong (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "NAGASAKI Miyu (JPN)",
+                "KIM Hayeong (KOR)"
+              ],
+              "side_b": [
+                "HARIMOTO Miwa (JPN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Goa 2023 | NAGASAKI Miyu (JPN) | HARIMOTO Miwa (JPN) | KIM Hayeong (KOR) | LEE Eunhye (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:9 12:10 | NAGASAKI Miyu | HARIMOTO Miwa"
+            }
+          ]
+        }
+      ]
+    },
+    "2022": {
+      "captured_at": "2026-04-14T10:20:57.552853+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Panagyurishte 2022",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2022",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2542",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2022_30_WTT_Feeder_Panagyurishte_2022.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "13:11",
+                "12:14",
+                "5:11",
+                "3:11"
+              ],
+              "winner": "CHO Seungmin",
+              "all_players_in_row": [
+                "CABALLERO Carlos (ESP)",
+                "CHO Seungmin (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "CABALLERO Carlos (ESP)",
+                "CHO Seungmin (KOR)"
+              ],
+              "side_b": [
+                "ZHANG Sofia-Xuan (ESP)",
+                "LEE Eunhye (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | CABALLERO Carlos (ESP) | ZHANG Sofia-Xuan (ESP) | CHO Seungmin (KOR) | LEE Eunhye (KOR) | XD | Qualification | QR16 | 2 - 3 | 11:6 13:11 12:14 5:11 3:11 | CHO Seungmin | LEE Eunhye"
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "XU Haidong",
+              "all_players_in_row": [
+                "CHO Seungmin (KOR)",
+                "LEE Eunhye (KOR)",
+                "XU Haidong (CHN)",
+                "WU Yangchen (CHN)"
+              ],
+              "side_a": [
+                "CHO Seungmin (KOR)",
+                "XU Haidong (CHN)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)",
+                "WU Yangchen (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | CHO Seungmin (KOR) | LEE Eunhye (KOR) | XU Haidong (CHN) | WU Yangchen (CHN) | XD | Qualification | QR8 | 0 - 3 | 7:11 6:11 6:11 | XU Haidong | WU Yangchen"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "5:11",
+                "11:9",
+                "8:11",
+                "7:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "CIOBANU Irina (ROU)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "CIOBANU Irina (ROU)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | CIOBANU Irina (ROU) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 1 - 4 | 5:11 5:11 11:9 8:11 7:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "5:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "MUSKANTOR Rebecca (SWE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "MUSKANTOR Rebecca (SWE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | MUSKANTOR Rebecca (SWE) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 0 - 4 | 2:11 5:11 6:11 6:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "4:11",
+                "9:11",
+                "8:11",
+                "11:9",
+                "3:11"
+              ],
+              "winner": "WANG Yiduo",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "WANG Yiduo (CHN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "WANG Yiduo (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LEE Eunhye (KOR) | WANG Yiduo (CHN) | WS | Main Draw | R16 | 2 - 4 | 11:8 4:11 9:11 8:11 11:9 3:11 | WANG Yiduo"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Olomouc 2022",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2022",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2541",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2022_31_WTT_Feeder_Olomouc_2022.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "11:6",
+                "11:6",
+                "4:11",
+                "6:11",
+                "4:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "BLASKOVA Zdena (CZE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "BLASKOVA Zdena (CZE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | BLASKOVA Zdena (CZE) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 2 - 4 | 3:11 11:6 11:6 4:11 6:11 4:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:5",
+                "11:13",
+                "10:12",
+                "6:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "MATELOVA Hana (CZE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "MATELOVA Hana (CZE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | MATELOVA Hana (CZE) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 1 - 4 | 6:11 11:5 11:13 10:12 6:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "4-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:8",
+                "8:11",
+                "11:4",
+                "14:12"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEE Eunhye (KOR) | SCHREINER Franziska (GER) | WS | Main Draw | R16 | 4 - 1 | 11:9 11:8 8:11 11:4 14:12 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-2",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:5",
+                "9:11",
+                "11:8",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEE Eunhye (KOR) | LIU Yangzi (AUS) | WS | Main Draw | QuarterFinal | 4 - 2 | 4:11 11:5 9:11 11:8 11:4 11:9 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                }
+              ],
+              "games_display": [
+                "11:0",
+                "11:0",
+                "11:0",
+                "11:0"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "XU Yi (CHN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEE Eunhye (KOR) | XU Yi (CHN) | WS | Main Draw | SemiFinal | 4 - 0 | 11:0 11:0 11:0 11:0 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "2:11",
+                "11:13",
+                "5:11",
+                "12:14"
+              ],
+              "winner": "QIAN Tianyi",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEE Eunhye (KOR) | QIAN Tianyi (CHN) | WS | Main Draw | Final | 1 - 4 | 11:6 2:11 11:13 5:11 12:14 | QIAN Tianyi"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder European Summer Series Budapest 2022",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2022",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2592",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2022_32_WTT_Feeder_European_Summer_Series_Budapest_2022.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "SINKAROVA Dasa (SVK)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "SINKAROVA Dasa (SVK)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | SINKAROVA Dasa (SVK) | LEE Eunhye (KOR) | WS | Qualification | QR32 | 0 - 3 | 7:11 7:11 7:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "5:11",
+                "12:10",
+                "11:4"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "SCHOLZ Vivien (LUX)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "SCHOLZ Vivien (LUX)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LEE Eunhye (KOR) | SCHOLZ Vivien (LUX) | WS | Qualification | QR16 | 3 - 1 | 11:8 5:11 12:10 11:4 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "9:11",
+                "6:11",
+                "3:11",
+                "7:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LAM Yee Lok (HKG)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "LAM Yee Lok (HKG)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LAM Yee Lok (HKG) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 1 - 4 | 11:6 9:11 6:11 3:11 7:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "4-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "9:11",
+                "11:6",
+                "11:5",
+                "11:9"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LEE Eunhye (KOR) | HARIMOTO Miwa (JPN) | WS | Main Draw | R32 | 4 - 1 | 11:5 9:11 11:6 11:5 11:9 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "8:11",
+                "11:8",
+                "2:11",
+                "5:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "SHI Xunyao (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "SHI Xunyao (CHN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | SHI Xunyao (CHN) | LEE Eunhye (KOR) | WS | Main Draw | R16 | 1 - 4 | 9:11 8:11 11:8 2:11 5:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "4:11",
+                "9:11",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "SHIBATA Saki",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LEE Eunhye (KOR) | SHIBATA Saki (JPN) | WS | Main Draw | QuarterFinal | 1 - 4 | 4:11 4:11 9:11 11:8 9:11 | SHIBATA Saki"
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec 2022",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2022",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=122052&vw_matches___player_a_id[value][]=122052&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=122052&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=122052&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=122052&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2540",
+          "raw_capture_file": "data\\raw_event_payloads\\LEE_Eunhye\\2022_33_WTT_Feeder_Otocec_2022.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "5:11",
+                "4:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "THOMAS WU ZHANG Chloe Anna (WAL)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "THOMAS WU ZHANG Chloe Anna (WAL)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Otocec 2022 | THOMAS WU ZHANG Chloe Anna (WAL) | LEE Eunhye (KOR) | WS | Qualification | QR64 | 0 - 3 | 9:11 5:11 4:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "11:8"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Otocec 2022 | LEE Eunhye (KOR) | LEE Daeun (KOR) | WS | Qualification | QR32 | 3 - 0 | 11:5 11:8 11:8 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "11:2",
+                "7:11",
+                "5:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "CHOI Haeeun (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "CHOI Haeeun (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Otocec 2022 | CHOI Haeeun (KOR) | LEE Eunhye (KOR) | WS | Qualification | QR16 | 1 - 3 | 3:11 11:2 7:11 5:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "9:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "DARI Helga (HUN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "DARI Helga (HUN)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Otocec 2022 | DARI Helga (HUN) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 0 - 4 | 8:11 9:11 6:11 9:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "6:11",
+                "13:15",
+                "6:11",
+                "11:8",
+                "8:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "ZHU Chengzhu (HKG)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "ZHU Chengzhu (HKG)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Otocec 2022 | ZHU Chengzhu (HKG) | LEE Eunhye (KOR) | WS | Main Draw | R32 | 2 - 4 | 13:11 6:11 13:15 6:11 11:8 8:11 | LEE Eunhye"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "3:11",
+                "5:11",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "KUAI Man",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "KUAI Man (CHN)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "KUAI Man (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder Otocec 2022 | LEE Eunhye (KOR) | KUAI Man (CHN) | WS | Main Draw | R16 | 1 - 4 | 11:6 3:11 5:11 9:11 4:11 | KUAI Man"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-14T10:20:57.552853+00:00",
+  "updated_at": "2026-04-14T10:29:50.489628+00:00",
+  "captured_at": "2026-04-14T10:20:57.552853+00:00"
+}

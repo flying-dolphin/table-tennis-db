@@ -1,0 +1,2467 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "HE Zhuojia",
+  "english_name": "HE Zhuojia",
+  "country": "CHN",
+  "country_code": "CHN",
+  "continent": "",
+  "rank": 38,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-14T12:38:32.065229+00:00",
+      "events": [
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2026_1_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "6:11",
+                "11:8",
+                "11:13"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "YEH Yi-Tian (TPE)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | YEH Yi-Tian (TPE) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R64 | 1 - 3 | 5:11 6:11 11:8 11:13 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 18,
+                  "opponent": 16
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "18:16",
+                "7:11",
+                "11:7",
+                "13:11"
+              ],
+              "winner": "HAYATA Hina",
+              "all_players_in_row": [
+                "HAYATA Hina (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HAYATA Hina (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | HAYATA Hina (JPN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 3 - 2 | 10:12 18:16 7:11 11:7 13:11 | HAYATA Hina |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Muscat 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3251",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2026_2_WTT_Contender_Muscat_2026.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "7:11",
+                "9:11"
+              ],
+              "winner": "PORET Thibault",
+              "all_players_in_row": [
+                "YUAN Licen (CHN)",
+                "HE Zhuojia (CHN)",
+                "PORET Thibault (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_a": [
+                "YUAN Licen (CHN)",
+                "PORET Thibault (FRA)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | YUAN Licen (CHN) | HE Zhuojia (CHN) | PORET Thibault (FRA) | LUTZ Charlotte (FRA) | XD | Qualification | QR8 | 0 - 3 | 9:11 7:11 9:11 | PORET Thibault | LUTZ Charlotte | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "3:11",
+                "10:12"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "SU Tsz Tung (HKG)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SU Tsz Tung (HKG)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | SU Tsz Tung (HKG) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 3:11 10:12 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "3:11",
+                "2:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "YEH Yi-Tian (TPE)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | YEH Yi-Tian (TPE) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 4:11 3:11 2:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "5:11",
+                "11:7",
+                "11:9",
+                "2:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HURSEY Anna (WAL)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HURSEY Anna (WAL)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | HURSEY Anna (WAL) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 4:11 5:11 11:7 11:9 2:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "5:11",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | HE Zhuojia (CHN) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | SemiFinal | 3 - 1 | 11:8 5:11 11:7 11:6 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:8",
+                "12:10",
+                "11:9"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | SHI Xunyao (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | Final | 4 - 0 | 11:9 11:8 12:10 11:9 | SHI Xunyao |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3232",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2026_3_WTT_Star_Contender_Doha_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:9",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "ZHU Ziyu",
+              "all_players_in_row": [
+                "ZHU Ziyu (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZHU Ziyu (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Doha 2026 | ZHU Ziyu (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R64 | 3 - 1 | 8:11 11:9 11:8 11:7 | ZHU Ziyu |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-14T12:38:32.065229+00:00",
+      "events": [
+        {
+          "event_name": "China Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3098",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_4_China_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "WANG Manyu",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | China Smash 2025 | HE Zhuojia (CHN) |  | WANG Manyu (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 8:11 6:11 | WANG Manyu |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Almaty 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3096",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_5_WTT_Contender_Almaty_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "4:11",
+                "7:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "YOO Siwoo (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "YOO Siwoo (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | YOO Siwoo (KOR) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 4:11 7:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)",
+                "AKASHEVA Zauresh (KAZ)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "AKASHEVA Zauresh (KAZ)"
+              ],
+              "side_b": [
+                "WANG Xiaotong (CHN)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | AKASHEVA Zauresh (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:8 11:3 | HE Zhuojia | WANG Xiaotong | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)",
+                "YANG Ha Eun (KOR)",
+                "KIM Seoyun (KOR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [
+                "WANG Xiaotong (CHN)",
+                "KIM Seoyun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | YANG Ha Eun (KOR) | KIM Seoyun (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:7 11:7 | HE Zhuojia | WANG Xiaotong | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "4:11",
+                "5:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "PARK Gahyeon (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "PARK Gahyeon (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | PARK Gahyeon (KOR) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 4:11 5:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "16:14",
+                "12:14",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "SATO Hitomi (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SATO Hitomi (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | SATO Hitomi (JPN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 11:6 16:14 12:14 9:11 6:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "6:11"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)",
+                "SHI Xunyao (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [
+                "WANG Xiaotong (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | SHI Xunyao (CHN) | QIAN Tianyi (CHN) | WD | Main Draw | SemiFinal | 0 - 3 | 7:11 7:11 6:11 | SHI Xunyao | QIAN Tianyi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:7",
+                "3:11",
+                "9:11"
+              ],
+              "winner": "HASHIMOTO Honoka",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | HE Zhuojia (CHN) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | SemiFinal | 1 - 3 | 9:11 11:7 3:11 9:11 | HASHIMOTO Honoka |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Europe Smash - Sweden 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3128",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_6_Europe_Smash_-_Sweden_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "1:11",
+                "6:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "LIU Yangzi (AUS)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "LIU Yangzi (AUS)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LIU Yangzi (AUS) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 2:11 1:11 6:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "9:11",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "KUAI Man",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "KUAI Man (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "KUAI Man (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | HE Zhuojia (CHN) |  | KUAI Man (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 11:9 9:11 9:11 9:11 | KUAI Man |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "United States Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3082",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_7_United_States_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "3:11",
+                "12:10",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "CHEN Xingtong",
+              "all_players_in_row": [
+                "CHEN Xingtong (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "CHEN Xingtong (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | United States Smash 2025 | CHEN Xingtong (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R64 | 3 - 2 | 10:12 3:11 12:10 11:4 11:9 | CHEN Xingtong |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3092",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_8_WTT_Contender_Zagreb_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:8",
+                "10:12",
+                "11:3",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "YILMAZ Ozge (TUR)",
+                "HARAC Ece (TUR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "YILMAZ Ozge (TUR)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "HARAC Ece (TUR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | HE Zhuojia (CHN) | LIU Weishan (CHN) | YILMAZ Ozge (TUR) | HARAC Ece (TUR) | WD | Qualification | QR8 | 3 - 2 | 10:12 11:8 10:12 11:3 11:3 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:9",
+                "16:14",
+                "5:11",
+                "2:11"
+              ],
+              "winner": "ZHU Sibing",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZHU Sibing (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZHU Sibing (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | HE Zhuojia (CHN) |  | ZHU Sibing (CHN) |  | WS | Main Draw | R32 | 2 - 3 | 8:11 11:9 16:14 5:11 2:11 | ZHU Sibing |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "13:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "CHEN Yi (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "CHEN Yi (CHN)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | HE Zhuojia (CHN) | LIU Weishan (CHN) | CHEN Yi (CHN) | HAN Feier (CHN) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:8 13:11 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:5",
+                "8:11",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "ZHU Chengzhu (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | HE Zhuojia (CHN) | LIU Weishan (CHN) | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | WD | Main Draw | QuarterFinal | 3 - 1 | 13:11 11:5 8:11 11:3 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "6:11",
+                "12:10",
+                "3:11",
+                "9:11"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "HARIMOTO Miwa (JPN)",
+                "ODO Satsuki (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "ODO Satsuki (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | HE Zhuojia (CHN) | LIU Weishan (CHN) | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | WD | Main Draw | SemiFinal | 2 - 3 | 11:6 6:11 12:10 3:11 9:11 | HARIMOTO Miwa | ODO Satsuki | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_9_WTT_Star_Contender_Ljubljana_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "6:11",
+                "2:11",
+                "6:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "LIU Weishan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KIM Seongjin (KOR) | LEE Daeun (KOR) | HE Zhuojia (CHN) | LIU Weishan (CHN) | WD | Qualification | QR8 | 1 - 3 | 11:7 6:11 2:11 6:11 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "8:11",
+                "11:6",
+                "10:12",
+                "7:11"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "KIM Nayeong (KOR)",
+                "RYU Hanna (KOR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "RYU Hanna (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | HE Zhuojia (CHN) | LIU Weishan (CHN) | KIM Nayeong (KOR) | RYU Hanna (KOR) | WD | Main Draw | R16 | 2 - 3 | 11:5 8:11 11:6 10:12 7:11 | KIM Nayeong | RYU Hanna | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:6",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "BATRA Manika (IND)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | HE Zhuojia (CHN) |  | BATRA Manika (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:6 11:4 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 17,
+                  "opponent": 19
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "17:19",
+                "11:8",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | HE Zhuojia (CHN) |  | QIAN Tianyi (CHN) |  | WS | Main Draw | R16 | 3 - 1 | 12:10 17:19 11:8 11:4 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "6:11",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "NAGASAKI Miyu",
+              "all_players_in_row": [
+                "NAGASAKI Miyu (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "NAGASAKI Miyu (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | NAGASAKI Miyu (JPN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:3 6:11 11:6 11:7 | NAGASAKI Miyu |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3085",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_10_Singapore_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "10:12",
+                "9:11",
+                "11:8",
+                "13:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Singapore Smash 2025 | HE Zhuojia (CHN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 3 - 2 | 11:5 10:12 9:11 11:8 13:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Singapore Smash 2025 | HE Zhuojia (CHN) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:4 11:9 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "SHIN Yubin (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SHIN Yubin (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Singapore Smash 2025 | SHIN Yubin (KOR) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 9:11 5:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:6",
+                "11:6",
+                "11:9"
+              ],
+              "winner": "SUN Yingsha",
+              "all_players_in_row": [
+                "SUN Yingsha (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SUN Yingsha (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Singapore Smash 2025 | SUN Yingsha (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:3 11:6 11:6 11:9 | SUN Yingsha |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3083",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2025_11_WTT_Star_Contender_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:5",
+                "11:9"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZONG Geman (CHN)",
+                "DOO Hoi Kem (HKG)",
+                "SU Tsz Tung (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [
+                "ZONG Geman (CHN)",
+                "SU Tsz Tung (HKG)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HE Zhuojia (CHN) | ZONG Geman (CHN) | DOO Hoi Kem (HKG) | SU Tsz Tung (HKG) | WD | Qualification | QR8 | 3 - 0 | 11:9 11:5 11:9 | HE Zhuojia | ZONG Geman | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "11:8",
+                "11:9"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZONG Geman (CHN)",
+                "KUKULKOVA Tatiana (SVK)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
+                "ZONG Geman (CHN)",
+                "BAJOR Natalia (POL)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HE Zhuojia (CHN) | ZONG Geman (CHN) | KUKULKOVA Tatiana (SVK) | BAJOR Natalia (POL) | WD | Main Draw | R16 | 3 - 0 | 14:12 11:8 11:9 | HE Zhuojia | ZONG Geman | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "6:11",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "JEE Minhyung (AUS)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "JEE Minhyung (AUS)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HE Zhuojia (CHN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 1 | 11:5 6:11 11:8 11:7 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "3:11",
+                "8:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "MIRKADIROVA Sarvinoz (KAZ)",
+                "TODOROVIC Andrea (SRB)",
+                "HE Zhuojia (CHN)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_a": [
+                "MIRKADIROVA Sarvinoz (KAZ)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "TODOROVIC Andrea (SRB)",
+                "ZONG Geman (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | MIRKADIROVA Sarvinoz (KAZ) | TODOROVIC Andrea (SRB) | HE Zhuojia (CHN) | ZONG Geman (CHN) | WD | Main Draw | QuarterFinal | 0 - 3 | 4:11 3:11 8:11 | HE Zhuojia | ZONG Geman | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HE Zhuojia (CHN) |  | PAVADE Prithika (FRA) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:9 11:6 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:2"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZONG Geman (CHN)",
+                "YOON Hyobin (KOR)",
+                "KIM Seoyun (KOR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "YOON Hyobin (KOR)"
+              ],
+              "side_b": [
+                "ZONG Geman (CHN)",
+                "KIM Seoyun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HE Zhuojia (CHN) | ZONG Geman (CHN) | YOON Hyobin (KOR) | KIM Seoyun (KOR) | WD | Main Draw | SemiFinal | 3 - 0 | 11:8 11:9 11:2 | HE Zhuojia | ZONG Geman | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "SZOCS Bernadette (ROU)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SZOCS Bernadette (ROU)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | SZOCS Bernadette (ROU) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 4:11 9:11 9:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:6",
+                "7:11",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "NAGASAKI Miyu",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HE Zhuojia (CHN) |  | NAGASAKI Miyu (JPN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 12:10 11:6 7:11 9:11 6:11 | NAGASAKI Miyu |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "12:10",
+                "11:9"
+              ],
+              "winner": "ODO Satsuki",
+              "all_players_in_row": [
+                "ODO Satsuki (JPN)",
+                "YOKOI Sakura (JPN)",
+                "HE Zhuojia (CHN)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_a": [
+                "ODO Satsuki (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "YOKOI Sakura (JPN)",
+                "ZONG Geman (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | HE Zhuojia (CHN) | ZONG Geman (CHN) | WD | Main Draw | Final | 3 - 0 | 11:2 12:10 11:9 | ODO Satsuki | YOKOI Sakura | "
+            }
+          ]
+        }
+      ]
+    },
+    "2024": {
+      "captured_at": "2026-04-14T12:38:32.065229+00:00",
+      "events": [
+        {
+          "event_name": "WTT Champions Frankfurt 2024",
+          "event_type": "WTT Champions",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2877",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2024_12_WTT_Champions_Frankfurt_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "1:11",
+                "11:8",
+                "4:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "GODA Hana (EGY)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "GODA Hana (EGY)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | GODA Hana (EGY) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 2:11 1:11 11:8 4:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "6:11",
+                "10:12"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "CHENG I-Ching (TPE)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | CHENG I-Ching (TPE) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 4:11 6:11 10:12 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "9:11",
+                "11:6",
+                "6:11"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | HE Zhuojia (CHN) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 6:11 9:11 11:6 6:11 | HARIMOTO Miwa |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Muscat 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2997",
+          "raw_capture_file": "data\\raw_event_payloads\\HE_Zhuojia\\2024_13_WTT_Contender_Muscat_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Muscat 2024 | HE Zhuojia (CHN) |  | CHENG Hsien-Tzu (TPE) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:6 11:7 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "YOON Hyobin",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "CHEN Yi (CHN)",
+                "YOON Hyobin (KOR)",
+                "KIM Seoyun (KOR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "YOON Hyobin (KOR)"
+              ],
+              "side_b": [
+                "CHEN Yi (CHN)",
+                "KIM Seoyun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Muscat 2024 | HE Zhuojia (CHN) | CHEN Yi (CHN) | YOON Hyobin (KOR) | KIM Seoyun (KOR) | WD | Main Draw | R16 | 0 - 3 | 7:11 9:11 6:11 | YOON Hyobin | KIM Seoyun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "6:11",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Muscat 2024 | HE Zhuojia (CHN) |  | ZHU Chengzhu (HKG) |  | WS | Main Draw | R16 | 3 - 1 | 11:6 6:11 11:7 11:6 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:8",
+                "9:11",
+                "11:8"
+              ],
+              "winner": "ODO Satsuki",
+              "all_players_in_row": [
+                "ODO Satsuki (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ODO Satsuki (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Muscat 2024 | ODO Satsuki (JPN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:8 11:8 9:11 11:8 | ODO Satsuki |  | "
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-14T12:38:32.064706+00:00",
+  "updated_at": "2026-04-14T12:42:12.982724+00:00",
+  "captured_at": "2026-04-14T12:38:32.065229+00:00"
+}
