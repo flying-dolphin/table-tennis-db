@@ -6,9 +6,14 @@ node_modules/
 .next/
 web/db/*.sqlite-shm
 web/db/*.sqlite-wal
+web/demo
+references/
 data/checkpoints/
 data/session/
 scripts/.*
 .env
 .vscode
 .claude
+.agents
+.agent
+.codex
