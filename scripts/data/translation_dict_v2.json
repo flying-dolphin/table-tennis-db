@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-14T12:50:04.817723",
-    "total_entries": 441
+    "updated_at": "2026-04-14T16:27:35.948232",
+    "total_entries": 485
   },
   "entries": {
     "ma long": {
@@ -1723,7 +1723,7 @@
     },
     "wtt youth star contender metz 2026": {
       "original": "WTT Youth Star Contender Metz 2026",
-      "translated": "WTT梅斯青少年明星挑战赛2026",
+      "translated": "WTT梅斯青少年球星挑战赛2026",
       "categories": [
         "events"
       ],
@@ -2477,7 +2477,7 @@
     },
     "wtt star contender brazil 2026": {
       "original": "WTT Star Contender Brazil 2026",
-      "translated": "WTT巴西明星挑战赛2026",
+      "translated": "WTT巴西球星挑战赛2026",
       "categories": [
         "events"
       ],
@@ -5737,6 +5737,578 @@
         "players": "player_name"
       },
       "updated_at": "2026-04-14T12:50:04.817209"
+    },
+    "wtt": {
+      "original": "WTT",
+      "translated": "世界乒乓球职业大联盟",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "youth": {
+      "original": "Youth",
+      "translated": "青少年",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "contender": {
+      "original": "Contender",
+      "translated": "挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "star contender": {
+      "original": "Star Contender",
+      "translated": "球星挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "youth star contender": {
+      "original": "Youth Star Contender",
+      "translated": "青少年球星挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "finals": {
+      "original": "Finals",
+      "translated": "总决赛",
+      "categories": [
+        "events"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "championships": {
+      "original": "Championships",
+      "translated": "锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "cup": {
+      "original": "Cup",
+      "translated": "杯赛",
+      "categories": [
+        "events"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "individual": {
+      "original": "Individual",
+      "translated": "单打",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "world": {
+      "original": "World",
+      "translated": "世界",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "masters": {
+      "original": "Masters",
+      "translated": "大师",
+      "categories": [
+        "events"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "u11/u13/u21": {
+      "original": "U11/U13/U21",
+      "translated": "U11/U13/U21（年龄段）",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "den": {
+      "original": "DEN",
+      "translated": "丹麦",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "gbr": {
+      "original": "GBR",
+      "translated": "英国",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "vie": {
+      "original": "VIE",
+      "translated": "越南",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "mas": {
+      "original": "MAS",
+      "translated": "马来西亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "ina": {
+      "original": "INA",
+      "translated": "印度尼西亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "rsa": {
+      "original": "RSA",
+      "translated": "南非",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "ken": {
+      "original": "KEN",
+      "translated": "肯尼亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "civ": {
+      "original": "CIV",
+      "translated": "科特迪瓦",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "cmr": {
+      "original": "CMR",
+      "translated": "喀麦隆",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "uga": {
+      "original": "UGA",
+      "translated": "乌干达",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "eth": {
+      "original": "ETH",
+      "translated": "埃塞俄比亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "ang": {
+      "original": "ANG",
+      "translated": "安哥拉",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "moz": {
+      "original": "MOZ",
+      "translated": "莫桑比克",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "tan": {
+      "original": "TAN",
+      "translated": "坦桑尼亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "zam": {
+      "original": "ZAM",
+      "translated": "赞比亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "nam": {
+      "original": "NAM",
+      "translated": "纳米比亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "les": {
+      "original": "LES",
+      "translated": "莱索托",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "swz": {
+      "original": "SWZ",
+      "translated": "斯威士兰",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "mri": {
+      "original": "MRI",
+      "translated": "毛里求斯",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "mad": {
+      "original": "MAD",
+      "translated": "马达加斯加",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "sey": {
+      "original": "SEY",
+      "translated": "塞舌尔",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "geq": {
+      "original": "GEQ",
+      "translated": "赤道几内亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "gab": {
+      "original": "GAB",
+      "translated": "加蓬",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "cgo": {
+      "original": "CGO",
+      "translated": "刚果（布）",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "caf": {
+      "original": "CAF",
+      "translated": "中非",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "cha": {
+      "original": "CHA",
+      "translated": "乍得",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "nig": {
+      "original": "NIG",
+      "translated": "尼日尔",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "mli": {
+      "original": "MLI",
+      "translated": "马里",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "bur": {
+      "original": "BUR",
+      "translated": "布基纳法索",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "gnb": {
+      "original": "GNB",
+      "translated": "几内亚比绍",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "sle": {
+      "original": "SLE",
+      "translated": "塞拉利昂",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "lbr": {
+      "original": "LBR",
+      "translated": "利比里亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T16:27:35.948232"
     }
   }
 }
