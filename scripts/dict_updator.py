@@ -63,18 +63,26 @@ def build_entry(original: str, translated: str, category: str, now: str) -> dict
 
 def merge_entry(existing: dict[str, Any], translated: str, category: str, now: str) -> dict[str, Any]:
     """合并新数据到已有条目。"""
-    existing["translated"] = translated
+    updated = False
+
+    if existing.get("translated") != translated:
+        existing["translated"] = translated
+        updated = True
+
     cats = existing.get("categories", [])
     if category not in cats:
         cats.append(category)
         existing["categories"] = cats
+        updated = True
 
     validators = existing.get("validators", {})
     if category not in validators:
         validators[category] = CATEGORY_VALIDATORS.get(category, "none")
         existing["validators"] = validators
 
-    existing["updated_at"] = now
+    if updated:
+        existing["updated_at"] = now
+
     return existing
 
 
