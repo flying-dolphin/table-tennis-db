@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-14T16:27:35.948232",
-    "total_entries": 485
+    "updated_at": "2026-04-14T11:09:13.227901",
+    "total_entries": 508
   },
   "entries": {
     "ma long": {
@@ -422,17 +422,17 @@
       "updated_at": "2026-04-10T18:30:00"
     },
     "qualification": {
-      "original": "Qualification",
+      "original": "qualification",
       "translated": "资格赛",
       "categories": [
-        "terms"
+        "round"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T11:09:13.227880"
     },
     "main draw": {
       "original": "Main Draw",
@@ -474,43 +474,43 @@
       "updated_at": "2026-04-10T18:30:00"
     },
     "quarterfinal": {
-      "original": "Quarterfinal",
+      "original": "quarterfinal",
       "translated": "四分之一决赛",
       "categories": [
-        "terms"
+        "round"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T11:09:13.227866"
     },
     "semifinal": {
-      "original": "Semifinal",
+      "original": "semifinal",
       "translated": "半决赛",
       "categories": [
-        "terms"
+        "round"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T11:09:13.227877"
     },
     "final": {
-      "original": "Final",
+      "original": "final",
       "translated": "决赛",
       "categories": [
-        "terms"
+        "round"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T11:09:13.227862"
     },
     "world ranking": {
       "original": "World Ranking",
@@ -4765,16 +4765,17 @@
     },
     "r32": {
       "original": "R32",
-      "translated": "32强赛",
+      "translated": "三十二强",
       "categories": [
-        "terms"
+        "position",
+        "round"
       ],
-      "source": "api",
+      "source": "dict",
       "review_status": "pending",
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-14T12:38:56.614036"
+      "updated_at": "2026-04-14T11:09:13.227845"
     },
     "ittf men's & women's world cup macao 2026": {
       "original": "ITTF Men's & Women's World Cup Macao 2026",
@@ -4817,16 +4818,17 @@
     },
     "r64": {
       "original": "R64",
-      "translated": "64强赛",
+      "translated": "六十四强",
       "categories": [
-        "terms"
+        "position",
+        "round"
       ],
-      "source": "api",
+      "source": "dict",
       "review_status": "pending",
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-14T12:39:34.976885"
+      "updated_at": "2026-04-14T11:09:13.227850"
     },
     "polcanova sofia": {
       "original": "POLCANOVA Sofia",
@@ -4934,20 +4936,21 @@
     },
     "r16": {
       "original": "R16",
-      "translated": "十六强赛",
+      "translated": "十六强",
       "categories": [
-        "terms"
+        "position",
+        "round"
       ],
-      "source": "api",
+      "source": "dict",
       "review_status": "pending",
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-14T12:40:47.294833"
+      "updated_at": "2026-04-14T11:09:13.227840"
     },
     "goda hana": {
       "original": "GODA Hana",
-      "translated": "合田花",
+      "translated": "汉娜高达",
       "categories": [
         "players"
       ],
@@ -5168,7 +5171,7 @@
     },
     "diaz adriana": {
       "original": "DIAZ Adriana",
-      "translated": "迪亚斯·阿德里亚娜",
+      "translated": "迪亚兹·阿德里亚娜",
       "categories": [
         "players"
       ],
@@ -5194,7 +5197,7 @@
     },
     "kihara miyuu": {
       "original": "KIHARA Miyuu",
-      "translated": "木原美优",
+      "translated": "木原美悠",
       "categories": [
         "players"
       ],
@@ -5220,7 +5223,7 @@
     },
     "zhu yuling": {
       "original": "ZHU Yuling",
-      "translated": "朱玉玲",
+      "translated": "朱雨玲",
       "categories": [
         "players"
       ],
@@ -5233,7 +5236,7 @@
     },
     "yeh yi-tian": {
       "original": "YEH Yi-Tian",
-      "translated": "叶毅天",
+      "translated": "叶伊恬",
       "categories": [
         "players"
       ],
@@ -6309,6 +6312,305 @@
         "locations": "location"
       },
       "updated_at": "2026-04-14T16:27:35.948232"
+    },
+    "left": {
+      "original": "left",
+      "translated": "左手",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "left-hand attack (shakehand)": {
+      "original": "left-hand attack (shakehand)",
+      "translated": "左手进攻型(横拍)",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "lost": {
+      "original": "lost",
+      "translated": "负",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "penhold": {
+      "original": "penhold",
+      "translated": "直拍",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "right": {
+      "original": "right",
+      "translated": "右手",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "right-hand attack (penhold)": {
+      "original": "right-hand attack (penhold)",
+      "translated": "右手进攻型(直拍)",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "right-hand attack (shakehand)": {
+      "original": "right-hand attack (shakehand)",
+      "translated": "右手进攻型(横拍)",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "right-hand defence (shakehand)": {
+      "original": "right-hand defence (shakehand)",
+      "translated": "右手(横拍)",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "shakehand": {
+      "original": "shakehand",
+      "translated": "横拍",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "won": {
+      "original": "won",
+      "translated": "胜",
+      "categories": [
+        "terms"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:07:13"
+    },
+    "dnp": {
+      "original": "DNP",
+      "translated": "未参赛",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227757"
+    },
+    "f": {
+      "original": "F",
+      "translated": "决赛",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227797"
+    },
+    "g2l": {
+      "original": "G2L",
+      "translated": "小组第二",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227804"
+    },
+    "gl": {
+      "original": "GL",
+      "translated": "小组赛",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227808"
+    },
+    "qer": {
+      "original": "QER",
+      "translated": "资格赛淘汰轮",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227812"
+    },
+    "qf": {
+      "original": "QF",
+      "translated": "四分之一决赛",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227817"
+    },
+    "qr1": {
+      "original": "QR1",
+      "translated": "资格赛R1",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227820"
+    },
+    "qr2": {
+      "original": "QR2",
+      "translated": "资格赛R2",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227824"
+    },
+    "qr3": {
+      "original": "QR3",
+      "translated": "资格赛R3",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227828"
+    },
+    "r128": {
+      "original": "R128",
+      "translated": "一百二十八强",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227831"
+    },
+    "sf": {
+      "original": "SF",
+      "translated": "半决赛",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227853"
+    },
+    "w": {
+      "original": "W",
+      "translated": "冠军",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227856"
+    },
+    "zpp": {
+      "original": "ZPP",
+      "translated": "强制赋零",
+      "categories": [
+        "position"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227859"
     }
   }
 }
