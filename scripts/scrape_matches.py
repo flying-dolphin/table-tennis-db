@@ -153,13 +153,53 @@ def select_browser_profiles() -> list[dict[str, Any]]:
 
 
 
-def load_players(players_file: Path, top_n: int) -> list[dict[str, Any]]:
+def latest_rankings_file(rankings_dir: Path) -> Path:
+    candidates = sorted(
+        rankings_dir.glob("women_singles_top100_*.json"),
+        key=lambda p: (p.stat().st_mtime, p.name),
+        reverse=True,
+    )
+    if not candidates:
+        raise FileNotFoundError(
+            f"No ranking files found in {rankings_dir} matching women_singles_top100_*.json"
+        )
+    return candidates[0]
+
+
+def parse_top_spec(raw: str) -> slice:
+    raw = str(raw).strip()
+    if not raw:
+        raise ValueError("top spec cannot be empty")
+
+    if "-" in raw:
+        parts = raw.split("-", 1)
+        if len(parts) != 2 or not parts[0].strip() or not parts[1].strip():
+            raise ValueError(f"Invalid --top-n value '{raw}', expected N or START-END")
+        start = int(parts[0].strip())
+        end = int(parts[1].strip())
+        if start < 1 or end < 1:
+            raise ValueError(f"Invalid --top-n value '{raw}', ranks must be >= 1")
+        if end < start:
+            raise ValueError(f"Invalid --top-n value '{raw}', END must be >= START")
+        return slice(start - 1, end)
+
+    top_n = int(raw)
+    if top_n < 1:
+        raise ValueError(f"Invalid --top-n value '{raw}', must be >= 1")
+    return slice(0, top_n)
+
+
+def load_players(players_file: Path, top_spec: str) -> list[dict[str, Any]]:
+    if players_file.is_dir():
+        players_file = latest_rankings_file(players_file)
+
     if not players_file.exists():
         raise FileNotFoundError(f"players file not found: {players_file}")
 
     data = json.loads(players_file.read_text(encoding="utf-8"))
     rankings = data.get("rankings", [])
-    return rankings[:top_n]
+    player_slice = parse_top_spec(top_spec)
+    return rankings[player_slice]
 
 
 def parse_from_date(raw: str) -> date:
@@ -1245,13 +1285,21 @@ def run(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="ITTF safer scraper v2 (manual login + resume)")
-    parser.add_argument("--players-file", default="data/women_singles_top50.json")
+    parser.add_argument(
+        "--players-file",
+        default="data/rankings/orig",
+        help="Ranking JSON file or directory. Defaults to the latest women_singles_top100_*.json under data/rankings/orig/",
+    )
     parser.add_argument("--output-dir", default="data/matches_complete")
     parser.add_argument("--raw-dir", default="data/raw_event_payloads")
     parser.add_argument("--storage-state", default="data/session/ittf_storage_state.json")
     parser.add_argument("--checkpoint", default="data/checkpoints/ittf_checkpoint.json")
     parser.add_argument("--from-date", default=DEFAULT_FROM_DATE, help="Scrape events from this date onwards (YYYY-MM-DD)")
-    parser.add_argument("--top-n", type=int, default=30)
+    parser.add_argument(
+        "--top-n",
+        default="30",
+        help="Top ranking slice to load. Use N for top N players, or START-END for an inclusive range like 51-100.",
+    )
 
     parser.add_argument("--cdp-port", type=int, default=9222, help="CDP port of an existing Chrome to reuse (avoids re-login)")
     parser.add_argument("--init-session", action="store_true", help="Open browser for manual login and save storage-state")

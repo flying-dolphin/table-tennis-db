@@ -9,6 +9,7 @@ ITTF Matches 数据抓取主入口
 用法:
     python scripts/run_matches.py
     python scripts/run_matches.py --players-file data/women_singles_top50.json --top-n 30
+    python scripts/run_matches.py --players-file data/women_singles_top100.json --top-n 51-100
     python scripts/run_matches.py --from-date 2025-01-01
     python scripts/run_matches.py --player-name "SUN Yingsha" --player-country CHN
 """
@@ -26,6 +27,13 @@ from scrape_matches import build_parser as build_scrape_parser, run as run_scrap
 from translate_matches import run as run_translate
 
 
+def format_top_spec(raw: object) -> str:
+    text = str(raw).strip()
+    if "-" in text:
+        return f"第 {text} 名"
+    return f"前 {text} 名"
+
+
 def main() -> None:
     """主入口函数"""
     parser = build_scrape_parser()
@@ -36,6 +44,9 @@ def main() -> None:
 示例:
     # 抓取并翻译前30名运动员的比赛数据
     python run_matches.py --players-file data/women_singles_top50.json --top-n 30
+
+    # 抓取第51到100名运动员的比赛数据
+    python run_matches.py --players-file data/women_singles_top100.json --top-n 51-100
     
     # 从指定日期开始抓取
     python run_matches.py --from-date 2025-01-01 --top-n 20
@@ -62,7 +73,7 @@ def main() -> None:
     print("ITTF Matches 完整流程")
     print("=" * 60)
     print(f"运动员列表: {args.players_file}")
-    print(f"抓取数量: 前 {args.top_n} 名")
+    print(f"抓取范围: {format_top_spec(args.top_n)}")
     print(f"起始日期: {args.from_date}")
     print("阶段: scrape -> translate")
     print("=" * 60)
