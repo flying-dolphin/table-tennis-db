@@ -1,0 +1,106 @@
+{
+  "player_id": "123848",
+  "name": "SHIBATA Saki",
+  "english_name": "SHIBATA Saki",
+  "country": "JPN",
+  "country_code": "JPN",
+  "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=123848&vw_profiles___Name_raw=SHIBATA Saki",
+  "rank": 49,
+  "points": 560,
+  "rank_change": -4,
+  "scraped_at": "2026-04-14T12:38:16.793072",
+  "gender": "Female",
+  "birth_year": 1997,
+  "age": 28,
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
+  "current_rank": 49,
+  "ranking_week": "16/2026 (Apr 14th, 2026)",
+  "career_stats": {
+    "events": 95,
+    "matches": 425,
+    "wins": 313,
+    "loses": 112,
+    "wtt_senior_titles": 2,
+    "all_senior_titles": 8
+  },
+  "current_year_stats": {
+    "events": 3,
+    "matches": 8,
+    "wins": 5,
+    "loses": 3,
+    "games": 33,
+    "games_won": 19,
+    "games_lost": 14,
+    "points_played": 631,
+    "points_won": 327,
+    "points_lost": 304,
+    "wtt_senior_titles": 0,
+    "all_senior_titles": 0
+  },
+  "recent_matches": [
+    {
+      "event": "WTT Contender Taiyuan 2026",
+      "player": "SHIBATA Saki",
+      "player_country": "JPN",
+      "opponent": "ZHU Ziyu",
+      "opponent_country": "CHN",
+      "stage": "WS Main Draw - R16",
+      "score": "1 - 3 (8:11 10:12 11:9 8:11 )",
+      "result": "LOST"
+    },
+    {
+      "event": "WTT Contender Taiyuan 2026",
+      "player": "NG Wing Lam",
+      "player_country": "HKG",
+      "opponent": "SHIBATA Saki",
+      "opponent_country": "JPN",
+      "stage": "WS Main Draw - R32",
+      "score": "1 - 3 (8:11 3:11 11:7 8:11 )",
+      "result": "WON"
+    },
+    {
+      "event": "WTT Star Contender Chennai 2026",
+      "player": "SHIBATA Saki",
+      "player_country": "JPN",
+      "opponent": "SATO Hitomi",
+      "opponent_country": "JPN",
+      "stage": "WS Main Draw - R16",
+      "score": "1 - 3 (10:12 11:9 9:11 10:12 )",
+      "result": "LOST"
+    },
+    {
+      "event": "WTT Star Contender Chennai 2026",
+      "player": "SHIBATA Saki",
+      "player_country": "JPN",
+      "opponent": "RYU Hanna",
+      "opponent_country": "KOR",
+      "stage": "WS Main Draw - R32",
+      "score": "3 - 0 (11:9 15:13 13:11 )",
+      "result": "WON"
+    },
+    {
+      "event": "WTT Star Contender Doha 2026",
+      "player": "SHIBATA Saki",
+      "player_country": "JPN",
+      "opponent": "ZHU Yuling",
+      "opponent_country": "MAC",
+      "stage": "WS Main Draw - QuarterFinal",
+      "score": "2 - 3 (11:7 5:11 7:11 11:2 7:11 )",
+      "result": "LOST"
+    },
+    {
+      "event": "WTT Star Contender Doha 2026",
+      "player": "YOKOI Sakura",
+      "player_country": "JPN",
+      "opponent": "SHIBATA Saki",
+      "opponent_country": "JPN",
+      "stage": "WS Main Draw - R16",
+      "score": "0 - 3 (7:11 9:11 5:11 )",
+      "result": "WON"
+    }
+  ],
+  "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123848_Headshot_R_SHIBATA_Saki.png",
+  "avatar_file_path": "data\\player_avatars\\player_123848_SHIBATA_Saki.png"
+}
