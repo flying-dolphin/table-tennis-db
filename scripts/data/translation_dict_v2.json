@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-14T22:23:17.308696",
-    "total_entries": 549
+    "updated_at": "2026-04-15T00:48:20.926127",
+    "total_entries": 616
   },
   "entries": {
     "ma long": {
@@ -588,7 +588,7 @@
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "match": {
       "original": "Match",
@@ -815,27 +815,31 @@
       "original": "Smash",
       "translated": "大满贯",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "champions": {
       "original": "Champions",
       "translated": "冠军赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "star contenders": {
       "original": "Star Contenders",
@@ -867,14 +871,16 @@
       "original": "Feeder",
       "translated": "支线赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-10T18:30:00"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "youth contenders": {
       "original": "Youth Contenders",
@@ -939,7 +945,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:39:42.840530"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "wtt feeder vadodara 2026": {
       "original": "WTT Feeder Vadodara 2026",
@@ -978,7 +984,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:40:32.938415"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "wtt youth contender manama 2026": {
       "original": "WTT Youth Contender Manama 2026",
@@ -1008,7 +1014,7 @@
     },
     "wtt contender muscat 2026": {
       "original": "WTT Contender Muscat 2026",
-      "translated": "WTT挑战赛马斯喀特站2026",
+      "translated": "WTT挑战赛 马斯喀特 2026",
       "categories": [
         "events"
       ],
@@ -1017,7 +1023,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:41:21.302880"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "wtt youth star contender doha 2026": {
       "original": "WTT Youth Star Contender Doha 2026",
@@ -1073,7 +1079,7 @@
     },
     "ittf-americas cup san francisco 2026": {
       "original": "ITTF-Americas Cup San Francisco 2026",
-      "translated": "ITTF美洲杯旧金山2026",
+      "translated": "ITTF美洲杯 旧金山 2026",
       "categories": [
         "events"
       ],
@@ -1082,11 +1088,11 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:43:00.910238"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "ittf-oceania cup christchurch 2026": {
       "original": "ITTF-Oceania Cup Christchurch 2026",
-      "translated": "国际乒联大洋洲杯基督城2026",
+      "translated": "国际乒联大洋洲杯 基督城 2026",
       "categories": [
         "events"
       ],
@@ -1095,7 +1101,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:43:13.598758"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "ittf-americas north american championships san francisco 2026": {
       "original": "ITTF-Americas North American Championships San Francisco 2026",
@@ -1151,7 +1157,7 @@
     },
     "ittf-attu asian cup haikou 2026": {
       "original": "ITTF-ATTU Asian Cup Haikou 2026",
-      "translated": "国际乒联-亚乒联亚洲杯海口 2026",
+      "translated": "国际乒联-亚乒联亚洲杯 海口 2026",
       "categories": [
         "events"
       ],
@@ -1160,11 +1166,11 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:45:06.465179"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "ettu europe top 16 cup montreux 2026": {
       "original": "ETTU Europe Top 16 Cup Montreux 2026",
-      "translated": "欧洲乒乓球联合会蒙特勒2026年欧洲杯16强赛",
+      "translated": "欧洲杯16强赛 蒙特勒 2026",
       "categories": [
         "events"
       ],
@@ -1173,7 +1179,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:45:23.167932"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "wtt youth star contender tunis 2026": {
       "original": "WTT Youth Star Contender Tunis 2026",
@@ -1190,7 +1196,7 @@
     },
     "ittf-africa cup benghazi 2026": {
       "original": "ITTF-Africa Cup Benghazi 2026",
-      "translated": "2026年国际乒联非洲杯（班加西）",
+      "translated": "国际乒联非洲杯 班加西 2026",
       "categories": [
         "events"
       ],
@@ -1199,7 +1205,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:45:57.535647"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "wtt youth contender vila real 2026": {
       "original": "WTT Youth Contender Vila Real 2026",
@@ -1225,7 +1231,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:46:45.164572"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "ittf world para future gold coast 2026": {
       "original": "ITTF World Para Future Gold Coast 2026",
@@ -1251,7 +1257,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:47:23.584580"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "singapore youth smash 2026": {
       "original": "Singapore Youth Smash 2026",
@@ -1368,7 +1374,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:51:21.738865"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "ittf world para challenger wladyslawowo 2026": {
       "original": "ITTF World Para Challenger Wladyslawowo 2026",
@@ -1619,7 +1625,7 @@
     },
     "wtt contender taiyuan 2026": {
       "original": "WTT Contender Taiyuan 2026",
-      "translated": "WTT球星挑战赛·太原2026",
+      "translated": "WTT挑战赛 太原 2026",
       "categories": [
         "events"
       ],
@@ -1628,7 +1634,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-12T23:58:04.447054"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "wtt youth contender luxembourg 2026": {
       "original": "WTT Youth Contender Luxembourg 2026",
@@ -4657,7 +4663,7 @@
       "validators": {
         "locations": "location"
       },
-      "updated_at": "2026-04-13T00:16:12.983127"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "gre": {
       "original": "GRE",
@@ -4752,7 +4758,7 @@
     },
     "yu fu": {
       "original": "YU Fu",
-      "translated": "余福",
+      "translated": "付玉",
       "categories": [
         "players"
       ],
@@ -4976,7 +4982,7 @@
     },
     "odo satsuki": {
       "original": "ODO Satsuki",
-      "translated": "小野皐月",
+      "translated": "大藤沙月",
       "categories": [
         "players"
       ],
@@ -5093,7 +5099,7 @@
     },
     "wtt contender tunis 2026": {
       "original": "WTT Contender Tunis 2026",
-      "translated": "2026年WTT挑战赛·突尼斯站",
+      "translated": "WTT挑战赛 突尼斯 2026",
       "categories": [
         "events"
       ],
@@ -5102,7 +5108,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-14T12:42:55.796065"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "kukulkova tatiana": {
       "original": "KUKULKOVA Tatiana",
@@ -5418,7 +5424,7 @@
     },
     "nagasaki miyu": {
       "original": "NAGASAKI Miyu",
-      "translated": "长崎美优",
+      "translated": "长崎美柚",
       "categories": [
         "players"
       ],
@@ -5574,7 +5580,7 @@
     },
     "zhu ziyu": {
       "original": "ZHU Ziyu",
-      "translated": "朱子玉",
+      "translated": "朱梓宇",
       "categories": [
         "players"
       ],
@@ -5600,7 +5606,7 @@
     },
     "zeng jian": {
       "original": "ZENG Jian",
-      "translated": "曾健",
+      "translated": "曾尖",
       "categories": [
         "players"
       ],
@@ -5674,7 +5680,7 @@
       "validators": {
         "events": "event_name"
       },
-      "updated_at": "2026-04-14T12:49:25.821676"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "yokoi sakura": {
       "original": "YOKOI Sakura",
@@ -5704,7 +5710,7 @@
     },
     "ain": {
       "original": "AIN",
-      "translated": "轮岛",
+      "translated": "中立个人运动员",
       "categories": [
         "locations"
       ],
@@ -5752,98 +5758,112 @@
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "youth": {
       "original": "Youth",
       "translated": "青少年",
       "categories": [
-        "terms"
+        "terms",
+        "others"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "terms": "none"
+        "terms": "none",
+        "others": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "contender": {
       "original": "Contender",
       "translated": "挑战赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "star contender": {
       "original": "Star Contender",
       "translated": "球星挑战赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "youth star contender": {
       "original": "Youth Star Contender",
       "translated": "青少年球星挑战赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "finals": {
       "original": "Finals",
       "translated": "总决赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "championships": {
       "original": "Championships",
       "translated": "锦标赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "cup": {
       "original": "Cup",
       "translated": "杯赛",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "individual": {
       "original": "Individual",
@@ -5856,7 +5876,7 @@
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "world": {
       "original": "World",
@@ -5869,20 +5889,22 @@
       "validators": {
         "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "masters": {
       "original": "Masters",
       "translated": "大师",
       "categories": [
-        "events"
+        "events",
+        "terms"
       ],
       "source": "dict",
       "review_status": "pending",
       "validators": {
-        "events": "event_name"
+        "events": "event_name",
+        "terms": "none"
       },
-      "updated_at": "2026-04-14T16:27:35.948232"
+      "updated_at": "2026-04-14T23:02:17.622270"
     },
     "u11/u13/u21": {
       "original": "U11/U13/U21",
@@ -6861,7 +6883,7 @@
     },
     "ng wing lam": {
       "original": "NG Wing Lam",
-      "translated": "吴颖岚",
+      "translated": "吴咏琳",
       "categories": [
         "players"
       ],
@@ -7144,6 +7166,877 @@
         "players": "player_name"
       },
       "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "jan": {
+      "original": "Jan",
+      "translated": "01",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "feb": {
+      "original": "Feb",
+      "translated": "02",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "apr": {
+      "original": "Apr",
+      "translated": "04",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "may": {
+      "original": "May",
+      "translated": "05",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "jun": {
+      "original": "Jun",
+      "translated": "06",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "jul": {
+      "original": "Jul",
+      "translated": "07",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "aug": {
+      "original": "Aug",
+      "translated": "08",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "sep": {
+      "original": "Sep",
+      "translated": "09",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "oct": {
+      "original": "Oct",
+      "translated": "10",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "nov": {
+      "original": "Nov",
+      "translated": "11",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "dec": {
+      "original": "Dec",
+      "translated": "12",
+      "categories": [
+        "others"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf world table tennis championships finals doha 2025": {
+      "original": "ITTF World Table Tennis Championships Finals Doha 2025",
+      "translated": "2025年ITTF世乒联总决赛 多哈",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "china smash 2025": {
+      "original": "China Smash 2025",
+      "translated": "2025年中国大满贯赛",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "europe smash - sweden 2025": {
+      "original": "Europe Smash - Sweden 2025",
+      "translated": "2025年欧洲大满贯赛 瑞典",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "united states smash 2025": {
+      "original": "United States Smash 2025",
+      "translated": "2025年美国大满贯赛",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt champions macao 2025": {
+      "original": "WTT Champions Macao 2025",
+      "translated": "2025年WTT冠军赛 澳门",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt champions yokohama 2025": {
+      "original": "WTT Champions Yokohama 2025",
+      "translated": "2025年WTT冠军赛 横滨",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt champions frankfurt 2025": {
+      "original": "WTT Champions Frankfurt 2025",
+      "translated": "2025年WTT冠军赛 法兰克福",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt champions montpellier 2025": {
+      "original": "WTT Champions Montpellier 2025",
+      "translated": "2025年WTT冠军赛 蒙彼利埃",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt finals hong kong 2025": {
+      "original": "WTT Finals Hong Kong 2025",
+      "translated": "2025年WTT年终总决赛 香港",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf-attu asian team championships bhubaneswar 2025": {
+      "original": "ITTF-ATTU Asian Team Championships Bhubaneswar 2025",
+      "translated": "ITTF-ATTU亚洲团体锦标赛 布巴内什瓦尔 2025",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf men\\'s and women\\'s world cup macao 2025": {
+      "original": "ITTF Men\\'s and Women\\'s World Cup Macao 2025",
+      "translated": "2025年ITTF澳门男女世界杯",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf men\\'s & women\\'s world cup macao 2026": {
+      "original": "ITTF Men\\'s & Women\\'s World Cup Macao 2026",
+      "translated": "2026年ITTF澳门男女世界杯",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf mixed team world cup chengdu 2025": {
+      "original": "ITTF Mixed Team World Cup Chengdu 2025",
+      "translated": "2025年ITTF混合团体世界杯 成都",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt star contender chennai": {
+      "original": "WTT Star Contender Chennai",
+      "translated": "WTT球星挑战赛 金奈",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt contender lagos 2025": {
+      "original": "WTT Contender Lagos 2025",
+      "translated": "2025年WTT挑战赛 拉各斯",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt star contender london 2025": {
+      "original": "WTT Star Contender London 2025",
+      "translated": "2025年WTT球星挑战赛 伦敦",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt star contender ljubljana 2025": {
+      "original": "WTT Star Contender Ljubljana 2025",
+      "translated": "2025年WTT球星挑战赛 卢布尔雅那",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt star contender foz do iguazu 2025": {
+      "original": "WTT Star Contender Foz do Iguazu 2025",
+      "translated": "2025年WTT球星挑战赛 伊瓜苏",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt contender zagreb 2025": {
+      "original": "WTT Contender Zagreb 2025",
+      "translated": "2025年WTT挑战赛 萨格勒布",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt contender almaty 2025": {
+      "original": "WTT Contender Almaty 2025",
+      "translated": "2025年WTT挑战赛 阿拉木图",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt contender skopje 2025": {
+      "original": "WTT Contender Skopje 2025",
+      "translated": "2025年WTT挑战赛 斯科普里",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt contender buenos aires 2025": {
+      "original": "WTT Contender Buenos Aires 2025",
+      "translated": "2025年WTT挑战赛 布宜诺斯艾利斯",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt contender tunis 2025": {
+      "original": "WTT Contender Tunis 2025",
+      "translated": "2025年WTT挑战赛 突尼斯",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf pan american championships rock hill 2025": {
+      "original": "ITTF Pan American Championships Rock Hill 2025",
+      "translated": "ITTF泛美锦标赛 罗克希尔 2025",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf-africa championships tunis 2025": {
+      "original": "ITTF-Africa Championships Tunis 2025",
+      "translated": "ITTF非洲锦标赛 突尼斯 2025",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf-oceania championships christchurch 2025": {
+      "original": "ITTF-Oceania Championships Christchurch 2025",
+      "translated": "ITTF大洋洲锦标赛 基督城 2025",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "european team championships zadar 2025": {
+      "original": "European Team Championships Zadar 2025",
+      "translated": "欧洲团体锦标赛 扎达尔 2025",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ittf world youth championships cluj-napoca 2025": {
+      "original": "ITTF World Youth Championships Cluj-Napoca 2025",
+      "translated": "2025年ITTF世青赛 克卢日-纳波卡",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "europe youth smash - sweden 2025": {
+      "original": "Europe Youth Smash - Sweden 2025",
+      "translated": "2025年欧洲青年大满贯赛 瑞典",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "china youth smash 2025": {
+      "original": "China Youth Smash 2025",
+      "translated": "2025年中国青年大满贯赛",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt feeder gdansk 2025": {
+      "original": "WTT Feeder Gdansk 2025",
+      "translated": "2025年WTT支线赛 格但斯克",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt feeder spokane 2025": {
+      "original": "WTT Feeder Spokane 2025",
+      "translated": "2025年WTT支线赛 斯波坎",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt feeder cappadocia ii 2025": {
+      "original": "WTT Feeder Cappadocia II 2025",
+      "translated": "2025年WTT支线赛 卡帕多西亚II",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt feeder manchester 2025": {
+      "original": "WTT Feeder Manchester 2025",
+      "translated": "2025年WTT支线赛 曼彻斯特",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wtt feeder dusseldorf 2026": {
+      "original": "WTT Feeder Dusseldorf 2026",
+      "translated": "WTT支线赛 杜塞尔多夫 2026",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wttc": {
+      "original": "WTTC",
+      "translated": "世锦赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wc": {
+      "original": "WC",
+      "translated": "世界杯",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "gs": {
+      "original": "GS",
+      "translated": "大满贯",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "cs": {
+      "original": "CS",
+      "translated": "冠军赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "cf": {
+      "original": "CF",
+      "translated": "年终总决赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ccup": {
+      "original": "CCUP",
+      "translated": "洲际杯",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "cc": {
+      "original": "CC",
+      "translated": "锦标赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "sct": {
+      "original": "SCT",
+      "translated": "球星挑战赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ct": {
+      "original": "CT",
+      "translated": "挑战赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "fee": {
+      "original": "FEE",
+      "translated": "支线赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "ygs": {
+      "original": "YGS",
+      "translated": "青年大满贯",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "wyc": {
+      "original": "WYC",
+      "translated": "世青赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "u21cc": {
+      "original": "U21CC",
+      "translated": "U21锦标赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T23:02:17.622270"
+    },
+    "msg": {
+      "original": "MSG",
+      "translated": "综合性运动会",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-15T00:01:46.407442"
+    },
+    "re": {
+      "original": "RE",
+      "translated": "地区锦标赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-15T00:01:46.407442"
+    },
+    "yc": {
+      "original": "YC",
+      "translated": "青年挑战赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-15T00:01:46.407442"
+    },
+    "ysc": {
+      "original": "YSC",
+      "translated": "青年球星挑战赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-15T00:01:46.407442"
+    },
+    "elizabet abraamian": {
+      "original": "Elizabet ABRAAMIAN",
+      "translated": "阿布拉米扬·伊丽莎白",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-15T00:48:20.926127"
+    },
+    "jessica reyes lai": {
+      "original": "Jessica REYES LAI",
+      "translated": "雷耶斯·莱·杰西卡",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-15T00:48:20.926127"
+    },
+    "jia nan yuan": {
+      "original": "Jia Nan YUAN",
+      "translated": "袁嘉楠",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-15T00:48:20.926127"
+    },
+    "margaryta pesotska": {
+      "original": "Margaryta PESOTSKA",
+      "translated": "佩索茨卡·玛尔加丽塔",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "others": "none"
+      },
+      "updated_at": "2026-04-15T00:48:20.926127"
     }
   }
 }
