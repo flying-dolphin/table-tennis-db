@@ -1,0 +1,108 @@
+{
+  "player_id": "201032",
+  "name": "PARK Gahyeon",
+  "english_name": "PARK Gahyeon",
+  "country": "KOR",
+  "country_code": "KOR",
+  "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=201032&vw_profiles___Name_raw=PARK Gahyeon",
+  "rank": 74,
+  "points": 350,
+  "rank_change": -4,
+  "scraped_at": "2026-04-14T16:20:42.768715",
+  "gender": "Female",
+  "birth_year": 2007,
+  "age": 18,
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
+  "current_rank": 74,
+  "ranking_week": "16/2026 (Apr 14th, 2026)",
+  "career_best_rank": 63,
+  "career_best_week": "9/2026",
+  "career_stats": {
+    "events": 46,
+    "matches": 256,
+    "wins": 190,
+    "loses": 66,
+    "wtt_senior_titles": 1,
+    "all_senior_titles": 1
+  },
+  "current_year_stats": {
+    "events": 3,
+    "matches": 8,
+    "wins": 5,
+    "loses": 3,
+    "games": 37,
+    "games_won": 19,
+    "games_lost": 18,
+    "points_played": 719,
+    "points_won": 363,
+    "points_lost": 356,
+    "wtt_senior_titles": 0,
+    "all_senior_titles": 0
+  },
+  "recent_matches": [
+    {
+      "event": "WTT Feeder Cappadocia 2026",
+      "player": "KOTSIUR Valeriia",
+      "player_country": "RUS",
+      "opponent": "PARK Gahyeon",
+      "opponent_country": "KOR",
+      "stage": "WS Main Draw - R32",
+      "score": "3 - 1 (12:10 13:11 7:11 11:9 )",
+      "result": "LOST"
+    },
+    {
+      "event": "WTT Feeder Doha 2026",
+      "player": "YANG Yiyun",
+      "player_country": "CHN",
+      "opponent": "PARK Gahyeon",
+      "opponent_country": "KOR",
+      "stage": "WS Main Draw - Final",
+      "score": "3 - 2 (8:11 11:7 6:11 11:1 11:7 )",
+      "result": "LOST"
+    },
+    {
+      "event": "WTT Feeder Doha 2026",
+      "player": "PARK Gahyeon",
+      "player_country": "KOR",
+      "opponent": "WANI Sayali",
+      "opponent_country": "IND",
+      "stage": "WS Main Draw - SemiFinal",
+      "score": "3 - 2 (11:9 11:9 10:12 9:11 11:4 )",
+      "result": "WON"
+    },
+    {
+      "event": "WTT Feeder Doha 2026",
+      "player": "PARK Gahyeon",
+      "player_country": "KOR",
+      "opponent": "YEH Yi-Tian",
+      "opponent_country": "TPE",
+      "stage": "WS Main Draw - QuarterFinal",
+      "score": "3 - 2 (11:9 8:11 11:3 10:12 12:10 )",
+      "result": "WON"
+    },
+    {
+      "event": "WTT Feeder Doha 2026",
+      "player": "PARK Gahyeon",
+      "player_country": "KOR",
+      "opponent": "ZHU Chengzhu",
+      "opponent_country": "HKG",
+      "stage": "WS Main Draw - R16",
+      "score": "3 - 2 (11:5 11:9 6:11 4:11 11:9 )",
+      "result": "WON"
+    },
+    {
+      "event": "WTT Feeder Doha 2026",
+      "player": "PARK Gahyeon",
+      "player_country": "KOR",
+      "opponent": "VISHNIAKOVA Olga",
+      "opponent_country": "RUS",
+      "stage": "WS Main Draw - R32",
+      "score": "3 - 1 (13:11 9:11 11:6 11:8 )",
+      "result": "WON"
+    }
+  ],
+  "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/201032_HEADSHOT_R_PARK_Gahyeon.png",
+  "avatar_file_path": "data\\player_avatars\\player_201032_PARK_Gahyeon.png"
+}
