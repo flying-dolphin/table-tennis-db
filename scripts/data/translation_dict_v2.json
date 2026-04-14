@@ -1,15 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "migrated_at": "2026-04-13T18:28:32.998647",
-    "updated_at": "2026-04-13T18:28:32.998684",
-    "total_entries": 365,
-    "source_priorities": {
-      "manual": 4,
-      "dict": 3,
-      "api": 2,
-      "unknown": 1
-    }
+    "updated_at": "2026-04-14T12:50:04.817723",
+    "total_entries": 441
   },
   "entries": {
     "ma long": {
@@ -4756,6 +4749,994 @@
         "others": "none"
       },
       "updated_at": "2026-04-13T00:19:06.616630"
+    },
+    "yu fu": {
+      "original": "YU Fu",
+      "translated": "余福",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:38:53.684355"
+    },
+    "r32": {
+      "original": "R32",
+      "translated": "32强赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T12:38:56.614036"
+    },
+    "ittf men's & women's world cup macao 2026": {
+      "original": "ITTF Men's & Women's World Cup Macao 2026",
+      "translated": "国际乒联男子及女子世界杯澳门2026年",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:39:01.511089"
+    },
+    "ittf men's & women's world cup macao 2026 presented by galaxy entertainment group wang manyu (chn) vs yu fu (por) ws qualification - | 3 - 0 (11:5 11:3 11:6 ) result: lost singapore smash 2026 presented by resorts world sentosa winter sabine (ger) vs yu fu (por) ws main draw - r32 | 3 - 0 (11:3 11:5 11:8 ) result: lost singapore smash 2026 presented by resorts world sentosa": {
+      "original": "ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group WANG Manyu (CHN) vs YU Fu (POR) WS Qualification - | 3 - 0 (11:5 11:3 11:6 ) Result: LOST Singapore Smash 2026 Presented by Resorts World Sentosa WINTER Sabine (GER) vs YU Fu (POR) WS Main Draw - R32 | 3 - 0 (11:3 11:5 11:8 ) Result: LOST Singapore Smash 2026 Presented by Resorts World Sentosa",
+      "translated": "银河娱乐集团呈献2026年ITTF世界杯澳门站\n王曼昱(中国) vs 于富(葡萄牙) 女子单打资格赛 | 3-0 (11:5 11:3 11:6) 结果：负\n圣淘沙名胜世界呈献2026年新加坡大满贯赛\n温特·萨拜恩(德国) vs 于富(葡萄牙) 女子单打正赛 - 三十二强 | 3-0 (11:3 11:5 11:8) 结果：负\n圣淘沙名胜世界呈献2026年新加坡大满贯赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:39:14.699592"
+    },
+    "jee minhyung": {
+      "original": "JEE Minhyung",
+      "translated": "智敏亨",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:39:29.272613"
+    },
+    "r64": {
+      "original": "R64",
+      "translated": "64强赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T12:39:34.976885"
+    },
+    "polcanova sofia": {
+      "original": "POLCANOVA Sofia",
+      "translated": "索菲亚·波尔卡诺娃",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:39:48.848046"
+    },
+    "ittf men's & women's world cup macao 2026 presented by galaxy entertainment group": {
+      "original": "ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group",
+      "translated": "银河娱乐集团呈献·2026年ITTF世界杯（澳门）",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:39:57.471034"
+    },
+    "lam jocelyn": {
+      "original": "LAM Jocelyn",
+      "translated": "林乔斯林",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:40:12.474898"
+    },
+    "wtt champions chongqing 2026 presented by aito": {
+      "original": "WTT Champions Chongqing 2026 Presented by AITO",
+      "translated": "WTT冠军赛 重庆 2026",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:40:19.081166"
+    },
+    "samara elizabeta": {
+      "original": "SAMARA Elizabeta",
+      "translated": "萨马拉·伊莉莎贝塔",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:40:29.865552"
+    },
+    "zhang mo": {
+      "original": "ZHANG Mo",
+      "translated": "张莫",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:40:32.830773"
+    },
+    "kuai man": {
+      "original": "KUAI Man",
+      "translated": "快曼",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:40:39.138992"
+    },
+    "peng yu-han": {
+      "original": "PENG Yu-Han",
+      "translated": "彭雨涵",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:40:42.684783"
+    },
+    "r16": {
+      "original": "R16",
+      "translated": "十六强赛",
+      "categories": [
+        "terms"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T12:40:47.294833"
+    },
+    "goda hana": {
+      "original": "GODA Hana",
+      "translated": "合田花",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:40:52.593407"
+    },
+    "leong on na": {
+      "original": "LEONG On Na",
+      "translated": "梁安娜",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:40:59.283725"
+    },
+    "odo satsuki": {
+      "original": "ODO Satsuki",
+      "translated": "小野皐月",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:41:39.808260"
+    },
+    "szocs bernadette": {
+      "original": "SZOCS Bernadette",
+      "translated": "索科斯·伯纳黛特",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:41:44.881614"
+    },
+    "morice tania": {
+      "original": "MORICE Tania",
+      "translated": "塔尼娅·莫里斯",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:41:56.503644"
+    },
+    "alg": {
+      "original": "ALG",
+      "translated": "阿尔及利亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T12:42:08.166230"
+    },
+    "winter sabine": {
+      "original": "WINTER Sabine",
+      "translated": "温特·萨宾娜",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:42:17.224209"
+    },
+    "hursey anna": {
+      "original": "HURSEY Anna",
+      "translated": "安娜·赫尔西",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:42:29.839781"
+    },
+    "wal": {
+      "original": "WAL",
+      "translated": "威尔士",
+      "categories": [
+        "locations"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T12:42:31.536516"
+    },
+    "alhodaby mariam": {
+      "original": "ALHODABY Mariam",
+      "translated": "玛丽亚姆·阿尔霍达比",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:42:40.540444"
+    },
+    "xiao maria": {
+      "original": "XIAO Maria",
+      "translated": "萧玛丽亚",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:42:52.051259"
+    },
+    "wtt contender tunis 2026": {
+      "original": "WTT Contender Tunis 2026",
+      "translated": "2026年WTT挑战赛·突尼斯站",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:42:55.796065"
+    },
+    "kukulkova tatiana": {
+      "original": "KUKULKOVA Tatiana",
+      "translated": "塔蒂亚娜·库库尔科娃",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:43:03.656226"
+    },
+    "meshref dina": {
+      "original": "MESHREF Dina",
+      "translated": "梅什雷夫·迪娜",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:43:12.699401"
+    },
+    "li yu-jhun": {
+      "original": "LI Yu-Jhun",
+      "translated": "李羽均",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:43:16.397216"
+    },
+    "zhang lily": {
+      "original": "ZHANG Lily",
+      "translated": "张莉莉",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:43:18.438383"
+    },
+    "batra manika": {
+      "original": "BATRA Manika",
+      "translated": "马尼卡·巴特拉",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:43:24.147958"
+    },
+    "diaz adriana": {
+      "original": "DIAZ Adriana",
+      "translated": "迪亚斯·阿德里亚娜",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:43:35.053528"
+    },
+    "lee eunhye": {
+      "original": "LEE Eunhye",
+      "translated": "李恩惠",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:43:38.491934"
+    },
+    "kihara miyuu": {
+      "original": "KIHARA Miyuu",
+      "translated": "木原美优",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:44:44.390034"
+    },
+    "ittf men's & women's world cup macao 2026 presented by galaxy entertainment group harimoto miwa (jpn) vs batra manika (ind) ws qualification - | 3 - 0 (18:16 11:4 11:6 ) result: lost singapore smash 2026 presented by resorts world sentosa": {
+      "original": "ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group HARIMOTO Miwa (JPN) vs BATRA Manika (IND) WS Qualification - | 3 - 0 (18:16 11:4 11:6 ) Result: LOST Singapore Smash 2026 Presented by Resorts World Sentosa",
+      "translated": "国际乒联世界杯澳门2026年\n银河娱乐集团呈献\n早田希娜(JPN) vs 巴特拉·马尼卡(IND)\n女子单打资格赛 - | 3 - 0 (18:16 11:4 11:6)\n结果：负\n新加坡大满贯2026年\n圣淘沙名胜世界呈献",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:44:53.036807"
+    },
+    "zhu yuling": {
+      "original": "ZHU Yuling",
+      "translated": "朱玉玲",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:44:55.503020"
+    },
+    "yeh yi-tian": {
+      "original": "YEH Yi-Tian",
+      "translated": "叶毅天",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:45:05.009115"
+    },
+    "shin yubin": {
+      "original": "SHIN Yubin",
+      "translated": "申裕斌",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:45:08.916683"
+    },
+    "han ying": {
+      "original": "HAN Ying",
+      "translated": "韩莹",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:45:13.868357"
+    },
+    "hirano miu": {
+      "original": "HIRANO Miu",
+      "translated": "平野美宇",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:45:20.199547"
+    },
+    "pavade prithika": {
+      "original": "PAVADE Prithika",
+      "translated": "帕瓦德·普里蒂卡",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:45:27.690108"
+    },
+    "giret maylis": {
+      "original": "GIRET Maylis",
+      "translated": "吉雷特 玛丽斯",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:45:50.393279"
+    },
+    "ncl": {
+      "original": "NCL",
+      "translated": "尼加拉瓜",
+      "categories": [
+        "locations"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T12:45:53.734749"
+    },
+    "wtt champions chongqing 2026 presented by aito zhu yuling (mac) vs han ying (ger) ws main draw - r32 | 3 - 0 (11:9 11:7 12:10 ) result: lost singapore smash 2026 presented by resorts world sentosa": {
+      "original": "WTT Champions Chongqing 2026 Presented by AITO ZHU Yuling (MAC) vs HAN Ying (GER) WS Main Draw - R32 | 3 - 0 (11:9 11:7 12:10 ) Result: LOST Singapore Smash 2026 Presented by Resorts World Sentosa",
+      "translated": "WTT冠军赛重庆2026 由AITO呈献 朱雨玲(MAC) vs 韩莹(GER) 女子单打正赛 - 32强赛 | 3 - 0 (11:9 11:7 12:10) 结果：负 新加坡大满贯2026 由圣淘沙名胜世界呈献",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:46:02.562629"
+    },
+    "wang amy": {
+      "original": "WANG Amy",
+      "translated": "王艾米",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:46:12.494389"
+    },
+    "lutz charlotte": {
+      "original": "LUTZ Charlotte",
+      "translated": "卢茨·夏洛特",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:46:15.316541"
+    },
+    "he zhuojia": {
+      "original": "HE Zhuojia",
+      "translated": "何卓佳",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:46:17.456913"
+    },
+    "dragoman andreea": {
+      "original": "DRAGOMAN Andreea",
+      "translated": "安德烈亚·德拉戈曼",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:46:26.838558"
+    },
+    "takahashi bruna": {
+      "original": "TAKAHASHI Bruna",
+      "translated": "高桥布鲁娜",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:46:45.007603"
+    },
+    "wtt champions chongqing 2026 presented by aito diaz adriana (pur) vs lee eunhye (kor) ws main draw - r32 | 3 - 1 (11:7 11:5 9:11 11:7 ) result: lost singapore smash 2026 presented by resorts world sentosa": {
+      "original": "WTT Champions Chongqing 2026 Presented by AITO DIAZ Adriana (PUR) vs LEE Eunhye (KOR) WS Main Draw - R32 | 3 - 1 (11:7 11:5 9:11 11:7 ) Result: LOST Singapore Smash 2026 Presented by Resorts World Sentosa",
+      "translated": "WTT冠军赛重庆2026 DIAZ Adriana (波多黎各) vs 李恩慧 (韩国) 女单正赛 - 32强 | 3 - 1 (11:7 11:5 9:11 11:7 ) 结果：负 新加坡大满贯2026",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:46:53.907777"
+    },
+    "nagasaki miyu": {
+      "original": "NAGASAKI Miyu",
+      "translated": "长崎美优",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:47:00.138224"
+    },
+    "sato hitomi": {
+      "original": "SATO Hitomi",
+      "translated": "佐藤瞳",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:47:02.542802"
+    },
+    "kim nayeong": {
+      "original": "KIM Nayeong",
+      "translated": "金娜英",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:47:06.819170"
+    },
+    "akula sreeja": {
+      "original": "AKULA Sreeja",
+      "translated": "阿库拉·斯里贾",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:47:12.305010"
+    },
+    "ghorpade yashaswini": {
+      "original": "GHORPADE Yashaswini",
+      "translated": "戈尔帕德·亚沙斯维尼",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:47:23.408875"
+    },
+    "mukherjee ayhika": {
+      "original": "MUKHERJEE Ayhika",
+      "translated": "穆克吉·艾希卡",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:47:27.961149"
+    },
+    "yilmaz ozge": {
+      "original": "YILMAZ Ozge",
+      "translated": "尤尔马兹·奥尔盖",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:47:42.564030"
+    },
+    "shi xunyao": {
+      "original": "SHI Xunyao",
+      "translated": "施徐耀",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:09.175641"
+    },
+    "yuan jia nan": {
+      "original": "YUAN Jia Nan",
+      "translated": "袁佳南",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:19.655375"
+    },
+    "qin yuxuan": {
+      "original": "QIN Yuxuan",
+      "translated": "秦宇轩",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:25.750952"
+    },
+    "kaufmann annett": {
+      "original": "KAUFMANN Annett",
+      "translated": "考夫曼·安妮特",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:30.653088"
+    },
+    "shibata saki": {
+      "original": "SHIBATA Saki",
+      "translated": "柴田咲",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:36.291185"
+    },
+    "zhu ziyu": {
+      "original": "ZHU Ziyu",
+      "translated": "朱子玉",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:39.818523"
+    },
+    "ryu hanna": {
+      "original": "RYU Hanna",
+      "translated": "刘韩娜",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:45.560157"
+    },
+    "zeng jian": {
+      "original": "ZENG Jian",
+      "translated": "曾健",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:48:48.971395"
+    },
+    "bergstrom linda": {
+      "original": "BERGSTROM Linda",
+      "translated": "琳达·贝格斯特罗姆",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:49:00.282236"
+    },
+    "bajor natalia": {
+      "original": "BAJOR Natalia",
+      "translated": "巴约尔·娜塔莉亚",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:49:04.531214"
+    },
+    "singapore smash 2026 presented by resorts world sentosa": {
+      "original": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+      "translated": "2026年新加坡大满贯赛 圣淘沙名胜世界呈献",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:49:13.825390"
+    },
+    "huang yu-jie": {
+      "original": "HUANG Yu-Jie",
+      "translated": "黄玉洁",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:49:18.121603"
+    },
+    "wtt star contender muscat 2025": {
+      "original": "WTT Star Contender Muscat 2025",
+      "translated": "WTT球星挑战赛 马斯喀特 2025",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-14T12:49:25.821676"
+    },
+    "yokoi sakura": {
+      "original": "YOKOI Sakura",
+      "translated": "横井咲良",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:49:28.102928"
+    },
+    "abraamian elizabet": {
+      "original": "ABRAAMIAN Elizabet",
+      "translated": "ABRAAMIAN Elizabet",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:49:34.991507"
+    },
+    "ain": {
+      "original": "AIN",
+      "translated": "轮岛",
+      "categories": [
+        "locations"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T12:49:42.602084"
+    },
+    "rus": {
+      "original": "RUS",
+      "translated": "俄罗斯",
+      "categories": [
+        "locations"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-14T12:49:44.013828"
+    },
+    "mittelham nina": {
+      "original": "MITTELHAM Nina",
+      "translated": "尼娜·米特哈姆",
+      "categories": [
+        "players"
+      ],
+      "source": "api",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T12:50:04.817209"
     }
   }
 }
