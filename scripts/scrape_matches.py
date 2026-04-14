@@ -202,6 +202,14 @@ def load_players(players_file: Path, top_spec: str) -> list[dict[str, Any]]:
     return rankings[player_slice]
 
 
+def _player_name_from_entry(player: dict[str, Any]) -> str:
+    for key in ("english_name", "player_name", "name"):
+        value = (player.get(key) or "").strip()
+        if value:
+            return value
+    return ""
+
+
 def parse_from_date(raw: str) -> date:
     try:
         return date.fromisoformat(raw.strip())
@@ -1105,7 +1113,7 @@ def run(args: argparse.Namespace) -> int:
         if target_player_name:
             filtered_players = []
             for p in players:
-                name = (p.get("english_name") or "").strip()
+                name = _player_name_from_entry(p)
                 country = (p.get("country_code") or "").strip()
                 if target_country_code:
                     if name.lower() == target_player_name.lower() and country.lower() == target_country_code.lower():
@@ -1135,7 +1143,7 @@ def run(args: argparse.Namespace) -> int:
                 }]
 
         for i, player in enumerate(players, start=1):
-            player_name = (player.get("english_name") or "").strip()
+            player_name = _player_name_from_entry(player)
             country_code = (player.get("country_code") or "").strip()
             player_id = player.get("player_id")
             rank = player.get("rank", i)
