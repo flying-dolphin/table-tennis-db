@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-14T11:09:13.227901",
-    "total_entries": 508
+    "updated_at": "2026-04-14T22:23:17.308696",
+    "total_entries": 549
   },
   "entries": {
     "ma long": {
@@ -6599,6 +6599,19 @@
       },
       "updated_at": "2026-04-14T11:09:13.227856"
     },
+    "female": {
+      "original": "Female",
+      "translated": "女",
+      "categories": [
+        "others"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-14T11:09:13.227856"
+    },
     "zpp": {
       "original": "ZPP",
       "translated": "强制赋零",
@@ -6611,6 +6624,526 @@
         "terms": "none"
       },
       "updated_at": "2026-04-14T11:09:13.227859"
+    },
+    "ukr": {
+      "original": "UKR",
+      "translated": "乌克兰",
+      "categories": [
+        "country"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "country": "none"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "shan xiaona": {
+      "original": "SHAN Xiaona",
+      "translated": "单晓娜",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "yang ha eun": {
+      "original": "YANG Ha Eun",
+      "translated": "杨荷恩",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "yang xiaoxin": {
+      "original": "YANG Xiaoxin",
+      "translated": "杨晓欣",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "mon": {
+      "original": "MON",
+      "translated": "摩纳哥",
+      "categories": [
+        "country"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "country": "none"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "altinkaya sibel": {
+      "original": "ALTINKAYA Sibel",
+      "translated": "阿尔廷卡亚·西贝尔",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "rakovac lea": {
+      "original": "RAKOVAC Lea",
+      "translated": "拉科瓦茨·莱娅",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "piccolin giorgia": {
+      "original": "PICCOLIN Giorgia",
+      "translated": "皮科林·乔吉娅",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "kallberg christina": {
+      "original": "KALLBERG Christina",
+      "translated": "卡尔贝里·克里斯蒂娜",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "lupulesku izabela": {
+      "original": "LUPULESKU Izabela",
+      "translated": "卢普莱斯库·伊莎贝拉",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "monfardini gaia": {
+      "original": "MONFARDINI Gaia",
+      "translated": "蒙法尔迪尼·盖亚",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "paranang orawan": {
+      "original": "PARANANG Orawan",
+      "translated": "帕拉南·奥拉万",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "shao jieni": {
+      "original": "SHAO Jieni",
+      "translated": "邵杰妮",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "lutz camille": {
+      "original": "LUTZ Camille",
+      "translated": "卢茨·卡米尔",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "chien tung-chuan": {
+      "original": "CHIEN Tung-Chuan",
+      "translated": "简彤娟",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "chitale diya": {
+      "original": "CHITALE Diya",
+      "translated": "奇塔莱·迪娅",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "chen yi": {
+      "original": "CHEN Yi",
+      "translated": "陈熠",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "ser lin qian": {
+      "original": "SER Lin Qian",
+      "translated": "舒麟茜",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "ng wing lam": {
+      "original": "NG Wing Lam",
+      "translated": "吴颖岚",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "hashimoto honoka": {
+      "original": "HASHIMOTO Honoka",
+      "translated": "桥本帆乃香",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "zaharia elena": {
+      "original": "ZAHARIA Elena",
+      "translated": "扎哈里亚·埃琳娜",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "moyland sally": {
+      "original": "MOYLAND Sally",
+      "translated": "莫伊兰德·萨莉",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "kim seongjin": {
+      "original": "KIM Seongjin",
+      "translated": "金成珍",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "yang yiyun": {
+      "original": "YANG Yiyun",
+      "translated": "杨艺云",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "akae kaho": {
+      "original": "AKAE Kaho",
+      "translated": "赤江花穂",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "fan shuhan": {
+      "original": "FAN Shuhan",
+      "translated": "范舒涵",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "wang xiaotong": {
+      "original": "WANG Xiaotong",
+      "translated": "王晓彤",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "yoo yerin": {
+      "original": "YOO Yerin",
+      "translated": "柳睿仁",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "xu yi": {
+      "original": "XU Yi",
+      "translated": "徐奕",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "liu yangzi": {
+      "original": "LIU Yangzi",
+      "translated": "刘杨子",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "idesawa kyoka": {
+      "original": "IDESAWA Kyoka",
+      "translated": "出泽杏香",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "takeya misuzu": {
+      "original": "TAKEYA Misuzu",
+      "translated": "竹谷美铃",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "psihogios constantina": {
+      "original": "PSIHOGIOS Constantina",
+      "translated": "普西霍吉奥斯·康斯坦蒂娜",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "joo cheonhui": {
+      "original": "JOO Cheonhui",
+      "translated": "朱芊曦",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "zong geman": {
+      "original": "ZONG Geman",
+      "translated": "宗歌蔓",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "park gahyeon": {
+      "original": "PARK Gahyeon",
+      "translated": "朴佳贤",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "su tsz tung": {
+      "original": "SU Tsz Tung",
+      "translated": "苏芷彤",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "reyes lai jessica": {
+      "original": "REYES LAI Jessica",
+      "translated": "雷耶斯·莱·杰西卡",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "kaneyoshi yuka": {
+      "original": "KANEYOSHI Yuka",
+      "translated": "兼吉由香",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
+    },
+    "omoda kotomi": {
+      "original": "OMODA Kotomi",
+      "translated": "面田琴美",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-14T22:23:17.308696"
     }
   }
 }
