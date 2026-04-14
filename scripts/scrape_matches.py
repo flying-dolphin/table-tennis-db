@@ -14,6 +14,7 @@ Design goals:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import platform
@@ -28,7 +29,7 @@ from typing import Any
 from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep, move_mouse_to_locator, type_like_human
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.browser_session import ensure_logged_in
-from lib.capture import capture_json_responses_for_page, sanitize_filename, save_json
+from lib.capture import sanitize_filename, save_json
 from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import click_next_page_if_any, guarded_goto
@@ -356,25 +357,99 @@ def collect_events_with_pagination(
     return dedupe_events(all_events)
 
 
-def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] | None:
+def _normalize_column_name(text: str) -> str:
+    text = " ".join((text or "").split()).strip().lower()
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return " ".join(text.split())
+
+
+def _build_column_map(table: Any) -> dict[str, int]:
+    header_rows = table.query_selector_all("thead tr")
+    if not header_rows:
+        header_rows = table.query_selector_all("tr")
+
+    for row in header_rows:
+        header_cells = row.query_selector_all("th")
+        if not header_cells:
+            continue
+        column_map: dict[str, int] = {}
+        for idx, cell in enumerate(header_cells):
+            header_text = " ".join((cell.inner_text() or "").split())
+            normalized = _normalize_column_name(header_text)
+            if normalized and normalized not in column_map:
+                column_map[normalized] = idx
+        if column_map:
+            return column_map
+    return {}
+
+
+def parse_match_from_row(
+    cells: list[Any],
+    player_name: str,
+    column_map: dict[str, int] | None = None,
+) -> dict[str, Any] | None:
     cell_texts = [" ".join((c.inner_text() or "").split()) for c in cells]
-    row_text = " | ".join(t for t in cell_texts if t)
+    # Keep empty cells so gaps in the source table remain visible in debug output.
+    row_text = " | ".join(cell_texts)
+
+    def cell_text(index: int) -> str:
+        if 0 <= index < len(cells):
+            return " ".join((cells[index].inner_text() or "").split())
+        return ""
+
+    def column_text(*aliases: str, fallback_index: int | None = None) -> str:
+        if column_map:
+            for alias in aliases:
+                idx = column_map.get(_normalize_column_name(alias))
+                if idx is not None:
+                    text = cell_text(idx)
+                    if text:
+                        return text
+        if fallback_index is not None:
+            return cell_text(fallback_index)
+        return ""
+
+    def normalize_score(text: str) -> str:
+        m = SCORE_RE.search(text or "")
+        if not m:
+            return ""
+        return f"{m.group(1)}-{m.group(2)}"
+
+    player_a_text = column_text("Player A", fallback_index=2)
+    player_b_text = column_text("Player B", fallback_index=3)
+    player_x_text = column_text("Player X", fallback_index=4)
+    player_y_text = column_text("Player Y", fallback_index=5)
+    sub_event_text = column_text("Sub-event", "Sub event", fallback_index=6)
+    stage_text = column_text("Stage", fallback_index=7)
+    round_text = column_text("Round", fallback_index=8)
+    result_text = column_text("Result", fallback_index=9)
+    games_text = column_text("Games", fallback_index=10)
+    winner_text = column_text("Winner", fallback_index=11)
 
     score_idx = -1
     match_score = ""
     score_a = score_b = None
-    for idx, text in enumerate(cell_texts):
-        m = SCORE_RE.search(text)
-        if m:
-            score_idx = idx
-            match_score = f"{m.group(1)}-{m.group(2)}"
-            score_a = int(m.group(1))
-            score_b = int(m.group(2))
-            break
+    normalized_result = normalize_score(result_text)
+    if normalized_result:
+        match_score = normalized_result
+        score_idx = column_map.get(_normalize_column_name("Result"), 9) if column_map else 9
+        score_a = int(normalized_result.split("-", 1)[0])
+        score_b = int(normalized_result.split("-", 1)[1])
 
-    raw_games = GAME_RE.findall(row_text)
+    raw_games = GAME_RE.findall(games_text or row_text)
     game_scores = [f"{a}:{b}" for a, b in raw_games]
     game_objects = [{"player": int(a), "opponent": int(b)} for a, b in raw_games]
+
+    if not match_score:
+        for idx, text in enumerate(cell_texts):
+            m = SCORE_RE.search(text)
+            if m:
+                score_idx = idx
+                match_score = f"{m.group(1)}-{m.group(2)}"
+                score_a = int(m.group(1))
+                score_b = int(m.group(2))
+                break
+
     if score_idx == -1 and not game_scores:
         return None
 
@@ -392,18 +467,21 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
             seen_names.add(full_name)
             unique_players.append(full_name)
 
-    # 根据比分位置分割 side_a 和 side_b
+    # 优先使用表头列中的球员名来构建 side_a / side_b
+    explicit_players = [p for p in [player_a_text, player_x_text] if p]
+    explicit_opponents = [p for p in [player_b_text, player_y_text] if p]
+
     side_a: list[str] = []
     side_b: list[str] = []
-    if score_idx >= 0 and unique_players:
+    if explicit_players or explicit_opponents:
+        side_a = explicit_players
+        side_b = explicit_opponents
+    elif score_idx >= 0 and unique_players:
         # 简单策略：前一半是 side_a，后一半是 side_b
-        # 对于单打：1个球员 vs 1个球员
-        # 对于双打：2个球员 vs 2个球员
         mid = len(unique_players) // 2
         side_a = unique_players[:mid] if mid > 0 else unique_players[:1]
         side_b = unique_players[mid:] if mid > 0 else unique_players[1:]
     elif unique_players:
-        # 没有比分列时，尝试用 "vs" 或 "-" 分割
         side_a = unique_players[:1]
         side_b = unique_players[1:] if len(unique_players) > 1 else []
 
@@ -420,33 +498,39 @@ def parse_match_from_row(cells: list[Any], player_name: str) -> dict[str, Any] |
             if n not in all_names:
                 all_names.append(n)
 
-    # 如果正则提取失败，回退到 anchor 方法
     if not side_a and not side_b and all_names:
         mid = len(all_names) // 2
         side_a = all_names[:mid] if mid > 0 else all_names[:1]
         side_b = all_names[mid:] if mid > 0 else all_names[1:]
 
-    winner = ""
-    winner_m = re.search(r"Winner:\s*([^|]+)", row_text, flags=re.IGNORECASE)
-    if winner_m:
-        winner = winner_m.group(1).strip()
+    winner = winner_text
+    if not winner:
+        winner_m = re.search(r"Winner:\s*([^|]+)", row_text, flags=re.IGNORECASE)
+        if winner_m:
+            winner = winner_m.group(1).strip()
 
-    sub_event = ""
-    for token in ["WS", "MS", "WD", "MD", "XD", "U19", "U17", "U15"]:
-        if re.search(rf"\b{re.escape(token)}\b", row_text):
-            sub_event = token
-            break
+    sub_event = sub_event_text
+    if not sub_event:
+        for token in ["WS", "MS", "WD", "MD", "XD", "U19", "U17", "U15"]:
+            if re.search(rf"\b{re.escape(token)}\b", row_text):
+                sub_event = token
+                break
 
-    stage = ""
-    for s in ["Main Draw", "Qualification", "Qualifying", "Group", "Final"]:
-        if s.lower() in row_text.lower():
-            stage = s
-            break
+    stage = stage_text
+    if not stage:
+        for s in ["Main Draw", "Qualification", "Qualifying", "Group", "Final"]:
+            if s.lower() in row_text.lower():
+                stage = s
+                break
 
-    round_text = ""
-    round_m = re.search(r"\b(R\d{1,2}|QF|SF|F|R32|R64|R128|Round of \d+)\b", row_text, flags=re.IGNORECASE)
-    if round_m:
-        round_text = round_m.group(1)
+    if not round_text:
+        round_m = re.search(
+            r"\b(R\d{1,2}|QF|SF|F|QuarterFinal|SemiFinal|Final|R32|R64|R128|Round of \d+)\b",
+            row_text,
+            flags=re.IGNORECASE,
+        )
+        if round_m:
+            round_text = round_m.group(1)
 
     perspective = "unknown"
     opponents: list[str] = []
@@ -496,12 +580,13 @@ def parse_detail_matches_from_dom(page: Any, player_name: str) -> list[dict[str,
 
     tables = page.query_selector_all("table")
     for table in tables:
+        column_map = _build_column_map(table)
         rows = table.query_selector_all("tbody tr") or table.query_selector_all("tr")
         for row in rows:
             cells = row.query_selector_all("td")
             if len(cells) < 2:
                 continue
-            parsed = parse_match_from_row(cells, player_name)
+            parsed = parse_match_from_row(cells, player_name, column_map=column_map)
             if not parsed:
                 continue
             key = "||".join(
@@ -542,6 +627,53 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
         return False
 
     def wait_and_click_option(target_text: str, fallback_text: str) -> bool:
+        target_lower = target_text.lower()
+        fallback_lower = fallback_text.lower()
+        name_lower = player_name.lower()
+        country_lower = country_code.lower().strip()
+
+        def candidate_matches(text: str) -> bool:
+            normalized = " ".join(text.split()).lower()
+            if not normalized:
+                return False
+            if target_lower and target_lower in normalized:
+                return True
+            if fallback_lower and fallback_lower in normalized:
+                return True
+            if name_lower and name_lower in normalized:
+                return True
+            if country_lower and country_lower in normalized:
+                return True
+            return False
+
+        def click_best_effort(loc: Any) -> None:
+            try:
+                loc.click(timeout=1500)
+                return
+            except Exception as exc:
+                logger.warning("[autocomplete] click failed: %s", exc)
+            try:
+                loc.click(force=True, timeout=1500)
+                logger.info("[autocomplete] force click ok")
+                return
+            except Exception as exc:
+                logger.warning("[autocomplete] force click failed: %s", exc)
+            try:
+                loc.evaluate(
+                    """(el) => {
+                        const options = { bubbles: true, cancelable: true, view: window };
+                        el.dispatchEvent(new MouseEvent('mousedown', options));
+                        el.dispatchEvent(new MouseEvent('mouseup', options));
+                        el.dispatchEvent(new MouseEvent('click', options));
+                    }"""
+                )
+                logger.info("[autocomplete] dom click dispatched")
+                return
+            except Exception as exc:
+                logger.warning("[autocomplete] dom click failed: %s", exc)
+            move_mouse_to_locator(page, loc)
+            logger.info("[autocomplete] mouse click ok")
+
         for attempt in range(12):
             exact = page.get_by_text(target_text, exact=True).first
             try:
@@ -552,22 +684,7 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
             try:
                 if exact_count > 0 and exact.is_visible():
                     logger.info("[autocomplete] exact option visible, trying click: %s", target_text)
-                    try:
-                        exact.scroll_into_view_if_needed()
-                    except Exception as exc:
-                        logger.info("[autocomplete] exact scroll skipped: %s", exc)
-                    try:
-                        exact.click(timeout=2000)
-                        logger.info("[autocomplete] exact click ok")
-                    except Exception as exc:
-                        logger.warning("[autocomplete] exact click failed: %s", exc)
-                        try:
-                            exact.click(force=True, timeout=2000)
-                            logger.info("[autocomplete] exact force click ok")
-                        except Exception as exc2:
-                            logger.warning("[autocomplete] exact force click failed, fallback mouse: %s", exc2)
-                            move_mouse_to_locator(page, exact)
-                            logger.info("[autocomplete] exact mouse click ok")
+                    click_best_effort(exact)
                     return True
             except Exception as exc:
                 logger.info("[autocomplete] exact option probe failed: %s", exc)
@@ -604,29 +721,14 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                     if not txt:
                         continue
                     logger.info("[autocomplete] candidate[%s]=%s data-value=%s", i, txt[:120], data_value)
-                    if (target_text in txt or fallback_text in txt) and data_value:
+                    if candidate_matches(txt):
                         logger.info("[autocomplete] matched candidate[%s], trying click", i)
                         before_value = None
                         try:
                             before_value = search_input.input_value()
                         except Exception:
                             pass
-                        try:
-                            item.scroll_into_view_if_needed()
-                        except Exception as exc:
-                            logger.info("[autocomplete] candidate scroll skipped: %s", exc)
-                        try:
-                            item.click(timeout=2000)
-                            logger.info("[autocomplete] candidate click ok")
-                        except Exception as exc:
-                            logger.warning("[autocomplete] candidate click failed: %s", exc)
-                            try:
-                                item.click(force=True, timeout=2000)
-                                logger.info("[autocomplete] candidate force click ok")
-                            except Exception as exc2:
-                                logger.warning("[autocomplete] candidate force click failed, fallback mouse: %s", exc2)
-                                move_mouse_to_locator(page, item)
-                                logger.info("[autocomplete] candidate mouse click ok")
+                        click_best_effort(item)
 
                         time.sleep(0.4)
                         try:
@@ -742,7 +844,7 @@ def scrape_player(
         raise RuntimeError(f"autocomplete not found for {player_name} ({country_code})")
 
     # 不选年份过滤，直接提交，获取按时间倒序的全量赛事列表
-    human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, "before click Go")
+    human_sleep(5.0, 10.0, "before click Go")
     if not click_go(page):
         raise RuntimeError("Go button not found")
 
@@ -875,7 +977,7 @@ def scrape_player(
             guarded_goto(page, url, delay_cfg, f"visit event detail {pos}/{len(events)}",
                          referer=events_list_url)
 
-        captures = capture_json_responses_for_page(page, visit_detail)
+        visit_detail()
         matches = parse_detail_matches_from_dom(page, player_name)
 
         safe_event = sanitize_filename(f"{event_year}_{idx}_{event.get('event_name', 'event')}")
@@ -886,7 +988,6 @@ def scrape_player(
                 "event_meta": event,
                 "detail_url": detail_url,
                 "captured_at": utc_now_iso(),
-                "captured_json_responses": captures,
                 "parsed_matches": matches,
             },
         )
@@ -938,6 +1039,8 @@ def scrape_player(
             f"but total captured is {total_captured} (new: {newly_captured}, previous: {len(already_scraped)})."
         )
 
+    if player_output is not None:
+        return player_output
     return result
 
 
@@ -1012,6 +1115,40 @@ def merge_player_data(existing: dict[str, Any], player_data: dict[str, Any]) -> 
     existing["captured_at"] = captured_at
     existing["updated_at"] = utc_now_iso()
     return existing
+
+
+def count_events_in_player_output(player_data: dict[str, Any], from_year: int) -> int:
+    """统计 from_year 及之后的事件数，兼容 `years` 和扁平 `events` 两种结构。"""
+    years = player_data.get("years")
+    if isinstance(years, dict) and years:
+        total = 0
+        for year_str, year_data in years.items():
+            try:
+                year_int = int(year_str)
+            except (ValueError, TypeError):
+                year_int = 0
+            if year_int > 0 and year_int < from_year:
+                continue
+            events = (year_data or {}).get("events", [])
+            if isinstance(events, list):
+                total += len(events)
+        return total
+
+    events = player_data.get("events", [])
+    if not isinstance(events, list):
+        return 0
+
+    total = 0
+    for event in events:
+        event_year = event.get("event_year", "")
+        try:
+            event_year_int = int(event_year) if event_year else 0
+        except (ValueError, TypeError):
+            event_year_int = 0
+        if event_year_int > 0 and event_year_int < from_year:
+            continue
+        total += 1
+    return total
 
 
 def run(args: argparse.Namespace) -> int:
@@ -1252,11 +1389,7 @@ def run(args: argparse.Namespace) -> int:
                 player_data["rank"] = rank
                 player_data["from_date"] = from_date.isoformat()
                 # 统计总 event 数（网页 events 数量 = 我们的 JSON 总 event 数）
-                total_events_in_json = sum(
-                    len(year_data.get("events", []))
-                    for year_str, year_data in player_data.get("years", {}).items()
-                    if int(year_str) >= from_date.year
-                )
+                total_events_in_json = count_events_in_player_output(player_data, from_date.year)
                 if total_events_in_json == 0:
                     raise RuntimeError(
                         f"No events found for {player_name} ({country_code}) since {from_date}. "
