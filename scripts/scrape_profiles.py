@@ -26,7 +26,7 @@ from lib.capture import save_json, sanitize_filename
 from lib.checkpoint import CheckpointStore
 from lib.navigation_runtime import open_page_with_verification
 from lib.page_ops import click_next_page_if_any, guarded_goto
-from lib.translator import Translator
+from lib.dict_translator import DictTranslator
 
 logging.basicConfig(
     level=logging.INFO,
@@ -125,7 +125,7 @@ def extract_player_id_from_href(href: str | None) -> str | None:
     return None
 
 
-def parse_ranking_rows(page: Any, top_n: int, translator: Translator | None = None, translate_names: bool = True) -> list[dict[str, Any]]:
+def parse_ranking_rows(page: Any, top_n: int, translator: DictTranslator | None = None, translate_names: bool = True) -> list[dict[str, Any]]:
     """Parse ranking rows from the ranking list page, following pagination if needed."""
     rankings: list[dict[str, Any]] = []
     while len(rankings) < top_n:
@@ -193,7 +193,7 @@ def parse_ranking_rows(page: Any, top_n: int, translator: Translator | None = No
                 # 翻译模式：查词典转换
                 display_name = english_name
                 if translator:
-                    translated = translator.translate(english_name, category='players', use_api=False)
+                    translated = translator.translate(english_name, 'players')
                     if translated != english_name:  # 词典命中
                         display_name = translated
                 country_name = translate_country(country_code, association)

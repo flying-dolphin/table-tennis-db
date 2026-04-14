@@ -218,16 +218,56 @@ def parse_from_date(raw: str) -> date:
         raise ValueError(f"Invalid --from-date format '{raw}', expected YYYY-MM-DD")
 
 
+def _query_selector_all_with_retry(root: Any, selector: str, retries: int = 3, delay_sec: float = 0.4) -> list[Any]:
+    """Query selector with a small retry window for transient DOM churn."""
+    last_exc: Exception | None = None
+    for attempt in range(retries):
+        try:
+            nodes = root.query_selector_all(selector)
+            return nodes or []
+        except Exception as exc:
+            last_exc = exc
+            if attempt < retries - 1:
+                time.sleep(delay_sec * (attempt + 1))
+    if last_exc:
+        raise last_exc
+    return []
+
+
+def _wait_for_result_area(page: Any, timeout_sec: float = 20.0) -> bool:
+    """Wait until the result page is stable enough to parse."""
+    deadline = time.time() + timeout_sec
+    while time.time() < deadline:
+        try:
+            body_lower = (page.inner_text("body") or "").lower()
+        except Exception:
+            body_lower = ""
+
+        if "total: 0" in body_lower or "no records" in body_lower:
+            return True
+
+        try:
+            if _query_selector_all_with_retry(page, "table", retries=1):
+                return True
+        except Exception:
+            pass
+
+        time.sleep(0.5)
+    return False
+
+
 
 
 def parse_event_rows(page: Any) -> list[dict[str, Any]]:
-    tables = page.query_selector_all("table")
+    tables = _query_selector_all_with_retry(page, "table", retries=4)
     events: list[dict[str, Any]] = []
 
     for table in tables:
-        rows = table.query_selector_all("tbody tr") or table.query_selector_all("tr")
+        rows = _query_selector_all_with_retry(table, "tbody tr", retries=2)
+        if not rows:
+            rows = _query_selector_all_with_retry(table, "tr", retries=2)
         for row in rows:
-            cells = row.query_selector_all("td")
+            cells = _query_selector_all_with_retry(row, "td", retries=2)
             if len(cells) < 2:
                 continue
 
@@ -364,12 +404,12 @@ def _normalize_column_name(text: str) -> str:
 
 
 def _build_column_map(table: Any) -> dict[str, int]:
-    header_rows = table.query_selector_all("thead tr")
+    header_rows = _query_selector_all_with_retry(table, "thead tr", retries=2)
     if not header_rows:
-        header_rows = table.query_selector_all("tr")
+        header_rows = _query_selector_all_with_retry(table, "tr", retries=2)
 
     for row in header_rows:
-        header_cells = row.query_selector_all("th")
+        header_cells = _query_selector_all_with_retry(row, "th", retries=2)
         if not header_cells:
             continue
         column_map: dict[str, int] = {}
@@ -488,7 +528,7 @@ def parse_match_from_row(
     # 同时保留 anchor 提取的名字作为备用（如果上面的方法失败）
     anchor_names_by_cell: list[list[str]] = []
     for c in cells:
-        names = [" ".join((a.inner_text() or "").split()) for a in c.query_selector_all("a")]
+        names = [" ".join((a.inner_text() or "").split()) for a in _query_selector_all_with_retry(c, "a", retries=2)]
         names = [n for n in names if n]
         anchor_names_by_cell.append(names)
 
@@ -578,12 +618,14 @@ def parse_detail_matches_from_dom(page: Any, player_name: str) -> list[dict[str,
     matches: list[dict[str, Any]] = []
     seen: set[str] = set()
 
-    tables = page.query_selector_all("table")
+    tables = _query_selector_all_with_retry(page, "table", retries=4)
     for table in tables:
         column_map = _build_column_map(table)
-        rows = table.query_selector_all("tbody tr") or table.query_selector_all("tr")
+        rows = _query_selector_all_with_retry(table, "tbody tr", retries=2)
+        if not rows:
+            rows = _query_selector_all_with_retry(table, "tr", retries=2)
         for row in rows:
-            cells = row.query_selector_all("td")
+            cells = _query_selector_all_with_retry(row, "td", retries=2)
             if len(cells) < 2:
                 continue
             parsed = parse_match_from_row(cells, player_name, column_map=column_map)
@@ -632,8 +674,13 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
         name_lower = player_name.lower()
         country_lower = country_code.lower().strip()
 
-        def candidate_matches(text: str) -> bool:
-            normalized = " ".join(text.split()).lower()
+        def _normalize_words(text: str) -> list[str]:
+            return [part for part in re.split(r"[^a-z0-9]+", (text or "").lower()) if part]
+
+        player_words = sorted(_normalize_words(player_name))
+
+        def selection_matches_value(value: str) -> bool:
+            normalized = " ".join((value or "").split()).lower()
             if not normalized:
                 return False
             if target_lower and target_lower in normalized:
@@ -642,9 +689,52 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                 return True
             if name_lower and name_lower in normalized:
                 return True
-            if country_lower and country_lower in normalized:
-                return True
+
+            candidate_name = normalized
+            if "(" in candidate_name:
+                candidate_name = candidate_name.split("(", 1)[0].strip()
+            candidate_words = sorted(_normalize_words(candidate_name))
+            if player_words and candidate_words and player_words == candidate_words:
+                if not country_lower:
+                    return True
+                country_match = re.search(r"\(([a-z]{3})\)", normalized)
+                return bool(country_match and country_match.group(1) == country_lower)
             return False
+
+        def candidate_score(text: str) -> int:
+            normalized = " ".join(text.split()).lower()
+            if not normalized:
+                return -1
+
+            score = 0
+            if selection_matches_value(text):
+                score += 100
+
+            candidate_name = normalized
+            if "(" in candidate_name:
+                candidate_name = candidate_name.split("(", 1)[0].strip()
+            candidate_words = sorted(_normalize_words(candidate_name))
+
+            if player_words and candidate_words:
+                if player_words == candidate_words:
+                    score += 80
+                else:
+                    overlap = len(set(player_words) & set(candidate_words))
+                    score += overlap * 10
+
+            country_match = re.search(r"\(([a-z]{3})\)", normalized)
+            if country_lower and country_match:
+                if country_match.group(1) == country_lower:
+                    score += 30
+                else:
+                    score -= 20
+
+            if target_lower and target_lower == normalized:
+                score += 50
+            if fallback_lower and fallback_lower == candidate_name:
+                score += 40
+
+            return score
 
         def click_best_effort(loc: Any) -> None:
             try:
@@ -711,6 +801,7 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                 count = 0
             logger.info("[autocomplete] attempt=%s candidate_count=%s", attempt + 1, count)
 
+            best_candidate: tuple[int, int, Any, str] | None = None
             for i in range(count):
                 item = candidates.nth(i)
                 try:
@@ -720,26 +811,40 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                     data_value = item.get_attribute("data-value") if item.count() > 0 else None
                     if not txt:
                         continue
-                    logger.info("[autocomplete] candidate[%s]=%s data-value=%s", i, txt[:120], data_value)
-                    if candidate_matches(txt):
-                        logger.info("[autocomplete] matched candidate[%s], trying click", i)
-                        before_value = None
-                        try:
-                            before_value = search_input.input_value()
-                        except Exception:
-                            pass
-                        click_best_effort(item)
-
-                        time.sleep(0.4)
-                        try:
-                            after_value = search_input.input_value()
-                        except Exception:
-                            after_value = None
-                        logger.info("[autocomplete] input before click=%s after click=%s", before_value, after_value)
-                        return True
+                    score = candidate_score(txt)
+                    logger.info("[autocomplete] candidate[%s]=%s data-value=%s score=%s", i, txt[:120], data_value, score)
+                    if score > 0 and (best_candidate is None or score > best_candidate[0]):
+                        best_candidate = (score, i, item, txt)
                 except Exception as exc:
                     logger.info("[autocomplete] candidate[%s] probe failed: %s", i, exc)
                     continue
+
+            if best_candidate is not None:
+                score, best_idx, best_item, best_text = best_candidate
+                logger.info("[autocomplete] best candidate[%s]=%s score=%s, trying click", best_idx, best_text[:120], score)
+                before_value = None
+                try:
+                    before_value = search_input.input_value()
+                except Exception:
+                    pass
+                click_best_effort(best_item)
+
+                time.sleep(0.4)
+                try:
+                    after_value = search_input.input_value()
+                except Exception:
+                    after_value = None
+                logger.info("[autocomplete] input before click=%s after click=%s", before_value, after_value)
+                if selection_matches_value(after_value or ""):
+                    return True
+                time.sleep(0.4)
+                try:
+                    settled_value = search_input.input_value()
+                except Exception:
+                    settled_value = None
+                if selection_matches_value(settled_value or ""):
+                    return True
+                logger.info("[autocomplete] selection did not settle, retrying")
 
             time.sleep(0.25)
         logger.warning("[autocomplete] no option matched after retries for target=%s fallback=%s", target_text, fallback_text)
@@ -773,10 +878,10 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
 
 
 def try_select_year(page: Any, year: int) -> bool:
-    selects = page.query_selector_all("select")
+    selects = _query_selector_all_with_retry(page, "select", retries=2)
     for sel in selects:
         try:
-            options = sel.query_selector_all("option")
+            options = _query_selector_all_with_retry(sel, "option", retries=2)
             vals = [((o.get_attribute("value") or "").strip(), (o.inner_text() or "").strip()) for o in options]
             if any(str(year) == v or str(year) == t for v, t in vals):
                 sel.select_option(str(year))
@@ -805,7 +910,7 @@ def click_go(page: Any) -> bool:
             continue
     try:
         btn_values = []
-        for el in page.query_selector_all("input[type='button'], input[type='submit'], button"):
+        for el in _query_selector_all_with_retry(page, "input[type='button'], input[type='submit'], button", retries=2):
             val = (el.get_attribute("value") or el.inner_text() or "").strip()
             cls = (el.get_attribute("class") or "").strip()
             name = (el.get_attribute("name") or "").strip()
@@ -853,6 +958,9 @@ def scrape_player(
         page.wait_for_load_state("networkidle", timeout=15000)
     except Exception:
         pass
+
+    if not _wait_for_result_area(page, timeout_sec=20.0):
+        raise RuntimeError("Result page did not stabilize after clicking Go")
 
     risk = detect_risk(page)
     if risk:

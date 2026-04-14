@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from lib.capture import save_json
 from lib.checkpoint import CheckpointStore
-from lib.translator import Translator
+from lib.translator import LLMTranslator
 from lib.translation_tree import translate_json_tree
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -50,7 +50,7 @@ def bootstrap_checkpoint(checkpoint: CheckpointStore, orig_dir: Path, cn_dir: Pa
                 checkpoint.mark_done(ck, meta={"bootstrapped_from": str(cn_file)})
 
 
-def translate_calendar_data(data: dict, translator: Translator) -> dict:
+def translate_calendar_data(data: dict, translator: LLMTranslator) -> dict:
     translated = translate_json_tree(data, translator)
     if not isinstance(translated, dict):
         raise TypeError("calendar data must be a dict")
@@ -83,7 +83,7 @@ def run(args: argparse.Namespace) -> int:
     cn_dir.mkdir(parents=True, exist_ok=True)
     bootstrap_checkpoint(checkpoint, orig_dir, cn_dir)
 
-    translator = Translator()
+    translator = LLMTranslator()
     if args.file:
         files = [orig_dir / args.file]
     elif args.year:

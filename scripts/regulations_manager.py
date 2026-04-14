@@ -34,7 +34,7 @@ from pathlib import Path
 # 导入抓取模块
 sys.path.insert(0, str(Path(__file__).parent))
 from scrape_regulations import fetch_regulations, RANKINGS_URL
-from lib.translator import Translator
+from lib.translator import LLMTranslator
 
 # 配置日志
 logging.basicConfig(
@@ -122,17 +122,13 @@ def translate_document_with_translator(
         if use_api and api_key:
             # 使用翻译模块进行文档翻译
             logger.info("使用MiniMax API翻译...")
-            translator = Translator(api_key=api_key)
-            translated = translator.translate_document(content, doc_type="regulations")
-            
+            translator = LLMTranslator(api_key=api_key)
+            translated = translator.translate_document(content)
+
             if translated and translated != content:
                 with open(cn_path, 'w', encoding='utf-8', newline='') as f:
                     f.write(translated)
                 logger.info(f"中文文档已保存: {cn_path}")
-                
-                # 显示词典统计
-                stats = translator.get_stats()
-                logger.info(f"词典统计: 共 {stats['total']} 个词条")
                 return True
             else:
                 logger.warning("API翻译失败，保存翻译提示")

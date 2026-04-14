@@ -71,9 +71,8 @@ def main() -> None:
             file=None,
             orig_dir=str(Path(args.output_dir)),
             cn_dir="data/rankings/cn",
-            checkpoint="data/rankings/checkpoint_translate_rankings.json",
+            dict_path=str(Path("scripts/data/translation_dict_v2.json")),
             force=bool(args.force),
-            rebuild_checkpoint=bool(args.rebuild_checkpoint),
         )
         rc = run_translate(translate_args)
 
