@@ -1,20 +1,20 @@
 {
   "player_id": "119730",
-  "name": "何卓佳",
+  "name": "HE Zhuojia",
   "english_name": "HE Zhuojia",
-  "country": "中国",
+  "country": "CHN",
   "country_code": "CHN",
   "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=119730&vw_profiles___Name_raw=HE Zhuojia",
   "rank": 38,
   "points": 760,
   "rank_change": 0,
   "scraped_at": "2026-04-14T12:34:45.919357",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1998,
   "age": 27,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 38,
   "ranking_week": "16/2026 (Apr 14th, 2026)",
   "career_stats": {
@@ -40,5 +40,11 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/119730_Headshot_R_HE Zhuojia.png",
-  "avatar_file_path": "data\\player_avatars\\player_119730_HE_Zhuojia.png"
+  "avatar_file_path": "data\\player_avatars\\player_119730_HE_Zhuojia.png",
+  "name_zh": "何卓佳",
+  "country_zh": "中国",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

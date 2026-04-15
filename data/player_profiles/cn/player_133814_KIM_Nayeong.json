@@ -1,6 +1,6 @@
 {
   "player_id": "133814",
-  "name": "金娜英",
+  "name": "KIM Nayeong",
   "english_name": "KIM Nayeong",
   "country": "韩国",
   "country_code": "KOR",
@@ -9,12 +9,12 @@
   "points": 940,
   "rank_change": -1,
   "scraped_at": "2026-04-10T17:58:17.451875",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2005,
   "age": 20,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 30,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 25,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/133814_Headshot_R_KIM Nayeong.png",
-  "avatar_file_path": "data/player_avatars/player_133814_KIM_Nayeong.png"
+  "avatar_file_path": "data/player_avatars/player_133814_KIM_Nayeong.png",
+  "name_zh": "金娜英",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

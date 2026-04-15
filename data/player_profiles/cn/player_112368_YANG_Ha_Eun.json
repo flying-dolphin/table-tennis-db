@@ -1,20 +1,20 @@
 {
   "player_id": "112368",
-  "name": "杨荷恩",
+  "name": "YANG Ha Eun",
   "english_name": "YANG Ha Eun",
-  "country": "韩国",
+  "country": "KOR",
   "country_code": "KOR",
   "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=112368&vw_profiles___Name_raw=YANG Ha Eun",
   "rank": 65,
   "points": 400,
   "rank_change": -2,
   "scraped_at": "2026-04-14T16:17:57.588683",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1994,
   "age": 32,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 65,
   "ranking_week": "16/2026 (Apr 14th, 2026)",
   "career_stats": {
@@ -40,5 +40,11 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/112368_HEADSHOT_R_YANG_Ha Eun.png",
-  "avatar_file_path": "data\\player_avatars\\player_112368_YANG_Ha_Eun.png"
+  "avatar_file_path": "data\\player_avatars\\player_112368_YANG_Ha_Eun.png",
+  "name_zh": "杨荷恩",
+  "country_zh": "韩国",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

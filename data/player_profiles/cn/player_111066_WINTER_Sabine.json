@@ -1,6 +1,6 @@
 {
   "player_id": "111066",
-  "name": "温特·萨宾娜",
+  "name": "WINTER Sabine",
   "english_name": "WINTER Sabine",
   "country": "德国",
   "country_code": "GER",
@@ -9,12 +9,12 @@
   "points": 3537,
   "rank_change": 3,
   "scraped_at": "2026-04-10T17:51:33.089140",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1992,
   "age": 33,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 9,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 9,
@@ -42,5 +42,10 @@
     "all_senior_titles": 1
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/111066_Headshot_R_WINTER_Sabine.png",
-  "avatar_file_path": "data/player_avatars/player_111066_WINTER_Sabine.png"
+  "avatar_file_path": "data/player_avatars/player_111066_WINTER_Sabine.png",
+  "name_zh": "温特·萨宾娜",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

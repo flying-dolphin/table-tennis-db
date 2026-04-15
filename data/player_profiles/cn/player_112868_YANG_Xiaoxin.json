@@ -1,6 +1,6 @@
 {
   "player_id": "112868",
-  "name": "杨晓欣",
+  "name": "YANG Xiaoxin",
   "english_name": "YANG Xiaoxin",
   "country": "MON",
   "country_code": "MON",
@@ -9,12 +9,12 @@
   "points": 255,
   "rank_change": 13,
   "scraped_at": "2026-04-14T16:27:47.030621",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1988,
   "age": 38,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 98,
   "ranking_week": "16/2026 (Apr 14th, 2026)",
   "career_best_rank": 10,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/112868_Headshot_R_YANG_Xiaoxin.png",
-  "avatar_file_path": "data\\player_avatars\\player_112868_YANG_Xiaoxin.png"
+  "avatar_file_path": "data\\player_avatars\\player_112868_YANG_Xiaoxin.png",
+  "name_zh": "杨晓欣",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

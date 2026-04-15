@@ -1,6 +1,6 @@
 {
   "player_id": "136711",
-  "name": "张本美和",
+  "name": "HARIMOTO Miwa",
   "english_name": "HARIMOTO Miwa",
   "country": "日本",
   "country_code": "JPN",
@@ -9,12 +9,12 @@
   "points": 4630,
   "rank_change": 0,
   "scraped_at": "2026-04-10T17:50:44.485271",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2008,
   "age": 17,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 6,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 5,
@@ -42,5 +42,10 @@
     "all_senior_titles": 1
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/136711_Headshot_R_Miwa HARIMOTO.png",
-  "avatar_file_path": "data/player_avatars/player_136711_HARIMOTO_Miwa.png"
+  "avatar_file_path": "data/player_avatars/player_136711_HARIMOTO_Miwa.png",
+  "name_zh": "张本美和",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

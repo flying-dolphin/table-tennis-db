@@ -1,6 +1,6 @@
 {
   "player_id": "131335",
-  "name": "汉娜高达",
+  "name": "GODA Hana",
   "english_name": "GODA Hana",
   "country": "埃及",
   "country_code": "EGY",
@@ -9,12 +9,12 @@
   "points": 1535,
   "rank_change": 4,
   "scraped_at": "2026-04-10T17:55:42.094418",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2007,
   "age": 18,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 22,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 22,
@@ -42,5 +42,10 @@
     "all_senior_titles": 1
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/131335_HEADSHOT_R_Hana_GODA.png",
-  "avatar_file_path": "data/player_avatars/player_131335_GODA_Hana.png"
+  "avatar_file_path": "data/player_avatars/player_131335_GODA_Hana.png",
+  "name_zh": "汉娜高达",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

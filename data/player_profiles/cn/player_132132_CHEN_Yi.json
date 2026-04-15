@@ -1,6 +1,6 @@
 {
   "player_id": "132132",
-  "name": "陈熠",
+  "name": "CHEN Yi",
   "english_name": "CHEN Yi",
   "country": "中国",
   "country_code": "CHN",
@@ -9,12 +9,12 @@
   "points": 4385,
   "rank_change": 0,
   "scraped_at": "2026-04-10T17:50:59.936947",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2004,
   "age": 21,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 7,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 7,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/132132_Headshot_R_CHEN_Yi.png",
-  "avatar_file_path": "data/player_avatars/player_132132_CHEN_Yi.png"
+  "avatar_file_path": "data/player_avatars/player_132132_CHEN_Yi.png",
+  "name_zh": "陈熠",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

@@ -1,20 +1,20 @@
 {
   "player_id": "123848",
-  "name": "柴田咲",
+  "name": "SHIBATA Saki",
   "english_name": "SHIBATA Saki",
-  "country": "日本",
+  "country": "JPN",
   "country_code": "JPN",
   "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=123848&vw_profiles___Name_raw=SHIBATA Saki",
   "rank": 49,
   "points": 560,
   "rank_change": -4,
   "scraped_at": "2026-04-14T12:38:16.793072",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1997,
   "age": 28,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 49,
   "ranking_week": "16/2026 (Apr 14th, 2026)",
   "career_stats": {
@@ -40,5 +40,11 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123848_Headshot_R_SHIBATA_Saki.png",
-  "avatar_file_path": "data\\player_avatars\\player_123848_SHIBATA_Saki.png"
+  "avatar_file_path": "data\\player_avatars\\player_123848_SHIBATA_Saki.png",
+  "name_zh": "柴田咲",
+  "country_zh": "日本",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

@@ -1,6 +1,6 @@
 {
   "player_id": "123120",
-  "name": "施徐耀",
+  "name": "SHI Xunyao",
   "english_name": "SHI Xunyao",
   "country": "中国",
   "country_code": "CHN",
@@ -9,12 +9,12 @@
   "points": 2760,
   "rank_change": -1,
   "scraped_at": "2026-04-10T17:53:30.549870",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2001,
   "age": 24,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 15,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 11,
@@ -42,5 +42,10 @@
     "all_senior_titles": 1
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/123120_HEADSHOT_R_SHI_Xunyao.png",
-  "avatar_file_path": "data/player_avatars/player_123120_SHI_Xunyao.png"
+  "avatar_file_path": "data/player_avatars/player_123120_SHI_Xunyao.png",
+  "name_zh": "施徐耀",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

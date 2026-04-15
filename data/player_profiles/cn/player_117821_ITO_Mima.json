@@ -1,6 +1,6 @@
 {
   "player_id": "117821",
-  "name": "伊藤美诚",
+  "name": "ITO Mima",
   "english_name": "ITO Mima",
   "country": "日本",
   "country_code": "JPN",
@@ -9,12 +9,12 @@
   "points": 3405,
   "rank_change": 0,
   "scraped_at": "2026-04-10T17:51:52.012467",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2000,
   "age": 25,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 10,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 2,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/117821_HEADSHOT_R_Mima_ITO 1.png",
-  "avatar_file_path": "data/player_avatars/player_117821_ITO_Mima.png"
+  "avatar_file_path": "data/player_avatars/player_117821_ITO_Mima.png",
+  "name_zh": "伊藤美诚",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

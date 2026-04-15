@@ -1,6 +1,6 @@
 {
   "player_id": "122261",
-  "name": "佐藤瞳",
+  "name": "SATO Hitomi",
   "english_name": "SATO Hitomi",
   "country": "日本",
   "country_code": "JPN",
@@ -9,12 +9,12 @@
   "points": 1270,
   "rank_change": -2,
   "scraped_at": "2026-04-10T17:56:19.584649",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1997,
   "age": 28,
-  "style": "右手(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Defence (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 24,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_stats": {
@@ -40,5 +40,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/122261_HEADSHOT_R_SATO_Hitomi .png",
-  "avatar_file_path": "data/player_avatars/player_122261_SATO_Hitomi.png"
+  "avatar_file_path": "data/player_avatars/player_122261_SATO_Hitomi.png",
+  "name_zh": "佐藤瞳",
+  "gender_zh": "女",
+  "style_zh": "右手(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

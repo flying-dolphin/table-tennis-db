@@ -1,6 +1,6 @@
 {
   "player_id": "121411",
-  "name": "王曼昱",
+  "name": "WANG Manyu",
   "english_name": "WANG Manyu",
   "country": "中国",
   "country_code": "CHN",
@@ -9,12 +9,12 @@
   "points": 9848,
   "rank_change": 0,
   "scraped_at": "2026-04-10T17:49:33.226709",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1999,
   "age": 27,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 2,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 2,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121411_Headshot_R_WANG_Manyu.png",
-  "avatar_file_path": "data/player_avatars/player_121411_WANG_Manyu.png"
+  "avatar_file_path": "data/player_avatars/player_121411_WANG_Manyu.png",
+  "name_zh": "王曼昱",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

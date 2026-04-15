@@ -1,20 +1,20 @@
 {
   "player_id": "102863",
-  "name": "余福",
+  "name": "YU Fu",
   "english_name": "YU Fu",
-  "country": "葡萄牙",
+  "country": "POR",
   "country_code": "POR",
   "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=102863&vw_profiles___Name_raw=YU Fu",
   "rank": 50,
   "points": 555,
   "rank_change": 0,
   "scraped_at": "2026-04-14T12:38:36.484845",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1978,
   "age": 47,
-  "style": "右手进攻型(直拍)",
-  "playing_hand": "右手",
-  "grip": "直拍",
+  "style": "Right-Hand Attack (Penhold)",
+  "playing_hand": "Right",
+  "grip": "Penhold",
   "current_rank": 50,
   "ranking_week": "16/2026 (Apr 14th, 2026)",
   "career_stats": {
@@ -40,5 +40,11 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/102863_Headshot_R_YU_Fu.png",
-  "avatar_file_path": "data\\player_avatars\\player_102863_YU_Fu.png"
+  "avatar_file_path": "data\\player_avatars\\player_102863_YU_Fu.png",
+  "name_zh": "余福",
+  "country_zh": "葡萄牙",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(直拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "直拍"
 }

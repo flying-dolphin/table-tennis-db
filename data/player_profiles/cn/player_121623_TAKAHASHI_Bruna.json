@@ -1,6 +1,6 @@
 {
   "player_id": "121623",
-  "name": "高桥布鲁娜",
+  "name": "TAKAHASHI Bruna",
   "english_name": "TAKAHASHI Bruna",
   "country": "巴西",
   "country_code": "BRA",
@@ -9,12 +9,12 @@
   "points": 1585,
   "rank_change": 0,
   "scraped_at": "2026-04-10T17:55:25.452640",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2000,
   "age": 25,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 21,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 16,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121623_Headshot_R_TAKAHASHI_Bruna.png",
-  "avatar_file_path": "data/player_avatars/player_121623_TAKAHASHI_Bruna.png"
+  "avatar_file_path": "data/player_avatars/player_121623_TAKAHASHI_Bruna.png",
+  "name_zh": "高桥布鲁娜",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

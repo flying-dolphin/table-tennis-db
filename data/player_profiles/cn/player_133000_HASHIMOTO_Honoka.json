@@ -1,6 +1,6 @@
 {
   "player_id": "133000",
-  "name": "桥本帆乃香",
+  "name": "HASHIMOTO Honoka",
   "english_name": "HASHIMOTO Honoka",
   "country": "日本",
   "country_code": "JPN",
@@ -9,12 +9,12 @@
   "points": 2940,
   "rank_change": 1,
   "scraped_at": "2026-04-10T17:53:11.046568",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1998,
   "age": 27,
-  "style": "右手(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Defence (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 14,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 10,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/133000_Headshot_R_Honoka HASHIMOTO.png",
-  "avatar_file_path": "data/player_avatars/player_133000_HASHIMOTO_Honoka.png"
+  "avatar_file_path": "data/player_avatars/player_133000_HASHIMOTO_Honoka.png",
+  "name_zh": "桥本帆乃香",
+  "gender_zh": "女",
+  "style_zh": "右手(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

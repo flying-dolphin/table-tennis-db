@@ -1,20 +1,20 @@
 {
   "player_id": "108226",
-  "name": "萨马拉·伊莉莎贝塔",
+  "name": "SAMARA Elizabeta",
   "english_name": "SAMARA Elizabeta",
-  "country": "罗马尼亚",
+  "country": "ROU",
   "country_code": "ROU",
   "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=108226&vw_profiles___Name_raw=SAMARA Elizabeta",
   "rank": 44,
   "points": 625,
   "rank_change": 0,
   "scraped_at": "2026-04-14T12:36:36.030892",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1989,
   "age": 36,
-  "style": "左手进攻型(横拍)",
-  "playing_hand": "左手",
-  "grip": "横拍",
+  "style": "Left-Hand Attack (ShakeHand)",
+  "playing_hand": "Left",
+  "grip": "ShakeHand",
   "current_rank": 44,
   "ranking_week": "16/2026 (Apr 14th, 2026)",
   "career_stats": {
@@ -40,5 +40,11 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/108226_HEADSHOT_R_ SAMARA_Elizabeta.png",
-  "avatar_file_path": "data\\player_avatars\\player_108226_SAMARA_Elizabeta.png"
+  "avatar_file_path": "data\\player_avatars\\player_108226_SAMARA_Elizabeta.png",
+  "name_zh": "萨马拉·伊莉莎贝塔",
+  "country_zh": "罗马尼亚",
+  "gender_zh": "女",
+  "style_zh": "左手进攻型(横拍)",
+  "playing_hand_zh": "左手",
+  "grip_zh": "横拍"
 }

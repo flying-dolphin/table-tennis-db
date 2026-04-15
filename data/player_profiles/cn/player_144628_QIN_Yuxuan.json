@@ -1,6 +1,6 @@
 {
   "player_id": "144628",
-  "name": "秦宇轩",
+  "name": "QIN Yuxuan",
   "english_name": "QIN Yuxuan",
   "country": "中国",
   "country_code": "CHN",
@@ -9,12 +9,12 @@
   "points": 1035,
   "rank_change": 11,
   "scraped_at": "2026-04-10T17:57:21.686556",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2006,
   "age": 19,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 27,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 27,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/144628_Headshot_R_QIN Yuxuan.png",
-  "avatar_file_path": "data/player_avatars/player_144628_QIN_Yuxuan.png"
+  "avatar_file_path": "data/player_avatars/player_144628_QIN_Yuxuan.png",
+  "name_zh": "秦宇轩",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

@@ -1,6 +1,6 @@
 {
   "player_id": "118762",
-  "name": "韩莹",
+  "name": "HAN Ying",
   "english_name": "HAN Ying",
   "country": "德国",
   "country_code": "GER",
@@ -9,12 +9,12 @@
   "points": 1640,
   "rank_change": 1,
   "scraped_at": "2026-04-10T17:54:45.636522",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1983,
   "age": 42,
-  "style": "右手(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Defence (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 19,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_stats": {
@@ -40,5 +40,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/118762_Headshot_R_Ying HAN.png",
-  "avatar_file_path": "data/player_avatars/player_118762_HAN_Ying.png"
+  "avatar_file_path": "data/player_avatars/player_118762_HAN_Ying.png",
+  "name_zh": "韩莹",
+  "gender_zh": "女",
+  "style_zh": "右手(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

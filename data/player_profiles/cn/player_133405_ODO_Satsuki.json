@@ -1,6 +1,6 @@
 {
   "player_id": "133405",
-  "name": "小野皐月",
+  "name": "ODO Satsuki",
   "english_name": "ODO Satsuki",
   "country": "日本",
   "country_code": "JPN",
@@ -9,12 +9,12 @@
   "points": 3065,
   "rank_change": -2,
   "scraped_at": "2026-04-10T17:52:49.641801",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2004,
   "age": 21,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 13,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 7,
@@ -42,5 +42,10 @@
     "all_senior_titles": 1
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/133405_Headshot_R_Satsuki ODO.png",
-  "avatar_file_path": "data/player_avatars/player_133405_ODO_Satsuki.png"
+  "avatar_file_path": "data/player_avatars/player_133405_ODO_Satsuki.png",
+  "name_zh": "小野皐月",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

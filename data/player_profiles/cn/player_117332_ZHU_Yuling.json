@@ -1,6 +1,6 @@
 {
   "player_id": "117332",
-  "name": "朱雨玲",
+  "name": "ZHU Yuling",
   "english_name": "ZHU Yuling",
   "country": "中国澳门",
   "country_code": "MAC",
@@ -9,12 +9,12 @@
   "points": 4820,
   "rank_change": -1,
   "scraped_at": "2026-04-10T17:50:21.759783",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1995,
   "age": 31,
-  "style": "右手进攻型(横拍)",
-  "playing_hand": "右手",
-  "grip": "横拍",
+  "style": "Right-Hand Attack (ShakeHand)",
+  "playing_hand": "Right",
+  "grip": "ShakeHand",
   "current_rank": 5,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_stats": {
@@ -40,5 +40,10 @@
     "all_senior_titles": 2
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/117332_Headshot_R_ZHU Yuling.png",
-  "avatar_file_path": "data/player_avatars/player_117332_ZHU_Yuling.png"
+  "avatar_file_path": "data/player_avatars/player_117332_ZHU_Yuling.png",
+  "name_zh": "朱雨玲",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(横拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "横拍"
 }

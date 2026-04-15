@@ -1,20 +1,20 @@
 {
   "player_id": "111849",
-  "name": "单晓娜",
+  "name": "SHAN Xiaona",
   "english_name": "SHAN Xiaona",
-  "country": "德国",
+  "country": "GER",
   "country_code": "GER",
   "profile_url": "https://results.ittf.link/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw=111849&vw_profiles___Name_raw=SHAN Xiaona",
   "rank": 84,
   "points": 310,
   "rank_change": -2,
   "scraped_at": "2026-04-14T16:23:29.600689",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 1983,
   "age": 43,
-  "style": "右手进攻型(直拍)",
-  "playing_hand": "右手",
-  "grip": "直拍",
+  "style": "Right-Hand Attack (Penhold)",
+  "playing_hand": "Right",
+  "grip": "Penhold",
   "current_rank": 84,
   "ranking_week": "16/2026 (Apr 14th, 2026)",
   "career_stats": {
@@ -40,5 +40,11 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/111849_Headshot_R_SHAN_Xiaona.png",
-  "avatar_file_path": "data\\player_avatars\\player_111849_SHAN_Xiaona.png"
+  "avatar_file_path": "data\\player_avatars\\player_111849_SHAN_Xiaona.png",
+  "name_zh": "单晓娜",
+  "country_zh": "德国",
+  "gender_zh": "女",
+  "style_zh": "右手进攻型(直拍)",
+  "playing_hand_zh": "右手",
+  "grip_zh": "直拍"
 }

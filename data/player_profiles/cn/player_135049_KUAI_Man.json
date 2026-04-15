@@ -1,6 +1,6 @@
 {
   "player_id": "135049",
-  "name": "快曼",
+  "name": "KUAI Man",
   "english_name": "KUAI Man",
   "country": "中国",
   "country_code": "CHN",
@@ -9,12 +9,12 @@
   "points": 4980,
   "rank_change": 1,
   "scraped_at": "2026-04-10T17:50:01.850622",
-  "gender": "女",
+  "gender": "Female",
   "birth_year": 2004,
   "age": 22,
-  "style": "左手进攻型(横拍)",
-  "playing_hand": "左手",
-  "grip": "横拍",
+  "style": "Left-Hand Attack (ShakeHand)",
+  "playing_hand": "Left",
+  "grip": "ShakeHand",
   "current_rank": 4,
   "ranking_week": "15/2026 (Apr 7th, 2026)",
   "career_best_rank": 3,
@@ -42,5 +42,10 @@
     "all_senior_titles": 0
   },
   "avatar_url": "https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/135049_Headshot_R_KUAI_Man.png",
-  "avatar_file_path": "data/player_avatars/player_135049_KUAI_Man.png"
+  "avatar_file_path": "data/player_avatars/player_135049_KUAI_Man.png",
+  "name_zh": "快曼",
+  "gender_zh": "女",
+  "style_zh": "左手进攻型(横拍)",
+  "playing_hand_zh": "左手",
+  "grip_zh": "横拍"
 }
