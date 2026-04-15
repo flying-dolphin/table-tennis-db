@@ -66,11 +66,17 @@ def load_json(path: Path) -> dict[str, Any]:
 
 
 def normalize_text(value: Any) -> str:
-    return str(value or "").strip()
+    text = str(value or "").strip()
+    text = re.sub(r"^\d{4}\s*", "", text)
+    text = re.sub(r"^\d{4}年", "", text)
+    return text.strip()
 
 
 def normalize_translation(value: str) -> str:
-    return re.sub(r"\s+", "", value)
+    value = re.sub(r"\s+", "", value)
+    value = re.sub(r"^\d{4}年", "", value)
+    value = re.sub(r"\d{4}年$", "", value)
+    return value.strip()
 
 
 def collect_cn_events_by_id(data: dict[str, Any]) -> dict[Any, dict[str, Any]]:
