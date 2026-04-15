@@ -4,17 +4,32 @@
 
 **年份必须放在翻译结果的开头**，格式为 `YYYY年`。
 
-## 格式模板
-
-### WTT 赛事
+## WTT 赛事 翻译结果格式
 ```
 [年份] + [赛事级别] + [赛事类型] + [地点] + [序号](可选)
 ```
 
-### ITTF 和 其他非WTT 赛事
+示例对比
+
+| 英文 | 正确翻译 |
+|------|----------|
+| WTT Champions Doha 2026 | 2026年WTT冠军赛多哈站 |
+| WTT Youth Star Contender Tunis 2026 | 2026年WTT青少年球星挑战赛突尼斯站 |
+
+
+## ITTF 、大满贯、其他非WTT 赛事 翻译结果格式
 ```
-[年份] + [赛事级别] + [地点] + [赛事类型] 
+[年份] + [地点] +  [赛事级别] + [赛事类型] 
 ```
+示例对比
+
+| 英文 | 正确翻译 |
+|------|----------|
+| Singapore Smash 2026 | 2026年新加坡大满贯赛 |
+| China Smash 2026 | 2026年中国大满贯赛 |
+| ITTF-ATTU Asian Cup Haikou 2026 | 2026年海口国际乒联-亚乒联亚洲杯 |
+| ETTU Europe Top 16 Cup Montreux 2026 | 2026年蒙特勒欧洲杯16强赛 |
+| ITTF-Africa Cup Benghazi 2026 | 2026年班加西国际乒联非洲杯 |
 
 ## 具体规范
 
@@ -29,9 +44,9 @@
 | ITTF | ITTF | 保持不变 |
 | ETTU | ETTU | 保持不变 |
 | ITTF-ATTU | 国际乒联-亚乒联 | 简称 |
-| ITTF-Oceania | 国际乒联大洋洲 | - |
-| ITTF-Americas | 国际乒联美洲 | - |
-| ITTF-Africa | 国际乒联非洲 | - |
+| ITTF-Oceania | 国际乒联大洋洲 | 简称 |
+| ITTF-Americas | 国际乒联美洲 | 简称 |
+| ITTF-Africa | 国际乒联非洲 | 简称 |
 
 ### 3. 赛事类型
 | 英文 | 中文 |
@@ -70,23 +85,9 @@
 | Individual | 个人 |
 | World Tour Grand Finals | 世界巡回赛总决赛 |
 
-## 示例对比
-
-| 英文 | 正确翻译 |
-|------|----------|
-| WTT Champions Doha 2026 | 2026年WTT冠军赛多哈站 |
-| Singapore Smash 2026 | 2026年新加坡大满贯赛 |
-| ITTF World Para Championships Pattaya 2026 | 2026年芭提雅ITTF世界残疾人锦标赛 |
-| United States Smash 2026 | 2026年美国大满贯赛 |
-| China Smash 2026 | 2026年中国大满贯赛 |
-| WTT Youth Star Contender Tunis 2026 | 2026年WTT青少年球星挑战赛突尼斯站 |
-| ITTF-ATTU Asian Cup Haikou 2026 | 2026年国际乒联-亚乒联海口亚洲杯 |
-| ETTU Europe Top 16 Cup Montreux 2026 | 2026年欧洲杯16强赛蒙特勒站 |
-
 ## 注意事项
 
-1. **不翻译**：WTT、ITTF、ETTU、ATTU 等组织名称
-2. **不翻译**：赞助商名称（如 AITO、Galaxy Entertainment Group）
-3. **不翻译**：人名地名（音译即可）
-4. **地名优先**：中国城市使用中文，其他音译
-5. **保持简洁**：避免过长翻译，移除冗余词汇
+1. **不翻译**：WTT、ITTF、ETTU 组织名称
+2. **不翻译**：赞助商名称（如 AITO、Galaxy Entertainment Group）, 过滤掉 Presented by XXX的内容
+3. **地名优先**：中国城市使用中文，其他音译
+4. **保持简洁**：避免过长翻译，移除冗余词汇, 但不得省略掉年份、赛事类型、城市地点这些模版里的关键信息。
