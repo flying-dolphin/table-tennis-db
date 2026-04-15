@@ -1,0 +1,3592 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "Mo ZHANG",
+  "english_name": "Mo ZHANG",
+  "country": "CAN",
+  "country_code": "CAN",
+  "continent": "",
+  "rank": 57,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-14T16:46:57.420098+00:00",
+      "events": [
+        {
+          "event_name": "ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group",
+          "event_type": "ITTF World Cup",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3379",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2026_1_ITTF_Men_s_Women_s_World_Cup_Macao_2026_Presented_by_Galaxy_Entertainment_Group.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "10:12",
+                "11:13",
+                "11:4",
+                "11:4"
+              ],
+              "winner": "ITO Mima",
+              "all_players_in_row": [
+                "ITO Mima (JPN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "ITO Mima (JPN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | ITO Mima (JPN) |  | ZHANG Mo (CAN) |  | WS | Qualification |  | 3 - 2 | 12:10 10:12 11:13 11:4 11:4 | ITO Mima |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "4:11",
+                "10:12"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "SAMARA Elizabeta (ROU)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "SAMARA Elizabeta (ROU)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | SAMARA Elizabeta (ROU) |  | ZHANG Mo (CAN) |  | WS | Qualification |  | 0 - 3 | 9:11 4:11 10:12 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛"
+            }
+          ],
+          "event_name_zh": "2026年澳门国际乒联男女世界杯",
+          "event_type_zh": "国际乒联世界杯"
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3267",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2026_2_WTT_Feeder_Dusseldorf_2026.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "16:14",
+                "8:11",
+                "11:9",
+                "6:11"
+              ],
+              "winner": "LY Edward",
+              "all_players_in_row": [
+                "NAYRE Jann Mari (PHI)",
+                "MEN Shuohan (NED)",
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "NAYRE Jann Mari (PHI)",
+                "LY Edward (CAN)"
+              ],
+              "side_b": [
+                "MEN Shuohan (NED)",
+                "ZHANG Mo (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | NAYRE Jann Mari (PHI) | MEN Shuohan (NED) | LY Edward (CAN) | ZHANG Mo (CAN) | XD | Main Draw | R16 | 2 - 3 | 5:11 16:14 8:11 11:9 6:11 | LY Edward | ZHANG Mo | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "12:10",
+                "11:7"
+              ],
+              "winner": "CHIEN Tung-Chuan",
+              "all_players_in_row": [
+                "MEN Shuohan (NED)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "CHIEN Tung-Chuan (TPE)",
+                "MEN Shuohan (NED)"
+              ],
+              "side_b": [
+                "LI Yu-Jhun (TPE)",
+                "ZHANG Mo (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | CHIEN Tung-Chuan (TPE) | LI Yu-Jhun (TPE) | MEN Shuohan (NED) | ZHANG Mo (CAN) | WD | Main Draw | R16 | 3 - 0 | 11:8 12:10 11:7 | CHIEN Tung-Chuan | LI Yu-Jhun | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:0",
+                "11:3"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "PINTO Matilde (POR)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "PINTO Matilde (POR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | ZHANG Mo (CAN) |  | PINTO Matilde (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:0 11:3 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:9",
+                "9:11",
+                "11:4"
+              ],
+              "winner": "LY Edward",
+              "all_players_in_row": [
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)",
+                "OMODA Tomoki (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "LY Edward (CAN)",
+                "OMODA Tomoki (JPN)"
+              ],
+              "side_b": [
+                "ZHANG Mo (CAN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | LY Edward (CAN) | ZHANG Mo (CAN) | OMODA Tomoki (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:7 11:9 9:11 11:4 | LY Edward | ZHANG Mo | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | ZHANG Mo (CAN) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 6:11 9:11 | OMODA Kotomi |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "10:12",
+                "11:6",
+                "9:11"
+              ],
+              "winner": "HAUG Borgar",
+              "all_players_in_row": [
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)",
+                "HAUG Borgar (NOR)",
+                "HURSEY Anna (WAL)"
+              ],
+              "side_a": [
+                "LY Edward (CAN)",
+                "HAUG Borgar (NOR)"
+              ],
+              "side_b": [
+                "ZHANG Mo (CAN)",
+                "HURSEY Anna (WAL)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | LY Edward (CAN) | ZHANG Mo (CAN) | HAUG Borgar (NOR) | HURSEY Anna (WAL) | XD | Main Draw | SemiFinal | 1 - 3 | 5:11 10:12 11:6 9:11 | HAUG Borgar | HURSEY Anna | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            }
+          ],
+          "event_name_zh": "2026年WTT支线赛杜塞尔多夫站",
+          "event_type_zh": "WTT支线赛系列"
+        },
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2026_3_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "15:13",
+                "11:9",
+                "10:12",
+                "10:12"
+              ],
+              "winner": "SER Lin Qian",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "SER Lin Qian (SGP)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "SER Lin Qian (SGP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | ZHANG Mo (CAN) |  | SER Lin Qian (SGP) |  | WS | Main Draw | R64 | 2 - 3 | 5:11 15:13 11:9 10:12 10:12 | SER Lin Qian |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            }
+          ],
+          "event_name_zh": "2026年新加坡大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "ITTF-Americas North American Championships San Francisco 2026",
+          "event_type": "Regional",
+          "event_year": "2026",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3470",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2026_4_ITTF-Americas_North_American_Championships_San_Francisco_2026.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "4:11",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "LY Edward",
+              "all_players_in_row": [
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)",
+                "NARESH Sid (USA)",
+                "KE Tiffany (USA)"
+              ],
+              "side_a": [
+                "LY Edward (CAN)",
+                "NARESH Sid (USA)"
+              ],
+              "side_b": [
+                "ZHANG Mo (CAN)",
+                "KE Tiffany (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | LY Edward (CAN) | ZHANG Mo (CAN) | NARESH Sid (USA) | KE Tiffany (USA) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:6 4:11 11:7 11:4 | LY Edward | ZHANG Mo | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:2",
+                "11:6"
+              ],
+              "winner": "LY Edward",
+              "all_players_in_row": [
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)",
+                "LI Andy (USA)",
+                "WANG Ke (USA)"
+              ],
+              "side_a": [
+                "LY Edward (CAN)",
+                "LI Andy (USA)"
+              ],
+              "side_b": [
+                "ZHANG Mo (CAN)",
+                "WANG Ke (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | LY Edward (CAN) | ZHANG Mo (CAN) | LI Andy (USA) | WANG Ke (USA) | XD | Main Draw | SemiFinal | 3 - 0 | 11:6 11:2 11:6 | LY Edward | ZHANG Mo | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "5:11",
+                "15:13",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "LY Edward",
+              "all_players_in_row": [
+                "LIANG Jishan (USA)",
+                "MOYLAND Sally (USA)",
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "LIANG Jishan (USA)",
+                "LY Edward (CAN)"
+              ],
+              "side_b": [
+                "MOYLAND Sally (USA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | LIANG Jishan (USA) | MOYLAND Sally (USA) | LY Edward (CAN) | ZHANG Mo (CAN) | XD | Main Draw | Final | 2 - 3 | 11:8 5:11 15:13 8:11 6:11 | LY Edward | ZHANG Mo | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "0:11",
+                "0:11",
+                "0:11",
+                "0:11"
+              ],
+              "winner": "WANG Ke",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "WANG Ke (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "WANG Ke (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | ZHANG Mo (CAN) |  | WANG Ke (USA) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 0:11 0:11 0:11 0:11 | WANG Ke |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            }
+          ],
+          "event_name_zh": "2026年旧金山国际乒联美洲北美锦标赛",
+          "event_type_zh": "地区赛事"
+        },
+        {
+          "event_name": "ITTF-Americas Cup San Francisco 2026",
+          "event_type": "Continental",
+          "event_year": "2026",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3398",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2026_5_ITTF-Americas_Cup_San_Francisco_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "11:5",
+                "11:2"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "CHEN Hildy (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "CHEN Hildy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | ZHANG Mo (CAN) |  | CHEN Hildy (USA) |  | WS | Main Draw | R16 | 4 - 0 | 11:9 11:7 11:5 11:2 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:5",
+                "11:8",
+                "11:5"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | ZHANG Mo (CAN) |  | TAKAHASHI Giulia (BRA) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 13:11 11:5 11:8 11:5 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "7:11",
+                "1:11",
+                "8:11"
+              ],
+              "winner": "ZHANG Lily",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | ZHANG Mo (CAN) |  | ZHANG Lily (USA) |  | WS | Main Draw | SemiFinal | 0 - 4 | 8:11 7:11 1:11 8:11 | ZHANG Lily |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            }
+          ],
+          "event_name_zh": "2026年旧金山国际乒联美洲杯赛",
+          "event_type_zh": "洲际赛"
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-14T16:46:57.420098+00:00",
+      "events": [
+        {
+          "event_name": "WTT Champions Frankfurt 2025",
+          "event_type": "WTT Champions",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3100",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_6_WTT_Champions_Frankfurt_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "DIAZ Adriana",
+              "all_players_in_row": [
+                "DIAZ Adriana (PUR)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "DIAZ Adriana (PUR)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | DIAZ Adriana (PUR) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R32 | 3 - 0 | 11:2 11:8 11:7 | DIAZ Adriana |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2025年WTT冠军赛法兰克福站",
+          "event_type_zh": "WTT冠军赛"
+        },
+        {
+          "event_name": "ITTF Pan American Championships Rock Hill 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3162",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_7_ITTF_Pan_American_Championships_Rock_Hill_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:4"
+              ],
+              "winner": "LY Edward",
+              "all_players_in_row": [
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)",
+                "VILA Isaac (DOM)",
+                "CASTRO Esmerlyn (DOM)"
+              ],
+              "side_a": [
+                "LY Edward (CAN)",
+                "VILA Isaac (DOM)"
+              ],
+              "side_b": [
+                "ZHANG Mo (CAN)",
+                "CASTRO Esmerlyn (DOM)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | LY Edward (CAN) | ZHANG Mo (CAN) | VILA Isaac (DOM) | CASTRO Esmerlyn (DOM) | XD | Main Draw | R32 | 3 - 0 | 11:6 11:4 11:4 | LY Edward | ZHANG Mo | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "12:14",
+                "9:11",
+                "11:13"
+              ],
+              "winner": "CASTRO Rogelio",
+              "all_players_in_row": [
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)",
+                "CASTRO Rogelio (MEX)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_a": [
+                "LY Edward (CAN)",
+                "CASTRO Rogelio (MEX)"
+              ],
+              "side_b": [
+                "ZHANG Mo (CAN)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | LY Edward (CAN) | ZHANG Mo (CAN) | CASTRO Rogelio (MEX) | COSSIO Arantxa (MEX) | XD | Main Draw | R16 | 1 - 3 | 11:8 12:14 9:11 11:13 | CASTRO Rogelio | COSSIO Arantxa | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "3:11",
+                "1:11",
+                "6:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "DIAZ Fabiola (PUR)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "DIAZ Fabiola (PUR)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | DIAZ Fabiola (PUR) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R32 | 0 - 4 | 4:11 3:11 1:11 6:11 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:13",
+                "3:11",
+                "4:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "VEGA Paulina (CHI)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "VEGA Paulina (CHI)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | VEGA Paulina (CHI) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R16 | 0 - 4 | 4:11 11:13 3:11 4:11 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "14:12",
+                "6:11",
+                "7:11",
+                "4:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "MOYLAND Sally (USA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "MOYLAND Sally (USA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | MOYLAND Sally (USA) |  | ZHANG Mo (CAN) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 7:11 14:12 6:11 7:11 4:11 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "4-2",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:7",
+                "11:6",
+                "9:11",
+                "11:5",
+                "11:5"
+              ],
+              "winner": "TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "TAKAHASHI Bruna (BRA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "TAKAHASHI Bruna (BRA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | TAKAHASHI Bruna (BRA) |  | ZHANG Mo (CAN) |  | WS | Main Draw | SemiFinal | 4 - 2 | 8:11 11:7 11:6 9:11 11:5 11:5 | TAKAHASHI Bruna |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "4:11",
+                "1:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "CODINA Ana (ARG)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "CODINA Ana (ARG)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | CODINA Ana (ARG) |  | ZHANG Mo (CAN) |  | WT | Qualification |  | 0 - 3 | 4:11 4:11 1:11 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛"
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:9",
+                "11:5"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "BURGOS Brianna (PUR)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "BURGOS Brianna (PUR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Mo (CAN) |  | BURGOS Brianna (PUR) |  | WT | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:9 11:5 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "DIAZ Adriana",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Mo (CAN) |  | DIAZ Adriana (PUR) |  | WT | Main Draw | QuarterFinal | 0 - 3 | 3:11 6:11 6:11 | DIAZ Adriana |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            }
+          ],
+          "event_name_zh": "2025年罗克希尔国际乒联泛美锦标赛",
+          "event_type_zh": "洲际赛"
+        },
+        {
+          "event_name": "China Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3098",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_8_China_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "12:14",
+                "11:9",
+                "11:4",
+                "11:8"
+              ],
+              "winner": "ZHU Sibing",
+              "all_players_in_row": [
+                "ZHU Sibing (CHN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "ZHU Sibing (CHN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | China Smash 2025 | ZHU Sibing (CHN) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R64 | 3 - 1 | 12:14 11:9 11:4 11:8 | ZHU Sibing |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            }
+          ],
+          "event_name_zh": "2025年中国大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "Europe Smash - Sweden 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3128",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_9_Europe_Smash_-_Sweden_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "5:11",
+                "7:11",
+                "10:12"
+              ],
+              "winner": "PAVADE Prithika",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | ZHANG Mo (CAN) |  | PAVADE Prithika (FRA) |  | WS | Main Draw | R64 | 1 - 3 | 11:8 5:11 7:11 10:12 | PAVADE Prithika |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            }
+          ],
+          "event_name_zh": "2025年瑞典欧洲大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "WTT Champions Yokohama 2025",
+          "event_type": "WTT Champions",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3094",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_10_WTT_Champions_Yokohama_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "3:11",
+                "7:11"
+              ],
+              "winner": "CHEN Xingtong",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Champions Yokohama 2025 | ZHANG Mo (CAN) |  | CHEN Xingtong (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 6:11 3:11 7:11 | CHEN Xingtong |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "6:11",
+                "11:8",
+                "2:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "SAMARA Elizabeta (ROU)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "SAMARA Elizabeta (ROU)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Champions Yokohama 2025 | SAMARA Elizabeta (ROU) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 6:11 11:8 2:11 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2025年WTT冠军赛横滨站",
+          "event_type_zh": "WTT冠军赛"
+        },
+        {
+          "event_name": "United States Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3082",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_11_United_States_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "5:11",
+                "11:4",
+                "11:5",
+                "11:9"
+              ],
+              "winner": "HAYATA Hina",
+              "all_players_in_row": [
+                "HAYATA Hina (JPN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "HAYATA Hina (JPN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | United States Smash 2025 | HAYATA Hina (JPN) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R64 | 3 - 2 | 6:11 5:11 11:4 11:5 11:9 | HAYATA Hina |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            }
+          ],
+          "event_name_zh": "2025年美国大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "ITTF World Table Tennis Championships Finals Doha 2025",
+          "event_type": "ITTF WTTC",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3108",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_12_ITTF_World_Table_Tennis_Championships_Finals_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "7:11",
+                "11:1"
+              ],
+              "winner": "KAUFMANN Annett",
+              "all_players_in_row": [
+                "KAUFMANN Annett (GER)",
+                "SHAN Xiaona (GER)",
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_a": [
+                "KAUFMANN Annett (GER)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
+                "SHAN Xiaona (GER)",
+                "LIAO Ivy (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | KAUFMANN Annett (GER) | SHAN Xiaona (GER) | ZHANG Mo (CAN) | LIAO Ivy (CAN) | WD | Main Draw | R64 | 3 - 1 | 11:7 11:5 7:11 11:1 | KAUFMANN Annett | SHAN Xiaona | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R128",
+              "match_score": "4-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:8",
+                "9:11",
+                "11:9",
+                "11:7",
+                "11:9"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ZHANG Mo (CAN) |  | SURJAN Sabina (SRB) |  | WS | Main Draw | R128 | 4 - 2 | 10:12 11:8 9:11 11:9 11:7 11:9 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "128强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:6",
+                "11:4",
+                "11:3"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ZHANG Mo (CAN) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R64 | 4 - 0 | 11:5 11:6 11:4 11:3 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 17,
+                  "opponent": 15
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "17:15",
+                "5:11",
+                "6:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "CHENG I-Ching",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ZHANG Mo (CAN) |  | CHENG I-Ching (TPE) |  | WS | Main Draw | R32 | 1 - 4 | 17:15 5:11 6:11 6:11 6:11 | CHENG I-Ching |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2025年多哈国际乒联世界乒乓球锦标赛总决赛",
+          "event_type_zh": "国际乒联世界乒乓球锦标赛"
+        },
+        {
+          "event_name": "ITTF Men's and Women's World Cup Macao 2025",
+          "event_type": "ITTF World Cup",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3109",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_13_ITTF_Men_s_and_Women_s_World_Cup_Macao_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "6:11",
+                "8:11",
+                "11:8"
+              ],
+              "winner": "CHIEN Tung-Chuan",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | ZHANG Mo (CAN) |  | CHIEN Tung-Chuan (TPE) |  | WS | Qualification |  | 1 - 3 | 8:11 6:11 8:11 11:8 | CHIEN Tung-Chuan |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:6",
+                "11:3",
+                "11:1"
+              ],
+              "winner": "SUN Yingsha",
+              "all_players_in_row": [
+                "SUN Yingsha (CHN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "SUN Yingsha (CHN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SUN Yingsha (CHN) |  | ZHANG Mo (CAN) |  | WS | Qualification |  | 4 - 0 | 11:4 11:6 11:3 11:1 | SUN Yingsha |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛"
+            }
+          ],
+          "event_name_zh": "2025年澳门国际乒联男女世界杯",
+          "event_type_zh": "国际乒联世界杯"
+        },
+        {
+          "event_name": "ITTF Pan American Cup San Francisco 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3117",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_14_ITTF_Pan_American_Cup_San_Francisco_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "12:10",
+                "11:7",
+                "11:1"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | ZHANG Mo (CAN) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R16 | 4 - 0 | 11:6 12:10 11:7 11:1 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:7",
+                "11:8",
+                "11:5"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | ZHANG Mo (CAN) |  | VEGA Paulina (CHI) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:3 11:7 11:8 11:5 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "6:11",
+                "3:11",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "ZHANG Lily",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | ZHANG Mo (CAN) |  | ZHANG Lily (USA) |  | WS | Main Draw | SemiFinal | 1 - 4 | 6:11 6:11 3:11 11:8 9:11 | ZHANG Lily |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            }
+          ],
+          "event_name_zh": "2025年旧金山国际乒联泛美杯",
+          "event_type_zh": "洲际赛"
+        },
+        {
+          "event_name": "Singapore Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3085",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2025_15_Singapore_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:7",
+                "5:11",
+                "6:11",
+                "11:9"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "PARANANG Orawan (THA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "PARANANG Orawan (THA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Singapore Smash 2025 | ZHANG Mo (CAN) |  | PARANANG Orawan (THA) |  | WS | Main Draw | R64 | 3 - 2 | 12:10 11:7 5:11 6:11 11:9 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:8",
+                "4:11",
+                "11:5"
+              ],
+              "winner": "DRAGOMAN Andreea",
+              "all_players_in_row": [
+                "DRAGOMAN Andreea (ROU)",
+                "SAMARA Elizabeta (ROU)",
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_a": [
+                "DRAGOMAN Andreea (ROU)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
+                "SAMARA Elizabeta (ROU)",
+                "LIAO Ivy (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Singapore Smash 2025 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | ZHANG Mo (CAN) | LIAO Ivy (CAN) | WD | Main Draw | R32 | 3 - 1 | 11:3 11:8 4:11 11:5 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 14,
+                  "opponent": 16
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "8:11",
+                "14:16",
+                "7:11"
+              ],
+              "winner": "ITO Mima",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | Singapore Smash 2025 | ZHANG Mo (CAN) |  | ITO Mima (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 13:11 8:11 14:16 7:11 | ITO Mima |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2025年新加坡大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        }
+      ]
+    },
+    "2024": {
+      "captured_at": "2026-04-14T16:46:57.420098+00:00",
+      "events": [
+        {
+          "event_name": "China Smash 2024",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2024",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2942",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_16_China_Smash_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "8:11",
+                "11:5",
+                "11:8"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LEE Zion (KOR)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "LEE Zion (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | China Smash 2024 | ZHANG Mo (CAN) |  | LEE Zion (KOR) |  | WS | Main Draw | R64 | 3 - 1 | 11:8 8:11 11:5 11:8 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:13",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | China Smash 2024 | ZHANG Mo (CAN) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 11:13 6:11 9:11 | TAKAHASHI Bruna |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2024年中国大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "WTT Champions Macao 2024",
+          "event_type": "WTT Champions",
+          "event_year": "2024",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2983",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_17_WTT_Champions_Macao_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "1:11",
+                "5:11",
+                "7:11"
+              ],
+              "winner": "WANG Yidi",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Macao 2024 | ZHANG Mo (CAN) |  | WANG Yidi (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 1:11 5:11 7:11 | WANG Yidi |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2024年WTT冠军赛澳门站",
+          "event_type_zh": "WTT冠军赛"
+        },
+        {
+          "event_name": "Olympic Games Paris 2024",
+          "event_type": "Olympic Games",
+          "event_year": "2024",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2603",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_18_Olympic_Games_Paris_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "5:11",
+                "7:11",
+                "8:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "VEGA Paulina (CHI)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "VEGA Paulina (CHI)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Olympic Games Paris 2024 | VEGA Paulina (CHI) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 5:11 7:11 8:11 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "4-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:6",
+                "11:5",
+                "11:4",
+                "11:7"
+              ],
+              "winner": "YUAN Jia Nan",
+              "all_players_in_row": [
+                "YUAN Jia Nan (FRA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "YUAN Jia Nan (FRA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Olympic Games Paris 2024 | YUAN Jia Nan (FRA) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R32 | 4 - 1 | 9:11 11:6 11:5 11:4 11:7 | YUAN Jia Nan |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2024年巴黎奥运会",
+          "event_type_zh": "奥运会"
+        },
+        {
+          "event_name": "WTT Contender Mendoza 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2934",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_19_WTT_Contender_Mendoza_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "IWASA Abril (ARG)",
+                "MARCIAL Alma (ARG)",
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_a": [
+                "IWASA Abril (ARG)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
+                "MARCIAL Alma (ARG)",
+                "LIAO Ivy (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Mendoza 2024 | IWASA Abril (ARG) | MARCIAL Alma (ARG) | ZHANG Mo (CAN) | LIAO Ivy (CAN) | WD | Main Draw | R16 | 0 - 3 | 6:11 8:11 6:11 | ZHANG Mo | LIAO Ivy | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "3:11",
+                "2:11"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "MOLERO Candela (ARG)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "MOLERO Candela (ARG)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Mendoza 2024 | MOLERO Candela (ARG) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 3:11 2:11 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "16:14",
+                "5:11",
+                "10:12"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "LUTZ Camille (FRA)",
+                "ZARIF Audrey (FRA)",
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_a": [
+                "LUTZ Camille (FRA)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
+                "ZARIF Audrey (FRA)",
+                "LIAO Ivy (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Mendoza 2024 | LUTZ Camille (FRA) | ZARIF Audrey (FRA) | ZHANG Mo (CAN) | LIAO Ivy (CAN) | WD | Main Draw | QuarterFinal | 1 - 3 | 7:11 16:14 5:11 10:12 | ZHANG Mo | LIAO Ivy | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "3:11",
+                "11:7",
+                "12:10"
+              ],
+              "winner": "CHENG Hsien-Tzu",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "CHENG Hsien-Tzu (TPE)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Mendoza 2024 | CHENG Hsien-Tzu (TPE) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R16 | 3 - 1 | 11:6 3:11 11:7 12:10 | CHENG Hsien-Tzu |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                }
+              ],
+              "games_display": [
+                "11:0",
+                "11:0",
+                "11:0"
+              ],
+              "winner": "CHENG Hsien-Tzu",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_a": [
+                "CHENG Hsien-Tzu (TPE)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
+                "CHIEN Tung-Chuan (TPE)",
+                "LIAO Ivy (CAN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Mendoza 2024 | CHENG Hsien-Tzu (TPE) | CHIEN Tung-Chuan (TPE) | ZHANG Mo (CAN) | LIAO Ivy (CAN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:0 11:0 11:0 | CHENG Hsien-Tzu | CHIEN Tung-Chuan | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            }
+          ],
+          "event_name_zh": "2024年WTT挑战赛门多萨站",
+          "event_type_zh": "WTT挑战赛系列"
+        },
+        {
+          "event_name": "WTT Contender Rio de Janeiro 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2867",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_20_WTT_Contender_Rio_de_Janeiro_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:6",
+                "11:9"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)",
+                "PRATES Jessica (BRA)",
+                "STOLARSKI Lhays (BRA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "PRATES Jessica (BRA)"
+              ],
+              "side_b": [
+                "LIAO Ivy (CAN)",
+                "STOLARSKI Lhays (BRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Rio de Janeiro 2024 | ZHANG Mo (CAN) | LIAO Ivy (CAN) | PRATES Jessica (BRA) | STOLARSKI Lhays (BRA) | WD | Main Draw | R16 | 3 - 0 | 11:7 11:6 11:9 | ZHANG Mo | LIAO Ivy | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 20,
+                  "opponent": 18
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "8:11",
+                "20:18",
+                "11:4"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Rio de Janeiro 2024 | ZHANG Mo (CAN) |  | LUTZ Charlotte (FRA) |  | WS | Main Draw | R32 | 3 - 1 | 12:10 8:11 20:18 11:4 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "9:11",
+                "7:11"
+              ],
+              "winner": "HASHIMOTO Honoka",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Rio de Janeiro 2024 | ZHANG Mo (CAN) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 5:11 9:11 7:11 | HASHIMOTO Honoka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:9",
+                "11:1"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)",
+                "SARDA Mahayla (BRA)",
+                "SHIRAY Karina (BRA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "SARDA Mahayla (BRA)"
+              ],
+              "side_b": [
+                "LIAO Ivy (CAN)",
+                "SHIRAY Karina (BRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Rio de Janeiro 2024 | ZHANG Mo (CAN) | LIAO Ivy (CAN) | SARDA Mahayla (BRA) | SHIRAY Karina (BRA) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:9 11:1 | ZHANG Mo | LIAO Ivy | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "8:11",
+                "5:11",
+                "4:11"
+              ],
+              "winner": "CHENG Hsien-Tzu",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "side_b": [
+                "LIAO Ivy (CAN)",
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Rio de Janeiro 2024 | ZHANG Mo (CAN) | LIAO Ivy (CAN) | CHENG Hsien-Tzu (TPE) | CHIEN Tung-Chuan (TPE) | WD | Main Draw | SemiFinal | 1 - 3 | 11:8 8:11 5:11 4:11 | CHENG Hsien-Tzu | CHIEN Tung-Chuan | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            }
+          ],
+          "event_name_zh": "2024年WTT挑战赛里约热内卢站",
+          "event_type_zh": "WTT挑战赛系列"
+        },
+        {
+          "event_name": "ITTF-Americas Olympic Qualification Lima 2025",
+          "event_type": "Olympic Qualification",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2935",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_21_ITTF-Americas_Olympic_Qualification_Lima_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:5",
+                "11:8",
+                "11:2"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LOZADA Juliana (COL)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "LOZADA Juliana (COL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | ITTF-Americas Olympic Qualification Lima 2025 | ZHANG Mo (CAN) |  | LOZADA Juliana (COL) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:6 11:5 11:8 11:2 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:8",
+                "11:1",
+                "11:5"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "ZENG Zhiying (CHI)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "ZENG Zhiying (CHI)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | ITTF-Americas Olympic Qualification Lima 2025 | ZHANG Mo (CAN) |  | ZENG Zhiying (CHI) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:8 11:8 11:1 11:5 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:4",
+                "11:5",
+                "11:5"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "BRITO Eva (DOM)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "BRITO Eva (DOM)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | ITTF-Americas Olympic Qualification Lima 2025 | ZHANG Mo (CAN) |  | BRITO Eva (DOM) |  | WS | Main Draw | Final | 4 - 0 | 11:3 11:4 11:5 11:5 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛"
+            }
+          ],
+          "event_name_zh": "2025年利马国际乒联美洲奥运资格赛",
+          "event_type_zh": "奥运资格赛"
+        },
+        {
+          "event_name": "Saudi Smash 2024",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2932",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_22_Saudi_Smash_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "13:15",
+                "3:11",
+                "11:13"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "WAN Yuan (GER)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "WAN Yuan (GER)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Saudi Smash 2024 | WAN Yuan (GER) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R64 | 0 - 3 | 13:15 3:11 11:13 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强"
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "5:11",
+                "11:9",
+                "8:11",
+                "9:11"
+              ],
+              "winner": "KALLBERG Christina",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "LIAO Ivy (CAN)",
+                "KALLBERG Christina (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [
+                "LIAO Ivy (CAN)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Saudi Smash 2024 | ZHANG Mo (CAN) | LIAO Ivy (CAN) | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | WD | Main Draw | R32 | 2 - 3 | 11:9 5:11 11:9 8:11 9:11 | KALLBERG Christina | BERGSTROM Linda | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "CHEN Meng",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Saudi Smash 2024 | ZHANG Mo (CAN) |  | CHEN Meng (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 7:11 7:11 | CHEN Meng |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强"
+            }
+          ],
+          "event_name_zh": "2024年沙特大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "ITTF World Cup Macao 2024",
+          "event_type": "ITTF World Cup",
+          "event_year": "2024",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=110560&vw_matches___player_a_id[value][]=110560&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=110560&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=110560&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=110560&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2937",
+          "raw_capture_file": "data\\raw_event_payloads\\Mo_ZHANG\\2024_23_ITTF_World_Cup_Macao_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:4",
+                "11:5",
+                "8:11"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | ITTF World Cup Macao 2024 | HARIMOTO Miwa (JPN) |  | ZHANG Mo (CAN) |  | WS | Qualification |  | 3 - 1 | 11:5 11:4 11:5 8:11 | HARIMOTO Miwa |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛"
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:8",
+                "11:13",
+                "10:12"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | ITTF World Cup Macao 2024 | KIM Nayeong (KOR) |  | ZHANG Mo (CAN) |  | WS | Qualification |  | 1 - 3 | 8:11 11:8 11:13 10:12 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛"
+            }
+          ],
+          "event_name_zh": "2024年澳门国际乒联世界杯",
+          "event_type_zh": "国际乒联世界杯"
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-14T16:46:57.419589+00:00",
+  "updated_at": "2026-04-14T16:53:37.470982+00:00",
+  "captured_at": "2026-04-14T16:46:57.420098+00:00",
+  "player_name_zh": "Mo ZHANG",
+  "country_zh": "加拿大"
+}
