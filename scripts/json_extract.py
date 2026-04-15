@@ -5,49 +5,43 @@ import sys
 from pathlib import Path
 
 
-def get_nested_value(data, key_path):
-    keys = key_path.split(".")
-    value = data
-    for key in keys:
-        if isinstance(value, dict):
-            value = value.get(key)
-        elif isinstance(value, list):
-            try:
-                index = int(key)
-                value = value[index] if index < len(value) else None
-            except ValueError:
-                return None
-        else:
-            return None
-        if value is None:
-            return None
-    return value
-
-
-def get_nested_value(data, key_path):
+def get_nested_values(data, key_path, _all=False):
     parts = key_path.split(".")
-    current = data
-    for part in parts:
-        if isinstance(current, dict):
-            current = current.get(part)
+    results = []
+
+    def traverse(current, idx):
+        if idx == len(parts):
+            results.append(current)
+            return
+        part = parts[idx]
+        if part == "*":
+            if isinstance(current, dict):
+                for v in current.values():
+                    traverse(v, idx + 1)
+            elif isinstance(current, list):
+                for v in current:
+                    traverse(v, idx + 1)
+        elif isinstance(current, dict):
+            traverse(current.get(part), idx + 1)
         elif isinstance(current, list):
             try:
                 index = int(part)
-                current = current[index] if index < len(current) else None
+                if index < len(current):
+                    traverse(current[index], idx + 1)
             except ValueError:
-                return None
+                pass
         else:
-            return None
-        if current is None:
-            return None
-    return current
+            pass
+
+    traverse(data, 0)
+    return results
 
 
 def main():
     parser = argparse.ArgumentParser(description="Extract values from JSON by key path")
     parser.add_argument("file", type=str, help="Input JSON file path")
-    parser.add_argument("key", type=str, help="Key path (e.g., 'name' or 'data.players.0.name')")
-    parser.add_argument("--array", "-a", action="store_true", help="Iterate array and extract field from each item")
+    parser.add_argument("key", type=str, help="Key path (e.g., 'name', 'data.players.0.name', 'years.*.events.*.sub_event')")
+    parser.add_argument("--array", "-a", action="store_true", help="Iterate array/object and extract field from each item")
     args = parser.parse_args()
 
     file_path = Path(args.file)
@@ -61,31 +55,39 @@ def main():
     if args.array:
         parts = args.key.split(".")
         if len(parts) < 2:
-            print("Error: --array requires at least one parent path segment (e.g., 'events.name')", file=sys.stderr)
+            print("Error: --array requires parent path + field (e.g., 'events.name' or 'years.*.events.*.sub_event')", file=sys.stderr)
             sys.exit(1)
         arr_path = ".".join(parts[:-1])
         field = parts[-1]
-        arr = get_nested_value(data, arr_path)
-        if not isinstance(arr, list):
-            print(f"Error: '{arr_path}' is not an array", file=sys.stderr)
-            sys.exit(1)
-        for item in arr:
-            value = item.get(field) if isinstance(item, dict) else None
-            if value is not None:
-                if isinstance(value, (dict, list)):
-                    print(json.dumps(value, ensure_ascii=False))
-                else:
-                    print(value)
+
+        if field == "*":
+            for item in get_nested_values(data, arr_path):
+                if isinstance(item, (dict, list)):
+                    print(json.dumps(item, ensure_ascii=False))
+                elif item is not None:
+                    print(item)
+        else:
+            for item in get_nested_values(data, arr_path):
+                if isinstance(item, list):
+                    for sub in item:
+                        if isinstance(sub, dict):
+                            val = sub.get(field)
+                            if val is not None:
+                                print(val)
+                elif isinstance(item, dict):
+                    val = item.get(field)
+                    if val is not None:
+                        print(val)
     else:
-        value = get_nested_value(data, args.key)
-        if value is not None:
+        values = get_nested_values(data, args.key)
+        if not values:
+            print(f"Error: Key '{args.key}' not found", file=sys.stderr)
+            sys.exit(1)
+        for value in values:
             if isinstance(value, (dict, list)):
                 print(json.dumps(value, ensure_ascii=False, indent=2))
             else:
                 print(value)
-        else:
-            print(f"Error: Key '{args.key}' not found", file=sys.stderr)
-            sys.exit(1)
 
 
 if __name__ == "__main__":

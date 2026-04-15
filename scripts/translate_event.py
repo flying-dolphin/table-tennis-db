@@ -246,7 +246,6 @@ def run(args: argparse.Namespace) -> int:
             cn_events_by_id = {e["event_id"]: e for e in cn_data.get("events", []) if "event_id" in e}
         except Exception:
             pass
-
     base_events: list[dict] = []
     for e in events:
         ev = dict(e)
