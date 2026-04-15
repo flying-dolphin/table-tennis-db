@@ -11,6 +11,9 @@ references/
 data/checkpoints/
 data/session/
 scripts/.*
+scripts/logs
+data/raw_event_payloads
+tmp/
 .env
 .vscode
 .claude
