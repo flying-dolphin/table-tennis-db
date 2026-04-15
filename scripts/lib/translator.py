@@ -8,12 +8,16 @@
 - 返回 dict[str, str] (key -> translated_value)
 
 支持的 API：
-- MiniMax（默认）
+- MiniMax（默认）：provider="minimax"
+- Kimi（Moonshot AI）：provider="kimi"
+- 通义千问（阿里云）：provider="qwen"
 
 使用方法：
     from lib.translator import LLMTranslator
 
-    translator = LLMTranslator()
+    translator = LLMTranslator()  # 默认 MiniMax
+    translator = LLMTranslator(provider="kimi", model="moonshot-v1-32k")
+    translator = LLMTranslator(provider="qwen", model="qwen-plus")
     results = translator.translate({"Ma Long": "Ma Long", "event_name": "World Championships"})
     # => {"Ma Long": "马龙", "event_name": "世界锦标赛"}
 """
@@ -23,7 +27,11 @@ from __future__ import annotations
 import json
 import logging
 import os
+import socket
+import threading
+from queue import Empty, Queue
 from pathlib import Path
+from typing import Callable
 
 from dotenv import load_dotenv
 
@@ -32,24 +40,79 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 logger = logging.getLogger(__name__)
 
-MAX_BATCH_SIZE = 1024  # 单批次最大字符数
+MAX_BATCH_SIZE = 10240 # 单批次最大字符数
 
 
 class LLMTranslator:
     """纯 LLM 翻译器
 
+    支持的 provider：
+    - minimax：API Key 来自环境变量 MINIMAX_API_KEY
+    - kimi：API Key 来自环境变量 MOONSHOT_API_KEY
+    - qwen：API Key 来自环境变量 DASHSCOPE_API_KEY
+
     API Key 优先级：
     1. 传入的参数 api_key
-    2. 环境变量 MINIMAX_API_KEY（从 .env 文件自动加载）
+    2. 对应 provider 的环境变量（从 .env 文件自动加载）
     """
 
-    def __init__(self, api_key: str | None = None, provider: str = "minimax"):
-        self.api_key = api_key or os.environ.get("MINIMAX_API_KEY")
+    PROVIDER_CONFIGS: dict[str, dict] = {
+        "minimax": {
+            "api_url": "https://api.minimax.chat/v1/text/chatcompletion_v2",
+            "default_model": "MiniMax-M2.7",
+            "env_key": "MINIMAX_API_KEY",
+        },
+        "kimi": {
+            "api_url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            "default_model": "kimi-k2.5",
+            "env_key": "KIMI_API_KEY",
+        },
+        "qwen": {
+            "api_url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            "default_model": "qwen3.5-plus",
+            "env_key": "DASHSCOPE_API_KEY",
+            "request_timeout": 240,
+            "max_batch_size": 4096,
+        },
+        "glm": {
+            "api_url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            "default_model": "glm-5",
+            "env_key": "ZHIPU_API_KEY",
+            "request_timeout": 180,
+        },
+        "deepseek": {
+            "api_url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            "default_model": "deepseek-v3.2",
+            "env_key": "DEEPSEEK_API_KEY",
+            "request_timeout": 180,
+        },
+    }
+
+    def __init__(
+        self,
+        api_key: str | None = None,
+        provider: str = "minimax",
+        model: str | None = None,
+    ):
         self.provider = provider.lower()
+        if self.provider not in self.PROVIDER_CONFIGS:
+            supported = ", ".join(self.PROVIDER_CONFIGS.keys())
+            raise ValueError(f"不支持的 provider: {provider}，支持: {supported}")
+
+        cfg = self.PROVIDER_CONFIGS[self.provider]
+        self.api_key = api_key or os.environ.get(cfg["env_key"])
+        self.model = model or cfg["default_model"]
+        self._api_url = cfg["api_url"]
+        self._request_timeout = int(cfg.get("request_timeout", 120))
+        self._max_batch_size = int(cfg.get("max_batch_size", MAX_BATCH_SIZE))
+        self.total_tokens: dict[str, int] = {"prompt": 0, "completion": 0, "total": 0}
 
     def translate(
-        self, items: dict[str, str], category: str = "event"
-    ) -> dict[str, str]:
+        self,
+        items: dict[str, str],
+        category: str = "event",
+        on_batch_complete: Callable[[int, int, dict[str, str]], None] | None = None,
+    ) -> dict[str, str] | None:
         """
         翻译一组 key-value 数据，只翻译 value，key 作为上下文参考。
 
@@ -58,7 +121,7 @@ class LLMTranslator:
             category: 翻译类型，支持 event / profile / other，默认 event
 
         Returns:
-            {key: translated_value} 字典
+            {key: translated_value} 字典，翻译完全失败时返回 None
         """
         if category not in ("event", "profile", "other"):
             logger.warning("不支持的翻译类型: %s，使用默认 event", category)
@@ -69,16 +132,24 @@ class LLMTranslator:
 
         if not self.api_key:
             logger.error("未配置 API Key，无法翻译")
-            return {k: v for k, v in items.items()}
+            return None
 
         batches = self._split_batches(items)
-        logger.info("翻译 %d 条，拆分为 %d 批", len(items), len(batches))
+        logger.info(
+            "翻译 %d 条，拆分为 %d 批 [%s %s, batch_limit=%d, timeout=%ss]",
+            len(items), len(batches), self.provider, self.model, self._max_batch_size, self._request_timeout
+        )
 
         results: dict[str, str] = {}
         for i, batch in enumerate(batches, 1):
             logger.info("翻译批次 %d/%d (%d 条)", i, len(batches), len(batch))
             batch_result = self._translate_batch(batch, category=category)
+            if not batch_result:
+                logger.error("批次 %d/%d 翻译失败", i, len(batches))
+                return None
             results.update(batch_result)
+            if on_batch_complete is not None:
+                on_batch_complete(i, len(batches), dict(batch_result))
 
         # 未成功翻译的保留原文
         for key, value in items.items():
@@ -86,10 +157,19 @@ class LLMTranslator:
                 logger.warning("未翻译: %s -> %s", key, value)
                 results[key] = value
 
+        if self.total_tokens["total"]:
+            logger.info(
+                "Token 累计 [%s %s]: prompt=%d, completion=%d, total=%d",
+                self.provider, self.model,
+                self.total_tokens["prompt"],
+                self.total_tokens["completion"],
+                self.total_tokens["total"],
+            )
+
         return results
 
     def _split_batches(self, items: dict[str, str]) -> list[dict[str, str]]:
-        """按 MAX_BATCH_SIZE 拆分批次"""
+        """按 provider 对应的批次大小拆分批次"""
         batches: list[dict[str, str]] = []
         current_batch: dict[str, str] = {}
         current_size = 0
@@ -98,7 +178,7 @@ class LLMTranslator:
             line = f"{key}: {value}"
             line_size = len(line.encode("utf-8"))
 
-            if current_batch and current_size + line_size > MAX_BATCH_SIZE:
+            if current_batch and current_size + line_size > self._max_batch_size:
                 batches.append(current_batch)
                 current_batch = {}
                 current_size = 0
@@ -117,6 +197,7 @@ class LLMTranslator:
         """调用 LLM API 翻译一个批次"""
         lines = [f"{key}: {value}" for key, value in batch.items()]
         input_text = "\n".join(lines)
+        batch_bytes = len(input_text.encode("utf-8"))
 
         base_prompt = (
             "你是专业的乒乓球领域中英翻译助手。\n"
@@ -164,6 +245,10 @@ class LLMTranslator:
 
         user_prompt = f"请翻译以下内容：\n\n{input_text}"
 
+        logger.info(
+            "提交翻译批次 [%s %s]: items=%d, input_bytes=%d",
+            self.provider, self.model, len(batch), batch_bytes
+        )
         response = self._call_api(system_prompt, user_prompt)
         if not response:
             return {}
@@ -171,15 +256,13 @@ class LLMTranslator:
         return self._parse_response(response, batch)
 
     def _call_api(self, system_prompt: str, user_prompt: str, max_retries: int = 3) -> str | None:
-        """调用 MiniMax API，5xx 错误自动重试"""
+        """调用 LLM API，5xx 错误自动重试。支持 minimax / kimi / qwen。"""
         import time
         import urllib.error
         import urllib.request
 
-        api_url = "https://api.minimax.chat/v1/text/chatcompletion_v2"
-
         data = json.dumps({
-            "model": "MiniMax-M2.7",
+            "model": self.model,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
@@ -189,7 +272,7 @@ class LLMTranslator:
 
         for attempt in range(1, max_retries + 1):
             req = urllib.request.Request(
-                api_url,
+                self._api_url,
                 data=data,
                 headers={
                     "Content-Type": "application/json",
@@ -199,38 +282,101 @@ class LLMTranslator:
             )
 
             try:
-                with urllib.request.urlopen(req, timeout=120) as resp:
-                    result = json.loads(resp.read().decode("utf-8"))
+                result = self._urlopen_json_interruptible(req, timeout=self._request_timeout)
 
-                    choices = result.get("choices")
-                    if choices and len(choices) > 0:
-                        return choices[0]["message"]["content"].strip()
+                choices = result.get("choices")
+                if choices and len(choices) > 0:
+                    usage = result.get("usage", {})
+                    prompt_tokens = usage.get("prompt_tokens", 0)
+                    completion_tokens = usage.get("completion_tokens", 0)
+                    total_tokens = usage.get("total_tokens", prompt_tokens + completion_tokens)
+                    if total_tokens:
+                        self.total_tokens["prompt"] += prompt_tokens
+                        self.total_tokens["completion"] += completion_tokens
+                        self.total_tokens["total"] += total_tokens
+                        logger.info(
+                            "Token 消耗 [%s %s]: prompt=%d, completion=%d, total=%d",
+                            self.provider, self.model,
+                            prompt_tokens, completion_tokens, total_tokens,
+                        )
+                    return choices[0]["message"]["content"].strip()
 
-                    reply = result.get("reply", "")
-                    if reply:
-                        return reply.strip()
+                # MiniMax 旧版兼容字段
+                reply = result.get("reply", "")
+                if reply:
+                    return reply.strip()
 
-                    base_resp = result.get("base_resp", {})
-                    status_msg = base_resp.get("status_msg", "")
-                    if status_msg:
-                        logger.warning("API 返回错误: %s", status_msg)
-                    else:
-                        logger.warning("API 返回异常结构: %s", list(result.keys()))
-                    return None
+                base_resp = result.get("base_resp", {})
+                status_msg = base_resp.get("status_msg", "")
+                if status_msg:
+                    logger.warning("API 返回错误: %s", status_msg)
+                else:
+                    logger.warning("API 返回异常结构: %s", list(result.keys()))
+                return None
 
+            except KeyboardInterrupt:
+                logger.warning("API 调用被用户中断")
+                raise
             except urllib.error.HTTPError as e:
                 if e.code >= 500 and attempt < max_retries:
                     wait = 2 ** attempt
                     logger.warning("API %d 错误，%ds 后重试 (%d/%d)", e.code, wait, attempt, max_retries)
                     time.sleep(wait)
                     continue
-                logger.error("API 调用失败: %s", e)
+                logger.error("API 调用失败 [%s %s]: %s", self.provider, self.model, e)
+            except urllib.error.URLError as e:
+                if attempt < max_retries:
+                    wait = 2 ** attempt
+                    logger.warning("API 网络错误，%ds 后重试 (%d/%d): %s", wait, attempt, max_retries, e.reason)
+                    time.sleep(wait)
+                    continue
+                logger.error("API 调用失败 [%s %s]: %s", self.provider, self.model, e)
+            except (socket.timeout, TimeoutError) as e:
+                if attempt < max_retries:
+                    wait = 2 ** attempt
+                    logger.warning(
+                        "API 读取超时，%ds 后重试 (%d/%d) [%s %s, timeout=%ss]: %s",
+                        wait, attempt, max_retries, self.provider, self.model, self._request_timeout, e
+                    )
+                    time.sleep(wait)
+                    continue
+                logger.error(
+                    "API 调用失败 [%s %s]: read timeout after %ss: %s",
+                    self.provider, self.model, self._request_timeout, e
+                )
             except Exception as e:
-                logger.error("API 调用失败: %s", e)
+                logger.error("API 调用失败 [%s %s]: %s", self.provider, self.model, e)
 
             return None
 
         return None
+
+    def _urlopen_json_interruptible(self, req, timeout: int = 120) -> dict:
+        """在后台线程执行 urlopen，让主线程可及时响应 Ctrl+C。"""
+        result_queue: Queue[tuple[str, object]] = Queue(maxsize=1)
+
+        def worker() -> None:
+            import urllib.request
+
+            try:
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    payload = resp.read().decode("utf-8")
+                result_queue.put(("ok", json.loads(payload)))
+            except BaseException as exc:
+                result_queue.put(("err", exc))
+
+        thread = threading.Thread(target=worker, daemon=True)
+        thread.start()
+
+        while True:
+            try:
+                status, payload = result_queue.get(timeout=0.5)
+            except Empty:
+                continue
+
+            if status == "ok":
+                return payload  # type: ignore[return-value]
+            raise payload  # type: ignore[misc]
 
     def translate_document(self, content: str) -> str | None:
         """

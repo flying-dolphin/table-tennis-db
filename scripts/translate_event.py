@@ -67,17 +67,23 @@ def collect_translate_items(events: list[dict], skip_ids: set[int]) -> dict[str,
     return items
 
 
-def apply_translations(events: list[dict], translated: dict[str, str], skip_ids: set[int]) -> list[dict]:
+def apply_translations(
+    events: list[dict],
+    translated: dict[str, str],
+    translate_skip_ids: set[int],
+    output_skip_ids: set[int] | None = None,
+) -> list[dict]:
     result = []
     for event in events:
         ev = dict(event)
         eid = event.get("event_id")
-        if eid not in skip_ids:
+        if eid not in translate_skip_ids:
             for field in TRANSLATE_FIELDS:
                 key = f"{eid}.{field}"
                 if key in translated:
-                    ev[field] = translated[key]
-        result.append(ev)
+                    ev[field] = translated[key].replace(" ", "")
+        if output_skip_ids is None or eid not in output_skip_ids:
+            result.append(ev)
     return result
 
 
@@ -103,6 +109,83 @@ def merge_with_existing_cn(orig_data: dict, cn_path: Path, translated_events: li
     return result
 
 
+def build_result(
+    orig_data: dict,
+    base_events: list[dict],
+    excluded_event_ids: set[int],
+    output_skip_ids: set[int] | None,
+) -> dict:
+    final_events = [
+        ev
+        for ev in base_events
+        if ev.get("event_id") not in excluded_event_ids
+        and (output_skip_ids is None or ev.get("event_id") not in output_skip_ids)
+    ]
+    result = dict(orig_data)
+    result["events"] = final_events
+    return result
+
+
+def apply_batch_to_base_events(
+    base_events: list[dict],
+    batch_result: dict[str, str],
+    translate_skip_ids: set[int],
+    failed_event_ids: set[int],
+) -> None:
+    for ev in base_events:
+        eid = ev.get("event_id")
+        if eid in translate_skip_ids or eid in failed_event_ids:
+            continue
+        for field in TRANSLATE_FIELDS:
+            key = f"{eid}.{field}"
+            if key in batch_result:
+                ev[field] = batch_result[key]
+
+
+def validate_translations(
+    base_events: list[dict],
+    translated: dict[str, str],
+    translate_skip_ids: set[int],
+    failed_event_ids: set[int],
+) -> None:
+    for ev in base_events:
+        eid = ev.get("event_id")
+        if eid in translate_skip_ids or eid in failed_event_ids:
+            continue
+        for field in TRANSLATE_FIELDS:
+            orig_value = ev.get(field, "")
+            if orig_value in SKIP_VALUES:
+                logger.debug("event %s field '%s' is skip value %r, skipping", eid, field, orig_value)
+                continue
+            key = f"{eid}.{field}"
+            if key in translated:
+                ev[field] = translated[key]
+            else:
+                logger.warning("event %s field '%s' missing from translated (key=%r)", eid, field, key)
+                failed_event_ids.add(eid)
+                break
+
+
+def collect_incomplete_event_ids(
+    events: list[dict],
+    translated: dict[str, str],
+    translate_skip_ids: set[int],
+) -> set[int]:
+    incomplete_ids: set[int] = set()
+    for event in events:
+        eid = event.get("event_id")
+        if eid in translate_skip_ids:
+            continue
+        for field in TRANSLATE_FIELDS:
+            orig_value = event.get(field, "")
+            if orig_value in SKIP_VALUES:
+                continue
+            if f"{eid}.{field}" not in translated:
+                incomplete_ids.add(eid)
+                break
+    return incomplete_ids
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Translate events_list files from orig to cn")
     parser.add_argument("--file", type=str, help="Specify orig file name (default: latest in orig/)")
@@ -111,6 +194,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--force", action="store_true", help="Re-translate all events, ignoring existing cn file")
     parser.add_argument("--event-id", type=int, nargs="+", help="Only translate specific event_id(s)")
     parser.add_argument("--top", type=int, help="Only translate the first N events (in file order)")
+    parser.add_argument("--provider", default="minimax", help="LLM provider (minimax, kimi, qwen, glm, deepseek)")
+    parser.add_argument("--model", default=None, help="LLM model name (default: provider's default model)")
     return parser
 
 
@@ -153,27 +238,86 @@ def run(args: argparse.Namespace) -> int:
         target_ids = {e["event_id"] for e in events[:args.top]}
         logger.info("Filtering to top %d events", args.top)
 
-    skip_ids = set() if args.force else load_cn_event_ids(cn_path)
-    if target_ids is not None:
-        # Only translate specified events; skip everything else
-        skip_ids = skip_ids | {e["event_id"] for e in events if e["event_id"] not in target_ids}
-    if skip_ids:
-        logger.info("Skipping %d events", len(skip_ids))
+    # Load existing CN translations and merge into base events first
+    cn_events_by_id: dict[int, dict] = {}
+    if not args.force and cn_path.exists():
+        try:
+            cn_data = load_json(cn_path)
+            cn_events_by_id = {e["event_id"]: e for e in cn_data.get("events", []) if "event_id" in e}
+        except Exception:
+            pass
 
-    items = collect_translate_items(events, skip_ids)
+    base_events: list[dict] = []
+    for e in events:
+        ev = dict(e)
+        eid = ev.get("event_id")
+        if eid in cn_events_by_id:
+            for field in TRANSLATE_FIELDS:
+                if field in cn_events_by_id[eid]:
+                    ev[field] = cn_events_by_id[eid][field]
+        base_events.append(ev)
+
+    existing_ids = set() if args.force else load_cn_event_ids(cn_path)
+    translate_skip_ids = existing_ids
+    output_skip_ids: set[int] | None = None
+
+    if target_ids is not None:
+        non_target_ids = {e["event_id"] for e in events if e["event_id"] not in target_ids}
+        translate_skip_ids = translate_skip_ids | non_target_ids
+        output_skip_ids = non_target_ids
+
+    if translate_skip_ids:
+        logger.info("Skipping %d events", len(translate_skip_ids))
+
+    # Collect items to translate from original data (so already-translated CN values aren't re-translated)
+    items = collect_translate_items(events, translate_skip_ids)
     if not items:
         logger.info("No new events to translate")
-        if not cn_path.exists():
-            save_json(cn_path, orig_data)
+        final_events = [ev for ev in base_events if output_skip_ids is None or ev.get("event_id") not in output_skip_ids]
+        result = dict(orig_data)
+        result["events"] = final_events
+        save_json(cn_path, result)
         return 0
 
     logger.info("Translating %d fields from %d events", len(items), len(items) // len(TRANSLATE_FIELDS) + 1)
 
-    translator = LLMTranslator()
-    translated = translator.translate(items)
+    failed_event_ids: set[int] = set()
+    translated_so_far: dict[str, str] = {}
 
-    translated_events = apply_translations(events, translated, skip_ids)
-    result = merge_with_existing_cn(orig_data, cn_path, translated_events)
+    def persist_progress() -> None:
+        incomplete_event_ids = collect_incomplete_event_ids(events, translated_so_far, translate_skip_ids)
+        excluded_event_ids = failed_event_ids | incomplete_event_ids
+        save_json(cn_path, build_result(orig_data, base_events, excluded_event_ids, output_skip_ids))
+
+    def handle_batch_complete(batch_index: int, batch_total: int, batch_result: dict[str, str]) -> None:
+        translated_so_far.update(batch_result)
+        apply_batch_to_base_events(base_events, batch_result, translate_skip_ids, failed_event_ids)
+        persist_progress()
+        logger.info("Saved progress after batch %d/%d: %s", batch_index, batch_total, cn_path)
+
+    translator = LLMTranslator(provider=args.provider, model=args.model)
+    try:
+        translated = translator.translate(items, on_batch_complete=handle_batch_complete)
+    except KeyboardInterrupt:
+        logger.warning("Translation interrupted, saving completed batches to %s", cn_path)
+        persist_progress()
+        raise
+
+    if translated is None:
+        logger.error("Translation API failed, saving completed batches only")
+        persist_progress()
+        return 1
+
+    validate_translations(base_events, translated, translate_skip_ids, failed_event_ids)
+    result = build_result(orig_data, base_events, failed_event_ids, output_skip_ids)
+
+    if failed_event_ids:
+        failed_list = sorted(failed_event_ids)
+        logger.warning("Skipping %d events with untranslated fields: %s", len(failed_list), failed_list[:10])
+        logger.error("Partial translation failure: %d events skipped. Re-run with --force to retry", len(failed_event_ids))
+        save_json(cn_path, result)
+        logger.info("Saved partial results: %s", cn_path)
+        return 1
 
     save_json(cn_path, result)
     logger.info("Saved: %s", cn_path)

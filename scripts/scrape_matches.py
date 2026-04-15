@@ -261,6 +261,8 @@ def _wait_for_result_area(page: Any, timeout_sec: float = 20.0) -> bool:
 def parse_event_rows(page: Any) -> list[dict[str, Any]]:
     tables = _query_selector_all_with_retry(page, "table", retries=4)
     events: list[dict[str, Any]] = []
+    rows_total = 0
+    rows_no_href = 0
 
     for table in tables:
         rows = _query_selector_all_with_retry(table, "tbody tr", retries=2)
@@ -275,9 +277,16 @@ def parse_event_rows(page: Any) -> list[dict[str, Any]]:
             if not first_text.isdigit():
                 continue
 
+            rows_total += 1
             link = cells[0].query_selector("a")
             href = link.get_attribute("href") if link else None
             if not href:
+                rows_no_href += 1
+                cell_texts = [((c.inner_text() or "").strip()) for c in cells]
+                logger.debug(
+                    "Row skipped (no href): match_count=%s event=%s",
+                    first_text, cell_texts[1] if len(cell_texts) > 1 else "",
+                )
                 continue
 
             cell_texts = [((c.inner_text() or "").strip()) for c in cells]
@@ -298,6 +307,12 @@ def parse_event_rows(page: Any) -> list[dict[str, Any]]:
                     "href": href,
                 }
             )
+
+    if rows_no_href > 0:
+        logger.info(
+            "parse_event_rows: %s data rows found, %s skipped (no href), %s kept",
+            rows_total, rows_no_href, rows_total - rows_no_href,
+        )
     return dedupe_events(events)
 
 
@@ -362,28 +377,45 @@ def _event_sort_date(event: dict[str, Any]) -> date | None:
 def collect_events_with_pagination(
     page: Any, from_date: date, max_pages: int = 50
 ) -> list[dict[str, Any]]:
-    """遍历 event 分页，遇到早于 from_date 的赛事即停止，避免翻到空页。"""
+    """遍历 event 分页，收集所有 >= from_date 的赛事。
+
+    注意：网站事件列表并非严格按日期降序排列，同一页内可能混有旧事件。
+    因此不能在遇到单个旧事件时立即停止分页——只过滤该条事件，继续翻页。
+    仅当整页事件全部早于 from_date 时才停止（此时后续页面也不太可能有新事件）。
+    """
     all_events: list[dict[str, Any]] = []
     visited_snapshots: set[str] = set()
 
     for page_num in range(max_pages):
         events = parse_event_rows(page)
+        logger.info(
+            "Page %s: parse_event_rows returned %s events (href-bearing rows only)",
+            page_num + 1, len(events),
+        )
         if not events:
             break
 
-        reached_cutoff = False
+        events_on_page = 0
+        old_events_on_page = 0
         for event in events:
             event_date = _event_sort_date(event)
+            events_on_page += 1
             if event_date and event_date < from_date:
-                reached_cutoff = True
-                logger.info(
-                    "Reached event date=%s < from_date=%s on page %s, stopping pagination",
+                old_events_on_page += 1
+                logger.debug(
+                    "Skip old event date=%s < from_date=%s on page %s: %s",
                     event_date.isoformat(), from_date.isoformat(), page_num + 1,
+                    event.get("event_name", ""),
                 )
-                break
+                continue
             all_events.append(event)
 
-        if reached_cutoff:
+        # 整页都是旧事件，后续页面也不会有新事件，安全停止
+        if events_on_page > 0 and old_events_on_page == events_on_page:
+            logger.info(
+                "All %s events on page %s are before from_date=%s, stopping pagination",
+                events_on_page, page_num + 1, from_date.isoformat(),
+            )
             break
 
         snapshot = "|".join(sorted(e.get("href", "") for e in events)[:50])
@@ -1023,13 +1055,16 @@ def scrape_player(
         except Exception:
             pass
 
-    # 判断逻辑：数据只会增加，只需判断是否有新增
-    new_event_count = len(events) - existing_event_count
-    
-    if new_event_count <= 0:
-        # 网页 events <= JSON events，说明数据已完整（或一致）
-        logger.info("Data complete for %s (%s): JSON has %s events, web has %s events", 
-                    player_name, country_code, existing_event_count, len(events))
+    # 判断逻辑：用 key 集合对比（不用数量），避免分页不完整或日期/年份过滤差异导致的误判
+    web_event_keys = {(str(e.get("year", "unknown")), e.get("event_name", "")) for e in events}
+    missing_keys = web_event_keys - existing_event_keys
+
+    if not missing_keys:
+        # 网页上的所有 events 都已在 JSON 中，数据完整
+        logger.info(
+            "Data complete for %s (%s): all %s web events found in JSON (JSON has %s events)",
+            player_name, country_code, len(web_event_keys), existing_event_count,
+        )
         # 更新元数据并返回完整的 player_output（不返回 events=[] 的 result）
         if player_output is not None:
             player_output["captured_at"] = utc_now_iso()
@@ -1038,9 +1073,11 @@ def scrape_player(
                 save_json(out_file, player_output)
         return player_output if player_output is not None else result
     else:
-        # 网页 events > JSON events，有新增需要抓取
-        logger.info("Found %s new events for %s (%s), will capture", 
-                    new_event_count, player_name, country_code)
+        # 有新增 events 需要抓取
+        logger.info(
+            "Found %s new events for %s (%s), will capture (web=%s, json=%s)",
+            len(missing_keys), player_name, country_code, len(web_event_keys), existing_event_count,
+        )
 
     # 使用从 JSON 文件加载的 keys 作为 already_scraped
     already_scraped = existing_event_keys
@@ -1127,24 +1164,19 @@ def scrape_player(
                 },
             )
 
-    # 校验：对比实际抓取的 event 数量和期望数量
+    # 校验：确认 missing_keys 中的 events 都已被抓取
     newly_captured = len(result.get("events", []))
-    
-    if newly_captured != expected_to_capture:
+    newly_captured_keys = {
+        (str(e.get("event_year", "unknown")), e.get("event_name", ""))
+        for e in result.get("events", [])
+    }
+
+    still_missing = missing_keys - newly_captured_keys
+    if still_missing:
         raise RuntimeError(
-            f"Event count mismatch for {player_name} ({country_code}): "
-            f"expected to capture {expected_to_capture} new events, "
-            f"but only {newly_captured} were captured. "
-            f"Some events may have been skipped due to duplicate keys or other issues."
-        )
-    
-    # 最终校验：总数量应该匹配
-    total_captured = newly_captured + len(already_scraped)
-    if total_captured != len(events):
-        raise RuntimeError(
-            f"Final count mismatch for {player_name} ({country_code}): "
-            f"web has {len(events)} events, "
-            f"but total captured is {total_captured} (new: {newly_captured}, previous: {len(already_scraped)})."
+            f"Event capture incomplete for {player_name} ({country_code}): "
+            f"{len(still_missing)} events still missing after scrape: {still_missing}. "
+            f"Expected {len(missing_keys)} new events, captured {newly_captured}."
         )
 
     if player_output is not None:

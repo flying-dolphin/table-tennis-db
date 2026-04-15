@@ -122,8 +122,12 @@ def run(args: argparse.Namespace) -> int:
 
 
 def main() -> int:
-    args = build_parser().parse_args()
-    return run(args)
+    try:
+        args = build_parser().parse_args()
+        return run(args)
+    except KeyboardInterrupt:
+        logger.warning("Interrupted by user")
+        return 130
 
 
 if __name__ == "__main__":
