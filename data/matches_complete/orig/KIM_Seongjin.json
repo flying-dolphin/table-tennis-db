@@ -1,0 +1,4800 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "KIM Seongjin",
+  "english_name": "KIM Seongjin",
+  "country": "KOR",
+  "country_code": "KOR",
+  "continent": "",
+  "rank": 69,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-15T05:21:30.107563+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Varazdin 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3356",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2026_1_WTT_Feeder_Varazdin_2026.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:8",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "TOKIC Sara (SLO)",
+                "TOFANT Ana (SLO)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "TOKIC Sara (SLO)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "TOFANT Ana (SLO)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | TOKIC Sara (SLO) | TOFANT Ana (SLO) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | R16 | 1 - 3 | 7:11 11:8 8:11 6:11 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:6",
+                "4:11",
+                "14:12",
+                "14:12"
+              ],
+              "winner": "TOFANT Ana",
+              "all_players_in_row": [
+                "TOFANT Ana (SLO)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "TOFANT Ana (SLO)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | TOFANT Ana (SLO) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R32 | 3 - 2 | 9:11 11:6 4:11 14:12 14:12 | TOFANT Ana |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "8:11",
+                "4:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "VASENDOVA Jana (CZE)",
+                "HRABICOVA Klara (CZE)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "VASENDOVA Jana (CZE)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "HRABICOVA Klara (CZE)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | VASENDOVA Jana (CZE) | HRABICOVA Klara (CZE) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 3:11 8:11 4:11 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "3:11",
+                "12:10",
+                "11:9"
+              ],
+              "winner": "KUKULKOVA Tatiana",
+              "all_players_in_row": [
+                "KUKULKOVA Tatiana (SVK)",
+                "ZARIF Audrey (FRA)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "KUKULKOVA Tatiana (SVK)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "ZARIF Audrey (FRA)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KUKULKOVA Tatiana (SVK) | ZARIF Audrey (FRA) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | SemiFinal | 3 - 1 | 11:7 3:11 12:10 11:9 | KUKULKOVA Tatiana | ZARIF Audrey | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec 2026 Presented by I Feel Slovenia",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3268",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2026_2_WTT_Feeder_Otocec_2026_Presented_by_I_Feel_Slovenia.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:8",
+                "9:11",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "WONGLAKHON Phatsaraphon",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "WONGLAKHON Phatsaraphon (THA)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "WONGLAKHON Phatsaraphon (THA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KIM Seongjin (KOR) |  | WONGLAKHON Phatsaraphon (THA) |  | WS | Main Draw | R32 | 2 - 3 | 11:9 11:8 9:11 7:11 7:11 | WONGLAKHON Phatsaraphon |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:6",
+                "9:11",
+                "11:3",
+                "11:2"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "WONGLAKHON Phatsaraphon (THA)",
+                "VIJITVIRIYAGUL Kulapassr (THA)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "WONGLAKHON Phatsaraphon (THA)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "VIJITVIRIYAGUL Kulapassr (THA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KIM Seongjin (KOR) | LEE Daeun (KOR) | WONGLAKHON Phatsaraphon (THA) | VIJITVIRIYAGUL Kulapassr (THA) | WD | Main Draw | QuarterFinal | 3 - 2 | 8:11 11:6 9:11 11:3 11:2 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "13:11",
+                "11:9"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "TAKEYA Misuzu (JPN)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KIM Seongjin (KOR) | LEE Daeun (KOR) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:5 13:11 11:9 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:8",
+                "11:4",
+                "6:11",
+                "11:6"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "OMODA Kotomi (JPN)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KIM Seongjin (KOR) | LEE Daeun (KOR) | OMODA Kotomi (JPN) | IMAEDA Manami (JPN) | WD | Main Draw | Final | 3 - 2 | 10:12 11:8 11:4 6:11 11:6 | KIM Seongjin | LEE Daeun | "
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2026_3_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:6",
+                "11:8"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "CHONG Zi Sian (SGP)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "CHONG Zi Sian (SGP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | KIM Seongjin (KOR) |  | CHONG Zi Sian (SGP) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 11:6 11:8 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "8:11",
+                "5:11",
+                "11:13"
+              ],
+              "winner": "SURJAN Sabina",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | KIM Seongjin (KOR) |  | SURJAN Sabina (SRB) |  | WS | Qualification | QR32 | 1 - 3 | 11:9 8:11 5:11 11:13 | SURJAN Sabina |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Chennai 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3233",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2026_4_WTT_Star_Contender_Chennai_2026.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 17,
+                  "opponent": 15
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "6:11",
+                "11:3",
+                "17:15"
+              ],
+              "winner": "OH Seunghwan",
+              "all_players_in_row": [
+                "OH Seunghwan (KOR)",
+                "KIM Seongjin (KOR)",
+                "BHATTACHARYYA Priyanuj (IND)",
+                "BHATT Kavya (IND)"
+              ],
+              "side_a": [
+                "OH Seunghwan (KOR)",
+                "BHATTACHARYYA Priyanuj (IND)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "BHATT Kavya (IND)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | OH Seunghwan (KOR) | KIM Seongjin (KOR) | BHATTACHARYYA Priyanuj (IND) | BHATT Kavya (IND) | XD | Qualification | QR8 | 3 - 1 | 11:6 6:11 11:3 17:15 | OH Seunghwan | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "8:11",
+                "9:11",
+                "8:11"
+              ],
+              "winner": "SATO Hitomi",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "JOO Cheonhui (KOR)",
+                "SATO Hitomi (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
+                "JOO Cheonhui (KOR)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | KIM Seongjin (KOR) | JOO Cheonhui (KOR) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | R16 | 1 - 3 | 11:6 8:11 9:11 8:11 | SATO Hitomi | SHIBATA Saki | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:6",
+                "12:10",
+                "5:11",
+                "12:10"
+              ],
+              "winner": "SHAH Manush",
+              "all_players_in_row": [
+                "SHAH Manush (IND)",
+                "CHITALE Diya (IND)",
+                "OH Seunghwan (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "SHAH Manush (IND)",
+                "OH Seunghwan (KOR)"
+              ],
+              "side_b": [
+                "CHITALE Diya (IND)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | SHAH Manush (IND) | CHITALE Diya (IND) | OH Seunghwan (KOR) | KIM Seongjin (KOR) | XD | Main Draw | R16 | 3 - 2 | 10:12 11:6 12:10 5:11 12:10 | SHAH Manush | CHITALE Diya | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:8",
+                "11:8",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "DRAGOMAN Andreea",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | KIM Seongjin (KOR) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 2 - 3 | 9:11 11:8 11:8 7:11 7:11 | DRAGOMAN Andreea |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3232",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2026_5_WTT_Star_Contender_Doha_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "12:14",
+                "11:9",
+                "11:5",
+                "8:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "BAJOR Natalia (POL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "BAJOR Natalia (POL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Doha 2026 | BAJOR Natalia (POL) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R64 | 2 - 3 | 5:11 12:14 11:9 11:5 8:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:8",
+                "11:5"
+              ],
+              "winner": "CHEN Yi",
+              "all_players_in_row": [
+                "CHEN Yi (CHN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "CHEN Yi (CHN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Doha 2026 | CHEN Yi (CHN) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R32 | 3 - 0 | 11:3 11:8 11:5 | CHEN Yi |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-15T05:21:30.107563+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Parma 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3059",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_6_WTT_Feeder_Parma_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "6:11",
+                "11:5",
+                "2:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "MASSART Lilou (BEL)",
+                "DYMYTRENKO Anastasiya (UKR)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "MASSART Lilou (BEL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "DYMYTRENKO Anastasiya (UKR)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | MASSART Lilou (BEL) | DYMYTRENKO Anastasiya (UKR) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | R16 | 1 - 3 | 3:11 6:11 11:5 2:11 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "7:11",
+                "9:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "WEGRZYN Katarzyna (POL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "WEGRZYN Katarzyna (POL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | WEGRZYN Katarzyna (POL) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 7:11 9:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "7:11",
+                "9:11",
+                "11:5",
+                "7:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "WEGRZYN Anna (POL)",
+                "WEGRZYN Katarzyna (POL)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "WEGRZYN Anna (POL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "WEGRZYN Katarzyna (POL)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | QuarterFinal | 2 - 3 | 11:9 7:11 9:11 11:5 7:11 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "8:11",
+                "9:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "YOO Siwoo (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "YOO Siwoo (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | YOO Siwoo (KOR) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R16 | 0 - 3 | 5:11 8:11 9:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "10:12",
+                "11:8",
+                "11:3"
+              ],
+              "winner": "AKAE Kaho",
+              "all_players_in_row": [
+                "AKAE Kaho (JPN)",
+                "MENDE Rin (JPN)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "AKAE Kaho (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "MENDE Rin (JPN)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) | MENDE Rin (JPN) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | SemiFinal | 3 - 1 | 14:12 10:12 11:8 11:3 | AKAE Kaho | MENDE Rin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:2",
+                "12:10",
+                "11:8"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | KIM Seongjin (KOR) |  | LEE Daeun (KOR) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 4:11 11:2 12:10 11:8 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "6:11",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | KIM Seongjin (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | SemiFinal | 1 - 3 | 3:11 6:11 11:8 9:11 | YANG Ha Eun |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3065",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_7_WTT_Feeder_Dusseldorf_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "2:11",
+                "11:9",
+                "11:8",
+                "6:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "WEGRZYN Anna (POL)",
+                "WEGRZYN Katarzyna (POL)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "WEGRZYN Anna (POL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "WEGRZYN Katarzyna (POL)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | R16 | 2 - 3 | 8:11 2:11 11:9 11:8 6:11 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "WU Jia-En (TPE)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | WU Jia-En (TPE) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 9:11 5:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "4:11",
+                "11:7",
+                "6:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "CHOI Seoyeon (KOR)",
+                "LEE Daeun (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "CHOI Seoyeon (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | CHOI Seoyeon (KOR) | LEE Daeun (KOR) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | QuarterFinal | 1 - 3 | 4:11 4:11 11:7 6:11 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "0:11",
+                "6:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "PARK Gahyeon (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "PARK Gahyeon (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | PARK Gahyeon (KOR) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 0:11 6:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "13:11",
+                "11:8",
+                "10:12",
+                "10:12"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "SASAO Asuka (JPN)",
+                "ASO Reina (JPN)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "SASAO Asuka (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "ASO Reina (JPN)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | SASAO Asuka (JPN) | ASO Reina (JPN) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | SemiFinal | 2 - 3 | 9:11 13:11 11:8 10:12 10:12 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "KIMURA Kasumi (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "KIMURA Kasumi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | KIM Seongjin (KOR) |  | KIMURA Kasumi (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:4 11:9 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:6",
+                "11:9",
+                "6:11",
+                "11:4"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "PESOTSKA Margaryta (UKR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "PESOTSKA Margaryta (UKR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | KIM Seongjin (KOR) |  | PESOTSKA Margaryta (UKR) |  | WS | Main Draw | SemiFinal | 3 - 2 | 7:11 11:6 11:9 6:11 11:4 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:8",
+                "11:8"
+              ],
+              "winner": "AKAE Kaho",
+              "all_players_in_row": [
+                "AKAE Kaho (JPN)",
+                "MENDE Rin (JPN)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "AKAE Kaho (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "MENDE Rin (JPN)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) | MENDE Rin (JPN) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | Final | 3 - 0 | 12:10 11:8 11:8 | AKAE Kaho | MENDE Rin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "2:11",
+                "11:3",
+                "8:11",
+                "11:2"
+              ],
+              "winner": "AKAE Kaho",
+              "all_players_in_row": [
+                "AKAE Kaho (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "AKAE Kaho (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) |  | KIM Seongjin (KOR) |  | WS | Main Draw | Final | 3 - 2 | 11:9 2:11 11:3 8:11 11:2 | AKAE Kaho |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Gdansk 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 11,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3191",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_8_WTT_Feeder_Gdansk_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:4",
+                "8:11",
+                "3:11"
+              ],
+              "winner": "KWON Hyuk",
+              "all_players_in_row": [
+                "BLASZCZYK Marcel (POL)",
+                "WEGRZYN Katarzyna (POL)",
+                "KWON Hyuk (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "BLASZCZYK Marcel (POL)",
+                "KWON Hyuk (KOR)"
+              ],
+              "side_b": [
+                "WEGRZYN Katarzyna (POL)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | BLASZCZYK Marcel (POL) | WEGRZYN Katarzyna (POL) | KWON Hyuk (KOR) | KIM Seongjin (KOR) | XD | Main Draw | R16 | 1 - 3 | 9:11 11:4 8:11 3:11 | KWON Hyuk | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:5",
+                "5:11",
+                "2:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "BURGOS Brianna (PUR)",
+                "RODRIGUEZ Alondra (PUR)",
+                "KIM Seongjin (KOR)",
+                "YOO Yerin (KOR)"
+              ],
+              "side_a": [
+                "BURGOS Brianna (PUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "RODRIGUEZ Alondra (PUR)",
+                "YOO Yerin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | BURGOS Brianna (PUR) | RODRIGUEZ Alondra (PUR) | KIM Seongjin (KOR) | YOO Yerin (KOR) | WD | Main Draw | R16 | 1 - 3 | 9:11 11:5 5:11 2:11 | KIM Seongjin | YOO Yerin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "12:10",
+                "11:9"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "SIKORSKA Magdalena (POL)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "SIKORSKA Magdalena (POL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | KIM Seongjin (KOR) |  | SIKORSKA Magdalena (POL) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 12:10 11:9 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "9:11",
+                "7:11"
+              ],
+              "winner": "KWON Hyuk",
+              "all_players_in_row": [
+                "VALENTA Jan (CZE)",
+                "POLAKOVA Veronika (CZE)",
+                "KWON Hyuk (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "VALENTA Jan (CZE)",
+                "KWON Hyuk (KOR)"
+              ],
+              "side_b": [
+                "POLAKOVA Veronika (CZE)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | VALENTA Jan (CZE) | POLAKOVA Veronika (CZE) | KWON Hyuk (KOR) | KIM Seongjin (KOR) | XD | Main Draw | QuarterFinal | 0 - 3 | 4:11 9:11 7:11 | KWON Hyuk | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:5",
+                "12:10"
+              ],
+              "winner": "SATO Hitomi",
+              "all_players_in_row": [
+                "SATO Hitomi (JPN)",
+                "YOKOI Sakura (JPN)",
+                "KIM Seongjin (KOR)",
+                "YOO Yerin (KOR)"
+              ],
+              "side_a": [
+                "SATO Hitomi (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "YOKOI Sakura (JPN)",
+                "YOO Yerin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | KIM Seongjin (KOR) | YOO Yerin (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:5 12:10 | SATO Hitomi | YOKOI Sakura | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "11:8",
+                "11:6",
+                "15:13"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | KIM Seongjin (KOR) |  | MOYLAND Sally (USA) |  | WS | Main Draw | R16 | 3 - 1 | 2:11 11:8 11:6 15:13 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:8",
+                "6:11",
+                "8:11",
+                "12:10"
+              ],
+              "winner": "KWON Hyuk",
+              "all_players_in_row": [
+                "KWON Hyuk (KOR)",
+                "KIM Seongjin (KOR)",
+                "KIM Gaon (KOR)",
+                "YOO Yerin (KOR)"
+              ],
+              "side_a": [
+                "KWON Hyuk (KOR)",
+                "KIM Gaon (KOR)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "YOO Yerin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | KWON Hyuk (KOR) | KIM Seongjin (KOR) | KIM Gaon (KOR) | YOO Yerin (KOR) | XD | Main Draw | SemiFinal | 3 - 2 | 11:2 11:8 6:11 8:11 12:10 | KWON Hyuk | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "3:11",
+                "8:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "LEE Zion (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "LEE Zion (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | LEE Zion (KOR) |  | KIM Seongjin (KOR) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 10:12 3:11 8:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "12:10",
+                "4:11",
+                "11:5",
+                "12:10"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | KIM Seongjin (KOR) |  | BAJOR Natalia (POL) |  | WS | Main Draw | SemiFinal | 3 - 2 | 3:11 12:10 4:11 11:5 12:10 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "7:11",
+                "11:5",
+                "11:5"
+              ],
+              "winner": "PISTEJ Lubomir",
+              "all_players_in_row": [
+                "PISTEJ Lubomir (SVK)",
+                "KUKULKOVA Tatiana (SVK)",
+                "KWON Hyuk (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "PISTEJ Lubomir (SVK)",
+                "KWON Hyuk (KOR)"
+              ],
+              "side_b": [
+                "KUKULKOVA Tatiana (SVK)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | PISTEJ Lubomir (SVK) | KUKULKOVA Tatiana (SVK) | KWON Hyuk (KOR) | KIM Seongjin (KOR) | XD | Main Draw | Final | 3 - 1 | 12:10 7:11 11:5 11:5 | PISTEJ Lubomir | KUKULKOVA Tatiana | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:9",
+                "11:5"
+              ],
+              "winner": "SATO Hitomi",
+              "all_players_in_row": [
+                "SATO Hitomi (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "SATO Hitomi (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | SATO Hitomi (JPN) |  | KIM Seongjin (KOR) |  | WS | Main Draw | Final | 3 - 0 | 11:3 11:9 11:5 | SATO Hitomi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Vila Nova de Gaia 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 10,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3066",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_9_WTT_Feeder_Vila_Nova_de_Gaia_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:9",
+                "9:11",
+                "11:9"
+              ],
+              "winner": "KWON Hyuk",
+              "all_players_in_row": [
+                "KWON Hyuk (KOR)",
+                "KIM Seongjin (KOR)",
+                "LAINE Clement (POR)",
+                "PINTO Matilde (POR)"
+              ],
+              "side_a": [
+                "KWON Hyuk (KOR)",
+                "LAINE Clement (POR)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "PINTO Matilde (POR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | KWON Hyuk (KOR) | KIM Seongjin (KOR) | LAINE Clement (POR) | PINTO Matilde (POR) | XD | Main Draw | R16 | 3 - 1 | 11:5 11:9 9:11 11:9 | KWON Hyuk | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:3",
+                "11:5"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "PAPADIMITRIOU Malamatenia (GRE)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "PAPADIMITRIOU Malamatenia (GRE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | KIM Seongjin (KOR) |  | PAPADIMITRIOU Malamatenia (GRE) |  | WS | Main Draw | R64 | 3 - 0 | 11:8 11:3 11:5 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "3:11",
+                "1:11",
+                "7:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "GRIESEL Mia (GER)",
+                "HURSEY Anna (WAL)",
+                "KIM Seongjin (KOR)",
+                "YOO Yerin (KOR)"
+              ],
+              "side_a": [
+                "GRIESEL Mia (GER)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "HURSEY Anna (WAL)",
+                "YOO Yerin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | GRIESEL Mia (GER) | HURSEY Anna (WAL) | KIM Seongjin (KOR) | YOO Yerin (KOR) | WD | Main Draw | R16 | 1 - 3 | 13:11 3:11 1:11 7:11 | KIM Seongjin | YOO Yerin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "7:11",
+                "9:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "BURGOS Brianna (PUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "BURGOS Brianna (PUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | BURGOS Brianna (PUR) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 7:11 9:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "6:11",
+                "11:5"
+              ],
+              "winner": "ROBLES Alvaro",
+              "all_players_in_row": [
+                "ROBLES Alvaro (ESP)",
+                "XIAO Maria (ESP)",
+                "KWON Hyuk (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "ROBLES Alvaro (ESP)",
+                "KWON Hyuk (KOR)"
+              ],
+              "side_b": [
+                "XIAO Maria (ESP)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | KWON Hyuk (KOR) | KIM Seongjin (KOR) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:8 11:7 6:11 11:5 | ROBLES Alvaro | XIAO Maria | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:8",
+                "11:4"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "YOO Yerin (KOR)",
+                "WATANABE Laura (BRA)",
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "WATANABE Laura (BRA)"
+              ],
+              "side_b": [
+                "YOO Yerin (KOR)",
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | KIM Seongjin (KOR) | YOO Yerin (KOR) | WATANABE Laura (BRA) | TAKAHASHI Giulia (BRA) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:8 11:4 | KIM Seongjin | YOO Yerin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:8",
+                "11:7",
+                "11:9"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | KIM Seongjin (KOR) |  | XIAO Maria (ESP) |  | WS | Main Draw | R16 | 3 - 1 | 6:11 11:8 11:7 11:9 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:5",
+                "7:11",
+                "11:4",
+                "7:11"
+              ],
+              "winner": "LYNE Karen",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "YOO Yerin (KOR)",
+                "LYNE Karen (MAS)",
+                "TEE Ai Xin (MAS)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "LYNE Karen (MAS)"
+              ],
+              "side_b": [
+                "YOO Yerin (KOR)",
+                "TEE Ai Xin (MAS)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | KIM Seongjin (KOR) | YOO Yerin (KOR) | LYNE Karen (MAS) | TEE Ai Xin (MAS) | WD | Main Draw | SemiFinal | 2 - 3 | 10:12 11:5 7:11 11:4 7:11 | LYNE Karen | TEE Ai Xin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "0:11",
+                "11:7",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) |  | KIM Seongjin (KOR) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 0:11 11:7 8:11 6:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "BAJOR Natalia",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | KIM Seongjin (KOR) |  | BAJOR Natalia (POL) |  | WS | Main Draw | SemiFinal | 0 - 3 | 8:11 9:11 4:11 | BAJOR Natalia |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3092",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_10_WTT_Contender_Zagreb_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "4:11",
+                "7:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "YILMAZ Ozge (TUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "YILMAZ Ozge (TUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | YILMAZ Ozge (TUR) |  | KIM Seongjin (KOR) |  | WS | Qualification | QR64 | 0 - 3 | 8:11 4:11 7:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "11:8",
+                "11:8"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "GHOSH Swastika (IND)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "GHOSH Swastika (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | KIM Seongjin (KOR) |  | GHOSH Swastika (IND) |  | WS | Qualification | QR32 | 3 - 0 | 14:12 11:8 11:8 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:1",
+                "12:10"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "KLEE Sophia (GER)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "KLEE Sophia (GER)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | KIM Seongjin (KOR) | LEE Daeun (KOR) | KLEE Sophia (GER) | SCHREINER Franziska (GER) | WD | Qualification | QR8 | 3 - 0 | 11:3 11:1 12:10 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:6",
+                "7:11",
+                "9:11",
+                "11:7"
+              ],
+              "winner": "ZHU Ziyu",
+              "all_players_in_row": [
+                "ZHU Ziyu (CHN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "ZHU Ziyu (CHN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | ZHU Ziyu (CHN) |  | KIM Seongjin (KOR) |  | WS | Qualification | QR16 | 3 - 2 | 11:7 11:6 7:11 9:11 11:7 | ZHU Ziyu |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "LUPULESKU Izabela (SRB)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | KIM Seongjin (KOR) | LEE Daeun (KOR) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:4 11:9 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "5:11",
+                "10:12",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "RYU Hanna (KOR)",
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "RYU Hanna (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | KIM Nayeong (KOR) | RYU Hanna (KOR) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:3 5:11 10:12 11:7 11:8 | KIM Nayeong | RYU Hanna | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_11_WTT_Star_Contender_Ljubljana_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "12:10",
+                "9:11",
+                "7:11",
+                "11:4"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KIM Seongjin (KOR) |  | BERGAND Filippa (SWE) |  | WS | Qualification | QR64 | 3 - 2 | 11:5 12:10 9:11 7:11 11:4 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "11:4",
+                "10:12"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "AKAE Kaho (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "AKAE Kaho (JPN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | AKAE Kaho (JPN) |  | KIM Seongjin (KOR) |  | WS | Qualification | QR32 | 1 - 3 | 7:11 9:11 11:4 10:12 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "6:11",
+                "2:11",
+                "6:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "LIU Weishan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KIM Seongjin (KOR) | LEE Daeun (KOR) | HE Zhuojia (CHN) | LIU Weishan (CHN) | WD | Qualification | QR8 | 1 - 3 | 11:7 6:11 2:11 6:11 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "9:11",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KIM Seongjin (KOR) |  | LUTZ Charlotte (FRA) |  | WS | Qualification | QR16 | 3 - 1 | 12:10 9:11 11:7 11:8 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "9:11",
+                "11:8",
+                "11:13",
+                "13:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KIM Seongjin (KOR) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R64 | 3 - 2 | 11:7 9:11 11:8 11:13 13:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "CHEN Yi",
+              "all_players_in_row": [
+                "CHEN Yi (CHN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "CHEN Yi (CHN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | CHEN Yi (CHN) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:7 | CHEN Yi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3025",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_12_WTT_Feeder_Otocec_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:5",
+                "11:8"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "POLAKOVA Veronika (CZE)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "POLAKOVA Veronika (CZE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seongjin (KOR) |  | POLAKOVA Veronika (CZE) |  | WS | Qualification | QR64 | 3 - 0 | 11:5 11:5 11:8 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "AKAE Kaho",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "SOO Wai Yam (HKG)",
+                "AKAE Kaho (JPN)",
+                "TAKEYA Misuzu (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
+                "SOO Wai Yam (HKG)",
+                "TAKEYA Misuzu (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seongjin (KOR) | SOO Wai Yam (HKG) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR16 | 0 - 3 | 10:12 9:11 9:11 | AKAE Kaho | TAKEYA Misuzu | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:8"
+              ],
+              "winner": "LEE Seungsoo",
+              "all_players_in_row": [
+                "LEE Seungsoo (KOR)",
+                "KIM Seongjin (KOR)",
+                "FLORO Damian (SVK)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_a": [
+                "LEE Seungsoo (KOR)",
+                "FLORO Damian (SVK)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | LEE Seungsoo (KOR) | KIM Seongjin (KOR) | FLORO Damian (SVK) | KUKULKOVA Tatiana (SVK) | XD | Qualification | QR16 | 3 - 0 | 11:8 11:9 11:8 | LEE Seungsoo | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "14:12",
+                "11:9"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "SOO Wai Yam (HKG)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "SOO Wai Yam (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seongjin (KOR) |  | SOO Wai Yam (HKG) |  | WS | Qualification | QR32 | 3 - 0 | 11:5 14:12 11:9 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "8:11",
+                "11:4",
+                "7:11",
+                "11:4"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seongjin (KOR) |  | CHOI Haeeun (KOR) |  | WS | Qualification | QR16 | 3 - 2 | 14:12 8:11 11:4 7:11 11:4 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "3:11",
+                "9:11"
+              ],
+              "winner": "LEE Seungsoo",
+              "all_players_in_row": [
+                "NARANJO Angel (PUR)",
+                "BURGOS Brianna (PUR)",
+                "LEE Seungsoo (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "NARANJO Angel (PUR)",
+                "LEE Seungsoo (KOR)"
+              ],
+              "side_b": [
+                "BURGOS Brianna (PUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | NARANJO Angel (PUR) | BURGOS Brianna (PUR) | LEE Seungsoo (KOR) | KIM Seongjin (KOR) | XD | Qualification | QR8 | 0 - 3 | 5:11 3:11 9:11 | LEE Seungsoo | KIM Seongjin | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "11:8",
+                "11:9",
+                "9:11",
+                "11:1"
+              ],
+              "winner": "LEE Seungsoo",
+              "all_players_in_row": [
+                "LEE Seungsoo (KOR)",
+                "KIM Seongjin (KOR)",
+                "AFANADOR Brian (PUR)",
+                "STRASSBURGER Victoria (BRA)"
+              ],
+              "side_a": [
+                "LEE Seungsoo (KOR)",
+                "AFANADOR Brian (PUR)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "STRASSBURGER Victoria (BRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | LEE Seungsoo (KOR) | KIM Seongjin (KOR) | AFANADOR Brian (PUR) | STRASSBURGER Victoria (BRA) | XD | Main Draw | R16 | 3 - 2 | 5:11 11:8 11:9 9:11 11:1 | LEE Seungsoo | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:8",
+                "6:11",
+                "11:6"
+              ],
+              "winner": "ARAPOVIC Hana",
+              "all_players_in_row": [
+                "ARAPOVIC Hana (CRO)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "ARAPOVIC Hana (CRO)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | ARAPOVIC Hana (CRO) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R64 | 3 - 1 | 11:9 11:8 6:11 11:6 | ARAPOVIC Hana |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:8",
+                "10:12",
+                "9:11"
+              ],
+              "winner": "CHANG Yu-An",
+              "all_players_in_row": [
+                "LEE Seungsoo (KOR)",
+                "KIM Seongjin (KOR)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "LEE Seungsoo (KOR)",
+                "CHANG Yu-An (TPE)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | LEE Seungsoo (KOR) | KIM Seongjin (KOR) | CHANG Yu-An (TPE) | CHENG Pusyuan (TPE) | XD | Main Draw | QuarterFinal | 1 - 3 | 8:11 11:8 10:12 9:11 | CHANG Yu-An | CHENG Pusyuan | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3024",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_13_WTT_Feeder_Otocec_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "8:11",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "CHENG Pusyuan",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "BAN Eunjung (KOR)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_b": [
+                "BAN Eunjung (KOR)",
+                "TSAI Yun-En (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | KIM Seongjin (KOR) | BAN Eunjung (KOR) | CHENG Pusyuan (TPE) | TSAI Yun-En (TPE) | WD | Qualification | QR16 | 1 - 3 | 11:9 8:11 9:11 4:11 | CHENG Pusyuan | TSAI Yun-En | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:5",
+                "8:11",
+                "12:14"
+              ],
+              "winner": "BIRRIEL Oscar",
+              "all_players_in_row": [
+                "NARANJO Angel (PUR)",
+                "BURGOS Brianna (PUR)",
+                "BIRRIEL Oscar (PUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "NARANJO Angel (PUR)",
+                "BIRRIEL Oscar (PUR)"
+              ],
+              "side_b": [
+                "BURGOS Brianna (PUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | NARANJO Angel (PUR) | BURGOS Brianna (PUR) | BIRRIEL Oscar (PUR) | KIM Seongjin (KOR) | XD | Main Draw | R16 | 1 - 3 | 9:11 11:5 8:11 12:14 | BIRRIEL Oscar | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:3",
+                "13:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "WILTSCHKOVA Dominika (SVK)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "WILTSCHKOVA Dominika (SVK)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | KIM Seongjin (KOR) |  | WILTSCHKOVA Dominika (SVK) |  | WS | Main Draw | R64 | 3 - 0 | 11:6 11:3 13:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:0",
+                "11:7"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | KIM Seongjin (KOR) |  | SINGEORZAN Ioana (ROU) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:0 11:7 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "7:11",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "HUNG Jing-Kai",
+              "all_players_in_row": [
+                "BIRRIEL Oscar (PUR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "HUNG Jing-Kai (TPE)",
+                "BIRRIEL Oscar (PUR)"
+              ],
+              "side_b": [
+                "HUANG Yu-Chiao (TPE)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | HUNG Jing-Kai (TPE) | HUANG Yu-Chiao (TPE) | BIRRIEL Oscar (PUR) | KIM Seongjin (KOR) | XD | Main Draw | QuarterFinal | 3 - 1 | 12:10 7:11 11:7 11:4 | HUNG Jing-Kai | HUANG Yu-Chiao | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "8:11",
+                "2:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "SCHREINER Franziska (GER)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "SCHREINER Franziska (GER)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SCHREINER Franziska (GER) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 8:11 2:11 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "2:11",
+                "4:11"
+              ],
+              "winner": "SATO Hitomi",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | KIM Seongjin (KOR) |  | SATO Hitomi (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 5:11 2:11 4:11 | SATO Hitomi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Cappadocia 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3030",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_14_WTT_Feeder_Cappadocia_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:13",
+                "11:6",
+                "7:11"
+              ],
+              "winner": "LI Hon Ming",
+              "all_players_in_row": [
+                "KIM Minhyeok (KOR)",
+                "KIM Seongjin (KOR)",
+                "LI Hon Ming (HKG)",
+                "WONG Hoi Tung (HKG)"
+              ],
+              "side_a": [
+                "KIM Minhyeok (KOR)",
+                "LI Hon Ming (HKG)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "WONG Hoi Tung (HKG)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | KIM Minhyeok (KOR) | KIM Seongjin (KOR) | LI Hon Ming (HKG) | WONG Hoi Tung (HKG) | XD | Qualification | QR16 | 1 - 3 | 8:11 11:13 11:6 7:11 | LI Hon Ming | WONG Hoi Tung | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:5",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | KIM Seongjin (KOR) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R64 | 1 - 3 | 9:11 11:5 7:11 7:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:8",
+                "8:11",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "VARADY Barbora",
+              "all_players_in_row": [
+                "VARADY Barbora (SVK)",
+                "LUTZ Camille (FRA)",
+                "KIM Seongjin (KOR)",
+                "PARK Gahyeon (KOR)"
+              ],
+              "side_a": [
+                "VARADY Barbora (SVK)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "LUTZ Camille (FRA)",
+                "PARK Gahyeon (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | VARADY Barbora (SVK) | LUTZ Camille (FRA) | KIM Seongjin (KOR) | PARK Gahyeon (KOR) | WD | Main Draw | R16 | 3 - 2 | 7:11 11:8 8:11 11:8 11:7 | VARADY Barbora | LUTZ Camille | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3020",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_15_WTT_Feeder_Dusseldorf_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "5:11",
+                "9:11"
+              ],
+              "winner": "WOO Hyeonggyu",
+              "all_players_in_row": [
+                "NARANJO Angel (PUR)",
+                "BADAWY Farida (EGY)",
+                "WOO Hyeonggyu (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "NARANJO Angel (PUR)",
+                "WOO Hyeonggyu (KOR)"
+              ],
+              "side_b": [
+                "BADAWY Farida (EGY)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | NARANJO Angel (PUR) | BADAWY Farida (EGY) | WOO Hyeonggyu (KOR) | KIM Seongjin (KOR) | XD | Qualification | QR16 | 0 - 3 | 8:11 5:11 9:11 | WOO Hyeonggyu | KIM Seongjin | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "8:11",
+                "11:4",
+                "7:11",
+                "11:3"
+              ],
+              "winner": "WOO Hyeonggyu",
+              "all_players_in_row": [
+                "WOO Hyeonggyu (KOR)",
+                "KIM Seongjin (KOR)",
+                "KIM Daewoo (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "WOO Hyeonggyu (KOR)",
+                "KIM Daewoo (KOR)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | WOO Hyeonggyu (KOR) | KIM Seongjin (KOR) | KIM Daewoo (KOR) | LEE Daeun (KOR) | XD | Qualification | QR8 | 3 - 2 | 11:7 8:11 11:4 7:11 11:3 | WOO Hyeonggyu | KIM Seongjin | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "8:11",
+                "12:14",
+                "12:14"
+              ],
+              "winner": "BERTELSMEIER Andre",
+              "all_players_in_row": [
+                "WOO Hyeonggyu (KOR)",
+                "KIM Seongjin (KOR)",
+                "BERTELSMEIER Andre (GER)",
+                "GRIESEL Mia (GER)"
+              ],
+              "side_a": [
+                "WOO Hyeonggyu (KOR)",
+                "BERTELSMEIER Andre (GER)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "GRIESEL Mia (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | WOO Hyeonggyu (KOR) | KIM Seongjin (KOR) | BERTELSMEIER Andre (GER) | GRIESEL Mia (GER) | XD | Main Draw | R16 | 1 - 3 | 11:9 8:11 12:14 12:14 | BERTELSMEIER Andre | GRIESEL Mia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:3",
+                "3:11",
+                "13:11"
+              ],
+              "winner": "GRIESEL Mia",
+              "all_players_in_row": [
+                "GRIESEL Mia (GER)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "GRIESEL Mia (GER)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | GRIESEL Mia (GER) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R64 | 3 - 1 | 11:7 11:3 3:11 13:11 | GRIESEL Mia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "7:11",
+                "7:11",
+                "8:11"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "SCHOLZ Vivien (LUX)",
+                "SOLJA Amelie (AUT)",
+                "KIM Seongjin (KOR)",
+                "PARK Gahyeon (KOR)"
+              ],
+              "side_a": [
+                "SCHOLZ Vivien (LUX)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [
+                "SOLJA Amelie (AUT)",
+                "PARK Gahyeon (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | SCHOLZ Vivien (LUX) | SOLJA Amelie (AUT) | KIM Seongjin (KOR) | PARK Gahyeon (KOR) | WD | Main Draw | R16 | 1 - 3 | 11:8 7:11 7:11 8:11 | KIM Seongjin | PARK Gahyeon | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "8:11",
+                "11:7",
+                "5:11"
+              ],
+              "winner": "CHOI Hyojoo",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "PARK Gahyeon (KOR)",
+                "CHOI Hyojoo (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_b": [
+                "PARK Gahyeon (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | KIM Seongjin (KOR) | PARK Gahyeon (KOR) | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | WD | Main Draw | QuarterFinal | 1 - 3 | 9:11 8:11 11:7 5:11 | CHOI Hyojoo | LEE Daeun | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Doha 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3026",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\2025_16_WTT_Feeder_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "2:11",
+                "4:11",
+                "6:11"
+              ],
+              "winner": "WOO Hyeonggyu",
+              "all_players_in_row": [
+                "DILSHODOV Diyorbek (UZB)",
+                "VINOGRADOVA Maria (UZB)",
+                "WOO Hyeonggyu (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "DILSHODOV Diyorbek (UZB)",
+                "WOO Hyeonggyu (KOR)"
+              ],
+              "side_b": [
+                "VINOGRADOVA Maria (UZB)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Doha 2025 | DILSHODOV Diyorbek (UZB) | VINOGRADOVA Maria (UZB) | WOO Hyeonggyu (KOR) | KIM Seongjin (KOR) | XD | Main Draw | R16 | 1 - 3 | 11:8 2:11 4:11 6:11 | WOO Hyeonggyu | KIM Seongjin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:5",
+                "11:1"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "ASHTARI Mahshid (IRI)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "ASHTARI Mahshid (IRI)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Doha 2025 | KIM Seongjin (KOR) |  | ASHTARI Mahshid (IRI) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:5 11:1 | KIM Seongjin |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "5:11",
+                "11:6",
+                "10:12",
+                "11:6"
+              ],
+              "winner": "YUAN Licen",
+              "all_players_in_row": [
+                "YUAN Licen (CHN)",
+                "FAN Shuhan (CHN)",
+                "WOO Hyeonggyu (KOR)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "YUAN Licen (CHN)",
+                "WOO Hyeonggyu (KOR)"
+              ],
+              "side_b": [
+                "FAN Shuhan (CHN)",
+                "KIM Seongjin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Doha 2025 | YUAN Licen (CHN) | FAN Shuhan (CHN) | WOO Hyeonggyu (KOR) | KIM Seongjin (KOR) | XD | Main Draw | QuarterFinal | 3 - 2 | 13:11 5:11 11:6 10:12 11:6 | YUAN Licen | FAN Shuhan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:3",
+                "5:11",
+                "9:11",
+                "8:11"
+              ],
+              "winner": "GHOSH Swastika",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "GHOSH Swastika (IND)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "GHOSH Swastika (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Doha 2025 | KIM Seongjin (KOR) |  | GHOSH Swastika (IND) |  | WS | Main Draw | R16 | 2 - 3 | 11:8 11:3 5:11 9:11 8:11 | GHOSH Swastika |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "": {
+      "captured_at": "2026-04-15T05:21:30.107563+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Panagyurishte 2024",
+          "event_type": "",
+          "event_year": "",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135370&vw_matches___player_a_id[value][]=135370&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135370&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135370&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135370&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2885",
+          "raw_capture_file": "data\\raw_event_payloads\\KIM_Seongjin\\_17_WTT_Feeder_Panagyurishte_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "10:12",
+                "6:11"
+              ],
+              "winner": "YANG Yiyun",
+              "all_players_in_row": [
+                "PARK Gahyeon (KOR)",
+                "KIM Seongjin (KOR)",
+                "YANG Yiyun (CHN)",
+                "ZHU Sibing (CHN)"
+              ],
+              "side_a": [
+                "PARK Gahyeon (KOR)",
+                "YANG Yiyun (CHN)"
+              ],
+              "side_b": [
+                "KIM Seongjin (KOR)",
+                "ZHU Sibing (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | PARK Gahyeon (KOR) | KIM Seongjin (KOR) | YANG Yiyun (CHN) | ZHU Sibing (CHN) | WD | Main Draw | R16 | 0 - 3 | 9:11 10:12 6:11 | YANG Yiyun | ZHU Sibing | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "11:6",
+                "11:7",
+                "16:14"
+              ],
+              "winner": "VARADY Barbora",
+              "all_players_in_row": [
+                "VARADY Barbora (SVK)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "VARADY Barbora (SVK)",
+                "KIM Seongjin (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | VARADY Barbora (SVK) |  | KIM Seongjin (KOR) |  | WS | Main Draw | R32 | 3 - 1 | 5:11 11:6 11:7 16:14 | VARADY Barbora |  | "
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-15T05:21:30.107036+00:00",
+  "updated_at": "2026-04-15T05:26:36.587915+00:00",
+  "captured_at": "2026-04-15T05:21:30.107563+00:00"
+}

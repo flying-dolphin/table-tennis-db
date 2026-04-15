@@ -1,0 +1,4989 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "YANG Ha Eun",
+  "english_name": "YANG Ha Eun",
+  "country": "KOR",
+  "country_code": "KOR",
+  "continent": "",
+  "rank": 65,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-15T04:08:53.649901+00:00",
+      "events": [
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2026_1_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "7:11",
+                "8:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "TAKAHASHI Giulia (BRA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "TAKAHASHI Giulia (BRA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | TAKAHASHI Giulia (BRA) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR64 | 0 - 3 | 10:12 7:11 8:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "2:11",
+                "3:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "COSSIO Arantxa (MEX)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "COSSIO Arantxa (MEX)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | COSSIO Arantxa (MEX) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR32 | 0 - 3 | 5:11 2:11 3:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "5:11",
+                "5:11",
+                "4:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "WAN Yuan (GER)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "WAN Yuan (GER)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | WAN Yuan (GER) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR16 | 1 - 3 | 11:9 5:11 5:11 4:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:7",
+                "4:11",
+                "11:2",
+                "11:6"
+              ],
+              "winner": "CHEN Xingtong",
+              "all_players_in_row": [
+                "CHEN Xingtong (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "CHEN Xingtong (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | CHEN Xingtong (CHN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 3 - 2 | 6:11 11:7 4:11 11:2 11:6 | CHEN Xingtong |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Chennai 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3233",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2026_2_WTT_Star_Contender_Chennai_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:8",
+                "12:10"
+              ],
+              "winner": "AOKI Sachi",
+              "all_players_in_row": [
+                "AOKI Sachi (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "AOKI Sachi (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | AOKI Sachi (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 3 - 0 | 11:6 11:8 12:10 | AOKI Sachi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3232",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2026_3_WTT_Star_Contender_Doha_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "10:12",
+                "10:12"
+              ],
+              "winner": "ZONG Geman",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Doha 2026 | YANG Ha Eun (KOR) |  | ZONG Geman (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 10:12 10:12 | ZONG Geman |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Vadodara 2026 Presented by Sports Authority of Gujarat",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3353",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2026_4_WTT_Feeder_Vadodara_2026_Presented_by_Sports_Authority_of_Gujarat.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:3",
+                "11:8"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "VARGHESE Jennifer (IND)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "VARGHESE Jennifer (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Vadodara 2026 Presented by Sports Authority of Gujarat | YANG Ha Eun (KOR) |  | VARGHESE Jennifer (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:3 11:8 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:2",
+                "11:2"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "CHANDE Ananya (IND)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "CHANDE Ananya (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Vadodara 2026 Presented by Sports Authority of Gujarat | YANG Ha Eun (KOR) |  | CHANDE Ananya (IND) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:2 11:2 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "8:11",
+                "11:7",
+                "8:11"
+              ],
+              "winner": "MUKHERJEE Sutirtha",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "MUKHERJEE Sutirtha (IND)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "MUKHERJEE Sutirtha (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Vadodara 2026 Presented by Sports Authority of Gujarat | YANG Ha Eun (KOR) |  | MUKHERJEE Sutirtha (IND) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 7:11 8:11 11:7 8:11 | MUKHERJEE Sutirtha |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-15T04:08:53.649901+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Parma 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 10,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3059",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_5_WTT_Feeder_Parma_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "JANG Seongil",
+              "all_players_in_row": [
+                "FRUCHART Benjamin (FRA)",
+                "COK Isa (FRA)",
+                "JANG Seongil (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "FRUCHART Benjamin (FRA)",
+                "JANG Seongil (KOR)"
+              ],
+              "side_b": [
+                "COK Isa (FRA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | FRUCHART Benjamin (FRA) | COK Isa (FRA) | JANG Seongil (KOR) | YANG Ha Eun (KOR) | XD | Qualification | QR8 | 0 - 3 | 6:11 6:11 6:11 | JANG Seongil | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:5",
+                "12:10"
+              ],
+              "winner": "JANG Seongil",
+              "all_players_in_row": [
+                "JANG Seongil (KOR)",
+                "YANG Ha Eun (KOR)",
+                "KIM Daewoo (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_a": [
+                "JANG Seongil (KOR)",
+                "KIM Daewoo (KOR)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | JANG Seongil (KOR) | YANG Ha Eun (KOR) | KIM Daewoo (KOR) | CHOI Haeeun (KOR) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:5 12:10 | JANG Seongil | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "8:11",
+                "6:11",
+                "11:5",
+                "7:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "MENDE Rin (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "MENDE Rin (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | MENDE Rin (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 2 - 3 | 11:5 8:11 6:11 11:5 7:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "JANG Seongil",
+              "all_players_in_row": [
+                "PISTEJ Lubomir (SVK)",
+                "KUKULKOVA Tatiana (SVK)",
+                "JANG Seongil (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "PISTEJ Lubomir (SVK)",
+                "JANG Seongil (KOR)"
+              ],
+              "side_b": [
+                "KUKULKOVA Tatiana (SVK)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | PISTEJ Lubomir (SVK) | KUKULKOVA Tatiana (SVK) | JANG Seongil (KOR) | YANG Ha Eun (KOR) | XD | Main Draw | QuarterFinal | 0 - 3 | 9:11 6:11 9:11 | JANG Seongil | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:4",
+                "5:11",
+                "4:11",
+                "9:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "PICCOLIN Giorgia (ITA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | PICCOLIN Giorgia (ITA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 2 - 3 | 11:9 11:4 5:11 4:11 9:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "15:13",
+                "10:12",
+                "16:14"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | YANG Ha Eun (KOR) |  | KUKULKOVA Tatiana (SVK) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:9 15:13 10:12 16:14 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 17,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "5:11",
+                "10:12",
+                "17:15",
+                "11:6"
+              ],
+              "winner": "JANG Seongil",
+              "all_players_in_row": [
+                "JANG Seongil (KOR)",
+                "YANG Ha Eun (KOR)",
+                "MONTEIRO Joao (POR)",
+                "LEAL Julia (POR)"
+              ],
+              "side_a": [
+                "JANG Seongil (KOR)",
+                "MONTEIRO Joao (POR)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "LEAL Julia (POR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | JANG Seongil (KOR) | YANG Ha Eun (KOR) | MONTEIRO Joao (POR) | LEAL Julia (POR) | XD | Main Draw | SemiFinal | 3 - 2 | 11:1 5:11 10:12 17:15 11:6 | JANG Seongil | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "6:11",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | KIM Seongjin (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | SemiFinal | 1 - 3 | 3:11 6:11 11:8 9:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "4:11",
+                "11:5",
+                "12:10",
+                "11:7"
+              ],
+              "winner": "JANG Seongil",
+              "all_players_in_row": [
+                "JANG Seongil (KOR)",
+                "YANG Ha Eun (KOR)",
+                "CHO Seungmin (KOR)",
+                "YOO Siwoo (KOR)"
+              ],
+              "side_a": [
+                "JANG Seongil (KOR)",
+                "CHO Seungmin (KOR)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "YOO Siwoo (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | JANG Seongil (KOR) | YANG Ha Eun (KOR) | CHO Seungmin (KOR) | YOO Siwoo (KOR) | XD | Main Draw | Final | 3 - 2 | 8:11 4:11 11:5 12:10 11:7 | JANG Seongil | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "9:11",
+                "11:6",
+                "11:6",
+                "4:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "AKAE Kaho (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "AKAE Kaho (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | Final | 2 - 3 | 9:11 9:11 11:6 11:6 4:11 | YANG Ha Eun |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3065",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_6_WTT_Feeder_Dusseldorf_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "4:11",
+                "11:5",
+                "11:7"
+              ],
+              "winner": "JANG Seongil",
+              "all_players_in_row": [
+                "JANG Seongil (KOR)",
+                "YANG Ha Eun (KOR)",
+                "SAHR Aaron (LUX)",
+                "SADIKOVIC Enisa (LUX)"
+              ],
+              "side_a": [
+                "JANG Seongil (KOR)",
+                "SAHR Aaron (LUX)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "SADIKOVIC Enisa (LUX)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | JANG Seongil (KOR) | YANG Ha Eun (KOR) | SAHR Aaron (LUX) | SADIKOVIC Enisa (LUX) | XD | Main Draw | R16 | 3 - 1 | 11:6 4:11 11:5 11:7 | JANG Seongil | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "10:12",
+                "7:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "LEE Seungeun (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "LEE Seungeun (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | LEE Seungeun (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 10:12 7:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "16:14",
+                "4:11",
+                "10:12"
+              ],
+              "winner": "OKANO Shunsuke",
+              "all_players_in_row": [
+                "JANG Seongil (KOR)",
+                "YANG Ha Eun (KOR)",
+                "OKANO Shunsuke (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_a": [
+                "JANG Seongil (KOR)",
+                "OKANO Shunsuke (JPN)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | JANG Seongil (KOR) | YANG Ha Eun (KOR) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | QuarterFinal | 1 - 3 | 4:11 16:14 4:11 10:12 | OKANO Shunsuke | IDESAWA Kyoka | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:7",
+                "9:11",
+                "11:4"
+              ],
+              "winner": "SASAO Asuka",
+              "all_players_in_row": [
+                "SASAO Asuka (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "SASAO Asuka (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | SASAO Asuka (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 3 - 1 | 11:5 11:7 9:11 11:4 | SASAO Asuka |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Muscat 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3176",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_7_WTT_Star_Contender_Muscat_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "3:11",
+                "11:6"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | YANG Ha Eun (KOR) |  | XIAO Maria (ESP) |  | WS | Main Draw | R64 | 3 - 1 | 11:7 11:5 3:11 11:6 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:6",
+                "11:4",
+                "13:11"
+              ],
+              "winner": "KIHARA Miyuu",
+              "all_players_in_row": [
+                "KIHARA Miyuu (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "KIHARA Miyuu (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | KIHARA Miyuu (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 3 - 1 | 7:11 11:6 11:4 13:11 | KIHARA Miyuu |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Almaty 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3096",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_8_WTT_Contender_Almaty_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:1",
+                "11:7"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "SANDYBAYEVA Malika (KAZ)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "SANDYBAYEVA Malika (KAZ)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | YANG Ha Eun (KOR) |  | SANDYBAYEVA Malika (KAZ) |  | WS | Qualification | QR32 | 3 - 0 | 11:6 11:1 11:7 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "7:11",
+                "3:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "SCHREINER Franziska (GER)",
+                "KLEE Sophia (GER)",
+                "YANG Ha Eun (KOR)",
+                "KIM Seoyun (KOR)"
+              ],
+              "side_a": [
+                "SCHREINER Franziska (GER)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [
+                "KLEE Sophia (GER)",
+                "KIM Seoyun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | SCHREINER Franziska (GER) | KLEE Sophia (GER) | YANG Ha Eun (KOR) | KIM Seoyun (KOR) | WD | Qualification | QR8 | 0 - 3 | 6:11 7:11 3:11 | YANG Ha Eun | KIM Seoyun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:6",
+                "11:6"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "ABRAAMIAN Elizabet (AIN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "ABRAAMIAN Elizabet (AIN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | YANG Ha Eun (KOR) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR16 | 3 - 0 | 11:5 11:6 11:6 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:3",
+                "11:8"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | YANG Ha Eun (KOR) |  | MUKHERJEE Ayhika (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:3 11:8 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "8:11",
+                "11:9",
+                "11:7"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "KIM Seoyun (KOR)",
+                "DIACONU Adina (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "DIACONU Adina (ROU)"
+              ],
+              "side_b": [
+                "KIM Seoyun (KOR)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | YANG Ha Eun (KOR) | KIM Seoyun (KOR) | DIACONU Adina (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R16 | 3 - 1 | 12:10 8:11 11:9 11:7 | YANG Ha Eun | KIM Seoyun | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)",
+                "YANG Ha Eun (KOR)",
+                "KIM Seoyun (KOR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [
+                "WANG Xiaotong (CHN)",
+                "KIM Seoyun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | YANG Ha Eun (KOR) | KIM Seoyun (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:7 11:7 | HE Zhuojia | WANG Xiaotong | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "3:11",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Almaty 2025 | YANG Ha Eun (KOR) |  | KIM Nayeong (KOR) |  | WS | Main Draw | R16 | 1 - 3 | 11:8 3:11 7:11 7:11 | KIM Nayeong |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Spokane II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3178",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_9_WTT_Feeder_Spokane_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "8:11",
+                "6:11",
+                "8:11"
+              ],
+              "winner": "KIM Woojin",
+              "all_players_in_row": [
+                "HAGIHARA Keishi (JPN)",
+                "AKAE Kaho (JPN)",
+                "KIM Woojin (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "HAGIHARA Keishi (JPN)",
+                "KIM Woojin (KOR)"
+              ],
+              "side_b": [
+                "AKAE Kaho (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | HAGIHARA Keishi (JPN) | AKAE Kaho (JPN) | KIM Woojin (KOR) | YANG Ha Eun (KOR) | XD | Main Draw | R16 | 1 - 3 | 11:8 8:11 6:11 8:11 | KIM Woojin | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "6:11",
+                "7:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "DING Zige (USA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "DING Zige (USA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | DING Zige (USA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 6:11 7:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "KIM Woojin",
+              "all_players_in_row": [
+                "SAREEN Aditya (AUS)",
+                "COSSIO Arantxa (MEX)",
+                "KIM Woojin (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "SAREEN Aditya (AUS)",
+                "KIM Woojin (KOR)"
+              ],
+              "side_b": [
+                "COSSIO Arantxa (MEX)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SAREEN Aditya (AUS) | COSSIO Arantxa (MEX) | KIM Woojin (KOR) | YANG Ha Eun (KOR) | XD | Main Draw | QuarterFinal | 0 - 3 | 9:11 6:11 9:11 | KIM Woojin | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "10:12",
+                "5:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | WANG Amy (USA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 0 - 3 | 10:12 10:12 5:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "6:11",
+                "11:7",
+                "10:12",
+                "3:11"
+              ],
+              "winner": "AKAE Kaho",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | YANG Ha Eun (KOR) |  | AKAE Kaho (JPN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 12:10 6:11 11:7 10:12 3:11 | AKAE Kaho |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "10:12",
+                "11:5",
+                "13:11"
+              ],
+              "winner": "KIM Woojin",
+              "all_players_in_row": [
+                "KIM Woojin (KOR)",
+                "YANG Ha Eun (KOR)",
+                "CHOI Jiwook (KOR)",
+                "LEE Dahye (KOR)"
+              ],
+              "side_a": [
+                "KIM Woojin (KOR)",
+                "CHOI Jiwook (KOR)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "LEE Dahye (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | KIM Woojin (KOR) | YANG Ha Eun (KOR) | CHOI Jiwook (KOR) | LEE Dahye (KOR) | XD | Main Draw | SemiFinal | 3 - 1 | 14:12 10:12 11:5 13:11 | KIM Woojin | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "7:11",
+                "12:10",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "KIM Woojin",
+              "all_players_in_row": [
+                "KIM Woojin (KOR)",
+                "YANG Ha Eun (KOR)",
+                "LIANG Jishan (USA)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_a": [
+                "KIM Woojin (KOR)",
+                "LIANG Jishan (USA)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "MOYLAND Sally (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | KIM Woojin (KOR) | YANG Ha Eun (KOR) | LIANG Jishan (USA) | MOYLAND Sally (USA) | XD | Main Draw | Final | 3 - 2 | 6:11 7:11 12:10 11:7 11:7 | KIM Woojin | YANG Ha Eun | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Spokane 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3177",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_10_WTT_Feeder_Spokane_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:5",
+                "14:12"
+              ],
+              "winner": "KIM Woojin",
+              "all_players_in_row": [
+                "KIM Woojin (KOR)",
+                "YANG Ha Eun (KOR)",
+                "LIANG Jishan (USA)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_a": [
+                "KIM Woojin (KOR)",
+                "LIANG Jishan (USA)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "MOYLAND Sally (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane 2025 | KIM Woojin (KOR) | YANG Ha Eun (KOR) | LIANG Jishan (USA) | MOYLAND Sally (USA) | XD | Main Draw | R16 | 3 - 0 | 11:9 11:5 14:12 | KIM Woojin | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:1",
+                "11:9",
+                "11:5"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "DING Zige (USA)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "DING Zige (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane 2025 | YANG Ha Eun (KOR) |  | DING Zige (USA) |  | WS | Main Draw | R32 | 3 - 1 | 7:11 11:1 11:9 11:5 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:5"
+              ],
+              "winner": "NARESH Nandan",
+              "all_players_in_row": [
+                "NARESH Nandan (USA)",
+                "YEOH Irene (USA)",
+                "KIM Woojin (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "NARESH Nandan (USA)",
+                "KIM Woojin (KOR)"
+              ],
+              "side_b": [
+                "YEOH Irene (USA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane 2025 | NARESH Nandan (USA) | YEOH Irene (USA) | KIM Woojin (KOR) | YANG Ha Eun (KOR) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:9 11:5 | NARESH Nandan | YEOH Irene | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "4:11",
+                "10:12",
+                "7:11"
+              ],
+              "winner": "SATO Hitomi",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Spokane 2025 | YANG Ha Eun (KOR) |  | SATO Hitomi (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 11:3 4:11 10:12 7:11 | SATO Hitomi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3092",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_11_WTT_Contender_Zagreb_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "STRAZAR Katarina (SLO)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "STRAZAR Katarina (SLO)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | YANG Ha Eun (KOR) |  | STRAZAR Katarina (SLO) |  | WS | Qualification | QR64 | 3 - 0 | 11:7 11:8 11:7 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:5",
+                "11:6"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | YANG Ha Eun (KOR) |  | CHOI Hyojoo (KOR) |  | WS | Qualification | QR32 | 3 - 0 | 11:6 11:5 11:6 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "9:11",
+                "11:4",
+                "9:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "PESOTSKA Margaryta (UKR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "PESOTSKA Margaryta (UKR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | PESOTSKA Margaryta (UKR) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR16 | 1 - 3 | 5:11 9:11 11:4 9:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "11:2"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | YANG Ha Eun (KOR) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:7 11:2 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "11:9"
+              ],
+              "winner": "QIAN Tianyi",
+              "all_players_in_row": [
+                "QIAN Tianyi (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "QIAN Tianyi (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | QIAN Tianyi (CHN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:7 11:9 | QIAN Tianyi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_12_WTT_Star_Contender_Ljubljana_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "13:15",
+                "8:11",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | YANG Ha Eun (KOR) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Qualification | QR64 | 3 - 2 | 11:4 13:15 8:11 11:8 11:7 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | RAKOVAC Lea (CRO) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 6:11 9:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "8:11",
+                "7:11",
+                "6:11"
+              ],
+              "winner": "HAN Feier",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "HAN Feier (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | YANG Ha Eun (KOR) |  | HAN Feier (CHN) |  | WS | Qualification | QR16 | 1 - 3 | 11:8 8:11 7:11 6:11 | HAN Feier |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Taiyuan 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3088",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_13_WTT_Contender_Taiyuan_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "5:11",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "ZHU Ziyu",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "ZHU Ziyu (CHN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "ZHU Ziyu (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | YANG Ha Eun (KOR) |  | ZHU Ziyu (CHN) |  | WS | Qualification |  | 1 - 3 | 9:11 5:11 11:8 9:11 | ZHU Ziyu |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:3",
+                "9:11",
+                "11:4"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "ITO Yuan (JPN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "ITO Yuan (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | YANG Ha Eun (KOR) |  | ITO Yuan (JPN) |  | WS | Qualification |  | 3 - 1 | 11:9 11:3 9:11 11:4 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "0:11",
+                "0:11",
+                "0:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "SER Lin Qian (SGP)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "SER Lin Qian (SGP)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | SER Lin Qian (SGP) |  | YANG Ha Eun (KOR) |  | WS | Qualification |  | 0 - 3 | 0:11 0:11 0:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "5:11",
+                "7:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "LEE Daeun (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "LEE Daeun (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | LEE Daeun (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 5:11 7:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:13",
+                "11:9",
+                "6:11"
+              ],
+              "winner": "FAN Shuhan",
+              "all_players_in_row": [
+                "KIM Haeun (KOR)",
+                "YANG Ha Eun (KOR)",
+                "FAN Shuhan (CHN)",
+                "YAN Yutong (CHN)"
+              ],
+              "side_a": [
+                "KIM Haeun (KOR)",
+                "FAN Shuhan (CHN)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "YAN Yutong (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | KIM Haeun (KOR) | YANG Ha Eun (KOR) | FAN Shuhan (CHN) | YAN Yutong (CHN) | WD | Main Draw | R16 | 1 - 3 | 7:11 11:13 11:9 6:11 | FAN Shuhan | YAN Yutong | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "10:12",
+                "11:9",
+                "11:7",
+                "9:11"
+              ],
+              "winner": "YOKOI Sakura",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | YANG Ha Eun (KOR) |  | YOKOI Sakura (JPN) |  | WS | Main Draw | R16 | 2 - 3 | 7:11 10:12 11:9 11:7 9:11 | YOKOI Sakura |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Cappadocia 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3030",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_14_WTT_Feeder_Cappadocia_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "6:11",
+                "8:11",
+                "9:11"
+              ],
+              "winner": "PARK Ganghyeon",
+              "all_players_in_row": [
+                "SUN Wen (CHN)",
+                "WANG Xiaotong (CHN)",
+                "PARK Ganghyeon (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "SUN Wen (CHN)",
+                "PARK Ganghyeon (KOR)"
+              ],
+              "side_b": [
+                "WANG Xiaotong (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | SUN Wen (CHN) | WANG Xiaotong (CHN) | PARK Ganghyeon (KOR) | YANG Ha Eun (KOR) | XD | Qualification | QR8 | 2 - 3 | 11:7 11:5 6:11 8:11 9:11 | PARK Ganghyeon | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "13:11",
+                "11:9",
+                "11:5"
+              ],
+              "winner": "YUAN Licen",
+              "all_players_in_row": [
+                "YUAN Licen (CHN)",
+                "QIN Yuxuan (CHN)",
+                "PARK Ganghyeon (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "YUAN Licen (CHN)",
+                "PARK Ganghyeon (KOR)"
+              ],
+              "side_b": [
+                "QIN Yuxuan (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | YUAN Licen (CHN) | QIN Yuxuan (CHN) | PARK Ganghyeon (KOR) | YANG Ha Eun (KOR) | XD | Main Draw | R16 | 3 - 1 | 9:11 13:11 11:9 11:5 | YUAN Licen | QIN Yuxuan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "9:11",
+                "11:8",
+                "4:11",
+                "6:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "KIM Dahee (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "KIM Dahee (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | KIM Dahee (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 2 - 3 | 12:10 9:11 11:8 4:11 6:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "11:8",
+                "3:11",
+                "11:8",
+                "11:8"
+              ],
+              "winner": "ZONG Geman",
+              "all_players_in_row": [
+                "ZONG Geman (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "ZONG Geman (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | ZONG Geman (CHN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 3 - 2 | 5:11 11:8 3:11 11:8 11:8 | ZONG Geman |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3020",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_15_WTT_Feeder_Dusseldorf_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "11:8",
+                "13:11",
+                "11:6"
+              ],
+              "winner": "PARK Ganghyeon",
+              "all_players_in_row": [
+                "PARK Ganghyeon (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "PARK Ganghyeon (KOR)",
+                "CHANG Yu-An (TPE)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "TSAI Yun-En (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | PARK Ganghyeon (KOR) | YANG Ha Eun (KOR) | CHANG Yu-An (TPE) | TSAI Yun-En (TPE) | XD | Qualification | QR16 | 3 - 1 | 11:13 11:8 13:11 11:6 | PARK Ganghyeon | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:8",
+                "16:14"
+              ],
+              "winner": "PARK Ganghyeon",
+              "all_players_in_row": [
+                "PARK Ganghyeon (KOR)",
+                "YANG Ha Eun (KOR)",
+                "ZALEWSKI Mateusz (POL)",
+                "WEGRZYN Katarzyna (POL)"
+              ],
+              "side_a": [
+                "PARK Ganghyeon (KOR)",
+                "ZALEWSKI Mateusz (POL)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "WEGRZYN Katarzyna (POL)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | PARK Ganghyeon (KOR) | YANG Ha Eun (KOR) | ZALEWSKI Mateusz (POL) | WEGRZYN Katarzyna (POL) | XD | Qualification | QR8 | 3 - 0 | 11:6 11:8 16:14 | PARK Ganghyeon | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:5"
+              ],
+              "winner": "PARK Ganghyeon",
+              "all_players_in_row": [
+                "PARK Ganghyeon (KOR)",
+                "YANG Ha Eun (KOR)",
+                "KIM Woojin (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_a": [
+                "PARK Ganghyeon (KOR)",
+                "KIM Woojin (KOR)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | PARK Ganghyeon (KOR) | YANG Ha Eun (KOR) | KIM Woojin (KOR) | CHOI Haeeun (KOR) | XD | Main Draw | R16 | 3 - 0 | 11:6 11:4 11:5 | PARK Ganghyeon | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "MISCHEK Karoline (AUT)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "MISCHEK Karoline (AUT)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | MISCHEK Karoline (AUT) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 9:11 5:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "7:11",
+                "8:11"
+              ],
+              "winner": "WANG Xiaotong",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | YANG Ha Eun (KOR) |  | WANG Xiaotong (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 7:11 8:11 | WANG Xiaotong |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:7",
+                "11:4",
+                "11:3"
+              ],
+              "winner": "XUE Fei",
+              "all_players_in_row": [
+                "XUE Fei (CHN)",
+                "HAN Feier (CHN)",
+                "PARK Ganghyeon (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "XUE Fei (CHN)",
+                "PARK Ganghyeon (KOR)"
+              ],
+              "side_b": [
+                "HAN Feier (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | XUE Fei (CHN) | HAN Feier (CHN) | PARK Ganghyeon (KOR) | YANG Ha Eun (KOR) | XD | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:7 11:4 11:3 | XUE Fei | HAN Feier | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3083",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2025_16_WTT_Star_Contender_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "1:11",
+                "3:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "MIRKADIROVA Sarvinoz (KAZ)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "MIRKADIROVA Sarvinoz (KAZ)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | MIRKADIROVA Sarvinoz (KAZ) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR64 | 0 - 3 | 7:11 1:11 3:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "5:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "MUKHERJEE Sutirtha (IND)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "MUKHERJEE Sutirtha (IND)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | MUKHERJEE Sutirtha (IND) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR32 | 0 - 3 | 7:11 7:11 5:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:6",
+                "11:5",
+                "11:1"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | YANG Ha Eun (KOR) |  | NG Wing Lam (HKG) |  | WS | Qualification | QR16 | 3 - 1 | 9:11 11:6 11:5 11:1 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:13",
+                "11:5",
+                "9:11"
+              ],
+              "winner": "XIAO Maria",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | YANG Ha Eun (KOR) |  | XIAO Maria (ESP) |  | WS | Main Draw | R64 | 1 - 3 | 6:11 11:13 11:5 9:11 | XIAO Maria |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2024": {
+      "captured_at": "2026-04-15T04:08:53.649901+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Vila Nova de Gaia 2024",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2024",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2891",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_17_WTT_Feeder_Vila_Nova_de_Gaia_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:9",
+                "11:9",
+                "13:15",
+                "11:8"
+              ],
+              "winner": "CHOI Hyojoo",
+              "all_players_in_row": [
+                "CHOI Hyojoo (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "CHOI Hyojoo (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | CHOI Hyojoo (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 3 - 2 | 9:11 11:9 11:9 13:15 11:8 | CHOI Hyojoo |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf II 2024",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2024",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2890",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_18_WTT_Feeder_Dusseldorf_II_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "10:12",
+                "4:11"
+              ],
+              "winner": "RYU Hanna",
+              "all_players_in_row": [
+                "VAN LIEROP Karlijn (NED)",
+                "SCHOLZ Vivien (LUX)",
+                "RYU Hanna (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "VAN LIEROP Karlijn (NED)",
+                "RYU Hanna (KOR)"
+              ],
+              "side_b": [
+                "SCHOLZ Vivien (LUX)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | VAN LIEROP Karlijn (NED) | SCHOLZ Vivien (LUX) | RYU Hanna (KOR) | YANG Ha Eun (KOR) | WD | Qualification | QR8 | 0 - 3 | 6:11 10:12 4:11 | RYU Hanna | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "4:11",
+                "8:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "DENG Zhen (USA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "DENG Zhen (USA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | DENG Zhen (USA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 9:11 4:11 8:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "15:13",
+                "4:11",
+                "7:11",
+                "11:5"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | YANG Ha Eun (KOR) |  | WANG Xiaotong (CHN) |  | WS | Main Draw | R32 | 3 - 2 | 11:6 15:13 4:11 7:11 11:5 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "12:10",
+                "11:7"
+              ],
+              "winner": "RYU Hanna",
+              "all_players_in_row": [
+                "RYU Hanna (KOR)",
+                "YANG Ha Eun (KOR)",
+                "WANG Xiaotong (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "RYU Hanna (KOR)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "HAN Feier (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | RYU Hanna (KOR) | YANG Ha Eun (KOR) | WANG Xiaotong (CHN) | HAN Feier (CHN) | WD | Main Draw | R16 | 3 - 0 | 11:4 12:10 11:7 | RYU Hanna | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "8:11",
+                "4:11"
+              ],
+              "winner": "RYU Hanna",
+              "all_players_in_row": [
+                "MALOBABIC Ivana (CRO)",
+                "ARAPOVIC Hana (CRO)",
+                "RYU Hanna (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "MALOBABIC Ivana (CRO)",
+                "RYU Hanna (KOR)"
+              ],
+              "side_b": [
+                "ARAPOVIC Hana (CRO)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | MALOBABIC Ivana (CRO) | ARAPOVIC Hana (CRO) | RYU Hanna (KOR) | YANG Ha Eun (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 8:11 4:11 | RYU Hanna | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "11:7",
+                "4:11",
+                "6:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "OJIO Yuna (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "OJIO Yuna (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | OJIO Yuna (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 1 - 3 | 11:13 11:7 4:11 6:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "14:12",
+                "11:9"
+              ],
+              "winner": "RYU Hanna",
+              "all_players_in_row": [
+                "RYU Hanna (KOR)",
+                "YANG Ha Eun (KOR)",
+                "TAKEYA Misuzu (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_a": [
+                "RYU Hanna (KOR)",
+                "TAKEYA Misuzu (JPN)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | RYU Hanna (KOR) | YANG Ha Eun (KOR) | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:6 14:12 11:9 | RYU Hanna | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "8:11",
+                "11:6",
+                "11:3"
+              ],
+              "winner": "IDESAWA Kyoka",
+              "all_players_in_row": [
+                "IDESAWA Kyoka (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "IDESAWA Kyoka (JPN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | IDESAWA Kyoka (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:3 8:11 11:6 11:3 | IDESAWA Kyoka |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "11:5"
+              ],
+              "winner": "KUAI Man",
+              "all_players_in_row": [
+                "KUAI Man (CHN)",
+                "CHEN Yi (CHN)",
+                "RYU Hanna (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "KUAI Man (CHN)",
+                "RYU Hanna (KOR)"
+              ],
+              "side_b": [
+                "CHEN Yi (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | KUAI Man (CHN) | CHEN Yi (CHN) | RYU Hanna (KOR) | YANG Ha Eun (KOR) | WD | Main Draw | Final | 3 - 0 | 11:9 11:7 11:5 | KUAI Man | CHEN Yi | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Muscat 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2997",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_19_WTT_Contender_Muscat_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "15:13",
+                "11:9",
+                "9:11",
+                "2:11",
+                "9:11"
+              ],
+              "winner": "QIAN Tianyi",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "YANG Ha Eun (KOR)",
+                "QIAN Tianyi (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "SHI Xunyao (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Muscat 2024 | KIM Nayeong (KOR) | YANG Ha Eun (KOR) | QIAN Tianyi (CHN) | SHI Xunyao (CHN) | WD | Main Draw | R16 | 2 - 3 | 15:13 11:9 9:11 2:11 9:11 | QIAN Tianyi | SHI Xunyao | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:4",
+                "5:11",
+                "11:9",
+                "12:10"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Muscat 2024 | LEE Eunhye (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 3 - 2 | 7:11 11:4 5:11 11:9 12:10 | LEE Eunhye |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2869",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_20_WTT_Contender_Zagreb_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:5",
+                "11:8"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "WEGRZYN Anna (POL)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "WEGRZYN Anna (POL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | YANG Ha Eun (KOR) |  | WEGRZYN Anna (POL) |  | WS | Qualification | QR64 | 3 - 0 | 13:11 11:5 11:8 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:7",
+                "8:11",
+                "11:9"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | YANG Ha Eun (KOR) |  | SCHREINER Franziska (GER) |  | WS | Qualification | QR32 | 3 - 1 | 11:7 11:7 8:11 11:9 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:3",
+                "11:4"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | YANG Ha Eun (KOR) |  | MORET Rachel (SUI) |  | WS | Qualification | QR16 | 3 - 0 | 11:5 11:3 11:4 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "12:14",
+                "11:8",
+                "9:11",
+                "11:5"
+              ],
+              "winner": "SZOCS Bernadette",
+              "all_players_in_row": [
+                "SZOCS Bernadette (ROU)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "SZOCS Bernadette (ROU)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | SZOCS Bernadette (ROU) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 3 - 2 | 11:1 12:14 11:8 9:11 11:5 | SZOCS Bernadette |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2024",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2024",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2881",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_21_WTT_Feeder_Dusseldorf_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:13",
+                "11:6",
+                "9:11",
+                "10:12"
+              ],
+              "winner": "MANTZ Chantal",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "MANTZ Chantal (GER)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "MANTZ Chantal (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | YANG Ha Eun (KOR) |  | MANTZ Chantal (GER) |  | WS | Main Draw | R32 | 2 - 3 | 11:8 11:13 11:6 9:11 10:12 | MANTZ Chantal |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:3",
+                "11:8",
+                "2:11",
+                "11:4"
+              ],
+              "winner": "LI Yu-Jhun",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "LI Yu-Jhun (TPE)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
+                "CHIEN Tung-Chuan (TPE)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | LI Yu-Jhun (TPE) | CHIEN Tung-Chuan (TPE) | KIM Nayeong (KOR) | YANG Ha Eun (KOR) | WD | Main Draw | R16 | 3 - 2 | 8:11 11:3 11:8 2:11 11:4 | LI Yu-Jhun | CHIEN Tung-Chuan | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Varazdin 2024",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2024",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2882",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_22_WTT_Feeder_Varazdin_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:8",
+                "12:10"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "YANG Ha Eun (KOR)",
+                "KUKULKOVA Tatiana (SVK)",
+                "LABOSOVA Ema (SVK)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)",
+                "LABOSOVA Ema (SVK)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | KIM Nayeong (KOR) | YANG Ha Eun (KOR) | KUKULKOVA Tatiana (SVK) | LABOSOVA Ema (SVK) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:8 12:10 | KIM Nayeong | YANG Ha Eun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "8:11",
+                "9:11",
+                "3:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "LAM Yee Lok (HKG)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "LAM Yee Lok (HKG)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | LAM Yee Lok (HKG) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 2 - 3 | 11:9 11:7 8:11 9:11 3:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "8:11",
+                "9:11",
+                "7:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "KIM Hayeong (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "KIM Hayeong (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | KIM Hayeong (KOR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 1 - 3 | 11:1 8:11 9:11 7:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:9",
+                "11:8",
+                "11:9"
+              ],
+              "winner": "ZHU Chengzhu",
+              "all_players_in_row": [
+                "ZHU Chengzhu (HKG)",
+                "LEE Ho Ching (HKG)",
+                "KIM Nayeong (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "ZHU Chengzhu (HKG)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
+                "LEE Ho Ching (HKG)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | ZHU Chengzhu (HKG) | LEE Ho Ching (HKG) | KIM Nayeong (KOR) | YANG Ha Eun (KOR) | WD | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:9 11:8 11:9 | ZHU Chengzhu | LEE Ho Ching | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "12:10",
+                "12:10"
+              ],
+              "winner": "ZENG Jian",
+              "all_players_in_row": [
+                "ZENG Jian (SGP)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "ZENG Jian (SGP)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | ZENG Jian (SGP) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 12:10 12:10 | ZENG Jian |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Manchester 2024",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2879",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_23_WTT_Feeder_Manchester_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "7:11",
+                "5:11",
+                "7:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "HO Tin-Tin (ENG)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Manchester 2024 | HO Tin-Tin (ENG) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 1 - 3 | 13:11 7:11 5:11 7:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "5:11",
+                "11:8",
+                "8:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "PICCOLIN Giorgia (ITA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Manchester 2024 | PICCOLIN Giorgia (ITA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 1 - 3 | 7:11 5:11 11:8 8:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "6:11",
+                "5:11",
+                "13:11",
+                "11:4"
+              ],
+              "winner": "VIVARELLI Debora",
+              "all_players_in_row": [
+                "VIVARELLI Debora (ITA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "VIVARELLI Debora (ITA)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Manchester 2024 | VIVARELLI Debora (ITA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 11:4 6:11 5:11 13:11 11:4 | VIVARELLI Debora |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Goa 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2863",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2024_24_WTT_Star_Contender_Goa_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "7:11",
+                "10:12",
+                "11:3",
+                "11:7"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "HURSEY Anna (WAL)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "HURSEY Anna (WAL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Star Contender Goa 2024 | YANG Ha Eun (KOR) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R64 | 3 - 2 | 11:8 7:11 10:12 11:3 11:7 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "7:11",
+                "11:9",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "CHEN Szu-Yu (TPE)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Star Contender Goa 2024 | CHEN Szu-Yu (TPE) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R32 | 2 - 3 | 11:9 7:11 11:9 8:11 6:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "CHENG I-Ching",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Star Contender Goa 2024 | YANG Ha Eun (KOR) |  | CHENG I-Ching (TPE) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 9:11 9:11 | CHENG I-Ching |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2023": {
+      "captured_at": "2026-04-15T04:08:53.649901+00:00",
+      "events": [
+        {
+          "event_name": "WTT Contender Taiyuan 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=112368&vw_matches___player_a_id[value][]=112368&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=112368&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=112368&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=112368&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2794",
+          "raw_capture_file": "data\\raw_event_payloads\\YANG_Ha_Eun\\2023_25_WTT_Contender_Taiyuan_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "12:10",
+                "9:11",
+                "13:11",
+                "3:11"
+              ],
+              "winner": "LEE Zion",
+              "all_players_in_row": [
+                "YANG Ha Eun (KOR)",
+                "LEE Zion (KOR)"
+              ],
+              "side_a": [
+                "YANG Ha Eun (KOR)",
+                "LEE Zion (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | YANG Ha Eun (KOR) |  | LEE Zion (KOR) |  | WS | Main Draw | R32 | 2 - 3 | 5:11 12:10 9:11 13:11 3:11 | LEE Zion |  | "
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-15T04:08:53.649382+00:00",
+  "updated_at": "2026-04-15T04:15:27.587200+00:00",
+  "captured_at": "2026-04-15T04:08:53.649901+00:00"
+}

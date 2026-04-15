@@ -1,0 +1,4358 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "HUANG Yu-Jie",
+  "english_name": "HUANG Yu-Jie",
+  "country": "TPE",
+  "country_code": "TPE",
+  "continent": "",
+  "rank": 83,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-15T07:52:02.309629+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Dusseldorf 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3267",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2026_1_WTT_Feeder_Dusseldorf_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "KLEE Sophia (GER)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "KLEE Sophia (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | HUANG Yu-Jie (TPE) |  | KLEE Sophia (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:9 11:6 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "6:11",
+                "10:12",
+                "6:11"
+              ],
+              "winner": "LUPULESKU Izabela",
+              "all_players_in_row": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | HUANG Yu-Jie (TPE) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 1 - 3 | 11:9 6:11 10:12 6:11 | LUPULESKU Izabela |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2026_2_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "6:11",
+                "8:11"
+              ],
+              "winner": "MOYLAND Sally",
+              "all_players_in_row": [
+                "MOYLAND Sally (USA)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | HUANG Yu-Jie (TPE) |  | MOYLAND Sally (USA) |  | WS | Qualification | QR64 | 0 - 3 | 7:11 6:11 8:11 | MOYLAND Sally |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Chennai 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3233",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2026_3_WTT_Star_Contender_Chennai_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:6",
+                "7:11",
+                "11:5"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "WANI Sayali (IND)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "WANI Sayali (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | HUANG Yu-Jie (TPE) |  | WANI Sayali (IND) |  | WS | Main Draw | R64 | 3 - 1 | 12:10 11:6 7:11 11:5 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "5:11",
+                "9:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "KIHARA Miyuu (JPN)"
+              ],
+              "side_a": [
+                "KIHARA Miyuu (JPN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | KIHARA Miyuu (JPN) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 5:11 9:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "9:11",
+                "8:11",
+                "13:15"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | HUANG Yu-Jie (TPE) |  | LEE Eunhye (KOR) |  | WS | Main Draw | R16 | 1 - 3 | 11:6 9:11 8:11 13:15 | LEE Eunhye |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "ITTF-ATTU Asian Cup Haikou 2026",
+          "event_type": "Continental",
+          "event_year": "2026",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3471",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2026_4_ITTF-ATTU_Asian_Cup_Haikou_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:13",
+                "11:8",
+                "11:4"
+              ],
+              "winner": "HAYATA Hina",
+              "all_players_in_row": [
+                "HAYATA Hina (JPN)"
+              ],
+              "side_a": [
+                "HAYATA Hina (JPN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-ATTU Asian Cup Haikou 2026 | HAYATA Hina (JPN) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification |  | 3 - 1 | 11:9 11:13 11:8 11:4 | HAYATA Hina |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "9:11",
+                "13:11",
+                "11:6"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "AKASHEVA Zauresh (KAZ)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "AKASHEVA Zauresh (KAZ)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-ATTU Asian Cup Haikou 2026 | HUANG Yu-Jie (TPE) |  | AKASHEVA Zauresh (KAZ) |  | WS | Qualification |  | 3 - 1 | 11:9 9:11 13:11 11:6 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "10:12",
+                "12:10",
+                "11:4"
+              ],
+              "winner": "SHIN Yubin",
+              "all_players_in_row": [
+                "SHIN Yubin (KOR)"
+              ],
+              "side_a": [
+                "SHIN Yubin (KOR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | ITTF-ATTU Asian Cup Haikou 2026 | SHIN Yubin (KOR) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification |  | 3 - 1 | 11:6 10:12 12:10 11:4 | SHIN Yubin |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Doha 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3354",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2026_5_WTT_Feeder_Doha_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 18,
+                  "opponent": 20
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "18:20",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "ZHU Chengzhu",
+              "all_players_in_row": [
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Doha 2026 | HUANG Yu-Jie (TPE) |  | ZHU Chengzhu (HKG) |  | WS | Main Draw | R32 | 0 - 3 | 18:20 6:11 6:11 | ZHU Chengzhu |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Muscat 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3251",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2026_6_WTT_Contender_Muscat_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:2",
+                "11:2"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "LABOSOVA Ema (SVK)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "LABOSOVA Ema (SVK)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | HUANG Yu-Jie (TPE) |  | LABOSOVA Ema (SVK) |  | WS | Qualification |  | 3 - 0 | 11:8 11:2 11:2 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "9:11",
+                "11:5"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "VORONINA Vlada (AIN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "VORONINA Vlada (AIN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | HUANG Yu-Jie (TPE) |  | VORONINA Vlada (AIN) |  | WS | Qualification |  | 3 - 1 | 11:5 11:8 9:11 11:5 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "9:11",
+                "11:7",
+                "8:11",
+                "12:10"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | HUANG Yu-Jie (TPE) |  | ZARIF Audrey (FRA) |  | WS | Qualification | QR16 | 3 - 2 | 11:8 9:11 11:7 8:11 12:10 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "SHI Xunyao (CHN)"
+              ],
+              "side_a": [
+                "SHI Xunyao (CHN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | SHI Xunyao (CHN) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:7 11:4 | SHI Xunyao |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "TSAI Yun-En",
+              "all_players_in_row": [
+                "HARAC Ece (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_a": [
+                "TSAI Yun-En (TPE)",
+                "HARAC Ece (TUR)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | TSAI Yun-En (TPE) | HUANG Yu-Jie (TPE) | HARAC Ece (TUR) | ALTINKAYA Sibel (TUR) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:7 11:8 | TSAI Yun-En | HUANG Yu-Jie | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "5:11",
+                "6:11",
+                "4:11"
+              ],
+              "winner": "GHORPADE Yashaswini",
+              "all_players_in_row": [
+                "GHORPADE Yashaswini (IND)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_a": [
+                "TSAI Yun-En (TPE)",
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Contender Muscat 2026 | TSAI Yun-En (TPE) | HUANG Yu-Jie (TPE) | GHORPADE Yashaswini (IND) | MUKHERJEE Ayhika (IND) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:9 5:11 6:11 4:11 | GHORPADE Yashaswini | MUKHERJEE Ayhika | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3232",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2026_7_WTT_Star_Contender_Doha_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:8",
+                "11:6"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Doha 2026 | HUANG Yu-Jie (TPE) |  | MIRKADIROVA Sarvinoz (KAZ) |  | WS | Qualification | QR32 | 3 - 0 | 11:7 11:8 11:6 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "7:11",
+                "4:11"
+              ],
+              "winner": "KOTECHA Taneesha",
+              "all_players_in_row": [
+                "KOTECHA Taneesha (IND)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "KOTECHA Taneesha (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Doha 2026 | HUANG Yu-Jie (TPE) |  | KOTECHA Taneesha (IND) |  | WS | Qualification | QR16 | 0 - 3 | 8:11 7:11 4:11 | KOTECHA Taneesha |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-15T07:52:02.309629+00:00",
+      "events": [
+        {
+          "event_name": "ITTF-ATTU Asian Team Championships Bhubaneswar 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3166",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_8_ITTF-ATTU_Asian_Team_Championships_Bhubaneswar_2025.json",
+          "matches": [
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "4:11",
+                "5:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "SAI Khoy (BAN)"
+              ],
+              "side_a": [
+                "SAI Khoy (BAN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Team Championships Bhubaneswar 2025 | SAI Khoy (BAN) |  | HUANG Yu-Jie (TPE) |  | WT | Qualification |  | 0 - 3 | 3:11 4:11 5:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "11:6",
+                "11:8"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "CHEONG Chi Hun (MAC)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "CHEONG Chi Hun (MAC)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Team Championships Bhubaneswar 2025 | HUANG Yu-Jie (TPE) |  | CHEONG Chi Hun (MAC) |  | WT | Qualification |  | 3 - 0 | 11:1 11:6 11:8 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "2:11",
+                "5:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "GULIMOVA Maftuna (UZB)"
+              ],
+              "side_a": [
+                "GULIMOVA Maftuna (UZB)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Team Championships Bhubaneswar 2025 | GULIMOVA Maftuna (UZB) |  | HUANG Yu-Jie (TPE) |  | WT | Qualification |  | 0 - 3 | 5:11 2:11 5:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Position Draw",
+              "round": "4",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:8",
+                "8:11",
+                "11:9",
+                "11:3"
+              ],
+              "winner": "PARANANG Orawan",
+              "all_players_in_row": [
+                "PARANANG Orawan (THA)"
+              ],
+              "side_a": [
+                "PARANANG Orawan (THA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Team Championships Bhubaneswar 2025 | PARANANG Orawan (THA) |  | HUANG Yu-Jie (TPE) |  | WT | Position Draw | 4 | 3 - 2 | 10:12 11:8 8:11 11:9 11:3 | PARANANG Orawan |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Position Draw",
+              "round": "4",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:6",
+                "9:11",
+                "11:8"
+              ],
+              "winner": "SAWETTABUT Suthasini",
+              "all_players_in_row": [
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_a": [
+                "SAWETTABUT Suthasini (THA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | ITTF-ATTU Asian Team Championships Bhubaneswar 2025 | SAWETTABUT Suthasini (THA) |  | HUANG Yu-Jie (TPE) |  | WT | Position Draw | 4 | 3 - 1 | 11:9 11:6 9:11 11:8 | SAWETTABUT Suthasini |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "China Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3098",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_9_China_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 14,
+                  "opponent": 16
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:14",
+                "11:7",
+                "14:16",
+                "6:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_a": [
+                "GHORPADE Yashaswini (IND)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | China Smash 2025 | GHORPADE Yashaswini (IND) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR64 | 1 - 3 | 12:14 11:7 14:16 6:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:5",
+                "11:7"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | China Smash 2025 | HUANG Yu-Jie (TPE) |  | ZARIF Audrey (FRA) |  | WS | Qualification | QR32 | 3 - 0 | 11:9 11:5 11:7 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "15:13",
+                "12:10",
+                "1:11",
+                "10:12",
+                "11:13"
+              ],
+              "winner": "XU Yi",
+              "all_players_in_row": [
+                "XU Yi (CHN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | China Smash 2025 | HUANG Yu-Jie (TPE) |  | XU Yi (CHN) |  | WS | Qualification | QR16 | 2 - 3 | 15:13 12:10 1:11 10:12 11:13 | XU Yi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Foz do Iguazu 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3093",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_10_WTT_Star_Contender_Foz_do_Iguazu_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "8:11",
+                "8:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "SU Tsz Tung (HKG)"
+              ],
+              "side_a": [
+                "SU Tsz Tung (HKG)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | SU Tsz Tung (HKG) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R64 | 0 - 3 | 3:11 8:11 8:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "9:11",
+                "3:11"
+              ],
+              "winner": "CHENG I-Ching",
+              "all_players_in_row": [
+                "PRATES Jessica (BRA)",
+                "KANO Sofia (BRA)"
+              ],
+              "side_a": [
+                "PRATES Jessica (BRA)",
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [
+                "KANO Sofia (BRA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | PRATES Jessica (BRA) | KANO Sofia (BRA) | CHENG I-Ching (TPE) | HUANG Yu-Jie (TPE) | WD | Main Draw | R16 | 0 - 3 | 5:11 9:11 3:11 | CHENG I-Ching | HUANG Yu-Jie | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "13:11",
+                "3:11",
+                "3:11"
+              ],
+              "winner": "TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | HUANG Yu-Jie (TPE) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 13:11 3:11 3:11 | TAKAHASHI Bruna |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "8:11",
+                "7:11",
+                "13:11",
+                "11:8"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "ODO Satsuki (JPN)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [
+                "ODO Satsuki (JPN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | CHENG I-Ching (TPE) | HUANG Yu-Jie (TPE) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:6 8:11 7:11 13:11 11:8 | HARIMOTO Miwa | ODO Satsuki | "
+            }
+          ]
+        },
+        {
+          "event_name": "FISU World University Games Rhine-Ruhr 2025",
+          "event_type": "Multi sport events",
+          "event_year": "2025",
+          "match_count": 13,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3226",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_11_FISU_World_University_Games_Rhine-Ruhr_2025.json",
+          "matches": [
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "9:11",
+                "2:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "FUENTES Darling (CHI)"
+              ],
+              "side_a": [
+                "FUENTES Darling (CHI)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | FUENTES Darling (CHI) |  | HUANG Yu-Jie (TPE) |  | WT | Qualification |  | 0 - 3 | 3:11 9:11 2:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:6",
+                "11:4"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "BUDIARTO Jacqueline (AUS)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "BUDIARTO Jacqueline (AUS)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | HUANG Yu-Jie (TPE) |  | BUDIARTO Jacqueline (AUS) |  | WT | Qualification |  | 3 - 0 | 11:3 11:6 11:4 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:8",
+                "11:9"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "SZTWIERTNIA Ilona (POL)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "SZTWIERTNIA Ilona (POL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | HUANG Yu-Jie (TPE) |  | SZTWIERTNIA Ilona (POL) |  | WT | Main Draw | R16 | 3 - 0 | 11:4 11:8 11:9 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:8",
+                "11:8"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "SAINI Suhana (IND)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "SAINI Suhana (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | HUANG Yu-Jie (TPE) |  | SAINI Suhana (IND) |  | WT | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:8 11:8 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "10:12",
+                "6:11",
+                "11:4"
+              ],
+              "winner": "HAN Feier",
+              "all_players_in_row": [
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "HAN Feier (CHN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | HAN Feier (CHN) |  | HUANG Yu-Jie (TPE) |  | WT | Main Draw | SemiFinal | 3 - 2 | 11:7 11:5 10:12 6:11 11:4 | HAN Feier |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "1:11",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "TAYAPITAK Wirakarn (THA)"
+              ],
+              "side_a": [
+                "TAYAPITAK Wirakarn (THA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | TAYAPITAK Wirakarn (THA) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R64 | 0 - 4 | 5:11 1:11 9:11 5:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "CHENG Pusyuan",
+              "all_players_in_row": [
+                "CHENG Pusyuan (TPE)",
+                "CHAN Lu Wen (SGP)",
+                "CHENG Janissa (SGP)"
+              ],
+              "side_a": [
+                "CHENG Pusyuan (TPE)",
+                "CHAN Lu Wen (SGP)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)",
+                "CHENG Janissa (SGP)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | CHENG Pusyuan (TPE) | HUANG Yu-Jie (TPE) | CHAN Lu Wen (SGP) | CHENG Janissa (SGP) | WD | Main Draw | R32 | 3 - 0 | 11:3 11:6 11:7 | CHENG Pusyuan | HUANG Yu-Jie | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:8",
+                "7:11",
+                "9:11",
+                "10:12",
+                "6:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "YILMAZ Ozge (TUR)"
+              ],
+              "side_a": [
+                "YILMAZ Ozge (TUR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | YILMAZ Ozge (TUR) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R32 | 2 - 4 | 11:7 11:8 7:11 9:11 10:12 6:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:15",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "SINGEORZAN Ioana",
+              "all_players_in_row": [
+                "CHENG Pusyuan (TPE)",
+                "SINGEORZAN Ioana (ROU)",
+                "ZAHARIA Elena (ROU)"
+              ],
+              "side_a": [
+                "CHENG Pusyuan (TPE)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)",
+                "ZAHARIA Elena (ROU)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | CHENG Pusyuan (TPE) | HUANG Yu-Jie (TPE) | SINGEORZAN Ioana (ROU) | ZAHARIA Elena (ROU) | WD | Main Draw | R16 | 0 - 3 | 13:15 6:11 6:11 | SINGEORZAN Ioana | ZAHARIA Elena | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "11:6",
+                "12:10",
+                "8:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "LUTZ Camille (FRA)"
+              ],
+              "side_a": [
+                "LUTZ Camille (FRA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | LUTZ Camille (FRA) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R16 | 2 - 4 | 3:11 11:6 12:10 8:11 6:11 6:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:9",
+                "11:4",
+                "11:8",
+                "6:11",
+                "6:11",
+                "11:9"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "ASADA Mana (JPN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "ASADA Mana (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | HUANG Yu-Jie (TPE) |  | ASADA Mana (JPN) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 7:11 11:9 11:4 11:8 6:11 6:11 11:9 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:8",
+                "5:11",
+                "9:11",
+                "3:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "NG Wing Lam (HKG)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | NG Wing Lam (HKG) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | SemiFinal | 1 - 4 | 8:11 11:8 5:11 9:11 3:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "13:11",
+                "11:5"
+              ],
+              "winner": "ZHAO Shang",
+              "all_players_in_row": [
+                "ZHAO Shang (CHN)"
+              ],
+              "side_a": [
+                "ZHAO Shang (CHN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ZHAO Shang (CHN) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | Final | 4 - 0 | 11:8 11:9 13:11 11:5 | ZHAO Shang |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3092",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_12_WTT_Contender_Zagreb_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:8",
+                "13:11",
+                "11:9"
+              ],
+              "winner": "PESOTSKA Margaryta",
+              "all_players_in_row": [
+                "PESOTSKA Margaryta (UKR)"
+              ],
+              "side_a": [
+                "PESOTSKA Margaryta (UKR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | PESOTSKA Margaryta (UKR) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR64 | 3 - 1 | 9:11 11:8 13:11 11:9 | PESOTSKA Margaryta |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_13_WTT_Star_Contender_Ljubljana_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:5",
+                "7:11",
+                "9:11",
+                "11:6"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | HUANG Yu-Jie (TPE) |  | ARAPOVIC Hana (CRO) |  | WS | Qualification | QR64 | 3 - 2 | 11:9 11:5 7:11 9:11 11:6 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "6:11",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "HAN Feier",
+              "all_players_in_row": [
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "HAN Feier (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | HUANG Yu-Jie (TPE) |  | HAN Feier (CHN) |  | WS | Qualification | QR32 | 1 - 3 | 13:11 6:11 9:11 5:11 | HAN Feier |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Skopje 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3090",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_14_WTT_Contender_Skopje_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:3",
+                "11:2"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "JOVANOSKA Fani (MKD)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "JOVANOSKA Fani (MKD)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | HUANG Yu-Jie (TPE) |  | JOVANOSKA Fani (MKD) |  | WS | Qualification |  | 3 - 0 | 11:7 11:3 11:2 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "12:10",
+                "6:11",
+                "11:9"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "ZHU Ziyu (CHN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "ZHU Ziyu (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | HUANG Yu-Jie (TPE) |  | ZHU Ziyu (CHN) |  | WS | Qualification |  | 3 - 1 | 11:8 12:10 6:11 11:9 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:7",
+                "12:10"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "CHENG Pusyuan (TPE)",
+                "CRISTOBAL Ainhoa (ESP)",
+                "SASTRE Eugenia (ESP)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "CRISTOBAL Ainhoa (ESP)"
+              ],
+              "side_b": [
+                "CHENG Pusyuan (TPE)",
+                "SASTRE Eugenia (ESP)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | HUANG Yu-Jie (TPE) | CHENG Pusyuan (TPE) | CRISTOBAL Ainhoa (ESP) | SASTRE Eugenia (ESP) | WD | Qualification | QR8 | 3 - 0 | 13:11 11:7 12:10 | HUANG Yu-Jie | CHENG Pusyuan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:8",
+                "10:12",
+                "11:9"
+              ],
+              "winner": "YEH Yi-Tian",
+              "all_players_in_row": [],
+              "side_a": [
+                "YEH Yi-Tian (TPE)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | YEH Yi-Tian (TPE) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR16 | 3 - 1 | 11:9 11:8 10:12 11:9 | YEH Yi-Tian |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "7:11",
+                "11:8",
+                "10:12",
+                "9:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "YUAN Jia Nan (FRA)",
+                "PAVADE Prithika (FRA)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "YUAN Jia Nan (FRA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [
+                "PAVADE Prithika (FRA)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | YUAN Jia Nan (FRA) | PAVADE Prithika (FRA) | HUANG Yu-Jie (TPE) | CHENG Pusyuan (TPE) | WD | Main Draw | R16 | 2 - 3 | 11:7 7:11 11:8 10:12 9:11 | HUANG Yu-Jie | CHENG Pusyuan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "YOO Yerin (KOR)",
+                "CHOI Nahyun (KOR)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "YOO Yerin (KOR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [
+                "CHOI Nahyun (KOR)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | YOO Yerin (KOR) | CHOI Nahyun (KOR) | HUANG Yu-Jie (TPE) | CHENG Pusyuan (TPE) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 9:11 6:11 | HUANG Yu-Jie | CHENG Pusyuan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:1",
+                "11:6"
+              ],
+              "winner": "ODO Satsuki",
+              "all_players_in_row": [
+                "ODO Satsuki (JPN)",
+                "YOKOI Sakura (JPN)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "ODO Satsuki (JPN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [
+                "YOKOI Sakura (JPN)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | HUANG Yu-Jie (TPE) | CHENG Pusyuan (TPE) | WD | Main Draw | SemiFinal | 3 - 0 | 11:6 11:1 11:6 | ODO Satsuki | YOKOI Sakura | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Prishtina 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3058",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_15_WTT_Feeder_Prishtina_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:9",
+                "8:11",
+                "11:6",
+                "4:11"
+              ],
+              "winner": "CHENG Pusyuan",
+              "all_players_in_row": [
+                "DAS Syndrela (IND)",
+                "PATEL Hardee (IND)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "DAS Syndrela (IND)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_b": [
+                "PATEL Hardee (IND)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | DAS Syndrela (IND) | PATEL Hardee (IND) | CHENG Pusyuan (TPE) | HUANG Yu-Jie (TPE) | WD | Qualification | QR8 | 2 - 3 | 6:11 11:9 8:11 11:6 4:11 | CHENG Pusyuan | HUANG Yu-Jie | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "3:11",
+                "8:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "COSIC Dora (CRO)"
+              ],
+              "side_a": [
+                "COSIC Dora (CRO)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | COSIC Dora (CRO) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 3:11 8:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:5",
+                "12:10"
+              ],
+              "winner": "CHENG Pusyuan",
+              "all_players_in_row": [
+                "CHENG Pusyuan (TPE)",
+                "CRISTOBAL Ainhoa (ESP)",
+                "SASTRE Eugenia (ESP)"
+              ],
+              "side_a": [
+                "CHENG Pusyuan (TPE)",
+                "CRISTOBAL Ainhoa (ESP)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)",
+                "SASTRE Eugenia (ESP)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | CHENG Pusyuan (TPE) | HUANG Yu-Jie (TPE) | CRISTOBAL Ainhoa (ESP) | SASTRE Eugenia (ESP) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:5 12:10 | CHENG Pusyuan | HUANG Yu-Jie | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "12:10",
+                "8:11",
+                "9:11",
+                "12:10"
+              ],
+              "winner": "YOKOI Sakura",
+              "all_players_in_row": [
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_a": [
+                "YOKOI Sakura (JPN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | YOKOI Sakura (JPN) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R32 | 3 - 2 | 11:7 12:10 8:11 9:11 12:10 | YOKOI Sakura |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:3",
+                "10:12",
+                "11:9"
+              ],
+              "winner": "SATO Hitomi",
+              "all_players_in_row": [
+                "SATO Hitomi (JPN)",
+                "YOKOI Sakura (JPN)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "SATO Hitomi (JPN)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_b": [
+                "YOKOI Sakura (JPN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | CHENG Pusyuan (TPE) | HUANG Yu-Jie (TPE) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:9 11:3 10:12 11:9 | SATO Hitomi | YOKOI Sakura | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Havirov 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3069",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_16_WTT_Feeder_Havirov_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:1",
+                "8:11",
+                "11:9",
+                "5:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "COK Isa (FRA)",
+                "TOFTAKER Martine (NOR)"
+              ],
+              "side_a": [
+                "COK Isa (FRA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [
+                "TOFTAKER Martine (NOR)",
+                "TSAI Yun-En (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | COK Isa (FRA) | TOFTAKER Martine (NOR) | HUANG Yu-Jie (TPE) | TSAI Yun-En (TPE) | WD | Qualification | QR16 | 2 - 3 | 6:11 11:1 8:11 11:9 5:11 | HUANG Yu-Jie | TSAI Yun-En | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:6",
+                "11:13",
+                "9:11",
+                "11:3"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "TSAI Yun-En (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | HUANG Yu-Jie (TPE) |  | TSAI Yun-En (TPE) |  | WS | Qualification | QR32 | 3 - 2 | 11:3 11:6 11:13 9:11 11:3 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "9:11",
+                "8:11",
+                "12:10",
+                "2:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "MIRKADIROVA Sarvinoz (KAZ)",
+                "SAFAEI Shima (IRI)"
+              ],
+              "side_a": [
+                "MIRKADIROVA Sarvinoz (KAZ)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [
+                "SAFAEI Shima (IRI)",
+                "TSAI Yun-En (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | MIRKADIROVA Sarvinoz (KAZ) | SAFAEI Shima (IRI) | HUANG Yu-Jie (TPE) | TSAI Yun-En (TPE) | WD | Qualification | QR8 | 2 - 3 | 11:8 9:11 8:11 12:10 2:11 | HUANG Yu-Jie | TSAI Yun-En | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "6:11",
+                "3:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | HUANG Yu-Jie (TPE) |  | OMODA Kotomi (JPN) |  | WS | Qualification | QR16 | 0 - 3 | 9:11 6:11 3:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "13:11",
+                "9:11",
+                "11:7",
+                "5:11"
+              ],
+              "winner": "BRZYSKA Anna",
+              "all_players_in_row": [
+                "BRZYSKA Anna (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "BRZYSKA Anna (POL)"
+              ],
+              "side_b": [
+                "TSAI Yun-En (TPE)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | HUANG Yu-Jie (TPE) | TSAI Yun-En (TPE) | BRZYSKA Anna (POL) | WIELGOS Zuzanna (POL) | WD | Main Draw | R16 | 2 - 3 | 10:12 13:11 9:11 11:7 5:11 | BRZYSKA Anna | WIELGOS Zuzanna | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3025",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_17_WTT_Feeder_Otocec_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "12:10",
+                "11:13",
+                "9:11",
+                "11:4"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "DAS Syndrela (IND)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "DAS Syndrela (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | HUANG Yu-Jie (TPE) |  | DAS Syndrela (IND) |  | WS | Qualification | QR64 | 3 - 2 | 11:6 12:10 11:13 9:11 11:4 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:2",
+                "11:8"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "CHOI Seoyeon (KOR)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "CHOI Seoyeon (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | HUANG Yu-Jie (TPE) |  | CHOI Seoyeon (KOR) |  | WS | Qualification | QR32 | 3 - 0 | 11:7 11:2 11:8 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "2:11",
+                "13:11",
+                "11:7"
+              ],
+              "winner": "KODET Hanka",
+              "all_players_in_row": [
+                "KODET Hanka (CZE)"
+              ],
+              "side_a": [
+                "KODET Hanka (CZE)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KODET Hanka (CZE) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR16 | 3 - 1 | 11:9 2:11 13:11 11:7 | KODET Hanka |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Chennai 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3133",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_18_WTT_Star_Contender_Chennai_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "2:11",
+                "5:11"
+              ],
+              "winner": "HUANG Yi-Hua",
+              "all_players_in_row": [
+                "KOTECHA Taneesha (IND)",
+                "WANI Sayali (IND)"
+              ],
+              "side_a": [
+                "KOTECHA Taneesha (IND)",
+                "HUANG Yi-Hua (TPE)"
+              ],
+              "side_b": [
+                "WANI Sayali (IND)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | KOTECHA Taneesha (IND) | WANI Sayali (IND) | HUANG Yi-Hua (TPE) | HUANG Yu-Jie (TPE) | WD | Qualification | QR8 | 0 - 3 | 4:11 2:11 5:11 | HUANG Yi-Hua | HUANG Yu-Jie | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | HUANG Yu-Jie (TPE) |  | GHORPADE Yashaswini (IND) |  | WS | Main Draw | R64 | 3 - 0 | 11:9 11:6 11:7 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:8",
+                "11:7",
+                "12:10"
+              ],
+              "winner": "VARADY Barbora",
+              "all_players_in_row": [
+                "VARADY Barbora (SVK)",
+                "JEE Minhyung (AUS)"
+              ],
+              "side_a": [
+                "VARADY Barbora (SVK)",
+                "HUANG Yi-Hua (TPE)"
+              ],
+              "side_b": [
+                "JEE Minhyung (AUS)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | VARADY Barbora (SVK) | JEE Minhyung (AUS) | HUANG Yi-Hua (TPE) | HUANG Yu-Jie (TPE) | WD | Main Draw | R16 | 3 - 1 | 10:12 11:8 11:7 12:10 | VARADY Barbora | JEE Minhyung | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "12:10",
+                "7:11",
+                "11:9"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "BATRA Manika (IND)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | HUANG Yu-Jie (TPE) |  | BATRA Manika (IND) |  | WS | Main Draw | R32 | 3 - 1 | 11:7 12:10 7:11 11:9 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:9",
+                "11:9",
+                "11:9"
+              ],
+              "winner": "WAN Yuan",
+              "all_players_in_row": [
+                "WAN Yuan (GER)"
+              ],
+              "side_a": [
+                "WAN Yuan (GER)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | WAN Yuan (GER) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R16 | 3 - 1 | 7:11 11:9 11:9 11:9 | WAN Yuan |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Cappadocia 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3030",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_19_WTT_Feeder_Cappadocia_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "11:9",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "BAKHYT Anel (KAZ)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "BAKHYT Anel (KAZ)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | HUANG Yu-Jie (TPE) |  | BAKHYT Anel (KAZ) |  | WS | Qualification |  | 3 - 1 | 5:11 11:9 11:9 11:6 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "6:11",
+                "4:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "TOKIC Sara (SLO)"
+              ],
+              "side_a": [
+                "TOKIC Sara (SLO)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | TOKIC Sara (SLO) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification |  | 0 - 3 | 4:11 6:11 4:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:5",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | KIM Seongjin (KOR) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R64 | 1 - 3 | 9:11 11:5 7:11 7:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "8:11",
+                "11:4",
+                "7:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_a": [
+                "ALTINKAYA Sibel (TUR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | ALTINKAYA Sibel (TUR) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 8:11 11:4 7:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "8:11",
+                "0:11",
+                "1:11"
+              ],
+              "winner": "PARK Gahyeon",
+              "all_players_in_row": [
+                "PARK Gahyeon (KOR)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "PARK Gahyeon (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | HUANG Yu-Jie (TPE) |  | PARK Gahyeon (KOR) |  | WS | Main Draw | R16 | 1 - 3 | 11:9 8:11 0:11 1:11 | PARK Gahyeon |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3020",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_20_WTT_Feeder_Dusseldorf_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "11:7",
+                "11:9",
+                "11:13",
+                "8:11"
+              ],
+              "winner": "TSAI Yun-En",
+              "all_players_in_row": [],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "TSAI Yun-En (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | HUANG Yu-Jie (TPE) |  | TSAI Yun-En (TPE) |  | WS | Qualification | QR32 | 2 - 3 | 3:11 11:7 11:9 11:13 8:11 | TSAI Yun-En |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "HUANG Yi-Hua",
+              "all_players_in_row": [
+                "MORSCH Lorena (GER)",
+                "GRIESEL Mia (GER)"
+              ],
+              "side_a": [
+                "HUANG Yi-Hua (TPE)",
+                "MORSCH Lorena (GER)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)",
+                "GRIESEL Mia (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | HUANG Yi-Hua (TPE) | HUANG Yu-Jie (TPE) | MORSCH Lorena (GER) | GRIESEL Mia (GER) | WD | Qualification | QR8 | 3 - 0 | 11:2 11:7 11:7 | HUANG Yi-Hua | HUANG Yu-Jie | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:9",
+                "9:11",
+                "11:6",
+                "5:11"
+              ],
+              "winner": "WANG Xiaotong",
+              "all_players_in_row": [
+                "WANG Xiaotong (CHN)",
+                "FAN Shuhan (CHN)"
+              ],
+              "side_a": [
+                "HUANG Yi-Hua (TPE)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)",
+                "FAN Shuhan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | HUANG Yi-Hua (TPE) | HUANG Yu-Jie (TPE) | WANG Xiaotong (CHN) | FAN Shuhan (CHN) | WD | Main Draw | R16 | 2 - 3 | 4:11 11:9 9:11 11:6 5:11 | WANG Xiaotong | FAN Shuhan | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Muscat 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3084",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_21_WTT_Contender_Muscat_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "7:11",
+                "8:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "LEE Zion (KOR)"
+              ],
+              "side_a": [
+                "LEE Zion (KOR)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Muscat 2025 | LEE Zion (KOR) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification |  | 0 - 3 | 8:11 7:11 8:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "3:11",
+                "11:8",
+                "12:14"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [],
+              "side_a": [
+                "CHEN Chi-Shiuan (TPE)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Muscat 2025 | CHEN Chi-Shiuan (TPE) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification |  | 1 - 3 | 7:11 3:11 11:8 12:14 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:9",
+                "9:11",
+                "11:7",
+                "12:10"
+              ],
+              "winner": "UESAWA Anne",
+              "all_players_in_row": [
+                "UESAWA Anne (JPN)"
+              ],
+              "side_a": [
+                "UESAWA Anne (JPN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Muscat 2025 | UESAWA Anne (JPN) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification |  | 3 - 2 | 4:11 11:9 9:11 11:7 12:10 | UESAWA Anne |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "12:10",
+                "6:11",
+                "11:6",
+                "6:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [],
+              "side_a": [
+                "CHEN Min-Hsin (TPE)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Muscat 2025 | CHEN Min-Hsin (TPE) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR16 | 2 - 3 | 10:12 12:10 6:11 11:6 6:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "2:11"
+              ],
+              "winner": "SUH Hyo Won",
+              "all_players_in_row": [
+                "SUH Hyo Won (KOR)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "SUH Hyo Won (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Muscat 2025 | HUANG Yu-Jie (TPE) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 7:11 2:11 | SUH Hyo Won |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Doha 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3083",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2025_22_WTT_Star_Contender_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "8:11",
+                "7:11",
+                "8:11"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "BAISYA Poymantee (IND)"
+              ],
+              "side_a": [
+                "BAISYA Poymantee (IND)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | BAISYA Poymantee (IND) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR64 | 1 - 3 | 11:7 8:11 7:11 8:11 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:9",
+                "1:11",
+                "11:7",
+                "4:11"
+              ],
+              "winner": "ZONG Geman",
+              "all_players_in_row": [
+                "ZONG Geman (CHN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HUANG Yu-Jie (TPE) |  | ZONG Geman (CHN) |  | WS | Qualification | QR32 | 2 - 3 | 7:11 11:9 1:11 11:7 4:11 | ZONG Geman |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2023": {
+      "captured_at": "2026-04-15T07:52:02.309629+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Doha II 2023",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2023",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2734",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2023_23_WTT_Feeder_Doha_II_2023.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:7",
+                "8:11",
+                "11:8"
+              ],
+              "winner": "HUANG Yi-Hua",
+              "all_players_in_row": [
+                "LEE Hoi Man (HKG)"
+              ],
+              "side_a": [
+                "HUANG Yi-Hua (TPE)",
+                "LEE Hoi Man (HKG)"
+              ],
+              "side_b": [
+                "YEH Yi-Tian (TPE)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha II 2023 | HUANG Yi-Hua (TPE) | YEH Yi-Tian (TPE) | LEE Hoi Man (HKG) | HUANG Yu-Jie (TPE) | WD | Main Draw | R16 | 3 - 1 | 11:3 11:7 8:11 11:8 | HUANG Yi-Hua | YEH Yi-Tian | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:8",
+                "11:9"
+              ],
+              "winner": "HUANG Yu-Jie",
+              "all_players_in_row": [
+                "WONG Xin Ru (SGP)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "WONG Xin Ru (SGP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha II 2023 | HUANG Yu-Jie (TPE) |  | WONG Xin Ru (SGP) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:8 11:9 | HUANG Yu-Jie |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:5",
+                "11:7"
+              ],
+              "winner": "BERGSTROM Linda",
+              "all_players_in_row": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_a": [
+                "BERGSTROM Linda (SWE)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha II 2023 | BERGSTROM Linda (SWE) |  | HUANG Yu-Jie (TPE) |  | WS | Main Draw | R16 | 3 - 0 | 11:3 11:5 11:7 | BERGSTROM Linda |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Muscat 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=124584&vw_matches___player_a_id[value][]=124584&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=124584&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=124584&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=124584&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2775",
+          "raw_capture_file": "data\\raw_event_payloads\\HUANG_Yu-Jie\\2023_24_WTT_Contender_Muscat_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:9",
+                "11:7",
+                "6:11",
+                "11:5"
+              ],
+              "winner": "LUTZ Camille",
+              "all_players_in_row": [
+                "LUTZ Camille (FRA)"
+              ],
+              "side_a": [
+                "LUTZ Camille (FRA)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Muscat 2023 | LUTZ Camille (FRA) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR32 | 3 - 2 | 9:11 11:9 11:7 6:11 11:5 | LUTZ Camille |  | "
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-15T07:52:02.309097+00:00",
+  "updated_at": "2026-04-15T07:58:13.467840+00:00",
+  "captured_at": "2026-04-15T07:52:02.309629+00:00"
+}
