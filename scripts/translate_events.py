@@ -33,6 +33,10 @@ SPONSOR_SUFFIX_RE = re.compile(r"\s+Presented by .*$", re.IGNORECASE)
 YEAR_SUFFIX_RE = re.compile(r"^(?P<name>.*?)(?:\s+(?P<year>\d{4}))?$")
 
 
+def translated_field_name(field: str) -> str:
+    return f"{field}_zh"
+
+
 def find_latest_file(directory: Path) -> Path | None:
     files = sorted(directory.glob("*.json"), key=lambda f: f.stat().st_mtime, reverse=True)
     return files[0] if files else None
@@ -47,7 +51,24 @@ def load_cn_event_ids(cn_path: Path) -> set[int]:
         return set()
     try:
         data = load_json(cn_path)
-        return {e["event_id"] for e in data.get("events", []) if "event_id" in e}
+        translated_ids: set[int] = set()
+        for event in data.get("events", []):
+            eid = event.get("event_id")
+            if eid is None:
+                continue
+
+            complete = True
+            for field in TRANSLATE_FIELDS:
+                original = event.get(field, "")
+                if original in SKIP_VALUES:
+                    continue
+                if translated_field_name(field) not in event:
+                    complete = False
+                    break
+
+            if complete:
+                translated_ids.add(eid)
+        return translated_ids
     except Exception:
         return set()
 
@@ -111,7 +132,7 @@ def apply_translations(
             for field in TRANSLATE_FIELDS:
                 key = f"{eid}.{field}"
                 if key in translated:
-                    ev[field] = translated[key].replace(" ", "")
+                    ev[translated_field_name(field)] = translated[key].replace(" ", "")
         if output_skip_ids is None or eid not in output_skip_ids:
             result.append(ev)
     return result
@@ -170,7 +191,7 @@ def apply_batch_to_base_events(
         for field in TRANSLATE_FIELDS:
             key = f"{eid}.{field}"
             if key in batch_result:
-                ev[field] = format_translated_value(field, batch_result[key], name_years.get(key))
+                ev[translated_field_name(field)] = format_translated_value(field, batch_result[key], name_years.get(key))
 
 
 def validate_translations(
@@ -191,7 +212,7 @@ def validate_translations(
                 continue
             key = f"{eid}.{field}"
             if key in translated:
-                ev[field] = format_translated_value(field, translated[key], name_years.get(key))
+                ev[translated_field_name(field)] = format_translated_value(field, translated[key], name_years.get(key))
             else:
                 logger.warning("event %s field '%s' missing from translated (key=%r)", eid, field, key)
                 failed_event_ids.add(eid)
@@ -284,8 +305,9 @@ def run(args: argparse.Namespace) -> int:
         eid = ev.get("event_id")
         if eid in cn_events_by_id:
             for field in TRANSLATE_FIELDS:
-                if field in cn_events_by_id[eid]:
-                    ev[field] = cn_events_by_id[eid][field]
+                zh_field = translated_field_name(field)
+                if zh_field in cn_events_by_id[eid]:
+                    ev[zh_field] = cn_events_by_id[eid][zh_field]
         base_events.append(ev)
 
     existing_ids = set() if args.force else load_cn_event_ids(cn_path)

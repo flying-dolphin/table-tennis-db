@@ -29,6 +29,10 @@ DICT_PATH = PROJECT_ROOT / "scripts" / "data" / "translation_dict_v2.json"
 LOGS_DIR = PROJECT_ROOT / "scripts" / "logs"
 
 
+def _translated_field_name(field: str) -> str:
+    return f"{field}_zh"
+
+
 def _translate_expires_on(value: str | None) -> str | None:
     """翻译 expires_on 字段中的月份"""
     if not value:
@@ -106,7 +110,7 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
             original = record["name"]
             translated = _translate_name(original, translator)
             if translated != original:
-                record["name"] = translated
+                record[_translated_field_name("name")] = translated
             else:
                 missing["name"].append(original)
 
@@ -114,7 +118,7 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
             original = record["country"]
             translated = translator.translate(original, "countries")
             if translated != original:
-                record["country"] = translated
+                record[_translated_field_name("country")] = translated
             else:
                 missing["country"].append(original)
 
@@ -122,7 +126,7 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
             original = record["location"]
             translated = translator.translate(original, "locations")
             if translated != original:
-                record["location"] = translated
+                record[_translated_field_name("location")] = translated
             else:
                 missing["location"].append(original)
 
@@ -131,7 +135,7 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
                 original = pb["event"]
                 translated = translator.translate(original, "events")
                 if translated != original:
-                    pb["event"] = translated
+                    pb[_translated_field_name("event")] = translated
                 else:
                     missing["event"].append(original)
 
@@ -139,7 +143,7 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
                 original = pb["category"]
                 translated = translator.translate(original, "terms_others")
                 if translated != original:
-                    pb["category"] = translated
+                    pb[_translated_field_name("category")] = translated
                 else:
                     missing["category"].append(original)
 
@@ -147,7 +151,7 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
                 original = pb["expires_on"]
                 translated = _translate_expires_on(original)
                 if translated != original:
-                    pb["expires_on"] = translated
+                    pb[_translated_field_name("expires_on")] = translated
                 else:
                     missing["expires_on"].append(original)
 
@@ -155,7 +159,7 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
                 original = pb["position"]
                 translated = _translate_position(original, translator)
                 if translated != original:
-                    pb["position"] = translated
+                    pb[_translated_field_name("position")] = translated
                 else:
                     missing["position"].append(original)
 

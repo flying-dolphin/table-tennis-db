@@ -50,6 +50,10 @@ TRANSLATE_FIELDS = {
 }
 
 
+def translated_field_name(field: str) -> str:
+    return f"{field}_zh"
+
+
 def _normalize_key(text: str) -> str:
     return (text or "").strip().lower()
 
@@ -114,7 +118,7 @@ def translate_profile(profile: dict, indexes: dict[str, dict[str, str]], filenam
             continue
         translated = translate_value(original, categories, indexes, field, filename)
         if translated is not None:
-            profile[field] = translated
+            profile[translated_field_name(field)] = translated
 
     return profile
 
