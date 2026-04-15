@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-15T18:10:00.000000",
-    "total_entries": 1130
+    "updated_at": "2026-04-16T01:06:26.337550",
+    "total_entries": 1141
   },
   "entries": {
     "ma long": {
@@ -425,7 +425,8 @@
       "original": "qualification",
       "translated": "资格赛",
       "categories": [
-        "round"
+        "round",
+        "stage"
       ],
       "source": "dict",
       "review_status": "pending",
@@ -438,7 +439,8 @@
       "original": "Main Draw",
       "translated": "正赛",
       "categories": [
-        "terms"
+        "terms",
+        "position"
       ],
       "source": "dict",
       "review_status": "pending",
@@ -449,7 +451,7 @@
     },
     "round of 32": {
       "original": "Round of 32",
-      "translated": "三十二强",
+      "translated": "32强",
       "categories": [
         "terms"
       ],
@@ -462,7 +464,7 @@
     },
     "round of 16": {
       "original": "Round of 16",
-      "translated": "十六强",
+      "translated": "16强",
       "categories": [
         "terms"
       ],
@@ -503,7 +505,8 @@
       "original": "final",
       "translated": "决赛",
       "categories": [
-        "round"
+        "round",
+        "stage"
       ],
       "source": "dict",
       "review_status": "pending",
@@ -1918,7 +1921,7 @@
     },
     "r32": {
       "original": "R32",
-      "translated": "三十二强",
+      "translated": "32强",
       "categories": [
         "position",
         "round"
@@ -2037,7 +2040,7 @@
     },
     "r16": {
       "original": "R16",
-      "translated": "十六强",
+      "translated": "16强",
       "categories": [
         "position",
         "round"
@@ -3496,7 +3499,7 @@
     },
     "r128": {
       "original": "R128",
-      "translated": "一百二十八强",
+      "translated": "128强",
       "categories": [
         "position"
       ],
@@ -14608,6 +14611,242 @@
         "events": "event_name"
       },
       "updated_at": "2026-04-15T18:02:51.881319"
+    },
+    "wd": {
+      "original": "WD",
+      "translated": "女子双打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "ws": {
+      "original": "WS",
+      "translated": "女子单打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "wt": {
+      "original": "WT",
+      "translated": "女子团体",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "xd": {
+      "original": "XD",
+      "translated": "混合双打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "xt": {
+      "original": "XT",
+      "translated": "混合团队",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "ms": {
+      "original": "MS",
+      "translated": "男子单打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "md": {
+      "original": "MD",
+      "translated": "男子双打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "mt": {
+      "original": "MT",
+      "translated": "男子团体",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "cgs": {
+      "original": "CGS",
+      "translated": "少年女子单打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "jgs": {
+      "original": "JGS",
+      "translated": "青少年女子单打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "main": {
+      "original": "MAIN",
+      "translated": "正赛",
+      "categories": [
+        "terms",
+        "position"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "position draw": {
+      "original": "Position Draw",
+      "translated": "排位赛",
+      "categories": [
+        "terms",
+        "position"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "qr128": {
+      "original": "QR128",
+      "translated": "资格赛128强",
+      "categories": [
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "round": "none"
+      },
+      "updated_at": "2026-04-16T01:06:26.337550"
+    },
+    "qr16": {
+      "original": "QR16",
+      "translated": "资格赛16强",
+      "categories": [
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "round": "none"
+      },
+      "updated_at": "2026-04-16T01:06:26.337550"
+    },
+    "qr32": {
+      "original": "QR32",
+      "translated": "资格赛32强",
+      "categories": [
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "round": "none"
+      },
+      "updated_at": "2026-04-16T01:06:26.337550"
+    },
+    "qr4": {
+      "original": "QR4",
+      "translated": "资格赛4强",
+      "categories": [
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "round": "none"
+      },
+      "updated_at": "2026-04-16T01:06:26.337550"
+    },
+    "qr64": {
+      "original": "QR64",
+      "translated": "资格赛64强",
+      "categories": [
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "round": "none"
+      },
+      "updated_at": "2026-04-16T01:06:26.337550"
+    },
+    "qr8": {
+      "original": "QR8",
+      "translated": "资格赛8强",
+      "categories": [
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "round": "none"
+      },
+      "updated_at": "2026-04-16T01:06:26.337550"
     }
   }
 }
