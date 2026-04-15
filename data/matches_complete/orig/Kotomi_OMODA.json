@@ -1,0 +1,3553 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "Kotomi OMODA",
+  "english_name": "Kotomi OMODA",
+  "country": "JPN",
+  "country_code": "JPN",
+  "continent": "",
+  "rank": 96,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-15T11:12:39.814374+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Otocec 2026 Presented by I Feel Slovenia",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 13,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3268",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2026_1_WTT_Feeder_Otocec_2026_Presented_by_I_Feel_Slovenia.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "5:11",
+                "9:11",
+                "11:3",
+                "11:5"
+              ],
+              "winner": "HAGIHARA Keishi",
+              "all_players_in_row": [
+                "HAGIHARA Keishi (JPN)",
+                "OMODA Kotomi (JPN)",
+                "MONTEIRO Joao (POR)",
+                "LEAL Julia (POR)"
+              ],
+              "side_a": [
+                "HAGIHARA Keishi (JPN)",
+                "MONTEIRO Joao (POR)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "LEAL Julia (POR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | HAGIHARA Keishi (JPN) | OMODA Kotomi (JPN) | MONTEIRO Joao (POR) | LEAL Julia (POR) | XD | Main Draw | R16 | 3 - 2 | 11:4 5:11 9:11 11:3 11:5 | HAGIHARA Keishi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:3",
+                "11:7"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "IMAEDA Manami (JPN)",
+                "BERGSTROM Linda (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
+                "IMAEDA Manami (JPN)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | OMODA Kotomi (JPN) | IMAEDA Manami (JPN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:3 11:7 | OMODA Kotomi | IMAEDA Manami | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:1",
+                "11:4"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "NEUMANN Josephina (GER)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "NEUMANN Josephina (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | OMODA Kotomi (JPN) |  | NEUMANN Josephina (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:1 11:4 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "HAGIHARA Keishi",
+              "all_players_in_row": [
+                "HAGIHARA Keishi (JPN)",
+                "OMODA Kotomi (JPN)",
+                "WOO Hyeonggyu (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "HAGIHARA Keishi (JPN)",
+                "WOO Hyeonggyu (KOR)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | HAGIHARA Keishi (JPN) | OMODA Kotomi (JPN) | WOO Hyeonggyu (KOR) | LEE Daeun (KOR) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:7 11:7 | HAGIHARA Keishi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "9:11",
+                "11:13",
+                "10:12"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "TOKIC Sara (SLO)",
+                "TOFANT Ana (SLO)",
+                "OMODA Kotomi (JPN)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "side_a": [
+                "TOKIC Sara (SLO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [
+                "TOFANT Ana (SLO)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | TOKIC Sara (SLO) | TOFANT Ana (SLO) | OMODA Kotomi (JPN) | IMAEDA Manami (JPN) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:8 9:11 11:13 10:12 | OMODA Kotomi | IMAEDA Manami | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 17,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "17:15",
+                "11:7",
+                "11:9"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "HO Tin-Tin (ENG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | OMODA Kotomi (JPN) |  | HO Tin-Tin (ENG) |  | WS | Main Draw | R16 | 3 - 0 | 17:15 11:7 11:9 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:4",
+                "6:11",
+                "5:11"
+              ],
+              "winner": "HAGIHARA Keishi",
+              "all_players_in_row": [
+                "BAN Ivor (CRO)",
+                "ARAPOVIC Hana (CRO)",
+                "HAGIHARA Keishi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "BAN Ivor (CRO)",
+                "HAGIHARA Keishi (JPN)"
+              ],
+              "side_b": [
+                "ARAPOVIC Hana (CRO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | BAN Ivor (CRO) | ARAPOVIC Hana (CRO) | HAGIHARA Keishi (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | SemiFinal | 1 - 3 | 7:11 11:4 6:11 5:11 | HAGIHARA Keishi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "6:11",
+                "11:9",
+                "9:11",
+                "11:13"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "WEGRZYN Anna (POL)",
+                "WEGRZYN Katarzyna (POL)",
+                "OMODA Kotomi (JPN)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "side_a": [
+                "WEGRZYN Anna (POL)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [
+                "WEGRZYN Katarzyna (POL)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | OMODA Kotomi (JPN) | IMAEDA Manami (JPN) | WD | Main Draw | SemiFinal | 2 - 3 | 11:8 6:11 11:9 9:11 11:13 | OMODA Kotomi | IMAEDA Manami | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "9:11",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "WONGLAKHON Phatsaraphon (THA)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "WONGLAKHON Phatsaraphon (THA)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | WONGLAKHON Phatsaraphon (THA) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 11:9 9:11 9:11 6:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:13",
+                "11:8",
+                "14:12",
+                "11:13"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "BERGSTROM Linda (SWE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "BERGSTROM Linda (SWE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | BERGSTROM Linda (SWE) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | SemiFinal | 2 - 3 | 9:11 11:13 11:8 14:12 11:13 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "7:11",
+                "11:6"
+              ],
+              "winner": "HAGIHARA Keishi",
+              "all_players_in_row": [
+                "HAGIHARA Keishi (JPN)",
+                "OMODA Kotomi (JPN)",
+                "GREEN Connor (ENG)"
+              ],
+              "side_a": [
+                "HAGIHARA Keishi (JPN)",
+                "GREEN Connor (ENG)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "HO Tin-Tin (ENG)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | HAGIHARA Keishi (JPN) | OMODA Kotomi (JPN) | GREEN Connor (ENG) | HO Tin-Tin (ENG) | XD | Main Draw | Final | 3 - 1 | 11:8 11:9 7:11 11:6 | HAGIHARA Keishi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:8",
+                "11:4",
+                "6:11",
+                "11:6"
+              ],
+              "winner": "KIM Seongjin",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "OMODA Kotomi (JPN)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KIM Seongjin (KOR) | LEE Daeun (KOR) | OMODA Kotomi (JPN) | IMAEDA Manami (JPN) | WD | Main Draw | Final | 3 - 2 | 10:12 11:8 11:4 6:11 11:6 | KIM Seongjin | LEE Daeun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:8",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "YEH Yi-Tian",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "YEH Yi-Tian (TPE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | YEH Yi-Tian (TPE) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | Final | 3 - 1 | 7:11 11:8 11:9 11:6 | YEH Yi-Tian |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3267",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2026_2_WTT_Feeder_Dusseldorf_2026.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "8:11",
+                "7:11"
+              ],
+              "winner": "OMODA Tomoki",
+              "all_players_in_row": [
+                "DUBOIS Arthur (FRA)",
+                "PUJOL Elise (FRA)",
+                "OMODA Tomoki (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "DUBOIS Arthur (FRA)",
+                "OMODA Tomoki (JPN)"
+              ],
+              "side_b": [
+                "PUJOL Elise (FRA)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | DUBOIS Arthur (FRA) | PUJOL Elise (FRA) | OMODA Tomoki (JPN) | OMODA Kotomi (JPN) | XD | Qualification | QR8 | 0 - 3 | 8:11 8:11 7:11 | OMODA Tomoki | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:6",
+                "7:11",
+                "11:6"
+              ],
+              "winner": "OMODA Tomoki",
+              "all_players_in_row": [
+                "OMODA Tomoki (JPN)",
+                "OMODA Kotomi (JPN)",
+                "KHARKI Iskender (KAZ)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "side_a": [
+                "OMODA Tomoki (JPN)",
+                "KHARKI Iskender (KAZ)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | OMODA Tomoki (JPN) | OMODA Kotomi (JPN) | KHARKI Iskender (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | XD | Main Draw | R16 | 3 - 1 | 11:6 11:6 7:11 11:6 | OMODA Tomoki | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "6:11",
+                "11:5",
+                "11:8",
+                "10:12"
+              ],
+              "winner": "IMAEDA Manami",
+              "all_players_in_row": [
+                "NEUMANN Josephina (GER)",
+                "MORSCH Lorena (GER)",
+                "IMAEDA Manami (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "NEUMANN Josephina (GER)",
+                "IMAEDA Manami (JPN)"
+              ],
+              "side_b": [
+                "MORSCH Lorena (GER)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | NEUMANN Josephina (GER) | MORSCH Lorena (GER) | IMAEDA Manami (JPN) | OMODA Kotomi (JPN) | WD | Main Draw | R16 | 2 - 3 | 9:11 6:11 11:5 11:8 10:12 | IMAEDA Manami | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "6:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "MEN Shuohan (NED)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "MEN Shuohan (NED)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | MEN Shuohan (NED) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 7:11 6:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:9",
+                "9:11",
+                "11:4"
+              ],
+              "winner": "LY Edward",
+              "all_players_in_row": [
+                "LY Edward (CAN)",
+                "ZHANG Mo (CAN)",
+                "OMODA Tomoki (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "LY Edward (CAN)",
+                "OMODA Tomoki (JPN)"
+              ],
+              "side_b": [
+                "ZHANG Mo (CAN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | LY Edward (CAN) | ZHANG Mo (CAN) | OMODA Tomoki (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:7 11:9 9:11 11:4 | LY Edward | ZHANG Mo | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "4:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "BAJOR Natalia",
+              "all_players_in_row": [
+                "IMAEDA Manami (JPN)",
+                "OMODA Kotomi (JPN)",
+                "BAJOR Natalia (POL)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_a": [
+                "IMAEDA Manami (JPN)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "VARADY Barbora (SVK)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | IMAEDA Manami (JPN) | OMODA Kotomi (JPN) | BAJOR Natalia (POL) | VARADY Barbora (SVK) | WD | Main Draw | QuarterFinal | 1 - 3 | 13:11 4:11 6:11 6:11 | BAJOR Natalia | VARADY Barbora | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | ZHANG Mo (CAN) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 6:11 9:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "8:11",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "LI Yu-Jhun (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | OMODA Kotomi (JPN) |  | LI Yu-Jhun (TPE) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:8 8:11 11:7 11:8 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:8",
+                "14:12"
+              ],
+              "winner": "HURSEY Anna",
+              "all_players_in_row": [
+                "HURSEY Anna (WAL)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "HURSEY Anna (WAL)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | HURSEY Anna (WAL) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:4 11:8 14:12 | HURSEY Anna |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Chennai 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3233",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2026_3_WTT_Star_Contender_Chennai_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:0",
+                "11:9"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "KALBHAIRAV Tanishka (IND)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "KALBHAIRAV Tanishka (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | OMODA Kotomi (JPN) |  | KALBHAIRAV Tanishka (IND) |  | WS | Main Draw | R64 | 3 - 0 | 11:8 11:0 11:9 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 17,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "17:15",
+                "11:7"
+              ],
+              "winner": "HIRANO Miu",
+              "all_players_in_row": [
+                "HIRANO Miu (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "HIRANO Miu (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | HIRANO Miu (JPN) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 17:15 11:7 | HIRANO Miu |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-15T11:12:39.814374+00:00",
+      "events": [
+        {
+          "event_name": "FISU World University Games Rhine-Ruhr 2025",
+          "event_type": "Multi sport events",
+          "event_year": "2025",
+          "match_count": 13,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3226",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2025_4_FISU_World_University_Games_Rhine-Ruhr_2025.json",
+          "matches": [
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:7",
+                "4:11",
+                "11:9"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "HARAC Ece (TUR)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "HARAC Ece (TUR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OMODA Kotomi (JPN) |  | HARAC Ece (TUR) |  | WT | Qualification |  | 3 - 1 | 11:2 11:7 4:11 11:9 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "11:4"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "SAWETTABUT Jinnipa (THA)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "SAWETTABUT Jinnipa (THA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OMODA Kotomi (JPN) |  | SAWETTABUT Jinnipa (THA) |  | WT | Qualification |  | 3 - 0 | 11:5 11:8 11:4 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "TAN Zhao Yun (SGP)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "TAN Zhao Yun (SGP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OMODA Kotomi (JPN) |  | TAN Zhao Yun (SGP) |  | WT | Main Draw | R16 | 3 - 0 | 11:5 11:7 11:6 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "4:11",
+                "11:6",
+                "11:9",
+                "8:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "ZAHARIA Elena (ROU)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "ZAHARIA Elena (ROU)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ZAHARIA Elena (ROU) |  | OMODA Kotomi (JPN) |  | WT | Main Draw | QuarterFinal | 2 - 3 | 8:11 4:11 11:6 11:9 8:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "15:13",
+                "11:6",
+                "11:6"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OMODA Kotomi (JPN) |  | NG Wing Lam (HKG) |  | WT | Main Draw | SemiFinal | 3 - 0 | 15:13 11:6 11:6 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:13",
+                "11:7",
+                "3:11"
+              ],
+              "winner": "WANG Xiaotong",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OMODA Kotomi (JPN) |  | WANG Xiaotong (CHN) |  | WT | Main Draw | Final | 1 - 3 | 8:11 11:13 11:7 3:11 | WANG Xiaotong |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:6",
+                "11:3"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "YANG Yiyun (CHN)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "YANG Yiyun (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OMODA Kotomi (JPN) |  | YANG Yiyun (CHN) |  | WT | Main Draw | Final | 3 - 0 | 11:7 11:6 11:3 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "6:11",
+                "4:11"
+              ],
+              "winner": "ASADA Mana",
+              "all_players_in_row": [
+                "MAHMUDOVA Nigar (AZE)",
+                "MAMMADOVA Sabina (AZE)",
+                "ASADA Mana (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "MAHMUDOVA Nigar (AZE)",
+                "ASADA Mana (JPN)"
+              ],
+              "side_b": [
+                "MAMMADOVA Sabina (AZE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | MAHMUDOVA Nigar (AZE) | MAMMADOVA Sabina (AZE) | ASADA Mana (JPN) | OMODA Kotomi (JPN) | WD | Main Draw | R64 | 0 - 3 | 5:11 6:11 4:11 | ASADA Mana | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "2:11",
+                "10:12",
+                "13:11",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "KOTECHA Taneesha (IND)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "KOTECHA Taneesha (IND)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | KOTECHA Taneesha (IND) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R64 | 2 - 4 | 12:10 2:11 10:12 13:11 8:11 6:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:4",
+                "5:11",
+                "8:11"
+              ],
+              "winner": "COK Isa",
+              "all_players_in_row": [
+                "ASADA Mana (JPN)",
+                "OMODA Kotomi (JPN)",
+                "COK Isa (FRA)",
+                "LUTZ Camille (FRA)"
+              ],
+              "side_a": [
+                "ASADA Mana (JPN)",
+                "COK Isa (FRA)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "LUTZ Camille (FRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ASADA Mana (JPN) | OMODA Kotomi (JPN) | COK Isa (FRA) | LUTZ Camille (FRA) | WD | Main Draw | R32 | 1 - 3 | 10:12 11:4 5:11 8:11 | COK Isa | LUTZ Camille | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "9:11",
+                "8:11",
+                "5:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "TAN Zhao Yun (SGP)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "TAN Zhao Yun (SGP)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | TAN Zhao Yun (SGP) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R32 | 0 - 4 | 8:11 9:11 8:11 5:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "9:11",
+                "15:13",
+                "9:11",
+                "7:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "HAN Feier (CHN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "HAN Feier (CHN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | HAN Feier (CHN) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R16 | 1 - 4 | 8:11 9:11 15:13 9:11 7:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "15:13",
+                "8:11",
+                "7:11",
+                "10:12",
+                "9:11"
+              ],
+              "winner": "NG Wing Lam",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OMODA Kotomi (JPN) |  | NG Wing Lam (HKG) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 15:13 8:11 7:11 10:12 9:11 | NG Wing Lam |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Skopje 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3090",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2025_5_WTT_Contender_Skopje_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "12:10",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "WEGRZYN Anna (POL)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "WEGRZYN Anna (POL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | OMODA Kotomi (JPN) |  | WEGRZYN Anna (POL) |  | WS | Qualification |  | 3 - 1 | 9:11 12:10 11:7 11:6 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:13",
+                "7:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "BERGAND Filippa (SWE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "BERGAND Filippa (SWE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | BERGAND Filippa (SWE) |  | OMODA Kotomi (JPN) |  | WS | Qualification |  | 0 - 3 | 4:11 11:13 7:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "1:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "YAO Ruixuan (CHN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "YAO Ruixuan (CHN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | YAO Ruixuan (CHN) |  | OMODA Kotomi (JPN) |  | WS | Qualification | QR16 | 0 - 3 | 1:11 6:11 9:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:3",
+                "15:13",
+                "8:11",
+                "7:11"
+              ],
+              "winner": "SAKAI Yuhi",
+              "all_players_in_row": [
+                "MA Jinbao (USA)",
+                "GUO Jiangshan (USA)",
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "MA Jinbao (USA)",
+                "SAKAI Yuhi (JPN)"
+              ],
+              "side_b": [
+                "GUO Jiangshan (USA)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | MA Jinbao (USA) | GUO Jiangshan (USA) | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | R16 | 2 - 3 | 7:11 11:3 15:13 8:11 7:11 | SAKAI Yuhi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:3",
+                "11:8"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | OMODA Kotomi (JPN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 3 - 0 | 11:2 11:3 11:8 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "8:11",
+                "10:12"
+              ],
+              "winner": "LIM Jonghoon",
+              "all_players_in_row": [
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)",
+                "LIM Jonghoon (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_a": [
+                "SAKAI Yuhi (JPN)",
+                "LIM Jonghoon (KOR)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "KIM Nayeong (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | LIM Jonghoon (KOR) | KIM Nayeong (KOR) | XD | Main Draw | QuarterFinal | 0 - 3 | 6:11 8:11 10:12 | LIM Jonghoon | KIM Nayeong | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "5:11",
+                "11:3",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "FAN Shuhan",
+              "all_players_in_row": [
+                "FAN Shuhan (CHN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "FAN Shuhan (CHN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | FAN Shuhan (CHN) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R16 | 3 - 2 | 7:11 5:11 11:3 11:8 11:7 | FAN Shuhan |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Prishtina 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3058",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2025_6_WTT_Feeder_Prishtina_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "6:11",
+                "8:11"
+              ],
+              "winner": "YOKOTANI Jo",
+              "all_players_in_row": [
+                "ANDERSEN Martin (DEN)",
+                "MATOS Ines (POR)",
+                "YOKOTANI Jo (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "ANDERSEN Martin (DEN)",
+                "YOKOTANI Jo (JPN)"
+              ],
+              "side_b": [
+                "MATOS Ines (POR)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | ANDERSEN Martin (DEN) | MATOS Ines (POR) | YOKOTANI Jo (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | R16 | 0 - 3 | 7:11 6:11 8:11 | YOKOTANI Jo | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 15,
+                  "opponent": 17
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:5",
+                "12:10",
+                "15:17",
+                "11:9"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "TAKEYA Misuzu (JPN)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "TAKEYA Misuzu (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | OMODA Kotomi (JPN) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 3 - 2 | 9:11 11:5 12:10 15:17 11:9 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "3:11",
+                "6:11"
+              ],
+              "winner": "BAJOR Natalia",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | OMODA Kotomi (JPN) |  | BAJOR Natalia (POL) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 3:11 6:11 | BAJOR Natalia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "9:11",
+                "11:9",
+                "12:10",
+                "9:11"
+              ],
+              "winner": "YOKOTANI Jo",
+              "all_players_in_row": [
+                "KURMANGALIYEV Alan (KAZ)",
+                "AKASHEVA Zauresh (KAZ)",
+                "YOKOTANI Jo (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "KURMANGALIYEV Alan (KAZ)",
+                "YOKOTANI Jo (JPN)"
+              ],
+              "side_b": [
+                "AKASHEVA Zauresh (KAZ)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | KURMANGALIYEV Alan (KAZ) | AKASHEVA Zauresh (KAZ) | YOKOTANI Jo (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | QuarterFinal | 2 - 3 | 2:11 9:11 11:9 12:10 9:11 | YOKOTANI Jo | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:5",
+                "11:9",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "CHANG Yu-An",
+              "all_players_in_row": [
+                "YOKOTANI Jo (JPN)",
+                "OMODA Kotomi (JPN)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_a": [
+                "YOKOTANI Jo (JPN)",
+                "CHANG Yu-An (TPE)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | YOKOTANI Jo (JPN) | OMODA Kotomi (JPN) | CHANG Yu-An (TPE) | CHENG Pusyuan (TPE) | XD | Main Draw | SemiFinal | 2 - 3 | 4:11 11:5 11:9 6:11 6:11 | CHANG Yu-An | CHENG Pusyuan | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Havirov 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 15,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3069",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2025_7_WTT_Feeder_Havirov_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "12:10",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "SAKAI Yuhi",
+              "all_players_in_row": [
+                "KLAJBER Adam (SVK)",
+                "ILLASOVA Adriana (SVK)",
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "KLAJBER Adam (SVK)",
+                "SAKAI Yuhi (JPN)"
+              ],
+              "side_b": [
+                "ILLASOVA Adriana (SVK)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | KLAJBER Adam (SVK) | ILLASOVA Adriana (SVK) | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | XD | Qualification | QR16 | 1 - 3 | 7:11 12:10 9:11 4:11 | SAKAI Yuhi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "5:11"
+              ],
+              "winner": "IDESAWA Kyoka",
+              "all_players_in_row": [
+                "CRISTOBAL Ainhoa (ESP)",
+                "SASTRE Eugenia (ESP)",
+                "IDESAWA Kyoka (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "CRISTOBAL Ainhoa (ESP)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
+                "SASTRE Eugenia (ESP)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | CRISTOBAL Ainhoa (ESP) | SASTRE Eugenia (ESP) | IDESAWA Kyoka (JPN) | OMODA Kotomi (JPN) | WD | Qualification | QR16 | 0 - 3 | 4:11 7:11 5:11 | IDESAWA Kyoka | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "4:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "BAKHYT Anel (KAZ)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "BAKHYT Anel (KAZ)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | BAKHYT Anel (KAZ) |  | OMODA Kotomi (JPN) |  | WS | Qualification | QR32 | 0 - 3 | 7:11 7:11 4:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:7",
+                "5:11",
+                "7:11"
+              ],
+              "winner": "SAKAI Yuhi",
+              "all_players_in_row": [
+                "WONG Qi Shen (MAS)",
+                "TEE Ai Xin (MAS)",
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "WONG Qi Shen (MAS)",
+                "SAKAI Yuhi (JPN)"
+              ],
+              "side_b": [
+                "TEE Ai Xin (MAS)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | WONG Qi Shen (MAS) | TEE Ai Xin (MAS) | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | XD | Qualification | QR8 | 1 - 3 | 9:11 11:7 5:11 7:11 | SAKAI Yuhi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "1:11",
+                "8:11"
+              ],
+              "winner": "IDESAWA Kyoka",
+              "all_players_in_row": [
+                "BLASKOVA Zdena (CZE)",
+                "HRABICOVA Klara (CZE)",
+                "IDESAWA Kyoka (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "BLASKOVA Zdena (CZE)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
+                "HRABICOVA Klara (CZE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | BLASKOVA Zdena (CZE) | HRABICOVA Klara (CZE) | IDESAWA Kyoka (JPN) | OMODA Kotomi (JPN) | WD | Qualification | QR8 | 0 - 3 | 3:11 1:11 8:11 | IDESAWA Kyoka | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "6:11",
+                "3:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "HUANG Yu-Jie (TPE)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | HUANG Yu-Jie (TPE) |  | OMODA Kotomi (JPN) |  | WS | Qualification | QR16 | 0 - 3 | 9:11 6:11 3:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "13:11",
+                "11:9",
+                "11:3"
+              ],
+              "winner": "SAKAI Yuhi",
+              "all_players_in_row": [
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)",
+                "BAN Ivor (CRO)",
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "side_a": [
+                "SAKAI Yuhi (JPN)",
+                "BAN Ivor (CRO)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | BAN Ivor (CRO) | ARAPOVIC Hana (CRO) | XD | Main Draw | R16 | 3 - 1 | 8:11 13:11 11:9 11:3 | SAKAI Yuhi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "9:11",
+                "12:10",
+                "4:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "BURGOS Brianna (PUR)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "BURGOS Brianna (PUR)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | BURGOS Brianna (PUR) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R64 | 1 - 3 | 5:11 9:11 12:10 4:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "9:11",
+                "8:11",
+                "11:6"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | OMODA Kotomi (JPN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 2 | 11:6 11:4 9:11 8:11 11:6 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "6:11",
+                "11:6",
+                "13:11",
+                "9:11"
+              ],
+              "winner": "CHOI Hyojoo",
+              "all_players_in_row": [
+                "IDESAWA Kyoka (JPN)",
+                "OMODA Kotomi (JPN)",
+                "CHOI Hyojoo (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "IDESAWA Kyoka (JPN)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_b": [
+                "OMODA Kotomi (JPN)",
+                "LEE Daeun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | IDESAWA Kyoka (JPN) | OMODA Kotomi (JPN) | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | WD | Main Draw | R16 | 2 - 3 | 7:11 6:11 11:6 13:11 9:11 | CHOI Hyojoo | LEE Daeun | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "12:10",
+                "6:11",
+                "10:12",
+                "3:11"
+              ],
+              "winner": "SAKAI Yuhi",
+              "all_players_in_row": [
+                "MURAMATSU Yuto (JPN)",
+                "SATO Hitomi (JPN)",
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "MURAMATSU Yuto (JPN)",
+                "SAKAI Yuhi (JPN)"
+              ],
+              "side_b": [
+                "SATO Hitomi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | MURAMATSU Yuto (JPN) | SATO Hitomi (JPN) | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:7 12:10 6:11 10:12 3:11 | SAKAI Yuhi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 16,
+                  "opponent": 14
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "16:14",
+                "2:11",
+                "11:7",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "ARAPOVIC Hana (CRO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "ARAPOVIC Hana (CRO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | ARAPOVIC Hana (CRO) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R16 | 2 - 3 | 16:14 2:11 11:7 9:11 9:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "5:11",
+                "4:11"
+              ],
+              "winner": "SAKAI Yuhi",
+              "all_players_in_row": [
+                "GOMEZ Gustavo (CHI)",
+                "ORTEGA Daniela (CHI)",
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "GOMEZ Gustavo (CHI)",
+                "SAKAI Yuhi (JPN)"
+              ],
+              "side_b": [
+                "ORTEGA Daniela (CHI)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | GOMEZ Gustavo (CHI) | ORTEGA Daniela (CHI) | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | SemiFinal | 0 - 3 | 5:11 5:11 4:11 | SAKAI Yuhi | OMODA Kotomi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:5",
+                "11:6",
+                "12:10"
+              ],
+              "winner": "SHIBATA Saki",
+              "all_players_in_row": [
+                "SHIBATA Saki (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "SHIBATA Saki (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SHIBATA Saki (JPN) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:5 11:6 12:10 | SHIBATA Saki |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "15:13",
+                "11:4"
+              ],
+              "winner": "PISTEJ Lubomir",
+              "all_players_in_row": [
+                "PISTEJ Lubomir (SVK)",
+                "KUKULKOVA Tatiana (SVK)",
+                "SAKAI Yuhi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "PISTEJ Lubomir (SVK)",
+                "SAKAI Yuhi (JPN)"
+              ],
+              "side_b": [
+                "KUKULKOVA Tatiana (SVK)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | PISTEJ Lubomir (SVK) | KUKULKOVA Tatiana (SVK) | SAKAI Yuhi (JPN) | OMODA Kotomi (JPN) | XD | Main Draw | Final | 3 - 0 | 14:12 15:13 11:4 | PISTEJ Lubomir | KUKULKOVA Tatiana | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3025",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2025_8_WTT_Feeder_Otocec_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "5:11",
+                "3:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "NOVAK Tjasa (SLO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "NOVAK Tjasa (SLO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | NOVAK Tjasa (SLO) |  | OMODA Kotomi (JPN) |  | WS | Qualification | QR64 | 0 - 3 | 3:11 5:11 3:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:9",
+                "10:12",
+                "7:11"
+              ],
+              "winner": "CHOI Haeeun",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | OMODA Kotomi (JPN) |  | CHOI Haeeun (KOR) |  | WS | Qualification | QR32 | 1 - 3 | 7:11 11:9 10:12 7:11 | CHOI Haeeun |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=213286&vw_matches___player_a_id[value][]=213286&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=213286&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=213286&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=213286&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3024",
+          "raw_capture_file": "data\\raw_event_payloads\\Kotomi_OMODA\\2025_9_WTT_Feeder_Otocec_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:5",
+                "11:6"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "SASTRE Eugenia (ESP)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "SASTRE Eugenia (ESP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | OMODA Kotomi (JPN) |  | SASTRE Eugenia (ESP) |  | WS | Qualification | QR64 | 3 - 0 | 11:3 11:5 11:6 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "12:10",
+                "11:2",
+                "6:11",
+                "11:9"
+              ],
+              "winner": "WOO Hyeonggyu",
+              "all_players_in_row": [
+                "WOO Hyeonggyu (KOR)",
+                "KIM Seoyun (KOR)",
+                "MATSUYAMA Yuki (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "WOO Hyeonggyu (KOR)",
+                "MATSUYAMA Yuki (JPN)"
+              ],
+              "side_b": [
+                "KIM Seoyun (KOR)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | WOO Hyeonggyu (KOR) | KIM Seoyun (KOR) | MATSUYAMA Yuki (JPN) | OMODA Kotomi (JPN) | XD | Qualification | QR16 | 3 - 2 | 8:11 12:10 11:2 6:11 11:9 | WOO Hyeonggyu | KIM Seoyun | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "10:12",
+                "5:11"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "LAI Chloe (SGP)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "LAI Chloe (SGP)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | LAI Chloe (SGP) |  | OMODA Kotomi (JPN) |  | WS | Qualification | QR32 | 0 - 3 | 7:11 10:12 5:11 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "8:11",
+                "11:5",
+                "12:10"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | OMODA Kotomi (JPN) |  | ARLIA Nicole (ITA) |  | WS | Qualification | QR16 | 3 - 1 | 11:8 8:11 11:5 12:10 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:2",
+                "11:8"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "MASSART Lilou (BEL)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "MASSART Lilou (BEL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | OMODA Kotomi (JPN) |  | MASSART Lilou (BEL) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:2 11:8 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:4",
+                "11:2"
+              ],
+              "winner": "OMODA Kotomi",
+              "all_players_in_row": [
+                "OMODA Kotomi (JPN)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_a": [
+                "OMODA Kotomi (JPN)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | OMODA Kotomi (JPN) |  | COSSIO Arantxa (MEX) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:4 11:2 | OMODA Kotomi |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "11:6"
+              ],
+              "winner": "ARAPOVIC Hana",
+              "all_players_in_row": [
+                "ARAPOVIC Hana (CRO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_a": [
+                "ARAPOVIC Hana (CRO)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | ARAPOVIC Hana (CRO) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 11:5 11:6 | ARAPOVIC Hana |  | "
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-15T11:12:39.814374+00:00",
+  "updated_at": "2026-04-15T11:16:07.828454+00:00",
+  "captured_at": "2026-04-15T11:12:39.814374+00:00"
+}
