@@ -2457,11 +2457,5541 @@
               "raw_row_text": "2024 | WTT Contender Muscat 2024 | ODO Satsuki (JPN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:8 11:8 9:11 11:8 | ODO Satsuki |  | "
             }
           ]
+        },
+        {
+          "event_name": "China Smash 2024",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2942",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2024_14_China_Smash_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "2:11",
+                "2:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | China Smash 2024 | HARIMOTO Miwa (JPN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 9:11 2:11 2:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "11:1",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZENG Jian (SGP)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZENG Jian (SGP)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | China Smash 2024 | HE Zhuojia (CHN) |  | ZENG Jian (SGP) |  | WS | Main Draw | R32 | 3 - 0 | 11:1 11:1 11:4 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | China Smash 2024 | HE Zhuojia (CHN) |  | ZONG Geman (CHN) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:9 11:7 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "5:11",
+                "4:11",
+                "5:11",
+                "9:11"
+              ],
+              "winner": "WANG Manyu",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | China Smash 2024 | HE Zhuojia (CHN) |  | WANG Manyu (CHN) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 13:11 5:11 4:11 5:11 9:11 | WANG Manyu |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Almaty 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2873",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2024_15_WTT_Contender_Almaty_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "11:6",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "ZAHARIA Elena (ROU)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZAHARIA Elena (ROU)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Almaty 2024 | HE Zhuojia (CHN) | LIU Weishan (CHN) | ZAHARIA Elena (ROU) | SINGEORZAN Ioana (ROU) | WD | Main Draw | R16 | 3 - 0 | 14:12 11:6 11:5 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Almaty 2024 | HE Zhuojia (CHN) |  | NG Wing Lam (HKG) |  | WS | Main Draw | R32 | 3 - 0 | 11:2 11:8 11:7 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "SHI Xunyao (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Almaty 2024 | HE Zhuojia (CHN) | LIU Weishan (CHN) | SHI Xunyao (CHN) | QIAN Tianyi (CHN) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:6 11:7 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:9",
+                "5:11",
+                "11:6",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Almaty 2024 | HE Zhuojia (CHN) |  | QIAN Tianyi (CHN) |  | WS | Main Draw | R16 | 3 - 2 | 9:11 11:9 5:11 11:6 11:4 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "7:11",
+                "11:13",
+                "11:3"
+              ],
+              "winner": "CHEN Yi",
+              "all_players_in_row": [
+                "CHEN Yi (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "CHEN Yi (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Almaty 2024 | CHEN Yi (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 11:8 11:7 7:11 11:13 11:3 | CHEN Yi |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "9:11",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "ZHU Chengzhu (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "NG Wing Lam (HKG)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Almaty 2024 | HE Zhuojia (CHN) | LIU Weishan (CHN) | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | WD | Main Draw | SemiFinal | 3 - 1 | 11:4 9:11 11:6 11:7 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "8:11",
+                "11:9",
+                "11:6",
+                "3:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "YOKOI Sakura (JPN)",
+                "ODO Satsuki (JPN)",
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_a": [
+                "YOKOI Sakura (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "ODO Satsuki (JPN)",
+                "LIU Weishan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Contender Almaty 2024 | YOKOI Sakura (JPN) | ODO Satsuki (JPN) | HE Zhuojia (CHN) | LIU Weishan (CHN) | WD | Main Draw | Final | 2 - 3 | 7:11 8:11 11:9 11:6 3:11 | HE Zhuojia | LIU Weishan | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Champions Chongqing 2024",
+          "event_type": "WTT Champions",
+          "event_year": "2024",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2941",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2024_16_WTT_Champions_Chongqing_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:3",
+                "8:11",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Chongqing 2024 | HE Zhuojia (CHN) |  | WANG Amy (USA) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 11:3 8:11 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "2:11",
+                "2:11"
+              ],
+              "winner": "WANG Yidi",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Chongqing 2024 | HE Zhuojia (CHN) |  | WANG Yidi (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 6:11 2:11 2:11 | WANG Yidi |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2023": {
+      "captured_at": "2026-04-15T13:15:24.462104+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Vila Nova de Gaia 2023",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2023",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2735",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_17_WTT_Feeder_Vila_Nova_de_Gaia_2023.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)",
+                "GIOVANNETTI Tommaso (ITA)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "GIOVANNETTI Tommaso (ITA)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | GIOVANNETTI Tommaso (ITA) | ARLIA Nicole (ITA) | XD | Main Draw | R16 | 3 - 0 | 11:3 11:7 11:4 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ARGUELLES Camila (ARG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ARGUELLES Camila (ARG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | HE Zhuojia (CHN) |  | ARGUELLES Camila (ARG) |  | WS | Main Draw | R64 | 3 - 0 | 11:7 11:5 11:3 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:3",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | HE Zhuojia (CHN) |  | MALOBABIC Ivana (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:3 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:8",
+                "11:6",
+                "9:11",
+                "11:6"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)",
+                "QUEK Izaac (SGP)",
+                "ZHOU Jingyi (SGP)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "QUEK Izaac (SGP)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "ZHOU Jingyi (SGP)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | QUEK Izaac (SGP) | ZHOU Jingyi (SGP) | XD | Main Draw | QuarterFinal | 3 - 2 | 4:11 11:8 11:6 9:11 11:6 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:13",
+                "13:15",
+                "11:5",
+                "9:11"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | HE Zhuojia (CHN) |  | SHI Xunyao (CHN) |  | WS | Main Draw | R16 | 2 - 3 | 11:9 11:13 13:15 11:5 9:11 | SHI Xunyao |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:7",
+                "3:11",
+                "9:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "AMATO Antonino (ITA)",
+                "MISCHEK Karoline (AUT)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "AMATO Antonino (ITA)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "MISCHEK Karoline (AUT)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | AMATO Antonino (ITA) | MISCHEK Karoline (AUT) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | SemiFinal | 1 - 3 | 9:11 11:7 3:11 9:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "8:11",
+                "11:2",
+                "11:3"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)",
+                "MLADENOVIC Luka (LUX)",
+                "NI Xia Lian (LUX)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "MLADENOVIC Luka (LUX)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "NI Xia Lian (LUX)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | MLADENOVIC Luka (LUX) | NI Xia Lian (LUX) | XD | Main Draw | Final | 3 - 1 | 11:9 8:11 11:2 11:3 | ZHOU Kai | HE Zhuojia | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf III 2023",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2023",
+          "match_count": 14,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2755",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_18_WTT_Feeder_Dusseldorf_III_2023.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:7",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Tianyi (CHN)",
+                "SURJAN Sabina (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [
+                "WANG Tianyi (CHN)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | HE Zhuojia (CHN) | WANG Tianyi (CHN) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WD | Qualification | QR8 | 3 - 0 | 11:4 11:7 11:5 | HE Zhuojia | WANG Tianyi | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "4:11",
+                "11:9",
+                "11:13"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "CHEW Clarence (SGP)",
+                "ZHOU Jingyi (SGP)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "CHEW Clarence (SGP)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "ZHOU Jingyi (SGP)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | CHEW Clarence (SGP) | ZHOU Jingyi (SGP) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | R16 | 1 - 3 | 9:11 4:11 11:9 11:13 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "3:11",
+                "12:10",
+                "2:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "QI Fei (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "QI Fei (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | QI Fei (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 2:11 3:11 12:10 2:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:9",
+                "10:12",
+                "11:4",
+                "5:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "MANTZ Chantal (GER)",
+                "WAN Yuan (GER)",
+                "HE Zhuojia (CHN)",
+                "WANG Tianyi (CHN)"
+              ],
+              "side_a": [
+                "MANTZ Chantal (GER)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "WAN Yuan (GER)",
+                "WANG Tianyi (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | MANTZ Chantal (GER) | WAN Yuan (GER) | HE Zhuojia (CHN) | WANG Tianyi (CHN) | WD | Main Draw | R16 | 2 - 3 | 7:11 11:9 10:12 11:4 5:11 | HE Zhuojia | WANG Tianyi | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZELINKA Jakub (SVK)",
+                "KUKULKOVA Tatiana (SVK)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZELINKA Jakub (SVK)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "KUKULKOVA Tatiana (SVK)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | ZELINKA Jakub (SVK) | KUKULKOVA Tatiana (SVK) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | QuarterFinal | 0 - 3 | 6:11 6:11 6:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "3:11",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Tianyi (CHN)",
+                "PARANANG Orawan (THA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "PARANANG Orawan (THA)"
+              ],
+              "side_b": [
+                "WANG Tianyi (CHN)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | HE Zhuojia (CHN) | WANG Tianyi (CHN) | PARANANG Orawan (THA) | SAWETTABUT Suthasini (THA) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:7 3:11 11:9 11:6 | HE Zhuojia | WANG Tianyi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "4:11",
+                "9:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "CHIEN Tung-Chuan (TPE)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | CHIEN Tung-Chuan (TPE) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 4:11 9:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "9:11",
+                "10:12"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "WU Yangchen (CHN)",
+                "QI Fei (CHN)",
+                "HE Zhuojia (CHN)",
+                "WANG Tianyi (CHN)"
+              ],
+              "side_a": [
+                "WU Yangchen (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "QI Fei (CHN)",
+                "WANG Tianyi (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | WU Yangchen (CHN) | QI Fei (CHN) | HE Zhuojia (CHN) | WANG Tianyi (CHN) | WD | Main Draw | SemiFinal | 0 - 3 | 10:12 9:11 10:12 | HE Zhuojia | WANG Tianyi | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 16,
+                  "opponent": 18
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "10:12",
+                "11:8",
+                "16:18",
+                "8:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "QIU Dang (GER)",
+                "MITTELHAM Nina (GER)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "QIU Dang (GER)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "MITTELHAM Nina (GER)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | QIU Dang (GER) | MITTELHAM Nina (GER) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | SemiFinal | 2 - 3 | 11:8 10:12 11:8 16:18 8:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "15:13",
+                "9:11",
+                "11:8",
+                "7:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | KIM Nayeong (KOR) |  | HE Zhuojia (CHN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 5:11 15:13 9:11 11:8 7:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:9",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | HE Zhuojia (CHN) |  | WINTER Sabine (GER) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:6 11:9 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:6",
+                "12:10",
+                "11:9"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)",
+                "MEISSNER Cedric (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "MEISSNER Cedric (GER)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "WAN Yuan (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | MEISSNER Cedric (GER) | WAN Yuan (GER) | XD | Main Draw | Final | 3 - 1 | 10:12 11:6 12:10 11:9 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "12:10",
+                "7:11",
+                "6:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "MATELOVA Hana (CZE)",
+                "VARADY Barbora (SVK)",
+                "HE Zhuojia (CHN)",
+                "WANG Tianyi (CHN)"
+              ],
+              "side_a": [
+                "MATELOVA Hana (CZE)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "VARADY Barbora (SVK)",
+                "WANG Tianyi (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | MATELOVA Hana (CZE) | VARADY Barbora (SVK) | HE Zhuojia (CHN) | WANG Tianyi (CHN) | WD | Main Draw | Final | 1 - 3 | 5:11 12:10 7:11 6:11 | HE Zhuojia | WANG Tianyi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:7",
+                "9:11",
+                "11:9",
+                "10:12"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "SHAN Xiaona (GER)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SHAN Xiaona (GER)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Dusseldorf III 2023 | SHAN Xiaona (GER) |  | HE Zhuojia (CHN) |  | WS | Main Draw | Final | 2 - 3 | 9:11 11:7 9:11 11:9 10:12 | HE Zhuojia |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Lanzhou 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2777",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_19_WTT_Star_Contender_Lanzhou_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:2",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | HE Zhuojia (CHN) |  | ZHU Chengzhu (HKG) |  | WS | Main Draw | R64 | 3 - 0 | 11:6 11:2 11:7 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "9:11",
+                "1:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "DOO Hoi Kem (HKG)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "DOO Hoi Kem (HKG)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | DOO Hoi Kem (HKG) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 9:11 1:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "5:11",
+                "7:11"
+              ],
+              "winner": "CHEN Meng",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | HE Zhuojia (CHN) |  | CHEN Meng (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 11:13 5:11 7:11 | CHEN Meng |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Panagyurishte 2023",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2023",
+          "match_count": 14,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2723",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_20_WTT_Feeder_Panagyurishte_2023.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:9",
+                "11:5"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)",
+                "GUNDUZ Ibrahim (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "GUNDUZ Ibrahim (TUR)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R16 | 3 - 0 | 11:7 11:9 11:5 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "DEGRAEF Margo (BEL)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "DEGRAEF Margo (BEL)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HE Zhuojia (CHN) |  | DEGRAEF Margo (BEL) |  | WS | Main Draw | R64 | 3 - 0 | 11:6 11:4 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "7:11",
+                "4:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "GEORGIEVA Tsvetelina (BUL)",
+                "MUTLU Sidelya (BUL)",
+                "HE Zhuojia (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "GEORGIEVA Tsvetelina (BUL)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "MUTLU Sidelya (BUL)",
+                "HAN Feier (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | GEORGIEVA Tsvetelina (BUL) | MUTLU Sidelya (BUL) | HE Zhuojia (CHN) | HAN Feier (CHN) | WD | Main Draw | R16 | 0 - 3 | 8:11 7:11 4:11 | HE Zhuojia | HAN Feier | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "5:11",
+                "10:12"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "STOYANOV Niagol (ITA)",
+                "PICCOLIN Giorgia (ITA)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "STOYANOV Niagol (ITA)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "PICCOLIN Giorgia (ITA)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | QuarterFinal | 0 - 3 | 7:11 5:11 10:12 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:4",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HE Zhuojia (CHN) |  | MORET Rachel (SUI) |  | WS | Main Draw | R32 | 3 - 0 | 11:3 11:4 11:3 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "2:11",
+                "4:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "PICCOLIN Giorgia (ITA)",
+                "MONFARDINI Gaia (ITA)",
+                "HE Zhuojia (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "MONFARDINI Gaia (ITA)",
+                "HAN Feier (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | PICCOLIN Giorgia (ITA) | MONFARDINI Gaia (ITA) | HE Zhuojia (CHN) | HAN Feier (CHN) | WD | Main Draw | QuarterFinal | 0 - 3 | 6:11 2:11 4:11 | HE Zhuojia | HAN Feier | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:5",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HE Zhuojia (CHN) |  | CHENG Hsien-Tzu (TPE) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:5 11:3 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "FENG Yi-Hsin (TPE)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | FENG Yi-Hsin (TPE) | HUANG Yu-Jie (TPE) | XD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:7 11:8 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "HAN Feier (CHN)",
+                "LUTZ Charlotte (FRA)",
+                "LUTZ Camille (FRA)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
+                "HAN Feier (CHN)",
+                "LUTZ Camille (FRA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HE Zhuojia (CHN) | HAN Feier (CHN) | LUTZ Charlotte (FRA) | LUTZ Camille (FRA) | WD | Main Draw | SemiFinal | 3 - 0 | 11:5 11:7 11:4 | HE Zhuojia | HAN Feier | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "12:10",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HE Zhuojia (CHN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 12:10 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "MLADENOVIC Luka (LUX)",
+                "NI Xia Lian (LUX)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "MLADENOVIC Luka (LUX)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "NI Xia Lian (LUX)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | MLADENOVIC Luka (LUX) | NI Xia Lian (LUX) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | Final | 0 - 3 | 9:11 9:11 5:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "14:12",
+                "11:9"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WU Yangchen (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WU Yangchen (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HE Zhuojia (CHN) |  | WU Yangchen (CHN) |  | WS | Main Draw | SemiFinal | 3 - 0 | 12:10 14:12 11:9 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "5:11",
+                "5:11",
+                "4:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "WEGRZYN Anna (POL)",
+                "WEGRZYN Katarzyna (POL)",
+                "HE Zhuojia (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "WEGRZYN Anna (POL)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "WEGRZYN Katarzyna (POL)",
+                "HAN Feier (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | HE Zhuojia (CHN) | HAN Feier (CHN) | WD | Main Draw | Final | 2 - 3 | 11:9 11:7 5:11 5:11 4:11 | HE Zhuojia | HAN Feier | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "5:11",
+                "6:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HAN Feier (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HAN Feier (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HAN Feier (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | Final | 0 - 3 | 4:11 5:11 6:11 | HE Zhuojia |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Olomouc 2023",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2023",
+          "match_count": 12,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2724",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_21_WTT_Feeder_Olomouc_2023.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "VALUCH Alexander (SVK)",
+                "ILLASOVA Adriana (SVK)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "VALUCH Alexander (SVK)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "ILLASOVA Adriana (SVK)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | VALUCH Alexander (SVK) | ILLASOVA Adriana (SVK) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Qualification | QR16 | 0 - 3 | 7:11 9:11 4:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "0:11",
+                "0:11",
+                "0:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "QUEK Izaac (SGP)",
+                "ZHOU Jingyi (SGP)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "QUEK Izaac (SGP)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "ZHOU Jingyi (SGP)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | QUEK Izaac (SGP) | ZHOU Jingyi (SGP) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Qualification | QR8 | 0 - 3 | 0:11 0:11 0:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "7:11",
+                "6:11",
+                "3:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "DORR Esteban (FRA)",
+                "CHASSELIN Pauline (FRA)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "DORR Esteban (FRA)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "CHASSELIN Pauline (FRA)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | DORR Esteban (FRA) | CHASSELIN Pauline (FRA) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | R16 | 1 - 3 | 12:10 7:11 6:11 3:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:3",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | HE Zhuojia (CHN) |  | KALLBERG Christina (SWE) |  | WS | Main Draw | R64 | 3 - 0 | 11:7 11:3 11:3 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:4",
+                "11:6"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "HUANG Yan-Cheng (TPE)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "LI Yu-Jhun (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | HUANG Yan-Cheng (TPE) | LI Yu-Jhun (TPE) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:4 11:6 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "9:11",
+                "11:6",
+                "11:2"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "NOMURA Moe (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "NOMURA Moe (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | HE Zhuojia (CHN) |  | NOMURA Moe (JPN) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 9:11 11:6 11:2 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "4:11",
+                "4:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "GODA Hana (EGY)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "GODA Hana (EGY)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | GODA Hana (EGY) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 4:11 4:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)",
+                "POLANSKY Tomas (CZE)",
+                "TOMANOVSKA Katerina (CZE)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "POLANSKY Tomas (CZE)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "TOMANOVSKA Katerina (CZE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | POLANSKY Tomas (CZE) | TOMANOVSKA Katerina (CZE) | XD | Main Draw | SemiFinal | 3 - 0 | 11:4 11:4 11:9 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 17,
+                  "opponent": 15
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:9",
+                "17:15"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "HAPONOVA Hanna (UKR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "HAPONOVA Hanna (UKR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | HE Zhuojia (CHN) |  | HAPONOVA Hanna (UKR) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:9 17:15 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:9",
+                "9:11",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "MLADENOVIC Luka (LUX)",
+                "NI Xia Lian (LUX)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "MLADENOVIC Luka (LUX)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "NI Xia Lian (LUX)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | MLADENOVIC Luka (LUX) | NI Xia Lian (LUX) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | Final | 2 - 3 | 11:4 11:9 9:11 8:11 6:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "13:11",
+                "11:2"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | HE Zhuojia (CHN) |  | MALOBABIC Ivana (CRO) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:5 13:11 11:2 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "13:11",
+                "2:11",
+                "9:11"
+              ],
+              "winner": "CHEN Yi",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "CHEN Yi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "CHEN Yi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | HE Zhuojia (CHN) |  | CHEN Yi (CHN) |  | WS | Main Draw | Final | 1 - 3 | 11:13 13:11 2:11 9:11 | CHEN Yi |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2694",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_22_WTT_Star_Contender_Ljubljana_2023.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "2:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HARAC Ece (TUR)",
+                "YILMAZ Ozge (TUR)",
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_a": [
+                "HARAC Ece (TUR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "YILMAZ Ozge (TUR)",
+                "LIU Weishan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | HARAC Ece (TUR) | YILMAZ Ozge (TUR) | HE Zhuojia (CHN) | LIU Weishan (CHN) | WD | Qualification | QR16 | 0 - 3 | 7:11 9:11 2:11 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "1:11",
+                "5:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "MALOBABIC Ivana (CRO)",
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "MALOBABIC Ivana (CRO)",
+                "LIU Weishan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | JEGER Mateja (CRO) | MALOBABIC Ivana (CRO) | HE Zhuojia (CHN) | LIU Weishan (CHN) | WD | Qualification | QR8 | 0 - 3 | 7:11 1:11 5:11 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:9",
+                "13:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "MITTELHAM Nina (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "SHAN Xiaona (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | HE Zhuojia (CHN) | LIU Weishan (CHN) | MITTELHAM Nina (GER) | SHAN Xiaona (GER) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:9 13:11 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:3",
+                "11:3"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | HE Zhuojia (CHN) |  | WINTER Sabine (GER) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:3 11:3 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:5",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | HE Zhuojia (CHN) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:5 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "JEON Jihee",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "JEON Jihee (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "JEON Jihee (KOR)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "SHIN Yubin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | HE Zhuojia (CHN) | LIU Weishan (CHN) | JEON Jihee (KOR) | SHIN Yubin (KOR) | WD | Main Draw | QuarterFinal | 1 - 3 | 7:11 9:11 11:8 9:11 | JEON Jihee | SHIN Yubin | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:6",
+                "11:6",
+                "11:4"
+              ],
+              "winner": "SUN Yingsha",
+              "all_players_in_row": [
+                "SUN Yingsha (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SUN Yingsha (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | SUN Yingsha (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 3 - 1 | 8:11 11:6 11:6 11:4 | SUN Yingsha |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2692",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_23_WTT_Contender_Zagreb_2023.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:8",
+                "11:6",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "QIAN Tianyi",
+              "all_players_in_row": [
+                "KUAI Man (CHN)",
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_a": [
+                "KUAI Man (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | KUAI Man (CHN) | HE Zhuojia (CHN) | QIAN Tianyi (CHN) | LIU Weishan (CHN) | WD | Main Draw | QuarterFinal | 2 - 3 | 6:11 11:8 11:6 7:11 7:11 | QIAN Tianyi | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:9",
+                "11:8"
+              ],
+              "winner": "KUAI Man",
+              "all_players_in_row": [
+                "KUAI Man (CHN)",
+                "HE Zhuojia (CHN)",
+                "MANTZ Chantal (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_a": [
+                "KUAI Man (CHN)",
+                "MANTZ Chantal (GER)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "WAN Yuan (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | KUAI Man (CHN) | HE Zhuojia (CHN) | MANTZ Chantal (GER) | WAN Yuan (GER) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:9 11:8 | KUAI Man | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "13:11",
+                "11:7"
+              ],
+              "winner": "SUN Yingsha",
+              "all_players_in_row": [
+                "SUN Yingsha (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SUN Yingsha (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Zagreb 2023 | SUN Yingsha (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 13:11 11:7 | SUN Yingsha |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Tunis 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2691",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_24_WTT_Contender_Tunis_2023.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "14:12",
+                "10:12",
+                "11:7",
+                "11:3"
+              ],
+              "winner": "LIU Dingshuo",
+              "all_players_in_row": [
+                "LIU Dingshuo (CHN)",
+                "HE Zhuojia (CHN)",
+                "PARK Ganghyeon (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "LIU Dingshuo (CHN)",
+                "PARK Ganghyeon (KOR)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Tunis 2023 | LIU Dingshuo (CHN) | HE Zhuojia (CHN) | PARK Ganghyeon (KOR) | YANG Ha Eun (KOR) | XD | Qualification | QR16 | 3 - 1 | 14:12 10:12 11:7 11:3 | LIU Dingshuo | HE Zhuojia | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:7",
+                "11:2"
+              ],
+              "winner": "LIU Dingshuo",
+              "all_players_in_row": [
+                "LIU Dingshuo (CHN)",
+                "HE Zhuojia (CHN)",
+                "SHAH Manush (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_a": [
+                "LIU Dingshuo (CHN)",
+                "SHAH Manush (IND)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "AKULA Sreeja (IND)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Tunis 2023 | LIU Dingshuo (CHN) | HE Zhuojia (CHN) | SHAH Manush (IND) | AKULA Sreeja (IND) | XD | Qualification | QR8 | 3 - 0 | 13:11 11:7 11:2 | LIU Dingshuo | HE Zhuojia | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "7:11",
+                "7:11",
+                "11:8",
+                "11:13"
+              ],
+              "winner": "LIM Jonghoon",
+              "all_players_in_row": [
+                "LIU Dingshuo (CHN)",
+                "HE Zhuojia (CHN)",
+                "LIM Jonghoon (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_a": [
+                "LIU Dingshuo (CHN)",
+                "LIM Jonghoon (KOR)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "SHIN Yubin (KOR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Tunis 2023 | LIU Dingshuo (CHN) | HE Zhuojia (CHN) | LIM Jonghoon (KOR) | SHIN Yubin (KOR) | XD | Main Draw | R16 | 2 - 3 | 11:5 7:11 7:11 11:8 11:13 | LIM Jonghoon | SHIN Yubin | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "8:11",
+                "11:8",
+                "6:11"
+              ],
+              "winner": "LIU Weishan",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "FAN Siqi (CHN)",
+                "LIU Weishan (CHN)",
+                "GUO Yuhan (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_b": [
+                "FAN Siqi (CHN)",
+                "GUO Yuhan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Tunis 2023 | HE Zhuojia (CHN) | FAN Siqi (CHN) | LIU Weishan (CHN) | GUO Yuhan (CHN) | WD | Main Draw | R16 | 1 - 3 | 6:11 8:11 11:8 6:11 | LIU Weishan | GUO Yuhan | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Lagos 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 8,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2693",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_25_WTT_Contender_Lagos_2023.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "2:11",
+                "2:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "LARTEY Felix (GHA)",
+                "KWABI Cynthia (GHA)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "LARTEY Felix (GHA)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "KWABI Cynthia (GHA)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | LARTEY Felix (GHA) | KWABI Cynthia (GHA) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Qualification | QR16 | 0 - 3 | 4:11 2:11 2:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "1:11",
+                "2:11",
+                "2:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "FREMA Cecilia (GHA)",
+                "KWABI Cynthia (GHA)",
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_a": [
+                "FREMA Cecilia (GHA)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "KWABI Cynthia (GHA)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | FREMA Cecilia (GHA) | KWABI Cynthia (GHA) | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | WD | Qualification | QR8 | 0 - 3 | 1:11 2:11 2:11 | HE Zhuojia | WANG Xiaotong | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "7:11",
+                "11:7",
+                "9:11",
+                "8:11"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "PARK Gyuhyeon (KOR)",
+                "YOON Hyobin (KOR)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "PARK Gyuhyeon (KOR)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "YOON Hyobin (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | PARK Gyuhyeon (KOR) | YOON Hyobin (KOR) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Qualification | QR8 | 2 - 3 | 11:8 7:11 11:7 9:11 8:11 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:4",
+                "11:6"
+              ],
+              "winner": "ZHOU Kai",
+              "all_players_in_row": [
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)",
+                "ETIM Orok (NGR)",
+                "BELLO Fatimo (NGR)"
+              ],
+              "side_a": [
+                "ZHOU Kai (CHN)",
+                "ETIM Orok (NGR)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "BELLO Fatimo (NGR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | ZHOU Kai (CHN) | HE Zhuojia (CHN) | ETIM Orok (NGR) | BELLO Fatimo (NGR) | XD | Main Draw | R16 | 3 - 0 | 11:3 11:4 11:6 | ZHOU Kai | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:3",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)",
+                "AKPAN Cecilia (NGR)",
+                "EDEM Offiong (NGR)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "AKPAN Cecilia (NGR)"
+              ],
+              "side_b": [
+                "WANG Xiaotong (CHN)",
+                "EDEM Offiong (NGR)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | AKPAN Cecilia (NGR) | EDEM Offiong (NGR) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:3 11:4 | HE Zhuojia | WANG Xiaotong | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "13:11",
+                "11:9",
+                "13:15",
+                "11:8"
+              ],
+              "winner": "JANG Woojin",
+              "all_players_in_row": [
+                "JANG Woojin (KOR)",
+                "JEON Jihee (KOR)",
+                "ZHOU Kai (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "JANG Woojin (KOR)",
+                "ZHOU Kai (CHN)"
+              ],
+              "side_b": [
+                "JEON Jihee (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | JANG Woojin (KOR) | JEON Jihee (KOR) | ZHOU Kai (CHN) | HE Zhuojia (CHN) | XD | Main Draw | QuarterFinal | 3 - 2 | 8:11 13:11 11:9 13:15 11:8 | JANG Woojin | JEON Jihee | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "6:11",
+                "10:12",
+                "11:3",
+                "13:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)",
+                "BAJOR Natalia (POL)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [
+                "WANG Xiaotong (CHN)",
+                "VARADY Barbora (SVK)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | BAJOR Natalia (POL) | VARADY Barbora (SVK) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:7 6:11 10:12 11:3 13:11 | HE Zhuojia | WANG Xiaotong | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "5:11",
+                "11:6",
+                "11:4",
+                "11:9"
+              ],
+              "winner": "FAN Siqi",
+              "all_players_in_row": [
+                "FAN Siqi (CHN)",
+                "LIU Weishan (CHN)",
+                "HE Zhuojia (CHN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_a": [
+                "FAN Siqi (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Lagos 2023 | FAN Siqi (CHN) | LIU Weishan (CHN) | HE Zhuojia (CHN) | WANG Xiaotong (CHN) | WD | Main Draw | SemiFinal | 3 - 2 | 11:13 5:11 11:6 11:4 11:9 | FAN Siqi | LIU Weishan | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Doha 2023",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2023",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2701",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_26_WTT_Feeder_Doha_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:1",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LEE Hoi Man (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "LEE Hoi Man (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha 2023 | HE Zhuojia (CHN) |  | LEE Hoi Man (HKG) |  | WS | Main Draw | R32 | 3 - 0 | 11:3 11:1 11:4 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "12:14",
+                "12:10",
+                "6:11",
+                "12:10"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "QI Fei (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "QI Fei (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha 2023 | HE Zhuojia (CHN) |  | QI Fei (CHN) |  | WS | Main Draw | R16 | 3 - 2 | 12:10 12:14 12:10 6:11 12:10 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "11:7"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "FAN Siqi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "FAN Siqi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha 2023 | HE Zhuojia (CHN) |  | FAN Siqi (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:5 11:7 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "8:11",
+                "5:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "ZHANG Rui (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZHANG Rui (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha 2023 | ZHANG Rui (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | SemiFinal | 0 - 3 | 4:11 8:11 5:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:8",
+                "7:11",
+                "10:12"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "KUAI Man (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "KUAI Man (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Feeder Doha 2023 | KUAI Man (CHN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | Final | 1 - 3 | 8:11 11:8 7:11 10:12 | HE Zhuojia |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Doha 2023",
+          "event_type": "WTT Contender Series",
+          "event_year": "2023",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2698",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2023_27_WTT_Contender_Doha_2023.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:4",
+                "11:8",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LEE Hoi Man (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "LEE Hoi Man (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Doha 2023 | HE Zhuojia (CHN) |  | LEE Hoi Man (HKG) |  | WS | Qualification | QR32 | 3 - 1 | 10:12 11:4 11:8 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:5",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Doha 2023 | HE Zhuojia (CHN) |  | ZHU Chengzhu (HKG) |  | WS | Qualification | QR16 | 3 - 0 | 11:5 11:5 11:4 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "7:11",
+                "11:4",
+                "11:9",
+                "7:11"
+              ],
+              "winner": "YUAN Jia Nan",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | WTT Contender Doha 2023 | HE Zhuojia (CHN) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R32 | 2 - 3 | 8:11 7:11 11:4 11:9 7:11 | YUAN Jia Nan |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2022": {
+      "captured_at": "2026-04-15T13:50:15.424432+00:00",
+      "events": [
+        {
+          "event_name": "WTT Contender Tunis 2022",
+          "event_type": "WTT Contender Series",
+          "event_year": "2022",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2568",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2022_28_WTT_Contender_Tunis_2022.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "6:11",
+                "4:11"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "ZOGHLAMI Maram (TUN)",
+                "GARCI Fadwa (TUN)",
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZOGHLAMI Maram (TUN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [
+                "GARCI Fadwa (TUN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Tunis 2022 | ZOGHLAMI Maram (TUN) | GARCI Fadwa (TUN) | SHI Xunyao (CHN) | HE Zhuojia (CHN) | WD | Qualification | QR16 | 0 - 3 | 7:11 6:11 4:11 | SHI Xunyao | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "4:11",
+                "8:11"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "PAVADE Prithika (FRA)",
+                "LUTZ Camille (FRA)",
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "PAVADE Prithika (FRA)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [
+                "LUTZ Camille (FRA)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Tunis 2022 | PAVADE Prithika (FRA) | LUTZ Camille (FRA) | SHI Xunyao (CHN) | HE Zhuojia (CHN) | WD | Qualification | QR8 | 0 - 3 | 7:11 4:11 8:11 | SHI Xunyao | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "8:11",
+                "11:8",
+                "11:8"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "SHI Xunyao (CHN)",
+                "LI Yu-Jhun (TPE)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "CHENG I-Ching (TPE)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Tunis 2022 | SHI Xunyao (CHN) | HE Zhuojia (CHN) | LI Yu-Jhun (TPE) | CHENG I-Ching (TPE) | WD | Main Draw | R16 | 3 - 1 | 11:5 8:11 11:8 11:8 | SHI Xunyao | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "9:11",
+                "9:11",
+                "11:7",
+                "11:13"
+              ],
+              "winner": "NAGASAKI Miyu",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Tunis 2022 | HE Zhuojia (CHN) |  | NAGASAKI Miyu (JPN) |  | WS | Main Draw | R32 | 2 - 3 | 12:10 9:11 9:11 11:7 11:13 | NAGASAKI Miyu |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "8:11",
+                "11:5",
+                "3:11"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "PARANANG Orawan (THA)",
+                "SAWETTABUT Suthasini (THA)",
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "PARANANG Orawan (THA)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [
+                "SAWETTABUT Suthasini (THA)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Tunis 2022 | PARANANG Orawan (THA) | SAWETTABUT Suthasini (THA) | SHI Xunyao (CHN) | HE Zhuojia (CHN) | WD | Main Draw | QuarterFinal | 1 - 3 | 7:11 8:11 11:5 3:11 | SHI Xunyao | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:3",
+                "7:11",
+                "11:5"
+              ],
+              "winner": "SHI Xunyao",
+              "all_players_in_row": [
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)",
+                "MORI Sakura (JPN)",
+                "SASAO Asuka (JPN)"
+              ],
+              "side_a": [
+                "SHI Xunyao (CHN)",
+                "MORI Sakura (JPN)"
+              ],
+              "side_b": [
+                "HE Zhuojia (CHN)",
+                "SASAO Asuka (JPN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Tunis 2022 | SHI Xunyao (CHN) | HE Zhuojia (CHN) | MORI Sakura (JPN) | SASAO Asuka (JPN) | WD | Main Draw | SemiFinal | 3 - 1 | 11:7 11:3 7:11 11:5 | SHI Xunyao | HE Zhuojia | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:2",
+                "12:10",
+                "11:6"
+              ],
+              "winner": "ZHANG Rui",
+              "all_players_in_row": [
+                "ZHANG Rui (CHN)",
+                "KUAI Man (CHN)",
+                "SHI Xunyao (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZHANG Rui (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [
+                "KUAI Man (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Tunis 2022 | ZHANG Rui (CHN) | KUAI Man (CHN) | SHI Xunyao (CHN) | HE Zhuojia (CHN) | WD | Main Draw | Final | 3 - 1 | 8:11 11:2 12:10 11:6 | ZHANG Rui | KUAI Man | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder European Summer Series Budapest 2022",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2022",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2592",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2022_29_WTT_Feeder_European_Summer_Series_Budapest_2022.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:14",
+                "8:11",
+                "11:9",
+                "10:12",
+                "6:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HAPONOVA Hanna (UKR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HAPONOVA Hanna (UKR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | HAPONOVA Hanna (UKR) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R64 | 1 - 4 | 12:14 8:11 11:9 10:12 6:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "5:11",
+                "2:11",
+                "4:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "CHOI Hyojoo (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "CHOI Hyojoo (KOR)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | CHOI Hyojoo (KOR) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 0 - 4 | 3:11 5:11 2:11 4:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "6:11",
+                "8:11",
+                "11:7",
+                "11:7",
+                "5:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HIRANO Miu (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "HIRANO Miu (JPN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | HIRANO Miu (JPN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R16 | 2 - 4 | 2:11 6:11 8:11 11:7 11:7 5:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "13:11",
+                "11:6",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "OJIO Haruna (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "OJIO Haruna (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | HE Zhuojia (CHN) |  | OJIO Haruna (JPN) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 7:11 13:11 11:6 11:7 11:8 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "11:3",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | HE Zhuojia (CHN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:7 11:5 11:3 11:5 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "4-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:8",
+                "6:11",
+                "9:11",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | HE Zhuojia (CHN) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | Final | 4 - 2 | 11:9 11:8 6:11 9:11 11:7 11:4 | HE Zhuojia |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2022",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2022",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2536",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2022_30_Singapore_Smash_2022.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "9:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "NI Xia Lian (LUX)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "NI Xia Lian (LUX)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | Singapore Smash 2022 | NI Xia Lian (LUX) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 4:11 7:11 9:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "11:4",
+                "8:11",
+                "8:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | Singapore Smash 2022 | ZHANG Mo (CAN) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 5:11 11:4 8:11 8:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "4:11",
+                "9:11"
+              ],
+              "winner": "CHEN Meng",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | Singapore Smash 2022 | HE Zhuojia (CHN) |  | CHEN Meng (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 4:11 9:11 | CHEN Meng |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Muscat 2022",
+          "event_type": "WTT Contender Series",
+          "event_year": "2022",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119730&vw_matches___player_a_id[value][]=119730&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119730&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119730&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119730&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2531",
+          "raw_capture_file": "data\\raw_event_payloads\\He_Zhuojia\\2022_31_WTT_Contender_Muscat_2022.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "6:11",
+                "8:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "TODOROVIC Andrea (SRB)",
+                "ALTINKAYA Sibel (TUR)",
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_a": [
+                "TODOROVIC Andrea (SRB)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
+                "ALTINKAYA Sibel (TUR)",
+                "LIU Weishan (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Muscat 2022 | TODOROVIC Andrea (SRB) | ALTINKAYA Sibel (TUR) | HE Zhuojia (CHN) | LIU Weishan (CHN) | WD | Qualification | QR16 | 0 - 3 | 5:11 6:11 8:11 | HE Zhuojia | LIU Weishan | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "3:11",
+                "8:11"
+              ],
+              "winner": "QIAN Tianyi",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "LIU Weishan (CHN)",
+                "QIAN Tianyi (CHN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [
+                "LIU Weishan (CHN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Muscat 2022 | HE Zhuojia (CHN) | LIU Weishan (CHN) | QIAN Tianyi (CHN) | CHEN Xingtong (CHN) | WD | Qualification | QR8 | 0 - 3 | 9:11 3:11 8:11 | QIAN Tianyi | CHEN Xingtong | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "7:11",
+                "4:11"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)"
+              ],
+              "side_a": [
+                "CHEN Szu-Yu (TPE)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Muscat 2022 | CHEN Szu-Yu (TPE) |  | HE Zhuojia (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 7:11 4:11 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 15,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:8",
+                "15:13"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Muscat 2022 | HE Zhuojia (CHN) |  | SHI Xunyao (CHN) |  | WS | Main Draw | R16 | 3 - 0 | 11:3 11:8 15:13 | HE Zhuojia |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "6:11",
+                "9:11",
+                "12:14"
+              ],
+              "winner": "QIAN Tianyi",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2022 | WTT Contender Muscat 2022 | HE Zhuojia (CHN) |  | QIAN Tianyi (CHN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 11:5 6:11 9:11 12:14 | QIAN Tianyi |  | "
+            }
+          ]
         }
       ]
     }
   },
   "created_at": "2026-04-14T12:38:32.064706+00:00",
-  "updated_at": "2026-04-14T12:42:12.982724+00:00",
-  "captured_at": "2026-04-14T12:38:32.065229+00:00"
+  "updated_at": "2026-04-15T13:52:58.652089+00:00",
+  "captured_at": "2026-04-15T13:50:15.424432+00:00"
 }

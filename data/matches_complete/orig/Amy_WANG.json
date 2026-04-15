@@ -2173,11 +2173,1617 @@
               "raw_row_text": "2024 | WTT Champions Macao 2024 | WANG Amy (USA) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 5:11 7:11 | BERGSTROM Linda |  | "
             }
           ]
+        },
+        {
+          "event_name": "Olympic Games Paris 2024",
+          "event_type": "Olympic Games",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2603",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_14_Olympic_Games_Paris_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "8:11",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "TOMMY Priscilla (VAN)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "TOMMY Priscilla (VAN)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Olympic Games Paris 2024 | TOMMY Priscilla (VAN) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 8:11 9:11 5:11 | WANG Amy |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "4-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "7:11",
+                "12:10",
+                "14:12",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "DIAZ Adriana",
+              "all_players_in_row": [
+                "DIAZ Adriana (PUR)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "DIAZ Adriana (PUR)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Olympic Games Paris 2024 | DIAZ Adriana (PUR) |  | WANG Amy (USA) |  | WS | Main Draw | R32 | 4 - 2 | 9:11 7:11 12:10 14:12 11:8 11:7 | DIAZ Adriana |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "WAN Yuan",
+              "all_players_in_row": [
+                "SUNG Rachel (USA)",
+                "WANG Amy (USA)",
+                "WAN Yuan (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_a": [
+                "SUNG Rachel (USA)",
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
+                "WANG Amy (USA)",
+                "SHAN Xiaona (GER)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Olympic Games Paris 2024 | SUNG Rachel (USA) | WANG Amy (USA) | WAN Yuan (GER) | SHAN Xiaona (GER) | WT | Main Draw | R16 | 0 - 3 | 7:11 8:11 6:11 | WAN Yuan | SHAN Xiaona | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:5",
+                "7:11",
+                "11:6"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Olympic Games Paris 2024 | WANG Amy (USA) |  | SHAN Xiaona (GER) |  | WT | Main Draw | R16 | 3 - 1 | 11:9 11:5 7:11 11:6 | WANG Amy |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Champions Chongqing 2024",
+          "event_type": "WTT Champions",
+          "event_year": "2024",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2941",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_15_WTT_Champions_Chongqing_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:3",
+                "8:11",
+                "11:5"
+              ],
+              "winner": "HE Zhuojia",
+              "all_players_in_row": [
+                "HE Zhuojia (CHN)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "HE Zhuojia (CHN)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Chongqing 2024 | HE Zhuojia (CHN) |  | WANG Amy (USA) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 11:3 8:11 11:5 | HE Zhuojia |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Saudi Smash 2024",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2024",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2932",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_16_Saudi_Smash_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "6:11",
+                "8:11",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "MITTELHAM Nina",
+              "all_players_in_row": [
+                "MITTELHAM Nina (GER)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "MITTELHAM Nina (GER)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Saudi Smash 2024 | MITTELHAM Nina (GER) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 3 - 2 | 11:5 6:11 8:11 11:7 11:7 | MITTELHAM Nina |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "ITTF World Cup Macao 2024",
+          "event_type": "ITTF World Cup",
+          "event_year": "2024",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2937",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_17_ITTF_World_Cup_Macao_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:7",
+                "4:11",
+                "11:7"
+              ],
+              "winner": "",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | ITTF World Cup Macao 2024 | WANG Amy (USA) |  | SAWETTABUT Suthasini (THA) |  | WS | Qualification |  | 2 - 2 | 9:11 11:7 4:11 11:7 |  |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "5:11",
+                "14:12",
+                "10:12"
+              ],
+              "winner": "",
+              "all_players_in_row": [
+                "ITO Mima (JPN)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "ITO Mima (JPN)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | ITTF World Cup Macao 2024 | ITO Mima (JPN) |  | WANG Amy (USA) |  | WS | Qualification |  | 2 - 2 | 11:3 5:11 14:12 10:12 |  |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "World Mixed Olympic Qualification Havirov 2024",
+          "event_type": "Olympic Qualification",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2931",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_18_World_Mixed_Olympic_Qualification_Havirov_2024.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "4-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:8",
+                "8:11",
+                "11:9",
+                "11:7"
+              ],
+              "winner": "SANGUANSIN Phakpoom",
+              "all_players_in_row": [
+                "SANGUANSIN Phakpoom (THA)",
+                "PARANANG Orawan (THA)",
+                "KUMAR Nikhil (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "SANGUANSIN Phakpoom (THA)",
+                "KUMAR Nikhil (USA)"
+              ],
+              "side_b": [
+                "PARANANG Orawan (THA)",
+                "WANG Amy (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | World Mixed Olympic Qualification Havirov 2024 | SANGUANSIN Phakpoom (THA) | PARANANG Orawan (THA) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 4 - 1 | 11:6 11:8 8:11 11:9 11:7 | SANGUANSIN Phakpoom | PARANANG Orawan | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-4",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:6",
+                "11:7",
+                "4:11",
+                "10:12",
+                "11:9",
+                "12:14"
+              ],
+              "winner": "KUMAR Nikhil",
+              "all_players_in_row": [
+                "GUNDUZ Ibrahim (TUR)",
+                "ALTINKAYA Sibel (TUR)",
+                "KUMAR Nikhil (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "GUNDUZ Ibrahim (TUR)",
+                "KUMAR Nikhil (USA)"
+              ],
+              "side_b": [
+                "ALTINKAYA Sibel (TUR)",
+                "WANG Amy (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | World Mixed Olympic Qualification Havirov 2024 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 3 - 4 | 10:12 11:6 11:7 4:11 10:12 11:9 12:14 | KUMAR Nikhil | WANG Amy | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "7:11",
+                "12:10",
+                "6:11",
+                "13:11",
+                "10:12",
+                "5:11"
+              ],
+              "winner": "IONESCU Ovidiu",
+              "all_players_in_row": [
+                "KUMAR Nikhil (USA)",
+                "WANG Amy (USA)",
+                "IONESCU Ovidiu (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_a": [
+                "KUMAR Nikhil (USA)",
+                "IONESCU Ovidiu (ROU)"
+              ],
+              "side_b": [
+                "WANG Amy (USA)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | World Mixed Olympic Qualification Havirov 2024 | KUMAR Nikhil (USA) | WANG Amy (USA) | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | QuarterFinal | 3 - 4 | 11:6 7:11 12:10 6:11 13:11 10:12 5:11 | IONESCU Ovidiu | SZOCS Bernadette | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Champions Incheon 2024",
+          "event_type": "WTT Champions",
+          "event_year": "2024",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2899",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_19_WTT_Champions_Incheon_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "11:13"
+              ],
+              "winner": "DIAZ Adriana",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Champions Incheon 2024 | WANG Amy (USA) |  | DIAZ Adriana (PUR) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 9:11 11:13 | DIAZ Adriana |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2024",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2024",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2904",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_20_Singapore_Smash_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "XIAO Maria",
+              "all_players_in_row": [
+                "XIAO Maria (ESP)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "XIAO Maria (ESP)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Singapore Smash 2024 | XIAO Maria (ESP) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 3 - 0 | 13:11 11:7 11:4 | XIAO Maria |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Pan American Cup Corpus Christi 2024",
+          "event_type": "Continental",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2896",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_21_Pan_American_Cup_Corpus_Christi_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "7:11",
+                "3:11",
+                "5:11"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "SILVA Yadira (MEX)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "SILVA Yadira (MEX)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | SILVA Yadira (MEX) |  | WANG Amy (USA) |  | WS | Main Draw | R16 | 0 - 4 | 9:11 7:11 3:11 5:11 | WANG Amy |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "8:11",
+                "7:11",
+                "3:11"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "TAKAHASHI Giulia (BRA)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "TAKAHASHI Giulia (BRA)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | TAKAHASHI Giulia (BRA) |  | WANG Amy (USA) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 5:11 8:11 7:11 3:11 | WANG Amy |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "8:11",
+                "2:11",
+                "8:11"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | ZHANG Mo (CAN) |  | WANG Amy (USA) |  | WS | Main Draw | SemiFinal | 0 - 4 | 11:13 8:11 2:11 8:11 | WANG Amy |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-4",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "1:11",
+                "11:9",
+                "11:4",
+                "7:11",
+                "11:6",
+                "9:11"
+              ],
+              "winner": "TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | WANG Amy (USA) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | Final | 3 - 4 | 5:11 1:11 11:9 11:4 7:11 11:6 9:11 | TAKAHASHI Bruna |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Corpus Christi 2024",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2024",
+          "match_count": 8,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2878",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2024_22_WTT_Feeder_Corpus_Christi_2024.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "8:11",
+                "7:11"
+              ],
+              "winner": "KUMAR Nikhil",
+              "all_players_in_row": [
+                "LEVINSKI Mishel (USA)",
+                "TANG Yao (USA)",
+                "KUMAR Nikhil (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "LEVINSKI Mishel (USA)",
+                "KUMAR Nikhil (USA)"
+              ],
+              "side_b": [
+                "TANG Yao (USA)",
+                "WANG Amy (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | LEVINSKI Mishel (USA) | TANG Yao (USA) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 0 - 3 | 4:11 8:11 7:11 | KUMAR Nikhil | WANG Amy | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:8",
+                "11:3",
+                "11:4"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | WANG Amy (USA) |  | COSSIO Arantxa (MEX) |  | WS | Main Draw | R32 | 3 - 1 | 7:11 11:8 11:3 11:4 | WANG Amy |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "KUMAR Nikhil",
+              "all_players_in_row": [
+                "KUMAR Nikhil (USA)",
+                "WANG Amy (USA)",
+                "MADRID Marcos (MEX)",
+                "SILVA Yadira (MEX)"
+              ],
+              "side_a": [
+                "KUMAR Nikhil (USA)",
+                "MADRID Marcos (MEX)"
+              ],
+              "side_b": [
+                "WANG Amy (USA)",
+                "SILVA Yadira (MEX)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | KUMAR Nikhil (USA) | WANG Amy (USA) | MADRID Marcos (MEX) | SILVA Yadira (MEX) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:6 11:7 | KUMAR Nikhil | WANG Amy | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:3",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "DENG Zhen",
+              "all_players_in_row": [
+                "DENG Zhen (USA)",
+                "LIN Jiaqi (USA)",
+                "WANG Amy (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_a": [
+                "DENG Zhen (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [
+                "LIN Jiaqi (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | DENG Zhen (USA) | LIN Jiaqi (USA) | WANG Amy (USA) | ZHANG Lily (USA) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:3 11:9 11:6 | DENG Zhen | LIN Jiaqi | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | WANG Amy (USA) |  | LIAO Ivy (CAN) |  | WS | Main Draw | R16 | 3 - 0 | 11:6 11:7 11:4 | WANG Amy |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "6:11",
+                "11:6",
+                "11:6"
+              ],
+              "winner": "KUMAR Nikhil",
+              "all_players_in_row": [
+                "KUMAR Nikhil (USA)",
+                "WANG Amy (USA)",
+                "CASTRO Rogelio (MEX)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_a": [
+                "KUMAR Nikhil (USA)",
+                "CASTRO Rogelio (MEX)"
+              ],
+              "side_b": [
+                "WANG Amy (USA)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | KUMAR Nikhil (USA) | WANG Amy (USA) | CASTRO Rogelio (MEX) | COSSIO Arantxa (MEX) | XD | Main Draw | SemiFinal | 3 - 1 | 11:9 6:11 11:6 11:6 | KUMAR Nikhil | WANG Amy | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:9",
+                "1:11",
+                "11:6",
+                "9:11"
+              ],
+              "winner": "AKULA Sreeja",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | WANG Amy (USA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 9:11 11:9 1:11 11:6 9:11 | AKULA Sreeja |  | "
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:9",
+                "11:7"
+              ],
+              "winner": "STOYANOV Niagol",
+              "all_players_in_row": [
+                "STOYANOV Niagol (ITA)",
+                "PICCOLIN Giorgia (ITA)",
+                "KUMAR Nikhil (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "STOYANOV Niagol (ITA)",
+                "KUMAR Nikhil (USA)"
+              ],
+              "side_b": [
+                "PICCOLIN Giorgia (ITA)",
+                "WANG Amy (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | Final | 3 - 0 | 11:9 11:9 11:7 | STOYANOV Niagol | PICCOLIN Giorgia | "
+            }
+          ]
+        }
+      ]
+    },
+    "2023": {
+      "captured_at": "2026-04-15T13:55:21.797059+00:00",
+      "events": [
+        {
+          "event_name": "ITTF Mixed Team World Cup Chengdu 2023",
+          "event_type": "ITTF World Cup",
+          "event_year": "2023",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=119022&vw_matches___player_a_id[value][]=119022&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=119022&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=119022&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=119022&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2860",
+          "raw_capture_file": "data\\raw_event_payloads\\Amy_WANG\\2023_23_ITTF_Mixed_Team_World_Cup_Chengdu_2023.json",
+          "matches": [
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "8:11",
+                "11:9"
+              ],
+              "winner": "YUAN Jia Nan",
+              "all_players_in_row": [
+                "YUAN Jia Nan (FRA)",
+                "LEBRUN Alexis (FRA)",
+                "WANG Amy (USA)",
+                "NARESH Sid (USA)"
+              ],
+              "side_a": [
+                "YUAN Jia Nan (FRA)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [
+                "LEBRUN Alexis (FRA)",
+                "NARESH Sid (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | YUAN Jia Nan (FRA) | LEBRUN Alexis (FRA) | WANG Amy (USA) | NARESH Sid (USA) | XT | Qualification |  | 2 - 1 | 11:7 8:11 11:9 | YUAN Jia Nan | LEBRUN Alexis | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "9:11",
+                "11:5"
+              ],
+              "winner": "LUTZ Camille",
+              "all_players_in_row": [
+                "LUTZ Camille (FRA)",
+                "PAVADE Prithika (FRA)",
+                "SUNG Rachel (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "LUTZ Camille (FRA)",
+                "SUNG Rachel (USA)"
+              ],
+              "side_b": [
+                "PAVADE Prithika (FRA)",
+                "WANG Amy (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | LUTZ Camille (FRA) | PAVADE Prithika (FRA) | SUNG Rachel (USA) | WANG Amy (USA) | XT | Qualification |  | 2 - 1 | 11:5 9:11 11:5 | LUTZ Camille | PAVADE Prithika | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:6"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "TOGAMI Shunsuke (JPN)",
+                "WANG Amy (USA)",
+                "LIANG Jishan (USA)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [
+                "TOGAMI Shunsuke (JPN)",
+                "LIANG Jishan (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | HARIMOTO Miwa (JPN) | TOGAMI Shunsuke (JPN) | WANG Amy (USA) | LIANG Jishan (USA) | XT | Qualification |  | 3 - 0 | 11:6 11:4 11:6 | HARIMOTO Miwa | TOGAMI Shunsuke | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "SAMARA Elizabeta",
+              "all_players_in_row": [
+                "SAMARA Elizabeta (ROU)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "SAMARA Elizabeta (ROU)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | SAMARA Elizabeta (ROU) |  | WANG Amy (USA) |  | XT | Qualification |  | 3 - 0 | 11:1 11:9 11:6 | SAMARA Elizabeta |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "8:11",
+                "6:11"
+              ],
+              "winner": "SUNG Rachel",
+              "all_players_in_row": [
+                "SAMARA Elizabeta (ROU)",
+                "SZOCS Bernadette (ROU)",
+                "SUNG Rachel (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_a": [
+                "SAMARA Elizabeta (ROU)",
+                "SUNG Rachel (USA)"
+              ],
+              "side_b": [
+                "SZOCS Bernadette (ROU)",
+                "WANG Amy (USA)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | SUNG Rachel (USA) | WANG Amy (USA) | XT | Qualification |  | 1 - 2 | 11:3 8:11 6:11 | SUNG Rachel | WANG Amy | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:7",
+                "11:3"
+              ],
+              "winner": "WANG Amy",
+              "all_players_in_row": [
+                "WANG Amy (USA)",
+                "NARESH Sid (USA)",
+                "BROMLEY Michelle (AUS)",
+                "LEE Yonghun (AUS)"
+              ],
+              "side_a": [
+                "WANG Amy (USA)",
+                "BROMLEY Michelle (AUS)"
+              ],
+              "side_b": [
+                "NARESH Sid (USA)",
+                "LEE Yonghun (AUS)"
+              ],
+              "teammates": [],
+              "opponents": [],
+              "result_for_player": "unknown",
+              "result": "unknown",
+              "perspective": "unknown",
+              "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | WANG Amy (USA) | NARESH Sid (USA) | BROMLEY Michelle (AUS) | LEE Yonghun (AUS) | XT | Qualification |  | 3 - 0 | 11:2 11:7 11:3 | WANG Amy | NARESH Sid | "
+            }
+          ]
         }
       ]
     }
   },
   "created_at": "2026-04-14T12:42:41.219382+00:00",
-  "updated_at": "2026-04-14T12:46:21.031717+00:00",
-  "captured_at": "2026-04-14T12:42:41.219897+00:00"
+  "updated_at": "2026-04-15T13:58:32.526539+00:00",
+  "captured_at": "2026-04-15T13:55:21.797059+00:00"
 }
