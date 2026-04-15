@@ -58,8 +58,46 @@ def _ck_player_base(checkpoint: CheckpointStore, player_id: Any, player_name: st
     return "matches|" + checkpoint.key(player_id, player_name, from_date_str)
 
 
-def _ck_event(ck_player: str, event_year: Any, event_name: str) -> str:
-    raw = f"{event_year}|{event_name}"
+def _event_identity(event: dict[str, Any]) -> tuple[str, ...]:
+    """Return a stable identity for resume/dedupe.
+
+    Prefer the detail/list URL when available because `(year, event_name)` is
+    too coarse and can collide for distinct rows on the ITTF site.
+    """
+    raw_url = str(event.get("detail_url") or event.get("href") or "").strip()
+    if raw_url:
+        return ("url", absolute_url(raw_url))
+
+    return (
+        "meta",
+        str(event.get("year") or event.get("event_year") or ""),
+        str(event.get("event_name") or "").strip(),
+        str(event.get("event_type") or "").strip(),
+        str(event.get("start_date") or "").strip(),
+        str(event.get("end_date") or "").strip(),
+        str(event.get("match_count") or ""),
+    )
+
+
+def _event_identity_text(event: dict[str, Any]) -> str:
+    return "|".join(_event_identity(event))
+
+
+def _event_label(event: dict[str, Any]) -> str:
+    event_year = str(event.get("year") or event.get("event_year") or "unknown")
+    event_name = str(event.get("event_name") or "").strip()
+    event_type = str(event.get("event_type") or "").strip()
+    if event_type:
+        return f"[{event_year}] {event_name} ({event_type})"
+    return f"[{event_year}] {event_name}"
+
+
+def _prefer_existing(existing_value: Any, fallback_value: Any) -> Any:
+    return existing_value if existing_value not in (None, "") else fallback_value
+
+
+def _ck_event(ck_player: str, event: dict[str, Any]) -> str:
+    raw = _event_identity_text(event)
     h = hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
     return f"{ck_player}|event:{h}"
 
@@ -1010,7 +1048,7 @@ def scrape_player(
 
     # 直接从 JSON 文件重新加载，计算已有的 events 数量（不依赖传入的 player_output）
     existing_event_count = 0
-    existing_event_keys: set[tuple[str, str]] = set()
+    existing_event_ids: set[tuple[str, ...]] = set()
     if (not force) and out_file is not None and out_file.exists():
         try:
             fresh_data = json.loads(out_file.read_text(encoding="utf-8"))
@@ -1036,34 +1074,46 @@ def scrape_player(
                     except (ValueError, TypeError):
                         pass
                     existing_event_count += 1
-                    existing_event_keys.add((event_year, event.get("event_name", "")))
+                    existing_event_ids.add(_event_identity(event))
         except Exception as exc:
             logger.warning("Failed to load existing data from %s: %s", out_file, exc)
     else:
         logger.debug("No existing JSON file: %s", out_file)
 
     # Best-effort: keep checkpoint consistent with existing output file (per-event done marks).
-    if (not force) and checkpoint is not None and ck_player and existing_event_keys:
+    if (not force) and checkpoint is not None and ck_player and existing_event_ids:
         try:
             with checkpoint.bulk():
-                for (ey, en) in existing_event_keys:
-                    if not en:
+                for event_id in existing_event_ids:
+                    if len(event_id) < 2:
                         continue
-                    ck = _ck_event(ck_player, ey, en)
+                    event_stub: dict[str, Any]
+                    if event_id[0] == "url":
+                        event_stub = {"detail_url": event_id[1]}
+                    else:
+                        event_stub = {
+                            "event_year": event_id[1] if len(event_id) > 1 else "",
+                            "event_name": event_id[2] if len(event_id) > 2 else "",
+                            "event_type": event_id[3] if len(event_id) > 3 else "",
+                            "start_date": event_id[4] if len(event_id) > 4 else "",
+                            "end_date": event_id[5] if len(event_id) > 5 else "",
+                            "match_count": event_id[6] if len(event_id) > 6 else "",
+                        }
+                    ck = _ck_event(ck_player, event_stub)
                     if not checkpoint.is_done(ck):
                         checkpoint.mark_done(ck, meta={"bootstrapped_from": str(out_file) if out_file else None})
         except Exception:
             pass
 
     # 判断逻辑：用 key 集合对比（不用数量），避免分页不完整或日期/年份过滤差异导致的误判
-    web_event_keys = {(str(e.get("year", "unknown")), e.get("event_name", "")) for e in events}
-    missing_keys = web_event_keys - existing_event_keys
+    web_event_ids = {_event_identity(e) for e in events}
+    missing_event_ids = web_event_ids - existing_event_ids
 
-    if not missing_keys:
+    if not missing_event_ids:
         # 网页上的所有 events 都已在 JSON 中，数据完整
         logger.info(
             "Data complete for %s (%s): all %s web events found in JSON (JSON has %s events)",
-            player_name, country_code, len(web_event_keys), existing_event_count,
+            player_name, country_code, len(web_event_ids), existing_event_count,
         )
         # 更新元数据并返回完整的 player_output（不返回 events=[] 的 result）
         if player_output is not None:
@@ -1076,11 +1126,11 @@ def scrape_player(
         # 有新增 events 需要抓取
         logger.info(
             "Found %s new events for %s (%s), will capture (web=%s, json=%s)",
-            len(missing_keys), player_name, country_code, len(web_event_keys), existing_event_count,
+            len(missing_event_ids), player_name, country_code, len(web_event_ids), existing_event_count,
         )
 
     # 使用从 JSON 文件加载的 keys 作为 already_scraped
-    already_scraped = existing_event_keys
+    already_scraped = existing_event_ids
 
     # 计算期望抓取的 events 数量（有 href 且未抓取过的）
     events_with_href = [e for e in events if e.get("href")]
@@ -1094,7 +1144,7 @@ def scrape_player(
         logger.error(error_msg)
     
     expected_to_capture = sum(1 for e in events_with_href 
-                              if (str(e.get("year", "unknown")), e.get("event_name", "")) not in already_scraped)
+                              if _event_identity(e) not in already_scraped)
     logger.info("Expected to capture: %s events (with href, not already scraped)", expected_to_capture)
 
     for idx, event in enumerate(events, start=1):
@@ -1104,16 +1154,16 @@ def scrape_player(
             continue
 
         event_year = event.get("year", "unknown")
-        event_key = (str(event_year), event.get("event_name", ""))
-        if (not force) and event_key in already_scraped:
-            logger.info("Skip [%s/%s] already scraped: [%s] %s",
-                        idx, len(events), event_year, event.get("event_name", ""))
+        event_id = _event_identity(event)
+        if (not force) and event_id in already_scraped:
+            logger.info("Skip [%s/%s] already scraped: %s",
+                        idx, len(events), _event_label(event))
             continue
 
         # If checkpoint says done but output JSON doesn't include it, we must rescrape.
-        ck_event = _ck_event(ck_player, event_year, event.get("event_name", "")) if (checkpoint is not None and ck_player) else None
+        ck_event = _ck_event(ck_player, event) if (checkpoint is not None and ck_player) else None
         if (not force) and ck_event and checkpoint is not None and checkpoint.is_done(ck_event):
-            logger.info("Checkpoint done but event missing in output JSON, will rescrape: [%s] %s", event_year, event.get("event_name", ""))
+            logger.info("Checkpoint done but event missing in output JSON, will rescrape: %s", _event_label(event))
 
         detail_url = absolute_url(href)
         logger.info("Event %s/%s [%s]: %s", idx, len(events), event_year, detail_url)
@@ -1164,19 +1214,19 @@ def scrape_player(
                 },
             )
 
-    # 校验：确认 missing_keys 中的 events 都已被抓取
+    # 校验：确认 missing_event_ids 中的 events 都已被抓取
     newly_captured = len(result.get("events", []))
-    newly_captured_keys = {
-        (str(e.get("event_year", "unknown")), e.get("event_name", ""))
+    newly_captured_ids = {
+        _event_identity(e)
         for e in result.get("events", [])
     }
 
-    still_missing = missing_keys - newly_captured_keys
+    still_missing = missing_event_ids - newly_captured_ids
     if still_missing:
         raise RuntimeError(
             f"Event capture incomplete for {player_name} ({country_code}): "
             f"{len(still_missing)} events still missing after scrape: {still_missing}. "
-            f"Expected {len(missing_keys)} new events, captured {newly_captured}."
+            f"Expected {len(missing_event_ids)} new events, captured {newly_captured}."
         )
 
     if player_output is not None:
@@ -1184,8 +1234,8 @@ def scrape_player(
     return result
 
 
-def _scraped_event_keys(player_output: dict[str, Any] | None, from_year: int | None = None) -> set[tuple[str, str]]:
-    """提取已抓取的 (event_year, event_name) 组合，用于跳过重复抓取。
+def _scraped_event_keys(player_output: dict[str, Any] | None, from_year: int | None = None) -> set[tuple[str, ...]]:
+    """提取已抓取的 event identity，用于跳过重复抓取。
     
     Args:
         player_output: 已抓取的数据
@@ -1193,7 +1243,7 @@ def _scraped_event_keys(player_output: dict[str, Any] | None, from_year: int | N
     """
     if not player_output:
         return set()
-    keys: set[tuple[str, str]] = set()
+    keys: set[tuple[str, ...]] = set()
     for year_str, year_data in player_output.get("years", {}).items():
         # 如果指定了 from_year，跳过不符合年份要求的
         if from_year is not None:
@@ -1213,7 +1263,7 @@ def _scraped_event_keys(player_output: dict[str, Any] | None, from_year: int | N
                         continue
                 except (ValueError, TypeError):
                     pass
-            keys.add((str(event_year), event.get("event_name", "")))
+            keys.add(_event_identity(event))
     return keys
 
 
@@ -1236,6 +1286,8 @@ def merge_player_data(existing: dict[str, Any], player_data: dict[str, Any]) -> 
         "from_date",
     ]:
         value = player_data.get(field)
+        if existing.get(field) not in (None, ""):
+            continue
         if value not in (None, ""):
             existing[field] = value
 
@@ -1244,13 +1296,13 @@ def merge_player_data(existing: dict[str, Any], player_data: dict[str, Any]) -> 
 
     for event in player_data.get("events", []):
         year_key = str(event.get("event_year", "unknown"))
-        key = (year_key, event.get("event_name", ""))
-        if key in existing_keys:
+        event_id = _event_identity(event)
+        if event_id in existing_keys:
             continue
         existing["years"].setdefault(
             year_key, {"captured_at": captured_at, "events": []}
         )["events"].append(event)
-        existing_keys.add(key)
+        existing_keys.add(event_id)
 
     existing["captured_at"] = captured_at
     existing["updated_at"] = utc_now_iso()
@@ -1482,11 +1534,9 @@ def run(args: argparse.Namespace) -> int:
                             except Exception:
                                 pass
                             for ev in (year_data or {}).get("events", []) or []:
-                                ey = ev.get("event_year", year_str)
-                                en = ev.get("event_name", "")
-                                if not en:
+                                if not ev.get("event_name") and not ev.get("detail_url"):
                                     continue
-                                ck_event = _ck_event(ck_player, ey, en)
+                                ck_event = _ck_event(ck_player, ev)
                                 if not checkpoint.is_done(ck_event):
                                     checkpoint.mark_done(ck_event, meta={"bootstrapped_from": str(orig_file)})
                 except Exception:
@@ -1519,15 +1569,15 @@ def run(args: argparse.Namespace) -> int:
                     out_file=orig_file,
                     player_output=player_output,
                 )
-                player_data["schema_version"] = "match.v2"
-                player_data["player_id"] = player_id
-                player_data["player_name"] = player_name
-                player_data["english_name"] = player_name
-                player_data["country"] = player.get("country", player_data.get("country", ""))
-                player_data["country_code"] = country_code
-                player_data["continent"] = player.get("continent", player_data.get("continent", ""))
-                player_data["rank"] = rank
-                player_data["from_date"] = from_date.isoformat()
+                player_data["schema_version"] = _prefer_existing(player_data.get("schema_version"), "match.v2")
+                player_data["player_id"] = _prefer_existing(player_data.get("player_id"), player_id)
+                player_data["player_name"] = _prefer_existing(player_data.get("player_name"), player_name)
+                player_data["english_name"] = _prefer_existing(player_data.get("english_name"), player_name)
+                player_data["country"] = _prefer_existing(player_data.get("country"), player.get("country", ""))
+                player_data["country_code"] = _prefer_existing(player_data.get("country_code"), country_code)
+                player_data["continent"] = _prefer_existing(player_data.get("continent"), player.get("continent", ""))
+                player_data["rank"] = _prefer_existing(player_data.get("rank"), rank)
+                player_data["from_date"] = _prefer_existing(player_data.get("from_date"), from_date.isoformat())
                 # 统计总 event 数（网页 events 数量 = 我们的 JSON 总 event 数）
                 total_events_in_json = count_events_in_player_output(player_data, from_date.year)
                 if total_events_in_json == 0:
