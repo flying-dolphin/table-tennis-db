@@ -47,16 +47,23 @@ class LLMTranslator:
         self.api_key = api_key or os.environ.get("MINIMAX_API_KEY")
         self.provider = provider.lower()
 
-    def translate(self, items: dict[str, str]) -> dict[str, str]:
+    def translate(
+        self, items: dict[str, str], category: str = "event"
+    ) -> dict[str, str]:
         """
         翻译一组 key-value 数据，只翻译 value，key 作为上下文参考。
 
         Args:
             items: {key: value} 字典，key 提供给 LLM 作为参考，value 是待翻译内容
+            category: 翻译类型，支持 event / profile / other，默认 event
 
         Returns:
             {key: translated_value} 字典
         """
+        if category not in ("event", "profile", "other"):
+            logger.warning("不支持的翻译类型: %s，使用默认 event", category)
+            category = "event"
+
         if not items:
             return {}
 
@@ -70,7 +77,7 @@ class LLMTranslator:
         results: dict[str, str] = {}
         for i, batch in enumerate(batches, 1):
             logger.info("翻译批次 %d/%d (%d 条)", i, len(batches), len(batch))
-            batch_result = self._translate_batch(batch)
+            batch_result = self._translate_batch(batch, category=category)
             results.update(batch_result)
 
         # 未成功翻译的保留原文
@@ -104,19 +111,56 @@ class LLMTranslator:
 
         return batches
 
-    def _translate_batch(self, batch: dict[str, str]) -> dict[str, str]:
+    def _translate_batch(
+        self, batch: dict[str, str], category: str = "event"
+    ) -> dict[str, str]:
         """调用 LLM API 翻译一个批次"""
         lines = [f"{key}: {value}" for key, value in batch.items()]
         input_text = "\n".join(lines)
 
-        system_prompt = (
+        base_prompt = (
             "你是专业的乒乓球领域中英翻译助手。\n"
             "输入格式为每行 \"key: value\"，key 是字段标识（供你参考上下文），value 是待翻译内容。\n"
             "请只翻译 value 部分为简体中文。\n\n"
-            "如果是赛事，请把年份翻译在开头而不是结尾。\n\n"
-            "输出格式：每行严格输出 \"key: 译文\"，保持 key 不变。\n"
-            "不要解释，不要序号，不要多余内容。"
         )
+
+        if category == "event":
+            rules_path = PROJECT_ROOT / "docs" / "rules" / "TRANSLATION_RULES.md"
+            try:
+                rules_content = rules_path.read_text(encoding="utf-8")
+            except Exception:
+                rules_content = ""
+                logger.warning("未找到赛事翻译规则文件: %s", rules_path)
+
+            if rules_content:
+                system_prompt = (
+                    base_prompt
+                    + "请严格遵守以下赛事名称翻译规范：\n\n"
+                    + rules_content
+                    + "\n\n"
+                    "输出格式：每行严格输出 \"key: 译文\"，保持 key 不变。\n"
+                    "不要解释，不要序号，不要多余内容。"
+                )
+            else:
+                system_prompt = (
+                    base_prompt
+                    + "如果是赛事，请把年份翻译在开头而不是结尾。\n\n"
+                    "输出格式：每行严格输出 \"key: 译文\"，保持 key 不变。\n"
+                    "不要解释，不要序号，不要多余内容。"
+                )
+        elif category == "profile":
+            system_prompt = (
+                base_prompt
+                + "这是球员资料翻译，请使用标准中文体育术语和人名译名。\n\n"
+                "输出格式：每行严格输出 \"key: 译文\"，保持 key 不变。\n"
+                "不要解释，不要序号，不要多余内容。"
+            )
+        else:  # other
+            system_prompt = (
+                base_prompt
+                + "输出格式：每行严格输出 \"key: 译文\"，保持 key 不变。\n"
+                "不要解释，不要序号，不要多余内容。"
+            )
 
         user_prompt = f"请翻译以下内容：\n\n{input_text}"
 
@@ -126,8 +170,10 @@ class LLMTranslator:
 
         return self._parse_response(response, batch)
 
-    def _call_api(self, system_prompt: str, user_prompt: str) -> str | None:
-        """调用 MiniMax API"""
+    def _call_api(self, system_prompt: str, user_prompt: str, max_retries: int = 3) -> str | None:
+        """调用 MiniMax API，5xx 错误自动重试"""
+        import time
+        import urllib.error
         import urllib.request
 
         api_url = "https://api.minimax.chat/v1/text/chatcompletion_v2"
@@ -141,37 +187,48 @@ class LLMTranslator:
             "temperature": 0.1,
         }).encode("utf-8")
 
-        req = urllib.request.Request(
-            api_url,
-            data=data,
-            headers={
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {self.api_key}",
-            },
-            method="POST",
-        )
+        for attempt in range(1, max_retries + 1):
+            req = urllib.request.Request(
+                api_url,
+                data=data,
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self.api_key}",
+                },
+                method="POST",
+            )
 
-        try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
-                result = json.loads(resp.read().decode("utf-8"))
+            try:
+                with urllib.request.urlopen(req, timeout=120) as resp:
+                    result = json.loads(resp.read().decode("utf-8"))
 
-                choices = result.get("choices")
-                if choices and len(choices) > 0:
-                    return choices[0]["message"]["content"].strip()
+                    choices = result.get("choices")
+                    if choices and len(choices) > 0:
+                        return choices[0]["message"]["content"].strip()
 
-                reply = result.get("reply", "")
-                if reply:
-                    return reply.strip()
+                    reply = result.get("reply", "")
+                    if reply:
+                        return reply.strip()
 
-                base_resp = result.get("base_resp", {})
-                status_msg = base_resp.get("status_msg", "")
-                if status_msg:
-                    logger.warning("API 返回错误: %s", status_msg)
-                else:
-                    logger.warning("API 返回异常结构: %s", list(result.keys()))
+                    base_resp = result.get("base_resp", {})
+                    status_msg = base_resp.get("status_msg", "")
+                    if status_msg:
+                        logger.warning("API 返回错误: %s", status_msg)
+                    else:
+                        logger.warning("API 返回异常结构: %s", list(result.keys()))
+                    return None
 
-        except Exception as e:
-            logger.error("API 调用失败: %s", e)
+            except urllib.error.HTTPError as e:
+                if e.code >= 500 and attempt < max_retries:
+                    wait = 2 ** attempt
+                    logger.warning("API %d 错误，%ds 后重试 (%d/%d)", e.code, wait, attempt, max_retries)
+                    time.sleep(wait)
+                    continue
+                logger.error("API 调用失败: %s", e)
+            except Exception as e:
+                logger.error("API 调用失败: %s", e)
+
+            return None
 
         return None
 
