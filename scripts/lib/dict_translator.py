@@ -23,6 +23,7 @@ class DictTranslator:
         self.events: dict[str, str] = {}
         self.position: dict[str, str] = {}
         self.terms_others: dict[str, str] = {}
+        self.round:dict[str, str] = {}
         self._load(path)
 
     def _load(self, path: Path) -> None:
@@ -41,6 +42,8 @@ class DictTranslator:
                 self.events[key_lower] = translated
             if "position" in cats:
                 self.position[key_lower] = translated
+            if "round" in cats:
+                self.round[key_lower] = translated
             if "terms" in cats or "others" in cats:
                 self.terms_others[key_lower] = translated
 
@@ -55,6 +58,7 @@ class DictTranslator:
             "events": self.events,
             "position": self.position,
             "terms_others": self.terms_others,
+            "round": self.round
         }[category]
         result = mapping.get(val_lower)
         if result:
@@ -63,4 +67,8 @@ class DictTranslator:
             return self.locations.get(val_lower) or value
         if category == "locations":
             return self.countries.get(val_lower) or value
+        if category == "round":
+            return self.position.get(val_lower) or value
+        if category == "position":
+            return self.round.get(val_lower) or value
         return value
