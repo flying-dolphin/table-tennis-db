@@ -54,10 +54,50 @@ def guarded_goto(
         raise RiskControlTriggered(risk)
 
 
+def _get_active_pagination_page(page: Any) -> int | None:
+    selectors = [
+        "li.page-item.active a.page-link",
+        "li.page-item.active .page-link",
+        ".pagination li.active a",
+        ".pagination li.active .page-link",
+    ]
+    for sel in selectors:
+        loc = page.locator(sel).first
+        try:
+            if loc.count() == 0 or not loc.is_visible():
+                continue
+            text = " ".join((loc.inner_text() or "").split())
+            if text.isdigit():
+                return int(text)
+            title = (loc.get_attribute("title") or "").strip()
+            if title.isdigit():
+                return int(title)
+        except Exception:
+            continue
+    return None
+
+
+def _wait_for_active_pagination_page(
+    page: Any,
+    expected_page: int,
+    timeout_sec: float = 12.0,
+) -> bool:
+    deadline = time.time() + timeout_sec
+    while time.time() < deadline:
+        current_page = _get_active_pagination_page(page)
+        if current_page == expected_page:
+            return True
+        time.sleep(0.25)
+    return False
+
+
 def click_next_page_if_any(page: Any) -> bool:
+    current_active_page = _get_active_pagination_page(page)
+    expected_active_page = current_active_page + 1 if current_active_page is not None else None
     candidates = [
-        "a[rel='next']",
+        "li.page-item:not(.disabled) a[rel='next']",
         "li.next:not(.disabled) a",
+        "a[rel='next']",
         "a[aria-label='Next']",
         "a[title='Next']",
         ".pagination a:has-text('Next')",
@@ -76,29 +116,62 @@ def click_next_page_if_any(page: Any) -> bool:
 
             cls = (loc.get_attribute("class") or "").lower()
             aria_disabled = (loc.get_attribute("aria-disabled") or "").lower()
-            if "disabled" in cls or aria_disabled == "true":
+            parent_class = ""
+            try:
+                parent_class = (loc.locator("xpath=ancestor::li[1]").get_attribute("class") or "").lower()
+            except Exception:
+                parent_class = ""
+            if "disabled" in cls or "disabled" in parent_class or aria_disabled == "true":
                 continue
 
             href = (loc.get_attribute("href") or "").strip()
             if href:
                 next_url = urljoin(page.url, href)
                 prev_url = page.url
-                logger.info("Navigating to next page: %s", next_url)
+                logger.info(
+                    "Navigating to next page: %s (active page %s -> %s)",
+                    next_url,
+                    current_active_page if current_active_page is not None else "?",
+                    expected_active_page if expected_active_page is not None else "?",
+                )
                 page.goto(next_url, wait_until="domcontentloaded", timeout=45000)
                 try:
                     page.wait_for_load_state("networkidle", timeout=10000)
                 except Exception:
                     pass
-                if page.url == prev_url:
+                if expected_active_page is not None:
+                    if _wait_for_active_pagination_page(page, expected_active_page):
+                        return True
+                    logger.warning(
+                        "Next page active indicator mismatch after goto: expected=%s actual=%s url=%s",
+                        expected_active_page,
+                        _get_active_pagination_page(page),
+                        page.url,
+                    )
                     continue
+                if page.url != prev_url:
+                    return True
                 return True
 
             move_mouse_to_locator(page, loc)
-            logger.info("Clicked next page button without href; waiting for navigation")
+            logger.info(
+                "Clicked next page button without href; waiting for active page %s",
+                expected_active_page if expected_active_page is not None else "?",
+            )
             try:
                 page.wait_for_load_state("networkidle", timeout=10000)
             except Exception:
                 pass
+            if expected_active_page is not None:
+                if _wait_for_active_pagination_page(page, expected_active_page):
+                    return True
+                logger.warning(
+                    "Next page active indicator mismatch after click: expected=%s actual=%s url=%s",
+                    expected_active_page,
+                    _get_active_pagination_page(page),
+                    page.url,
+                )
+                continue
             return True
         except Exception:
             continue
