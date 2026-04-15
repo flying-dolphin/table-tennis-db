@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-从 events_list 翻译结果中提取 event 词条并更新到翻译词典。
+从 events_list 和 events_calendar 翻译结果中提取词条并更新到翻译词典。
 
 行为：
 1. 读取 data/events_list/orig 和 data/events_list/cn 下的最新文件。
-2. 要求两个最新文件必须同名。
-3. 提取 events[].name / events[].event_type，按 `key:translate:category` 生成输入。
-4. 调用 scripts/dict_updator.py 更新 scripts/data/translation_dict_v2.json。
+2. 读取 data/events_calendar/orig 和 data/events_calendar/cn 下的最新文件。
+3. events_list: 提取 events[].name / events[].event_type，类别为 events。
+4. events_calendar: 提取 name/name_zh，类别为 events；提取 location/location_zh，类别为 locations。
+5. 调用 scripts/dict_updator.py 更新 scripts/data/translation_dict_v2.json。
 """
 
 from __future__ import annotations
@@ -27,7 +28,18 @@ DEFAULT_DICT_PATH = PROJECT_ROOT / "scripts" / "data" / "translation_dict_v2.jso
 
 SKIP_VALUES = {"", None}
 EVENT_CATEGORY = "events"
-FIELDS = ("name", "event_type")
+EVENT_FIELDS = ("name", "event_type")
+LOCATION_CATEGORY = "locations"
+EVENT_CALENDAR_NAME_FIELDS = (("name", "name_zh"),)
+EVENT_CALENDAR_LOCATION_FIELDS = (("location", "location_zh"),)
+
+
+def resolve_events_calendar_root(explicit_root: str | None) -> Path:
+    if explicit_root:
+        root = Path(explicit_root)
+        return root if root.is_absolute() else PROJECT_ROOT / root
+
+    return PROJECT_ROOT / "data" / "events_calendar"
 
 
 def resolve_events_root(explicit_root: str | None) -> Path:
@@ -116,6 +128,59 @@ def resolve_conflict(
     raise ValueError(f"不支持的 conflict strategy: {strategy}")
 
 
+def extract_entries_from_events_calendar(
+    orig_data: dict[str, Any],
+    cn_data: dict[str, Any],
+    conflict_strategy: str,
+) -> list[tuple[str, str, str]]:
+    orig_events = orig_data.get("events", [])
+    if not isinstance(orig_events, list):
+        raise ValueError("Orig 文件中的 events 不是数组")
+
+    cn_events = cn_data.get("events", [])
+    if not isinstance(cn_events, list):
+        raise ValueError("CN 文件中的 events 不是数组")
+
+    name_translations: dict[str, Counter[str]] = {}
+    name_casing: dict[str, str] = {}
+    location_translations: dict[str, Counter[str]] = {}
+    location_casing: dict[str, str] = {}
+
+    for orig_event, cn_event in zip(orig_events, cn_events):
+        if not isinstance(orig_event, dict) or not isinstance(cn_event, dict):
+            continue
+
+        for field_orig, field_zh in EVENT_CALENDAR_NAME_FIELDS:
+            original = normalize_text(orig_event.get(field_orig))
+            translated = normalize_translation(normalize_text(cn_event.get(field_zh)))
+            if not original or not translated:
+                continue
+            normalized = original.lower()
+            name_casing.setdefault(normalized, original)
+            name_translations.setdefault(normalized, Counter())[translated] += 1
+
+        for field_orig, field_zh in EVENT_CALENDAR_LOCATION_FIELDS:
+            original = normalize_text(orig_event.get(field_orig))
+            translated = normalize_translation(normalize_text(cn_event.get(field_zh)))
+            if not original or not translated:
+                continue
+            normalized = original.lower()
+            location_casing.setdefault(normalized, original)
+            location_translations.setdefault(normalized, Counter())[translated] += 1
+
+    entries: list[tuple[str, str, str]] = []
+
+    for normalized, translations in name_translations.items():
+        translated = resolve_conflict(name_casing[normalized], translations, conflict_strategy)
+        entries.append((name_casing[normalized], translated, EVENT_CATEGORY))
+
+    for normalized, translations in location_translations.items():
+        translated = resolve_conflict(location_casing[normalized], translations, conflict_strategy)
+        entries.append((location_casing[normalized], translated, LOCATION_CATEGORY))
+
+    return entries
+
+
 def extract_entries(
     orig_data: dict[str, Any],
     cn_data: dict[str, Any],
@@ -141,7 +206,7 @@ def extract_entries(
         if cn_event is None:
             continue
 
-        for field in FIELDS:
+        for field in EVENT_FIELDS:
             original = normalize_text(orig_event.get(field))
             translated = normalize_translation(normalize_text(cn_event.get(field)))
             if not original or not translated:
@@ -195,12 +260,18 @@ def run_dict_updator(input_file: Path, dict_path: Path) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="从 events_list/cn 中提取 event 翻译并更新词典")
+    parser = argparse.ArgumentParser(description="从 events_list/cn 和 events_calendar/cn 中提取翻译并更新词典")
     parser.add_argument(
         "--events-root",
         type=str,
         default=None,
-        help="事件目录根路径，默认自动识别 data/events_list 或 data/event_list",
+        help="events_list 目录根路径，默认自动识别 data/events_list 或 data/event_list",
+    )
+    parser.add_argument(
+        "--events-calendar-root",
+        type=str,
+        default=None,
+        help="events_calendar 目录根路径，默认 data/events_calendar",
     )
     parser.add_argument(
         "--dict",
@@ -227,45 +298,58 @@ def main() -> int:
     args = build_parser().parse_args()
 
     try:
+        all_entries: list[tuple[str, str, str]] = []
+
         events_root = resolve_events_root(args.events_root)
         orig_dir = events_root / "orig"
         cn_dir = events_root / "cn"
 
-        if not orig_dir.exists():
-            raise FileNotFoundError(f"orig 目录不存在: {orig_dir}")
-        if not cn_dir.exists():
-            raise FileNotFoundError(f"cn 目录不存在: {cn_dir}")
+        if orig_dir.exists() and cn_dir.exists():
+            orig_path = find_latest_json(orig_dir)
+            cn_path = find_latest_json(cn_dir)
 
-        orig_path = find_latest_json(orig_dir)
-        cn_path = find_latest_json(cn_dir)
+            if orig_path.name == cn_path.name:
+                orig_data = load_json(orig_path)
+                cn_data = load_json(cn_path)
+                entries = extract_entries(orig_data, cn_data, args.conflict_strategy)
+                all_entries.extend(entries)
+                print(f"events_list: {orig_path.name}, entries: {len(entries)}")
+            else:
+                print(f"警告: events_list orig 和 cn 文件不同名，跳过: {orig_path.name} vs {cn_path.name}")
 
-        if orig_path.name != cn_path.name:
-            raise ValueError(
-                "orig 和 cn 下最新文件不同名: "
-                f"orig={orig_path.name}, cn={cn_path.name}"
-            )
+        events_calendar_root = resolve_events_calendar_root(args.events_calendar_root)
+        cal_orig_dir = events_calendar_root / "orig"
+        cal_cn_dir = events_calendar_root / "cn"
 
-        orig_data = load_json(orig_path)
-        cn_data = load_json(cn_path)
-        entries = extract_entries(orig_data, cn_data, args.conflict_strategy)
+        if cal_orig_dir.exists() and cal_cn_dir.exists():
+            cal_orig_path = find_latest_json(cal_orig_dir)
+            cal_cn_path = find_latest_json(cal_cn_dir)
 
-        if not entries:
-            print("未提取到可更新的 event 条目，退出。")
+            if cal_orig_path.name == cal_cn_path.name:
+                cal_orig_data = load_json(cal_orig_path)
+                cal_cn_data = load_json(cal_cn_path)
+                cal_entries = extract_entries_from_events_calendar(
+                    cal_orig_data, cal_cn_data, args.conflict_strategy
+                )
+                all_entries.extend(cal_entries)
+                print(f"events_calendar: {cal_orig_path.name}, entries: {len(cal_entries)}")
+            else:
+                print(f"警告: events_calendar orig 和 cn 文件不同名，跳过: {cal_orig_path.name} vs {cal_cn_path.name}")
+
+        if not all_entries:
+            print("未提取到可更新的条目，退出。")
             return 0
 
-        print(f"events_root: {events_root}")
-        print(f"orig file:   {orig_path.name}")
-        print(f"cn file:     {cn_path.name}")
-        print(f"entries:     {len(entries)}")
+        print(f"total entries: {len(all_entries)}")
 
         if args.dry_run:
-            for original, translated, category in entries[:10]:
+            for original, translated, category in all_entries[:10]:
                 print(f"{original}:{translated}:{category}")
-            if len(entries) > 10:
-                print(f"... 其余 {len(entries) - 10} 条未展示")
+            if len(all_entries) > 10:
+                print(f"... 其余 {len(all_entries) - 10} 条未展示")
             return 0
 
-        input_file = write_input_file(entries)
+        input_file = write_input_file(all_entries)
         try:
             return run_dict_updator(input_file, args.dict_path)
         finally:
