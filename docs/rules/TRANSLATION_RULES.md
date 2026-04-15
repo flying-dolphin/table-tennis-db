@@ -2,42 +2,36 @@
 
 ## 核心规则
 
-**年份必须放在翻译结果的开头**，格式为 `YYYY年`。
-
 ## WTT 赛事 翻译结果格式
 ```
-[年份] + [赛事级别] + [赛事类型] + [地点] + [序号](可选)
+[赛事级别] + [赛事类型] + [地点] + [序号](可选)
 ```
 
 示例对比
 
 | 英文 | 正确翻译 |
 |------|----------|
-| WTT Champions Doha 2026 | 2026年WTT冠军赛多哈站 |
-| WTT Youth Star Contender Tunis 2026 | 2026年WTT青少年球星挑战赛突尼斯站 |
+| WTT Champions Doha | WTT冠军赛多哈站 |
+| WTT Youth Star Contender Tunis | WTT青少年球星挑战赛突尼斯站 |
 
 
 ## ITTF 、大满贯、其他非WTT 赛事 翻译结果格式
 ```
-[年份] + [地点] +  [赛事级别] + [赛事类型] 
+[地点] +  [赛事级别] + [赛事类型] 
 ```
 示例对比
 
 | 英文 | 正确翻译 |
 |------|----------|
-| Singapore Smash 2026 | 2026年新加坡大满贯赛 |
-| China Smash 2026 | 2026年中国大满贯赛 |
-| ITTF-ATTU Asian Cup Haikou 2026 | 2026年海口国际乒联-亚乒联亚洲杯 |
-| ETTU Europe Top 16 Cup Montreux 2026 | 2026年蒙特勒欧洲杯16强赛 |
-| ITTF-Africa Cup Benghazi 2026 | 2026年班加西国际乒联非洲杯 |
+| Singapore Smash | 新加坡大满贯赛 |
+| China Smash | 中国大满贯赛 |
+| ITTF-ATTU Asian Cup Haikou | 海口国际乒联-亚乒联亚洲杯 |
+| ETTU Europe Top 16 Cup Montreux | 蒙特勒欧洲杯16强赛 |
+| ITTF-Africa Cup Benghazi | 班加西国际乒联非洲杯 |
 
 ## 具体规范
 
-### 1. 年份位置
-- ✅ 正确：`2026年新加坡大满贯赛`
-- ❌ 错误：`新加坡大满贯赛 2026`
-
-### 2. 赛事级别前缀
+### 1. 赛事级别前缀
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | WTT | WTT | 保持不变 |
@@ -48,7 +42,7 @@
 | ITTF-Americas | 国际乒联美洲 | 简称 |
 | ITTF-Africa | 国际乒联非洲 | 简称 |
 
-### 3. 赛事类型
+### 2. 赛事类型
 | 英文 | 中文 |
 |------|------|
 | Smash / World Smash | 大满贯赛 |

@@ -35,6 +35,11 @@ from typing import Callable
 
 from dotenv import load_dotenv
 
+try:
+    from .dict_translator import DictTranslator
+except ImportError:
+    from lib.dict_translator import DictTranslator
+
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
 
@@ -106,6 +111,7 @@ class LLMTranslator:
         self._request_timeout = int(cfg.get("request_timeout", 120))
         self._max_batch_size = int(cfg.get("max_batch_size", MAX_BATCH_SIZE))
         self.total_tokens: dict[str, int] = {"prompt": 0, "completion": 0, "total": 0}
+        self._dict_translator = DictTranslator()
 
     def translate(
         self,
@@ -130,32 +136,42 @@ class LLMTranslator:
         if not items:
             return {}
 
+        dict_results, llm_items = self._split_dict_hits(items, category)
+        if dict_results:
+            logger.info("词典命中 %d 条，剩余 %d 条走 LLM", len(dict_results), len(llm_items))
+
+        if not llm_items:
+            if on_batch_complete is not None and dict_results:
+                on_batch_complete(1, 1, dict(dict_results))
+            return self._merge_results(items, dict_results, {})
+
         if not self.api_key:
-            logger.error("未配置 API Key，无法翻译")
+            logger.error("未配置 API Key，无法翻译剩余 %d 条内容", len(llm_items))
             return None
 
-        batches = self._split_batches(items)
+        batches = self._split_batches(llm_items)
+        total_batches = len(batches) + (1 if dict_results else 0)
         logger.info(
             "翻译 %d 条，拆分为 %d 批 [%s %s, batch_limit=%d, timeout=%ss]",
-            len(items), len(batches), self.provider, self.model, self._max_batch_size, self._request_timeout
+            len(llm_items), len(batches), self.provider, self.model, self._max_batch_size, self._request_timeout
         )
 
-        results: dict[str, str] = {}
+        llm_results: dict[str, str] = {}
+        if on_batch_complete is not None and dict_results:
+            on_batch_complete(1, total_batches, dict(dict_results))
+
+        batch_offset = 1 if dict_results else 0
         for i, batch in enumerate(batches, 1):
             logger.info("翻译批次 %d/%d (%d 条)", i, len(batches), len(batch))
             batch_result = self._translate_batch(batch, category=category)
             if not batch_result:
                 logger.error("批次 %d/%d 翻译失败", i, len(batches))
                 return None
-            results.update(batch_result)
+            llm_results.update(batch_result)
             if on_batch_complete is not None:
-                on_batch_complete(i, len(batches), dict(batch_result))
+                on_batch_complete(i + batch_offset, total_batches, dict(batch_result))
 
-        # 未成功翻译的保留原文
-        for key, value in items.items():
-            if key not in results:
-                logger.warning("未翻译: %s -> %s", key, value)
-                results[key] = value
+        results = self._merge_results(items, dict_results, llm_results)
 
         if self.total_tokens["total"]:
             logger.info(
@@ -167,6 +183,56 @@ class LLMTranslator:
             )
 
         return results
+
+    def _split_dict_hits(self, items: dict[str, str], category: str) -> tuple[dict[str, str], dict[str, str]]:
+        dict_results: dict[str, str] = {}
+        llm_items: dict[str, str] = {}
+
+        for key, value in items.items():
+            dict_category = self._resolve_dict_category(key, category)
+            translated = self._dict_translator.translate(value, dict_category) if dict_category else None
+            if translated is not None and translated != value:
+                dict_results[key] = translated
+            else:
+                llm_items[key] = value
+
+        return dict_results, llm_items
+
+    def _resolve_dict_category(self, key: str, category: str) -> str | None:
+        if category == "event":
+            return "events"
+
+        if category == "profile":
+            field = key.rsplit(".", 1)[-1].lower()
+            if field == "name":
+                return "players"
+            if field == "country":
+                return "locations"
+            if field in {"gender", "style", "playing_hand", "grip"}:
+                return "terms_others"
+            return None
+
+        if category == "other":
+            return "terms_others"
+
+        return None
+
+    def _merge_results(
+        self,
+        items: dict[str, str],
+        dict_results: dict[str, str],
+        llm_results: dict[str, str],
+    ) -> dict[str, str]:
+        merged: dict[str, str] = {}
+        for key, value in items.items():
+            if key in dict_results:
+                merged[key] = dict_results[key]
+            elif key in llm_results:
+                merged[key] = llm_results[key]
+            else:
+                logger.warning("未翻译: %s -> %s", key, value)
+                merged[key] = value
+        return merged
 
     def _split_batches(self, items: dict[str, str]) -> list[dict[str, str]]:
         """按 provider 对应的批次大小拆分批次"""
