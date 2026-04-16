@@ -42,7 +42,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | LIU Yangzi (AUS) | SHAN Xiaona (GER) | WS | Qualification | 2 - 3 | 7:11 11:9 11:9 9:11 13:15 | SHAN Xiaona",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "单晓娜 (德国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -69,7 +75,13 @@
               "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | HASHIMOTO Honoka (JPN) | LIU Yangzi (AUS) | WS | Qualification | 3 - 0 | 11:5 11:8 11:2 | HASHIMOTO Honoka",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "桥本帆乃香 (日本)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2026-03-30",
@@ -111,7 +123,13 @@
               "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | LIU Yangzi (AUS) | WINTER Sabine (GER) | WS | Main Draw | R32 | 3 - 0 | 11:5 11:9 11:9 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "温特·萨宾娜 (德国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -139,7 +157,13 @@
               "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | LIU Yangzi (AUS) | WANG Yidi (CHN) | WS | Main Draw | R16 | 0 - 3 | 8:11 9:11 6:11 | WANG Yidi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "王艺迪 (中国)"
+              ]
             }
           ],
           "start_date": "2026-03-10",
@@ -182,7 +206,13 @@
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | LIU Yangzi (AUS) | SZOCS Bernadette (ROU) | WS | Main Draw | R64 | 1 - 3 | 13:11 7:11 7:11 6:11 | SZOCS Bernadette",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "索科斯·伯纳黛特 (罗马尼亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -215,7 +245,15 @@
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | LUM Nicholas (AUS) | LIU Yangzi (AUS) | PANG Koen (SGP) | ZENG Jian (SGP) | XD | Main Draw | R32 | 1 - 3 | 11:9 6:11 2:11 6:11 | PANG Koen | ZENG Jian",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "PANG Koen (新加坡)",
+                "曾尖 (新加坡)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -249,7 +287,15 @@
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | LAI Chloe (SGP) | LOY Ming Ying (SGP) | LIU Yangzi (AUS) | WAN Yuan (GER) | WD | Main Draw | R16 | 3 - 2 | 4:11 11:8 4:11 11:9 11:3 | LAI Chloe | LOY Ming Ying",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "LAI Chloe (新加坡)",
+                "LOY Ming Ying (新加坡)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "WAN Yuan (德国)"
+              ]
             }
           ],
           "start_date": "2026-02-19",
@@ -290,7 +336,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | LIU Yangzi (AUS) | THOMPSON Juiel (COK) | WS | Qualification | 3 - 0 | 0:0 0:0 0:0 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "THOMPSON Juiel (COK)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -317,7 +369,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | LIU Yangzi (AUS) | SAYEGH Clara (PYF) | WS | Qualification | 3 - 0 | 11:1 11:2 11:0 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "SAYEGH Clara (PYF)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -344,7 +402,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | LIU Yangzi (AUS) | LI Chunli (NZL) | WS | Qualification | 3 - 0 | 11:8 11:7 11:7 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LI Chunli (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -372,7 +436,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | LIU Yangzi (AUS) | LAM Jocelyn (NZL) | WS | Main Draw | SemiFinal | 4 - 0 | 11:3 11:6 11:5 11:4 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "林乔斯林 (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -401,7 +471,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | WS | Main Draw | Final | 4 - 1 | 11:5 11:9 15:13 13:15 11:9 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "智敏亨 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2026-01-31",
@@ -443,7 +519,13 @@
               "raw_row_text": "2026 | WTT Champions Doha 2026 | LIU Yangzi (AUS) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 2:11 7:11 5:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2026-01-07",
@@ -488,7 +570,14 @@
               "result_for_player": "loss",
               "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | HARIMOTO Miwa (JPN) | LIU Yangzi (AUS) | XT | Qualification | 3 - 0 | 12:10 11:2 11:1 | HARIMOTO Miwa",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "张本美和 (日本)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XT",
@@ -514,7 +603,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LIU Yangzi (AUS) | RAKOVAC Lea (CRO) | XT | Qualification | 2 - 1 | 11:13 12:10 13:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "拉科瓦茨·莱娅 (克罗地亚)"
+              ]
             },
             {
               "sub_event": "XT",
@@ -540,7 +636,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | GHORPADE Yashaswini (IND) | LIU Yangzi (AUS) | XT | Qualification | 1 - 2 | 12:10 3:11 8:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "戈尔帕德·亚沙斯维尼 (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XT",
@@ -570,7 +673,16 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | CHITALE Diya (IND) | BATRA Manika (IND) | PSIHOGIOS Constantina (AUS) | LIU Yangzi (AUS) | XT | Qualification | 1 - 2 | 11:8 7:11 8:11 | PSIHOGIOS Constantina | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "奇塔莱·迪娅 (印度)",
+                "马尼卡·巴特拉 (印度)"
+              ],
+              "side_b_zh": [
+                "普西霍吉奥斯·康斯坦蒂娜 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-11-30",
@@ -617,7 +729,15 @@
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | PICCOLIN Giorgia (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R16 | 3 - 1 | 8:11 11:8 13:11 11:9 | LIU Yangzi | WU Jiamuwa",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "WU Jiamuwa (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "皮科林·乔吉娅 (意大利)",
+                "蒙法尔迪尼·盖亚 (意大利)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -646,7 +766,13 @@
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | DE NUTTE Sarah (LUX) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 1 | 10:12 11:7 13:11 12:10 | DE NUTTE Sarah",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "DE NUTTE Sarah (卢森堡)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -677,7 +803,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | DIACONU Adina (ROU) | DRAGOMAN Andreea (ROU) | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 15:17 9:11 | LIU Yangzi | WU Jiamuwa",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "DIACONU Adina (罗马尼亚)",
+                "安德烈亚·德拉戈曼 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "WU Jiamuwa (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -709,7 +843,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | WD | Main Draw | SemiFinal | 3 - 1 | 4:11 11:4 11:9 11:4 | ODO Satsuki | YOKOI Sakura",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "大藤沙月 (日本)",
+                "横井咲良 (日本)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "WU Jiamuwa (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-11-17",
@@ -751,7 +893,13 @@
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | LEE Eunhye (KOR) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 0 | 11:3 12:10 11:8 | LEE Eunhye",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "李恩惠 (韩国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-11-04",
@@ -794,7 +942,13 @@
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | LIU Yangzi (AUS) | HASHIMOTO Honoka (JPN) | WS | Main Draw | R32 | 1 - 3 | 11:9 2:11 7:11 8:11 | HASHIMOTO Honoka",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "桥本帆乃香 (日本)"
+              ]
             }
           ],
           "start_date": "2025-10-28",
@@ -840,7 +994,15 @@
               "raw_row_text": "2025 | China Smash 2025 | OH Junsung (KOR) | ODO Satsuki (JPN) | LUM Nicholas (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R32 | 3 - 0 | 11:5 13:11 11:6 | OH Junsung | ODO Satsuki",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "OH Junsung (韩国)",
+                "大藤沙月 (日本)"
+              ],
+              "side_b_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -868,7 +1030,13 @@
               "raw_row_text": "2025 | China Smash 2025 | LIU Yangzi (AUS) | WANG Yidi (CHN) | WS | Main Draw | R64 | 0 - 3 | 9:11 8:11 6:11 | WANG Yidi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "王艺迪 (中国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -901,7 +1069,15 @@
               "raw_row_text": "2025 | China Smash 2025 | KAUFMANN Annett (GER) | LIU Yangzi (AUS) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R32 | 3 - 1 | 10:12 11:7 11:3 11:9 | KAUFMANN Annett | LIU Yangzi",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "考夫曼·安妮特 (德国)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "JEGER Mateja (克罗地亚)",
+                "拉科瓦茨·莱娅 (克罗地亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -934,7 +1110,15 @@
               "raw_row_text": "2025 | China Smash 2025 | MATELOVA Hana (CZE) | VARADY Barbora (SVK) | KAUFMANN Annett (GER) | LIU Yangzi (AUS) | WD | Main Draw | R16 | 1 - 3 | 12:14 11:8 10:12 9:11 | KAUFMANN Annett | LIU Yangzi",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "MATELOVA Hana (捷克)",
+                "VARADY Barbora (斯洛伐克)"
+              ],
+              "side_b_zh": [
+                "考夫曼·安妮特 (德国)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -967,7 +1151,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | KAUFMANN Annett (GER) | LIU Yangzi (AUS) | WANG Xiaotong (CHN) | XU Yi (CHN) | WD | Main Draw | QuarterFinal | 2 - 3 | 9:11 11:7 6:11 11:7 2:11 | WANG Xiaotong | XU Yi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "考夫曼·安妮特 (德国)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "王晓彤 (中国)",
+                "徐奕 (中国)"
+              ]
             }
           ],
           "start_date": "2025-09-28",
@@ -1009,7 +1201,13 @@
               "raw_row_text": "2025 | WTT Champions Macao 2025 | LIU Yangzi (AUS) | ITO Mima (JPN) | WS | Main Draw | R32 | 0 - 3 | 8:11 12:14 10:12 | ITO Mima",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "伊藤美诚 (日本)"
+              ]
             }
           ],
           "start_date": "2025-09-09",
@@ -1051,7 +1249,13 @@
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LIU Yangzi (AUS) | HE Zhuojia (CHN) | WS | Main Draw | R64 | 0 - 3 | 2:11 1:11 6:11 | HE Zhuojia",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "何卓佳 (中国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -1083,7 +1287,15 @@
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | MADRID Marcos (MEX) | COSSIO Arantxa (MEX) | XD | Main Draw | R32 | 3 - 0 | 11:5 11:7 11:5 | LUM Nicholas | LIU Yangzi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "MADRID Marcos (墨西哥)",
+                "COSSIO Arantxa (墨西哥)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1117,7 +1329,15 @@
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LIU Yangzi (AUS) | KAUFMANN Annett (GER) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R32 | 3 - 2 | 11:7 8:11 11:5 5:11 11:3 | LIU Yangzi | KAUFMANN Annett",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "考夫曼·安妮特 (德国)"
+              ],
+              "side_b_zh": [
+                "琳达·贝格斯特罗姆 (瑞典)",
+                "卡尔贝里·克里斯蒂娜 (瑞典)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -1150,7 +1370,15 @@
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CALDERANO Hugo (BRA) | TAKAHASHI Bruna (BRA) | LUM Nicholas (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 3 - 1 | 11:6 11:7 7:11 11:4 | CALDERANO Hugo | TAKAHASHI Bruna",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CALDERANO Hugo (巴西)",
+                "高桥布鲁娜 (巴西)"
+              ],
+              "side_b_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1182,7 +1410,15 @@
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LIU Yangzi (AUS) | KAUFMANN Annett (GER) | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | WD | Main Draw | R16 | 0 - 3 | 7:11 5:11 3:11 | HARIMOTO Miwa | ODO Satsuki",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "考夫曼·安妮特 (德国)"
+              ],
+              "side_b_zh": [
+                "张本美和 (日本)",
+                "大藤沙月 (日本)"
+              ]
             }
           ],
           "start_date": "2025-08-14",
@@ -1224,7 +1460,13 @@
               "raw_row_text": "2025 | WTT Champions Yokohama 2025 | WANG Yidi (CHN) | LIU Yangzi (AUS) | WS | Main Draw | R16 | 3 - 0 | 11:3 11:3 15:13 | WANG Yidi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "王艺迪 (中国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1252,7 +1494,13 @@
               "raw_row_text": "2025 | WTT Champions Yokohama 2025 | LIU Yangzi (AUS) | BATRA Manika (IND) | WS | Main Draw | R32 | 3 - 0 | 18:16 11:8 12:10 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "马尼卡·巴特拉 (印度)"
+              ]
             }
           ],
           "start_date": "2025-08-07",
@@ -1296,7 +1544,13 @@
               "raw_row_text": "2025 | United States Smash 2025 | SUN Yingsha (CHN) | LIU Yangzi (AUS) | WS | Main Draw | R64 | 3 - 2 | 11:7 6:11 11:4 4:11 11:4 | SUN Yingsha",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "孙颖莎 (中国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -1329,7 +1583,15 @@
               "raw_row_text": "2025 | United States Smash 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | LY Edward (CAN) | LUPULESKU Izabela (SRB) | XD | Main Draw | R32 | 1 - 3 | 11:4 8:11 7:11 3:11 | LY Edward | LUPULESKU Izabela",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LY Edward (加拿大)",
+                "卢普莱斯库·伊莎贝拉 (塞尔维亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1361,7 +1623,15 @@
               "raw_row_text": "2025 | United States Smash 2025 | LIU Yangzi (AUS) | DRAGOMAN Andreea (ROU) | COSSIO Arantxa (MEX) | BARCENAS Clio (MEX) | WD | Main Draw | R32 | 3 - 0 | 11:7 11:3 11:9 | LIU Yangzi | DRAGOMAN Andreea",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "安德烈亚·德拉戈曼 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "COSSIO Arantxa (墨西哥)",
+                "BARCENAS Clio (墨西哥)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1395,7 +1665,15 @@
               "raw_row_text": "2025 | United States Smash 2025 | LIU Yangzi (AUS) | DRAGOMAN Andreea (ROU) | KIM Nayeong (KOR) | RYU Hanna (KOR) | WD | Main Draw | R16 | 2 - 3 | 6:11 11:9 6:11 13:11 6:11 | KIM Nayeong | RYU Hanna",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "安德烈亚·德拉戈曼 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)",
+                "刘韩娜 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-07-03",
@@ -1438,7 +1716,13 @@
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | LIU Yangzi (AUS) | ZHANG Xiangyu (CHN) | WS | Main Draw | R32 | 1 - 3 | 11:7 5:11 8:11 5:11 | ZHANG Xiangyu",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "ZHANG Xiangyu (中国)"
+              ]
             }
           ],
           "start_date": "2025-06-24",
@@ -1480,7 +1764,13 @@
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | TOKIC Sara (SLO) | LIU Yangzi (AUS) | WS | Main Draw | R64 | 0 - 3 | 3:11 6:11 5:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "TOKIC Sara (斯洛文尼亚)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1509,7 +1799,13 @@
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | LIU Yangzi (AUS) | DIAZ Adriana (PUR) | WS | Main Draw | R32 | 1 - 3 | 8:11 11:6 8:11 8:11 | DIAZ Adriana",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "迪亚兹·阿德里亚娜 (波多黎各)"
+              ]
             }
           ],
           "start_date": "2025-06-17",
@@ -1553,7 +1849,16 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | DAGAGIO Nancy (NRU) | NOTTE Uzzaniah Grace (NRU) | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | WT | Qualification | 0 - 3 | 2:11 2:11 1:11 | LIU Yangzi | WU Jiamuwa",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "DAGAGIO Nancy (NRU)",
+                "NOTTE Uzzaniah Grace (NRU)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "WU Jiamuwa (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WT",
@@ -1579,7 +1884,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) | MAUAHITI Vanille (PYF) | WT | Qualification | 3 - 0 | 11:2 11:5 11:0 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "MAUAHITI Vanille (PYF)"
+              ]
             },
             {
               "sub_event": "WT",
@@ -1605,7 +1917,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) | CHONG Josephine (NZL) | WT | Qualification | 3 - 0 | 11:2 11:3 11:4 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "CHONG Josephine (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1632,7 +1951,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) | SAYEGH Clara (PYF) | WS | Qualification | 3 - 0 | 11:5 11:1 11:1 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "SAYEGH Clara (PYF)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1659,7 +1984,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) | GOLLOP Jodie (COK) | WS | Qualification | 3 - 0 | 11:2 11:4 11:6 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "GOLLOP Jodie (COK)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -1691,7 +2022,15 @@
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | TUAKANAKORE Ivan (COK) | BATES Casonya (COK) | XD | Main Draw | R16 | 3 - 0 | 11:2 11:3 11:2 | LUM Nicholas | LIU Yangzi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "TUAKANAKORE Ivan (COK)",
+                "BATES Casonya (COK)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -1722,7 +2061,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | LIN Jet (NZL) | MORIYAMA PICARD Ayumi (NZL) | XD | Main Draw | QuarterFinal | 3 - 0 | 12:10 11:5 11:8 | LUM Nicholas | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LIN Jet (新西兰)",
+                "MORIYAMA PICARD Ayumi (新西兰)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -1753,7 +2100,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | BAE Hwan (AUS) | WU Jiamuwa (AUS) | XD | Main Draw | SemiFinal | 3 - 0 | 11:7 11:5 11:9 | LUM Nicholas | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "BAE Hwan (澳大利亚)",
+                "WU Jiamuwa (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -1784,7 +2139,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | XD | Main Draw | Final | 3 - 0 | 11:5 11:5 11:8 | LUM Nicholas | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "SAREEN Aditya (澳大利亚)",
+                "普西霍吉奥斯·康斯坦蒂娜 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1815,7 +2178,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | TERE Temehau (PYF) | SAYEGH Clara (PYF) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:1 11:3 | JEE Minhyung | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "TERE Temehau (PYF)",
+                "SAYEGH Clara (PYF)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1847,7 +2218,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | LAM Jocelyn (NZL) | YI Yelena (NZL) | WD | Main Draw | SemiFinal | 3 - 1 | 11:6 7:11 11:3 11:7 | JEE Minhyung | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "林乔斯林 (新西兰)",
+                "YI Yelena (新西兰)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1879,7 +2258,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | PSIHOGIOS Constantina (AUS) | WU Jiamuwa (AUS) | WD | Main Draw | Final | 3 - 1 | 8:11 11:8 11:7 11:6 | JEE Minhyung | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "普西霍吉奥斯·康斯坦蒂娜 (澳大利亚)",
+                "WU Jiamuwa (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1907,7 +2294,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) | MORIYAMA PICARD Ayumi (NZL) | WS | Main Draw | QuarterFinal | 4 - 0 | 11:3 11:5 11:6 11:5 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "MORIYAMA PICARD Ayumi (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1935,7 +2328,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | WS | Main Draw | SemiFinal | 4 - 0 | 11:7 11:4 11:5 11:7 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "WU Jiamuwa (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1966,7 +2365,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | WS | Main Draw | Final | 4 - 3 | 11:7 11:5 11:5 9:11 9:11 6:11 11:6 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "智敏亨 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-06-07",
@@ -2010,7 +2415,13 @@
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | ABRAAMIAN Elizabet (AIN) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 2 - 3 | 11:3 9:11 9:11 11:7 9:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "阿布拉米扬·伊丽莎白 (中立个人运动员)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2038,7 +2449,13 @@
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | LIU Yangzi (AUS) | HARAC Ece (TUR) | WS | Main Draw | R16 | 3 - 0 | 11:8 11:4 11:7 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "HARAC Ece (土耳其)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2066,7 +2483,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | YOKOI Sakura (JPN) | LIU Yangzi (AUS) | WS | Main Draw | QuarterFinal | 3 - 1 | 11:7 11:4 3:11 11:6 | YOKOI Sakura",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "横井咲良 (日本)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-04-22",
@@ -2108,7 +2531,13 @@
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | JOO Cheonhui (KOR) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 0 | 11:6 11:3 11:9 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-04-01",
@@ -2151,7 +2580,13 @@
               "raw_row_text": "2025 | WTT Champions Chongqing 2025 | LIU Yangzi (AUS) | SUH Hyo Won (KOR) | WS | Main Draw | R32 | 1 - 3 | 11:3 6:11 8:11 3:11 | SUH Hyo Won",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "SUH Hyo Won (韩国)"
+              ]
             }
           ],
           "start_date": "2025-03-11",
@@ -2193,7 +2628,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LIU Yangzi (AUS) | PSIHOGIOS Constantina (AUS) | WS | Qualification | 4 - 0 | 11:9 11:4 11:6 12:10 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "普西霍吉奥斯·康斯坦蒂娜 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2221,7 +2662,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LIU Yangzi (AUS) | LI Chunli (NZL) | WS | Qualification | 4 - 0 | 11:9 11:2 11:5 11:3 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LI Chunli (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2249,7 +2696,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LIU Yangzi (AUS) | LI Carolyn (FIJ) | WS | Qualification | 4 - 0 | 11:2 11:3 11:3 11:4 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LI Carolyn (FIJ)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2278,7 +2731,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LIU Yangzi (AUS) | LI Chunli (NZL) | WS | Main Draw | SemiFinal | 4 - 1 | 11:9 11:4 9:11 11:8 11:6 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LI Chunli (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2307,7 +2766,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LIU Yangzi (AUS) | PSIHOGIOS Constantina (AUS) | WS | Main Draw | Final | 4 - 1 | 8:11 11:3 11:9 12:10 11:4 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "普西霍吉奥斯·康斯坦蒂娜 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-02-15",
@@ -2349,7 +2814,13 @@
               "raw_row_text": "2025 | Singapore Smash 2025 | LIU Yangzi (AUS) | EERLAND Britt (NED) | WS | Main Draw | R64 | 0 - 3 | 5:11 8:11 11:13 | EERLAND Britt",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "EERLAND Britt (NED)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -2381,7 +2852,15 @@
               "raw_row_text": "2025 | Singapore Smash 2025 | BAE Hwan (AUS) | NG Wing Lam (HKG) | LUM Nicholas (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R32 | 3 - 0 | 12:10 11:9 11:6 | BAE Hwan | NG Wing Lam",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "BAE Hwan (澳大利亚)",
+                "吴咏琳 (中国香港)"
+              ],
+              "side_b_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2414,7 +2893,15 @@
               "raw_row_text": "2025 | Singapore Smash 2025 | SER Lin Qian (SGP) | LOY Ming Ying (SGP) | LIU Yangzi (AUS) | WINTER Sabine (GER) | WD | Main Draw | R32 | 1 - 3 | 11:8 3:11 5:11 6:11 | LIU Yangzi | WINTER Sabine",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "舒麟茜 (新加坡)",
+                "LOY Ming Ying (新加坡)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "温特·萨宾娜 (德国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2446,7 +2933,15 @@
               "raw_row_text": "2025 | Singapore Smash 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | LIU Yangzi (AUS) | WINTER Sabine (GER) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:3 11:4 | ODO Satsuki | YOKOI Sakura",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "大藤沙月 (日本)",
+                "横井咲良 (日本)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "温特·萨宾娜 (德国)"
+              ]
             }
           ],
           "start_date": "2025-01-30",
@@ -2493,7 +2988,15 @@
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | YIU Kwan To (HKG) | NG Wing Lam (HKG) | LUU Finn (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 3 - 1 | 6:11 11:6 11:5 12:10 | YIU Kwan To | NG Wing Lam",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "YIU Kwan To (中国香港)",
+                "吴咏琳 (中国香港)"
+              ],
+              "side_b_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2521,7 +3024,13 @@
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | GHOSH Swastika (IND) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 0 - 3 | 7:11 8:11 7:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "GHOSH Swastika (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2554,7 +3063,15 @@
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | AKULA Sreeja (IND) | CHITALE Diya (IND) | LIU Yangzi (AUS) | JEE Minhyung (AUS) | WD | Main Draw | R16 | 1 - 3 | 12:10 6:11 8:11 11:13 | LIU Yangzi | JEE Minhyung",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "阿库拉·斯里贾 (印度)",
+                "奇塔莱·迪娅 (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "智敏亨 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2585,7 +3102,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | WD | Main Draw | QuarterFinal | 0 - 3 | 10:12 7:11 11:13 | ZHU Chengzhu | NG Wing Lam",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "智敏亨 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "ZHU Chengzhu (中国香港)",
+                "吴咏琳 (中国香港)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2614,7 +3139,13 @@
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | LIU Yangzi (AUS) | HIRANO Miu (JPN) | WS | Main Draw | R16 | 3 - 1 | 11:7 11:4 7:11 11:8 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "平野美宇 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2642,7 +3173,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | QIN Yuxuan (CHN) | LIU Yangzi (AUS) | WS | Main Draw | QuarterFinal | 3 - 1 | 18:16 7:11 11:6 11:9 | QIN Yuxuan",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "秦宇轩 (中国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-01-11",
@@ -2685,7 +3222,13 @@
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | LIU Yangzi (AUS) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 3 - 1 | 3:11 12:10 11:7 11:6 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "李恩惠 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2714,7 +3257,13 @@
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | NAGASAKI Miyu (JPN) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 1 | 9:11 11:6 11:7 11:6 | NAGASAKI Miyu",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "长崎美柚 (日本)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2025-01-06",
@@ -2767,7 +3316,15 @@
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 2 - 3 | 8:11 9:11 13:11 11:8 12:14 | DRAGOMAN Andreea | SAMARA Elizabeta",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "安德烈亚·德拉戈曼 (罗马尼亚)",
+                "萨马拉·伊莉莎贝塔 (罗马尼亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -2799,7 +3356,15 @@
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | HAUG Borgar (NOR) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 0 - 3 | 8:11 7:11 2:11 | HAUG Borgar | LIU Yangzi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "ROBLES Alvaro (西班牙)",
+                "萧玛丽亚 (西班牙)"
+              ],
+              "side_b_zh": [
+                "HAUG Borgar (挪威)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2827,7 +3392,13 @@
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | LIU Yangzi (AUS) | ZENG Jian (SGP) | WS | Main Draw | R32 | 0 - 3 | 6:11 3:11 5:11 | ZENG Jian",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "曾尖 (新加坡)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -2859,7 +3430,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | HAUG Borgar (NOR) | LIU Yangzi (AUS) | ECSEKI Nandor (HUN) | MADARASZ Dora (HUN) | XD | Main Draw | QuarterFinal | 1 - 3 | 5:11 6:11 12:10 9:11 | ECSEKI Nandor | MADARASZ Dora",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "HAUG Borgar (挪威)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "ECSEKI Nandor (匈牙利)",
+                "MADARASZ Dora (匈牙利)"
+              ]
             }
           ],
           "start_date": "2022-10-31",
@@ -2899,7 +3478,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | YEE Grace Rosi (FIJ) | WT | Qualification | 3 - 0 | 11:6 11:5 11:1 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "YEE Grace Rosi (FIJ)"
+              ]
             },
             {
               "sub_event": "WT",
@@ -2925,7 +3511,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | WANEGUI Julie (NCL) | LIU Yangzi (AUS) | WT | Qualification | 0 - 3 | 2:11 4:11 3:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "WANEGUI Julie (尼加拉瓜)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WT",
@@ -2951,7 +3544,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | YANG Joanna (NZL) | WT | Qualification | 3 - 0 | 11:2 11:8 13:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "YANG Joanna (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2978,7 +3578,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | QWEA Stephanie (VAN) | WS | Qualification | 3 - 0 | 13:11 11:2 11:7 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "QWEA Stephanie (VAN)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3005,7 +3611,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | LI Carolyn (FIJ) | WS | Qualification | 3 - 0 | 11:1 11:1 11:3 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LI Carolyn (FIJ)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3032,7 +3644,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | AGARI Tammi (PNG) | WS | Qualification | 3 - 0 | 11:1 11:0 11:3 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "AGARI Tammi (PNG)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3064,7 +3682,15 @@
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LUU Finn (AUS) | LIU Yangzi (AUS) | YEE Joshua (FIJ) | LI Carolyn (FIJ) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:4 11:3 | LUU Finn | LIU Yangzi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "YEE Joshua (FIJ)",
+                "LI Carolyn (FIJ)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3095,7 +3721,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LUU Finn (AUS) | LIU Yangzi (AUS) | BELROSE Ocean (PYF) | TEHAHETUA Kelley (PYF) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:5 11:8 | LUU Finn | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "BELROSE Ocean (PYF)",
+                "TEHAHETUA Kelley (PYF)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3126,7 +3760,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LUU Finn (AUS) | LIU Yangzi (AUS) | LEE Yonghun (AUS) | FENG Chunyi (AUS) | XD | Main Draw | SemiFinal | 3 - 0 | 11:6 13:10 11:7 | LUU Finn | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LEE Yonghun (澳大利亚)",
+                "FENG Chunyi (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3157,7 +3799,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | FENG Chunyi (AUS) | LIU Yangzi (AUS) | WANEGUI Julie (NCL) | PAUL Anais (NCL) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:5 11:6 | FENG Chunyi | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "FENG Chunyi (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "WANEGUI Julie (尼加拉瓜)",
+                "PAUL Anais (尼加拉瓜)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3190,7 +3840,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | FENG Chunyi (AUS) | ZHOU Jiayi (NZL) | WEBB Abbey (NZL) | WD | Main Draw | SemiFinal | 3 - 2 | 11:5 11:7 9:11 9:11 11:2 | LIU Yangzi | FENG Chunyi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "FENG Chunyi (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "ZHOU Jiayi (新西兰)",
+                "WEBB Abbey (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3218,7 +3876,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | WEBB Abbey (NZL) | WS | Main Draw | QuarterFinal | 4 - 0 | 11:2 11:5 11:3 11:3 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "WEBB Abbey (新西兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3246,7 +3910,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | FENG Chunyi (AUS) | WS | Main Draw | SemiFinal | 4 - 0 | 11:7 11:3 11:5 11:3 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "FENG Chunyi (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3279,7 +3949,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LUU Finn (AUS) | LIU Yangzi (AUS) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | Final | 2 - 3 | 11:9 7:11 12:10 7:11 3:11 | LUM Nicholas | JEE Minhyung",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "智敏亨 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3312,7 +3990,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | FENG Chunyi (AUS) | LAY Jian Fang (AUS) | JEE Minhyung (AUS) | WD | Main Draw | Final | 3 - 2 | 11:8 14:12 8:11 5:11 11:8 | LIU Yangzi | FENG Chunyi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "FENG Chunyi (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LAY Jian Fang (澳大利亚)",
+                "智敏亨 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3343,7 +4029,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | WS | Main Draw | Final | 4 - 3 | 9:11 15:13 12:14 11:7 11:7 6:11 11:6 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "智敏亨 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2022-09-05",
@@ -3388,7 +4080,13 @@
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LIU Yangzi (AUS) | CHASSELIN Pauline (FRA) | WS | Main Draw | R64 | 2 - 4 | 6:11 11:8 2:11 4:11 11:8 6:11 | CHASSELIN Pauline",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "CHASSELIN Pauline (法国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3422,7 +4120,15 @@
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LIU Yangzi (AUS) | MORET Rachel (SUI) | WANG Yiduo (CHN) | CHU Hanwen (CHN) | WD | Main Draw | R16 | 2 - 3 | 2:11 6:11 11:5 11:7 8:11 | WANG Yiduo | CHU Hanwen",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "MORET Rachel (瑞士)"
+              ],
+              "side_b_zh": [
+                "WANG Yiduo (中国)",
+                "CHU Hanwen (中国)"
+              ]
             }
           ],
           "start_date": "2022-08-30",
@@ -3468,7 +4174,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | HAUG Borgar (NOR) | LIU Yangzi (AUS) | MARTINKO Tomas (CZE) | KLEMPEREROVA Anna (CZE) | XD | Qualification | QR16 | 3 - 1 | 6:11 11:7 11:8 11:9 | HAUG Borgar | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "HAUG Borgar (挪威)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "MARTINKO Tomas (捷克)",
+                "KLEMPEREROVA Anna (捷克)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3499,7 +4213,15 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | GUISNEL Oceane (FRA) | MIGOT Marie (FRA) | ILLASOVA Adriana (SVK) | LIU Yangzi (AUS) | WD | Qualification | QR16 | 0 - 3 | 0:11 0:11 0:11 | ILLASOVA Adriana | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "GUISNEL Oceane (法国)",
+                "MIGOT Marie (法国)"
+              ],
+              "side_b_zh": [
+                "ILLASOVA Adriana (斯洛伐克)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3531,7 +4253,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | HAUG Borgar (NOR) | LIU Yangzi (AUS) | XU Haidong (CHN) | WU Yangchen (CHN) | XD | Qualification | QR8 | 3 - 1 | 14:12 11:9 12:14 12:10 | HAUG Borgar | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "HAUG Borgar (挪威)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "XU Haidong (中国)",
+                "WU Yangchen (中国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3563,7 +4293,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | ILLASOVA Adriana (SVK) | LIU Yangzi (AUS) | BARANI Arianna (ITA) | RONCALLO Valentina (ITA) | WD | Qualification | QR8 | 3 - 1 | 10:12 11:8 11:4 12:10 | ILLASOVA Adriana | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "ILLASOVA Adriana (斯洛伐克)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "BARANI Arianna (意大利)",
+                "RONCALLO Valentina (意大利)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3597,7 +4335,15 @@
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | MARTINKO Jiri (CZE) | TOMANOVSKA Katerina (CZE) | HAUG Borgar (NOR) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 2 - 3 | 11:8 11:7 13:15 9:11 5:11 | HAUG Borgar | LIU Yangzi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "MARTINKO Jiri (捷克)",
+                "TOMANOVSKA Katerina (捷克)"
+              ],
+              "side_b_zh": [
+                "HAUG Borgar (挪威)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3626,7 +4372,13 @@
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | SAINI Suhana (IND) | LIU Yangzi (AUS) | WS | Main Draw | R64 | 0 - 4 | 5:11 8:11 7:11 8:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "SAINI Suhana (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3658,7 +4410,15 @@
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | AKASHEVA Zauresh (KAZ) | LAVROVA Anastassiya (KAZ) | ILLASOVA Adriana (SVK) | LIU Yangzi (AUS) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:8 12:10 | AKASHEVA Zauresh | LAVROVA Anastassiya",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "AKASHEVA Zauresh (哈萨克斯坦)",
+                "LAVROVA Anastassiya (哈萨克斯坦)"
+              ],
+              "side_b_zh": [
+                "ILLASOVA Adriana (斯洛伐克)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3691,7 +4451,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | HAUG Borgar (NOR) | LIU Yangzi (AUS) | PISTEJ Lubomir (SVK) | KUKULKOVA Tatiana (SVK) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:13 5:11 11:9 12:10 6:11 | PISTEJ Lubomir | KUKULKOVA Tatiana",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "HAUG Borgar (挪威)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "PISTEJ Lubomir (斯洛伐克)",
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3720,7 +4488,13 @@
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | ZANG Xiaotong (CHN) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 0 - 4 | 9:11 9:11 2:11 5:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "ZANG Xiaotong (中国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3749,7 +4523,13 @@
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | YOON Hyobin (KOR) | LIU Yangzi (AUS) | WS | Main Draw | R16 | 0 - 4 | 9:11 3:11 3:11 13:15 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "YOON Hyobin (韩国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3779,7 +4559,13 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEE Eunhye (KOR) | LIU Yangzi (AUS) | WS | Main Draw | QuarterFinal | 4 - 2 | 4:11 11:5 9:11 11:8 11:4 11:9 | LEE Eunhye",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "李恩惠 (韩国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2022-08-23",
@@ -3822,7 +4608,13 @@
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | HO Tin-Tin (ENG) | LIU Yangzi (AUS) | WS | Main Draw | R16 | 0 - 4 | 8:11 12:14 6:11 6:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "HO Tin-Tin (英格兰)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3851,7 +4643,13 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | HURSEY Anna (WAL) | LIU Yangzi (AUS) | WS | Main Draw | QuarterFinal | 1 - 4 | 11:8 6:11 6:11 10:12 8:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "安娜·赫尔西 (威尔士)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3881,7 +4679,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | LIU Yangzi (AUS) | ZENG Jian (SGP) | WS | Main Draw | SemiFinal | 2 - 4 | 11:7 11:9 10:12 4:11 6:11 9:11 | ZENG Jian",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "曾尖 (新加坡)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3913,7 +4717,15 @@
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | FENG Chunyi (AUS) | LIU Yangzi (AUS) | CUMMINGS Natalie (GUY) | EDGHILL Chelsea (GUY) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:6 11:4 | FENG Chunyi | LIU Yangzi",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "FENG Chunyi (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "CUMMINGS Natalie (GUY)",
+                "EDGHILL Chelsea (GUY)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3945,7 +4757,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | FENG Chunyi (AUS) | LIU Yangzi (AUS) | FENG Tianwei (SGP) | ZENG Jian (SGP) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:9 7:11 7:11 3:11 | FENG Tianwei | ZENG Jian",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "FENG Chunyi (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "FENG Tianwei (新加坡)",
+                "曾尖 (新加坡)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3977,7 +4797,15 @@
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | ABIODUN Bode (NGR) | BELLO Fatimo (NGR) | LUU Finn (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 0 - 3 | 7:11 10:12 7:11 | LUU Finn | LIU Yangzi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "ABIODUN Bode (尼日利亚)",
+                "BELLO Fatimo (尼日利亚)"
+              ],
+              "side_b_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -4008,7 +4836,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | LUU Finn (AUS) | LIU Yangzi (AUS) | CHEW Clarence (SGP) | ZENG Jian (SGP) | XD | Main Draw | QuarterFinal | 0 - 3 | 8:11 14:16 7:11 | CHEW Clarence | ZENG Jian",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "CHEW Clarence (新加坡)",
+                "曾尖 (新加坡)"
+              ]
             }
           ],
           "start_date": "2022-07-28",
@@ -4049,7 +4885,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | LIU Yangzi (AUS) | YANG Ha Eun (KOR) | WS | Qualification | QR32 | 0 - 3 | 0:11 0:11 0:11 | YANG Ha Eun",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "杨荷恩 (韩国)"
+              ]
             }
           ],
           "start_date": "2022-07-11",
@@ -4096,7 +4938,15 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | CHASSELIN Pauline (FRA) | PAVADE Prithika (FRA) | WD | Qualification | QR16 | 2 - 3 | 12:10 5:11 11:2 3:11 13:15 | CHASSELIN Pauline | PAVADE Prithika",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "智敏亨 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "CHASSELIN Pauline (法国)",
+                "帕瓦德·普里蒂卡 (法国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4123,7 +4973,13 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LUPULESKU Izabela (SRB) | LIU Yangzi (AUS) | WS | Qualification | QR32 | 0 - 3 | 10:12 5:11 4:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "卢普莱斯库·伊莎贝拉 (塞尔维亚)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4152,7 +5008,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LIU Yangzi (AUS) | MISCHEK Karoline (AUT) | WS | Qualification | QR64 | 3 - 2 | 11:7 11:9 9:11 7:11 11:5 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "MISCHEK Karoline (奥地利)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4180,7 +5042,13 @@
               "raw_row_text": "2022 | WTT Contender Doha 2022 | POLCANOVA Sofia (AUT) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 0 | 11:9 11:8 11:3 | POLCANOVA Sofia",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "索菲亚·波尔卡诺娃 (奥地利)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4208,7 +5076,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LIU Yangzi (AUS) | SAWETTABUT Jinnipa (THA) | WS | Qualification | QR16 | 3 - 1 | 12:10 11:8 8:11 13:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "SAWETTABUT Jinnipa (泰国)"
+              ]
             }
           ],
           "start_date": "2022-03-18",
@@ -4255,7 +5129,15 @@
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LUM Nicholas (AUS) | JEE Minhyung (AUS) | LUU Finn (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 3 - 1 | 11:5 6:11 11:7 11:5 | LUM Nicholas | JEE Minhyung",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "LUM Nicholas (澳大利亚)",
+                "智敏亨 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LUU Finn (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4284,7 +5166,13 @@
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LIU Yangzi (AUS) | ALI Maryam (QAT) | WS | Main Draw | R64 | 4 - 0 | 11:3 11:1 11:1 11:5 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "ALI Maryam (卡塔尔)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4316,7 +5204,15 @@
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | LABOSOVA Ema (SVK) | KUKULKOVA Tatiana (SVK) | WD | Main Draw | R16 | 3 - 0 | 13:11 11:9 11:6 | JEE Minhyung | LIU Yangzi",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LABOSOVA Ema (斯洛伐克)",
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4346,7 +5242,13 @@
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | ZHANG Rui (CHN) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 4 - 1 | 12:10 15:13 9:11 11:8 11:7 | ZHANG Rui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "ZHANG Rui (中国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4377,7 +5279,15 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LIU Weishan (CHN) | QI Fei (CHN) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:5 11:5 | LIU Weishan | QI Fei",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LIU Weishan (中国)",
+                "QI Fei (中国)"
+              ],
+              "side_b_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2022-03-13",
@@ -4429,7 +5339,15 @@
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | ZELINKA Jakub (SVK) | PUCHOVANOVA Nikoleta (SVK) | DIXON Xavier (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 1 - 3 | 16:18 8:11 12:10 3:11 | DIXON Xavier | LIU Yangzi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "ZELINKA Jakub (斯洛伐克)",
+                "PUCHOVANOVA Nikoleta (斯洛伐克)"
+              ],
+              "side_b_zh": [
+                "DIXON Xavier (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4459,7 +5377,13 @@
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LIU Yangzi (AUS) | HARTBRICH Leonie (HUN) | WS | Main Draw | R32 | 4 - 1 | 8:11 11:9 11:6 11:5 13:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "HARTBRICH Leonie (匈牙利)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -4491,7 +5415,15 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | DIXON Xavier (AUS) | LIU Yangzi (AUS) | YINGYUENYONG Sarun (THA) | KUKULKOVA Tatiana (SVK) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:8 11:8 10:12 13:11 | DIXON Xavier | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "DIXON Xavier (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "YINGYUENYONG Sarun (泰国)",
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4522,7 +5454,15 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LIU Yangzi (AUS) | CAREY Charlotte (WAL) | NEUMANN Josephina (GER) | KALAITZIDOU Eireen (GER) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:7 11:4 | LIU Yangzi | CAREY Charlotte",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "CAREY Charlotte (威尔士)"
+              ],
+              "side_b_zh": [
+                "NEUMANN Josephina (德国)",
+                "KALAITZIDOU Eireen (德国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4551,7 +5491,13 @@
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LIU Yangzi (AUS) | LUPULESKU Izabela (SRB) | WS | Main Draw | R16 | 4 - 0 | 11:6 11:8 11:3 11:7 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "卢普莱斯库·伊莎贝拉 (塞尔维亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -4582,7 +5528,15 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | DIXON Xavier (AUS) | LIU Yangzi (AUS) | MEISSNER Cedric (GER) | WAN Yuan (GER) | XD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:9 11:9 | DIXON Xavier | LIU Yangzi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "DIXON Xavier (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "MEISSNER Cedric (德国)",
+                "WAN Yuan (德国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4615,7 +5569,15 @@
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LABOSOVA Ema (SVK) | KUKULKOVA Tatiana (SVK) | LIU Yangzi (AUS) | CAREY Charlotte (WAL) | WD | Main Draw | SemiFinal | 3 - 2 | 9:11 11:8 7:11 11:8 11:6 | LABOSOVA Ema | KUKULKOVA Tatiana",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LABOSOVA Ema (斯洛伐克)",
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "CAREY Charlotte (威尔士)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4643,7 +5605,13 @@
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | IMRE Leila (HUN) | LIU Yangzi (AUS) | WS | Main Draw | QuarterFinal | 0 - 4 | 3:11 2:11 3:11 2:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "IMRE Leila (匈牙利)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -4675,7 +5643,15 @@
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | HIPPLER Tobias (GER) | SCHREINER Franziska (GER) | DIXON Xavier (AUS) | LIU Yangzi (AUS) | XD | Main Draw | Final | 3 - 1 | 11:6 11:9 9:11 11:5 | HIPPLER Tobias | SCHREINER Franziska",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "HIPPLER Tobias (德国)",
+                "SCHREINER Franziska (德国)"
+              ],
+              "side_b_zh": [
+                "DIXON Xavier (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4705,7 +5681,13 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LIU Yangzi (AUS) | MANTZ Chantal (GER) | WS | Main Draw | SemiFinal | 4 - 2 | 11:3 11:7 9:11 6:11 15:13 11:7 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "MANTZ Chantal (德国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4734,7 +5716,13 @@
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | WINTER Sabine (GER) | LIU Yangzi (AUS) | WS | Main Draw | Final | 1 - 4 | 7:11 9:11 11:8 9:11 7:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "温特·萨宾娜 (德国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2021-12-07",
@@ -4775,7 +5763,13 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LIU Yangzi (AUS) | TOKIC Sara (SLO) | WS | Qualification | QR64 | 3 - 0 | 0:0 0:0 0:0 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "TOKIC Sara (斯洛文尼亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4802,7 +5796,13 @@
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | CHASSELIN Pauline (FRA) | LIU Yangzi (AUS) | WS | Qualification | QR32 | 0 - 3 | 9:11 10:12 7:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHASSELIN Pauline (法国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4833,7 +5833,15 @@
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEGER Mateja (CRO) | PETEK Petra (CRO) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Qualification | QR8 | 0 - 3 | 3:11 6:11 4:11 | JEE Minhyung | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "JEGER Mateja (克罗地亚)",
+                "PETEK Petra (克罗地亚)"
+              ],
+              "side_b_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4860,7 +5868,13 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LIU Yangzi (AUS) | JEGER Mateja (CRO) | WS | Qualification | QR16 | 3 - 0 | 11:7 11:8 11:5 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "JEGER Mateja (克罗地亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4892,7 +5906,15 @@
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | NAGYVARADI Mercedes (HUN) | BALINT Bernadett (HUN) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:7 14:12 | JEE Minhyung | LIU Yangzi",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "NAGYVARADI Mercedes (匈牙利)",
+                "BALINT Bernadett (匈牙利)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4921,7 +5943,13 @@
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LIU Yangzi (AUS) | AKULA Sreeja (IND) | WS | Main Draw | R32 | 3 - 1 | 8:11 11:6 11:7 14:12 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "阿库拉·斯里贾 (印度)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4954,7 +5982,15 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | NOSKOVA Yana (AIN) | VOROBEVA Olga (AIN) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:5 8:11 7:11 11:7 11:7 | JEE Minhyung | LIU Yangzi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "NOSKOVA Yana (中立个人运动员)",
+                "VOROBEVA Olga (中立个人运动员)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4984,7 +6020,13 @@
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | SHAN Xiaona (GER) | LIU Yangzi (AUS) | WS | Main Draw | R16 | 2 - 3 | 9:11 8:11 11:6 11:8 9:11 | LIU Yangzi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "单晓娜 (德国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -5016,7 +6058,15 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | LIU Weishan (CHN) | WANG Yidi (CHN) | WD | Main Draw | SemiFinal | 1 - 3 | 6:11 11:9 5:11 6:11 | LIU Weishan | WANG Yidi",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)",
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LIU Weishan (中国)",
+                "王艺迪 (中国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5043,7 +6093,13 @@
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LIU Yangzi (AUS) | LIU Weishan (CHN) | WS | Main Draw | QuarterFinal | 0 - 3 | 4:11 10:12 5:11 | LIU Weishan",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LIU Weishan (中国)"
+              ]
             }
           ],
           "start_date": "2021-11-08",
@@ -5084,7 +6140,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Szombathely 2021 | GHOSH Swastika (IND) | LIU Yangzi (AUS) | U19WS | Qualification | 1 - 3 | 4:11 11:8 7:11 7:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "GHOSH Swastika (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5110,7 +6173,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Szombathely 2021 | SASTRE Eugenia (ESP) | LIU Yangzi (AUS) | U19WS | Qualification | 0 - 3 | 5:11 2:11 4:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "SASTRE Eugenia (西班牙)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5136,8 +6206,15 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Szombathely 2021 | LIU Yangzi (AUS) | SZTWIERTNIA Ilona (POL) | U19WS | Main Draw | R16 | 3 - 0 | 11:7 11:8 11:2 | LIU Yangzi",
+              "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "SZTWIERTNIA Ilona (波兰)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5164,7 +6241,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Szombathely 2021 | LIU Yangzi (AUS) | ERNST Emine (NED) | U19WS | Main Draw | QuarterFinal | 3 - 1 | 11:6 11:8 10:12 11:3 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "ERNST Emine (NED)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5191,7 +6275,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Szombathely 2021 | LIU Yangzi (AUS) | GHORPADE Yashaswini (IND) | U19WS | Main Draw | SemiFinal | 3 - 1 | 11:8 11:4 6:11 11:7 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "戈尔帕德·亚沙斯维尼 (印度)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5219,7 +6310,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Szombathely 2021 | LIU Yangzi (AUS) | NARANG Lakshita (IND) | U19WS | Main Draw | Final | 3 - 2 | 9:11 7:11 11:8 11:7 11:8 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "NARANG Lakshita (印度)"
+              ]
             }
           ],
           "start_date": "2021-11-01",
@@ -5259,7 +6357,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Senec 2021 | KISEL Darya (AIN) | LIU Yangzi (AUS) | U19WS | Qualification | 0 - 3 | 6:11 3:11 2:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "KISEL Darya (中立个人运动员)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5285,7 +6390,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Senec 2021 | LACENOVA Renata (SVK) | LIU Yangzi (AUS) | U19WS | Qualification | 0 - 3 | 5:11 5:11 5:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "LACENOVA Renata (斯洛伐克)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5311,8 +6423,15 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Senec 2021 | STULLEROVA Eliska (SVK) | LIU Yangzi (AUS) | U19WS | Main Draw | R16 | 0 - 3 | 5:11 6:11 6:11 | LIU Yangzi",
+              "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "STULLEROVA Eliska (斯洛伐克)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5338,7 +6457,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Senec 2021 | ERNST Emine (NED) | LIU Yangzi (AUS) | U19WS | Main Draw | QuarterFinal | 0 - 3 | 1:11 6:11 6:11 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "ERNST Emine (NED)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5364,7 +6490,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Senec 2021 | GHOSH Swastika (IND) | LIU Yangzi (AUS) | U19WS | Main Draw | SemiFinal | 0 - 3 | 4:11 6:11 0:11 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "GHOSH Swastika (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5390,7 +6523,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Senec 2021 | LIU Yangzi (AUS) | ZHOU Jingyi (SGP) | U19WS | Main Draw | Final | 3 - 0 | 13:11 11:6 11:5 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "ZHOU Jingyi (新加坡)"
+              ]
             }
           ],
           "start_date": "2021-10-28",
@@ -5430,7 +6570,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | LIU Yangzi (AUS) | CICUTTINI Aurora (ITA) | U19WS | Qualification | 3 - 0 | 11:5 11:6 11:5 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "CICUTTINI Aurora (意大利)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5456,7 +6603,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | LIU Yangzi (AUS) | LASKAI Irisz (HUN) | U19WS | Qualification | 3 - 0 | 11:8 11:5 11:4 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LASKAI Irisz (匈牙利)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5482,7 +6636,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | LIU Yangzi (AUS) | LILLY Cynthia (SUI) | U19WS | Qualification | 3 - 0 | 11:2 11:5 11:6 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "LILLY Cynthia (瑞士)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5508,8 +6669,15 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | MARRIOTT Amy (ENG) | LIU Yangzi (AUS) | U19WS | Main Draw | R32 | 0 - 3 | 1:11 6:11 1:11 | LIU Yangzi",
+              "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "MARRIOTT Amy (英格兰)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5536,8 +6704,15 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | TOLGYES Dorottya (HUN) | LIU Yangzi (AUS) | U19WS | Main Draw | R16 | 1 - 3 | 7:11 11:2 8:11 6:11 | LIU Yangzi",
+              "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "TOLGYES Dorottya (匈牙利)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5564,7 +6739,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | LIU Yangzi (AUS) | STERNER Anastasia (AUT) | U19WS | Main Draw | QuarterFinal | 3 - 1 | 11:7 11:4 5:11 11:8 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "STERNER Anastasia (奥地利)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5590,7 +6772,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | LIU Yangzi (AUS) | HANSSON Matilda (SWE) | U19WS | Main Draw | SemiFinal | 3 - 0 | 11:4 11:7 11:7 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "HANSSON Matilda (瑞典)"
+              ]
             },
             {
               "sub_event": "U19WS",
@@ -5617,7 +6806,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Contender Lignano 2021 | ZHOU Jingyi (SGP) | LIU Yangzi (AUS) | U19WS | Main Draw | Final | 1 - 3 | 9:11 11:5 8:11 5:11 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "ZHOU Jingyi (新加坡)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2021-10-24",
@@ -5664,8 +6860,15 @@
               "result_for_player": "loss",
               "perspective": "side_a",
               "raw_row_text": "2019 | ITTF Challenge Plus Portugal Open Lisbon 2019 | LIU Yangzi (AUS) | FAN Siqi (CHN) | U21WS | Main Draw | R64 | 2 - 3 | 11:7 11:9 6:11 8:11 6:11 | FAN Siqi",
+              "sub_event_zh": "U21女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "FAN Siqi (中国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5696,7 +6899,13 @@
               "perspective": "side_a",
               "raw_row_text": "2019 | ITTF Challenge Plus Portugal Open Lisbon 2019 | LIU Yangzi (AUS) | NIKITCHANKA Alina (AIN) | WS | Qualification | QR128 | 4 - 3 | 11:8 16:18 9:11 11:5 11:7 9:11 11:8 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "NIKITCHANKA Alina (中立个人运动员)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -5727,7 +6936,15 @@
               "perspective": "side_b",
               "raw_row_text": "2019 | ITTF Challenge Plus Portugal Open Lisbon 2019 | HUANG Yu-Wen (TPE) | LI Yu-Jhun (TPE) | LIU Yangzi (AUS) | SANTOS Marta (POR) | WD | Qualification | QR32 | 3 - 0 | 11:6 11:4 11:8 | HUANG Yu-Wen | LI Yu-Jhun",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "HUANG Yu-Wen (中国台北)",
+                "李羽均 (中国台北)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "SANTOS Marta (葡萄牙)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5755,7 +6972,13 @@
               "perspective": "side_b",
               "raw_row_text": "2019 | ITTF Challenge Plus Portugal Open Lisbon 2019 | HO Tin-Tin (ENG) | LIU Yangzi (AUS) | WS | Qualification | QR64 | 0 - 4 | 10:12 9:11 4:11 10:12 | LIU Yangzi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "HO Tin-Tin (英格兰)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5784,7 +7007,13 @@
               "raw_row_text": "2019 | ITTF Challenge Plus Portugal Open Lisbon 2019 | HASHIMOTO Honoka (JPN) | LIU Yangzi (AUS) | WS | Main Draw | R64 | 4 - 0 | 11:5 11:7 11:8 11:6 | HASHIMOTO Honoka",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "桥本帆乃香 (日本)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             }
           ],
           "start_date": "2019-02-13",
@@ -5830,7 +7059,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | VAN LIEROP Karlijn (NED) | LIU Yangzi (AUS) | JGS | Qualification | 1 - 3 | 3:11 12:10 5:11 5:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "青少年女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "VAN LIEROP Karlijn (NED)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "JGS",
@@ -5857,7 +7093,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | LIU Yangzi (AUS) | QIN Xiaoce (CHN) | JGS | Qualification | 3 - 1 | 11:9 11:13 11:6 11:8 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "青少年女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "QIN Xiaoce (中国)"
+              ]
             },
             {
               "sub_event": "JGS",
@@ -5883,7 +7126,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | MARUTHAPANDIAN Lavanya (USA) | LIU Yangzi (AUS) | JGS | Qualification | 0 - 3 | 5:11 7:11 4:11 | LIU Yangzi",
-              "stage_zh": "资格赛"
+              "sub_event_zh": "青少年女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "MARUTHAPANDIAN Lavanya (美国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "JGD",
@@ -5913,8 +7163,17 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | LIU Yangzi (AUS) | SANTOS Silvia (POR) | GREEN Erin (ENG) | SANTIAGO Noelia (ESP) | JGD | Main Draw | R32 | 3 - 0 | 11:5 11:3 11:5 | LIU Yangzi | SANTOS Silvia",
+              "sub_event_zh": "青少年女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "SANTOS Silvia (葡萄牙)"
+              ],
+              "side_b_zh": [
+                "GREEN Erin (英格兰)",
+                "SANTIAGO Noelia (西班牙)"
+              ]
             },
             {
               "sub_event": "JGD",
@@ -5944,8 +7203,17 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | LIU Yangzi (AUS) | SANTOS Silvia (POR) | JORGUSESKA Dobrila (NED) | VAN LIEROP Karlijn (NED) | JGD | Main Draw | R16 | 3 - 0 | 11:7 11:2 11:4 | LIU Yangzi | SANTOS Silvia",
+              "sub_event_zh": "青少年女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)",
+                "SANTOS Silvia (葡萄牙)"
+              ],
+              "side_b_zh": [
+                "JORGUSESKA Dobrila (NED)",
+                "VAN LIEROP Karlijn (NED)"
+              ]
             },
             {
               "sub_event": "JGS",
@@ -5972,8 +7240,15 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | LIU Yangzi (AUS) | PEDREGOSA Ana (ESP) | JGS | Main Draw | R32 | 4 - 0 | 11:4 11:3 11:5 11:1 | LIU Yangzi",
+              "sub_event_zh": "青少年女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "PEDREGOSA Ana (西班牙)"
+              ]
             },
             {
               "sub_event": "JGS",
@@ -6000,8 +7275,15 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | LIU Yangzi (AUS) | SEN Prapti (IND) | JGS | Main Draw | R16 | 4 - 0 | 11:4 11:9 11:8 11:3 | LIU Yangzi",
+              "sub_event_zh": "青少年女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "SEN Prapti (印度)"
+              ]
             },
             {
               "sub_event": "JGD",
@@ -6032,7 +7314,16 @@
               "result_for_player": "loss",
               "perspective": "side_b",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | CHAPET Marie (FRA) | SELVAKUMAR Selena (IND) | LIU Yangzi (AUS) | SANTOS Silvia (POR) | JGD | Main Draw | QuarterFinal | 3 - 1 | 13:11 4:11 11:8 11:6 | CHAPET Marie | SELVAKUMAR Selena",
-              "stage_zh": "正赛"
+              "sub_event_zh": "青少年女子双打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "CHAPET Marie (法国)",
+                "SELVAKUMAR Selena (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)",
+                "SANTOS Silvia (葡萄牙)"
+              ]
             },
             {
               "sub_event": "JGS",
@@ -6059,7 +7350,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | HURSEY Anna (WAL) | LIU Yangzi (AUS) | JGS | Main Draw | QuarterFinal | 0 - 4 | 1:11 6:11 9:11 7:11 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "青少年女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "安娜·赫尔西 (威尔士)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "JGS",
@@ -6086,7 +7384,14 @@
               "result_for_player": "win",
               "perspective": "side_b",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | SELVAKUMAR Selena (IND) | LIU Yangzi (AUS) | JGS | Main Draw | SemiFinal | 0 - 4 | 8:11 16:18 8:11 3:11 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "青少年女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "SELVAKUMAR Selena (印度)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "JGS",
@@ -6113,7 +7418,14 @@
               "result_for_player": "win",
               "perspective": "side_a",
               "raw_row_text": "2018 | ITTF Junior Circuit Portugal Junior and Cadet Open Guimaraes 2018 | LIU Yangzi (AUS) | QIN Xiaoce (CHN) | JGS | Main Draw | Final | 4 - 0 | 12:10 12:10 11:8 11:9 | LIU Yangzi",
-              "stage_zh": "正赛"
+              "sub_event_zh": "青少年女子单打",
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "QIN Xiaoce (中国)"
+              ]
             }
           ],
           "start_date": "2018-11-27",
@@ -6128,8 +7440,8 @@
   "updated_at": "2026-04-09T10:03:56.827665+00:00",
   "from_date": "2014-09-01",
   "captured_at": "2026-04-09T09:52:42.017576+00:00",
-  "player_name_zh": "刘杨子",
   "english_name": "LIU Yangzi",
   "country": "AUS",
+  "player_name_zh": "刘杨子",
   "country_zh": "澳大利亚"
 }

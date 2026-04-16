@@ -45,7 +45,15 @@
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | SHAH Manush (IND) | CHITALE Diya (IND) | COTON Flavien (FRA) | JOO Cheonhui (KOR) | XD | Main Draw | R16 | 3 - 0 | 11:7 12:10 11:9 | SHAH Manush | CHITALE Diya",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "SHAH Manush (印度)",
+                "奇塔莱·迪娅 (印度)"
+              ],
+              "side_b_zh": [
+                "COTON Flavien (法国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -73,7 +81,13 @@
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | JOO Cheonhui (KOR) | CHEN Szu-Yu (TPE) | WS | Main Draw | R32 | 3 - 0 | 12:10 11:3 11:8 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHEN Szu-Yu (中国台北)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -102,7 +116,13 @@
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | JOO Cheonhui (KOR) | LUPULESKU Izabela (SRB) | WS | Main Draw | R16 | 3 - 1 | 12:10 10:12 11:7 11:1 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "卢普莱斯库·伊莎贝拉 (塞尔维亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -129,7 +149,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | JOO Cheonhui (KOR) | GHORPADE Yashaswini (IND) | WS | Main Draw | QuarterFinal | 3 - 0 | 11:8 12:10 11:8 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "戈尔帕德·亚沙斯维尼 (印度)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -156,7 +182,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | JOO Cheonhui (KOR) | PESOTSKA Margaryta (UKR) | WS | Main Draw | SemiFinal | 3 - 0 | 15:13 11:6 11:9 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "玛尔加丽塔·佩索茨卡 (乌克兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -187,7 +219,13 @@
               "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | JOO Cheonhui (KOR) | ABRAAMIAN Elizabet (AIN) | WS | Main Draw | Final | 3 - 4 | 11:9 11:5 9:11 11:8 4:11 8:11 11:13 | ABRAAMIAN Elizabet",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "阿布拉米扬·伊丽莎白 (中立个人运动员)"
+              ]
             }
           ],
           "start_date": "2026-03-24",
@@ -229,7 +267,13 @@
               "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | SUN Yingsha (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 0 | 11:5 13:11 11:8 | SUN Yingsha",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "孙颖莎 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2026-03-10",
@@ -271,7 +315,13 @@
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | WANG Yidi (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 3 - 0 | 13:11 11:4 11:7 | WANG Yidi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "王艺迪 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -304,7 +354,15 @@
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | ZENG Jian (SGP) | SER Lin Qian (SGP) | ODO Satsuki (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 1 - 3 | 5:11 12:10 9:11 2:11 | ODO Satsuki | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "曾尖 (新加坡)",
+                "舒麟茜 (新加坡)"
+              ],
+              "side_b_zh": [
+                "大藤沙月 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -337,7 +395,15 @@
               "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | DIACONU Adina (ROU) | XIAO Maria (ESP) | ODO Satsuki (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | QuarterFinal | 3 - 2 | 8:11 11:7 5:11 11:9 11:8 | DIACONU Adina | XIAO Maria",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "DIACONU Adina (罗马尼亚)",
+                "萧玛丽亚 (西班牙)"
+              ],
+              "side_b_zh": [
+                "大藤沙月 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2026-02-19",
@@ -384,7 +450,15 @@
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | KIM Seongjin (KOR) | JOO Cheonhui (KOR) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | R16 | 1 - 3 | 11:6 8:11 9:11 8:11 | SATO Hitomi | SHIBATA Saki",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "金成珍 (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "佐藤瞳 (日本)",
+                "柴田咲 (日本)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -418,7 +492,15 @@
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | IONESCU Eduard (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | R16 | 2 - 3 | 11:13 11:9 11:7 9:11 6:11 | IONESCU Eduard | SZOCS Bernadette",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "IONESCU Eduard (罗马尼亚)",
+                "索科斯·伯纳黛特 (罗马尼亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -447,7 +529,13 @@
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | GHOSH Swastika (IND) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 1 - 3 | 2:11 3:11 11:9 7:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "GHOSH Swastika (印度)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -476,7 +564,13 @@
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | DRAGOMAN Andreea (ROU) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 3 - 1 | 11:5 4:11 11:8 11:6 | DRAGOMAN Andreea",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "安德烈亚·德拉戈曼 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2026-02-10",
@@ -523,7 +617,15 @@
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | KUAI Man (CHN) | CHEN Yi (CHN) | SHIN Yubin (KOR) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 3 - 1 | 12:10 11:9 3:11 11:9 | KUAI Man | CHEN Yi",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "快曼 (中国)",
+                "陈熠 (中国)"
+              ],
+              "side_b_zh": [
+                "申裕斌 (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -553,7 +655,13 @@
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | HIRANO Miu (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 2 | 10:12 11:8 4:11 11:9 13:11 | HIRANO Miu",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "平野美宇 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2026-01-13",
@@ -595,7 +703,13 @@
               "raw_row_text": "2026 | WTT Champions Doha 2026 | LIU Yangzi (AUS) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 2:11 7:11 5:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "刘杨子 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -623,7 +737,13 @@
               "raw_row_text": "2026 | WTT Champions Doha 2026 | JOO Cheonhui (KOR) | CHEN Xingtong (CHN) | WS | Main Draw | R16 | 0 - 3 | 13:15 6:11 11:13 | CHEN Xingtong",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "陈幸同 (中国)"
+              ]
             }
           ],
           "start_date": "2026-01-07",
@@ -673,7 +793,13 @@
               "raw_row_text": "2025 | WTT Finals Hong Kong 2025 | JOO Cheonhui (KOR) | SHIN Yubin (KOR) | WS | Main Draw | R16 | 4 - 2 | 11:7 11:9 10:12 6:11 11:9 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "申裕斌 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -702,7 +828,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Finals Hong Kong 2025 | JOO Cheonhui (KOR) | WANG Manyu (CHN) | WS | Main Draw | QuarterFinal | 1 - 4 | 7:11 8:11 11:9 5:11 4:11 | WANG Manyu",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "王曼昱 (中国)"
+              ]
             }
           ],
           "start_date": "2025-12-10",
@@ -748,7 +880,15 @@
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | SIDORENKO Vladimir (AIN) | TAILAKOVA Mariia (AIN) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | R16 | 0 - 3 | 7:11 4:11 6:11 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "SIDORENKO Vladimir (中立个人运动员)",
+                "TAILAKOVA Mariia (中立个人运动员)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -780,7 +920,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | YOSHIMURA Kazuhiro (JPN) | NAGASAKI Miyu (JPN) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | QuarterFinal | 1 - 3 | 5:11 10:12 11:9 7:11 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "YOSHIMURA Kazuhiro (日本)",
+                "长崎美柚 (日本)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -812,7 +960,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | MUKHERJEE Sutirtha (IND) | KUTUMBALE Anusha (IND) | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WD | Main Draw | QuarterFinal | 1 - 3 | 3:11 11:6 10:12 8:11 | JOO Cheonhui | KIM Nayeong",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "MUKHERJEE Sutirtha (印度)",
+                "KUTUMBALE Anusha (印度)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "金娜英 (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -845,7 +1001,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | AIDA Satoshi (JPN) | SATO Hitomi (JPN) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | SemiFinal | 3 - 2 | 11:9 7:11 1:11 11:8 11:3 | AIDA Satoshi | SATO Hitomi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "AIDA Satoshi (日本)",
+                "佐藤瞳 (日本)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -873,7 +1037,13 @@
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | DRAGOMAN Andreea (ROU) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 6:11 10:12 6:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "安德烈亚·德拉戈曼 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -905,7 +1075,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WD | Main Draw | SemiFinal | 1 - 3 | 5:11 11:7 8:11 5:11 | JOO Cheonhui | KIM Nayeong",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "阿布拉米扬·伊丽莎白 (中立个人运动员)",
+                "VORONINA Vlada (中立个人运动员)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "金娜英 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -935,7 +1113,13 @@
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | YUAN Jia Nan (FRA) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 2 - 3 | 3:11 11:6 6:11 11:5 5:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "袁嘉楠 (法国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -962,7 +1146,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | LEE Eunhye (KOR) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 0 - 3 | 8:11 8:11 10:12 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "李恩惠 (韩国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -995,7 +1185,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WD | Main Draw | Final | 3 - 2 | 9:11 11:5 5:11 11:4 11:6 | ODO Satsuki | YOKOI Sakura",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "大藤沙月 (日本)",
+                "横井咲良 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "金娜英 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1023,7 +1221,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WS | Main Draw | SemiFinal | 3 - 1 | 11:7 11:2 5:11 11:7 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1052,7 +1256,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | WS | Main Draw | Final | 1 - 4 | 6:11 12:10 6:11 8:11 8:11 | KIHARA Miyuu",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "木原美悠 (日本)"
+              ]
             }
           ],
           "start_date": "2025-11-17",
@@ -1096,7 +1306,13 @@
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | JOO Cheonhui (KOR) | HAYATA Hina (JPN) | WS | Main Draw | R32 | 2 - 3 | 11:13 11:4 11:9 9:11 11:13 | HAYATA Hina",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "早田希娜 (日本)"
+              ]
             }
           ],
           "start_date": "2025-11-04",
@@ -1139,7 +1355,13 @@
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | JOO Cheonhui (KOR) | JEE Minhyung (AUS) | WS | Main Draw | R32 | 3 - 1 | 11:4 11:13 11:4 11:6 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "智敏亨 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1167,7 +1389,13 @@
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WS | Main Draw | R16 | 3 - 0 | 11:7 12:10 11:9 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1198,7 +1426,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | HASHIMOTO Honoka (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 3 - 4 | 7:11 11:8 11:5 9:11 11:4 3:11 9:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "桥本帆乃香 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1228,7 +1462,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | WANG Yidi (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | SemiFinal | 4 - 2 | 11:6 11:6 6:11 8:11 11:5 12:10 | WANG Yidi",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "王艺迪 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-10-28",
@@ -1270,7 +1510,13 @@
               "raw_row_text": "2025 | China Smash 2025 | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | WS | Main Draw | R64 | 3 - 0 | 11:6 11:7 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "李恩惠 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1302,7 +1548,15 @@
               "raw_row_text": "2025 | China Smash 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | HAYATA Hina (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | R32 | 0 - 3 | 9:11 3:11 6:11 | HAYATA Hina | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "卢普莱斯库·伊莎贝拉 (塞尔维亚)",
+                "SURJAN Sabina (塞尔维亚)"
+              ],
+              "side_b_zh": [
+                "早田希娜 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1336,7 +1590,15 @@
               "raw_row_text": "2025 | China Smash 2025 | HAYATA Hina (JPN) | JOO Cheonhui (KOR) | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | WD | Main Draw | R16 | 3 - 2 | 11:4 7:11 9:11 11:3 12:10 | HAYATA Hina | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "早田希娜 (日本)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "张本美和 (日本)",
+                "大藤沙月 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1365,7 +1627,13 @@
               "raw_row_text": "2025 | China Smash 2025 | ITO Mima (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 1 - 3 | 5:11 13:11 5:11 7:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "伊藤美诚 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1396,7 +1664,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | SAWETTABUT Suthasini (THA) | PARANANG Orawan (THA) | HAYATA Hina (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 6:11 5:11 7:11 | HAYATA Hina | JOO Cheonhui",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "SAWETTABUT Suthasini (泰国)",
+                "帕拉南·奥拉万 (泰国)"
+              ],
+              "side_b_zh": [
+                "早田希娜 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1424,7 +1700,13 @@
               "raw_row_text": "2025 | China Smash 2025 | JOO Cheonhui (KOR) | SHI Xunyao (CHN) | WS | Main Draw | R16 | 3 - 0 | 11:3 11:6 11:9 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "施徐耀 (中国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1454,7 +1736,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | JOO Cheonhui (KOR) | SHIN Yubin (KOR) | WS | Main Draw | QuarterFinal | 2 - 4 | 16:14 11:7 8:11 9:11 9:11 7:11 | SHIN Yubin",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "申裕斌 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1487,7 +1775,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | WANG Xiaotong (CHN) | XU Yi (CHN) | HAYATA Hina (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | SemiFinal | 2 - 3 | 11:9 9:11 9:11 11:5 9:11 | HAYATA Hina | JOO Cheonhui",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "王晓彤 (中国)",
+                "徐奕 (中国)"
+              ],
+              "side_b_zh": [
+                "早田希娜 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1519,7 +1815,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | KUAI Man (CHN) | WANG Manyu (CHN) | HAYATA Hina (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | Final | 3 - 1 | 6:11 11:8 13:11 12:10 | KUAI Man | WANG Manyu",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "快曼 (中国)",
+                "王曼昱 (中国)"
+              ],
+              "side_b_zh": [
+                "早田希娜 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-09-28",
@@ -1562,7 +1866,13 @@
               "raw_row_text": "2025 | WTT Champions Macao 2025 | KUAI Man (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 1 | 6:11 11:8 11:6 11:7 | KUAI Man",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "快曼 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-09-09",
@@ -1604,7 +1914,13 @@
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CHOI Hyojoo (KOR) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 0 - 3 | 4:11 10:12 3:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "CHOI Hyojoo (韩国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1632,7 +1948,13 @@
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CHEN Yi (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 0 | 11:8 11:9 11:9 | CHEN Yi",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "陈熠 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-08-14",
@@ -1674,7 +1996,13 @@
               "raw_row_text": "2025 | WTT Champions Yokohama 2025 | SUN Yingsha (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 0 | 11:8 11:3 12:10 | SUN Yingsha",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "孙颖莎 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-08-07",
@@ -1720,7 +2048,15 @@
               "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | ORTEGA Daniela (CHI) | VEGA Paulina (CHI) | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | WD | Main Draw | R16 | 0 - 3 | 7:11 6:11 6:11 | JOO Cheonhui | LEE Eunhye",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "ORTEGA Daniela (智利)",
+                "VEGA Paulina (智利)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "李恩惠 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1748,7 +2084,13 @@
               "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | JOO Cheonhui (KOR) | HUANG Yu-Chiao (TPE) | WS | Main Draw | R32 | 3 - 0 | 11:3 11:4 11:6 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "HUANG Yu-Chiao (中国台北)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1779,7 +2121,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | BATRA Manika (IND) | GHOSH Swastika (IND) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:8 12:10 | JOO Cheonhui | LEE Eunhye",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "李恩惠 (韩国)"
+              ],
+              "side_b_zh": [
+                "马尼卡·巴特拉 (印度)",
+                "GHOSH Swastika (印度)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1811,7 +2161,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | WD | Main Draw | SemiFinal | 3 - 1 | 11:6 11:7 3:11 11:2 | HARIMOTO Miwa | ODO Satsuki",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "张本美和 (日本)",
+                "大藤沙月 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "李恩惠 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1839,7 +2197,13 @@
               "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | JOO Cheonhui (KOR) | TAKAHASHI Bruna (BRA) | WS | Main Draw | R16 | 3 - 0 | 11:8 12:10 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "高桥布鲁娜 (巴西)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1867,7 +2231,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Foz do Iguazu 2025 | HARIMOTO Miwa (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:6 11:6 11:8 | HARIMOTO Miwa",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "张本美和 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-07-29",
@@ -1913,7 +2283,15 @@
               "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | RIOS Valentina (CHI) | VEGA Sofia (CHI) | LEE Eunhye (KOR) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 0 - 3 | 8:11 8:11 2:11 | LEE Eunhye | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "RIOS Valentina (智利)",
+                "VEGA Sofia (智利)"
+              ],
+              "side_b_zh": [
+                "李恩惠 (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -1941,7 +2319,13 @@
               "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | JOO Cheonhui (KOR) | TAKAHASHI Giulia (BRA) | WS | Main Draw | R32 | 3 - 0 | 11:2 11:4 11:3 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "TAKAHASHI Giulia (巴西)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -1972,7 +2356,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | LEE Eunhye (KOR) | JOO Cheonhui (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:7 11:6 | HARIMOTO Miwa | ODO Satsuki",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "张本美和 (日本)",
+                "大藤沙月 (日本)"
+              ],
+              "side_b_zh": [
+                "李恩惠 (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2002,7 +2394,13 @@
               "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | NAGASAKI Miyu (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 2 - 3 | 11:9 5:11 11:13 15:13 7:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "长崎美柚 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2030,7 +2428,13 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | JOO Cheonhui (KOR) | ODO Satsuki (JPN) | WS | Main Draw | QuarterFinal | 3 - 1 | 11:4 11:4 9:11 11:4 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "大藤沙月 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2057,7 +2461,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Buenos Aires 2025 | CHENG I-Ching (TPE) | JOO Cheonhui (KOR) | WS | Main Draw | SemiFinal | 3 - 0 | 11:8 11:7 11:9 | CHENG I-Ching",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "郑怡静 (中国台北)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-07-22",
@@ -2101,7 +2511,13 @@
               "raw_row_text": "2025 | United States Smash 2025 | ITO Mima (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 3 - 2 | 6:11 11:2 6:11 11:8 11:7 | ITO Mima",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "伊藤美诚 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2133,7 +2549,15 @@
               "raw_row_text": "2025 | United States Smash 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | WD | Main Draw | R32 | 3 - 0 | 11:8 11:7 11:4 | JOO Cheonhui | KIHARA Miyuu",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "木原美悠 (日本)"
+              ],
+              "side_b_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2165,7 +2589,15 @@
               "raw_row_text": "2025 | United States Smash 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | WD | Main Draw | R16 | 0 - 3 | 9:11 6:11 9:11 | SAMARA Elizabeta | SZOCS Bernadette",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "木原美悠 (日本)"
+              ],
+              "side_b_zh": [
+                "萨马拉·伊莉莎贝塔 (罗马尼亚)",
+                "索科斯·伯纳黛特 (罗马尼亚)"
+              ]
             }
           ],
           "start_date": "2025-07-03",
@@ -2208,7 +2640,13 @@
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | WS | Main Draw | R32 | 1 - 3 | 11:5 5:11 5:11 5:11 | KIHARA Miyuu",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "木原美悠 (日本)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2240,7 +2678,15 @@
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | TOFANT Ana (SLO) | STRAZAR Katarina (SLO) | KIHARA Miyuu (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 0 - 3 | 7:11 7:11 2:11 | KIHARA Miyuu | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "TOFANT Ana (斯洛文尼亚)",
+                "STRAZAR Katarina (斯洛文尼亚)"
+              ],
+              "side_b_zh": [
+                "木原美悠 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2271,7 +2717,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | KIHARA Miyuu (JPN) | JOO Cheonhui (KOR) | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 8:11 3:11 6:11 | HARIMOTO Miwa | ODO Satsuki",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "木原美悠 (日本)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "张本美和 (日本)",
+                "大藤沙月 (日本)"
+              ]
             }
           ],
           "start_date": "2025-06-24",
@@ -2316,7 +2770,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | COTON Flavien (FRA) | LUTZ Charlotte (FRA) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Qualification | QR8 | 3 - 0 | 11:9 11:7 11:9 | COTON Flavien | LUTZ Charlotte",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "COTON Flavien (法国)",
+                "卢茨·夏洛特 (法国)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2350,7 +2812,15 @@
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | LUTZ Charlotte (FRA) | ZARIF Audrey (FRA) | WD | Main Draw | R16 | 3 - 2 | 11:8 7:11 9:11 13:11 11:8 | JOO Cheonhui | KIHARA Miyuu",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "木原美悠 (日本)"
+              ],
+              "side_b_zh": [
+                "卢茨·夏洛特 (法国)",
+                "ZARIF Audrey (法国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2380,7 +2850,13 @@
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | YOKOI Sakura (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 2 - 3 | 11:5 6:11 13:11 10:12 7:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "横井咲良 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -2414,7 +2890,15 @@
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XUE Fei (CHN) | QIAN Tianyi (CHN) | XD | Main Draw | R16 | 3 - 2 | 11:9 8:11 6:11 11:9 15:13 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "XUE Fei (中国)",
+                "钱天一 (中国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -2447,7 +2931,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KARLSSON Kristian (SWE) | KALLBERG Christina (SWE) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:7 7:11 11:6 6:11 7:11 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "KARLSSON Kristian (瑞典)",
+                "卡尔贝里·克里斯蒂娜 (瑞典)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2478,7 +2970,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | WD | Main Draw | QuarterFinal | 3 - 0 | 13:11 11:9 11:9 | SATO Hitomi | YOKOI Sakura",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "佐藤瞳 (日本)",
+                "横井咲良 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "木原美悠 (日本)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -2509,7 +3009,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | LIM Jonghoon (KOR) | SHIN Yubin (KOR) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | SemiFinal | 3 - 0 | 11:7 11:6 11:5 | LIM Jonghoon | SHIN Yubin",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LIM Jonghoon (韩国)",
+                "申裕斌 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2537,7 +3045,13 @@
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | JOO Cheonhui (KOR) | GODA Hana (EGY) | WS | Main Draw | R32 | 3 - 0 | 11:8 15:13 11:7 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "汉娜高达 (埃及)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2567,7 +3081,13 @@
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | HARIMOTO Miwa (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 3 - 2 | 9:11 11:5 9:11 11:9 12:10 | HARIMOTO Miwa",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "张本美和 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-06-17",
@@ -2609,7 +3129,13 @@
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | JOO Cheonhui (KOR) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 0 | 11:6 11:3 11:9 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2637,7 +3163,13 @@
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | JOO Cheonhui (KOR) | CHEN Xingtong (CHN) | WS | Main Draw | R16 | 0 - 3 | 8:11 9:11 8:11 | CHEN Xingtong",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "陈幸同 (中国)"
+              ]
             }
           ],
           "start_date": "2025-04-01",
@@ -2683,7 +3215,15 @@
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | BHOWMICK Divyanshi (IND) | VARGHESE Jennifer (IND) | JOO Cheonhui (KOR) | NAGASAKI Miyu (JPN) | WD | Main Draw | R16 | 0 - 3 | 6:11 3:11 9:11 | JOO Cheonhui | NAGASAKI Miyu",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "BHOWMICK Divyanshi (印度)",
+                "VARGHESE Jennifer (印度)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "长崎美柚 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2711,7 +3251,13 @@
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | JOO Cheonhui (KOR) | MUKHERJEE Ayhika (IND) | WS | Main Draw | R32 | 3 - 0 | 16:14 11:4 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "穆克吉·艾希卡 (印度)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2742,7 +3288,15 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | VARADY Barbora (SVK) | JEE Minhyung (AUS) | JOO Cheonhui (KOR) | NAGASAKI Miyu (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 6:11 9:11 9:11 | JOO Cheonhui | NAGASAKI Miyu",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "VARADY Barbora (斯洛伐克)",
+                "智敏亨 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "长崎美柚 (日本)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -2773,7 +3327,15 @@
               "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | JOO Cheonhui (KOR) | NAGASAKI Miyu (JPN) | SHIN Yubin (KOR) | RYU Hanna (KOR) | WD | Main Draw | SemiFinal | 0 - 3 | 7:11 8:11 11:13 | SHIN Yubin | RYU Hanna",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "长崎美柚 (日本)"
+              ],
+              "side_b_zh": [
+                "申裕斌 (韩国)",
+                "刘韩娜 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2802,7 +3364,13 @@
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | WS | Main Draw | R16 | 3 - 1 | 11:4 7:11 11:6 11:7 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "木原美悠 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2830,7 +3398,13 @@
               "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | HASHIMOTO Honoka (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 3 - 1 | 11:6 11:2 11:13 11:6 | HASHIMOTO Honoka",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "桥本帆乃香 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-03-25",
@@ -2873,7 +3447,13 @@
               "raw_row_text": "2025 | WTT Champions Chongqing 2025 | HARIMOTO Miwa (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 1 | 9:11 11:8 11:5 11:9 | HARIMOTO Miwa",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "张本美和 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-03-11",
@@ -2916,7 +3496,13 @@
               "raw_row_text": "2025 | Singapore Smash 2025 | JOO Cheonhui (KOR) | NAGASAKI Miyu (JPN) | WS | Main Draw | R64 | 3 - 1 | 11:6 11:9 8:11 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "长崎美柚 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -2945,7 +3531,13 @@
               "raw_row_text": "2025 | Singapore Smash 2025 | SZOCS Bernadette (ROU) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 1 | 11:9 11:8 4:11 11:7 | SZOCS Bernadette",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "索科斯·伯纳黛特 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2025-01-30",
@@ -2988,7 +3580,13 @@
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | JOO Cheonhui (KOR) | YEH Yi-Tian (TPE) | WS | Main Draw | R32 | 1 - 3 | 7:11 11:5 10:12 10:12 | YEH Yi-Tian",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "叶伊恬 (中国台北)"
+              ]
             }
           ],
           "start_date": "2025-01-06",
@@ -3034,7 +3632,13 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | JOO Cheonhui (KOR) | WEGRZYN Katarzyna (POL) | WS | Qualification | QR64 | 3 - 0 | 11:9 11:8 11:4 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "WEGRZYN Katarzyna (波兰)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3061,7 +3665,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | ALHODABY Mariam (EGY) | JOO Cheonhui (KOR) | WS | Qualification | QR32 | 0 - 3 | 2:11 7:11 6:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "玛丽亚姆·阿尔霍达比 (埃及)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3089,7 +3699,13 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | JOO Cheonhui (KOR) | KUKULKOVA Tatiana (SVK) | WS | Qualification | QR16 | 3 - 1 | 9:11 11:5 11:9 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3118,7 +3734,13 @@
               "raw_row_text": "2023 | WTT Contender Doha 2023 | WINTER Sabine (GER) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 1 - 3 | 7:11 13:11 1:11 5:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "温特·萨宾娜 (德国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3146,7 +3768,13 @@
               "raw_row_text": "2023 | WTT Contender Doha 2023 | BATRA Manika (IND) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:7 | BATRA Manika",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "马尼卡·巴特拉 (印度)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2023-01-15",
@@ -3190,7 +3818,13 @@
               "raw_row_text": "2023 | WTT Finals Women Nagoya 2023 | HAN Ying (GER) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 3 - 2 | 6:11 13:11 6:11 12:10 11:8 | HAN Ying",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "韩莹 (德国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2023-12-15",
@@ -3232,7 +3866,13 @@
               "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | LIU Weishan (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 16:18 5:11 9:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "LIU Weishan (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3264,7 +3904,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | LIN Gaoyuan (CHN) | WANG Manyu (CHN) | XD | Main Draw | QuarterFinal | 1 - 3 | 8:11 7:11 11:4 6:11 | LIN Gaoyuan | WANG Manyu",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "林高远 (中国)",
+                "王曼昱 (中国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3292,7 +3940,13 @@
               "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | LEE Zion (KOR) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 0 - 3 | 8:11 6:11 3:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "LEE Zion (韩国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3321,7 +3975,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | WANG Manyu (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 3 - 2 | 8:11 13:15 11:9 11:5 11:4 | WANG Manyu",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "王曼昱 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2023-11-07",
@@ -3363,7 +4023,13 @@
               "raw_row_text": "2023 | WTT Champions Frankfurt 2023 | JEE Minhyung (AUS) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 7:11 4:11 6:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3391,7 +4057,13 @@
               "raw_row_text": "2023 | WTT Champions Frankfurt 2023 | YANG Xiaoxin (MON) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 0 - 3 | 9:11 8:11 16:18 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "杨晓欣 (摩纳哥)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3420,7 +4092,13 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Champions Frankfurt 2023 | JOO Cheonhui (KOR) | WANG Manyu (CHN) | WS | Main Draw | QuarterFinal | 2 - 3 | 8:11 5:11 12:10 11:9 9:11 | WANG Manyu",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "王曼昱 (中国)"
+              ]
             }
           ],
           "start_date": "2023-10-29",
@@ -3466,7 +4144,15 @@
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | MATA APONTE Nathacha Dennys (VEN) | FERRER Dakota (VEN) | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | WD | Main Draw | R16 | 0 - 3 | 1:11 5:11 4:11 | JOO Cheonhui | CHOI Hyojoo",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "MATA APONTE Nathacha Dennys (委内瑞拉)",
+                "FERRER Dakota (委内瑞拉)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "CHOI Hyojoo (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3500,7 +4186,15 @@
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | LIANG Jingkun (CHN) | QIAN Tianyi (CHN) | CHO Seungmin (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | R16 | 3 - 2 | 11:8 12:14 4:11 11:1 11:8 | LIANG Jingkun | QIAN Tianyi",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "梁靖崑 (中国)",
+                "钱天一 (中国)"
+              ],
+              "side_b_zh": [
+                "CHO Seungmin (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3529,7 +4223,13 @@
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | JOO Cheonhui (KOR) | ZENG Jian (SGP) | WS | Main Draw | R32 | 3 - 1 | 12:10 9:11 11:4 11:8 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "曾尖 (新加坡)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3561,7 +4261,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | NAGASAKI Miyu (JPN) | KIHARA Miyuu (JPN) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:9 7:11 11:3 12:10 | JOO Cheonhui | CHOI Hyojoo",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "CHOI Hyojoo (韩国)"
+              ],
+              "side_b_zh": [
+                "长崎美柚 (日本)",
+                "木原美悠 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3589,7 +4297,13 @@
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | JOO Cheonhui (KOR) | LIU Weishan (CHN) | WS | Main Draw | R16 | 0 - 3 | 4:11 7:11 8:11 | LIU Weishan",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "LIU Weishan (中国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3620,7 +4334,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | CHEN Meng (CHN) | WANG Manyu (CHN) | WD | Main Draw | SemiFinal | 0 - 3 | 3:11 7:11 2:11 | CHEN Meng | WANG Manyu",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "CHOI Hyojoo (韩国)"
+              ],
+              "side_b_zh": [
+                "陈梦 (中国)",
+                "王曼昱 (中国)"
+              ]
             }
           ],
           "start_date": "2023-10-02",
@@ -3666,7 +4388,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | KANG Dongsoo (KOR) | SIM Hyunju (KOR) | XD | Qualification | QR8 | 3 - 1 | 11:6 11:7 5:11 11:5 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "KANG Dongsoo (韩国)",
+                "SIM Hyunju (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3700,7 +4430,15 @@
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | WANG Yang (SVK) | KUKULKOVA Tatiana (SVK) | XD | Main Draw | R16 | 3 - 2 | 8:11 11:13 11:5 12:10 11:5 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "WANG Yang (斯洛伐克)",
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3732,7 +4470,15 @@
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | SHI Xunyao (CHN) | ZHU Sibing (CHN) | CHOI Hyojoo (KOR) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:4 11:9 | SHI Xunyao | ZHU Sibing",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "施徐耀 (中国)",
+                "ZHU Sibing (中国)"
+              ],
+              "side_b_zh": [
+                "CHOI Hyojoo (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3760,7 +4506,13 @@
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | JOO Cheonhui (KOR) | BAJOR Natalia (POL) | WS | Main Draw | R32 | 3 - 0 | 11:5 11:6 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "巴约尔·娜塔莉亚 (波兰)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3791,7 +4543,15 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | QuarterFinal | 0 - 3 | 9:11 5:11 10:12 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "IONESCU Ovidiu (罗马尼亚)",
+                "索科斯·伯纳黛特 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -3820,7 +4580,13 @@
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | JOO Cheonhui (KOR) | ZHU Sibing (CHN) | WS | Main Draw | R16 | 1 - 3 | 8:11 11:5 10:12 9:11 | ZHU Sibing",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "ZHU Sibing (中国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3852,7 +4618,15 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | LEBRUN Alexis (FRA) | YUAN Jia Nan (FRA) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | SemiFinal | 1 - 3 | 7:11 10:12 11:8 7:11 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LEBRUN Alexis (法国)",
+                "袁嘉楠 (法国)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3884,7 +4658,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | LIN Yun-Ju (TPE) | CHEN Szu-Yu (TPE) | XD | Main Draw | Final | 3 - 1 | 11:8 11:7 4:11 11:6 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "林昀儒 (中国台北)",
+                "CHEN Szu-Yu (中国台北)"
+              ]
             }
           ],
           "start_date": "2023-08-29",
@@ -3930,7 +4712,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | LAM Siu Hang (HKG) | ZHU Chengzhu (HKG) | XD | Qualification | QR16 | 3 - 1 | 12:10 3:11 11:8 11:9 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "LAM Siu Hang (中国香港)",
+                "ZHU Chengzhu (中国香港)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -3962,7 +4752,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | JOO Cheonhui (KOR) | LEE Zion (KOR) | LI Ching Wan (HKG) | ZHU Chengzhu (HKG) | WD | Qualification | QR16 | 1 - 3 | 11:6 10:12 9:11 7:11 | LI Ching Wan | ZHU Chengzhu",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "LEE Zion (韩国)"
+              ],
+              "side_b_zh": [
+                "LI Ching Wan (中国香港)",
+                "ZHU Chengzhu (中国香港)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -3993,7 +4791,15 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | LIANG Jingkun (CHN) | QIAN Tianyi (CHN) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Qualification | QR8 | 3 - 0 | 11:9 12:10 11:6 | LIANG Jingkun | QIAN Tianyi",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "梁靖崑 (中国)",
+                "钱天一 (中国)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4023,7 +4829,13 @@
               "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | JOO Cheonhui (KOR) | ZHU Chengzhu (HKG) | WS | Main Draw | R32 | 3 - 2 | 7:11 6:11 11:3 11:6 11:6 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "ZHU Chengzhu (中国香港)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4052,7 +4864,13 @@
               "raw_row_text": "2023 | WTT Star Contender Ljubljana 2023 | JOO Cheonhui (KOR) | CHEN Meng (CHN) | WS | Main Draw | R16 | 1 - 3 | 8:11 11:5 4:11 3:11 | CHEN Meng",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "陈梦 (中国)"
+              ]
             }
           ],
           "start_date": "2023-07-03",
@@ -4100,7 +4918,15 @@
               "raw_row_text": "2023 | WTT Contender Zagreb 2023 | JOO Cheonhui (KOR) | LEE Zion (KOR) | QIAN Tianyi (CHN) | LIU Weishan (CHN) | WD | Main Draw | R16 | 2 - 3 | 11:6 6:11 11:6 8:11 9:11 | QIAN Tianyi | LIU Weishan",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "LEE Zion (韩国)"
+              ],
+              "side_b_zh": [
+                "钱天一 (中国)",
+                "LIU Weishan (中国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4129,7 +4955,13 @@
               "raw_row_text": "2023 | WTT Contender Zagreb 2023 | JEON Jihee (KOR) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 1 | 8:11 11:4 11:9 12:10 | JEON Jihee",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "JEON Jihee (韩国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2023-06-26",
@@ -4175,7 +5007,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | JOO Cheonhui (KOR) | YOON Hyobin (KOR) | WU Yangchen (CHN) | QI Fei (CHN) | WD | Qualification | QR16 | 1 - 3 | 13:11 9:11 2:11 11:13 | WU Yangchen | QI Fei",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "YOON Hyobin (韩国)"
+              ],
+              "side_b_zh": [
+                "WU Yangchen (中国)",
+                "QI Fei (中国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4205,7 +5045,13 @@
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | JOO Cheonhui (KOR) | LIU Hsing-Yin (TPE) | WS | Main Draw | R64 | 3 - 2 | 9:11 14:12 8:11 11:2 11:1 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "LIU Hsing-Yin (中国台北)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4233,7 +5079,13 @@
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | JOO Cheonhui (KOR) | CHEN Szu-Yu (TPE) | WS | Main Draw | R32 | 3 - 0 | 11:2 11:2 11:0 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHEN Szu-Yu (中国台北)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4262,7 +5114,13 @@
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | CHEN Yi (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 1 - 3 | 11:8 8:11 8:11 3:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "陈熠 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4291,7 +5149,13 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | JOO Cheonhui (KOR) | HARIMOTO Miwa (JPN) | WS | Main Draw | QuarterFinal | 3 - 2 | 3:11 11:8 11:7 8:11 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "张本美和 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4319,7 +5183,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | NAGASAKI Miyu (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | SemiFinal | 1 - 3 | 11:8 4:11 6:11 8:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "长崎美柚 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4348,7 +5218,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | CHEN Xingtong (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | Final | 4 - 1 | 11:2 6:11 11:9 15:13 11:5 | CHEN Xingtong",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "陈幸同 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2023-04-23",
@@ -4389,7 +5265,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | Singapore Smash 2023 | LAI Chloe (SGP) | JOO Cheonhui (KOR) | WS | Qualification | QR64 | 0 - 3 | 3:11 10:12 1:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "LAI Chloe (新加坡)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4417,7 +5299,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | Singapore Smash 2023 | AKULA Sreeja (IND) | JOO Cheonhui (KOR) | WS | Qualification | QR32 | 1 - 3 | 12:10 6:11 9:11 3:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "阿库拉·斯里贾 (印度)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4446,7 +5334,13 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | Singapore Smash 2023 | JOO Cheonhui (KOR) | DIACONU Adina (ROU) | WS | Qualification | QR16 | 3 - 2 | 11:5 8:11 11:4 7:11 11:3 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "DIACONU Adina (罗马尼亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4474,7 +5368,13 @@
               "raw_row_text": "2023 | Singapore Smash 2023 | JEE Minhyung (AUS) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 0 - 3 | 10:12 5:11 5:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4502,7 +5402,13 @@
               "raw_row_text": "2023 | Singapore Smash 2023 | DOO Hoi Kem (HKG) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 3:11 8:11 11:13 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "杜凯琹 (中国香港)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4531,7 +5437,13 @@
               "raw_row_text": "2023 | Singapore Smash 2023 | JOO Cheonhui (KOR) | ISHIKAWA Kasumi (JPN) | WS | Main Draw | R16 | 3 - 1 | 9:11 11:4 11:6 11:7 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "ISHIKAWA Kasumi (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4562,7 +5474,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | Singapore Smash 2023 | SUN Yingsha (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 4 - 3 | 11:3 5:11 11:6 11:5 7:11 10:12 11:5 | SUN Yingsha",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "孙颖莎 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2023-03-07",
@@ -4607,7 +5525,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | KIM Nayeong (KOR) | JOO Cheonhui (KOR) | CHOUDHARY Gayatri (IND) | ROHILLA Anjali (IND) | WD | Qualification | QR16 | 3 - 0 | 11:4 11:4 11:9 | KIM Nayeong | JOO Cheonhui",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金娜英 (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHOUDHARY Gayatri (印度)",
+                "ROHILLA Anjali (印度)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4639,7 +5565,15 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | SAWETTABUT Suthasini (THA) | PARANANG Orawan (THA) | KIM Nayeong (KOR) | JOO Cheonhui (KOR) | WD | Qualification | QR8 | 1 - 3 | 11:7 6:11 7:11 4:11 | KIM Nayeong | JOO Cheonhui",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "SAWETTABUT Suthasini (泰国)",
+                "帕拉南·奥拉万 (泰国)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4667,7 +5601,13 @@
               "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | GHORPADE Yashaswini (IND) | JOO Cheonhui (KOR) | WS | Qualification | QR32 | 3 - 1 | 11:7 11:6 9:11 11:8 | GHORPADE Yashaswini",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "戈尔帕德·亚沙斯维尼 (印度)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4700,7 +5640,15 @@
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | GHORPADE Yashaswini (IND) | SAINI Suhana (IND) | KIM Nayeong (KOR) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 1 - 3 | 6:11 4:11 11:7 7:11 | KIM Nayeong | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "戈尔帕德·亚沙斯维尼 (印度)",
+                "SAINI Suhana (印度)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -4732,7 +5680,15 @@
               "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | KIM Nayeong (KOR) | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | QuarterFinal | 1 - 3 | 7:11 11:6 6:11 13:15 | CHOI Hyojoo | LEE Zion",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "金娜英 (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHOI Hyojoo (韩国)",
+                "LEE Zion (韩国)"
+              ]
             }
           ],
           "start_date": "2023-02-27",
@@ -4780,7 +5736,13 @@
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WS | Main Draw | R64 | 4 - 0 | 14:12 11:4 11:7 11:3 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4811,7 +5773,13 @@
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LEE Zion (KOR) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 2 - 4 | 11:6 6:11 6:11 9:11 11:8 7:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "LEE Zion (韩国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4841,7 +5809,13 @@
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | JOO Cheonhui (KOR) | SHIBATA Saki (JPN) | WS | Main Draw | R16 | 1 - 4 | 11:5 6:11 11:13 7:11 8:11 | SHIBATA Saki",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "柴田咲 (日本)"
+              ]
             }
           ],
           "start_date": "2022-07-18",
@@ -4884,7 +5858,13 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | DRAGOMAN Andreea (ROU) | JOO Cheonhui (KOR) | WS | Qualification | QR64 | 2 - 3 | 11:8 6:11 9:11 11:7 10:12 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "安德烈亚·德拉戈曼 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4911,7 +5891,13 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | KAMATH Archana (IND) | JOO Cheonhui (KOR) | WS | Qualification | QR32 | 0 - 3 | 6:11 6:11 6:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "KAMATH Archana (印度)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4938,7 +5924,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | JOO Cheonhui (KOR) | ZENG Jian (SGP) | WS | Qualification | QR16 | 3 - 0 | 11:5 11:4 11:6 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "曾尖 (新加坡)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4966,7 +5958,13 @@
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | SOO Wai Yam (HKG) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 0 - 3 | 5:11 3:11 1:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "SOO Wai Yam (中国香港)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -4995,7 +5993,13 @@
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | DOO Hoi Kem (HKG) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 1 - 3 | 11:6 9:11 8:11 3:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "杜凯琹 (中国香港)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5024,7 +6028,13 @@
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | JOO Cheonhui (KOR) | TAKAHASHI Bruna (BRA) | WS | Main Draw | R16 | 3 - 1 | 11:9 5:11 11:7 11:8 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "高桥布鲁娜 (巴西)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5051,7 +6061,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | JOO Cheonhui (KOR) | HAN Ying (GER) | WS | Main Draw | QuarterFinal | 0 - 3 | 4:11 2:11 4:11 | HAN Ying",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "韩莹 (德国)"
+              ]
             }
           ],
           "start_date": "2022-03-25",
@@ -5092,7 +6108,13 @@
               "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | JOO Cheonhui (KOR) | ZHANG Rui (CHN) | WS | Qualification | QR32 | 0 - 3 | 5:11 10:12 7:11 | ZHANG Rui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "ZHANG Rui (中国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5120,7 +6142,13 @@
               "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | CHASSELIN Pauline (FRA) | JOO Cheonhui (KOR) | WS | Qualification | QR64 | 1 - 3 | 11:9 8:11 5:11 6:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHASSELIN Pauline (法国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2022-03-18",
@@ -5168,7 +6196,13 @@
               "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | JOO Cheonhui (KOR) | LIU Yangzi (AUS) | WS | Main Draw | R32 | 3 - 1 | 4:11 11:4 12:10 12:10 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "刘杨子 (澳大利亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5197,7 +6231,13 @@
               "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | WANG Manyu (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 3 - 1 | 11:7 9:11 11:8 11:8 | WANG Manyu",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "王曼昱 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-11-03",
@@ -5240,7 +6280,13 @@
               "raw_row_text": "2024 | WTT Champions Montpellier 2024 | JOO Cheonhui (KOR) | SHIN Yubin (KOR) | WS | Main Draw | R32 | 1 - 3 | 11:7 6:11 7:11 8:11 | SHIN Yubin",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "申裕斌 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-10-22",
@@ -5283,7 +6329,13 @@
               "raw_row_text": "2024 | China Smash 2024 | WANG Xiaotong (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 3 - 1 | 7:11 11:9 11:3 11:2 | WANG Xiaotong",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "王晓彤 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-09-26",
@@ -5325,7 +6377,13 @@
               "raw_row_text": "2024 | WTT Champions Macao 2024 | SUH Hyo Won (KOR) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 4:11 11:13 12:14 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "SUH Hyo Won (韩国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5353,7 +6411,13 @@
               "raw_row_text": "2024 | WTT Champions Macao 2024 | JOO Cheonhui (KOR) | ITO Mima (JPN) | WS | Main Draw | R16 | 3 - 0 | 11:7 12:10 11:7 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "伊藤美诚 (日本)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5381,7 +6445,13 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Champions Macao 2024 | SUN Yingsha (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 3 - 1 | 11:6 3:11 11:6 11:2 | SUN Yingsha",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "孙颖莎 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-09-09",
@@ -5427,7 +6497,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | CHANVANITBORIKAN Pacharaphorn (THA) | PANKHAOYOY Supamas (THA) | JOO Cheonhui (KOR) | KIM Seongjin (KOR) | WD | Qualification | QR8 | 1 - 3 | 5:11 9:11 11:9 6:11 | JOO Cheonhui | KIM Seongjin",
               "sub_event_zh": "女子双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHANVANITBORIKAN Pacharaphorn (泰国)",
+                "PANKHAOYOY Supamas (泰国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "金成珍 (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -5459,7 +6537,15 @@
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | BOURRASSAUD Florian (FRA) | KUKULKOVA Tatiana (SVK) | XD | Main Draw | R16 | 3 - 0 | 11:6 11:3 11:8 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "BOURRASSAUD Florian (法国)",
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -5492,7 +6578,15 @@
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | JOO Cheonhui (KOR) | KIM Seongjin (KOR) | DIACONU Adina (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 1 - 3 | 11:7 9:11 7:11 11:13 | DIACONU Adina | SAMARA Elizabeta",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "金成珍 (韩国)"
+              ],
+              "side_b_zh": [
+                "DIACONU Adina (罗马尼亚)",
+                "萨马拉·伊莉莎贝塔 (罗马尼亚)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -5524,7 +6618,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | QuarterFinal | 3 - 1 | 12:10 6:11 11:9 11:6 | WONG Chun Ting | DOO Hoi Kem",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "黄镇廷 (中国香港)",
+                "杜凯琹 (中国香港)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5552,7 +6654,13 @@
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | JOO Cheonhui (KOR) | NG Wing Lam (HKG) | WS | Main Draw | R32 | 3 - 0 | 12:10 11:5 12:10 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "吴咏琳 (中国香港)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5582,7 +6690,13 @@
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | JOO Cheonhui (KOR) | ITO Mima (JPN) | WS | Main Draw | R16 | 2 - 3 | 8:11 11:3 11:9 6:11 6:11 | ITO Mima",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "伊藤美诚 (日本)"
+              ]
             }
           ],
           "start_date": "2024-07-02",
@@ -5625,7 +6739,13 @@
               "raw_row_text": "2024 | WTT Contender Tunis 2024 | PLAIAN Tania (ROU) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 1 - 3 | 11:6 5:11 7:11 4:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "PLAIAN Tania (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5655,7 +6775,13 @@
               "raw_row_text": "2024 | WTT Contender Tunis 2024 | ZENG Jian (SGP) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 2 - 3 | 11:5 11:6 9:11 4:11 8:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "曾尖 (新加坡)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5682,7 +6808,13 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Tunis 2024 | YOKOI Sakura (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | QuarterFinal | 0 - 3 | 9:11 8:11 8:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "横井咲良 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5709,7 +6841,13 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Tunis 2024 | HARIMOTO Miwa (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | SemiFinal | 3 - 0 | 11:9 11:7 11:3 | HARIMOTO Miwa",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "张本美和 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-06-24",
@@ -5756,7 +6894,15 @@
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | ZARIF Audrey (FRA) | LUTZ Camille (FRA) | JOO Cheonhui (KOR) | JEON Jihee (KOR) | WD | Main Draw | R16 | 1 - 3 | 6:11 5:11 11:6 6:11 | JOO Cheonhui | JEON Jihee",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "ZARIF Audrey (法国)",
+                "卢茨·卡米尔 (法国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -5788,7 +6934,15 @@
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | YIU Kwan To (HKG) | NG Wing Lam (HKG) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | R16 | 0 - 3 | 6:11 6:11 2:11 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "YIU Kwan To (中国香港)",
+                "吴咏琳 (中国香港)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -5819,7 +6973,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | LIM Jonghoon (KOR) | SHIN Yubin (KOR) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | QuarterFinal | 3 - 0 | 13:11 11:5 11:4 | LIM Jonghoon | SHIN Yubin",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LIM Jonghoon (韩国)",
+                "申裕斌 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5847,7 +7009,13 @@
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | PARANANG Orawan (THA) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 0 - 3 | 4:11 7:11 3:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "帕拉南·奥拉万 (泰国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -5879,7 +7047,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | TOFANT Ana (SLO) | TOKIC Sara (SLO) | JOO Cheonhui (KOR) | JEON Jihee (KOR) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:8 6:11 6:11 7:11 | JOO Cheonhui | JEON Jihee",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "TOFANT Ana (斯洛文尼亚)",
+                "TOKIC Sara (斯洛文尼亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -5911,7 +7087,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | PARANANG Orawan (THA) | SAWETTABUT Suthasini (THA) | JOO Cheonhui (KOR) | JEON Jihee (KOR) | WD | Main Draw | SemiFinal | 1 - 3 | 11:13 11:4 8:11 8:11 | JOO Cheonhui | JEON Jihee",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "帕拉南·奥拉万 (泰国)",
+                "SAWETTABUT Suthasini (泰国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -5943,7 +7127,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | KIHARA Miyuu (JPN) | NAGASAKI Miyu (JPN) | JOO Cheonhui (KOR) | JEON Jihee (KOR) | WD | Main Draw | Final | 3 - 1 | 9:11 11:7 13:11 11:3 | KIHARA Miyuu | NAGASAKI Miyu",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "木原美悠 (日本)",
+                "长崎美柚 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -5972,7 +7164,13 @@
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | HARIMOTO Miwa (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 3 - 1 | 11:7 11:5 8:11 11:9 | HARIMOTO Miwa",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "张本美和 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-06-11",
@@ -6014,7 +7212,13 @@
               "raw_row_text": "2024 | WTT Champions Chongqing 2024 | JOO Cheonhui (KOR) | SAMARA Elizabeta (ROU) | WS | Main Draw | R32 | 3 - 0 | 11:6 13:11 11:6 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "萨马拉·伊莉莎贝塔 (罗马尼亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6042,7 +7246,13 @@
               "raw_row_text": "2024 | WTT Champions Chongqing 2024 | CHEN Xingtong (CHN) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 3 - 0 | 11:3 11:7 11:2 | CHEN Xingtong",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "陈幸同 (中国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-05-30",
@@ -6090,7 +7300,15 @@
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | R16 | 3 - 2 | 11:8 2:11 11:9 7:11 11:4 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "IONESCU Ovidiu (罗马尼亚)",
+                "索科斯·伯纳黛特 (罗马尼亚)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6122,7 +7340,15 @@
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | JOO Cheonhui (KOR) | JEON Jihee (KOR) | MALOBABIC Ivana (CRO) | ARAPOVIC Hana (CRO) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:9 | JOO Cheonhui | JEON Jihee",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ],
+              "side_b_zh": [
+                "MALOBABIC Ivana (克罗地亚)",
+                "ARAPOVIC Hana (克罗地亚)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6151,7 +7377,13 @@
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | JOO Cheonhui (KOR) | HARIMOTO Miwa (JPN) | WS | Main Draw | R32 | 1 - 3 | 9:11 11:8 7:11 6:11 | HARIMOTO Miwa",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "张本美和 (日本)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -6184,7 +7416,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:7 9:11 7:11 11:6 4:11 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "黄镇廷 (中国香港)",
+                "杜凯琹 (中国香港)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6215,7 +7455,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | JOO Cheonhui (KOR) | JEON Jihee (KOR) | NG Wing Lam (HKG) | LAM Yee Lok (HKG) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:8 11:8 | JOO Cheonhui | JEON Jihee",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ],
+              "side_b_zh": [
+                "吴咏琳 (中国香港)",
+                "LAM Yee Lok (中国香港)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -6247,7 +7495,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | LIM Jonghoon (KOR) | SHIN Yubin (KOR) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | SemiFinal | 3 - 1 | 11:8 3:11 11:5 11:8 | LIM Jonghoon | SHIN Yubin",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "LIM Jonghoon (韩国)",
+                "申裕斌 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6278,7 +7534,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | JOO Cheonhui (KOR) | JEON Jihee (KOR) | ZHU Chengzhu (HKG) | LEE Ho Ching (HKG) | WD | Main Draw | SemiFinal | 3 - 0 | 12:10 11:7 11:4 | JOO Cheonhui | JEON Jihee",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ],
+              "side_b_zh": [
+                "ZHU Chengzhu (中国香港)",
+                "LEE Ho Ching (中国香港)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6310,7 +7574,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | JOO Cheonhui (KOR) | JEON Jihee (KOR) | YOKOI Sakura (JPN) | ODO Satsuki (JPN) | WD | Main Draw | Final | 1 - 3 | 9:11 6:11 14:12 5:11 | YOKOI Sakura | ODO Satsuki",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "JEON Jihee (韩国)"
+              ],
+              "side_b_zh": [
+                "横井咲良 (日本)",
+                "大藤沙月 (日本)"
+              ]
             }
           ],
           "start_date": "2024-05-30",
@@ -6354,7 +7626,13 @@
               "raw_row_text": "2024 | Saudi Smash 2024 | JEE Minhyung (AUS) | JOO Cheonhui (KOR) | WS | Main Draw | R64 | 2 - 3 | 4:11 11:4 9:11 11:9 6:11 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "智敏亨 (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6382,7 +7660,13 @@
               "raw_row_text": "2024 | Saudi Smash 2024 | HIRANO Miu (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 0 | 11:0 11:0 11:0 | HIRANO Miu",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "平野美宇 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6414,7 +7698,15 @@
               "raw_row_text": "2024 | Saudi Smash 2024 | KUKULKOVA Tatiana (SVK) | BAJOR Natalia (POL) | KIHARA Miyuu (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 3 - 0 | 11:0 11:0 11:0 | KUKULKOVA Tatiana | BAJOR Natalia",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)",
+                "巴约尔·娜塔莉亚 (波兰)"
+              ],
+              "side_b_zh": [
+                "木原美悠 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-05-01",
@@ -6456,7 +7748,13 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Cup Macao 2024 | JOO Cheonhui (KOR) | HANFFOU Sarah (CMR) | WS | Qualification | 4 - 0 | 11:2 12:10 11:2 11:9 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "HANFFOU Sarah (喀麦隆)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6484,7 +7782,13 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Cup Macao 2024 | JOO Cheonhui (KOR) | TAKAHASHI Bruna (BRA) | WS | Qualification | 2 - 2 | 11:5 11:8 8:11 8:11",
               "sub_event_zh": "女子单打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "高桥布鲁娜 (巴西)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6514,7 +7818,13 @@
               "raw_row_text": "2024 | ITTF World Cup Macao 2024 | CHENG I-Ching (TPE) | JOO Cheonhui (KOR) | WS | Main Draw | R16 | 4 - 1 | 6:11 11:8 13:11 11:5 11:8 | CHENG I-Ching",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "郑怡静 (中国台北)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-04-15",
@@ -6557,7 +7867,13 @@
               "raw_row_text": "2024 | WTT Champions Incheon 2024 | HARIMOTO Miwa (JPN) | JOO Cheonhui (KOR) | WS | Main Draw | R32 | 3 - 1 | 11:13 11:6 12:10 11:8 | HARIMOTO Miwa",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "张本美和 (日本)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-03-27",
@@ -6600,7 +7916,13 @@
               "raw_row_text": "2024 | Singapore Smash 2024 | JOO Cheonhui (KOR) | PESOTSKA Margaryta (UKR) | WS | Main Draw | R64 | 3 - 1 | 11:5 4:11 11:3 11:9 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "六十四强"
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "玛尔加丽塔·佩索茨卡 (乌克兰)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6632,7 +7954,15 @@
               "raw_row_text": "2024 | Singapore Smash 2024 | KIHARA Miyuu (JPN) | JOO Cheonhui (KOR) | LOY Ming Ying (SGP) | LAI Chloe (SGP) | WD | Main Draw | R32 | 3 - 0 | 11:2 13:11 11:6 | KIHARA Miyuu | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "木原美悠 (日本)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "LOY Ming Ying (新加坡)",
+                "LAI Chloe (新加坡)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6661,7 +7991,13 @@
               "raw_row_text": "2024 | Singapore Smash 2024 | JOO Cheonhui (KOR) | WINTER Sabine (GER) | WS | Main Draw | R32 | 3 - 1 | 11:2 7:11 11:6 11:5 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "温特·萨宾娜 (德国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6693,7 +8029,15 @@
               "raw_row_text": "2024 | Singapore Smash 2024 | NAGASAKI Miyu (JPN) | KIM Nayeong (KOR) | KIHARA Miyuu (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | R16 | 0 - 3 | 10:12 10:12 11:13 | KIHARA Miyuu | JOO Cheonhui",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "长崎美柚 (日本)",
+                "金娜英 (韩国)"
+              ],
+              "side_b_zh": [
+                "木原美悠 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6725,7 +8069,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | Singapore Smash 2024 | KIHARA Miyuu (JPN) | JOO Cheonhui (KOR) | JEON Jihee (KOR) | SHIN Yubin (KOR) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:6 8:11 11:9 11:7 | KIHARA Miyuu | JOO Cheonhui",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "木原美悠 (日本)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "JEON Jihee (韩国)",
+                "申裕斌 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6754,7 +8106,13 @@
               "raw_row_text": "2024 | Singapore Smash 2024 | JOO Cheonhui (KOR) | CHEN Meng (CHN) | WS | Main Draw | R16 | 1 - 3 | 17:15 6:11 5:11 9:11 | CHEN Meng",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "陈梦 (中国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6785,7 +8143,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | Singapore Smash 2024 | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | KIHARA Miyuu (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:7 11:7 | CHENG I-Ching | LI Yu-Jhun",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "郑怡静 (中国台北)",
+                "李羽均 (中国台北)"
+              ],
+              "side_b_zh": [
+                "木原美悠 (日本)",
+                "朱芊曦 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-03-07",
@@ -6830,7 +8196,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | WALKER Samuel (ENG) | HO Tin-Tin (ENG) | XD | Qualification | QR16 | 3 - 0 | 11:9 11:7 11:7 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "WALKER Samuel (英格兰)",
+                "HO Tin-Tin (英格兰)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -6863,7 +8237,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | CHO Seungmin (KOR) | LEE Zion (KOR) | XD | Qualification | QR8 | 3 - 2 | 4:11 11:4 5:11 11:8 12:10 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "CHO Seungmin (韩国)",
+                "LEE Zion (韩国)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -6895,7 +8277,15 @@
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | XD | Main Draw | R16 | 0 - 3 | 7:11 5:11 9:11 | WONG Chun Ting | DOO Hoi Kem",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "黄镇廷 (中国香港)",
+                "杜凯琹 (中国香港)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6928,7 +8318,15 @@
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | KIM Nayeong (KOR) | RYU Hanna (KOR) | WD | Main Draw | R16 | 3 - 1 | 11:5 12:10 7:11 12:10 | JOO Cheonhui | CHOI Hyojoo",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "CHOI Hyojoo (韩国)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)",
+                "刘韩娜 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -6959,7 +8357,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | HO Tin-Tin (ENG) | HURSEY Anna (WAL) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:7 11:8 | JOO Cheonhui | CHOI Hyojoo",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "CHOI Hyojoo (韩国)"
+              ],
+              "side_b_zh": [
+                "HO Tin-Tin (英格兰)",
+                "安娜·赫尔西 (威尔士)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -6987,7 +8393,13 @@
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | JOO Cheonhui (KOR) | YU Fu (POR) | WS | Main Draw | R32 | 3 - 0 | 11:6 12:10 11:4 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "付玉 (葡萄牙)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -7018,7 +8430,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | WD | Main Draw | SemiFinal | 3 - 0 | 12:10 14:12 11:4 | JOO Cheonhui | CHOI Hyojoo",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "CHOI Hyojoo (韩国)"
+              ],
+              "side_b_zh": [
+                "郑怡静 (中国台北)",
+                "李羽均 (中国台北)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -7047,7 +8467,13 @@
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | JOO Cheonhui (KOR) | LEE Eunhye (KOR) | WS | Main Draw | R16 | 3 - 1 | 11:7 16:18 11:5 12:10 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "李恩惠 (韩国)"
+              ]
             },
             {
               "sub_event": "WD",
@@ -7079,7 +8505,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | JEON Jihee (KOR) | SHIN Yubin (KOR) | JOO Cheonhui (KOR) | CHOI Hyojoo (KOR) | WD | Main Draw | Final | 3 - 1 | 11:4 11:4 15:17 11:6 | JEON Jihee | SHIN Yubin",
               "sub_event_zh": "女子双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "JEON Jihee (韩国)",
+                "申裕斌 (韩国)"
+              ],
+              "side_b_zh": [
+                "朱芊曦 (韩国)",
+                "CHOI Hyojoo (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -7106,7 +8540,13 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | JOO Cheonhui (KOR) | MITTELHAM Nina (GER) | WS | Main Draw | QuarterFinal | 0 - 3 | 10:12 9:11 10:12 | MITTELHAM Nina",
               "sub_event_zh": "女子单打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "尼娜·米特哈姆 (德国)"
+              ]
             }
           ],
           "start_date": "2024-01-23",
@@ -7152,7 +8592,15 @@
               "raw_row_text": "2024 | WTT Contender Doha 2024 | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | ECSEKI Nandor (HUN) | MADARASZ Dora (HUN) | XD | Main Draw | R16 | 3 - 0 | 11:7 11:2 11:7 | CHO Daeseong | JOO Cheonhui",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "ECSEKI Nandor (匈牙利)",
+                "MADARASZ Dora (匈牙利)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -7181,7 +8629,13 @@
               "raw_row_text": "2024 | WTT Contender Doha 2024 | JOO Cheonhui (KOR) | POTA Georgina (HUN) | WS | Main Draw | R32 | 3 - 1 | 11:5 11:8 8:11 11:8 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "POTA Georgina (匈牙利)"
+              ]
             },
             {
               "sub_event": "XD",
@@ -7214,7 +8668,15 @@
               "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Doha 2024 | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | CHO Daeseong (KOR) | JOO Cheonhui (KOR) | XD | Main Draw | QuarterFinal | 3 - 2 | 9:11 7:11 11:9 12:10 11:4 | WONG Chun Ting | DOO Hoi Kem",
               "sub_event_zh": "混合双打",
-              "stage_zh": "正赛"
+              "stage_zh": "正赛",
+              "side_a_zh": [
+                "黄镇廷 (中国香港)",
+                "杜凯琹 (中国香港)"
+              ],
+              "side_b_zh": [
+                "CHO Daeseong (韩国)",
+                "朱芊曦 (韩国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -7244,7 +8706,13 @@
               "raw_row_text": "2024 | WTT Contender Doha 2024 | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WS | Main Draw | R16 | 2 - 3 | 11:7 7:11 10:12 12:10 8:11 | KIM Nayeong",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "金娜英 (韩国)"
+              ]
             }
           ],
           "start_date": "2024-01-14",
@@ -7291,7 +8759,15 @@
               "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Doha 2024 | CHO Seungmin (KOR) | JOO Cheonhui (KOR) | LEBRUN Alexis (FRA) | YUAN Jia Nan (FRA) | XD | Qualification | QR16 | 2 - 3 | 5:11 12:10 11:6 12:14 12:14 | LEBRUN Alexis | YUAN Jia Nan",
               "sub_event_zh": "混合双打",
-              "stage_zh": "资格赛"
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "CHO Seungmin (韩国)",
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "LEBRUN Alexis (法国)",
+                "袁嘉楠 (法国)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -7319,7 +8795,13 @@
               "raw_row_text": "2024 | WTT Star Contender Doha 2024 | JOO Cheonhui (KOR) | MESHREF Dina (EGY) | WS | Main Draw | R32 | 3 - 0 | 11:7 11:4 11:4 | JOO Cheonhui",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "32强"
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "梅什雷夫·迪娜 (埃及)"
+              ]
             },
             {
               "sub_event": "WS",
@@ -7347,7 +8829,13 @@
               "raw_row_text": "2024 | WTT Star Contender Doha 2024 | JOO Cheonhui (KOR) | CHEN Meng (CHN) | WS | Main Draw | R16 | 0 - 3 | 6:11 8:11 3:11 | CHEN Meng",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
-              "round_zh": "16强"
+              "round_zh": "16强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)"
+              ],
+              "side_b_zh": [
+                "陈梦 (中国)"
+              ]
             }
           ],
           "start_date": "2024-01-08",
@@ -7362,8 +8850,8 @@
   "updated_at": "2026-04-09T18:38:57.980698+00:00",
   "from_date": "2014-09-01",
   "captured_at": "2026-04-09T18:30:18.095791+00:00",
-  "player_name_zh": "朱芊曦",
   "english_name": "JOO Cheonhui",
   "country": "KOR",
+  "player_name_zh": "朱芊曦",
   "country_zh": "韩国"
 }
