@@ -165,6 +165,15 @@ CREATE TABLE sub_event_types (
 | XT | 混合团队 |
 | WT | 女子团体 |
 | MT | 男子团体 |
+| CGD | 少年女子双打 | 
+| CGT | 少年女子团体 | 
+| CXD | 少年混合双打 | 
+| HGS | 希望之星女子单打 | 
+| JGD | 青少年女子双打 | 
+| JGT | 青少年女子团体 | 
+| JXD | 青少年混合双打 | 
+| MCGS | 小少年女子单打 | 
+
 
 ### 3.5 events — 赛事
 
