@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Lily ZHANG",
-  "english_name": "Lily ZHANG",
+  "player_name": "ZHANG Lily",
+  "english_name": "ZHANG Lily",
   "country": "USA",
   "country_code": "USA",
   "continent": "",
@@ -60,15 +60,13 @@
                 "BATRA Manika (IND)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "BATRA Manika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | ZHANG Lily (USA) |  | BATRA Manika (IND) |  | WS | Qualification |  | 2 - 3 | 7:11 2:11 16:14 11:5 6:11 | BATRA Manika |  | "
             },
             {
@@ -101,15 +99,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HARIMOTO Miwa (JPN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | HARIMOTO Miwa (JPN) |  | ZHANG Lily (USA) |  | WS | Qualification |  | 3 - 0 | 11:3 11:4 11:8 | HARIMOTO Miwa |  | "
             }
           ]
@@ -152,15 +148,13 @@
                 "SZOCS Bernadette (ROU)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SZOCS Bernadette (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | ZHANG Lily (USA) |  | SZOCS Bernadette (ROU) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 6:11 12:14 | SZOCS Bernadette |  | "
             }
           ]
@@ -208,15 +202,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | SHAN Xiaona (GER) |  | ZHANG Lily (USA) |  | WS | Main Draw | R64 | 1 - 3 | 10:12 11:9 4:11 8:11 | ZHANG Lily |  | "
             },
             {
@@ -249,15 +241,13 @@
                 "SHI Xunyao (CHN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SHI Xunyao (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | ZHANG Lily (USA) |  | SHI Xunyao (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 8:11 6:11 | SHI Xunyao |  | "
             }
           ]
@@ -305,15 +295,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "RODRIGUEZ Alondra (PUR)",
+                "RODRIGUEZ Alondra (PUR)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | RODRIGUEZ Alondra (PUR) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 0 - 4 | 5:11 6:11 6:11 7:11 | ZHANG Lily |  | "
             },
             {
@@ -356,15 +344,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "VEGA Paulina (CHI)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | VEGA Paulina (CHI) |  | ZHANG Lily (USA) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 3:11 11:8 5:11 7:11 4:11 | ZHANG Lily |  | "
             },
             {
@@ -402,15 +388,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ZHANG Mo (CAN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | ZHANG Mo (CAN) |  | ZHANG Lily (USA) |  | WS | Main Draw | SemiFinal | 0 - 4 | 8:11 7:11 1:11 8:11 | ZHANG Lily |  | "
             },
             {
@@ -463,15 +447,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "WANG Amy (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | WANG Amy (USA) |  | ZHANG Lily (USA) |  | WS | Main Draw | Final | 4 - 3 | 11:5 14:12 6:11 11:8 8:11 9:11 11:3 | WANG Amy |  | "
             }
           ]
@@ -514,15 +496,13 @@
                 "CHEN Xingtong (CHN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "CHEN Xingtong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Champions Doha 2026 | ZHANG Lily (USA) |  | CHEN Xingtong (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 1:11 4:11 | CHEN Xingtong |  | "
             }
           ]
@@ -570,15 +550,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HARIMOTO Miwa (JPN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | HARIMOTO Miwa (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:9 11:3 | HARIMOTO Miwa |  | "
             }
           ]
@@ -631,15 +609,13 @@
                 "CHEN Yi (CHN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "CHEN Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | ZHANG Lily (USA) |  | CHEN Yi (CHN) |  | WS | Main Draw | R32 | 2 - 3 | 7:11 13:11 13:15 11:9 6:11 | CHEN Yi |  | "
             }
           ]
@@ -687,15 +663,13 @@
                 "CHAN Natalie (CAN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "CHAN Natalie (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Lily (USA) |  | CHAN Natalie (CAN) |  | WS | Main Draw | R32 | 4 - 0 | 11:6 12:10 11:3 11:6 | ZHANG Lily |  | "
             },
             {
@@ -733,15 +707,13 @@
                 "RODRIGUEZ Alondra (PUR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "RODRIGUEZ Alondra (PUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Lily (USA) |  | RODRIGUEZ Alondra (PUR) |  | WS | Main Draw | R16 | 4 - 0 | 11:7 11:6 12:10 11:3 | ZHANG Lily |  | "
             },
             {
@@ -784,15 +756,13 @@
                 "ORTEGA Daniela (CHI)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "ORTEGA Daniela (CHI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Lily (USA) |  | ORTEGA Daniela (CHI) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 6:11 11:6 11:5 11:9 11:3 | ZHANG Lily |  | "
             },
             {
@@ -830,15 +800,13 @@
                 "DIAZ Adriana (PUR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "DIAZ Adriana (PUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Lily (USA) |  | DIAZ Adriana (PUR) |  | WS | Main Draw | SemiFinal | 0 - 4 | 8:11 8:11 9:11 5:11 | DIAZ Adriana |  | "
             },
             {
@@ -871,15 +839,13 @@
                 "CODINA Ana (ARG)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "CODINA Ana (ARG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Lily (USA) |  | CODINA Ana (ARG) |  | WT | Qualification |  | 3 - 0 | 11:5 14:12 11:5 | ZHANG Lily |  | "
             },
             {
@@ -912,15 +878,13 @@
                 "ZHANG Sunny (CAN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "ZHANG Sunny (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZHANG Lily (USA) |  | ZHANG Sunny (CAN) |  | WT | Qualification |  | 3 - 0 | 11:0 11:9 11:6 | ZHANG Lily |  | "
             },
             {
@@ -953,15 +917,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ORTEGA Daniela (CHI)",
+                "ORTEGA Daniela (CHI)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ORTEGA Daniela (CHI) |  | ZHANG Lily (USA) |  | WT | Main Draw | SemiFinal | 0 - 3 | 8:11 5:11 8:11 | ZHANG Lily |  | "
             },
             {
@@ -999,15 +961,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "RODRIGUEZ Alondra (PUR)",
+                "RODRIGUEZ Alondra (PUR)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | RODRIGUEZ Alondra (PUR) |  | ZHANG Lily (USA) |  | WT | Main Draw | Final | 1 - 3 | 11:8 10:12 3:11 1:11 | ZHANG Lily |  | "
             },
             {
@@ -1050,15 +1010,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "DIAZ Adriana (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | DIAZ Adriana (PUR) |  | ZHANG Lily (USA) |  | WT | Main Draw | Final | 3 - 2 | 11:6 9:11 11:9 7:11 11:8 | DIAZ Adriana |  | "
             }
           ]
@@ -1101,15 +1059,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | WINTER Sabine (GER) |  | ZHANG Lily (USA) |  | WS | Main Draw | R64 | 3 - 0 | 11:8 11:9 11:7 | WINTER Sabine |  | "
             },
             {
@@ -1136,7 +1092,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "WANG Yidi",
+              "winner": "WANG Yidi / ZHANG Lily",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "LUTZ Charlotte (FRA)",
@@ -1145,17 +1101,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "WANG Yidi (CHN)"
+                "LUTZ Charlotte (FRA)"
               ],
               "side_b": [
-                "LUTZ Charlotte (FRA)",
+                "WANG Yidi (CHN)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | DRAGOMAN Andreea (ROU) | LUTZ Charlotte (FRA) | WANG Yidi (CHN) | ZHANG Lily (USA) | WD | Main Draw | R32 | 0 - 3 | 11:13 11:13 8:11 | WANG Yidi | ZHANG Lily | "
             },
             {
@@ -1182,7 +1135,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "CHEN Xingtong",
+              "winner": "CHEN Xingtong / QIAN Tianyi",
               "all_players_in_row": [
                 "CHEN Xingtong (CHN)",
                 "QIAN Tianyi (CHN)",
@@ -1191,17 +1144,14 @@
               ],
               "side_a": [
                 "CHEN Xingtong (CHN)",
-                "WANG Yidi (CHN)"
+                "QIAN Tianyi (CHN)"
               ],
               "side_b": [
-                "QIAN Tianyi (CHN)",
+                "WANG Yidi (CHN)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | CHEN Xingtong (CHN) | QIAN Tianyi (CHN) | WANG Yidi (CHN) | ZHANG Lily (USA) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:8 11:6 | CHEN Xingtong | QIAN Tianyi | "
             }
           ]
@@ -1244,15 +1194,13 @@
                 "CHEN Xingtong (CHN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "CHEN Xingtong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Macao 2025 | ZHANG Lily (USA) |  | CHEN Xingtong (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 1:11 8:11 6:11 | CHEN Xingtong |  | "
             }
           ]
@@ -1295,15 +1243,13 @@
                 "ODO Satsuki (JPN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "ODO Satsuki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Yokohama 2025 | ZHANG Lily (USA) |  | ODO Satsuki (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 0:11 0:11 0:11 | ODO Satsuki |  | "
             },
             {
@@ -1346,15 +1292,13 @@
                 "DOO Hoi Kem (HKG)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "DOO Hoi Kem (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Yokohama 2025 | ZHANG Lily (USA) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R32 | 3 - 2 | 11:13 13:11 11:8 5:11 11:6 | ZHANG Lily |  | "
             }
           ]
@@ -1402,15 +1346,13 @@
                 "WANG Amy (USA)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "WANG Amy (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | ZHANG Lily (USA) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 1 - 3 | 10:12 11:6 5:11 4:11 | WANG Amy |  | "
             }
           ]
@@ -1468,15 +1410,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "JEGER Mateja (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | JEGER Mateja (CRO) |  | ZHANG Lily (USA) |  | WS | Main Draw | R128 | 2 - 4 | 11:6 10:12 4:11 11:8 12:14 7:11 | ZHANG Lily |  | "
             },
             {
@@ -1515,18 +1455,17 @@
               ],
               "winner": "LI Yu-Jhun",
               "all_players_in_row": [
-                "ZHANG Lily (USA)"
-              ],
-              "side_a": [
                 "LI Yu-Jhun (TPE)",
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LI Yu-Jhun (TPE)"
+              ],
+              "side_b": [
+                "ZHANG Lily (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LI Yu-Jhun (TPE) |  | ZHANG Lily (USA) |  | WS | Main Draw | R64 | 4 - 1 | 9:11 11:9 11:7 11:8 11:7 | LI Yu-Jhun |  | "
             }
           ]
@@ -1574,15 +1513,13 @@
                 "SUH Hyo Won (KOR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SUH Hyo Won (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | ZHANG Lily (USA) |  | SUH Hyo Won (KOR) |  | WS | Qualification |  | 2 - 2 | 8:11 11:9 11:7 4:11 |  |  | "
             },
             {
@@ -1620,15 +1557,13 @@
                 "LI Chunli (NZL)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "LI Chunli (NZL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | ZHANG Lily (USA) |  | LI Chunli (NZL) |  | WS | Qualification |  | 4 - 0 | 11:9 11:4 11:4 11:7 | ZHANG Lily |  | "
             }
           ]
@@ -1671,15 +1606,13 @@
                 "SHIN Yubin (KOR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SHIN Yubin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | ZHANG Lily (USA) |  | SHIN Yubin (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 9:11 4:11 | SHIN Yubin |  | "
             }
           ]
@@ -1727,15 +1660,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ARELLANO Angelica (ECU)",
+                "ARELLANO Angelica (ECU)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | ARELLANO Angelica (ECU) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 0 - 4 | 5:11 9:11 8:11 5:11 | ZHANG Lily |  | "
             },
             {
@@ -1773,15 +1704,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "TAKAHASHI Giulia (BRA)",
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | TAKAHASHI Giulia (BRA) |  | ZHANG Lily (USA) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 5:11 6:11 7:11 7:11 | ZHANG Lily |  | "
             },
             {
@@ -1824,15 +1753,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ZHANG Mo (CAN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | ZHANG Mo (CAN) |  | ZHANG Lily (USA) |  | WS | Main Draw | SemiFinal | 1 - 4 | 6:11 6:11 3:11 11:8 9:11 | ZHANG Lily |  | "
             },
             {
@@ -1885,15 +1812,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "TAKAHASHI Bruna (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | TAKAHASHI Bruna (BRA) |  | ZHANG Lily (USA) |  | WS | Main Draw | Final | 4 - 3 | 9:11 14:12 11:5 9:11 12:14 15:13 11:5 | TAKAHASHI Bruna |  | "
             }
           ]
@@ -1936,15 +1861,13 @@
                 "SER Lin Qian (SGP)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SER Lin Qian (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | ZHANG Lily (USA) |  | SER Lin Qian (SGP) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:7 11:4 | ZHANG Lily |  | "
             },
             {
@@ -1977,15 +1900,13 @@
                 "LEE Eunhye (KOR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "LEE Eunhye (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | ZHANG Lily (USA) |  | LEE Eunhye (KOR) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:2 11:4 | ZHANG Lily |  | "
             },
             {
@@ -2023,15 +1944,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | HAYATA Hina (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 3 - 1 | 11:5 11:7 6:11 11:4 | HAYATA Hina |  | "
             }
           ]
@@ -2079,15 +1998,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HIRANO Miu (JPN)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | HIRANO Miu (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:4 12:10 | HIRANO Miu |  | "
             }
           ]
@@ -2130,15 +2047,13 @@
                 "BATRA Manika (IND)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "BATRA Manika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Champions Montpellier 2024 | ZHANG Lily (USA) |  | BATRA Manika (IND) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 8:11 10:12 | BATRA Manika |  | "
             }
           ]
@@ -2181,15 +2096,13 @@
                 "KIM Nayeong (KOR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "KIM Nayeong (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | ZHANG Lily (USA) |  | KIM Nayeong (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 3:11 4:11 | KIM Nayeong |  | "
             }
           ]
@@ -2237,15 +2150,13 @@
                 "SAHAKIAN Mariana (LBN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SAHAKIAN Mariana (LBN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | ZHANG Lily (USA) |  | SAHAKIAN Mariana (LBN) |  | WS | Main Draw | R64 | 4 - 0 | 11:7 11:6 11:4 11:6 | ZHANG Lily |  | "
             },
             {
@@ -2293,15 +2204,13 @@
                 "TAKAHASHI Bruna (BRA)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | ZHANG Lily (USA) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | R32 | 4 - 2 | 11:8 11:7 9:11 8:11 11:8 11:8 | ZHANG Lily |  | "
             },
             {
@@ -2339,15 +2248,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "SHIN Yubin (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | SHIN Yubin (KOR) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 4 - 0 | 11:2 11:8 11:4 15:13 | SHIN Yubin |  | "
             },
             {
@@ -2380,15 +2287,13 @@
                 "KAUFMANN Annett (GER)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "KAUFMANN Annett (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | ZHANG Lily (USA) |  | KAUFMANN Annett (GER) |  | WT | Main Draw | R16 | 0 - 3 | 6:11 6:11 5:11 | KAUFMANN Annett |  | "
             },
             {
@@ -2426,15 +2331,13 @@
                 "WAN Yuan (GER)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "WAN Yuan (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | ZHANG Lily (USA) |  | WAN Yuan (GER) |  | WT | Main Draw | R16 | 3 - 1 | 11:5 9:11 11:5 11:6 | ZHANG Lily |  | "
             }
           ]
@@ -2476,7 +2379,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "MA Jinbao",
+              "winner": "MA Jinbao / ZHANG Lily",
               "all_players_in_row": [
                 "ASSAR Khalid (EGY)",
                 "HELMY Yousra (EGY)",
@@ -2485,17 +2388,14 @@
               ],
               "side_a": [
                 "ASSAR Khalid (EGY)",
-                "MA Jinbao (USA)"
+                "HELMY Yousra (EGY)"
               ],
               "side_b": [
-                "HELMY Yousra (EGY)",
+                "MA Jinbao (USA)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | ASSAR Khalid (EGY) | HELMY Yousra (EGY) | MA Jinbao (USA) | ZHANG Lily (USA) | XD | Qualification | QR16 | 1 - 3 | 11:9 8:11 9:11 8:11 | MA Jinbao | ZHANG Lily | "
             },
             {
@@ -2527,7 +2427,7 @@
                 "13:11",
                 "5:11"
               ],
-              "winner": "YIU Kwan To",
+              "winner": "YIU Kwan To / NG Wing Lam",
               "all_players_in_row": [
                 "MA Jinbao (USA)",
                 "ZHANG Lily (USA)",
@@ -2536,17 +2436,14 @@
               ],
               "side_a": [
                 "MA Jinbao (USA)",
-                "YIU Kwan To (HKG)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "YIU Kwan To (HKG)",
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | MA Jinbao (USA) | ZHANG Lily (USA) | YIU Kwan To (HKG) | NG Wing Lam (HKG) | XD | Qualification | QR8 | 1 - 3 | 3:11 6:11 13:11 5:11 | YIU Kwan To | NG Wing Lam | "
             },
             {
@@ -2584,15 +2481,13 @@
                 "SINGEORZAN Ioana (ROU)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SINGEORZAN Ioana (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | ZHANG Lily (USA) |  | SINGEORZAN Ioana (ROU) |  | WS | Main Draw | R64 | 3 - 1 | 11:7 7:11 11:7 11:7 | ZHANG Lily |  | "
             },
             {
@@ -2635,15 +2530,13 @@
                 "KIM Nayeong (KOR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "KIM Nayeong (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | ZHANG Lily (USA) |  | KIM Nayeong (KOR) |  | WS | Main Draw | R32 | 3 - 2 | 8:11 11:8 7:11 13:11 12:10 | ZHANG Lily |  | "
             },
             {
@@ -2681,15 +2574,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | HAYATA Hina (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 3 - 1 | 8:11 11:8 11:3 11:5 | HAYATA Hina |  | "
             }
           ]
@@ -2737,15 +2628,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "MALOBABIC Ivana (CRO)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | MALOBABIC Ivana (CRO) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 11:9 7:11 4:11 | ZHANG Lily |  | "
             },
             {
@@ -2778,15 +2667,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Zagreb 2024 | SZOCS Bernadette (ROU) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 12:10 11:7 | SZOCS Bernadette |  | "
             }
           ]
@@ -2828,7 +2715,7 @@
                 "11:5",
                 "12:10"
               ],
-              "winner": "HAYATA Hina",
+              "winner": "HAYATA Hina / HIRANO Miu",
               "all_players_in_row": [
                 "HAYATA Hina (JPN)",
                 "HIRANO Miu (JPN)",
@@ -2837,17 +2724,14 @@
               ],
               "side_a": [
                 "HAYATA Hina (JPN)",
-                "VARADY Barbora (SVK)"
+                "HIRANO Miu (JPN)"
               ],
               "side_b": [
-                "HIRANO Miu (JPN)",
+                "VARADY Barbora (SVK)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | HAYATA Hina (JPN) | HIRANO Miu (JPN) | VARADY Barbora (SVK) | ZHANG Lily (USA) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:5 12:10 | HAYATA Hina | HIRANO Miu | "
             },
             {
@@ -2880,15 +2764,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "LAVROVA Anastassiya (KAZ)",
+                "LAVROVA Anastassiya (KAZ)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | LAVROVA Anastassiya (KAZ) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 2:11 8:11 | ZHANG Lily |  | "
             },
             {
@@ -2915,7 +2797,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / ZHANG Lily",
               "all_players_in_row": [
                 "LIANG Jishan (USA)",
                 "ZHANG Lily (USA)",
@@ -2924,17 +2806,14 @@
               ],
               "side_a": [
                 "LIANG Jishan (USA)",
-                "KENZHIGULOV Aidos (KAZ)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "KENZHIGULOV Aidos (KAZ)",
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | LIANG Jishan (USA) | ZHANG Lily (USA) | KENZHIGULOV Aidos (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:8 11:6 | LIANG Jishan | ZHANG Lily | "
             },
             {
@@ -2961,24 +2840,23 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "LIN Yun-Ju",
+              "winner": "LIN Yun-Ju / CHEN Szu-Yu",
               "all_players_in_row": [
+                "LIN Yun-Ju (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "LIANG Jishan (USA)",
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
                 "LIN Yun-Ju (TPE)",
-                "LIANG Jishan (USA)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "LIANG Jishan (USA)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | LIN Yun-Ju (TPE) | CHEN Szu-Yu (TPE) | LIANG Jishan (USA) | ZHANG Lily (USA) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:7 11:4 | LIN Yun-Ju | CHEN Szu-Yu | "
             },
             {
@@ -3011,15 +2889,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HAN Feier (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | HAN Feier (CHN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 9:11 9:11 | ZHANG Lily |  | "
             },
             {
@@ -3052,15 +2928,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HIRANO Miu (JPN)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | HIRANO Miu (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:5 11:7 | HIRANO Miu |  | "
             }
           ]
@@ -3097,7 +2971,7 @@
                 "8:11",
                 "1:11"
               ],
-              "winner": "VARADY Barbora",
+              "winner": "VARADY Barbora / ZHANG Lily",
               "all_players_in_row": [
                 "WONG Xin Ru (SGP)",
                 "GOI Rui Xuan (SGP)",
@@ -3106,17 +2980,14 @@
               ],
               "side_a": [
                 "WONG Xin Ru (SGP)",
-                "VARADY Barbora (SVK)"
+                "GOI Rui Xuan (SGP)"
               ],
               "side_b": [
-                "GOI Rui Xuan (SGP)",
+                "VARADY Barbora (SVK)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | WONG Xin Ru (SGP) | GOI Rui Xuan (SGP) | VARADY Barbora (SVK) | ZHANG Lily (USA) | WD | Main Draw | R16 | 0 - 3 | 5:11 8:11 1:11 | VARADY Barbora | ZHANG Lily | "
             },
             {
@@ -3154,15 +3025,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "MUKHERJEE Sutirtha (IND)",
+                "MUKHERJEE Sutirtha (IND)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | MUKHERJEE Sutirtha (IND) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 1 - 3 | 11:7 8:11 8:11 4:11 | ZHANG Lily |  | "
             },
             {
@@ -3199,7 +3068,7 @@
                 "6:11",
                 "11:5"
               ],
-              "winner": "VARADY Barbora",
+              "winner": "VARADY Barbora / ZHANG Lily",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "ZHANG Lily (USA)",
@@ -3208,17 +3077,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "WU Yangchen (CHN)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "WU Yangchen (CHN)",
                 "ZANG Xiaotong (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | VARADY Barbora (SVK) | ZHANG Lily (USA) | WU Yangchen (CHN) | ZANG Xiaotong (CHN) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:8 8:11 12:10 6:11 11:5 | VARADY Barbora | ZHANG Lily | "
             },
             {
@@ -3261,15 +3127,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "CHU Hanwen (CHN)",
+                "CHU Hanwen (CHN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHU Hanwen (CHN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 2 - 3 | 11:6 6:11 6:11 11:8 11:13 | ZHANG Lily |  | "
             },
             {
@@ -3308,18 +3172,17 @@
               ],
               "winner": "CHEN Szu-Yu",
               "all_players_in_row": [
-                "ZHANG Lily (USA)"
-              ],
-              "side_a": [
                 "CHEN Szu-Yu (TPE)",
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHEN Szu-Yu (TPE)"
+              ],
+              "side_b": [
+                "ZHANG Lily (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHEN Szu-Yu (TPE) |  | ZHANG Lily (USA) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 11:8 6:11 6:11 11:8 11:7 | CHEN Szu-Yu |  | "
             },
             {
@@ -3346,7 +3209,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "VARADY Barbora",
+              "winner": "VARADY Barbora / ZHANG Lily",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "ZHANG Lily (USA)",
@@ -3355,17 +3218,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "CHOI Hyojoo (KOR)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | VARADY Barbora (SVK) | ZHANG Lily (USA) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:8 11:6 | VARADY Barbora | ZHANG Lily | "
             },
             {
@@ -3392,7 +3252,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "CHEN Xingtong",
+              "winner": "CHEN Xingtong / QIAN Tianyi",
               "all_players_in_row": [
                 "CHEN Xingtong (CHN)",
                 "QIAN Tianyi (CHN)",
@@ -3401,17 +3261,14 @@
               ],
               "side_a": [
                 "CHEN Xingtong (CHN)",
-                "VARADY Barbora (SVK)"
+                "QIAN Tianyi (CHN)"
               ],
               "side_b": [
-                "QIAN Tianyi (CHN)",
+                "VARADY Barbora (SVK)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHEN Xingtong (CHN) | QIAN Tianyi (CHN) | VARADY Barbora (SVK) | ZHANG Lily (USA) | WD | Main Draw | Final | 3 - 0 | 11:9 11:9 11:9 | CHEN Xingtong | QIAN Tianyi | "
             }
           ]
@@ -3464,15 +3321,13 @@
                 "SOLJA Petrissa (GER)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SOLJA Petrissa (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Champions Budapest 2022 | ZHANG Lily (USA) |  | SOLJA Petrissa (GER) |  | WS | Main Draw | R32 | 3 - 2 | 10:12 11:5 4:11 11:5 11:8 | ZHANG Lily |  | "
             },
             {
@@ -3510,15 +3365,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "DOO Hoi Kem (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Champions Budapest 2022 | DOO Hoi Kem (HKG) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 3 - 1 | 11:6 6:11 11:9 12:10 | DOO Hoi Kem |  | "
             }
           ]
@@ -3571,15 +3424,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "SOLJA Petrissa (GER)",
+                "SOLJA Petrissa (GER)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | SOLJA Petrissa (GER) |  | ZHANG Lily (USA) |  | WS | Main Draw | R64 | 2 - 3 | 5:11 11:9 6:11 11:1 12:14 | ZHANG Lily |  | "
             },
             {
@@ -3622,15 +3473,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ISHIKAWA Kasumi (JPN)",
+                "ISHIKAWA Kasumi (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | ISHIKAWA Kasumi (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 11:9 8:11 7:11 13:11 | ISHIKAWA Kasumi |  | "
             }
           ]
@@ -3673,15 +3522,13 @@
                 "MUKHERJEE Sutirtha (IND)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "MUKHERJEE Sutirtha (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | ZHANG Lily (USA) |  | MUKHERJEE Sutirtha (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:3 11:5 | ZHANG Lily |  | "
             },
             {
@@ -3713,7 +3560,7 @@
                 "5:11",
                 "9:11"
               ],
-              "winner": "XIAO Maria",
+              "winner": "XIAO Maria / ZHANG Lily",
               "all_players_in_row": [
                 "YILMAZ Ozge (TUR)",
                 "HARAC Ece (TUR)",
@@ -3722,17 +3569,14 @@
               ],
               "side_a": [
                 "YILMAZ Ozge (TUR)",
-                "XIAO Maria (ESP)"
+                "HARAC Ece (TUR)"
               ],
               "side_b": [
-                "HARAC Ece (TUR)",
+                "XIAO Maria (ESP)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | YILMAZ Ozge (TUR) | HARAC Ece (TUR) | XIAO Maria (ESP) | ZHANG Lily (USA) | WD | Main Draw | R16 | 1 - 3 | 9:11 11:7 5:11 9:11 | XIAO Maria | ZHANG Lily | "
             },
             {
@@ -3759,7 +3603,7 @@
                 "8:11",
                 "4:11"
               ],
-              "winner": "XIAO Maria",
+              "winner": "XIAO Maria / ZHANG Lily",
               "all_players_in_row": [
                 "VEGA Paulina (CHI)",
                 "ORTEGA Daniela (CHI)",
@@ -3768,17 +3612,14 @@
               ],
               "side_a": [
                 "VEGA Paulina (CHI)",
-                "XIAO Maria (ESP)"
+                "ORTEGA Daniela (CHI)"
               ],
               "side_b": [
-                "ORTEGA Daniela (CHI)",
+                "XIAO Maria (ESP)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | VEGA Paulina (CHI) | ORTEGA Daniela (CHI) | XIAO Maria (ESP) | ZHANG Lily (USA) | WD | Main Draw | QuarterFinal | 0 - 3 | 6:11 8:11 4:11 | XIAO Maria | ZHANG Lily | "
             },
             {
@@ -3811,15 +3652,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | ZHANG Lily (USA) |  | XIAO Maria (ESP) |  | WS | Main Draw | R16 | 3 - 0 | 11:2 12:10 11:9 | ZHANG Lily |  | "
             },
             {
@@ -3856,24 +3695,23 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "HUANG Yu-Wen",
+              "winner": "HUANG Yu-Wen / CHENG Hsien-Tzu",
               "all_players_in_row": [
+                "HUANG Yu-Wen (TPE)",
+                "CHENG Hsien-Tzu (TPE)",
                 "XIAO Maria (ESP)",
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
                 "HUANG Yu-Wen (TPE)",
-                "XIAO Maria (ESP)"
+                "CHENG Hsien-Tzu (TPE)"
               ],
               "side_b": [
-                "CHENG Hsien-Tzu (TPE)",
+                "XIAO Maria (ESP)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | HUANG Yu-Wen (TPE) | CHENG Hsien-Tzu (TPE) | XIAO Maria (ESP) | ZHANG Lily (USA) | WD | Main Draw | SemiFinal | 3 - 2 | 10:12 10:12 11:8 11:4 11:7 | HUANG Yu-Wen | CHENG Hsien-Tzu | "
             },
             {
@@ -3906,15 +3744,13 @@
                 "TAKAHASHI Bruna (BRA)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | ZHANG Lily (USA) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 6:11 5:11 5:11 | TAKAHASHI Bruna |  | "
             }
           ]
@@ -3951,7 +3787,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "ZHANG Kai",
+              "winner": "ZHANG Kai / ZHANG Lily",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "QUAN Emily (USA)",
@@ -3960,17 +3796,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "ZHANG Kai (USA)"
+                "QUAN Emily (USA)"
               ],
               "side_b": [
-                "QUAN Emily (USA)",
+                "ZHANG Kai (USA)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | OYEBODE John (ITA) | QUAN Emily (USA) | ZHANG Kai (USA) | ZHANG Lily (USA) | XD | Main Draw | R16 | 0 - 3 | 6:11 8:11 7:11 | ZHANG Kai | ZHANG Lily | "
             },
             {
@@ -4002,7 +3835,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "ZHANG Kai",
+              "winner": "ZHANG Kai / ZHANG Lily",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "LIN Yishiuan (USA)",
@@ -4011,17 +3844,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "ZHANG Kai (USA)"
+                "LIN Yishiuan (USA)"
               ],
               "side_b": [
-                "LIN Yishiuan (USA)",
+                "ZHANG Kai (USA)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | NARESH Nandan (USA) | LIN Yishiuan (USA) | ZHANG Kai (USA) | ZHANG Lily (USA) | XD | Main Draw | QuarterFinal | 1 - 3 | 8:11 11:5 6:11 9:11 | ZHANG Kai | ZHANG Lily | "
             },
             {
@@ -4059,15 +3889,13 @@
                 "MORIN Katherine (CAN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "MORIN Katherine (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | ZHANG Lily (USA) |  | MORIN Katherine (CAN) |  | WS | Main Draw | R32 | 4 - 0 | 11:3 11:4 11:5 11:4 | ZHANG Lily |  | "
             },
             {
@@ -4099,7 +3927,7 @@
                 "7:11",
                 "7:11"
               ],
-              "winner": "PICCOLIN Jordy",
+              "winner": "PICCOLIN Jordy / LAURENTI Jamila",
               "all_players_in_row": [
                 "ZHANG Kai (USA)",
                 "ZHANG Lily (USA)",
@@ -4108,17 +3936,14 @@
               ],
               "side_a": [
                 "ZHANG Kai (USA)",
-                "PICCOLIN Jordy (ITA)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "PICCOLIN Jordy (ITA)",
                 "LAURENTI Jamila (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | ZHANG Kai (USA) | ZHANG Lily (USA) | PICCOLIN Jordy (ITA) | LAURENTI Jamila (ITA) | XD | Main Draw | SemiFinal | 1 - 3 | 11:9 7:11 7:11 7:11 | PICCOLIN Jordy | LAURENTI Jamila | "
             },
             {
@@ -4162,18 +3987,17 @@
               ],
               "winner": "ZHANG Lily",
               "all_players_in_row": [
-                "ZHANG Lily (USA)"
-              ],
-              "side_a": [
                 "ZHANG Lily (USA)",
                 "LI Yu-Jhun (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
+                "LI Yu-Jhun (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | ZHANG Lily (USA) |  | LI Yu-Jhun (TPE) |  | WS | Main Draw | R16 | 4 - 2 | 11:7 12:10 11:7 9:11 9:11 11:6 | ZHANG Lily |  | "
             },
             {
@@ -4217,18 +4041,17 @@
               ],
               "winner": "ZHANG Lily",
               "all_players_in_row": [
-                "ZHANG Lily (USA)"
-              ],
-              "side_a": [
                 "ZHANG Lily (USA)",
                 "CHEN Szu-Yu (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
+                "CHEN Szu-Yu (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | ZHANG Lily (USA) |  | CHEN Szu-Yu (TPE) |  | WS | Main Draw | QuarterFinal | 4 - 2 | 11:6 11:8 11:6 9:11 10:12 11:4 | ZHANG Lily |  | "
             },
             {
@@ -4271,15 +4094,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "SASAO Asuka (JPN)",
+                "SASAO Asuka (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | SASAO Asuka (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | SemiFinal | 1 - 4 | 8:11 7:11 9:11 11:4 10:12 | ZHANG Lily |  | "
             },
             {
@@ -4322,15 +4143,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "OJIO Haruna (JPN)",
+                "OJIO Haruna (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | OJIO Haruna (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | Final | 4 - 1 | 14:16 11:3 11:0 11:3 11:4 | OJIO Haruna |  | "
             }
           ]
@@ -4367,7 +4186,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "KOU Lei",
+              "winner": "KOU Lei / ZHANG Lily",
               "all_players_in_row": [
                 "KOU Lei (UKR)",
                 "ZHANG Lily (USA)",
@@ -4376,17 +4195,14 @@
               ],
               "side_a": [
                 "KOU Lei (UKR)",
-                "SI Zhigao (USA)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "SI Zhigao (USA)",
                 "KE Tiffany (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | KOU Lei (UKR) | ZHANG Lily (USA) | SI Zhigao (USA) | KE Tiffany (USA) | XD | Main Draw | R16 | 3 - 0 | 13:11 11:7 11:5 | KOU Lei | ZHANG Lily | "
             },
             {
@@ -4413,7 +4229,7 @@
                 "12:10",
                 "13:11"
               ],
-              "winner": "MOSTAFAVI Leili",
+              "winner": "MOSTAFAVI Leili / LUTZ Camille",
               "all_players_in_row": [
                 "MOSTAFAVI Leili (FRA)",
                 "LUTZ Camille (FRA)",
@@ -4422,17 +4238,14 @@
               ],
               "side_a": [
                 "MOSTAFAVI Leili (FRA)",
-                "ZHANG Lily (USA)"
+                "LUTZ Camille (FRA)"
               ],
               "side_b": [
-                "LUTZ Camille (FRA)",
+                "ZHANG Lily (USA)",
                 "LI Rui Ni (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | MOSTAFAVI Leili (FRA) | LUTZ Camille (FRA) | ZHANG Lily (USA) | LI Rui Ni (USA) | WD | Main Draw | R16 | 3 - 0 | 11:8 12:10 13:11 | MOSTAFAVI Leili | LUTZ Camille | "
             },
             {
@@ -4469,7 +4282,7 @@
                 "11:6",
                 "11:5"
               ],
-              "winner": "KOU Lei",
+              "winner": "KOU Lei / ZHANG Lily",
               "all_players_in_row": [
                 "KOU Lei (UKR)",
                 "ZHANG Lily (USA)",
@@ -4478,17 +4291,14 @@
               ],
               "side_a": [
                 "KOU Lei (UKR)",
-                "PICARD Vincent (FRA)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "PICARD Vincent (FRA)",
                 "MOSTAFAVI Leili (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | KOU Lei (UKR) | ZHANG Lily (USA) | PICARD Vincent (FRA) | MOSTAFAVI Leili (FRA) | XD | Main Draw | QuarterFinal | 3 - 2 | 6:11 9:11 11:6 11:6 11:5 | KOU Lei | ZHANG Lily | "
             },
             {
@@ -4531,15 +4341,13 @@
                 "SCHOLZ Vivien (LUX)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SCHOLZ Vivien (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | ZHANG Lily (USA) |  | SCHOLZ Vivien (LUX) |  | WS | Main Draw | R32 | 4 - 1 | 8:11 11:2 11:6 11:5 11:7 | ZHANG Lily |  | "
             },
             {
@@ -4566,24 +4374,23 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "CHUANG Chih-Yuan",
+              "winner": "CHUANG Chih-Yuan / CHEN Szu-Yu",
               "all_players_in_row": [
+                "CHUANG Chih-Yuan (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "KOU Lei (UKR)",
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
                 "CHUANG Chih-Yuan (TPE)",
-                "KOU Lei (UKR)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "KOU Lei (UKR)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | CHUANG Chih-Yuan (TPE) | CHEN Szu-Yu (TPE) | KOU Lei (UKR) | ZHANG Lily (USA) | XD | Main Draw | SemiFinal | 3 - 0 | 14:12 11:7 11:4 | CHUANG Chih-Yuan | CHEN Szu-Yu | "
             },
             {
@@ -4621,15 +4428,13 @@
                 "OJIO Haruna (JPN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "OJIO Haruna (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | ZHANG Lily (USA) |  | OJIO Haruna (JPN) |  | WS | Main Draw | R16 | 0 - 4 | 8:11 5:11 3:11 4:11 | OJIO Haruna |  | "
             }
           ]
@@ -4677,15 +4482,13 @@
                 "BILENKO Tetyana (UKR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "BILENKO Tetyana (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | ZHANG Lily (USA) |  | BILENKO Tetyana (UKR) |  | WS | Main Draw | R64 | 1 - 3 | 8:11 11:9 6:11 5:11 | BILENKO Tetyana |  | "
             }
           ]
@@ -4728,15 +4531,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "LEE Ho Ching (HKG)",
+                "LEE Ho Ching (HKG)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LEE Ho Ching (HKG) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:7 11:9 | LEE Ho Ching |  | "
             }
           ]
@@ -4779,15 +4580,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ISHIKAWA Kasumi (JPN)",
+                "ISHIKAWA Kasumi (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | ISHIKAWA Kasumi (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R64 | 3 - 0 | 11:2 11:8 12:10 | ISHIKAWA Kasumi |  | "
             }
           ]
@@ -4829,7 +4628,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "LIN Gaoyuan",
+              "winner": "LIN Gaoyuan / ZHANG Lily",
               "all_players_in_row": [
                 "LIN Gaoyuan (CHN)",
                 "ZHANG Lily (USA)",
@@ -4838,17 +4637,14 @@
               ],
               "side_a": [
                 "LIN Gaoyuan (CHN)",
-                "APOLONIA Tiago (POR)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LIN Gaoyuan (CHN) | ZHANG Lily (USA) | APOLONIA Tiago (POR) | SHAO Jieni (POR) | XD | Main Draw | R64 | 3 - 0 | 11:6 11:9 11:7 | LIN Gaoyuan | ZHANG Lily | "
             },
             {
@@ -4886,15 +4682,13 @@
                 "HARTBRICH Leonie (HUN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "HARTBRICH Leonie (HUN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ZHANG Lily (USA) |  | HARTBRICH Leonie (HUN) |  | WS | Main Draw | R128 | 4 - 0 | 12:10 12:10 11:3 11:8 | ZHANG Lily |  | "
             },
             {
@@ -4931,7 +4725,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "DEGRAEF Margo",
+              "winner": "DEGRAEF Margo / MARCHETTI Nathalie",
               "all_players_in_row": [
                 "WU Yue (USA)",
                 "ZHANG Lily (USA)",
@@ -4940,17 +4734,14 @@
               ],
               "side_a": [
                 "WU Yue (USA)",
-                "DEGRAEF Margo (BEL)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "DEGRAEF Margo (BEL)",
                 "MARCHETTI Nathalie (BEL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | WU Yue (USA) | ZHANG Lily (USA) | DEGRAEF Margo (BEL) | MARCHETTI Nathalie (BEL) | WD | Main Draw | R64 | 2 - 3 | 11:5 8:11 11:7 9:11 7:11 | DEGRAEF Margo | MARCHETTI Nathalie | "
             },
             {
@@ -4998,15 +4789,13 @@
                 "TODOROVIC Andrea (SRB)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "TODOROVIC Andrea (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ZHANG Lily (USA) |  | TODOROVIC Andrea (SRB) |  | WS | Main Draw | R64 | 4 - 2 | 11:8 13:11 11:2 7:11 10:12 11:7 | ZHANG Lily |  | "
             },
             {
@@ -5038,7 +4827,7 @@
                 "11:3",
                 "12:10"
               ],
-              "winner": "LIN Gaoyuan",
+              "winner": "LIN Gaoyuan / ZHANG Lily",
               "all_players_in_row": [
                 "LIN Gaoyuan (CHN)",
                 "ZHANG Lily (USA)",
@@ -5047,17 +4836,14 @@
               ],
               "side_a": [
                 "LIN Gaoyuan (CHN)",
-                "QIU Dang (GER)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LIN Gaoyuan (CHN) | ZHANG Lily (USA) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R32 | 3 - 1 | 12:14 11:8 11:3 12:10 | LIN Gaoyuan | ZHANG Lily | "
             },
             {
@@ -5110,15 +4896,13 @@
                 "DOO Hoi Kem (HKG)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "DOO Hoi Kem (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ZHANG Lily (USA) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R32 | 3 - 4 | 9:11 11:9 11:13 11:9 6:11 11:6 9:11 | DOO Hoi Kem |  | "
             },
             {
@@ -5150,7 +4934,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "LIN Gaoyuan",
+              "winner": "LIN Gaoyuan / ZHANG Lily",
               "all_players_in_row": [
                 "SKACHKOV Kirill (AIN)",
                 "VOROBEVA Olga (AIN)",
@@ -5159,17 +4943,14 @@
               ],
               "side_a": [
                 "SKACHKOV Kirill (AIN)",
-                "LIN Gaoyuan (CHN)"
+                "VOROBEVA Olga (AIN)"
               ],
               "side_b": [
-                "VOROBEVA Olga (AIN)",
+                "LIN Gaoyuan (CHN)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SKACHKOV Kirill (AIN) | VOROBEVA Olga (AIN) | LIN Gaoyuan (CHN) | ZHANG Lily (USA) | XD | Main Draw | R16 | 1 - 3 | 9:11 12:10 6:11 5:11 | LIN Gaoyuan | ZHANG Lily | "
             },
             {
@@ -5201,7 +4982,7 @@
                 "11:7",
                 "11:7"
               ],
-              "winner": "LIN Gaoyuan",
+              "winner": "LIN Gaoyuan / ZHANG Lily",
               "all_players_in_row": [
                 "LIN Gaoyuan (CHN)",
                 "ZHANG Lily (USA)",
@@ -5210,17 +4991,14 @@
               ],
               "side_a": [
                 "LIN Gaoyuan (CHN)",
-                "LEBESSON Emmanuel (FRA)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "LEBESSON Emmanuel (FRA)",
                 "YUAN Jia Nan (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LIN Gaoyuan (CHN) | ZHANG Lily (USA) | LEBESSON Emmanuel (FRA) | YUAN Jia Nan (FRA) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:9 9:11 11:7 11:7 | LIN Gaoyuan | ZHANG Lily | "
             },
             {
@@ -5257,7 +5035,7 @@
                 "8:11",
                 "11:2"
               ],
-              "winner": "HARIMOTO Tomokazu",
+              "winner": "HARIMOTO Tomokazu / HAYATA Hina",
               "all_players_in_row": [
                 "HARIMOTO Tomokazu (JPN)",
                 "HAYATA Hina (JPN)",
@@ -5266,17 +5044,14 @@
               ],
               "side_a": [
                 "HARIMOTO Tomokazu (JPN)",
-                "LIN Gaoyuan (CHN)"
+                "HAYATA Hina (JPN)"
               ],
               "side_b": [
-                "HAYATA Hina (JPN)",
+                "LIN Gaoyuan (CHN)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | HARIMOTO Tomokazu (JPN) | HAYATA Hina (JPN) | LIN Gaoyuan (CHN) | ZHANG Lily (USA) | XD | Main Draw | SemiFinal | 3 - 2 | 11:9 11:1 6:11 8:11 11:2 | HARIMOTO Tomokazu | HAYATA Hina | "
             }
           ]
@@ -5324,15 +5099,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "CASAS Marta (COL)",
+                "CASAS Marta (COL)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | CASAS Marta (COL) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 0 - 4 | 4:11 3:11 3:11 6:11 | ZHANG Lily |  | "
             },
             {
@@ -5369,7 +5142,7 @@
                 "7:11",
                 "11:6"
               ],
-              "winner": "GUTIERREZ Allan",
+              "winner": "GUTIERREZ Allan / CORDERO Lucia",
               "all_players_in_row": [
                 "GUTIERREZ Allan (GUA)",
                 "CORDERO Lucia (GUA)",
@@ -5378,17 +5151,14 @@
               ],
               "side_a": [
                 "GUTIERREZ Allan (GUA)",
-                "ZHANG Kai (USA)"
+                "CORDERO Lucia (GUA)"
               ],
               "side_b": [
-                "CORDERO Lucia (GUA)",
+                "ZHANG Kai (USA)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | GUTIERREZ Allan (GUA) | CORDERO Lucia (GUA) | ZHANG Kai (USA) | ZHANG Lily (USA) | XD | Main Draw | R16 | 3 - 2 | 11:3 6:11 11:4 7:11 11:6 | GUTIERREZ Allan | CORDERO Lucia | "
             },
             {
@@ -5426,15 +5196,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "HUANG Hui (CAN)",
+                "HUANG Hui (CAN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | HUANG Hui (CAN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R16 | 0 - 4 | 8:11 7:11 7:11 6:11 | ZHANG Lily |  | "
             },
             {
@@ -5477,15 +5245,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "VEGA Paulina (CHI)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | VEGA Paulina (CHI) |  | ZHANG Lily (USA) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 7:11 6:11 8:11 11:8 8:11 | ZHANG Lily |  | "
             },
             {
@@ -5538,15 +5304,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "TAKAHASHI Bruna (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | TAKAHASHI Bruna (BRA) |  | ZHANG Lily (USA) |  | WS | Main Draw | SemiFinal | 4 - 3 | 8:11 11:5 11:9 11:8 8:11 2:11 11:9 | TAKAHASHI Bruna |  | "
             },
             {
@@ -5579,15 +5343,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ZAPATA Hidalynn (GUA)",
+                "ZAPATA Hidalynn (GUA)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | ZAPATA Hidalynn (GUA) |  | ZHANG Lily (USA) |  | WT | Qualification |  | 0 - 3 | 5:11 4:11 10:12 | ZHANG Lily |  | "
             },
             {
@@ -5620,15 +5382,13 @@
                 "HUANG Hui (CAN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "HUANG Hui (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | ZHANG Lily (USA) |  | HUANG Hui (CAN) |  | WT | Qualification |  | 3 - 0 | 11:3 11:5 11:6 | ZHANG Lily |  | "
             },
             {
@@ -5661,15 +5421,13 @@
                 "FU Ching Nam (CAN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "FU Ching Nam (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | ZHANG Lily (USA) |  | FU Ching Nam (CAN) |  | WT | Qualification |  | 3 - 0 | 11:2 11:2 11:6 | ZHANG Lily |  | "
             },
             {
@@ -5707,15 +5465,13 @@
                 "KUMAHARA Luca (BRA)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "KUMAHARA Luca (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | ZHANG Lily (USA) |  | KUMAHARA Luca (BRA) |  | WT | Main Draw | SemiFinal | 3 - 1 | 10:12 12:10 11:6 11:5 | ZHANG Lily |  | "
             },
             {
@@ -5753,15 +5509,13 @@
                 "TAKAHASHI Bruna (BRA)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Championships Lima 2021 | ZHANG Lily (USA) |  | TAKAHASHI Bruna (BRA) |  | WT | Main Draw | SemiFinal | 3 - 1 | 11:5 9:11 13:11 11:6 | ZHANG Lily |  | "
             }
           ]
@@ -5814,15 +5568,13 @@
                 "EDEM Offiong (NGR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "EDEM Offiong (NGR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | ZHANG Lily (USA) |  | EDEM Offiong (NGR) |  | WS | Main Draw | R64 | 4 - 1 | 13:15 11:2 11:2 11:8 11:6 | ZHANG Lily |  | "
             },
             {
@@ -5856,18 +5608,17 @@
               ],
               "winner": "CHEN Szu-Yu",
               "all_players_in_row": [
-                "ZHANG Lily (USA)"
-              ],
-              "side_a": [
                 "CHEN Szu-Yu (TPE)",
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHEN Szu-Yu (TPE)"
+              ],
+              "side_b": [
+                "ZHANG Lily (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | CHEN Szu-Yu (TPE) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 4 - 0 | 11:8 11:7 11:6 12:10 | CHEN Szu-Yu |  | "
             },
             {
@@ -5904,24 +5655,23 @@
                 "12:10",
                 "11:8"
               ],
-              "winner": "CHENG Hsien-Tzu",
+              "winner": "CHENG Hsien-Tzu / CHEN Szu-Yu",
               "all_players_in_row": [
+                "CHENG Hsien-Tzu (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "ZHANG Lily (USA)",
                 "LIU Juan (USA)"
               ],
               "side_a": [
                 "CHENG Hsien-Tzu (TPE)",
-                "ZHANG Lily (USA)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "ZHANG Lily (USA)",
                 "LIU Juan (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | CHENG Hsien-Tzu (TPE) | CHEN Szu-Yu (TPE) | ZHANG Lily (USA) | LIU Juan (USA) | WT | Main Draw | R16 | 3 - 2 | 11:6 6:11 6:11 12:10 11:8 | CHENG Hsien-Tzu | CHEN Szu-Yu | "
             }
           ]
@@ -5974,15 +5724,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "ODO Satsuki (JPN)",
+                "ODO Satsuki (JPN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | ODO Satsuki (JPN) |  | ZHANG Lily (USA) |  | WS | Main Draw | R32 | 3 - 2 | 11:5 8:11 11:4 9:11 11:3 | ODO Satsuki |  | "
             }
           ]
@@ -6035,15 +5783,13 @@
                 "ISHIKAWA Kasumi (JPN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "ISHIKAWA Kasumi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | ZHANG Lily (USA) |  | ISHIKAWA Kasumi (JPN) |  | WS | Main Draw | R32 | 2 - 3 | 8:11 11:8 11:8 8:11 6:11 | ISHIKAWA Kasumi |  | "
             }
           ]
@@ -6106,15 +5852,13 @@
                 "PESOTSKA Margaryta (UKR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | ZHANG Lily (USA) |  | PESOTSKA Margaryta (UKR) |  | WS | Qualification |  | 2 - 4 | 13:15 6:11 5:11 11:7 11:3 10:12 | PESOTSKA Margaryta |  | "
             },
             {
@@ -6162,15 +5906,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "DIAZ Adriana (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | DIAZ Adriana (PUR) |  | ZHANG Lily (USA) |  | WS | Qualification |  | 2 - 4 | 13:11 11:7 9:11 9:11 10:12 5:11 | ZHANG Lily |  | "
             },
             {
@@ -6223,15 +5965,13 @@
                 "ZHANG Mo (CAN)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "ZHANG Mo (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | ZHANG Lily (USA) |  | ZHANG Mo (CAN) |  | WS | Qualification |  | 4 - 3 | 11:9 9:11 12:10 9:11 11:8 7:11 13:11 | ZHANG Lily |  | "
             },
             {
@@ -6279,15 +6019,13 @@
                 "FENG Tianwei (SGP)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "FENG Tianwei (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | ZHANG Lily (USA) |  | FENG Tianwei (SGP) |  | WS | Main Draw | R16 | 4 - 2 | 11:7 11:8 11:9 8:11 8:11 13:11 | ZHANG Lily |  | "
             },
             {
@@ -6325,15 +6063,13 @@
                 "ZHANG Lily (USA)"
               ],
               "side_a": [
-                "CHEN Meng (CHN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | CHEN Meng (CHN) |  | ZHANG Lily (USA) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:8 11:6 11:3 11:9 | CHEN Meng |  | "
             }
           ]

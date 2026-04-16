@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Gaia MONFARDINI",
-  "english_name": "Gaia MONFARDINI",
+  "player_name": "MONFARDINI Gaia",
+  "english_name": "MONFARDINI Gaia",
   "country": "ITA",
   "country_code": "ITA",
   "continent": "",
@@ -44,7 +44,7 @@
                 "11:5",
                 "11:3"
               ],
-              "winner": "WIELGOS Zuzanna",
+              "winner": "WIELGOS Zuzanna / MONFARDINI Gaia",
               "all_players_in_row": [
                 "WIELGOS Zuzanna (POL)",
                 "MONFARDINI Gaia (ITA)",
@@ -53,17 +53,14 @@
               ],
               "side_a": [
                 "WIELGOS Zuzanna (POL)",
-                "PAULIN Lea (SLO)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "PAULIN Lea (SLO)",
                 "NOVAK Tjasa (SLO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | WIELGOS Zuzanna (POL) | MONFARDINI Gaia (ITA) | PAULIN Lea (SLO) | NOVAK Tjasa (SLO) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:5 11:3 | WIELGOS Zuzanna | MONFARDINI Gaia | "
             },
             {
@@ -96,15 +93,13 @@
                 "HRABICOVA Klara (CZE)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "HRABICOVA Klara (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | MONFARDINI Gaia (ITA) |  | HRABICOVA Klara (CZE) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:7 11:6 | MONFARDINI Gaia |  | "
             },
             {
@@ -131,7 +126,7 @@
                 "4:11",
                 "10:12"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "WIELGOS Zuzanna (POL)",
                 "MONFARDINI Gaia (ITA)",
@@ -140,17 +135,14 @@
               ],
               "side_a": [
                 "WIELGOS Zuzanna (POL)",
-                "TAKEYA Misuzu (JPN)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | WIELGOS Zuzanna (POL) | MONFARDINI Gaia (ITA) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 4:11 10:12 | TAKEYA Misuzu | KANEYOSHI Yuka | "
             },
             {
@@ -183,15 +175,13 @@
                 "WEGRZYN Katarzyna (POL)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | MONFARDINI Gaia (ITA) |  | WEGRZYN Katarzyna (POL) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 11:5 11:5 | MONFARDINI Gaia |  | "
             },
             {
@@ -229,15 +219,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | MONFARDINI Gaia (ITA) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 12:10 7:11 4:11 8:11 | BERGSTROM Linda |  | "
             }
           ]
@@ -290,15 +278,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | MONFARDINI Gaia (ITA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 2 | 11:8 13:11 4:11 4:11 13:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -341,15 +327,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | DRAGOMAN Andreea (ROU) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR32 | 2 - 3 | 7:11 13:15 11:7 11:3 5:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -387,15 +371,13 @@
                 "LUTZ Camille (FRA)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | MONFARDINI Gaia (ITA) |  | LUTZ Camille (FRA) |  | WS | Qualification | QR16 | 3 - 1 | 11:6 11:9 9:11 11:5 | MONFARDINI Gaia |  | "
             },
             {
@@ -428,15 +410,13 @@
                 "SHI Xunyao (CHN)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "SHI Xunyao (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | MONFARDINI Gaia (ITA) |  | SHI Xunyao (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 2:11 6:11 7:11 | SHI Xunyao |  | "
             }
           ]
@@ -483,7 +463,7 @@
                 "10:12",
                 "4:11"
               ],
-              "winner": "LAINE Clement",
+              "winner": "LAINE Clement / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ISTRATE Andrei (ROU)",
                 "SINGEORZAN Ioana (ROU)",
@@ -492,17 +472,14 @@
               ],
               "side_a": [
                 "ISTRATE Andrei (ROU)",
-                "LAINE Clement (POR)"
+                "SINGEORZAN Ioana (ROU)"
               ],
               "side_b": [
-                "SINGEORZAN Ioana (ROU)",
+                "LAINE Clement (POR)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | ISTRATE Andrei (ROU) | SINGEORZAN Ioana (ROU) | LAINE Clement (POR) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 2 - 3 | 11:7 11:9 6:11 10:12 4:11 | LAINE Clement | MONFARDINI Gaia | "
             },
             {
@@ -539,7 +516,7 @@
                 "5:11",
                 "11:5"
               ],
-              "winner": "MONFARDINI Gaia",
+              "winner": "MONFARDINI Gaia / NEUMANN Josephina",
               "all_players_in_row": [
                 "MONFARDINI Gaia (ITA)",
                 "NEUMANN Josephina (GER)",
@@ -548,17 +525,14 @@
               ],
               "side_a": [
                 "MONFARDINI Gaia (ITA)",
-                "WEGRZYN Katarzyna (POL)"
+                "NEUMANN Josephina (GER)"
               ],
               "side_b": [
-                "NEUMANN Josephina (GER)",
+                "WEGRZYN Katarzyna (POL)",
                 "WIELGOS Zuzanna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | MONFARDINI Gaia (ITA) | NEUMANN Josephina (GER) | WEGRZYN Katarzyna (POL) | WIELGOS Zuzanna (POL) | WD | Main Draw | R16 | 3 - 2 | 11:6 5:11 11:9 5:11 11:5 | MONFARDINI Gaia | NEUMANN Josephina | "
             },
             {
@@ -601,15 +575,13 @@
                 "PANFILOVA Maria (AIN)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "PANFILOVA Maria (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | MONFARDINI Gaia (ITA) |  | PANFILOVA Maria (AIN) |  | WS | Main Draw | R32 | 3 - 2 | 9:11 11:8 10:12 11:8 11:8 | MONFARDINI Gaia |  | "
             },
             {
@@ -646,25 +618,23 @@
                 "11:7",
                 "11:7"
               ],
-              "winner": "LAINE Clement",
+              "winner": "LAINE Clement / MONFARDINI Gaia",
               "all_players_in_row": [
                 "LAINE Clement (POR)",
                 "MONFARDINI Gaia (ITA)",
-                "LI Hon Ming (HKG)"
+                "LI Hon Ming (HKG)",
+                "HO Tin-Tin (ENG)"
               ],
               "side_a": [
                 "LAINE Clement (POR)",
-                "LI Hon Ming (HKG)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "LI Hon Ming (HKG)",
                 "HO Tin-Tin (ENG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | LAINE Clement (POR) | MONFARDINI Gaia (ITA) | LI Hon Ming (HKG) | HO Tin-Tin (ENG) | XD | Main Draw | QuarterFinal | 3 - 2 | 6:11 11:8 5:11 11:7 11:7 | LAINE Clement | MONFARDINI Gaia | "
             },
             {
@@ -691,7 +661,7 @@
                 "12:10",
                 "11:4"
               ],
-              "winner": "NG Wing Lam",
+              "winner": "NG Wing Lam / WONG Hoi Tung",
               "all_players_in_row": [
                 "NG Wing Lam (HKG)",
                 "WONG Hoi Tung (HKG)",
@@ -700,17 +670,14 @@
               ],
               "side_a": [
                 "NG Wing Lam (HKG)",
-                "MONFARDINI Gaia (ITA)"
+                "WONG Hoi Tung (HKG)"
               ],
               "side_b": [
-                "WONG Hoi Tung (HKG)",
+                "MONFARDINI Gaia (ITA)",
                 "NEUMANN Josephina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | NG Wing Lam (HKG) | WONG Hoi Tung (HKG) | MONFARDINI Gaia (ITA) | NEUMANN Josephina (GER) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 12:10 11:4 | NG Wing Lam | WONG Hoi Tung | "
             },
             {
@@ -743,15 +710,13 @@
                 "WONG Hoi Tung (HKG)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "WONG Hoi Tung (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | MONFARDINI Gaia (ITA) |  | WONG Hoi Tung (HKG) |  | WS | Main Draw | R16 | 0 - 3 | 3:11 6:11 5:11 | WONG Hoi Tung |  | "
             },
             {
@@ -788,7 +753,7 @@
                 "11:9",
                 "7:11"
               ],
-              "winner": "MOVILEANU Darius",
+              "winner": "MOVILEANU Darius / ZAHARIA Elena",
               "all_players_in_row": [
                 "LAINE Clement (POR)",
                 "MONFARDINI Gaia (ITA)",
@@ -797,17 +762,14 @@
               ],
               "side_a": [
                 "LAINE Clement (POR)",
-                "MOVILEANU Darius (ROU)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "MOVILEANU Darius (ROU)",
                 "ZAHARIA Elena (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | LAINE Clement (POR) | MONFARDINI Gaia (ITA) | MOVILEANU Darius (ROU) | ZAHARIA Elena (ROU) | XD | Main Draw | SemiFinal | 2 - 3 | 11:9 9:11 11:13 11:9 7:11 | MOVILEANU Darius | ZAHARIA Elena | "
             }
           ]
@@ -844,7 +806,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "LAINE Clement",
+              "winner": "LAINE Clement / MONFARDINI Gaia",
               "all_players_in_row": [
                 "BENKO Leon (CRO)",
                 "PAVLOVIC Andrea (CRO)",
@@ -853,17 +815,14 @@
               ],
               "side_a": [
                 "BENKO Leon (CRO)",
-                "LAINE Clement (POR)"
+                "PAVLOVIC Andrea (CRO)"
               ],
               "side_b": [
-                "PAVLOVIC Andrea (CRO)",
+                "LAINE Clement (POR)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | BENKO Leon (CRO) | PAVLOVIC Andrea (CRO) | LAINE Clement (POR) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 0 - 3 | 6:11 6:11 3:11 | LAINE Clement | MONFARDINI Gaia | "
             },
             {
@@ -890,7 +849,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -899,17 +858,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "ARLIA Nicole (ITA)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R16 | 0 - 3 | 9:11 6:11 7:11 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -952,15 +908,13 @@
                 "DE NUTTE Sarah (LUX)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | MONFARDINI Gaia (ITA) |  | DE NUTTE Sarah (LUX) |  | WS | Main Draw | R32 | 3 - 2 | 11:13 9:11 11:9 11:7 11:9 | MONFARDINI Gaia |  | "
             },
             {
@@ -997,7 +951,7 @@
                 "4:11",
                 "10:12"
               ],
-              "winner": "KUBIK Maciej",
+              "winner": "KUBIK Maciej / BAJOR Natalia",
               "all_players_in_row": [
                 "LAINE Clement (POR)",
                 "MONFARDINI Gaia (ITA)",
@@ -1006,17 +960,14 @@
               ],
               "side_a": [
                 "LAINE Clement (POR)",
-                "KUBIK Maciej (POL)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "KUBIK Maciej (POL)",
                 "BAJOR Natalia (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | LAINE Clement (POR) | MONFARDINI Gaia (ITA) | KUBIK Maciej (POL) | BAJOR Natalia (POL) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:6 11:9 10:12 4:11 10:12 | KUBIK Maciej | BAJOR Natalia | "
             },
             {
@@ -1043,7 +994,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "DOUTAZ Fanny (SUI)",
                 "MAURER Ludivine (SUI)",
@@ -1052,17 +1003,14 @@
               ],
               "side_a": [
                 "DOUTAZ Fanny (SUI)",
-                "ARLIA Nicole (ITA)"
+                "MAURER Ludivine (SUI)"
               ],
               "side_b": [
-                "MAURER Ludivine (SUI)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | DOUTAZ Fanny (SUI) | MAURER Ludivine (SUI) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 7:11 5:11 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -1095,15 +1043,13 @@
                 "HANSSON Matilda (SWE)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "HANSSON Matilda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | MONFARDINI Gaia (ITA) |  | HANSSON Matilda (SWE) |  | WS | Main Draw | R16 | 3 - 0 | 11:5 11:2 11:4 | MONFARDINI Gaia |  | "
             },
             {
@@ -1140,7 +1086,7 @@
                 "3:11",
                 "11:7"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -1149,17 +1095,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "WEGRZYN Anna (POL)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "WEGRZYN Anna (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | WD | Main Draw | SemiFinal | 3 - 2 | 6:11 11:6 11:7 3:11 11:7 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -1192,15 +1135,13 @@
                 "BAJOR Natalia (POL)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | MONFARDINI Gaia (ITA) |  | BAJOR Natalia (POL) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 15:17 4:11 1:11 | BAJOR Natalia |  | "
             },
             {
@@ -1232,24 +1173,23 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "CHIEN Tung-Chuan",
+              "winner": "CHIEN Tung-Chuan / LI Yu-Jhun",
               "all_players_in_row": [
+                "CHIEN Tung-Chuan (TPE)",
+                "LI Yu-Jhun (TPE)",
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
                 "CHIEN Tung-Chuan (TPE)",
-                "ARLIA Nicole (ITA)"
+                "LI Yu-Jhun (TPE)"
               ],
               "side_b": [
-                "LI Yu-Jhun (TPE)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | CHIEN Tung-Chuan (TPE) | LI Yu-Jhun (TPE) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | Final | 3 - 1 | 11:8 10:12 11:6 11:7 | CHIEN Tung-Chuan | LI Yu-Jhun | "
             }
           ]
@@ -1291,7 +1231,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "FRIIS Martin (SWE)",
                 "BAASAN Nomin (SWE)",
@@ -1300,17 +1240,14 @@
               ],
               "side_a": [
                 "FRIIS Martin (SWE)",
-                "OYEBODE John (ITA)"
+                "BAASAN Nomin (SWE)"
               ],
               "side_b": [
-                "BAASAN Nomin (SWE)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | FRIIS Martin (SWE) | BAASAN Nomin (SWE) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 0 - 3 | 2:11 11:13 8:11 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -1347,7 +1284,7 @@
                 "11:5",
                 "11:9"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -1356,17 +1293,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "CRISTOBAL Ainhoa (ESP)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "CRISTOBAL Ainhoa (ESP)",
                 "SASTRE Eugenia (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | CRISTOBAL Ainhoa (ESP) | SASTRE Eugenia (ESP) | WD | Main Draw | R16 | 3 - 2 | 11:6 10:12 9:11 11:5 11:9 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -1409,15 +1343,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "WIELGOS Zuzanna (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | WIELGOS Zuzanna (POL) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R32 | 3 - 2 | 14:16 15:13 3:11 11:4 11:6 | WIELGOS Zuzanna |  | "
             },
             {
@@ -1449,7 +1381,7 @@
                 "12:10",
                 "7:11"
               ],
-              "winner": "MONTEIRO Joao",
+              "winner": "MONTEIRO Joao / LEAL Julia",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -1458,17 +1390,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "MONTEIRO Joao (POR)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "MONTEIRO Joao (POR)",
                 "LEAL Julia (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | MONTEIRO Joao (POR) | LEAL Julia (POR) | XD | Main Draw | QuarterFinal | 1 - 3 | 8:11 4:11 12:10 7:11 | MONTEIRO Joao | LEAL Julia | "
             },
             {
@@ -1505,7 +1434,7 @@
                 "11:7",
                 "5:11"
               ],
-              "winner": "PARK Gahyeon",
+              "winner": "PARK Gahyeon / LEE Seungeun",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -1514,17 +1443,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "PARK Gahyeon (KOR)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "PARK Gahyeon (KOR)",
                 "LEE Seungeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | PARK Gahyeon (KOR) | LEE Seungeun (KOR) | WD | Main Draw | QuarterFinal | 2 - 3 | 5:11 11:13 11:4 11:7 5:11 | PARK Gahyeon | LEE Seungeun | "
             }
           ]
@@ -1572,15 +1498,13 @@
                 "LUTZ Camille (FRA)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | MONFARDINI Gaia (ITA) |  | LUTZ Camille (FRA) |  | WS | Main Draw | R64 | 1 - 3 | 11:8 1:11 6:11 7:11 | LUTZ Camille |  | "
             },
             {
@@ -1612,7 +1536,7 @@
                 "13:11",
                 "11:9"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / WU Jiamuwa",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "WU Jiamuwa (AUS)",
@@ -1621,17 +1545,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "PICCOLIN Giorgia (ITA)"
+                "WU Jiamuwa (AUS)"
               ],
               "side_b": [
-                "WU Jiamuwa (AUS)",
+                "PICCOLIN Giorgia (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | PICCOLIN Giorgia (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R16 | 3 - 1 | 8:11 11:8 13:11 11:9 | LIU Yangzi | WU Jiamuwa | "
             }
           ]
@@ -1673,25 +1594,23 @@
                 "8:11",
                 "11:9"
               ],
-              "winner": "GREEN Connor",
+              "winner": "GREEN Connor / HO Tin-Tin",
               "all_players_in_row": [
                 "GREEN Connor (ENG)",
+                "HO Tin-Tin (ENG)",
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
                 "GREEN Connor (ENG)",
-                "OYEBODE John (ITA)"
+                "HO Tin-Tin (ENG)"
               ],
               "side_b": [
-                "HO Tin-Tin (ENG)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | GREEN Connor (ENG) | HO Tin-Tin (ENG) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 3 - 1 | 11:5 11:9 8:11 11:9 | GREEN Connor | HO Tin-Tin | "
             },
             {
@@ -1728,7 +1647,7 @@
                 "3:11",
                 "8:11"
               ],
-              "winner": "MONFARDINI Gaia",
+              "winner": "MONFARDINI Gaia / ARLIA Nicole",
               "all_players_in_row": [
                 "SASTRE Eugenia (ESP)",
                 "CRISTOBAL Ainhoa (ESP)",
@@ -1737,17 +1656,14 @@
               ],
               "side_a": [
                 "SASTRE Eugenia (ESP)",
-                "MONFARDINI Gaia (ITA)"
+                "CRISTOBAL Ainhoa (ESP)"
               ],
               "side_b": [
-                "CRISTOBAL Ainhoa (ESP)",
+                "MONFARDINI Gaia (ITA)",
                 "ARLIA Nicole (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | SASTRE Eugenia (ESP) | CRISTOBAL Ainhoa (ESP) | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WD | Main Draw | R16 | 2 - 3 | 11:5 4:11 11:8 3:11 8:11 | MONFARDINI Gaia | ARLIA Nicole | "
             },
             {
@@ -1780,15 +1696,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "PAVLOVIC Andrea (CRO)",
+                "PAVLOVIC Andrea (CRO)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | PAVLOVIC Andrea (CRO) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 5:11 9:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -1820,7 +1734,7 @@
                 "18:16",
                 "11:7"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -1829,17 +1743,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "MONFARDINI Gaia (ITA)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "MONFARDINI Gaia (ITA)",
                 "ARLIA Nicole (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WD | Main Draw | QuarterFinal | 3 - 1 | 12:10 10:12 18:16 11:7 | JEGER Mateja | RAKOVAC Lea | "
             },
             {
@@ -1872,15 +1783,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "HEO Yerim (KOR)",
+                "HEO Yerim (KOR)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | HEO Yerim (KOR) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R16 | 3 - 0 | 11:5 12:10 11:5 | HEO Yerim |  | "
             }
           ]
@@ -1923,15 +1832,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "RAKOVAC Lea (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | MONFARDINI Gaia (ITA) |  | WT | Qualification |  | 0 - 3 | 8:11 8:11 10:12 | MONFARDINI Gaia |  | "
             },
             {
@@ -1969,15 +1876,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "ARAPOVIC Hana (CRO)",
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | ARAPOVIC Hana (CRO) |  | MONFARDINI Gaia (ITA) |  | WT | Qualification |  | 1 - 3 | 7:11 11:6 10:12 8:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -2010,15 +1915,13 @@
                 "YU Tianer (ENG)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "YU Tianer (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | MONFARDINI Gaia (ITA) |  | YU Tianer (ENG) |  | WT | Qualification |  | 0 - 3 | 9:11 7:11 9:11 | YU Tianer |  | "
             },
             {
@@ -2047,18 +1950,17 @@
               ],
               "winner": "HO Tin-Tin",
               "all_players_in_row": [
-                "MONFARDINI Gaia (ITA)"
-              ],
-              "side_a": [
                 "MONFARDINI Gaia (ITA)",
                 "HO Tin-Tin (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
+                "HO Tin-Tin (ENG)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | MONFARDINI Gaia (ITA) |  | HO Tin-Tin (ENG) |  | WT | Qualification |  | 0 - 3 | 9:11 9:11 9:11 | HO Tin-Tin |  | "
             },
             {
@@ -2096,15 +1998,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | MONFARDINI Gaia (ITA) |  | ALTINKAYA Sibel (TUR) |  | WT | Position Draw | 8 | 3 - 1 | 13:11 6:11 11:8 11:8 | MONFARDINI Gaia |  | "
             },
             {
@@ -2142,15 +2042,13 @@
                 "HARAC Ece (TUR)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "HARAC Ece (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | MONFARDINI Gaia (ITA) |  | HARAC Ece (TUR) |  | WT | Position Draw | 8 | 1 - 3 | 11:7 9:11 9:11 6:11 | HARAC Ece |  | "
             }
           ]
@@ -2198,15 +2096,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "ALHODABY Marwa (EGY)",
+                "ALHODABY Marwa (EGY)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | ALHODABY Marwa (EGY) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR64 | 1 - 3 | 11:7 3:11 6:11 7:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -2244,15 +2140,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "ZHU Ziyu (CHN)",
+                "ZHU Ziyu (CHN)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | ZHU Ziyu (CHN) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR32 | 3 - 1 | 7:11 11:6 12:10 11:4 | ZHU Ziyu |  | "
             }
           ]
@@ -2300,15 +2194,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "NILSSON Alice (SWE)",
+                "NILSSON Alice (SWE)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | NILSSON Alice (SWE) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR64 | 1 - 3 | 11:8 11:13 9:11 7:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -2341,15 +2233,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "SURJAN Sabina (SRB)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | SURJAN Sabina (SRB) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR32 | 3 - 0 | 11:5 11:5 11:7 | SURJAN Sabina |  | "
             }
           ]
@@ -2386,7 +2276,7 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -2395,17 +2285,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "OLABIYI Monday (BEN)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "OLABIYI Monday (BEN)",
                 "YESSOUFOU Madinath (BEN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | OLABIYI Monday (BEN) | YESSOUFOU Madinath (BEN) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:5 11:6 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -2432,7 +2319,7 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "KUTI Matthew (NGR)",
                 "OJOMU Ajoke (NGR)",
@@ -2441,17 +2328,14 @@
               ],
               "side_a": [
                 "KUTI Matthew (NGR)",
-                "OYEBODE John (ITA)"
+                "OJOMU Ajoke (NGR)"
               ],
               "side_b": [
-                "OJOMU Ajoke (NGR)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | KUTI Matthew (NGR) | OJOMU Ajoke (NGR) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | QuarterFinal | 0 - 3 | 6:11 7:11 6:11 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -2489,15 +2373,13 @@
                 "KOTECHA Taneesha (IND)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "KOTECHA Taneesha (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | MONFARDINI Gaia (ITA) |  | KOTECHA Taneesha (IND) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 10:12 11:6 11:8 | MONFARDINI Gaia |  | "
             },
             {
@@ -2540,15 +2422,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "MESHREF Dina (EGY)",
+                "MESHREF Dina (EGY)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | MESHREF Dina (EGY) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R16 | 3 - 2 | 11:5 9:11 4:11 12:10 12:10 | MESHREF Dina |  | "
             },
             {
@@ -2580,7 +2460,7 @@
                 "9:11",
                 "12:10"
               ],
-              "winner": "PAL Akash",
+              "winner": "PAL Akash / BAISYA Poymantee",
               "all_players_in_row": [
                 "PAL Akash (IND)",
                 "BAISYA Poymantee (IND)",
@@ -2589,17 +2469,14 @@
               ],
               "side_a": [
                 "PAL Akash (IND)",
-                "OYEBODE John (ITA)"
+                "BAISYA Poymantee (IND)"
               ],
               "side_b": [
-                "BAISYA Poymantee (IND)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | PAL Akash (IND) | BAISYA Poymantee (IND) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | SemiFinal | 3 - 1 | 11:6 11:7 9:11 12:10 | PAL Akash | BAISYA Poymantee | "
             }
           ]
@@ -2642,15 +2519,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "MUKHERJEE Sutirtha (IND)",
+                "MUKHERJEE Sutirtha (IND)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | MUKHERJEE Sutirtha (IND) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR64 | 3 - 0 | 11:2 11:7 11:8 | MUKHERJEE Sutirtha |  | "
             }
           ]
@@ -2687,7 +2562,7 @@
                 "8:11",
                 "10:12"
               ],
-              "winner": "BAN Ivor",
+              "winner": "BAN Ivor / ARAPOVIC Hana",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -2696,17 +2571,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "BAN Ivor (CRO)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "BAN Ivor (CRO)",
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | BAN Ivor (CRO) | ARAPOVIC Hana (CRO) | XD | Main Draw | R64 | 0 - 3 | 8:11 8:11 10:12 | BAN Ivor | ARAPOVIC Hana | "
             },
             {
@@ -2754,15 +2626,13 @@
                 "VARADY Barbora (SVK)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "VARADY Barbora (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MONFARDINI Gaia (ITA) |  | VARADY Barbora (SVK) |  | WS | Main Draw | R128 | 4 - 2 | 2:11 11:8 11:9 9:11 14:12 11:9 | MONFARDINI Gaia |  | "
             },
             {
@@ -2799,7 +2669,7 @@
                 "5:11",
                 "14:12"
               ],
-              "winner": "MORET Rachel",
+              "winner": "MORET Rachel / MONFARDINI Gaia",
               "all_players_in_row": [
                 "MORET Rachel (SUI)",
                 "MONFARDINI Gaia (ITA)",
@@ -2808,17 +2678,14 @@
               ],
               "side_a": [
                 "MORET Rachel (SUI)",
-                "WU Jiamuwa (AUS)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "WU Jiamuwa (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MORET Rachel (SUI) | MONFARDINI Gaia (ITA) | WU Jiamuwa (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R64 | 3 - 2 | 11:7 10:12 15:13 5:11 14:12 | MORET Rachel | MONFARDINI Gaia | "
             },
             {
@@ -2850,24 +2717,23 @@
                 "5:11",
                 "5:11"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / LI Yu-Jhun",
               "all_players_in_row": [
                 "MORET Rachel (SUI)",
-                "MONFARDINI Gaia (ITA)"
+                "MONFARDINI Gaia (ITA)",
+                "CHENG I-Ching (TPE)",
+                "LI Yu-Jhun (TPE)"
               ],
               "side_a": [
                 "MORET Rachel (SUI)",
-                "CHENG I-Ching (TPE)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "CHENG I-Ching (TPE)",
                 "LI Yu-Jhun (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MORET Rachel (SUI) | MONFARDINI Gaia (ITA) | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | WD | Main Draw | R32 | 1 - 3 | 7:11 12:10 5:11 5:11 | CHENG I-Ching | LI Yu-Jhun | "
             },
             {
@@ -2920,15 +2786,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "DOO Hoi Kem (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | DOO Hoi Kem (HKG) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R64 | 3 - 4 | 9:11 8:11 11:9 11:4 11:7 6:11 7:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -2971,15 +2835,13 @@
                 "SHIN Yubin (KOR)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "SHIN Yubin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MONFARDINI Gaia (ITA) |  | SHIN Yubin (KOR) |  | WS | Main Draw | R32 | 1 - 4 | 5:11 11:8 9:11 12:14 14:16 | SHIN Yubin |  | "
             }
           ]
@@ -3016,7 +2878,7 @@
                 "13:11",
                 "11:9"
               ],
-              "winner": "MOULLET Barish",
+              "winner": "MOULLET Barish / MORET Rachel",
               "all_players_in_row": [
                 "MOULLET Barish (SUI)",
                 "MORET Rachel (SUI)",
@@ -3025,17 +2887,14 @@
               ],
               "side_a": [
                 "MOULLET Barish (SUI)",
-                "OYEBODE John (ITA)"
+                "MORET Rachel (SUI)"
               ],
               "side_b": [
-                "MORET Rachel (SUI)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | MOULLET Barish (SUI) | MORET Rachel (SUI) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 3 - 0 | 11:5 13:11 11:9 | MOULLET Barish | MORET Rachel | "
             },
             {
@@ -3067,7 +2926,7 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ZENG Jian",
               "all_players_in_row": [
                 "VIVARELLI Debora (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -3076,17 +2935,14 @@
               ],
               "side_a": [
                 "VIVARELLI Debora (ITA)",
-                "MESHREF Dina (EGY)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "MESHREF Dina (EGY)",
                 "ZENG Jian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | VIVARELLI Debora (ITA) | MONFARDINI Gaia (ITA) | MESHREF Dina (EGY) | ZENG Jian (SGP) | WD | Main Draw | R16 | 1 - 3 | 7:11 7:11 11:9 9:11 | MESHREF Dina | ZENG Jian | "
             },
             {
@@ -3119,15 +2975,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "WIELGOS Zuzanna (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | WIELGOS Zuzanna (POL) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:6 11:2 | WIELGOS Zuzanna |  | "
             }
           ]
@@ -3179,7 +3033,7 @@
                 "9:11",
                 "11:8"
               ],
-              "winner": "REMBERT Bastien",
+              "winner": "REMBERT Bastien / LUTZ Camille",
               "all_players_in_row": [
                 "REMBERT Bastien (FRA)",
                 "LUTZ Camille (FRA)",
@@ -3188,17 +3042,14 @@
               ],
               "side_a": [
                 "REMBERT Bastien (FRA)",
-                "OYEBODE John (ITA)"
+                "LUTZ Camille (FRA)"
               ],
               "side_b": [
-                "LUTZ Camille (FRA)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Amman 2023 | REMBERT Bastien (FRA) | LUTZ Camille (FRA) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 3 - 2 | 11:9 4:11 11:6 9:11 11:8 | REMBERT Bastien | LUTZ Camille | "
             },
             {
@@ -3228,18 +3079,16 @@
               "winner": "MONFARDINI Gaia",
               "all_players_in_row": [
                 "MONFARDINI Gaia (ITA)",
-                "YAMAN Taimmaa (JOR)"
-              ],
-              "side_a": [
-                "MONFARDINI Gaia (ITA)",
                 "ABO-YAMAN Taimmaa (JOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
+                "ABO-YAMAN Taimmaa (JOR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Amman 2023 | MONFARDINI Gaia (ITA) |  | ABO-YAMAN Taimmaa (JOR) |  | WS | Main Draw | R64 | 3 - 0 | 11:6 12:10 11:8 | MONFARDINI Gaia |  | "
             },
             {
@@ -3277,15 +3126,13 @@
                 "BAJOR Natalia (POL)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Amman 2023 | MONFARDINI Gaia (ITA) |  | BAJOR Natalia (POL) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 7:11 14:12 2:11 | BAJOR Natalia |  | "
             }
           ]
@@ -3334,18 +3181,17 @@
               ],
               "winner": "MONFARDINI Gaia",
               "all_players_in_row": [
-                "MONFARDINI Gaia (ITA)"
-              ],
-              "side_a": [
                 "MONFARDINI Gaia (ITA)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | MONFARDINI Gaia (ITA) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Qualification | QR64 | 3 - 1 | 10:12 11:8 12:10 11:6 | MONFARDINI Gaia |  | "
             },
             {
@@ -3388,15 +3234,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "MADARASZ Dora (HUN)",
+                "MADARASZ Dora (HUN)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | MADARASZ Dora (HUN) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR32 | 2 - 3 | 12:10 10:12 9:11 11:7 6:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -3429,15 +3273,13 @@
                 "LUTZ Charlotte (FRA)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | MONFARDINI Gaia (ITA) |  | LUTZ Charlotte (FRA) |  | WS | Qualification | QR16 | 0 - 3 | 4:11 6:11 5:11 | LUTZ Charlotte |  | "
             },
             {
@@ -3464,7 +3306,7 @@
                 "5:11",
                 "4:11"
               ],
-              "winner": "THAKKAR Manav",
+              "winner": "THAKKAR Manav / KAMATH Archana",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -3473,17 +3315,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "THAKKAR Manav (IND)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "THAKKAR Manav (IND)",
                 "KAMATH Archana (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | THAKKAR Manav (IND) | KAMATH Archana (IND) | XD | Main Draw | R16 | 0 - 3 | 6:11 5:11 4:11 | THAKKAR Manav | KAMATH Archana | "
             }
           ]
@@ -3536,15 +3375,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "ZAHARIA Elena (ROU)",
+                "ZAHARIA Elena (ROU)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | ZAHARIA Elena (ROU) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R16 | 4 - 1 | 6:11 11:5 11:5 11:6 11:2 | ZAHARIA Elena |  | "
             },
             {
@@ -3587,15 +3424,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "DYMYTRENKO Anastasiya (UKR)",
+                "DYMYTRENKO Anastasiya (UKR)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | DYMYTRENKO Anastasiya (UKR) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification |  | 4 - 1 | 11:9 11:8 10:12 12:10 11:4 | DYMYTRENKO Anastasiya |  | "
             },
             {
@@ -3638,15 +3473,13 @@
                 "VAN HAUWAERT Julie (BEL)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "VAN HAUWAERT Julie (BEL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | MONFARDINI Gaia (ITA) |  | VAN HAUWAERT Julie (BEL) |  | WS | Qualification |  | 4 - 1 | 8:11 11:5 11:7 11:7 11:7 | MONFARDINI Gaia |  | "
             },
             {
@@ -3699,15 +3532,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "YILMAZ Ozge (TUR)",
+                "YILMAZ Ozge (TUR)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | YILMAZ Ozge (TUR) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification |  | 3 - 4 | 9:11 9:11 8:11 11:9 11:7 12:10 5:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -3750,15 +3581,13 @@
                 "OPEKA Lara (SLO)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "OPEKA Lara (SLO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | MONFARDINI Gaia (ITA) |  | OPEKA Lara (SLO) |  | WS | Qualification |  | 4 - 1 | 11:4 8:11 12:10 11:7 12:10 | MONFARDINI Gaia |  | "
             },
             {
@@ -3806,15 +3635,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "MATOS Ines (POR)",
+                "MATOS Ines (POR)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | MATOS Ines (POR) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification |  | 4 - 2 | 11:9 7:11 11:9 5:11 11:9 11:8 | MATOS Ines |  | "
             },
             {
@@ -3857,15 +3684,13 @@
                 "VIDAKOVIC Marla (CRO)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "VIDAKOVIC Marla (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | MONFARDINI Gaia (ITA) |  | VIDAKOVIC Marla (CRO) |  | WS | Qualification |  | 4 - 1 | 11:4 7:11 11:7 11:5 11:7 | MONFARDINI Gaia |  | "
             },
             {
@@ -3892,7 +3717,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "HARAC Ece",
+              "winner": "HARAC Ece / YILMAZ Ozge",
               "all_players_in_row": [
                 "HARAC Ece (TUR)",
                 "YILMAZ Ozge (TUR)",
@@ -3901,17 +3726,14 @@
               ],
               "side_a": [
                 "HARAC Ece (TUR)",
-                "ARLIA Nicole (ITA)"
+                "YILMAZ Ozge (TUR)"
               ],
               "side_b": [
-                "YILMAZ Ozge (TUR)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | HARAC Ece (TUR) | YILMAZ Ozge (TUR) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | Final | 3 - 0 | 11:8 11:4 11:9 | HARAC Ece | YILMAZ Ozge | "
             },
             {
@@ -3943,7 +3765,7 @@
                 "5:11",
                 "11:8"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -3952,17 +3774,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "LUTZ Camille (FRA)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "LUTZ Camille (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | LUTZ Camille (FRA) | PAVADE Prithika (FRA) | WD | Main Draw | SemiFinal | 3 - 1 | 11:6 11:9 5:11 11:8 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -3994,7 +3813,7 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -4003,17 +3822,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "ARAPOVIC Hana (CRO)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "ARAPOVIC Hana (CRO)",
                 "ZADEROVA Linda (CZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | ARAPOVIC Hana (CRO) | ZADEROVA Linda (CZE) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:8 12:14 11:7 12:10 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -4040,26 +3856,23 @@
                 "11:6",
                 "12:10"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
-                "ROSU Bianca (ROU)",
+                "MEI-ROSU Bianca (ROU)",
                 "MITROFAN Luciana (ROU)"
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "MEI-ROSU Bianca (ROU)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "MEI-ROSU Bianca (ROU)",
                 "MITROFAN Luciana (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | MEI-ROSU Bianca (ROU) | MITROFAN Luciana (ROU) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:6 12:10 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -4091,7 +3904,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "PROMBERGER Jonas (AUT)",
                 "PAPADIMITRIOU Malamatenia (GRE)",
@@ -4100,17 +3913,14 @@
               ],
               "side_a": [
                 "PROMBERGER Jonas (AUT)",
-                "OYEBODE John (ITA)"
+                "PAPADIMITRIOU Malamatenia (GRE)"
               ],
               "side_b": [
-                "PAPADIMITRIOU Malamatenia (GRE)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | PROMBERGER Jonas (AUT) | PAPADIMITRIOU Malamatenia (GRE) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R64 | 1 - 3 | 7:11 11:5 6:11 5:11 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -4142,7 +3952,7 @@
                 "8:11",
                 "11:7"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / YILMAZ Ozge",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "YILMAZ Ozge (TUR)",
@@ -4151,17 +3961,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "OYEBODE John (ITA)"
+                "YILMAZ Ozge (TUR)"
               ],
               "side_b": [
-                "YILMAZ Ozge (TUR)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European U21 Championships Cluj Napoca 2022 | LEVAJAC Dimitrije (SRB) | YILMAZ Ozge (TUR) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R32 | 3 - 1 | 11:5 11:9 8:11 11:7 | LEVAJAC Dimitrije | YILMAZ Ozge | "
             }
           ]
@@ -4198,7 +4005,7 @@
                 "11:0",
                 "11:0"
               ],
-              "winner": "LI Yuqi",
+              "winner": "LI Yuqi / LENG Yutong",
               "all_players_in_row": [
                 "LI Yuqi (CHN)",
                 "LENG Yutong (CHN)",
@@ -4207,17 +4014,14 @@
               ],
               "side_a": [
                 "LI Yuqi (CHN)",
-                "RONCALLO Valentina (ITA)"
+                "LENG Yutong (CHN)"
               ],
               "side_b": [
-                "LENG Yutong (CHN)",
+                "RONCALLO Valentina (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LI Yuqi (CHN) | LENG Yutong (CHN) | RONCALLO Valentina (ITA) | MONFARDINI Gaia (ITA) | WD | Qualification | QR16 | 3 - 0 | 11:0 11:0 11:0 | LI Yuqi | LENG Yutong | "
             },
             {
@@ -4260,15 +4064,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "LEE Daeun (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LEE Daeun (KOR) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR16 | 3 - 2 | 11:4 9:11 8:11 12:10 11:4 | LEE Daeun |  | "
             },
             {
@@ -4295,7 +4097,7 @@
                 "11:2",
                 "12:10"
               ],
-              "winner": "DORR Esteban",
+              "winner": "DORR Esteban / CHASSELIN Pauline",
               "all_players_in_row": [
                 "DORR Esteban (FRA)",
                 "CHASSELIN Pauline (FRA)",
@@ -4304,17 +4106,14 @@
               ],
               "side_a": [
                 "DORR Esteban (FRA)",
-                "OYEBODE John (ITA)"
+                "CHASSELIN Pauline (FRA)"
               ],
               "side_b": [
-                "CHASSELIN Pauline (FRA)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | DORR Esteban (FRA) | CHASSELIN Pauline (FRA) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 3 - 0 | 11:7 11:2 12:10 | DORR Esteban | CHASSELIN Pauline | "
             }
           ]
@@ -4356,7 +4155,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "MONFARDINI Gaia",
+              "winner": "MONFARDINI Gaia / ARLIA Nicole",
               "all_players_in_row": [
                 "KUKULKOVA Tatiana (SVK)",
                 "SIKORSKA Magdalena (POL)",
@@ -4365,17 +4164,14 @@
               ],
               "side_a": [
                 "KUKULKOVA Tatiana (SVK)",
-                "MONFARDINI Gaia (ITA)"
+                "SIKORSKA Magdalena (POL)"
               ],
               "side_b": [
-                "SIKORSKA Magdalena (POL)",
+                "MONFARDINI Gaia (ITA)",
                 "ARLIA Nicole (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | KUKULKOVA Tatiana (SVK) | SIKORSKA Magdalena (POL) | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WD | Qualification | QR16 | 1 - 3 | 11:8 7:11 8:11 8:11 | MONFARDINI Gaia | ARLIA Nicole | "
             },
             {
@@ -4408,15 +4204,13 @@
                 "MOSLEMI Mehrsa (IRI)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "MOSLEMI Mehrsa (IRI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | MONFARDINI Gaia (ITA) |  | MOSLEMI Mehrsa (IRI) |  | WS | Qualification | QR32 | 3 - 0 | 11:3 11:4 11:4 | MONFARDINI Gaia |  | "
             },
             {
@@ -4443,7 +4237,7 @@
                 "3:11",
                 "8:11"
               ],
-              "winner": "WU Yangchen",
+              "winner": "WU Yangchen / ZANG Xiaotong",
               "all_players_in_row": [
                 "MONFARDINI Gaia (ITA)",
                 "ARLIA Nicole (ITA)",
@@ -4452,17 +4246,14 @@
               ],
               "side_a": [
                 "MONFARDINI Gaia (ITA)",
-                "WU Yangchen (CHN)"
+                "ARLIA Nicole (ITA)"
               ],
               "side_b": [
-                "ARLIA Nicole (ITA)",
+                "WU Yangchen (CHN)",
                 "ZANG Xiaotong (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WU Yangchen (CHN) | ZANG Xiaotong (CHN) | WD | Qualification | QR8 | 0 - 3 | 9:11 3:11 8:11 | WU Yangchen | ZANG Xiaotong | "
             },
             {
@@ -4495,15 +4286,13 @@
                 "ZANG Xiaotong (CHN)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "ZANG Xiaotong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | MONFARDINI Gaia (ITA) |  | ZANG Xiaotong (CHN) |  | WS | Qualification | QR16 | 0 - 3 | 9:11 0:11 7:11 | ZANG Xiaotong |  | "
             },
             {
@@ -4551,15 +4340,13 @@
                 "LUTZ Charlotte (FRA)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | MONFARDINI Gaia (ITA) |  | LUTZ Charlotte (FRA) |  | WS | Main Draw | R64 | 2 - 4 | 8:11 2:11 8:11 11:9 11:8 4:11 | LUTZ Charlotte |  | "
             },
             {
@@ -4591,7 +4378,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "MONFARDINI Gaia",
+              "winner": "MONFARDINI Gaia / ARLIA Nicole",
               "all_players_in_row": [
                 "ARAPOVIC Hana (CRO)",
                 "JEGER Mateja (CRO)",
@@ -4600,17 +4387,14 @@
               ],
               "side_a": [
                 "ARAPOVIC Hana (CRO)",
-                "MONFARDINI Gaia (ITA)"
+                "JEGER Mateja (CRO)"
               ],
               "side_b": [
-                "JEGER Mateja (CRO)",
+                "MONFARDINI Gaia (ITA)",
                 "ARLIA Nicole (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | ARAPOVIC Hana (CRO) | JEGER Mateja (CRO) | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WD | Main Draw | R16 | 1 - 3 | 8:11 11:8 8:11 9:11 | MONFARDINI Gaia | ARLIA Nicole | "
             },
             {
@@ -4642,7 +4426,7 @@
                 "12:10",
                 "11:7"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / YOON Hyobin",
               "all_players_in_row": [
                 "KIM Nayeong (KOR)",
                 "YOON Hyobin (KOR)",
@@ -4651,17 +4435,14 @@
               ],
               "side_a": [
                 "KIM Nayeong (KOR)",
-                "MONFARDINI Gaia (ITA)"
+                "YOON Hyobin (KOR)"
               ],
               "side_b": [
-                "YOON Hyobin (KOR)",
+                "MONFARDINI Gaia (ITA)",
                 "ARLIA Nicole (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | KIM Nayeong (KOR) | YOON Hyobin (KOR) | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:2 10:12 12:10 11:7 | KIM Nayeong | YOON Hyobin | "
             }
           ]
@@ -4698,7 +4479,7 @@
                 "11:4",
                 "11:2"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -4707,17 +4488,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "ARLIA Nicole (ITA)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R32 | 3 - 0 | 11:9 11:4 11:2 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -4749,7 +4527,7 @@
                 "12:10",
                 "11:5"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -4758,17 +4536,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "PARIDI Konstantina (GRE)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "PARIDI Konstantina (GRE)",
                 "TERPOU Elisavet (GRE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | PARIDI Konstantina (GRE) | TERPOU Elisavet (GRE) | WD | Qualification | QR32 | 3 - 1 | 9:11 11:7 12:10 11:5 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -4806,15 +4581,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "SURJAN Sabina (SRB)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | SURJAN Sabina (SRB) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification |  | 3 - 1 | 9:11 11:8 12:10 11:4 | SURJAN Sabina |  | "
             },
             {
@@ -4847,15 +4620,13 @@
                 "SEVCIKOVA Marketa (CZE)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "SEVCIKOVA Marketa (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | MONFARDINI Gaia (ITA) |  | SEVCIKOVA Marketa (CZE) |  | WS | Qualification |  | 0 - 3 | 2:11 6:11 8:11 | SEVCIKOVA Marketa |  | "
             }
           ]
@@ -4894,18 +4665,17 @@
               ],
               "winner": "ZHANG Sofia-Xuan",
               "all_players_in_row": [
-                "MONFARDINI Gaia (ITA)"
-              ],
-              "side_a": [
                 "ZHANG Sofia-Xuan (ESP)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "side_b": [
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | ZHANG Sofia-Xuan (ESP) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR128 | 3 - 0 | 11:7 11:4 11:6 | ZHANG Sofia-Xuan |  | "
             }
           ]
@@ -4947,7 +4717,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -4956,17 +4726,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "ROBBES Jeanne (FRA)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "ROBBES Jeanne (FRA)",
                 "SOLJA Amelie (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | ROBBES Jeanne (FRA) | SOLJA Amelie (AUT) | WD | Qualification | QR8 | 3 - 1 | 11:8 4:11 11:8 11:7 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -5014,15 +4781,13 @@
                 "ROBBES Jeanne (FRA)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "ROBBES Jeanne (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | MONFARDINI Gaia (ITA) |  | ROBBES Jeanne (FRA) |  | WS | Main Draw | R64 | 4 - 2 | 11:4 9:11 11:8 5:11 11:7 11:9 | MONFARDINI Gaia |  | "
             },
             {
@@ -5049,7 +4814,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "MLADENOVIC Luka (LUX)",
                 "SCHOLZ Vivien (LUX)",
@@ -5058,17 +4823,14 @@
               ],
               "side_a": [
                 "MLADENOVIC Luka (LUX)",
-                "OYEBODE John (ITA)"
+                "SCHOLZ Vivien (LUX)"
               ],
               "side_b": [
-                "SCHOLZ Vivien (LUX)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | MLADENOVIC Luka (LUX) | SCHOLZ Vivien (LUX) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | R16 | 0 - 3 | 0:0 0:0 0:0 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -5116,15 +4878,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "TOLIOU Aikaterini (GRE)",
+                "TOLIOU Aikaterini (GRE)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | TOLIOU Aikaterini (GRE) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R32 | 4 - 2 | 11:7 11:9 11:9 8:11 9:11 11:5 | TOLIOU Aikaterini |  | "
             },
             {
@@ -5151,7 +4911,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -5160,17 +4920,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "GONZALEZ Daniel (PUR)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "GONZALEZ Daniel (PUR)",
                 "DIAZ Melanie (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | GONZALEZ Daniel (PUR) | DIAZ Melanie (PUR) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:6 11:8 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -5202,7 +4959,7 @@
                 "2:11",
                 "11:9"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -5211,17 +4968,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "ARLIA Nicole (ITA)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:6 11:7 2:11 11:9 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -5258,7 +5012,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "CHEN Alexander (AUT)",
                 "MISCHEK Karoline (AUT)",
@@ -5267,17 +5021,14 @@
               ],
               "side_a": [
                 "CHEN Alexander (AUT)",
-                "OYEBODE John (ITA)"
+                "MISCHEK Karoline (AUT)"
               ],
               "side_b": [
-                "MISCHEK Karoline (AUT)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | CHEN Alexander (AUT) | MISCHEK Karoline (AUT) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | SemiFinal | 2 - 3 | 11:9 11:8 5:11 8:11 9:11 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -5314,7 +5065,7 @@
                 "6:11",
                 "11:5"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -5323,17 +5074,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "OYEBODE John (ITA)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | Final | 3 - 2 | 11:8 8:11 11:5 6:11 11:5 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             }
           ]
@@ -5391,15 +5139,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "LABOSOVA Ema (SVK)",
+                "LABOSOVA Ema (SVK)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LABOSOVA Ema (SVK) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R32 | 4 - 1 | 11:8 11:8 5:11 11:9 12:10 | LABOSOVA Ema |  | "
             }
           ]
@@ -5441,7 +5187,7 @@
                 "11:9",
                 "5:11"
               ],
-              "winner": "MONFARDINI Gaia",
+              "winner": "MONFARDINI Gaia / RONCALLO Valentina",
               "all_players_in_row": [
                 "HORVAT Polona (SLO)",
                 "KADIS Nusa (SLO)",
@@ -5450,17 +5196,14 @@
               ],
               "side_a": [
                 "HORVAT Polona (SLO)",
-                "MONFARDINI Gaia (ITA)"
+                "KADIS Nusa (SLO)"
               ],
               "side_b": [
-                "KADIS Nusa (SLO)",
+                "MONFARDINI Gaia (ITA)",
                 "RONCALLO Valentina (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | HORVAT Polona (SLO) | KADIS Nusa (SLO) | MONFARDINI Gaia (ITA) | RONCALLO Valentina (ITA) | WD | Qualification | QR16 | 1 - 3 | 6:11 6:11 11:9 5:11 | MONFARDINI Gaia | RONCALLO Valentina | "
             },
             {
@@ -5503,15 +5246,13 @@
                 "GOI Rui Xuan (SGP)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "GOI Rui Xuan (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | MONFARDINI Gaia (ITA) |  | GOI Rui Xuan (SGP) |  | WS | Qualification | QR64 | 3 - 2 | 9:11 11:8 11:6 11:13 11:4 | MONFARDINI Gaia |  | "
             },
             {
@@ -5544,15 +5285,13 @@
                 "LIU Weishan (CHN)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "LIU Weishan (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | MONFARDINI Gaia (ITA) |  | LIU Weishan (CHN) |  | WS | Qualification | QR32 | 0 - 3 | 7:11 5:11 5:11 | LIU Weishan |  | "
             },
             {
@@ -5584,7 +5323,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "MONFARDINI Gaia",
+              "winner": "MONFARDINI Gaia / RONCALLO Valentina",
               "all_players_in_row": [
                 "BERGAND Filippa (SWE)",
                 "JONSSON Jennifer (SWE)",
@@ -5593,17 +5332,14 @@
               ],
               "side_a": [
                 "BERGAND Filippa (SWE)",
-                "MONFARDINI Gaia (ITA)"
+                "JONSSON Jennifer (SWE)"
               ],
               "side_b": [
-                "JONSSON Jennifer (SWE)",
+                "MONFARDINI Gaia (ITA)",
                 "RONCALLO Valentina (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | BERGAND Filippa (SWE) | JONSSON Jennifer (SWE) | MONFARDINI Gaia (ITA) | RONCALLO Valentina (ITA) | WD | Qualification | QR8 | 1 - 3 | 11:13 11:8 8:11 7:11 | MONFARDINI Gaia | RONCALLO Valentina | "
             },
             {
@@ -5630,7 +5366,7 @@
                 "5:11",
                 "7:11"
               ],
-              "winner": "CHASSELIN Pauline",
+              "winner": "CHASSELIN Pauline / PAVADE Prithika",
               "all_players_in_row": [
                 "MONFARDINI Gaia (ITA)",
                 "RONCALLO Valentina (ITA)",
@@ -5639,17 +5375,14 @@
               ],
               "side_a": [
                 "MONFARDINI Gaia (ITA)",
-                "CHASSELIN Pauline (FRA)"
+                "RONCALLO Valentina (ITA)"
               ],
               "side_b": [
-                "RONCALLO Valentina (ITA)",
+                "CHASSELIN Pauline (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | MONFARDINI Gaia (ITA) | RONCALLO Valentina (ITA) | CHASSELIN Pauline (FRA) | PAVADE Prithika (FRA) | WD | Main Draw | R16 | 0 - 3 | 11:13 5:11 7:11 | CHASSELIN Pauline | PAVADE Prithika | "
             }
           ]
@@ -5691,7 +5424,7 @@
                 "11:4",
                 "11:4"
               ],
-              "winner": "LAURENTI Jamila",
+              "winner": "LAURENTI Jamila / MONFARDINI Gaia",
               "all_players_in_row": [
                 "LAURENTI Jamila (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -5700,17 +5433,14 @@
               ],
               "side_a": [
                 "LAURENTI Jamila (ITA)",
-                "MUSAJEVA Sabina (LAT)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "MUSAJEVA Sabina (LAT)",
                 "BOGDANOVA Baiba (LAT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | LAURENTI Jamila (ITA) | MONFARDINI Gaia (ITA) | MUSAJEVA Sabina (LAT) | BOGDANOVA Baiba (LAT) | WD | Qualification | QR32 | 3 - 1 | 8:11 11:4 11:4 11:4 | LAURENTI Jamila | MONFARDINI Gaia | "
             },
             {
@@ -5742,7 +5472,7 @@
                 "11:6",
                 "11:3"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DODEAN Daniela",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DODEAN Daniela (ROU)",
@@ -5751,17 +5481,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "LAURENTI Jamila (ITA)"
+                "DODEAN Daniela (ROU)"
               ],
               "side_b": [
-                "DODEAN Daniela (ROU)",
+                "LAURENTI Jamila (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SAMARA Elizabeta (ROU) | DODEAN Daniela (ROU) | LAURENTI Jamila (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R32 | 3 - 1 | 10:12 15:13 11:6 11:3 | SAMARA Elizabeta | DODEAN Daniela | "
             },
             {
@@ -5794,15 +5521,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "BERGAND Filippa (SWE)",
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | BERGAND Filippa (SWE) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification |  | 3 - 0 | 11:9 12:10 11:3 | BERGAND Filippa |  | "
             },
             {
@@ -5835,15 +5560,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "BARAVOK Katsiaryna (AIN)",
+                "BARAVOK Katsiaryna (AIN)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | BARAVOK Katsiaryna (AIN) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification |  | 3 - 0 | 11:8 11:6 11:8 | BARAVOK Katsiaryna |  | "
             }
           ]

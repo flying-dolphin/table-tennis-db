@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Jieni SHAO",
-  "english_name": "Jieni SHAO",
+  "player_name": "SHAO Jieni",
+  "english_name": "SHAO Jieni",
   "country": "POR",
   "country_code": "POR",
   "continent": "",
@@ -50,15 +50,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SHIN Yubin (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | SHIN Yubin (KOR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:6 11:5 | SHIN Yubin |  | "
             }
           ]
@@ -101,15 +99,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | SHAO Jieni (POR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 0 - 3 | 5:11 7:11 8:11 | POLCANOVA Sofia |  | "
             }
           ]
@@ -162,15 +158,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | SHAN Xiaona (GER) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 2 | 7:11 11:6 11:8 15:17 11:7 | SHAN Xiaona |  | "
             },
             {
@@ -197,7 +191,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "GHORPADE Yashaswini",
+              "winner": "GHORPADE Yashaswini / MUKHERJEE Ayhika",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -206,17 +200,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "GHORPADE Yashaswini (IND)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "GHORPADE Yashaswini (IND)",
                 "MUKHERJEE Ayhika (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | YU Fu (POR) | SHAO Jieni (POR) | GHORPADE Yashaswini (IND) | MUKHERJEE Ayhika (IND) | WD | Main Draw | R16 | 0 - 3 | 8:11 8:11 9:11 | GHORPADE Yashaswini | MUKHERJEE Ayhika | "
             }
           ]
@@ -264,15 +255,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "CHITALE Diya (IND)",
+                "CHITALE Diya (IND)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | CHITALE Diya (IND) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 11:13 4:11 | SHAO Jieni |  | "
             },
             {
@@ -309,7 +298,7 @@
                 "5:11",
                 "12:10"
               ],
-              "winner": "CHITALE Diya",
+              "winner": "CHITALE Diya / GHOSH Swastika",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHOSH Swastika (IND)",
@@ -318,17 +307,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "YU Fu (POR)"
+                "GHOSH Swastika (IND)"
               ],
               "side_b": [
-                "GHOSH Swastika (IND)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | CHITALE Diya (IND) | GHOSH Swastika (IND) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 3 - 2 | 7:11 13:11 11:8 5:11 12:10 | CHITALE Diya | GHOSH Swastika | "
             },
             {
@@ -366,15 +352,13 @@
                 "ZENG Jian (SGP)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ZENG Jian (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | SHAO Jieni (POR) |  | ZENG Jian (SGP) |  | WS | Main Draw | R32 | 1 - 3 | 5:11 5:11 11:9 6:11 | ZENG Jian |  | "
             }
           ]
@@ -417,15 +401,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "PAVADE Prithika (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | PAVADE Prithika (FRA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:8 11:6 | PAVADE Prithika |  | "
             }
           ]
@@ -468,15 +450,13 @@
                 "DEGRAEF Margo (BEL)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "DEGRAEF Margo (BEL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | DEGRAEF Margo (BEL) |  | WT | Qualification |  | 3 - 0 | 11:2 11:5 11:4 | SHAO Jieni |  | "
             },
             {
@@ -509,15 +489,13 @@
                 "MASSART Lilou (BEL)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "MASSART Lilou (BEL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | MASSART Lilou (BEL) |  | WT | Qualification |  | 3 - 0 | 11:5 11:4 15:13 | SHAO Jieni |  | "
             },
             {
@@ -555,15 +533,13 @@
                 "POLAKOVA Veronika (CZE)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "POLAKOVA Veronika (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | POLAKOVA Veronika (CZE) |  | WT | Qualification |  | 3 - 1 | 11:13 11:3 11:9 11:9 | SHAO Jieni |  | "
             },
             {
@@ -601,15 +577,13 @@
                 "MATELOVA Hana (CZE)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | MATELOVA Hana (CZE) |  | WT | Qualification |  | 3 - 1 | 8:11 11:8 14:12 11:9 | SHAO Jieni |  | "
             },
             {
@@ -642,15 +616,13 @@
                 "DUMONT Tessy (LUX)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "DUMONT Tessy (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | DUMONT Tessy (LUX) |  | WT | MAIN | 16 | 3 - 0 | 11:4 11:9 11:5 | SHAO Jieni |  | "
             },
             {
@@ -693,15 +665,13 @@
                 "MATIUNINA Veronika (UKR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "MATIUNINA Veronika (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | MATIUNINA Veronika (UKR) |  | WT | MAIN | 8 | 3 - 2 | 11:9 2:11 11:5 8:11 11:5 | SHAO Jieni |  | "
             },
             {
@@ -734,15 +704,13 @@
                 "PESOTSKA Margaryta (UKR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | PESOTSKA Margaryta (UKR) |  | WT | MAIN | 8 | 3 - 0 | 11:7 11:6 12:10 | SHAO Jieni |  | "
             },
             {
@@ -780,15 +748,13 @@
                 "KAUFMANN Annett (GER)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KAUFMANN Annett (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SHAO Jieni (POR) |  | KAUFMANN Annett (GER) |  | WT | MAIN | 4 | 1 - 3 | 8:11 9:11 11:8 4:11 | KAUFMANN Annett |  | "
             }
           ]
@@ -836,15 +802,13 @@
                 "HURSEY Anna (WAL)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | SHAO Jieni (POR) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R64 | 1 - 3 | 11:9 5:11 7:11 6:11 | HURSEY Anna |  | "
             }
           ]
@@ -887,15 +851,13 @@
                 "KAUFMANN Annett (GER)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KAUFMANN Annett (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | SHAO Jieni (POR) |  | KAUFMANN Annett (GER) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 2:11 6:11 | KAUFMANN Annett |  | "
             }
           ]
@@ -938,15 +900,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "RABIU Aishat (NGR)",
+                "RABIU Aishat (NGR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | RABIU Aishat (NGR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 2:11 1:11 | SHAO Jieni |  | "
             },
             {
@@ -973,7 +933,7 @@
                 "11:4",
                 "11:6"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -982,17 +942,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "OJO Favour (NGR)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "OJO Favour (NGR)",
                 "OKANLAWON Kadijat (NGR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | YU Fu (POR) | SHAO Jieni (POR) | OJO Favour (NGR) | OKANLAWON Kadijat (NGR) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:4 11:6 | YU Fu | SHAO Jieni | "
             },
             {
@@ -1024,7 +981,7 @@
                 "12:10",
                 "11:3"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -1033,17 +990,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "AYOOLA Kabirat (NGR)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "AYOOLA Kabirat (NGR)",
                 "RABIU Aishat (NGR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | YU Fu (POR) | SHAO Jieni (POR) | AYOOLA Kabirat (NGR) | RABIU Aishat (NGR) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:5 6:11 12:10 11:3 | YU Fu | SHAO Jieni | "
             },
             {
@@ -1081,15 +1035,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "OJOMU Ajoke (NGR)",
+                "OJOMU Ajoke (NGR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | OJOMU Ajoke (NGR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 1 - 3 | 4:11 3:11 11:9 7:11 | SHAO Jieni |  | "
             },
             {
@@ -1116,7 +1068,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -1125,17 +1077,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "GODA Hana (EGY)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | YU Fu (POR) | SHAO Jieni (POR) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | SemiFinal | 0 - 3 | 9:11 7:11 4:11 | GODA Hana | MESHREF Dina | "
             },
             {
@@ -1168,15 +1117,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | AKULA Sreeja (IND) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:7 11:7 | AKULA Sreeja |  | "
             }
           ]
@@ -1224,15 +1171,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MOYLAND Sally (USA)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | MOYLAND Sally (USA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 1 - 3 | 9:11 13:11 5:11 9:11 | SHAO Jieni |  | "
             },
             {
@@ -1270,15 +1215,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "ZHU Yuling (MAC)",
+                "ZHU Yuling (MAC)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | ZHU Yuling (MAC) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 1 | 11:7 11:3 7:11 11:4 | ZHU Yuling |  | "
             }
           ]
@@ -1326,15 +1269,13 @@
                 "YOO Yerin (KOR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YOO Yerin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | SHAO Jieni (POR) |  | YOO Yerin (KOR) |  | WS | Main Draw | R64 | 1 - 3 | 7:11 11:6 9:11 6:11 | YOO Yerin |  | "
             }
           ]
@@ -1371,7 +1312,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -1380,17 +1321,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "YU Fu (POR)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:7 11:4 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -1423,15 +1361,13 @@
                 "NAGASAKI Miyu (JPN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "NAGASAKI Miyu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | SHAO Jieni (POR) |  | NAGASAKI Miyu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 7:11 9:11 | NAGASAKI Miyu |  | "
             }
           ]
@@ -1489,15 +1425,13 @@
                 "CHANG Li Sian (MAS)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "CHANG Li Sian (MAS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | SHAO Jieni (POR) |  | CHANG Li Sian (MAS) |  | WS | Main Draw | R128 | 4 - 2 | 8:11 11:9 11:7 9:11 11:4 11:8 | SHAO Jieni |  | "
             },
             {
@@ -1540,15 +1474,13 @@
                 "ODO Satsuki (JPN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ODO Satsuki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | SHAO Jieni (POR) |  | ODO Satsuki (JPN) |  | WS | Main Draw | R64 | 1 - 4 | 6:11 7:11 7:11 11:9 5:11 | ODO Satsuki |  | "
             }
           ]
@@ -1596,15 +1528,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "WANG Yidi (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | WANG Yidi (CHN) |  | SHAO Jieni (POR) |  | WS | Qualification |  | 4 - 0 | 11:9 11:2 11:3 11:7 | WANG Yidi |  | "
             },
             {
@@ -1642,15 +1572,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | YUAN Jia Nan (FRA) |  | SHAO Jieni (POR) |  | WS | Qualification |  | 2 - 2 | 7:11 11:8 7:11 11:9 |  |  | "
             }
           ]
@@ -1693,15 +1621,13 @@
                 "ZHU Yuling (MAC)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ZHU Yuling (MAC)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | SHAO Jieni (POR) |  | ZHU Yuling (MAC) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 9:11 4:11 | ZHU Yuling |  | "
             }
           ]
@@ -1749,15 +1675,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | VARADY Barbora (SVK) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 1 - 3 | 7:11 8:11 13:11 9:11 | SHAO Jieni |  | "
             },
             {
@@ -1790,15 +1714,13 @@
                 "HASHIMOTO Honoka (JPN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "HASHIMOTO Honoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | SHAO Jieni (POR) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 0:11 3:11 6:11 | HASHIMOTO Honoka |  | "
             }
           ]
@@ -1841,15 +1763,13 @@
                 "HAN Ying (GER)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "HAN Ying (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | SHAO Jieni (POR) |  | HAN Ying (GER) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 7:11 4:11 6:11 | HAN Ying |  | "
             },
             {
@@ -1892,15 +1812,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | YUAN Jia Nan (FRA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 2 - 3 | 11:8 11:6 4:11 7:11 7:11 | SHAO Jieni |  | "
             }
           ]
@@ -1948,15 +1866,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | VARADY Barbora (SVK) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 1 - 3 | 11:9 2:11 8:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -1989,15 +1905,13 @@
                 "CHEN Xingtong (CHN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "CHEN Xingtong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | SHAO Jieni (POR) |  | CHEN Xingtong (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 8:11 6:11 | CHEN Xingtong |  | "
             }
           ]
@@ -2050,15 +1964,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "CHITALE Diya (IND)",
+                "CHITALE Diya (IND)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | CHITALE Diya (IND) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 2 - 3 | 11:7 11:13 3:11 11:8 5:11 | SHAO Jieni |  | "
             },
             {
@@ -2096,15 +2008,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | AKULA Sreeja (IND) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 1 | 11:7 11:7 7:11 11:3 | AKULA Sreeja |  | "
             }
           ]
@@ -2146,7 +2056,7 @@
                 "2:11",
                 "7:11"
               ],
-              "winner": "SHAO Jieni",
+              "winner": "SHAO Jieni / YU Fu",
               "all_players_in_row": [
                 "PAPADIMITRIOU Malamatenia (GRE)",
                 "TERPOU Elisavet (GRE)",
@@ -2155,17 +2065,14 @@
               ],
               "side_a": [
                 "PAPADIMITRIOU Malamatenia (GRE)",
-                "SHAO Jieni (POR)"
+                "TERPOU Elisavet (GRE)"
               ],
               "side_b": [
-                "TERPOU Elisavet (GRE)",
+                "SHAO Jieni (POR)",
                 "YU Fu (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | PAPADIMITRIOU Malamatenia (GRE) | TERPOU Elisavet (GRE) | SHAO Jieni (POR) | YU Fu (POR) | WD | Qualification | QR64 | 0 - 3 | 5:11 2:11 7:11 | SHAO Jieni | YU Fu | "
             },
             {
@@ -2202,7 +2109,7 @@
                 "11:13",
                 "7:11"
               ],
-              "winner": "YAREMCHUK Solomiya",
+              "winner": "YAREMCHUK Solomiya / MATIUNINA Veronika",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "YU Fu (POR)",
@@ -2211,17 +2118,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "YAREMCHUK Solomiya (UKR)"
+                "YU Fu (POR)"
               ],
               "side_b": [
-                "YU Fu (POR)",
+                "YAREMCHUK Solomiya (UKR)",
                 "MATIUNINA Veronika (UKR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | SHAO Jieni (POR) | YU Fu (POR) | YAREMCHUK Solomiya (UKR) | MATIUNINA Veronika (UKR) | WD | Qualification | QR32 | 2 - 3 | 11:7 7:11 11:9 11:13 7:11 | YAREMCHUK Solomiya | MATIUNINA Veronika | "
             },
             {
@@ -2259,15 +2163,13 @@
                 "BETZ Ramona Maarit (FIN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "BETZ Ramona Maarit (FIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | SHAO Jieni (POR) |  | BETZ Ramona Maarit (FIN) |  | WS | Main Draw | R64 | 4 - 0 | 11:3 11:7 11:5 11:3 | SHAO Jieni |  | "
             },
             {
@@ -2320,15 +2222,13 @@
                 "JEGER Mateja (CRO)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "JEGER Mateja (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | SHAO Jieni (POR) |  | JEGER Mateja (CRO) |  | WS | Main Draw | R32 | 4 - 3 | 11:4 9:11 13:11 11:7 5:11 8:11 11:7 | SHAO Jieni |  | "
             },
             {
@@ -2371,15 +2271,13 @@
                 "WAN Yuan (GER)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "WAN Yuan (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | SHAO Jieni (POR) |  | WAN Yuan (GER) |  | WS | Main Draw | R16 | 1 - 4 | 13:15 13:11 9:11 7:11 9:11 | WAN Yuan |  | "
             }
           ]
@@ -2432,15 +2330,13 @@
                 "EERLAND Britt (NED)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "EERLAND Britt (NED)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | SHAO Jieni (POR) |  | EERLAND Britt (NED) |  | WS | Main Draw | R64 | 2 - 3 | 7:11 12:10 7:11 11:6 4:11 | EERLAND Britt |  | "
             }
           ]
@@ -2488,15 +2384,13 @@
                 "KIM Nayeong (KOR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KIM Nayeong (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Champions Macao 2024 | SHAO Jieni (POR) |  | KIM Nayeong (KOR) |  | WS | Main Draw | R32 | 1 - 3 | 3:11 7:11 13:11 6:11 | KIM Nayeong |  | "
             }
           ]
@@ -2554,15 +2448,13 @@
                 "DE NUTTE Sarah (LUX)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | SHAO Jieni (POR) |  | DE NUTTE Sarah (LUX) |  | WS | Main Draw | R64 | 4 - 2 | 11:7 11:9 5:11 7:11 11:8 11:5 | SHAO Jieni |  | "
             },
             {
@@ -2610,15 +2502,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | SHAO Jieni (POR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 2 - 4 | 12:10 9:11 7:11 3:11 14:12 7:11 | POLCANOVA Sofia |  | "
             }
           ]
@@ -2666,15 +2556,13 @@
                 "AIYELABEGAN Sukurat (NGR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "AIYELABEGAN Sukurat (NGR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lagos 2024 | SHAO Jieni (POR) |  | AIYELABEGAN Sukurat (NGR) |  | WS | Main Draw | R32 | 3 - 1 | 14:16 11:5 11:6 11:5 | SHAO Jieni |  | "
             },
             {
@@ -2707,15 +2595,13 @@
                 "FASHOLA Aminat (NGR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "FASHOLA Aminat (NGR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lagos 2024 | SHAO Jieni (POR) |  | FASHOLA Aminat (NGR) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 13:11 11:4 | SHAO Jieni |  | "
             },
             {
@@ -2753,15 +2639,13 @@
                 "DING Yijie (CHN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "DING Yijie (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lagos 2024 | SHAO Jieni (POR) |  | DING Yijie (CHN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 11:7 9:11 4:11 9:11 | DING Yijie |  | "
             }
           ]
@@ -2814,15 +2698,13 @@
                 "MATELOVA Hana (CZE)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Mendoza 2024 | SHAO Jieni (POR) |  | MATELOVA Hana (CZE) |  | WS | Main Draw | R32 | 2 - 3 | 9:11 4:11 11:2 11:8 9:11 | MATELOVA Hana |  | "
             }
           ]
@@ -2865,15 +2747,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SUH Hyo Won (KOR)",
+                "SUH Hyo Won (KOR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Rio de Janeiro 2024 | SUH Hyo Won (KOR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:2 11:6 11:4 | SUH Hyo Won |  | "
             }
           ]
@@ -2931,15 +2811,13 @@
                 "BLASKOVA Zdena (CZE)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "BLASKOVA Zdena (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Olympic Qualification Sarajevo 2024 | SHAO Jieni (POR) |  | BLASKOVA Zdena (CZE) |  | WS | Qualification |  | 4 - 2 | 4:11 14:12 11:8 15:17 12:10 11:6 | SHAO Jieni |  | "
             },
             {
@@ -2977,15 +2855,13 @@
                 "YILMAZ Ozge (TUR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YILMAZ Ozge (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Olympic Qualification Sarajevo 2024 | SHAO Jieni (POR) |  | YILMAZ Ozge (TUR) |  | WS | Qualification |  | 4 - 0 | 16:14 11:9 11:3 11:9 | SHAO Jieni |  | "
             },
             {
@@ -3033,15 +2909,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "PESOTSKA Margaryta (UKR)",
+                "PESOTSKA Margaryta (UKR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Olympic Qualification Sarajevo 2024 | PESOTSKA Margaryta (UKR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 2 - 4 | 11:4 10:12 11:8 5:11 7:11 4:11 | SHAO Jieni |  | "
             },
             {
@@ -3094,15 +2968,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Olympic Qualification Sarajevo 2024 | VARADY Barbora (SVK) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 10:12 9:11 9:11 11:7 11:7 15:13 11:9 | VARADY Barbora |  | "
             },
             {
@@ -3145,15 +3017,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "YAREMCHUK Solomiya (UKR)",
+                "YAREMCHUK Solomiya (UKR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Olympic Qualification Sarajevo 2024 | YAREMCHUK Solomiya (UKR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 1 - 4 | 11:9 6:11 7:11 8:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -3191,15 +3061,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "KUKULKOVA Tatiana (SVK)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Olympic Qualification Sarajevo 2024 | KUKULKOVA Tatiana (SVK) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 4:11 10:12 5:11 2:11 | SHAO Jieni |  | "
             },
             {
@@ -3242,15 +3110,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "POTA Georgina (HUN)",
+                "POTA Georgina (HUN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Olympic Qualification Sarajevo 2024 | POTA Georgina (HUN) |  | SHAO Jieni (POR) |  | WS | Main Draw | SemiFinal | 1 - 4 | 13:11 5:11 7:11 4:11 5:11 | SHAO Jieni |  | "
             }
           ]
@@ -3293,15 +3159,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "BURGOS Brianna (PUR)",
+                "BURGOS Brianna (PUR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Saudi Smash 2024 | BURGOS Brianna (PUR) |  | SHAO Jieni (POR) |  | WS | Qualification | QR64 | 0 - 3 | 4:11 4:11 2:11 | SHAO Jieni |  | "
             },
             {
@@ -3334,15 +3198,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "JEGER Mateja (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Saudi Smash 2024 | JEGER Mateja (CRO) |  | SHAO Jieni (POR) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 4:11 2:11 | SHAO Jieni |  | "
             },
             {
@@ -3385,15 +3247,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SURJAN Sabina (SRB)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Saudi Smash 2024 | SURJAN Sabina (SRB) |  | SHAO Jieni (POR) |  | WS | Qualification | QR16 | 2 - 3 | 9:11 11:8 11:8 4:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -3431,15 +3291,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Saudi Smash 2024 | SHAO Jieni (POR) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 3 - 1 | 11:7 13:11 9:11 14:12 | SHAO Jieni |  | "
             },
             {
@@ -3472,15 +3330,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "HARIMOTO Miwa (JPN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Saudi Smash 2024 | HARIMOTO Miwa (JPN) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:2 11:3 | HARIMOTO Miwa |  | "
             }
           ]
@@ -3523,15 +3379,13 @@
                 "ROY Krittwika (IND)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ROY Krittwika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Beirut II 2024 | SHAO Jieni (POR) |  | ROY Krittwika (IND) |  | WS | Main Draw | R32 | 0 - 3 | 13:15 9:11 10:12 | ROY Krittwika |  | "
             }
           ]
@@ -3584,15 +3438,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Singapore Smash 2024 | MITTELHAM Nina (GER) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 2 - 3 | 11:7 11:7 10:12 9:11 7:11 | SHAO Jieni |  | "
             },
             {
@@ -3630,15 +3482,13 @@
                 "KIM Nayeong (KOR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KIM Nayeong (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Singapore Smash 2024 | SHAO Jieni (POR) |  | KIM Nayeong (KOR) |  | WS | Main Draw | R32 | 1 - 3 | 12:10 3:11 12:14 9:11 | KIM Nayeong |  | "
             }
           ]
@@ -3686,15 +3536,13 @@
                 "LIU Jia (AUT)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "LIU Jia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | SHAO Jieni (POR) |  | LIU Jia (AUT) |  | WT | Qualification |  | 1 - 3 | 6:11 11:4 12:14 8:11 | LIU Jia |  | "
             },
             {
@@ -3732,15 +3580,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | SHAO Jieni (POR) |  | POLCANOVA Sofia (AUT) |  | WT | Qualification |  | 3 - 1 | 12:10 4:11 11:7 11:7 | SHAO Jieni |  | "
             },
             {
@@ -3783,15 +3629,13 @@
                 "ZHU Chengzhu (HKG)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ZHU Chengzhu (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | SHAO Jieni (POR) |  | ZHU Chengzhu (HKG) |  | WT | Qualification |  | 2 - 3 | 5:11 13:11 5:11 13:11 6:11 | ZHU Chengzhu |  | "
             },
             {
@@ -3824,15 +3668,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "FENG Chunyi (AUS)",
+                "FENG Chunyi (AUS)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | FENG Chunyi (AUS) |  | SHAO Jieni (POR) |  | WT | Qualification |  | 0 - 3 | 5:11 6:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -3870,15 +3712,13 @@
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | SHAO Jieni (POR) |  | MIRKADIROVA Sarvinoz (KAZ) |  | WT | Qualification |  | 3 - 1 | 11:3 11:3 6:11 11:1 | SHAO Jieni |  | "
             },
             {
@@ -3921,15 +3761,13 @@
                 "NI Xia Lian (LUX)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "NI Xia Lian (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | SHAO Jieni (POR) |  | NI Xia Lian (LUX) |  | WT | Main Draw | R32 | 3 - 2 | 9:11 15:13 5:11 11:9 12:10 | SHAO Jieni |  | "
             },
             {
@@ -3967,15 +3805,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "PAVADE Prithika (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | PAVADE Prithika (FRA) |  | SHAO Jieni (POR) |  | WT | Main Draw | R16 | 3 - 1 | 11:9 9:11 11:3 11:7 | PAVADE Prithika |  | "
             }
           ]
@@ -4028,15 +3864,13 @@
                 "KAMATH Archana (IND)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KAMATH Archana (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Goa 2024 | SHAO Jieni (POR) |  | KAMATH Archana (IND) |  | WS | Main Draw | R32 | 2 - 3 | 11:9 5:11 5:11 11:8 5:11 | KAMATH Archana |  | "
             }
           ]
@@ -4089,15 +3923,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Europe Top-16 Cup Montreux 2024 | SZOCS Bernadette (ROU) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 4 - 1 | 11:5 9:11 12:10 11:8 11:8 | SZOCS Bernadette |  | "
             }
           ]
@@ -4140,15 +3972,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MOHAMED Aia (QAT)",
+                "MOHAMED Aia (QAT)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Doha 2024 | MOHAMED Aia (QAT) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 0 - 3 | 4:11 0:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -4181,15 +4011,13 @@
                 "ZHANG Rui (CHN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ZHANG Rui (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Doha 2024 | SHAO Jieni (POR) |  | ZHANG Rui (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 6:11 6:11 | ZHANG Rui |  | "
             }
           ]
@@ -4247,15 +4075,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | PICCOLIN Giorgia (ITA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 2 - 3 | 11:9 1:11 11:8 11:13 8:11 | SHAO Jieni |  | "
             },
             {
@@ -4298,15 +4124,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MOYLAND Sally (USA)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | MOYLAND Sally (USA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 2 - 3 | 11:9 4:11 11:8 9:11 8:11 | SHAO Jieni |  | "
             },
             {
@@ -4349,15 +4173,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "BAJOR Natalia (POL)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | BAJOR Natalia (POL) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 2 - 3 | 13:11 11:9 8:11 10:12 5:11 | SHAO Jieni |  | "
             },
             {
@@ -4395,15 +4217,13 @@
                 "YANG Yiyun (CHN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YANG Yiyun (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Vila Nova de Gaia 2023 | SHAO Jieni (POR) |  | YANG Yiyun (CHN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 10:12 12:10 8:11 6:11 | YANG Yiyun |  | "
             }
           ]
@@ -4456,15 +4276,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "XIAO Maria (ESP)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Antalya 2023 | XIAO Maria (ESP) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 2 - 3 | 10:12 11:6 12:10 4:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -4497,15 +4315,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Antalya 2023 | HAYATA Hina (JPN) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:3 11:6 | HAYATA Hina |  | "
             }
           ]
@@ -4548,15 +4364,13 @@
                 "YANG Ha Eun (KOR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | SHAO Jieni (POR) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 3 - 0 | 11:9 11:7 11:6 | SHAO Jieni |  | "
             },
             {
@@ -4589,15 +4403,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "KIHARA Miyuu (JPN)",
+                "KIHARA Miyuu (JPN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | KIHARA Miyuu (JPN) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:4 12:10 | KIHARA Miyuu |  | "
             }
           ]
@@ -4640,15 +4452,13 @@
                 "GEORGIEVA Tsvetelina (BUL)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "GEORGIEVA Tsvetelina (BUL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | SHAO Jieni (POR) |  | GEORGIEVA Tsvetelina (BUL) |  | WT | Qualification |  | 3 - 0 | 11:5 11:3 11:6 | SHAO Jieni |  | "
             },
             {
@@ -4681,15 +4491,13 @@
                 "YOVKOVA Maria (BUL)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YOVKOVA Maria (BUL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | SHAO Jieni (POR) |  | YOVKOVA Maria (BUL) |  | WT | Qualification |  | 3 - 0 | 11:5 11:6 11:7 | SHAO Jieni |  | "
             },
             {
@@ -4727,15 +4535,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | SHAO Jieni (POR) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 3 - 1 | 11:4 11:7 8:11 11:5 | SHAO Jieni |  | "
             },
             {
@@ -4768,15 +4574,13 @@
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | SHAO Jieni (POR) |  | SURJAN Sabina (SRB) |  | WT | Qualification |  | 3 - 0 | 11:1 13:11 11:7 | SHAO Jieni |  | "
             },
             {
@@ -4809,15 +4613,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MALOBABIC Ivana (CRO)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | MALOBABIC Ivana (CRO) |  | SHAO Jieni (POR) |  | WT | Main Draw | R16 | 0 - 3 | 2:11 4:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -4855,15 +4657,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "JEGER Mateja (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | JEGER Mateja (CRO) |  | SHAO Jieni (POR) |  | WT | Main Draw | R16 | 1 - 3 | 12:10 3:11 5:11 6:11 | SHAO Jieni |  | "
             },
             {
@@ -4906,15 +4706,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "KALLBERG Christina (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | KALLBERG Christina (SWE) |  | SHAO Jieni (POR) |  | WT | Main Draw | QuarterFinal | 2 - 3 | 5:11 7:11 13:11 14:12 9:11 | SHAO Jieni |  | "
             },
             {
@@ -4952,15 +4750,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | BERGSTROM Linda (SWE) |  | SHAO Jieni (POR) |  | WT | Main Draw | QuarterFinal | 1 - 3 | 11:7 8:11 12:14 10:12 | SHAO Jieni |  | "
             },
             {
@@ -4993,15 +4789,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Team Championships Malmo 2023 | MITTELHAM Nina (GER) |  | SHAO Jieni (POR) |  | WT | Main Draw | SemiFinal | 3 - 0 | 16:14 11:4 11:5 | MITTELHAM Nina |  | "
             }
           ]
@@ -5044,15 +4838,13 @@
                 "ZHAXYLYKOVA Albina (KAZ)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ZHAXYLYKOVA Albina (KAZ)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | SHAO Jieni (POR) |  | ZHAXYLYKOVA Albina (KAZ) |  | WS | Qualification | QR32 | 3 - 0 | 11:1 11:0 11:3 | SHAO Jieni |  | "
             },
             {
@@ -5081,18 +4873,17 @@
               ],
               "winner": "SHAO Jieni",
               "all_players_in_row": [
-                "SHAO Jieni (POR)"
-              ],
-              "side_a": [
                 "SHAO Jieni (POR)",
                 "HUANG Yu-Wen (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
+                "HUANG Yu-Wen (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | SHAO Jieni (POR) |  | HUANG Yu-Wen (TPE) |  | WS | Qualification | QR16 | 3 - 0 | 11:6 11:8 11:8 | SHAO Jieni |  | "
             },
             {
@@ -5125,15 +4916,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "FAN Siqi (CHN)",
+                "FAN Siqi (CHN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Almaty 2023 | FAN Siqi (CHN) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:6 11:4 | FAN Siqi |  | "
             }
           ]
@@ -5196,15 +4985,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "NAGYVARADI Mercedes (HUN)",
+                "NAGYVARADI Mercedes (HUN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | NAGYVARADI Mercedes (HUN) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 0 - 4 | 8:11 8:11 9:11 6:11 0:0 0:0 0:0 | SHAO Jieni |  | "
             },
             {
@@ -5257,15 +5044,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | MITTELHAM Nina (GER) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 4 - 1 | 11:8 11:9 11:3 9:11 11:6 0:0 0:0 | MITTELHAM Nina |  | "
             },
             {
@@ -5303,15 +5088,13 @@
                 "PESOTSKA Margaryta (UKR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SHAO Jieni (POR) |  | PESOTSKA Margaryta (UKR) |  | WT | Main Draw | QuarterFinal | 1 - 3 | 3:11 11:9 7:11 7:11 | PESOTSKA Margaryta |  | "
             },
             {
@@ -5344,15 +5127,13 @@
                 "DYMYTRENKO Anastasiya (UKR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "DYMYTRENKO Anastasiya (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SHAO Jieni (POR) |  | DYMYTRENKO Anastasiya (UKR) |  | WT | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:9 11:5 | SHAO Jieni |  | "
             },
             {
@@ -5379,7 +5160,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / SHAN Xiaona",
               "all_players_in_row": [
                 "MATOS Ines (POR)",
                 "SHAO Jieni (POR)",
@@ -5388,17 +5169,14 @@
               ],
               "side_a": [
                 "MATOS Ines (POR)",
-                "MITTELHAM Nina (GER)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "MITTELHAM Nina (GER)",
                 "SHAN Xiaona (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | MATOS Ines (POR) | SHAO Jieni (POR) | MITTELHAM Nina (GER) | SHAN Xiaona (GER) | WT | Main Draw | SemiFinal | 0 - 3 | 5:11 6:11 7:11 | MITTELHAM Nina | SHAN Xiaona | "
             },
             {
@@ -5436,15 +5214,13 @@
                 "SHAN Xiaona (GER)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SHAN Xiaona (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SHAO Jieni (POR) |  | SHAN Xiaona (GER) |  | WT | Main Draw | SemiFinal | 1 - 3 | 7:11 12:10 13:15 12:14 | SHAN Xiaona |  | "
             },
             {
@@ -5487,15 +5263,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SHAO Jieni (POR) |  | YUAN Jia Nan (FRA) |  | WT | Position Draw | 2 | 3 - 2 | 6:11 8:11 11:7 11:7 11:7 | SHAO Jieni |  | "
             }
           ]
@@ -5543,15 +5317,13 @@
                 "LEE Zion (KOR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "LEE Zion (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | SHAO Jieni (POR) |  | LEE Zion (KOR) |  | WS | Main Draw | R128 | 0 - 4 | 9:11 15:17 9:11 5:11 | LEE Zion |  | "
             },
             {
@@ -5583,7 +5355,7 @@
                 "7:11",
                 "9:11"
               ],
-              "winner": "GOI Rui Xuan",
+              "winner": "GOI Rui Xuan / WONG Xin Ru",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "YU Fu (POR)",
@@ -5592,17 +5364,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "GOI Rui Xuan (SGP)"
+                "YU Fu (POR)"
               ],
               "side_b": [
-                "YU Fu (POR)",
+                "GOI Rui Xuan (SGP)",
                 "WONG Xin Ru (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | SHAO Jieni (POR) | YU Fu (POR) | GOI Rui Xuan (SGP) | WONG Xin Ru (SGP) | WD | Main Draw | R64 | 1 - 3 | 8:11 14:12 7:11 9:11 | GOI Rui Xuan | WONG Xin Ru | "
             },
             {
@@ -5634,7 +5403,7 @@
                 "8:11",
                 "11:8"
               ],
-              "winner": "MADRID Marcos",
+              "winner": "MADRID Marcos / SILVA Yadira",
               "all_players_in_row": [
                 "MADRID Marcos (MEX)",
                 "SILVA Yadira (MEX)",
@@ -5643,17 +5412,14 @@
               ],
               "side_a": [
                 "MADRID Marcos (MEX)",
-                "GERALDO Joao (POR)"
+                "SILVA Yadira (MEX)"
               ],
               "side_b": [
-                "SILVA Yadira (MEX)",
+                "GERALDO Joao (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | MADRID Marcos (MEX) | SILVA Yadira (MEX) | GERALDO Joao (POR) | SHAO Jieni (POR) | XD | Main Draw | R64 | 3 - 1 | 11:5 11:8 8:11 11:8 | MADRID Marcos | SILVA Yadira | "
             }
           ]
@@ -5701,15 +5467,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "NG Wing Lam (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | NG Wing Lam (HKG) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 1 - 3 | 7:11 11:5 6:11 10:12 | SHAO Jieni |  | "
             },
             {
@@ -5747,15 +5511,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "ZHANG Lily (USA)",
+                "ZHANG Lily (USA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | ZHANG Lily (USA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 11:5 7:11 11:7 | ZHANG Lily |  | "
             }
           ]
@@ -5803,15 +5565,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Singapore Smash 2023 | SHAO Jieni (POR) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R64 | 1 - 3 | 11:7 2:11 6:11 6:11 | MITTELHAM Nina |  | "
             }
           ]
@@ -5848,7 +5608,7 @@
                 "11:0",
                 "11:0"
               ],
-              "winner": "BAISYA Poymantee",
+              "winner": "BAISYA Poymantee / BASAK Anannya",
               "all_players_in_row": [
                 "BAISYA Poymantee (IND)",
                 "BASAK Anannya (IND)",
@@ -5857,17 +5617,14 @@
               ],
               "side_a": [
                 "BAISYA Poymantee (IND)",
-                "SHAO Jieni (POR)"
+                "BASAK Anannya (IND)"
               ],
               "side_b": [
-                "BASAK Anannya (IND)",
+                "SHAO Jieni (POR)",
                 "YU Fu (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | BAISYA Poymantee (IND) | BASAK Anannya (IND) | SHAO Jieni (POR) | YU Fu (POR) | WD | Qualification | QR8 | 3 - 0 | 11:0 11:0 11:0 | BAISYA Poymantee | BASAK Anannya | "
             },
             {
@@ -5905,15 +5662,13 @@
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | SHAO Jieni (POR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 1 - 3 | 6:11 11:8 7:11 5:11 | SAMARA Elizabeta |  | "
             }
           ]
@@ -5971,15 +5726,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Europe Top-16 Cup Montreux 2023 | SHAO Jieni (POR) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R16 | 4 - 2 | 11:4 11:4 11:8 6:11 9:11 11:7 | SHAO Jieni |  | "
             },
             {
@@ -6027,15 +5780,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "NI Xia Lian (LUX)",
+                "NI Xia Lian (LUX)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Europe Top-16 Cup Montreux 2023 | NI Xia Lian (LUX) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 2 - 4 | 7:11 13:11 7:11 7:11 11:6 4:11 | SHAO Jieni |  | "
             },
             {
@@ -6073,15 +5824,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "HAN Ying (GER)",
+                "HAN Ying (GER)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Europe Top-16 Cup Montreux 2023 | HAN Ying (GER) |  | SHAO Jieni (POR) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:5 12:10 11:4 11:5 | HAN Ying |  | "
             }
           ]
@@ -6124,15 +5873,13 @@
                 "VARADY Barbora (SVK)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "VARADY Barbora (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | SHAO Jieni (POR) |  | VARADY Barbora (SVK) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:1 11:0 | SHAO Jieni |  | "
             },
             {
@@ -6175,15 +5922,13 @@
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | SHAO Jieni (POR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 3 - 2 | 11:8 5:11 8:11 11:5 15:13 | SHAO Jieni |  | "
             },
             {
@@ -6216,15 +5961,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | POLCANOVA Sofia (AUT) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:9 11:4 | POLCANOVA Sofia |  | "
             }
           ]
@@ -6277,15 +6020,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Champions Macao 2022 | SHAN Xiaona (GER) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 1 | 11:8 9:11 11:7 16:14 | SHAN Xiaona |  | "
             }
           ]
@@ -6329,18 +6070,17 @@
               ],
               "winner": "CHEN Szu-Yu",
               "all_players_in_row": [
-                "SHAO Jieni (POR)"
-              ],
-              "side_a": [
                 "CHEN Szu-Yu (TPE)",
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHEN Szu-Yu (TPE)"
+              ],
+              "side_b": [
+                "SHAO Jieni (POR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | CHEN Szu-Yu (TPE) |  | SHAO Jieni (POR) |  | WT | Qualification |  | 3 - 1 | 11:7 5:11 16:14 13:11 | CHEN Szu-Yu |  | "
             },
             {
@@ -6373,15 +6113,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | BERGSTROM Linda (SWE) |  | SHAO Jieni (POR) |  | WT | Qualification |  | 3 - 0 | 11:6 11:6 11:6 | BERGSTROM Linda |  | "
             },
             {
@@ -6414,15 +6152,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "HANSSON Matilda (SWE)",
+                "HANSSON Matilda (SWE)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | HANSSON Matilda (SWE) |  | SHAO Jieni (POR) |  | WT | Qualification |  | 0 - 3 | 3:11 6:11 7:11 | SHAO Jieni |  | "
             },
             {
@@ -6465,15 +6201,13 @@
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SHAO Jieni (POR) |  | SAMARA Elizabeta (ROU) |  | WT | Qualification |  | 3 - 2 | 11:13 11:6 11:4 9:11 13:11 | SHAO Jieni |  | "
             },
             {
@@ -6516,15 +6250,13 @@
                 "SZOCS Bernadette (ROU)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SZOCS Bernadette (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SHAO Jieni (POR) |  | SZOCS Bernadette (ROU) |  | WT | Qualification |  | 2 - 3 | 11:6 10:12 11:7 8:11 5:11 | SZOCS Bernadette |  | "
             },
             {
@@ -6562,15 +6294,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "DE NUTTE Sarah (LUX)",
+                "DE NUTTE Sarah (LUX)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | DE NUTTE Sarah (LUX) |  | SHAO Jieni (POR) |  | WT | Main Draw | R16 | 1 - 3 | 3:11 5:11 11:7 6:11 | SHAO Jieni |  | "
             },
             {
@@ -6613,15 +6343,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "NI Xia Lian (LUX)",
+                "NI Xia Lian (LUX)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | NI Xia Lian (LUX) |  | SHAO Jieni (POR) |  | WT | Main Draw | R16 | 2 - 3 | 9:11 11:8 14:12 3:11 6:11 | SHAO Jieni |  | "
             },
             {
@@ -6654,15 +6382,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "WANG Manyu (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | WANG Manyu (CHN) |  | SHAO Jieni (POR) |  | WT | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:6 11:5 | WANG Manyu |  | "
             }
           ]
@@ -6699,7 +6425,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "SHAO Jieni",
+              "winner": "SHAO Jieni / YU Fu",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "YU Fu (POR)",
@@ -6708,17 +6434,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "TOLIOU Aikaterini (GRE)"
+                "YU Fu (POR)"
               ],
               "side_b": [
-                "YU Fu (POR)",
+                "TOLIOU Aikaterini (GRE)",
                 "MORET Rachel (SUI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAO Jieni (POR) | YU Fu (POR) | TOLIOU Aikaterini (GRE) | MORET Rachel (SUI) | WD | Main Draw | R32 | 3 - 0 | 11:7 11:9 11:9 | SHAO Jieni | YU Fu | "
             },
             {
@@ -6750,7 +6473,7 @@
                 "8:11",
                 "11:8"
               ],
-              "winner": "SHAO Jieni",
+              "winner": "SHAO Jieni / YU Fu",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "YU Fu (POR)",
@@ -6759,17 +6482,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "KUKULKOVA Tatiana (SVK)"
+                "YU Fu (POR)"
               ],
               "side_b": [
-                "YU Fu (POR)",
+                "KUKULKOVA Tatiana (SVK)",
                 "LABOSOVA Ema (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAO Jieni (POR) | YU Fu (POR) | KUKULKOVA Tatiana (SVK) | LABOSOVA Ema (SVK) | WD | Main Draw | R16 | 3 - 1 | 11:6 11:9 8:11 11:8 | SHAO Jieni | YU Fu | "
             },
             {
@@ -6796,7 +6516,7 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -6805,17 +6525,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "SHAO Jieni (POR)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "SHAO Jieni (POR)",
                 "YU Fu (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | SHAO Jieni (POR) | YU Fu (POR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:6 11:9 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -6853,15 +6570,13 @@
                 "BARDSLEY Charlotte (ENG)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "BARDSLEY Charlotte (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAO Jieni (POR) |  | BARDSLEY Charlotte (ENG) |  | WS | Main Draw | R64 | 4 - 0 | 11:5 11:3 11:5 11:6 | SHAO Jieni |  | "
             },
             {
@@ -6904,15 +6619,13 @@
                 "HAPONOVA Hanna (UKR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "HAPONOVA Hanna (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAO Jieni (POR) |  | HAPONOVA Hanna (UKR) |  | WS | Main Draw | R32 | 4 - 1 | 11:8 11:7 11:7 9:11 11:6 | SHAO Jieni |  | "
             },
             {
@@ -6960,15 +6673,13 @@
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAO Jieni (POR) |  | SURJAN Sabina (SRB) |  | WS | Main Draw | R16 | 4 - 2 | 11:8 9:11 11:7 7:11 14:12 12:10 | SHAO Jieni |  | "
             },
             {
@@ -7021,15 +6732,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAN Xiaona (GER) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 9:11 14:12 11:6 10:12 11:8 9:11 11:8 | SHAN Xiaona |  | "
             }
           ]
@@ -7071,7 +6780,7 @@
                 "11:9",
                 "2:11"
               ],
-              "winner": "FAN Siqi",
+              "winner": "FAN Siqi / LIU Weishan",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "WAN Yuan (GER)",
@@ -7080,17 +6789,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "FAN Siqi (CHN)"
+                "WAN Yuan (GER)"
               ],
               "side_b": [
-                "WAN Yuan (GER)",
+                "FAN Siqi (CHN)",
                 "LIU Weishan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | SHAO Jieni (POR) | WAN Yuan (GER) | FAN Siqi (CHN) | LIU Weishan (CHN) | WD | Main Draw | R16 | 1 - 3 | 9:11 4:11 11:9 2:11 | FAN Siqi | LIU Weishan | "
             },
             {
@@ -7128,15 +6834,13 @@
                 "ZHANG Rui (CHN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ZHANG Rui (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | SHAO Jieni (POR) |  | ZHANG Rui (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 4:11 8:11 11:7 8:11 | ZHANG Rui |  | "
             }
           ]
@@ -7184,15 +6888,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MUKHERJEE Ayhika (IND)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | MUKHERJEE Ayhika (IND) |  | SHAO Jieni (POR) |  | WS | Qualification | QR32 | 1 - 3 | 8:11 11:9 9:11 5:11 | SHAO Jieni |  | "
             },
             {
@@ -7225,15 +6927,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "PAVADE Prithika (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | PAVADE Prithika (FRA) |  | SHAO Jieni (POR) |  | WS | Qualification | QR16 | 0 - 3 | 6:11 11:13 3:11 | SHAO Jieni |  | "
             },
             {
@@ -7271,15 +6971,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "DIACONU Adina (ROU)",
+                "DIACONU Adina (ROU)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | DIACONU Adina (ROU) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 3 - 1 | 11:8 6:11 16:14 11:4 | DIACONU Adina |  | "
             }
           ]
@@ -7328,18 +7026,17 @@
               ],
               "winner": "SHAO Jieni",
               "all_players_in_row": [
-                "SHAO Jieni (POR)"
-              ],
-              "side_a": [
                 "SHAO Jieni (POR)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Qualification |  | 4 - 1 | 11:5 6:11 11:7 11:5 11:7 | SHAO Jieni |  | "
             },
             {
@@ -7377,15 +7074,13 @@
                 "ARLIA Nicole (ITA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "ARLIA Nicole (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | ARLIA Nicole (ITA) |  | WS | Qualification |  | 4 - 0 | 11:4 11:3 11:9 11:9 | SHAO Jieni |  | "
             },
             {
@@ -7418,15 +7113,13 @@
                 "TOKIC Sara (SLO)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "TOKIC Sara (SLO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | TOKIC Sara (SLO) |  | WT | Qualification |  | 3 - 0 | 11:9 11:3 11:5 | SHAO Jieni |  | "
             },
             {
@@ -7455,18 +7148,17 @@
               ],
               "winner": "SHAO Jieni",
               "all_players_in_row": [
-                "SHAO Jieni (POR)"
-              ],
-              "side_a": [
                 "ZHANG Sofia-Xuan (ESP)",
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "side_b": [
+                "SHAO Jieni (POR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ZHANG Sofia-Xuan (ESP) |  | SHAO Jieni (POR) |  | WT | Qualification |  | 0 - 3 | 9:11 7:11 4:11 | SHAO Jieni |  | "
             },
             {
@@ -7498,25 +7190,23 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "XIAO Maria",
+              "winner": "XIAO Maria / ZHANG Sofia-Xuan",
               "all_players_in_row": [
                 "XIAO Maria (ESP)",
+                "ZHANG Sofia-Xuan (ESP)",
                 "MATOS Ines (POR)",
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
                 "XIAO Maria (ESP)",
-                "MATOS Ines (POR)"
+                "ZHANG Sofia-Xuan (ESP)"
               ],
               "side_b": [
-                "ZHANG Sofia-Xuan (ESP)",
+                "MATOS Ines (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | XIAO Maria (ESP) | ZHANG Sofia-Xuan (ESP) | MATOS Ines (POR) | SHAO Jieni (POR) | WT | Qualification |  | 3 - 1 | 7:11 11:1 11:5 11:8 | XIAO Maria | ZHANG Sofia-Xuan | "
             },
             {
@@ -7554,15 +7244,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "XIAO Maria (ESP)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | XIAO Maria (ESP) |  | SHAO Jieni (POR) |  | WT | Qualification |  | 1 - 3 | 4:11 11:7 9:11 3:11 | SHAO Jieni |  | "
             },
             {
@@ -7595,15 +7283,13 @@
                 "STEFANOVA Nikoleta (ITA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "STEFANOVA Nikoleta (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | STEFANOVA Nikoleta (ITA) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:5 11:8 11:6 | SHAO Jieni |  | "
             },
             {
@@ -7640,7 +7326,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / STEFANOVA Nikoleta",
               "all_players_in_row": [
                 "MATOS Ines (POR)",
                 "SHAO Jieni (POR)",
@@ -7649,17 +7335,14 @@
               ],
               "side_a": [
                 "MATOS Ines (POR)",
-                "PICCOLIN Giorgia (ITA)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "PICCOLIN Giorgia (ITA)",
                 "STEFANOVA Nikoleta (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | MATOS Ines (POR) | SHAO Jieni (POR) | PICCOLIN Giorgia (ITA) | STEFANOVA Nikoleta (ITA) | WT | Main Draw | SemiFinal | 2 - 3 | 8:11 11:5 15:13 8:11 9:11 | PICCOLIN Giorgia | STEFANOVA Nikoleta | "
             },
             {
@@ -7692,15 +7375,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | PICCOLIN Giorgia (ITA) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:7 11:6 12:10 | SHAO Jieni |  | "
             },
             {
@@ -7738,15 +7419,13 @@
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | SURJAN Sabina (SRB) |  | WT | Main Draw | Final | 3 - 1 | 11:2 6:11 11:6 11:9 | SHAO Jieni |  | "
             },
             {
@@ -7773,7 +7452,7 @@
                 "11:9",
                 "11:3"
               ],
-              "winner": "SHAO Jieni",
+              "winner": "SHAO Jieni / MATOS Ines",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "MATOS Ines (POR)",
@@ -7782,17 +7461,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "SURJAN Sabina (SRB)"
+                "MATOS Ines (POR)"
               ],
               "side_b": [
-                "MATOS Ines (POR)",
+                "SURJAN Sabina (SRB)",
                 "JOKIC Tijana (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) | MATOS Ines (POR) | SURJAN Sabina (SRB) | JOKIC Tijana (SRB) | WT | Main Draw | Final | 3 - 0 | 11:8 11:9 11:3 | SHAO Jieni | MATOS Ines | "
             },
             {
@@ -7830,15 +7506,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | LUPULESKU Izabela (SRB) |  | WT | Main Draw | Final | 3 - 1 | 11:7 9:11 12:10 12:10 | SHAO Jieni |  | "
             },
             {
@@ -7886,15 +7560,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | XIAO Maria (ESP) |  | WS | Qualification |  | 2 - 4 | 9:11 11:7 11:6 7:11 9:11 5:11 | XIAO Maria |  | "
             },
             {
@@ -7937,15 +7609,13 @@
                 "PAVADE Prithika (FRA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "PAVADE Prithika (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | PAVADE Prithika (FRA) |  | WS | Qualification |  | 4 - 1 | 7:11 11:7 11:6 11:5 11:9 | SHAO Jieni |  | "
             },
             {
@@ -7983,15 +7653,13 @@
                 "TOFANT Ana (SLO)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "TOFANT Ana (SLO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | TOFANT Ana (SLO) |  | WS | Qualification |  | 4 - 0 | 12:10 11:1 11:8 11:1 | SHAO Jieni |  | "
             },
             {
@@ -8034,15 +7702,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | LUPULESKU Izabela (SRB) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 4:11 11:1 9:11 5:11 6:11 | SHAO Jieni |  | "
             },
             {
@@ -8090,15 +7756,13 @@
                 "LUTZ Camille (FRA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | LUTZ Camille (FRA) |  | WS | Main Draw | SemiFinal | 4 - 2 | 8:11 11:8 7:11 11:7 11:6 11:8 | SHAO Jieni |  | "
             },
             {
@@ -8136,15 +7800,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "YANG Xiaoxin (MON)",
+                "YANG Xiaoxin (MON)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | YANG Xiaoxin (MON) |  | SHAO Jieni (POR) |  | WS | Main Draw | Final | 4 - 0 | 11:4 11:8 11:7 11:8 | YANG Xiaoxin |  | "
             }
           ]
@@ -8181,7 +7843,7 @@
                 "8:11",
                 "13:15"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "LEE Ho Ching (HKG)",
@@ -8190,17 +7852,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "POLCANOVA Sofia (AUT)"
+                "LEE Ho Ching (HKG)"
               ],
               "side_b": [
-                "LEE Ho Ching (HKG)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | SHAO Jieni (POR) | LEE Ho Ching (HKG) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R16 | 0 - 3 | 9:11 8:11 13:15 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -8243,15 +7902,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "KIM Nayeong (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | KIM Nayeong (KOR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 2 | 8:11 12:14 11:5 11:4 13:11 | KIM Nayeong |  | "
             }
           ]
@@ -8288,7 +7945,7 @@
                 "11:8",
                 "11:3"
               ],
-              "winner": "SHAO Jieni",
+              "winner": "SHAO Jieni / YU Fu",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "YU Fu (POR)",
@@ -8297,17 +7954,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "KHETKHUAN Tamolwan (THA)"
+                "YU Fu (POR)"
               ],
               "side_b": [
-                "YU Fu (POR)",
+                "KHETKHUAN Tamolwan (THA)",
                 "SAWETTABUT Jinnipa (THA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | SHAO Jieni (POR) | YU Fu (POR) | KHETKHUAN Tamolwan (THA) | SAWETTABUT Jinnipa (THA) | WD | Qualification | QR16 | 3 - 0 | 11:8 11:8 11:3 | SHAO Jieni | YU Fu | "
             },
             {
@@ -8344,24 +7998,23 @@
                 "11:13",
                 "11:7"
               ],
-              "winner": "HUANG Yi-Hua",
+              "winner": "HUANG Yi-Hua / CHEN Szu-Yu",
               "all_players_in_row": [
+                "HUANG Yi-Hua (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
                 "HUANG Yi-Hua (TPE)",
-                "YU Fu (POR)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | HUANG Yi-Hua (TPE) | CHEN Szu-Yu (TPE) | YU Fu (POR) | SHAO Jieni (POR) | WD | Qualification | QR8 | 3 - 2 | 11:13 11:2 11:5 11:13 11:7 | HUANG Yi-Hua | CHEN Szu-Yu | "
             },
             {
@@ -8399,15 +8052,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "ZHANG Rui (CHN)",
+                "ZHANG Rui (CHN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | ZHANG Rui (CHN) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 3 - 1 | 11:6 11:1 4:11 13:11 | ZHANG Rui |  | "
             }
           ]
@@ -8454,7 +8105,7 @@
                 "6:11",
                 "4:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)",
@@ -8463,17 +8114,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "YU Fu (POR)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | YU Fu (POR) | SHAO Jieni (POR) | WD | Qualification | QR16 | 2 - 3 | 11:8 9:11 11:4 6:11 4:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -8500,7 +8148,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "KOH Kai Xin Pearlyn (SGP)",
                 "ZHANG Wanling (SGP)",
@@ -8509,17 +8157,14 @@
               ],
               "side_a": [
                 "KOH Kai Xin Pearlyn (SGP)",
-                "YU Fu (POR)"
+                "ZHANG Wanling (SGP)"
               ],
               "side_b": [
-                "ZHANG Wanling (SGP)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | KOH Kai Xin Pearlyn (SGP) | ZHANG Wanling (SGP) | YU Fu (POR) | SHAO Jieni (POR) | WD | Qualification | QR8 | 0 - 3 | 7:11 6:11 3:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -8546,7 +8191,7 @@
                 "9:11",
                 "4:11"
               ],
-              "winner": "JEON Jihee",
+              "winner": "JEON Jihee / YANG Ha Eun",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -8555,17 +8200,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "JEON Jihee (KOR)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "JEON Jihee (KOR)",
                 "YANG Ha Eun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | YU Fu (POR) | SHAO Jieni (POR) | JEON Jihee (KOR) | YANG Ha Eun (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 2:11 9:11 4:11 | JEON Jihee | YANG Ha Eun | "
             },
             {
@@ -8608,15 +8250,13 @@
                 "KATO Miyu (JPN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KATO Miyu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | SHAO Jieni (POR) |  | KATO Miyu (JPN) |  | WS | Main Draw | R32 | 2 - 3 | 11:8 3:11 10:12 11:2 9:11 | KATO Miyu |  | "
             },
             {
@@ -8648,7 +8288,7 @@
                 "11:4",
                 "7:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "TODOROVIC Andrea (SRB)",
@@ -8657,17 +8297,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "YU Fu (POR)"
+                "TODOROVIC Andrea (SRB)"
               ],
               "side_b": [
-                "TODOROVIC Andrea (SRB)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LUPULESKU Izabela (SRB) | TODOROVIC Andrea (SRB) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 1 - 3 | 6:11 10:12 11:4 7:11 | YU Fu | SHAO Jieni | "
             }
           ]
@@ -8710,15 +8347,13 @@
                 "WONG Xin Ru (SGP)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "WONG Xin Ru (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | SHAO Jieni (POR) |  | WONG Xin Ru (SGP) |  | WS | Main Draw | R64 | 3 - 0 | 11:2 11:9 11:5 | SHAO Jieni |  | "
             },
             {
@@ -8756,15 +8391,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "DIAZ Adriana (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | DIAZ Adriana (PUR) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 11:7 8:11 11:7 | DIAZ Adriana |  | "
             }
           ]
@@ -8806,7 +8439,7 @@
                 "7:11",
                 "11:9"
               ],
-              "winner": "LEBESSON Emmanuel",
+              "winner": "LEBESSON Emmanuel / YUAN Jia Nan",
               "all_players_in_row": [
                 "LEBESSON Emmanuel (FRA)",
                 "YUAN Jia Nan (FRA)",
@@ -8815,17 +8448,14 @@
               ],
               "side_a": [
                 "LEBESSON Emmanuel (FRA)",
-                "APOLONIA Tiago (POR)"
+                "YUAN Jia Nan (FRA)"
               ],
               "side_b": [
-                "YUAN Jia Nan (FRA)",
+                "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | LEBESSON Emmanuel (FRA) | YUAN Jia Nan (FRA) | APOLONIA Tiago (POR) | SHAO Jieni (POR) | XD | Main Draw | R16 | 3 - 1 | 11:9 11:4 7:11 11:9 | LEBESSON Emmanuel | YUAN Jia Nan | "
             },
             {
@@ -8863,15 +8493,13 @@
                 "TAKAHASHI Bruna (BRA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | SHAO Jieni (POR) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | R32 | 3 - 1 | 11:8 11:9 7:11 11:8 | SHAO Jieni |  | "
             },
             {
@@ -8904,15 +8532,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "VIVARELLI Debora (ITA)",
+                "VIVARELLI Debora (ITA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | VIVARELLI Debora (ITA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 6:11 4:11 | SHAO Jieni |  | "
             },
             {
@@ -8945,15 +8571,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "FAN Siqi (CHN)",
+                "FAN Siqi (CHN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | FAN Siqi (CHN) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:9 11:6 | FAN Siqi |  | "
             }
           ]
@@ -9011,15 +8635,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | SZOCS Bernadette (ROU) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 4 - 2 | 9:11 11:6 12:10 12:14 11:7 11:9 | SZOCS Bernadette |  | "
             }
           ]
@@ -9061,7 +8683,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "LIN Gaoyuan",
+              "winner": "LIN Gaoyuan / ZHANG Lily",
               "all_players_in_row": [
                 "LIN Gaoyuan (CHN)",
                 "ZHANG Lily (USA)",
@@ -9070,17 +8692,14 @@
               ],
               "side_a": [
                 "LIN Gaoyuan (CHN)",
-                "APOLONIA Tiago (POR)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LIN Gaoyuan (CHN) | ZHANG Lily (USA) | APOLONIA Tiago (POR) | SHAO Jieni (POR) | XD | Main Draw | R64 | 3 - 0 | 11:6 11:9 11:7 | LIN Gaoyuan | ZHANG Lily | "
             },
             {
@@ -9133,15 +8752,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "ZHANG Mo (CAN)",
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ZHANG Mo (CAN) |  | SHAO Jieni (POR) |  | WS | Main Draw | R128 | 4 - 3 | 7:11 11:9 11:9 8:11 11:9 10:12 11:8 | ZHANG Mo |  | "
             },
             {
@@ -9173,7 +8790,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Zion",
               "all_players_in_row": [
                 "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)",
@@ -9182,17 +8799,14 @@
               ],
               "side_a": [
                 "CHOI Hyojoo (KOR)",
-                "SHAO Jieni (POR)"
+                "LEE Zion (KOR)"
               ],
               "side_b": [
-                "LEE Zion (KOR)",
+                "SHAO Jieni (POR)",
                 "OLIVEIRA Leila (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | CHOI Hyojoo (KOR) | LEE Zion (KOR) | SHAO Jieni (POR) | OLIVEIRA Leila (POR) | WD | Main Draw | R64 | 3 - 1 | 10:12 11:0 11:6 11:7 | CHOI Hyojoo | LEE Zion | "
             }
           ]
@@ -9240,15 +8854,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "MATELOVA Hana (CZE)",
+                "MATELOVA Hana (CZE)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | MATELOVA Hana (CZE) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 8:11 10:12 6:11 | SHAO Jieni |  | "
             },
             {
@@ -9280,7 +8892,7 @@
                 "13:11",
                 "10:12"
               ],
-              "winner": "APOLONIA Tiago",
+              "winner": "APOLONIA Tiago / SHAO Jieni",
               "all_players_in_row": [
                 "CHEW Clarence (SGP)",
                 "ZENG Jian (SGP)",
@@ -9289,17 +8901,14 @@
               ],
               "side_a": [
                 "CHEW Clarence (SGP)",
-                "APOLONIA Tiago (POR)"
+                "ZENG Jian (SGP)"
               ],
               "side_b": [
-                "ZENG Jian (SGP)",
+                "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | CHEW Clarence (SGP) | ZENG Jian (SGP) | APOLONIA Tiago (POR) | SHAO Jieni (POR) | XD | Main Draw | R16 | 1 - 3 | 9:11 7:11 13:11 10:12 | APOLONIA Tiago | SHAO Jieni | "
             },
             {
@@ -9336,7 +8945,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "GAUZY Simon",
+              "winner": "GAUZY Simon / PAVADE Prithika",
               "all_players_in_row": [
                 "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)",
@@ -9345,17 +8954,14 @@
               ],
               "side_a": [
                 "APOLONIA Tiago (POR)",
-                "GAUZY Simon (FRA)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "GAUZY Simon (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | APOLONIA Tiago (POR) | SHAO Jieni (POR) | GAUZY Simon (FRA) | PAVADE Prithika (FRA) | XD | Main Draw | QuarterFinal | 2 - 3 | 12:10 2:11 11:13 11:8 9:11 | GAUZY Simon | PAVADE Prithika | "
             },
             {
@@ -9393,15 +8999,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | SHAO Jieni (POR) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 1 - 3 | 11:5 10:12 9:11 9:11 | YU Fu |  | "
             }
           ]
@@ -9438,7 +9042,7 @@
                 "10:12",
                 "4:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)",
@@ -9447,17 +9051,14 @@
               ],
               "side_a": [
                 "APOLONIA Tiago (POR)",
-                "QIU Dang (GER)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | APOLONIA Tiago (POR) | SHAO Jieni (POR) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R16 | 0 - 3 | 7:11 10:12 4:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -9490,15 +9091,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "HELMY Yousra (EGY)",
+                "HELMY Yousra (EGY)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | HELMY Yousra (EGY) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 10:12 5:11 | SHAO Jieni |  | "
             },
             {
@@ -9541,15 +9140,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "TAKAHASHI Bruna (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | TAKAHASHI Bruna (BRA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 2 - 3 | 11:7 3:11 11:9 8:11 8:11 | SHAO Jieni |  | "
             },
             {
@@ -9582,15 +9179,13 @@
                 "DIAZ Adriana (PUR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "DIAZ Adriana (PUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | SHAO Jieni (POR) |  | DIAZ Adriana (PUR) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 7:11 6:11 7:11 | DIAZ Adriana |  | "
             }
           ]
@@ -9632,25 +9227,23 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "PITCHFORD Liam",
+              "winner": "PITCHFORD Liam / HO Tin-Tin",
               "all_players_in_row": [
                 "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)",
-                "PITCHFORD Liam (ENG)"
+                "PITCHFORD Liam (ENG)",
+                "HO Tin-Tin (ENG)"
               ],
               "side_a": [
                 "APOLONIA Tiago (POR)",
-                "PITCHFORD Liam (ENG)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "PITCHFORD Liam (ENG)",
                 "HO Tin-Tin (ENG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | APOLONIA Tiago (POR) | SHAO Jieni (POR) | PITCHFORD Liam (ENG) | HO Tin-Tin (ENG) | XD | Main Draw | R16 | 1 - 3 | 11:13 8:11 11:9 9:11 | PITCHFORD Liam | HO Tin-Tin | "
             },
             {
@@ -9683,15 +9276,13 @@
                 "VOROBEVA Olga (AIN)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "VOROBEVA Olga (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | SHAO Jieni (POR) |  | VOROBEVA Olga (AIN) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:6 14:12 | SHAO Jieni |  | "
             },
             {
@@ -9729,15 +9320,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "SAWETTABUT Suthasini (THA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | SAWETTABUT Suthasini (THA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R32 | 3 - 1 | 14:12 8:11 11:7 11:6 | SAWETTABUT Suthasini |  | "
             }
           ]
@@ -9795,15 +9384,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | POLCANOVA Sofia (AUT) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 4 - 2 | 11:7 5:11 6:11 11:8 11:7 11:6 | POLCANOVA Sofia |  | "
             }
           ]
@@ -9866,15 +9453,13 @@
                 "KALLBERG Christina (SWE)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KALLBERG Christina (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | SHAO Jieni (POR) |  | KALLBERG Christina (SWE) |  | WS | Main Draw | R128 | 4 - 3 | 8:11 9:11 10:12 11:6 11:5 11:8 11:6 | SHAO Jieni |  | "
             },
             {
@@ -9912,15 +9497,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "YU Mengyu (SGP)",
+                "YU Mengyu (SGP)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | YU Mengyu (SGP) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 4 - 0 | 11:3 11:2 11:8 11:9 | YU Mengyu |  | "
             }
           ]
@@ -9967,7 +9550,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "TOLIOU Aikaterini (GRE)",
@@ -9976,17 +9559,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "YU Fu (POR)"
+                "TOLIOU Aikaterini (GRE)"
               ],
               "side_b": [
-                "TOLIOU Aikaterini (GRE)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) | TOLIOU Aikaterini (GRE) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R32 | 2 - 3 | 11:9 9:11 11:8 8:11 7:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -10018,7 +9598,7 @@
                 "4:11",
                 "4:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "JONSSON Jennifer (SWE)",
@@ -10027,17 +9607,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "YU Fu (POR)"
+                "JONSSON Jennifer (SWE)"
               ],
               "side_b": [
-                "JONSSON Jennifer (SWE)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | KALLBERG Christina (SWE) | JONSSON Jennifer (SWE) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 1 - 3 | 6:11 11:6 4:11 4:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -10064,7 +9641,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "HAPONOVA Hanna",
+              "winner": "HAPONOVA Hanna / BILENKO Tetyana",
               "all_players_in_row": [
                 "HAPONOVA Hanna (UKR)",
                 "BILENKO Tetyana (UKR)",
@@ -10073,17 +9650,14 @@
               ],
               "side_a": [
                 "HAPONOVA Hanna (UKR)",
-                "YU Fu (POR)"
+                "BILENKO Tetyana (UKR)"
               ],
               "side_b": [
-                "BILENKO Tetyana (UKR)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | HAPONOVA Hanna (UKR) | BILENKO Tetyana (UKR) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:7 11:9 | HAPONOVA Hanna | BILENKO Tetyana | "
             },
             {
@@ -10131,15 +9705,13 @@
                 "KALLBERG Christina (SWE)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "KALLBERG Christina (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SHAO Jieni (POR) |  | KALLBERG Christina (SWE) |  | WS | Main Draw | R64 | 2 - 4 | 11:13 8:11 11:9 6:11 11:8 5:11 | KALLBERG Christina |  | "
             }
           ]

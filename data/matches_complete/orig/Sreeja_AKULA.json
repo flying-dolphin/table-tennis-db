@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Sreeja AKULA",
-  "english_name": "Sreeja AKULA",
+  "player_name": "AKULA Sreeja",
+  "english_name": "AKULA Sreeja",
   "country": "IND",
   "country_code": "IND",
   "continent": "",
@@ -55,15 +55,13 @@
                 "GHORPADE Yashaswini (IND)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "GHORPADE Yashaswini (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | AKULA Sreeja (IND) |  | GHORPADE Yashaswini (IND) |  | WS | Main Draw | SemiFinal | 1 - 3 | 9:11 11:7 7:11 6:11 | GHORPADE Yashaswini |  | "
             },
             {
@@ -96,15 +94,13 @@
                 "MUKHERJEE Ayhika (IND)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "MUKHERJEE Ayhika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | AKULA Sreeja (IND) |  | MUKHERJEE Ayhika (IND) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:3 11:5 | AKULA Sreeja |  | "
             },
             {
@@ -147,15 +143,13 @@
                 "YILMAZ Ozge (TUR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "YILMAZ Ozge (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | AKULA Sreeja (IND) |  | YILMAZ Ozge (TUR) |  | WS | Main Draw | R16 | 3 - 2 | 11:4 6:11 11:5 4:11 12:10 | AKULA Sreeja |  | "
             },
             {
@@ -187,7 +181,7 @@
                 "5:11",
                 "11:13"
               ],
-              "winner": "JANG Seongil",
+              "winner": "JANG Seongil / HEO Yerim",
               "all_players_in_row": [
                 "PAL Akash (IND)",
                 "AKULA Sreeja (IND)",
@@ -196,17 +190,14 @@
               ],
               "side_a": [
                 "PAL Akash (IND)",
-                "JANG Seongil (KOR)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "JANG Seongil (KOR)",
                 "HEO Yerim (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | PAL Akash (IND) | AKULA Sreeja (IND) | JANG Seongil (KOR) | HEO Yerim (KOR) | XD | Main Draw | QuarterFinal | 1 - 3 | 12:14 11:7 5:11 11:13 | JANG Seongil | HEO Yerim | "
             }
           ]
@@ -254,15 +245,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | AKULA Sreeja (IND) |  | YU Fu (POR) |  | WS | Qualification |  | 1 - 3 | 11:8 9:11 13:15 8:11 | YU Fu |  | "
             },
             {
@@ -295,15 +284,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "WANG Manyu (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | WANG Manyu (CHN) |  | AKULA Sreeja (IND) |  | WS | Qualification |  | 3 - 0 | 11:8 11:7 11:3 | WANG Manyu |  | "
             }
           ]
@@ -351,15 +338,13 @@
                 "HURSEY Anna (WAL)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | AKULA Sreeja (IND) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R32 | 1 - 3 | 12:14 11:5 9:11 8:11 | HURSEY Anna |  | "
             }
           ]
@@ -407,15 +392,13 @@
                 "HURSEY Anna (WAL)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | AKULA Sreeja (IND) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R64 | 1 - 3 | 8:11 5:11 11:8 5:11 | HURSEY Anna |  | "
             }
           ]
@@ -463,15 +446,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "YANG Yiyun (CHN)",
+                "YANG Yiyun (CHN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | YANG Yiyun (CHN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 9:11 7:11 | AKULA Sreeja |  | "
             },
             {
@@ -504,15 +485,13 @@
                 "WANG Yidi (CHN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "WANG Yidi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | AKULA Sreeja (IND) |  | WANG Yidi (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 9:11 4:11 | WANG Yidi |  | "
             }
           ]
@@ -555,15 +534,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "ZHU Yuling (MAC)",
+                "ZHU Yuling (MAC)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Macao 2025 | ZHU Yuling (MAC) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:1 11:6 | ZHU Yuling |  | "
             }
           ]
@@ -616,15 +593,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "BATRA Manika (IND)",
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | BATRA Manika (IND) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 2 - 3 | 11:5 9:11 13:15 12:10 8:11 | AKULA Sreeja |  | "
             },
             {
@@ -662,15 +637,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "ZHU Yuling (MAC)",
+                "ZHU Yuling (MAC)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | ZHU Yuling (MAC) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:8 6:11 11:2 | ZHU Yuling |  | "
             }
           ]
@@ -723,15 +696,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "ASO Reina (JPN)",
+                "ASO Reina (JPN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | ASO Reina (JPN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 2 | 4:11 9:11 11:4 11:7 11:3 | ASO Reina |  | "
             }
           ]
@@ -774,15 +745,13 @@
                 "RODRIGUEZ Alondra (PUR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "RODRIGUEZ Alondra (PUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKULA Sreeja (IND) |  | RODRIGUEZ Alondra (PUR) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:8 11:4 | AKULA Sreeja |  | "
             },
             {
@@ -825,15 +794,13 @@
                 "GUO Jiangshan (USA)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "GUO Jiangshan (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKULA Sreeja (IND) |  | GUO Jiangshan (USA) |  | WS | Main Draw | R16 | 3 - 2 | 11:8 8:11 11:5 11:13 11:6 | AKULA Sreeja |  | "
             },
             {
@@ -866,15 +833,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKULA Sreeja (IND) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 10:12 5:11 4:11 | SHIBATA Saki |  | "
             }
           ]
@@ -916,7 +881,7 @@
                 "3:11",
                 "8:11"
               ],
-              "winner": "GNANASEKARAN Sathiyan",
+              "winner": "GNANASEKARAN Sathiyan / AKULA Sreeja",
               "all_players_in_row": [
                 "ROSSI Carlo (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -925,17 +890,14 @@
               ],
               "side_a": [
                 "ROSSI Carlo (ITA)",
-                "GNANASEKARAN Sathiyan (IND)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "GNANASEKARAN Sathiyan (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | ROSSI Carlo (ITA) | VIVARELLI Debora (ITA) | GNANASEKARAN Sathiyan (IND) | AKULA Sreeja (IND) | XD | Main Draw | R16 | 1 - 3 | 11:13 12:10 3:11 8:11 | GNANASEKARAN Sathiyan | AKULA Sreeja | "
             },
             {
@@ -968,15 +930,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | HAYATA Hina (JPN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 8:11 3:11 | AKULA Sreeja |  | "
             },
             {
@@ -1003,7 +963,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "ROLLAND Jules",
+              "winner": "ROLLAND Jules / PAVADE Prithika",
               "all_players_in_row": [
                 "GNANASEKARAN Sathiyan (IND)",
                 "AKULA Sreeja (IND)",
@@ -1012,17 +972,14 @@
               ],
               "side_a": [
                 "GNANASEKARAN Sathiyan (IND)",
-                "ROLLAND Jules (FRA)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "ROLLAND Jules (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | GNANASEKARAN Sathiyan (IND) | AKULA Sreeja (IND) | ROLLAND Jules (FRA) | PAVADE Prithika (FRA) | XD | Main Draw | QuarterFinal | 0 - 3 | 4:11 6:11 9:11 | ROLLAND Jules | PAVADE Prithika | "
             },
             {
@@ -1060,15 +1017,13 @@
                 "VIVARELLI Debora (ITA)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "VIVARELLI Debora (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | AKULA Sreeja (IND) |  | VIVARELLI Debora (ITA) |  | WS | Main Draw | R16 | 3 - 1 | 9:11 11:9 11:3 11:1 | AKULA Sreeja |  | "
             },
             {
@@ -1101,15 +1056,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | AKULA Sreeja (IND) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:7 11:7 | AKULA Sreeja |  | "
             },
             {
@@ -1152,15 +1105,13 @@
                 "PAVADE Prithika (FRA)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "PAVADE Prithika (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | AKULA Sreeja (IND) |  | PAVADE Prithika (FRA) |  | WS | Main Draw | SemiFinal | 3 - 2 | 11:7 11:4 11:13 6:11 11:9 | AKULA Sreeja |  | "
             },
             {
@@ -1203,15 +1154,13 @@
                 "HASHIMOTO Honoka (JPN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "HASHIMOTO Honoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | AKULA Sreeja (IND) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | Final | 1 - 4 | 7:11 3:11 4:11 11:9 11:13 | HASHIMOTO Honoka |  | "
             }
           ]
@@ -1250,18 +1199,17 @@
               ],
               "winner": "AKULA Sreeja",
               "all_players_in_row": [
-                "AKULA Sreeja (IND)"
-              ],
-              "side_a": [
                 "CHIEN Tung-Chuan (TPE)",
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "side_b": [
+                "AKULA Sreeja (IND)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | CHIEN Tung-Chuan (TPE) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 0 - 3 | 12:14 8:11 5:11 | AKULA Sreeja |  | "
             },
             {
@@ -1294,15 +1242,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "HASHIMOTO Honoka (JPN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | HASHIMOTO Honoka (JPN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:9 11:3 | HASHIMOTO Honoka |  | "
             }
           ]
@@ -1355,15 +1301,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "SAWETTABUT Suthasini (THA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | SAWETTABUT Suthasini (THA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R128 | 4 - 1 | 9:11 11:8 11:6 11:5 11:2 | SAWETTABUT Suthasini |  | "
             }
           ]
@@ -1400,7 +1344,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "GNANASEKARAN Sathiyan",
+              "winner": "GNANASEKARAN Sathiyan / AKULA Sreeja",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -1409,17 +1353,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "GNANASEKARAN Sathiyan (IND)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "GNANASEKARAN Sathiyan (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | GNANASEKARAN Sathiyan (IND) | AKULA Sreeja (IND) | XD | Main Draw | R16 | 0 - 3 | 6:11 9:11 9:11 | GNANASEKARAN Sathiyan | AKULA Sreeja | "
             },
             {
@@ -1452,15 +1393,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "KALLBERG Christina (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | KALLBERG Christina (SWE) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:9 11:8 | KALLBERG Christina |  | "
             },
             {
@@ -1492,7 +1431,7 @@
                 "8:11",
                 "10:12"
               ],
-              "winner": "ZHU Qihui",
+              "winner": "ZHU Qihui / YANG Huize",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "MUKHERJEE Sutirtha (IND)",
@@ -1501,17 +1440,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "ZHU Qihui (CHN)"
+                "MUKHERJEE Sutirtha (IND)"
               ],
               "side_b": [
-                "MUKHERJEE Sutirtha (IND)",
+                "ZHU Qihui (CHN)",
                 "YANG Huize (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | AKULA Sreeja (IND) | MUKHERJEE Sutirtha (IND) | ZHU Qihui (CHN) | YANG Huize (CHN) | WD | Main Draw | R16 | 1 - 3 | 11:7 8:11 8:11 10:12 | ZHU Qihui | YANG Huize | "
             },
             {
@@ -1548,7 +1484,7 @@
                 "11:2",
                 "11:4"
               ],
-              "winner": "SHAH Manush",
+              "winner": "SHAH Manush / CHITALE Diya",
               "all_players_in_row": [
                 "SHAH Manush (IND)",
                 "CHITALE Diya (IND)",
@@ -1557,17 +1493,14 @@
               ],
               "side_a": [
                 "SHAH Manush (IND)",
-                "GNANASEKARAN Sathiyan (IND)"
+                "CHITALE Diya (IND)"
               ],
               "side_b": [
-                "CHITALE Diya (IND)",
+                "GNANASEKARAN Sathiyan (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | SHAH Manush (IND) | CHITALE Diya (IND) | GNANASEKARAN Sathiyan (IND) | AKULA Sreeja (IND) | XD | Main Draw | QuarterFinal | 3 - 2 | 11:6 2:11 16:18 11:2 11:4 | SHAH Manush | CHITALE Diya | "
             }
           ]
@@ -1609,7 +1542,7 @@
                 "11:2",
                 "11:5"
               ],
-              "winner": "SHAH Manush",
+              "winner": "SHAH Manush / AKULA Sreeja",
               "all_players_in_row": [
                 "SHAH Manush (IND)",
                 "AKULA Sreeja (IND)",
@@ -1618,17 +1551,14 @@
               ],
               "side_a": [
                 "SHAH Manush (IND)",
-                "DESAI Vidit (IND)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "DESAI Vidit (IND)",
                 "CHAKRABORTI Prithoki (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | SHAH Manush (IND) | AKULA Sreeja (IND) | DESAI Vidit (IND) | CHAKRABORTI Prithoki (IND) | XD | Qualification | QR16 | 3 - 0 | 11:1 11:2 11:5 | SHAH Manush | AKULA Sreeja | "
             },
             {
@@ -1665,7 +1595,7 @@
                 "5:11",
                 "9:11"
               ],
-              "winner": "CHO Daeseong",
+              "winner": "CHO Daeseong / KIM Nayeong",
               "all_players_in_row": [
                 "SHAH Manush (IND)",
                 "AKULA Sreeja (IND)",
@@ -1674,17 +1604,14 @@
               ],
               "side_a": [
                 "SHAH Manush (IND)",
-                "CHO Daeseong (KOR)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "CHO Daeseong (KOR)",
                 "KIM Nayeong (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | SHAH Manush (IND) | AKULA Sreeja (IND) | CHO Daeseong (KOR) | KIM Nayeong (KOR) | XD | Qualification | QR8 | 2 - 3 | 11:3 11:7 5:11 5:11 9:11 | CHO Daeseong | KIM Nayeong | "
             },
             {
@@ -1711,24 +1638,23 @@
                 "11:4",
                 "11:2"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / LI Yu-Jhun",
               "all_players_in_row": [
+                "CHENG I-Ching (TPE)",
+                "LI Yu-Jhun (TPE)",
                 "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)"
               ],
               "side_a": [
                 "CHENG I-Ching (TPE)",
-                "AKULA Sreeja (IND)"
+                "LI Yu-Jhun (TPE)"
               ],
               "side_b": [
-                "LI Yu-Jhun (TPE)",
+                "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | AKULA Sreeja (IND) | CHITALE Diya (IND) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:4 11:2 | CHENG I-Ching | LI Yu-Jhun | "
             },
             {
@@ -1766,15 +1692,13 @@
                 "GODA Hana (EGY)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | AKULA Sreeja (IND) |  | GODA Hana (EGY) |  | WS | Main Draw | R64 | 1 - 3 | 2:11 13:11 8:11 2:11 | GODA Hana |  | "
             }
           ]
@@ -1817,15 +1741,13 @@
                 "VIVARELLI Debora (ITA)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "VIVARELLI Debora (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | AKULA Sreeja (IND) |  | VIVARELLI Debora (ITA) |  | WS | Qualification | QR32 | 3 - 0 | 14:12 11:8 11:8 | AKULA Sreeja |  | "
             },
             {
@@ -1857,7 +1779,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "QIN Yuxuan",
+              "winner": "QIN Yuxuan / HAN Feier",
               "all_players_in_row": [
                 "QIN Yuxuan (CHN)",
                 "HAN Feier (CHN)",
@@ -1866,17 +1788,14 @@
               ],
               "side_a": [
                 "QIN Yuxuan (CHN)",
-                "AKULA Sreeja (IND)"
+                "HAN Feier (CHN)"
               ],
               "side_b": [
-                "HAN Feier (CHN)",
+                "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | QIN Yuxuan (CHN) | HAN Feier (CHN) | AKULA Sreeja (IND) | CHITALE Diya (IND) | WD | Qualification | QR8 | 3 - 1 | 8:11 15:13 11:9 11:7 | QIN Yuxuan | HAN Feier | "
             },
             {
@@ -1919,15 +1838,13 @@
                 "NG Wing Lam (HKG)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | AKULA Sreeja (IND) |  | NG Wing Lam (HKG) |  | WS | Qualification | QR16 | 3 - 2 | 6:11 11:7 7:11 11:3 11:5 | AKULA Sreeja |  | "
             },
             {
@@ -1965,15 +1882,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "ITO Mima (JPN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | ITO Mima (JPN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 11:7 9:11 11:7 | ITO Mima |  | "
             }
           ]
@@ -2021,15 +1936,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "PHADKE Amruta (BRN)",
+                "PHADKE Amruta (BRN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | PHADKE Amruta (BRN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 0 - 4 | 6:11 5:11 3:11 3:11 | AKULA Sreeja |  | "
             },
             {
@@ -2061,7 +1974,7 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "HO Kwan Kit",
+              "winner": "HO Kwan Kit / ZHU Chengzhu",
               "all_players_in_row": [
                 "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)",
@@ -2070,17 +1983,14 @@
               ],
               "side_a": [
                 "ACHANTA Sharath (IND)",
-                "HO Kwan Kit (HKG)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "HO Kwan Kit (HKG)",
                 "ZHU Chengzhu (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | HO Kwan Kit (HKG) | ZHU Chengzhu (HKG) | XD | Main Draw | R16 | 0 - 4 | 6:11 10:12 7:11 6:11 | HO Kwan Kit | ZHU Chengzhu | "
             },
             {
@@ -2112,7 +2022,7 @@
                 "11:8",
                 "11:2"
               ],
-              "winner": "JEON Jihee",
+              "winner": "JEON Jihee / SHIN Yubin",
               "all_players_in_row": [
                 "JEON Jihee (KOR)",
                 "SHIN Yubin (KOR)",
@@ -2121,17 +2031,14 @@
               ],
               "side_a": [
                 "JEON Jihee (KOR)",
-                "AKULA Sreeja (IND)"
+                "SHIN Yubin (KOR)"
               ],
               "side_b": [
-                "SHIN Yubin (KOR)",
+                "AKULA Sreeja (IND)",
                 "TENNISON Reeth (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | JEON Jihee (KOR) | SHIN Yubin (KOR) | AKULA Sreeja (IND) | TENNISON Reeth (IND) | WD | Main Draw | R16 | 4 - 0 | 11:6 11:8 11:8 11:2 | JEON Jihee | SHIN Yubin | "
             },
             {
@@ -2186,18 +2093,15 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "KENZHIGULOV Aidos (KAZ)",
-                "ACHANTA Sharath (IND)"
+                "KENZHIGULOV Aidos (KAZ)"
               ],
               "side_b": [
                 "AKASHEVA Zauresh (KAZ)",
+                "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | KENZHIGULOV Aidos (KAZ) | AKASHEVA Zauresh (KAZ) | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | XD | Position Draw | 8 | 4 - 3 | 12:10 11:9 7:11 14:16 3:11 11:8 11:9 | KENZHIGULOV Aidos | AKASHEVA Zauresh | "
             },
             {
@@ -2246,18 +2150,17 @@
               ],
               "winner": "AKULA Sreeja",
               "all_players_in_row": [
-                "AKULA Sreeja (IND)"
-              ],
-              "side_a": [
                 "CHEN Szu-Yu (TPE)",
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHEN Szu-Yu (TPE)"
+              ],
+              "side_b": [
+                "AKULA Sreeja (IND)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | CHEN Szu-Yu (TPE) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 4 | 2:11 11:5 11:2 11:5 11:13 9:11 8:11 | AKULA Sreeja |  | "
             },
             {
@@ -2289,7 +2192,7 @@
                 "11:13",
                 "7:11"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "WONG Xin Ru / AKULA Sreeja / TENNISON Reeth",
               "all_players_in_row": [
                 "GOI Rui Xuan (SGP)",
                 "WONG Xin Ru (SGP)",
@@ -2297,18 +2200,15 @@
                 "TENNISON Reeth (IND)"
               ],
               "side_a": [
-                "GOI Rui Xuan (SGP)",
-                "AKULA Sreeja (IND)"
+                "GOI Rui Xuan (SGP)"
               ],
               "side_b": [
                 "WONG Xin Ru (SGP)",
+                "AKULA Sreeja (IND)",
                 "TENNISON Reeth (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | GOI Rui Xuan (SGP) | WONG Xin Ru (SGP) | AKULA Sreeja (IND) | TENNISON Reeth (IND) | WD | Position Draw | 8 | 0 - 4 | 6:11 10:12 11:13 7:11 | AKULA Sreeja | TENNISON Reeth | "
             },
             {
@@ -2348,18 +2248,15 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "RASHED Rashed (BRN)",
-                "ACHANTA Sharath (IND)"
+                "RASHED Rashed (BRN)"
               ],
               "side_b": [
                 "ALAALI Maryam (BRN)",
+                "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | RASHED Rashed (BRN) | ALAALI Maryam (BRN) | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | XD | Position Draw | 4 | 4 - 0 | 11:0 11:0 11:0 11:0 | RASHED Rashed | ALAALI Maryam | "
             },
             {
@@ -2399,18 +2296,15 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "KURMANGALIYEV Alan (KAZ)",
-                "ACHANTA Sharath (IND)"
+                "KURMANGALIYEV Alan (KAZ)"
               ],
               "side_b": [
                 "MIRKADIROVA Sarvinoz (KAZ)",
+                "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian WTTC Continental Stage Doha 2023 | KURMANGALIYEV Alan (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | XD | Position Draw | 2 | 4 - 0 | 11:0 11:0 11:0 11:0 | KURMANGALIYEV Alan | MIRKADIROVA Sarvinoz | "
             }
           ]
@@ -2464,18 +2358,17 @@
               ],
               "winner": "AKULA Sreeja",
               "all_players_in_row": [
-                "AKULA Sreeja (IND)"
-              ],
-              "side_a": [
                 "AKULA Sreeja (IND)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fort Lauderdale 2022 | AKULA Sreeja (IND) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Main Draw | R16 | 4 - 1 | 11:3 11:6 11:7 4:11 11:5 | AKULA Sreeja |  | "
             },
             {
@@ -2528,15 +2421,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fort Lauderdale 2022 | AKULA Sreeja (IND) |  | XIAO Maria (ESP) |  | WS | Main Draw | QuarterFinal | 3 - 4 | 14:12 10:12 11:7 6:11 11:8 7:11 5:11 | XIAO Maria |  | "
             }
           ]
@@ -2579,15 +2470,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "SCHREINER Franziska (GER)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | SCHREINER Franziska (GER) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR64 | 0 - 3 | 10:12 8:11 7:11 | AKULA Sreeja |  | "
             },
             {
@@ -2614,7 +2503,7 @@
                 "11:7",
                 "11:3"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "AKULA Sreeja / CHITALE Diya",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)",
@@ -2623,17 +2512,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "COK Isa (FRA)"
+                "CHITALE Diya (IND)"
               ],
               "side_b": [
-                "CHITALE Diya (IND)",
+                "COK Isa (FRA)",
                 "BERGAND Filippa (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | AKULA Sreeja (IND) | CHITALE Diya (IND) | COK Isa (FRA) | BERGAND Filippa (SWE) | WD | Qualification | QR16 | 3 - 0 | 11:9 11:7 11:3 | AKULA Sreeja | CHITALE Diya | "
             },
             {
@@ -2676,15 +2562,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "HARTBRICH Leonie (HUN)",
+                "HARTBRICH Leonie (HUN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | HARTBRICH Leonie (HUN) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR32 | 2 - 3 | 8:11 11:5 11:5 8:11 4:11 | AKULA Sreeja |  | "
             },
             {
@@ -2721,7 +2605,7 @@
                 "11:0",
                 "11:4"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "AKULA Sreeja / CHITALE Diya",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)",
@@ -2730,17 +2614,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "GUISNEL Oceane (FRA)"
+                "CHITALE Diya (IND)"
               ],
               "side_b": [
-                "CHITALE Diya (IND)",
+                "GUISNEL Oceane (FRA)",
                 "MIGOT Marie (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | AKULA Sreeja (IND) | CHITALE Diya (IND) | GUISNEL Oceane (FRA) | MIGOT Marie (FRA) | WD | Qualification | QR8 | 3 - 2 | 13:11 9:11 4:11 11:0 11:4 | AKULA Sreeja | CHITALE Diya | "
             },
             {
@@ -2778,15 +2659,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "KIM Nayeong (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | KIM Nayeong (KOR) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR16 | 1 - 3 | 6:11 9:11 11:3 8:11 | AKULA Sreeja |  | "
             },
             {
@@ -2823,7 +2702,7 @@
                 "14:12",
                 "12:10"
               ],
-              "winner": "SCHOLZ Vivien",
+              "winner": "SCHOLZ Vivien / SOLJA Amelie",
               "all_players_in_row": [
                 "SCHOLZ Vivien (LUX)",
                 "SOLJA Amelie (AUT)",
@@ -2832,17 +2711,14 @@
               ],
               "side_a": [
                 "SCHOLZ Vivien (LUX)",
-                "AKULA Sreeja (IND)"
+                "SOLJA Amelie (AUT)"
               ],
               "side_b": [
-                "SOLJA Amelie (AUT)",
+                "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | SCHOLZ Vivien (LUX) | SOLJA Amelie (AUT) | AKULA Sreeja (IND) | CHITALE Diya (IND) | WD | Main Draw | R16 | 3 - 2 | 12:10 7:11 8:11 14:12 12:10 | SCHOLZ Vivien | SOLJA Amelie | "
             },
             {
@@ -2880,15 +2756,13 @@
                 "JEE Minhyung (AUS)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | AKULA Sreeja (IND) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 5:11 11:9 9:11 | JEE Minhyung |  | "
             }
           ]
@@ -2931,15 +2805,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | AKULA Sreeja (IND) |  | MITTELHAM Nina (GER) |  | WT | Qualification |  | 3 - 0 | 11:9 12:10 11:7 | AKULA Sreeja |  | "
             },
             {
@@ -2972,15 +2844,13 @@
                 "HAN Ying (GER)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "HAN Ying (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | AKULA Sreeja (IND) |  | HAN Ying (GER) |  | WT | Qualification |  | 0 - 3 | 3:11 5:11 4:11 | HAN Ying |  | "
             },
             {
@@ -3013,15 +2883,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "SEVCIKOVA Marketa (CZE)",
+                "SEVCIKOVA Marketa (CZE)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SEVCIKOVA Marketa (CZE) |  | AKULA Sreeja (IND) |  | WT | Qualification |  | 0 - 3 | 5:11 3:11 8:11 | AKULA Sreeja |  | "
             },
             {
@@ -3054,15 +2922,13 @@
                 "GODA Hana (EGY)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | AKULA Sreeja (IND) |  | GODA Hana (EGY) |  | WT | Qualification |  | 3 - 0 | 11:6 11:4 11:1 | AKULA Sreeja |  | "
             },
             {
@@ -3100,15 +2966,13 @@
                 "MESHREF Dina (EGY)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | AKULA Sreeja (IND) |  | MESHREF Dina (EGY) |  | WT | Qualification |  | 3 - 1 | 11:8 11:8 9:11 11:6 | AKULA Sreeja |  | "
             },
             {
@@ -3142,18 +3006,17 @@
               ],
               "winner": "CHENG I-Ching",
               "all_players_in_row": [
-                "AKULA Sreeja (IND)"
-              ],
-              "side_a": [
                 "CHENG I-Ching (TPE)",
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [
+                "AKULA Sreeja (IND)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | CHENG I-Ching (TPE) |  | AKULA Sreeja (IND) |  | WT | Main Draw | R16 | 3 - 1 | 11:8 5:11 11:6 11:9 | CHENG I-Ching |  | "
             }
           ]
@@ -3190,7 +3053,7 @@
                 "11:8",
                 "11:1"
               ],
-              "winner": "CHITALE Diya",
+              "winner": "CHITALE Diya / AKULA Sreeja",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "AKULA Sreeja (IND)",
@@ -3199,17 +3062,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "SEN Prapti (IND)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "SEN Prapti (IND)",
                 "MUKHERJEE Ayhika (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHITALE Diya (IND) | AKULA Sreeja (IND) | SEN Prapti (IND) | MUKHERJEE Ayhika (IND) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:8 11:1 | CHITALE Diya | AKULA Sreeja | "
             },
             {
@@ -3247,15 +3107,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "CHEN Xingtong (CHN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHEN Xingtong (CHN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 11:13 11:9 11:8 | CHEN Xingtong |  | "
             },
             {
@@ -3282,7 +3140,7 @@
                 "0:11",
                 "0:11"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Zion",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "AKULA Sreeja (IND)",
@@ -3291,17 +3149,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "CHOI Hyojoo (KOR)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHITALE Diya (IND) | AKULA Sreeja (IND) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 0:11 0:11 0:11 | CHOI Hyojoo | LEE Zion | "
             }
           ]
@@ -3349,15 +3204,13 @@
                 "ARGUELLES Camila (ARG)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "ARGUELLES Camila (ARG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | AKULA Sreeja (IND) |  | ARGUELLES Camila (ARG) |  | WS | Main Draw | R64 | 4 - 0 | 11:6 11:4 11:1 11:6 | AKULA Sreeja |  | "
             },
             {
@@ -3400,15 +3253,13 @@
                 "MISCHEK Karoline (AUT)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "MISCHEK Karoline (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | AKULA Sreeja (IND) |  | MISCHEK Karoline (AUT) |  | WS | Main Draw | R32 | 4 - 1 | 11:4 11:2 7:11 11:8 11:3 | AKULA Sreeja |  | "
             },
             {
@@ -3456,15 +3307,13 @@
                 "MALOBABIC Ivana (CRO)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "MALOBABIC Ivana (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | AKULA Sreeja (IND) |  | MALOBABIC Ivana (CRO) |  | WS | Main Draw | R16 | 2 - 4 | 11:6 9:11 11:13 4:11 11:8 6:11 | MALOBABIC Ivana |  | "
             }
           ]
@@ -3527,15 +3376,13 @@
                 "CAREY Charlotte (WAL)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "CAREY Charlotte (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | AKULA Sreeja (IND) |  | CAREY Charlotte (WAL) |  | WS | Main Draw | R16 | 4 - 3 | 8:11 11:7 12:14 9:11 11:4 15:13 12:10 | AKULA Sreeja |  | "
             },
             {
@@ -3588,15 +3435,13 @@
                 "ZHANG Mo (CAN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "ZHANG Mo (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | AKULA Sreeja (IND) |  | ZHANG Mo (CAN) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 9:11 11:4 6:11 9:11 11:5 11:4 11:8 | AKULA Sreeja |  | "
             },
             {
@@ -3649,15 +3494,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "FENG Tianwei (SGP)",
+                "FENG Tianwei (SGP)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | FENG Tianwei (SGP) |  | AKULA Sreeja (IND) |  | WS | Main Draw | SemiFinal | 4 - 3 | 11:6 8:11 6:11 11:9 11:8 8:11 12:10 | FENG Tianwei |  | "
             },
             {
@@ -3684,7 +3527,7 @@
                 "11:4",
                 "11:3"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "AKULA Sreeja / TENNISON Reeth",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "TENNISON Reeth (IND)",
@@ -3693,17 +3536,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "THOMAS WU ZHANG Chloe Anna (WAL)"
+                "TENNISON Reeth (IND)"
               ],
               "side_b": [
-                "TENNISON Reeth (IND)",
+                "THOMAS WU ZHANG Chloe Anna (WAL)",
                 "WHITTON Lara (WAL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | AKULA Sreeja (IND) | TENNISON Reeth (IND) | THOMAS WU ZHANG Chloe Anna (WAL) | WHITTON Lara (WAL) | WD | Main Draw | R16 | 3 - 0 | 11:7 11:4 11:3 | AKULA Sreeja | TENNISON Reeth | "
             },
             {
@@ -3735,7 +3575,7 @@
                 "11:6",
                 "8:11"
               ],
-              "winner": "WONG Xin Ru",
+              "winner": "WONG Xin Ru / ZHOU Jingyi",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "TENNISON Reeth (IND)",
@@ -3744,17 +3584,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "WONG Xin Ru (SGP)"
+                "TENNISON Reeth (IND)"
               ],
               "side_b": [
-                "TENNISON Reeth (IND)",
+                "WONG Xin Ru (SGP)",
                 "ZHOU Jingyi (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | AKULA Sreeja (IND) | TENNISON Reeth (IND) | WONG Xin Ru (SGP) | ZHOU Jingyi (SGP) | WD | Main Draw | QuarterFinal | 1 - 3 | 14:16 11:13 11:6 8:11 | WONG Xin Ru | ZHOU Jingyi | "
             },
             {
@@ -3786,7 +3623,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "ACHANTA Sharath",
+              "winner": "ACHANTA Sharath / AKULA Sreeja",
               "all_players_in_row": [
                 "LEONG Chee Feng (MAS)",
                 "HO Ying (MAS)",
@@ -3795,17 +3632,14 @@
               ],
               "side_a": [
                 "LEONG Chee Feng (MAS)",
-                "ACHANTA Sharath (IND)"
+                "HO Ying (MAS)"
               ],
               "side_b": [
-                "HO Ying (MAS)",
+                "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | LEONG Chee Feng (MAS) | HO Ying (MAS) | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | XD | Main Draw | R16 | 1 - 3 | 11:5 2:11 6:11 5:11 | ACHANTA Sharath | AKULA Sreeja | "
             },
             {
@@ -3842,25 +3676,23 @@
                 "13:11",
                 "9:11"
               ],
-              "winner": "ACHANTA Sharath",
+              "winner": "ACHANTA Sharath / AKULA Sreeja",
               "all_players_in_row": [
                 "PITCHFORD Liam (ENG)",
+                "HO Tin-Tin (ENG)",
                 "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
                 "PITCHFORD Liam (ENG)",
-                "ACHANTA Sharath (IND)"
+                "HO Tin-Tin (ENG)"
               ],
               "side_b": [
-                "HO Tin-Tin (ENG)",
+                "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | PITCHFORD Liam (ENG) | HO Tin-Tin (ENG) | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | XD | Main Draw | QuarterFinal | 2 - 3 | 7:11 11:8 8:11 13:11 9:11 | ACHANTA Sharath | AKULA Sreeja | "
             },
             {
@@ -3897,7 +3729,7 @@
                 "12:14",
                 "11:7"
               ],
-              "winner": "ACHANTA Sharath",
+              "winner": "ACHANTA Sharath / AKULA Sreeja",
               "all_players_in_row": [
                 "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)",
@@ -3906,17 +3738,14 @@
               ],
               "side_a": [
                 "ACHANTA Sharath (IND)",
-                "LUM Nicholas (AUS)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | SemiFinal | 3 - 2 | 11:9 11:8 9:11 12:14 11:7 | ACHANTA Sharath | AKULA Sreeja | "
             },
             {
@@ -3948,7 +3777,7 @@
                 "5:11",
                 "6:11"
               ],
-              "winner": "ACHANTA Sharath",
+              "winner": "ACHANTA Sharath / AKULA Sreeja",
               "all_players_in_row": [
                 "CHOONG Javen (MAS)",
                 "LYNE Karen (MAS)",
@@ -3957,17 +3786,14 @@
               ],
               "side_a": [
                 "CHOONG Javen (MAS)",
-                "ACHANTA Sharath (IND)"
+                "LYNE Karen (MAS)"
               ],
               "side_b": [
-                "LYNE Karen (MAS)",
+                "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | CHOONG Javen (MAS) | LYNE Karen (MAS) | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | XD | Main Draw | Final | 1 - 3 | 4:11 11:9 5:11 6:11 | ACHANTA Sharath | AKULA Sreeja | "
             }
           ]
@@ -4020,15 +3846,13 @@
                 "JEGER Mateja (CRO)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "JEGER Mateja (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | AKULA Sreeja (IND) |  | JEGER Mateja (CRO) |  | WS | Qualification | QR32 | 2 - 3 | 14:16 10:12 13:11 11:8 7:11 | JEGER Mateja |  | "
             }
           ]
@@ -4071,15 +3895,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | AKULA Sreeja (IND) |  | XU Yi (CHN) |  | WS | Qualification | QR64 | 0 - 3 | 6:11 7:11 4:11 | XU Yi |  | "
             },
             {
@@ -4111,7 +3933,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "AKULA Sreeja / TENNISON Reeth",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "TENNISON Reeth (IND)",
@@ -4120,17 +3942,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "SURJAN Sabina (SRB)"
+                "TENNISON Reeth (IND)"
               ],
               "side_b": [
-                "TENNISON Reeth (IND)",
+                "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | AKULA Sreeja (IND) | TENNISON Reeth (IND) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WD | Qualification | QR16 | 3 - 1 | 7:11 11:6 11:7 11:8 | AKULA Sreeja | TENNISON Reeth | "
             },
             {
@@ -4157,7 +3976,7 @@
                 "8:11",
                 "3:11"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / JEON Jihee",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "TENNISON Reeth (IND)",
@@ -4166,17 +3985,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "KIM Nayeong (KOR)"
+                "TENNISON Reeth (IND)"
               ],
               "side_b": [
-                "TENNISON Reeth (IND)",
+                "KIM Nayeong (KOR)",
                 "JEON Jihee (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | AKULA Sreeja (IND) | TENNISON Reeth (IND) | KIM Nayeong (KOR) | JEON Jihee (KOR) | WD | Qualification | QR8 | 0 - 3 | 7:11 8:11 3:11 | KIM Nayeong | JEON Jihee | "
             }
           ]
@@ -4213,7 +4029,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "DESAI Harmeet",
+              "winner": "DESAI Harmeet / AKULA Sreeja",
               "all_players_in_row": [
                 "TIAN Ye (USA)",
                 "LI Xin (USA)",
@@ -4222,17 +4038,14 @@
               ],
               "side_a": [
                 "TIAN Ye (USA)",
-                "DESAI Harmeet (IND)"
+                "LI Xin (USA)"
               ],
               "side_b": [
-                "LI Xin (USA)",
+                "DESAI Harmeet (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | TIAN Ye (USA) | LI Xin (USA) | DESAI Harmeet (IND) | AKULA Sreeja (IND) | XD | Qualification | QR8 | 0 - 3 | 7:11 11:13 8:11 | DESAI Harmeet | AKULA Sreeja | "
             },
             {
@@ -4264,7 +4077,7 @@
                 "11:5",
                 "10:12"
               ],
-              "winner": "PICCOLIN Jordy",
+              "winner": "PICCOLIN Jordy / LAURENTI Jamila",
               "all_players_in_row": [
                 "DESAI Harmeet (IND)",
                 "AKULA Sreeja (IND)",
@@ -4273,17 +4086,14 @@
               ],
               "side_a": [
                 "DESAI Harmeet (IND)",
-                "PICCOLIN Jordy (ITA)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "PICCOLIN Jordy (ITA)",
                 "LAURENTI Jamila (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | DESAI Harmeet (IND) | AKULA Sreeja (IND) | PICCOLIN Jordy (ITA) | LAURENTI Jamila (ITA) | XD | Main Draw | R16 | 1 - 3 | 10:12 8:11 11:5 10:12 | PICCOLIN Jordy | LAURENTI Jamila | "
             },
             {
@@ -4320,7 +4130,7 @@
                 "14:12",
                 "11:9"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "AKULA Sreeja / KAMATH Archana",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "KAMATH Archana (IND)",
@@ -4329,17 +4139,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "ROY Krittwika (IND)"
+                "KAMATH Archana (IND)"
               ],
               "side_b": [
-                "KAMATH Archana (IND)",
+                "ROY Krittwika (IND)",
                 "MUKHERJEE Ayhika (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | AKULA Sreeja (IND) | KAMATH Archana (IND) | ROY Krittwika (IND) | MUKHERJEE Ayhika (IND) | WD | Main Draw | QuarterFinal | 3 - 2 | 12:10 5:11 9:11 14:12 11:9 | AKULA Sreeja | KAMATH Archana | "
             },
             {
@@ -4377,15 +4184,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "LI Yue (USA)",
+                "LI Yue (USA)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | LI Yue (USA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 0 - 4 | 5:11 11:13 7:11 4:11 | AKULA Sreeja |  | "
             },
             {
@@ -4438,15 +4243,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "WANG Yixiao (USA)",
+                "WANG Yixiao (USA)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | WANG Yixiao (USA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R16 | 3 - 4 | 9:11 10:12 11:7 11:7 13:11 7:11 6:11 | AKULA Sreeja |  | "
             },
             {
@@ -4473,7 +4276,7 @@
                 "5:11",
                 "11:13"
               ],
-              "winner": "MORI Sakura",
+              "winner": "MORI Sakura / SASAO Asuka",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "KAMATH Archana (IND)",
@@ -4482,17 +4285,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "MORI Sakura (JPN)"
+                "KAMATH Archana (IND)"
               ],
               "side_b": [
-                "KAMATH Archana (IND)",
+                "MORI Sakura (JPN)",
                 "SASAO Asuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | AKULA Sreeja (IND) | KAMATH Archana (IND) | MORI Sakura (JPN) | SASAO Asuka (JPN) | WD | Main Draw | SemiFinal | 0 - 3 | 5:11 5:11 11:13 | MORI Sakura | SASAO Asuka | "
             },
             {
@@ -4540,15 +4340,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "SHIN Yubin (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | SHIN Yubin (KOR) |  | AKULA Sreeja (IND) |  | WS | Main Draw | QuarterFinal | 4 - 2 | 11:7 3:11 6:11 11:4 11:7 11:7 | SHIN Yubin |  | "
             }
           ]
@@ -4591,15 +4389,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "FAN Siqi (CHN)",
+                "FAN Siqi (CHN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | FAN Siqi (CHN) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR64 | 3 - 0 | 11:2 11:7 11:5 | FAN Siqi |  | "
             }
           ]
@@ -4636,7 +4432,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "KOH Kai Xin Pearlyn",
+              "winner": "KOH Kai Xin Pearlyn / ZHANG Wanling",
               "all_players_in_row": [
                 "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)",
@@ -4645,17 +4441,14 @@
               ],
               "side_a": [
                 "SELVAKUMAR Selena (IND)",
-                "KOH Kai Xin Pearlyn (SGP)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "KOH Kai Xin Pearlyn (SGP)",
                 "ZHANG Wanling (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | KOH Kai Xin Pearlyn (SGP) | ZHANG Wanling (SGP) | WD | Qualification | QR16 | 0 - 3 | 13:15 9:11 7:11 | KOH Kai Xin Pearlyn | ZHANG Wanling | "
             },
             {
@@ -4693,15 +4486,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "KIM Nayeong (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | KIM Nayeong (KOR) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR32 | 3 - 1 | 7:11 11:6 11:7 11:8 | KIM Nayeong |  | "
             },
             {
@@ -4740,19 +4531,17 @@
               ],
               "winner": "AKULA Sreeja",
               "all_players_in_row": [
-                "ROSU Bianca (ROU)",
-                "AKULA Sreeja (IND)"
-              ],
-              "side_a": [
                 "MEI-ROSU Bianca (ROU)",
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "MEI-ROSU Bianca (ROU)"
+              ],
+              "side_b": [
+                "AKULA Sreeja (IND)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | MEI-ROSU Bianca (ROU) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR64 | 2 - 3 | 3:11 11:8 5:11 11:7 6:11 | AKULA Sreeja |  | "
             }
           ]
@@ -4800,15 +4589,13 @@
                 "LEE Zion (KOR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "LEE Zion (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | AKULA Sreeja (IND) |  | LEE Zion (KOR) |  | WS | Qualification | QR64 | 3 - 1 | 11:8 8:11 11:6 11:2 | AKULA Sreeja |  | "
             },
             {
@@ -4851,15 +4638,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "MUKHERJEE Sutirtha (IND)",
+                "MUKHERJEE Sutirtha (IND)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | MUKHERJEE Sutirtha (IND) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR32 | 3 - 2 | 12:10 8:11 8:11 12:10 11:7 | MUKHERJEE Sutirtha |  | "
             }
           ]
@@ -4902,15 +4687,13 @@
                 "ZHANG Wanling (SGP)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "ZHANG Wanling (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | AKULA Sreeja (IND) |  | ZHANG Wanling (SGP) |  | WS | Qualification | QR64 | 3 - 0 | 11:4 11:6 11:8 | AKULA Sreeja |  | "
             },
             {
@@ -4937,7 +4720,7 @@
                 "9:11",
                 "4:11"
               ],
-              "winner": "SELVAKUMAR Selena",
+              "winner": "SELVAKUMAR Selena / AKULA Sreeja",
               "all_players_in_row": [
                 "ELNAGHI Rouaa (EGY)",
                 "YEHIA Alaa (EGY)",
@@ -4946,17 +4729,14 @@
               ],
               "side_a": [
                 "ELNAGHI Rouaa (EGY)",
-                "SELVAKUMAR Selena (IND)"
+                "YEHIA Alaa (EGY)"
               ],
               "side_b": [
-                "YEHIA Alaa (EGY)",
+                "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | ELNAGHI Rouaa (EGY) | YEHIA Alaa (EGY) | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | WD | Qualification | QR16 | 0 - 3 | 4:11 9:11 4:11 | SELVAKUMAR Selena | AKULA Sreeja | "
             },
             {
@@ -4989,15 +4769,13 @@
                 "JURKOVA Eva (SVK)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "JURKOVA Eva (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | AKULA Sreeja (IND) |  | JURKOVA Eva (SVK) |  | WS | Qualification | QR32 | 3 - 0 | 11:6 11:4 11:5 | AKULA Sreeja |  | "
             },
             {
@@ -5034,25 +4812,23 @@
                 "11:9",
                 "6:11"
               ],
-              "winner": "SELVAKUMAR Selena",
+              "winner": "SELVAKUMAR Selena / AKULA Sreeja",
               "all_players_in_row": [
                 "SCHREINER Franziska (GER)",
+                "ZHANG Sofia-Xuan (ESP)",
                 "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
                 "SCHREINER Franziska (GER)",
-                "SELVAKUMAR Selena (IND)"
+                "ZHANG Sofia-Xuan (ESP)"
               ],
               "side_b": [
-                "ZHANG Sofia-Xuan (ESP)",
+                "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | SCHREINER Franziska (GER) | ZHANG Sofia-Xuan (ESP) | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | WD | Qualification | QR8 | 2 - 3 | 6:11 11:13 11:7 11:9 6:11 | SELVAKUMAR Selena | AKULA Sreeja | "
             },
             {
@@ -5095,15 +4871,13 @@
                 "YANG Huijing (CHN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "YANG Huijing (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | AKULA Sreeja (IND) |  | YANG Huijing (CHN) |  | WS | Qualification | QR16 | 3 - 2 | 3:11 11:7 12:10 9:11 12:10 | AKULA Sreeja |  | "
             },
             {
@@ -5140,7 +4914,7 @@
                 "11:5",
                 "4:11"
               ],
-              "winner": "SELVAKUMAR Selena",
+              "winner": "SELVAKUMAR Selena / AKULA Sreeja",
               "all_players_in_row": [
                 "ZENG Jian (SGP)",
                 "LIN Ye (CAN)",
@@ -5149,17 +4923,14 @@
               ],
               "side_a": [
                 "ZENG Jian (SGP)",
-                "SELVAKUMAR Selena (IND)"
+                "LIN Ye (CAN)"
               ],
               "side_b": [
-                "LIN Ye (CAN)",
+                "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | ZENG Jian (SGP) | LIN Ye (CAN) | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | WD | Main Draw | R16 | 2 - 3 | 8:11 11:5 11:13 11:5 4:11 | SELVAKUMAR Selena | AKULA Sreeja | "
             },
             {
@@ -5202,15 +4973,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | YUAN Jia Nan (FRA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 2 | 11:8 7:11 11:8 9:11 11:8 | YUAN Jia Nan |  | "
             },
             {
@@ -5242,7 +5011,7 @@
                 "6:11",
                 "11:7"
               ],
-              "winner": "SELVAKUMAR Selena",
+              "winner": "SELVAKUMAR Selena / AKULA Sreeja",
               "all_players_in_row": [
                 "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)",
@@ -5251,17 +5020,14 @@
               ],
               "side_a": [
                 "SELVAKUMAR Selena (IND)",
-                "GOI Rui Xuan (SGP)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "GOI Rui Xuan (SGP)",
                 "WONG Xin Ru (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | GOI Rui Xuan (SGP) | WONG Xin Ru (SGP) | WD | Main Draw | QuarterFinal | 3 - 1 | 13:11 12:10 6:11 11:7 | SELVAKUMAR Selena | AKULA Sreeja | "
             },
             {
@@ -5288,7 +5054,7 @@
                 "11:6",
                 "12:10"
               ],
-              "winner": "MUKHERJEE Ayhika",
+              "winner": "MUKHERJEE Ayhika / MUKHERJEE Sutirtha",
               "all_players_in_row": [
                 "MUKHERJEE Ayhika (IND)",
                 "MUKHERJEE Sutirtha (IND)",
@@ -5297,17 +5063,14 @@
               ],
               "side_a": [
                 "MUKHERJEE Ayhika (IND)",
-                "SELVAKUMAR Selena (IND)"
+                "MUKHERJEE Sutirtha (IND)"
               ],
               "side_b": [
-                "MUKHERJEE Sutirtha (IND)",
+                "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | MUKHERJEE Ayhika (IND) | MUKHERJEE Sutirtha (IND) | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | WD | Main Draw | SemiFinal | 3 - 0 | 11:4 11:6 12:10 | MUKHERJEE Ayhika | MUKHERJEE Sutirtha | "
             }
           ]
@@ -5360,15 +5123,13 @@
                 "WONG Xin Ru (SGP)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "WONG Xin Ru (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | AKULA Sreeja (IND) |  | WONG Xin Ru (SGP) |  | WS | Qualification | QR32 | 3 - 1 | 15:17 11:8 11:7 11:9 | AKULA Sreeja |  | "
             },
             {
@@ -5411,15 +5172,13 @@
                 "CHITALE Diya (IND)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "CHITALE Diya (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | AKULA Sreeja (IND) |  | CHITALE Diya (IND) |  | WS | Qualification | QR16 | 2 - 3 | 8:11 12:10 7:11 11:7 10:12 | CHITALE Diya |  | "
             },
             {
@@ -5457,15 +5216,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "LIU Yangzi (AUS)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LIU Yangzi (AUS) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 1 | 8:11 11:6 11:7 14:12 | LIU Yangzi |  | "
             }
           ]
@@ -5518,15 +5275,13 @@
                 "KOTSIUR Valeriia (AIN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "KOTSIUR Valeriia (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | AKULA Sreeja (IND) |  | KOTSIUR Valeriia (AIN) |  | WS | Qualification | QR32 | 3 - 2 | 7:11 11:6 11:7 11:13 11:8 | AKULA Sreeja |  | "
             },
             {
@@ -5559,15 +5314,13 @@
                 "GODA Hana (EGY)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | AKULA Sreeja (IND) |  | GODA Hana (EGY) |  | WS | Qualification | QR16 | 3 - 0 | 11:3 11:7 11:8 | AKULA Sreeja |  | "
             },
             {
@@ -5610,15 +5363,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "NOSKOVA Yana (AIN)",
+                "NOSKOVA Yana (AIN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | NOSKOVA Yana (AIN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 7:11 13:11 2:11 11:9 | NOSKOVA Yana |  | "
             }
           ]
@@ -5666,15 +5417,13 @@
                 "CHITALE Diya (IND)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "CHITALE Diya (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | AKULA Sreeja (IND) |  | CHITALE Diya (IND) |  | WS | Qualification | QR32 | 1 - 3 | 11:9 7:11 10:12 10:12 | CHITALE Diya |  | "
             }
           ]
@@ -5716,7 +5465,7 @@
                 "5:11",
                 "11:7"
               ],
-              "winner": "WONG Chun Ting",
+              "winner": "WONG Chun Ting / DOO Hoi Kem",
               "all_players_in_row": [
                 "WONG Chun Ting (HKG)",
                 "DOO Hoi Kem (HKG)",
@@ -5725,17 +5474,14 @@
               ],
               "side_a": [
                 "WONG Chun Ting (HKG)",
-                "DESAI Harmeet (IND)"
+                "DOO Hoi Kem (HKG)"
               ],
               "side_b": [
-                "DOO Hoi Kem (HKG)",
+                "DESAI Harmeet (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | DESAI Harmeet (IND) | AKULA Sreeja (IND) | XD | Main Draw | R32 | 3 - 1 | 11:7 11:8 5:11 11:7 | WONG Chun Ting | DOO Hoi Kem | "
             },
             {
@@ -5762,7 +5508,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "KAMATH Archana",
+              "winner": "KAMATH Archana / AKULA Sreeja",
               "all_players_in_row": [
                 "KAMATH Archana (IND)",
                 "AKULA Sreeja (IND)",
@@ -5771,17 +5517,14 @@
               ],
               "side_a": [
                 "KAMATH Archana (IND)",
-                "SOMA Sonam (BAN)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "SOMA Sonam (BAN)",
                 "MOU Sadia (BAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | KAMATH Archana (IND) | AKULA Sreeja (IND) | SOMA Sonam (BAN) | MOU Sadia (BAN) | WD | Main Draw | R32 | 3 - 0 | 11:5 11:3 11:6 | KAMATH Archana | AKULA Sreeja | "
             },
             {
@@ -5813,7 +5556,7 @@
                 "12:10",
                 "13:15"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / LEE Ho Ching",
               "all_players_in_row": [
                 "KAMATH Archana (IND)",
                 "AKULA Sreeja (IND)",
@@ -5822,17 +5565,14 @@
               ],
               "side_a": [
                 "KAMATH Archana (IND)",
-                "DOO Hoi Kem (HKG)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "DOO Hoi Kem (HKG)",
                 "LEE Ho Ching (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | KAMATH Archana (IND) | AKULA Sreeja (IND) | DOO Hoi Kem (HKG) | LEE Ho Ching (HKG) | WD | Main Draw | R16 | 1 - 3 | 10:12 7:11 12:10 13:15 | DOO Hoi Kem | LEE Ho Ching | "
             },
             {
@@ -5865,15 +5605,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "AMINAH Siti (INA)",
+                "AMINAH Siti (INA)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | AMINAH Siti (INA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 0 - 3 | 4:11 7:11 10:12 | AKULA Sreeja |  | "
             },
             {
@@ -5906,15 +5644,13 @@
                 "DOO Hoi Kem (HKG)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "DOO Hoi Kem (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | AKULA Sreeja (IND) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 10:12 4:11 | DOO Hoi Kem |  | "
             }
           ]
@@ -5967,15 +5703,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "KUKULKOVA Tatiana (SVK)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | KUKULKOVA Tatiana (SVK) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R64 | 2 - 3 | 5:11 11:8 3:11 11:9 9:11 | AKULA Sreeja |  | "
             },
             {
@@ -6013,15 +5747,13 @@
                 "SUH Hyo Won (KOR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "SUH Hyo Won (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | AKULA Sreeja (IND) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R32 | 3 - 1 | 11:5 7:11 11:9 11:7 | AKULA Sreeja |  | "
             },
             {
@@ -6054,15 +5786,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "TAKAHASHI Bruna (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | TAKAHASHI Bruna (BRA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 11:4 12:10 | TAKAHASHI Bruna |  | "
             }
           ]
@@ -6099,7 +5829,7 @@
                 "7:11",
                 "9:11"
               ],
-              "winner": "SHCHERBATYKH Valeriia",
+              "winner": "SHCHERBATYKH Valeriia / TAILAKOVA Mariia",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "SELVAKUMAR Selena (IND)",
@@ -6108,17 +5838,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "SHCHERBATYKH Valeriia (AIN)"
+                "SELVAKUMAR Selena (IND)"
               ],
               "side_b": [
-                "SELVAKUMAR Selena (IND)",
+                "SHCHERBATYKH Valeriia (AIN)",
                 "TAILAKOVA Mariia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | AKULA Sreeja (IND) | SELVAKUMAR Selena (IND) | SHCHERBATYKH Valeriia (AIN) | TAILAKOVA Mariia (AIN) | WD | Main Draw | R16 | 0 - 3 | 5:11 7:11 9:11 | SHCHERBATYKH Valeriia | TAILAKOVA Mariia | "
             },
             {
@@ -6145,7 +5872,7 @@
                 "11:0",
                 "11:0"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "AKULA Sreeja / SELVAKUMAR Selena",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "SELVAKUMAR Selena (IND)",
@@ -6154,17 +5881,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "HRABICOVA Klara (CZE)"
+                "SELVAKUMAR Selena (IND)"
               ],
               "side_b": [
-                "SELVAKUMAR Selena (IND)",
+                "HRABICOVA Klara (CZE)",
                 "ZADEROVA Linda (CZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | AKULA Sreeja (IND) | SELVAKUMAR Selena (IND) | HRABICOVA Klara (CZE) | ZADEROVA Linda (CZE) | WD | Qualification | QR16 | 3 - 0 | 11:0 11:0 11:0 | AKULA Sreeja | SELVAKUMAR Selena | "
             },
             {
@@ -6207,15 +5931,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | BERGSTROM Linda (SWE) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R16 | 4 - 1 | 11:6 11:9 8:11 13:11 11:7 | BERGSTROM Linda |  | "
             },
             {
@@ -6253,15 +5975,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "BARAVOK Katsiaryna (AIN)",
+                "BARAVOK Katsiaryna (AIN)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | BARAVOK Katsiaryna (AIN) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R32 | 0 - 4 | 10:12 10:12 8:11 11:13 | AKULA Sreeja |  | "
             }
           ]
@@ -6298,7 +6018,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "SELVAKUMAR Selena",
+              "winner": "SELVAKUMAR Selena / AKULA Sreeja",
               "all_players_in_row": [
                 "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)",
@@ -6307,17 +6027,14 @@
               ],
               "side_a": [
                 "SELVAKUMAR Selena (IND)",
-                "ZADEROVA Linda (CZE)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "ZADEROVA Linda (CZE)",
                 "STEPANOVA Gabriela (CZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | ZADEROVA Linda (CZE) | STEPANOVA Gabriela (CZE) | WD | Qualification | QR8 | 3 - 0 | 11:6 11:7 11:8 | SELVAKUMAR Selena | AKULA Sreeja | "
             },
             {
@@ -6355,15 +6072,13 @@
                 "VIGNJEVIC Dragana (SRB)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "VIGNJEVIC Dragana (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | AKULA Sreeja (IND) |  | VIGNJEVIC Dragana (SRB) |  | WS | Qualification | QR16 | 3 - 1 | 11:5 11:9 6:11 11:9 | AKULA Sreeja |  | "
             },
             {
@@ -6395,7 +6110,7 @@
                 "5:11",
                 "8:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)",
@@ -6404,17 +6119,14 @@
               ],
               "side_a": [
                 "SELVAKUMAR Selena (IND)",
-                "BERGSTROM Linda (SWE)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 1 - 3 | 8:11 12:10 5:11 8:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -6457,15 +6169,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | AKULA Sreeja (IND) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 3 - 2 | 11:8 6:11 14:12 2:11 11:7 | AKULA Sreeja |  | "
             },
             {
@@ -6498,15 +6208,13 @@
                 "VARADY Barbora (SVK)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "VARADY Barbora (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | AKULA Sreeja (IND) |  | VARADY Barbora (SVK) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 11:8 13:11 | AKULA Sreeja |  | "
             },
             {
@@ -6549,15 +6257,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "BATRA Manika (IND)",
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | BATRA Manika (IND) |  | AKULA Sreeja (IND) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 7:11 11:1 8:11 13:11 11:6 | BATRA Manika |  | "
             }
           ]
@@ -6610,15 +6316,13 @@
                 "YOKOI Sakura (JPN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "YOKOI Sakura (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | AKULA Sreeja (IND) |  | YOKOI Sakura (JPN) |  | WS | Qualification | QR64 | 2 - 3 | 12:10 7:11 7:11 11:9 6:11 | YOKOI Sakura |  | "
             }
           ]
@@ -6661,15 +6365,13 @@
                 "PARANANG Orawan (THA)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "PARANANG Orawan (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | AKULA Sreeja (IND) |  | PARANANG Orawan (THA) |  | WS | Qualification | QR32 | 3 - 0 | 11:5 11:5 11:6 | AKULA Sreeja |  | "
             },
             {
@@ -6702,15 +6404,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "VEGA Paulina (CHI)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | VEGA Paulina (CHI) |  | AKULA Sreeja (IND) |  | WS | Qualification | QR64 | 0 - 3 | 5:11 9:11 8:11 | AKULA Sreeja |  | "
             },
             {
@@ -6753,15 +6453,13 @@
                 "TAILAKOVA Mariia (AIN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "TAILAKOVA Mariia (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | AKULA Sreeja (IND) |  | TAILAKOVA Mariia (AIN) |  | WS | Qualification | QR16 | 2 - 3 | 9:11 11:5 11:6 6:11 5:11 | TAILAKOVA Mariia |  | "
             }
           ]

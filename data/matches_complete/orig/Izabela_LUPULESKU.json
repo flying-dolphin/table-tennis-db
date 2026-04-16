@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Izabela LUPULESKU",
-  "english_name": "Izabela LUPULESKU",
+  "player_name": "LUPULESKU Izabela",
+  "english_name": "LUPULESKU Izabela",
   "country": "SRB",
   "country_code": "SRB",
   "continent": "",
@@ -60,15 +60,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ZARIF Audrey (FRA)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ZARIF Audrey (FRA) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 2 - 3 | 10:12 12:10 11:7 8:11 8:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -106,15 +104,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "JOO Cheonhui (KOR)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | JOO Cheonhui (KOR) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 3 - 1 | 12:10 10:12 11:7 11:1 | JOO Cheonhui |  | "
             }
           ]
@@ -156,7 +152,7 @@
                 "10:12",
                 "8:11"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SURJAN Sabina",
               "all_players_in_row": [
                 "SCHREINER Franziska (GER)",
                 "KLEE Sophia (GER)",
@@ -165,17 +161,14 @@
               ],
               "side_a": [
                 "SCHREINER Franziska (GER)",
-                "LUPULESKU Izabela (SRB)"
+                "KLEE Sophia (GER)"
               ],
               "side_b": [
-                "KLEE Sophia (GER)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | SCHREINER Franziska (GER) | KLEE Sophia (GER) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | R16 | 1 - 3 | 11:8 4:11 10:12 8:11 | LUPULESKU Izabela | SURJAN Sabina | "
             },
             {
@@ -208,15 +201,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SCHOLZ Vivien (LUX)",
+                "SCHOLZ Vivien (LUX)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | SCHOLZ Vivien (LUX) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 0 - 3 | 12:14 5:11 6:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -243,7 +234,7 @@
                 "5:11",
                 "5:11"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SURJAN Sabina",
               "all_players_in_row": [
                 "MATIUNINA Veronika (UKR)",
                 "DYMYTRENKO Anastasiya (UKR)",
@@ -252,17 +243,14 @@
               ],
               "side_a": [
                 "MATIUNINA Veronika (UKR)",
-                "LUPULESKU Izabela (SRB)"
+                "DYMYTRENKO Anastasiya (UKR)"
               ],
               "side_b": [
-                "DYMYTRENKO Anastasiya (UKR)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | MATIUNINA Veronika (UKR) | DYMYTRENKO Anastasiya (UKR) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 5:11 5:11 | LUPULESKU Izabela | SURJAN Sabina | "
             },
             {
@@ -296,18 +284,17 @@
               ],
               "winner": "LUPULESKU Izabela",
               "all_players_in_row": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "side_a": [
                 "HUANG Yu-Jie (TPE)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | HUANG Yu-Jie (TPE) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 1 - 3 | 11:9 6:11 10:12 6:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -339,7 +326,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "BAJOR Natalia",
+              "winner": "BAJOR Natalia / VARADY Barbora",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -348,17 +335,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "BAJOR Natalia (POL)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "BAJOR Natalia (POL)",
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | BAJOR Natalia (POL) | VARADY Barbora (SVK) | WD | Main Draw | SemiFinal | 1 - 3 | 11:9 9:11 9:11 8:11 | BAJOR Natalia | VARADY Barbora | "
             },
             {
@@ -387,18 +371,17 @@
               ],
               "winner": "YEH Yi-Tian",
               "all_players_in_row": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "side_a": [
                 "LUPULESKU Izabela (SRB)",
                 "YEH Yi-Tian (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
+                "YEH Yi-Tian (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | LUPULESKU Izabela (SRB) |  | YEH Yi-Tian (TPE) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 9:11 11:13 7:11 | YEH Yi-Tian |  | "
             }
           ]
@@ -451,15 +434,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | MONFARDINI Gaia (ITA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 2 | 11:8 13:11 4:11 4:11 13:11 | MONFARDINI Gaia |  | "
             },
             {
@@ -486,7 +467,7 @@
                 "4:11",
                 "4:11"
               ],
-              "winner": "SAWETTABUT Suthasini",
+              "winner": "SAWETTABUT Suthasini / PARANANG Orawan",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -495,17 +476,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "SAWETTABUT Suthasini (THA)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "SAWETTABUT Suthasini (THA)",
                 "PARANANG Orawan (THA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | SAWETTABUT Suthasini (THA) | PARANANG Orawan (THA) | WD | Main Draw | R32 | 0 - 3 | 4:11 4:11 4:11 | SAWETTABUT Suthasini | PARANANG Orawan | "
             }
           ]
@@ -553,15 +531,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | DRAGOMAN Andreea (ROU) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR8 | 1 - 3 | 9:11 11:6 5:11 8:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -599,15 +575,13 @@
                 "LUTZ Charlotte (FRA)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | LUPULESKU Izabela (SRB) |  | LUTZ Charlotte (FRA) |  | WS | Qualification | QR4 | 1 - 3 | 11:9 9:11 9:11 6:11 | LUTZ Charlotte |  | "
             }
           ]
@@ -659,7 +633,7 @@
                 "11:6",
                 "11:5"
               ],
-              "winner": "PISTEJ Lubomir",
+              "winner": "PISTEJ Lubomir / KUKULKOVA Tatiana",
               "all_players_in_row": [
                 "PISTEJ Lubomir (SVK)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -668,17 +642,14 @@
               ],
               "side_a": [
                 "PISTEJ Lubomir (SVK)",
-                "LEVAJAC Dimitrije (SRB)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | PISTEJ Lubomir (SVK) | KUKULKOVA Tatiana (SVK) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 3 - 2 | 10:12 11:9 9:11 11:6 11:5 | PISTEJ Lubomir | KUKULKOVA Tatiana | "
             },
             {
@@ -710,7 +681,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "BAJOR Natalia",
+              "winner": "BAJOR Natalia / WIELGOS Zuzanna",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -719,17 +690,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "BAJOR Natalia (POL)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "BAJOR Natalia (POL)",
                 "WIELGOS Zuzanna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | BAJOR Natalia (POL) | WIELGOS Zuzanna (POL) | WD | Main Draw | R16 | 1 - 3 | 11:3 8:11 6:11 9:11 | BAJOR Natalia | WIELGOS Zuzanna | "
             },
             {
@@ -762,15 +730,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "DENG Zhen (USA)",
+                "DENG Zhen (USA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | DENG Zhen (USA) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 7:11 6:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -803,15 +769,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "CHOI Haeeun (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | CHOI Haeeun (KOR) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 11:9 14:12 | CHOI Haeeun |  | "
             }
           ]
@@ -864,15 +828,13 @@
                 "ZARIF Audrey (FRA)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "ZARIF Audrey (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender London 2025 | LUPULESKU Izabela (SRB) |  | ZARIF Audrey (FRA) |  | WS | Main Draw | R64 | 2 - 3 | 11:7 11:9 3:11 8:11 6:11 | ZARIF Audrey |  | "
             },
             {
@@ -909,7 +871,7 @@
                 "11:9",
                 "10:12"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / ZHU Chengzhu",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -918,17 +880,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "DOO Hoi Kem (HKG)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "DOO Hoi Kem (HKG)",
                 "ZHU Chengzhu (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender London 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | DOO Hoi Kem (HKG) | ZHU Chengzhu (HKG) | WD | Main Draw | QuarterFinal | 2 - 3 | 11:5 6:11 6:11 11:9 10:12 | DOO Hoi Kem | ZHU Chengzhu | "
             },
             {
@@ -955,7 +914,7 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SURJAN Sabina",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -964,17 +923,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "LUTZ Camille (FRA)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "LUTZ Camille (FRA)",
                 "ZARIF Audrey (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender London 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | LUTZ Camille (FRA) | ZARIF Audrey (FRA) | WD | Main Draw | R16 | 3 - 0 | 12:10 11:6 11:6 | LUPULESKU Izabela | SURJAN Sabina | "
             }
           ]
@@ -1017,15 +973,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "KAUFMANN Annett (GER)",
+                "KAUFMANN Annett (GER)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | KAUFMANN Annett (GER) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 3 - 0 | 11:3 11:9 11:6 | KAUFMANN Annett |  | "
             },
             {
@@ -1058,15 +1012,13 @@
                 "TOKIC Sara (SLO)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "TOKIC Sara (SLO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | LUPULESKU Izabela (SRB) |  | TOKIC Sara (SLO) |  | WT | Qualification |  | 3 - 0 | 11:5 13:11 11:4 | LUPULESKU Izabela |  | "
             },
             {
@@ -1109,15 +1061,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SAMARA Elizabeta (ROU)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SAMARA Elizabeta (ROU) |  | LUPULESKU Izabela (SRB) |  | WT | MAIN | 16 | 2 - 3 | 13:11 8:11 11:5 11:13 5:11 | LUPULESKU Izabela |  | "
             }
           ]
@@ -1165,15 +1115,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "PARK Gahyeon (KOR)",
+                "PARK Gahyeon (KOR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | PARK Gahyeon (KOR) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 1 | 11:9 12:10 7:11 11:7 | PARK Gahyeon |  | "
             },
             {
@@ -1200,7 +1148,7 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "HUANG Youzheng",
+              "winner": "HUANG Youzheng / CHEN Yi",
               "all_players_in_row": [
                 "HUANG Youzheng (CHN)",
                 "CHEN Yi (CHN)",
@@ -1209,17 +1157,14 @@
               ],
               "side_a": [
                 "HUANG Youzheng (CHN)",
-                "LY Edward (CAN)"
+                "CHEN Yi (CHN)"
               ],
               "side_b": [
-                "CHEN Yi (CHN)",
+                "LY Edward (CAN)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | HUANG Youzheng (CHN) | CHEN Yi (CHN) | LY Edward (CAN) | LUPULESKU Izabela (SRB) | XD | Main Draw | R32 | 3 - 0 | 11:7 11:5 11:6 | HUANG Youzheng | CHEN Yi | "
             },
             {
@@ -1246,7 +1191,7 @@
                 "3:11",
                 "6:11"
               ],
-              "winner": "HAYATA Hina",
+              "winner": "HAYATA Hina / JOO Cheonhui",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -1255,17 +1200,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "HAYATA Hina (JPN)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "HAYATA Hina (JPN)",
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | HAYATA Hina (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | R32 | 0 - 3 | 9:11 3:11 6:11 | HAYATA Hina | JOO Cheonhui | "
             }
           ]
@@ -1312,7 +1254,7 @@
                 "11:2",
                 "11:7"
               ],
-              "winner": "KUKULKOVA Tatiana",
+              "winner": "KUKULKOVA Tatiana / LUPULESKU Izabela",
               "all_players_in_row": [
                 "KUKULKOVA Tatiana (SVK)",
                 "LUPULESKU Izabela (SRB)",
@@ -1321,17 +1263,14 @@
               ],
               "side_a": [
                 "KUKULKOVA Tatiana (SVK)",
-                "CHANG Li Sian (MAS)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "CHANG Li Sian (MAS)",
                 "LI YING Im (MAS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | KUKULKOVA Tatiana (SVK) | LUPULESKU Izabela (SRB) | CHANG Li Sian (MAS) | LI YING Im (MAS) | WD | Main Draw | R16 | 3 - 2 | 6:11 11:5 8:11 11:2 11:7 | KUKULKOVA Tatiana | LUPULESKU Izabela | "
             },
             {
@@ -1364,15 +1303,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "UESAWA Anne (JPN)",
+                "UESAWA Anne (JPN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | UESAWA Anne (JPN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 6:11 12:14 | LUPULESKU Izabela |  | "
             },
             {
@@ -1405,15 +1342,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | SATO Hitomi (JPN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:8 | SATO Hitomi |  | "
             },
             {
@@ -1445,7 +1380,7 @@
                 "11:4",
                 "11:3"
               ],
-              "winner": "HASHIMOTO Honoka",
+              "winner": "HASHIMOTO Honoka / SATO Hitomi",
               "all_players_in_row": [
                 "HASHIMOTO Honoka (JPN)",
                 "SATO Hitomi (JPN)",
@@ -1454,17 +1389,14 @@
               ],
               "side_a": [
                 "HASHIMOTO Honoka (JPN)",
-                "KUKULKOVA Tatiana (SVK)"
+                "SATO Hitomi (JPN)"
               ],
               "side_b": [
-                "SATO Hitomi (JPN)",
+                "KUKULKOVA Tatiana (SVK)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | HASHIMOTO Honoka (JPN) | SATO Hitomi (JPN) | KUKULKOVA Tatiana (SVK) | LUPULESKU Izabela (SRB) | WD | Main Draw | QuarterFinal | 3 - 1 | 7:11 11:3 11:4 11:3 | HASHIMOTO Honoka | SATO Hitomi | "
             }
           ]
@@ -1507,15 +1439,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "TODOROVIC Andrea (SRB)",
+                "TODOROVIC Andrea (SRB)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | TODOROVIC Andrea (SRB) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 0 - 3 | 9:11 8:11 3:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -1558,15 +1488,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SAWETTABUT Suthasini (THA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | SAWETTABUT Suthasini (THA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR32 | 2 - 3 | 11:7 11:4 10:12 9:11 9:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -1604,15 +1532,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "GHORPADE Yashaswini (IND)",
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | GHORPADE Yashaswini (IND) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR16 | 3 - 1 | 7:11 11:8 11:8 11:6 | GHORPADE Yashaswini |  | "
             },
             {
@@ -1639,24 +1565,23 @@
                 "7:11",
                 "7:11"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / CHIEN Tung-Chuan",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
-                "SURJAN Sabina (SRB)"
+                "SURJAN Sabina (SRB)",
+                "CHENG I-Ching (TPE)",
+                "CHIEN Tung-Chuan (TPE)"
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "CHENG I-Ching (TPE)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "CHENG I-Ching (TPE)",
                 "CHIEN Tung-Chuan (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | CHENG I-Ching (TPE) | CHIEN Tung-Chuan (TPE) | WD | Main Draw | R32 | 0 - 3 | 8:11 7:11 7:11 | CHENG I-Ching | CHIEN Tung-Chuan | "
             }
           ]
@@ -1699,15 +1624,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SAWETTABUT Suthasini (THA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | SAWETTABUT Suthasini (THA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 0 - 3 | 4:11 10:12 9:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -1740,15 +1663,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "BERGAND Filippa (SWE)",
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | BERGAND Filippa (SWE) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR32 | 3 - 0 | 11:9 11:7 11:5 | BERGAND Filippa |  | "
             },
             {
@@ -1780,7 +1701,7 @@
                 "7:11",
                 "3:11"
               ],
-              "winner": "LY Edward",
+              "winner": "LY Edward / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "LIU Yangzi (AUS)",
@@ -1789,17 +1710,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "LY Edward (CAN)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "LY Edward (CAN)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | LY Edward (CAN) | LUPULESKU Izabela (SRB) | XD | Main Draw | R32 | 1 - 3 | 11:4 8:11 7:11 3:11 | LY Edward | LUPULESKU Izabela | "
             },
             {
@@ -1826,7 +1744,7 @@
                 "12:10",
                 "11:8"
               ],
-              "winner": "PAVADE Prithika",
+              "winner": "PAVADE Prithika / DIAZ Adriana",
               "all_players_in_row": [
                 "PAVADE Prithika (FRA)",
                 "DIAZ Adriana (PUR)",
@@ -1835,17 +1753,14 @@
               ],
               "side_a": [
                 "PAVADE Prithika (FRA)",
-                "LUPULESKU Izabela (SRB)"
+                "DIAZ Adriana (PUR)"
               ],
               "side_b": [
-                "DIAZ Adriana (PUR)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | PAVADE Prithika (FRA) | DIAZ Adriana (PUR) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | R32 | 3 - 0 | 11:7 12:10 11:8 | PAVADE Prithika | DIAZ Adriana | "
             },
             {
@@ -1877,7 +1792,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "WONG Chun Ting",
+              "winner": "WONG Chun Ting / DOO Hoi Kem",
               "all_players_in_row": [
                 "WONG Chun Ting (HKG)",
                 "DOO Hoi Kem (HKG)",
@@ -1886,17 +1801,14 @@
               ],
               "side_a": [
                 "WONG Chun Ting (HKG)",
-                "LY Edward (CAN)"
+                "DOO Hoi Kem (HKG)"
               ],
               "side_b": [
-                "DOO Hoi Kem (HKG)",
+                "LY Edward (CAN)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | LY Edward (CAN) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 3 - 1 | 6:11 11:3 11:8 11:7 | WONG Chun Ting | DOO Hoi Kem | "
             }
           ]
@@ -1939,15 +1851,13 @@
                 "ZHANG Xiangyu (CHN)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "ZHANG Xiangyu (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | LUPULESKU Izabela (SRB) |  | ZHANG Xiangyu (CHN) |  | WS | Qualification | QR32 | 0 - 3 | 11:13 9:11 6:11 | ZHANG Xiangyu |  | "
             },
             {
@@ -1974,7 +1884,7 @@
                 "3:11",
                 "8:11"
               ],
-              "winner": "HUANG Youzheng",
+              "winner": "HUANG Youzheng / CHEN Yi",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -1983,17 +1893,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "HUANG Youzheng (CHN)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "HUANG Youzheng (CHN)",
                 "CHEN Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | HUANG Youzheng (CHN) | CHEN Yi (CHN) | XD | Main Draw | R16 | 0 - 3 | 4:11 3:11 8:11 | HUANG Youzheng | CHEN Yi | "
             },
             {
@@ -2020,7 +1927,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "KIM Seongjin",
+              "winner": "KIM Seongjin / LEE Daeun",
               "all_players_in_row": [
                 "KIM Seongjin (KOR)",
                 "LEE Daeun (KOR)",
@@ -2029,17 +1936,14 @@
               ],
               "side_a": [
                 "KIM Seongjin (KOR)",
-                "LUPULESKU Izabela (SRB)"
+                "LEE Daeun (KOR)"
               ],
               "side_b": [
-                "LEE Daeun (KOR)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | KIM Seongjin (KOR) | LEE Daeun (KOR) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:4 11:9 | KIM Seongjin | LEE Daeun | "
             }
           ]
@@ -2081,7 +1985,7 @@
                 "6:11",
                 "11:5"
               ],
-              "winner": "YOSHIMURA Kazuhiro",
+              "winner": "YOSHIMURA Kazuhiro / NAGASAKI Miyu",
               "all_players_in_row": [
                 "YOSHIMURA Kazuhiro (JPN)",
                 "NAGASAKI Miyu (JPN)",
@@ -2090,17 +1994,14 @@
               ],
               "side_a": [
                 "YOSHIMURA Kazuhiro (JPN)",
-                "LEVAJAC Dimitrije (SRB)"
+                "NAGASAKI Miyu (JPN)"
               ],
               "side_b": [
-                "NAGASAKI Miyu (JPN)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | YOSHIMURA Kazuhiro (JPN) | NAGASAKI Miyu (JPN) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 3 - 1 | 11:4 12:10 6:11 11:5 | YOSHIMURA Kazuhiro | NAGASAKI Miyu | "
             },
             {
@@ -2133,15 +2034,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | SATO Hitomi (JPN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 3 - 0 | 11:3 11:2 12:10 | SATO Hitomi |  | "
             }
           ]
@@ -2178,7 +2077,7 @@
                 "10:12",
                 "7:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -2187,17 +2086,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "GARDOS Robert (AUT)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R64 | 0 - 3 | 12:14 10:12 7:11 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -2245,15 +2141,13 @@
                 "MORET Rachel (SUI)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "MORET Rachel (SUI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LUPULESKU Izabela (SRB) |  | MORET Rachel (SUI) |  | WS | Main Draw | R128 | 4 - 2 | 11:5 9:11 11:8 14:16 11:5 11:2 | LUPULESKU Izabela |  | "
             },
             {
@@ -2290,24 +2184,23 @@
                 "11:7",
                 "6:11"
               ],
-              "winner": "TSAI Yun-En",
+              "winner": "TSAI Yun-En / HUANG Yi-Hua",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
-                "SURJAN Sabina (SRB)"
+                "SURJAN Sabina (SRB)",
+                "TSAI Yun-En (TPE)",
+                "HUANG Yi-Hua (TPE)"
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "TSAI Yun-En (TPE)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "TSAI Yun-En (TPE)",
                 "HUANG Yi-Hua (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | TSAI Yun-En (TPE) | HUANG Yi-Hua (TPE) | WD | Main Draw | R64 | 2 - 3 | 10:12 11:9 2:11 11:7 6:11 | TSAI Yun-En | HUANG Yi-Hua | "
             },
             {
@@ -2345,15 +2238,13 @@
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LUPULESKU Izabela (SRB) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 4 - 0 | 11:5 11:0 11:0 11:0 | LUPULESKU Izabela |  | "
             },
             {
@@ -2396,15 +2287,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "CHEN Xingtong (CHN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | CHEN Xingtong (CHN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 4 - 1 | 11:1 11:5 11:9 9:11 14:12 | CHEN Xingtong |  | "
             }
           ]
@@ -2441,7 +2330,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "GNANASEKARAN Sathiyan",
+              "winner": "GNANASEKARAN Sathiyan / AKULA Sreeja",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -2450,17 +2339,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "GNANASEKARAN Sathiyan (IND)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "GNANASEKARAN Sathiyan (IND)",
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | GNANASEKARAN Sathiyan (IND) | AKULA Sreeja (IND) | XD | Main Draw | R16 | 0 - 3 | 6:11 9:11 9:11 | GNANASEKARAN Sathiyan | AKULA Sreeja | "
             },
             {
@@ -2498,15 +2384,13 @@
                 "LEE Zion (KOR)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "LEE Zion (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | LUPULESKU Izabela (SRB) |  | LEE Zion (KOR) |  | WS | Main Draw | R32 | 3 - 1 | 18:16 6:11 13:11 11:6 | LUPULESKU Izabela |  | "
             },
             {
@@ -2539,15 +2423,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "HARIMOTO Miwa (JPN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | HARIMOTO Miwa (JPN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 11:9 11:7 | HARIMOTO Miwa |  | "
             }
           ]
@@ -2589,7 +2471,7 @@
                 "12:10",
                 "11:9"
               ],
-              "winner": "GOMEZ Gustavo",
+              "winner": "GOMEZ Gustavo / ORTEGA Daniela",
               "all_players_in_row": [
                 "GOMEZ Gustavo (CHI)",
                 "ORTEGA Daniela (CHI)",
@@ -2598,17 +2480,14 @@
               ],
               "side_a": [
                 "GOMEZ Gustavo (CHI)",
-                "LEVAJAC Dimitrije (SRB)"
+                "ORTEGA Daniela (CHI)"
               ],
               "side_b": [
-                "ORTEGA Daniela (CHI)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | GOMEZ Gustavo (CHI) | ORTEGA Daniela (CHI) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 3 - 1 | 6:11 11:9 12:10 11:9 | GOMEZ Gustavo | ORTEGA Daniela | "
             },
             {
@@ -2651,15 +2530,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "LEE Daeun (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | LEE Daeun (KOR) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 3 - 2 | 5:11 11:4 10:12 12:10 11:9 | LEE Daeun |  | "
             },
             {
@@ -2686,7 +2563,7 @@
                 "11:13",
                 "4:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -2695,17 +2572,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "SATO Hitomi (JPN)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | R16 | 0 - 3 | 5:11 11:13 4:11 | SATO Hitomi | SHIBATA Saki | "
             }
           ]
@@ -2748,15 +2622,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "MOYLAND Sally (USA)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | MOYLAND Sally (USA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 12:10 11:5 | MOYLAND Sally |  | "
             },
             {
@@ -2788,7 +2660,7 @@
                 "11:9",
                 "11:3"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SURJAN Sabina",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -2797,17 +2669,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "LEE Eunhye (KOR)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "LEE Eunhye (KOR)",
                 "SHIN Yubin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | LEE Eunhye (KOR) | SHIN Yubin (KOR) | WD | Main Draw | R32 | 3 - 1 | 8:11 11:5 11:9 11:3 | LUPULESKU Izabela | SURJAN Sabina | "
             },
             {
@@ -2834,7 +2703,7 @@
                 "8:11",
                 "3:11"
               ],
-              "winner": "SUN Yingsha",
+              "winner": "SUN Yingsha / WANG Yidi",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -2843,17 +2712,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "SUN Yingsha (CHN)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "SUN Yingsha (CHN)",
                 "WANG Yidi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | SUN Yingsha (CHN) | WANG Yidi (CHN) | WD | Main Draw | R16 | 0 - 3 | 7:11 8:11 3:11 | SUN Yingsha | WANG Yidi | "
             }
           ]
@@ -2906,15 +2772,13 @@
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | LUPULESKU Izabela (SRB) |  | SURJAN Sabina (SRB) |  | WS | Qualification |  | 2 - 3 | 8:11 11:6 12:10 11:13 7:11 | SURJAN Sabina |  | "
             },
             {
@@ -2947,15 +2811,13 @@
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | LUPULESKU Izabela (SRB) |  | MIRKADIROVA Sarvinoz (KAZ) |  | WS | Qualification |  | 3 - 0 | 13:11 11:2 11:7 | LUPULESKU Izabela |  | "
             },
             {
@@ -2992,7 +2854,7 @@
                 "11:7",
                 "6:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "WANG Yang (SVK)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -3001,17 +2863,14 @@
               ],
               "side_a": [
                 "WANG Yang (SVK)",
-                "LEVAJAC Dimitrije (SRB)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | WANG Yang (SVK) | KUKULKOVA Tatiana (SVK) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Qualification | QR8 | 2 - 3 | 8:11 5:11 11:9 11:7 6:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -3043,7 +2902,7 @@
                 "7:11",
                 "11:7"
               ],
-              "winner": "SURJAN Sabina",
+              "winner": "SURJAN Sabina / LUPULESKU Izabela",
               "all_players_in_row": [
                 "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -3052,17 +2911,14 @@
               ],
               "side_a": [
                 "SURJAN Sabina (SRB)",
-                "DOO Hoi Kem (HKG)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "DOO Hoi Kem (HKG)",
                 "SU Tsz Tung (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | DOO Hoi Kem (HKG) | SU Tsz Tung (HKG) | WD | Qualification | QR8 | 3 - 1 | 11:3 11:8 7:11 11:7 | SURJAN Sabina | LUPULESKU Izabela | "
             },
             {
@@ -3089,7 +2945,7 @@
                 "11:13",
                 "9:11"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -3098,17 +2954,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "ROBLES Alvaro (ESP)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | XD | Main Draw | R16 | 0 - 3 | 9:11 11:13 9:11 | ROBLES Alvaro | XIAO Maria | "
             },
             {
@@ -3145,7 +2998,7 @@
                 "11:7",
                 "6:11"
               ],
-              "winner": "SURJAN Sabina",
+              "winner": "SURJAN Sabina / LUPULESKU Izabela",
               "all_players_in_row": [
                 "XIAO Maria (ESP)",
                 "DIACONU Adina (ROU)",
@@ -3154,17 +3007,14 @@
               ],
               "side_a": [
                 "XIAO Maria (ESP)",
-                "SURJAN Sabina (SRB)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | XIAO Maria (ESP) | DIACONU Adina (ROU) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WD | Main Draw | R16 | 2 - 3 | 9:11 8:11 12:10 11:7 6:11 | SURJAN Sabina | LUPULESKU Izabela | "
             },
             {
@@ -3201,7 +3051,7 @@
                 "9:11",
                 "11:9"
               ],
-              "winner": "SURJAN Sabina",
+              "winner": "SURJAN Sabina / LUPULESKU Izabela",
               "all_players_in_row": [
                 "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -3210,17 +3060,14 @@
               ],
               "side_a": [
                 "SURJAN Sabina (SRB)",
-                "LEE Hoi Man (HKG)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "LEE Hoi Man (HKG)",
                 "KONG Tsz Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | LEE Hoi Man (HKG) | KONG Tsz Lam (HKG) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:7 9:11 11:9 9:11 11:9 | SURJAN Sabina | LUPULESKU Izabela | "
             },
             {
@@ -3252,7 +3099,7 @@
                 "13:11",
                 "11:8"
               ],
-              "winner": "ODO Satsuki",
+              "winner": "ODO Satsuki / YOKOI Sakura",
               "all_players_in_row": [
                 "ODO Satsuki (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -3261,17 +3108,14 @@
               ],
               "side_a": [
                 "ODO Satsuki (JPN)",
-                "SURJAN Sabina (SRB)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WD | Main Draw | SemiFinal | 3 - 1 | 10:12 11:8 13:11 11:8 | ODO Satsuki | YOKOI Sakura | "
             }
           ]
@@ -3313,25 +3157,23 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SURJAN Sabina",
               "all_players_in_row": [
+                "HO Tin-Tin (ENG)",
                 "VIVARELLI Debora (ITA)",
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
                 "HO Tin-Tin (ENG)",
-                "LUPULESKU Izabela (SRB)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | HO Tin-Tin (ENG) | VIVARELLI Debora (ITA) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | R32 | 0 - 3 | 7:11 7:11 5:11 | LUPULESKU Izabela | SURJAN Sabina | "
             },
             {
@@ -3358,7 +3200,7 @@
                 "12:14",
                 "4:11"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SURJAN Sabina",
               "all_players_in_row": [
                 "WAN Yuan (GER)",
                 "WINTER Sabine (GER)",
@@ -3367,17 +3209,14 @@
               ],
               "side_a": [
                 "WAN Yuan (GER)",
-                "LUPULESKU Izabela (SRB)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | WAN Yuan (GER) | WINTER Sabine (GER) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | R16 | 0 - 3 | 4:11 12:14 4:11 | LUPULESKU Izabela | SURJAN Sabina | "
             },
             {
@@ -3404,7 +3243,7 @@
                 "11:6",
                 "14:12"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SURJAN Sabina",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -3413,17 +3252,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "GUO ZHENG Nina (FRA)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "GUO ZHENG Nina (FRA)",
                 "HOCHART Leana (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | GUO ZHENG Nina (FRA) | HOCHART Leana (FRA) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:6 14:12 | LUPULESKU Izabela | SURJAN Sabina | "
             },
             {
@@ -3460,7 +3296,7 @@
                 "5:11",
                 "11:3"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -3469,17 +3305,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "LUPULESKU Izabela (SRB)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | SemiFinal | 3 - 2 | 10:12 11:4 11:5 5:11 11:3 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -3522,15 +3355,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "RAKOVAC Lea (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | RAKOVAC Lea (CRO) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 1 - 4 | 11:8 5:11 12:14 6:11 11:13 | LUPULESKU Izabela |  | "
             },
             {
@@ -3583,15 +3414,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "MAKSUTI Aneta (SRB)",
+                "MAKSUTI Aneta (SRB)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | MAKSUTI Aneta (SRB) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 3 - 4 | 2:11 11:9 8:11 12:10 11:5 8:11 4:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -3634,15 +3463,13 @@
                 "LUTZ Charlotte (FRA)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | LUPULESKU Izabela (SRB) |  | LUTZ Charlotte (FRA) |  | WS | Main Draw | R16 | 1 - 4 | 11:9 4:11 3:11 7:11 2:11 | LUTZ Charlotte |  | "
             },
             {
@@ -3674,7 +3501,7 @@
                 "13:11",
                 "9:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "OLAH Benedek (FIN)",
                 "EERLAND Britt (NED)",
@@ -3683,17 +3510,14 @@
               ],
               "side_a": [
                 "OLAH Benedek (FIN)",
-                "LEVAJAC Dimitrije (SRB)"
+                "EERLAND Britt (NED)"
               ],
               "side_b": [
-                "EERLAND Britt (NED)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | OLAH Benedek (FIN) | EERLAND Britt (NED) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R32 | 1 - 3 | 9:11 4:11 13:11 9:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -3720,7 +3544,7 @@
                 "5:11",
                 "9:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "VAN OOST Kas (NED)",
                 "DEGRAEF Margo (BEL)",
@@ -3729,17 +3553,14 @@
               ],
               "side_a": [
                 "VAN OOST Kas (NED)",
-                "LEVAJAC Dimitrije (SRB)"
+                "DEGRAEF Margo (BEL)"
               ],
               "side_b": [
-                "DEGRAEF Margo (BEL)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | VAN OOST Kas (NED) | DEGRAEF Margo (BEL) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 0 - 3 | 9:11 5:11 9:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -3766,7 +3587,7 @@
                 "11:8",
                 "11:9"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -3775,17 +3596,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "LEVAJAC Dimitrije (SRB)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:8 11:9 | GARDOS Robert | POLCANOVA Sofia | "
             }
           ]
@@ -3838,15 +3656,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | DRAGOMAN Andreea (ROU) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 2 | 3:11 11:2 7:11 11:5 12:10 | DRAGOMAN Andreea |  | "
             },
             {
@@ -3878,7 +3694,7 @@
                 "9:11",
                 "5:11"
               ],
-              "winner": "TEODORO Guilherme",
+              "winner": "TEODORO Guilherme / KUKULKOVA Tatiana",
               "all_players_in_row": [
                 "JOUTI Eric (BRA)",
                 "LUPULESKU Izabela (SRB)",
@@ -3887,17 +3703,14 @@
               ],
               "side_a": [
                 "JOUTI Eric (BRA)",
-                "TEODORO Guilherme (BRA)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "TEODORO Guilherme (BRA)",
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | JOUTI Eric (BRA) | LUPULESKU Izabela (SRB) | TEODORO Guilherme (BRA) | KUKULKOVA Tatiana (SVK) | XD | Main Draw | R32 | 1 - 3 | 10:12 11:7 9:11 5:11 | TEODORO Guilherme | KUKULKOVA Tatiana | "
             }
           ]
@@ -3940,15 +3753,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "KIHARA Miyuu (JPN)",
+                "KIHARA Miyuu (JPN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Almaty 2024 | KIHARA Miyuu (JPN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:3 12:10 | KIHARA Miyuu |  | "
             }
           ]
@@ -3991,15 +3802,13 @@
                 "SANLLEHI Ana (PER)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "SANLLEHI Ana (PER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lima 2024 | LUPULESKU Izabela (SRB) |  | SANLLEHI Ana (PER) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:1 11:4 | LUPULESKU Izabela |  | "
             },
             {
@@ -4031,7 +3840,7 @@
                 "11:2",
                 "13:11"
               ],
-              "winner": "JOUTI Eric",
+              "winner": "JOUTI Eric / LUPULESKU Izabela",
               "all_players_in_row": [
                 "JOUTI Eric (BRA)",
                 "LUPULESKU Izabela (SRB)",
@@ -4040,17 +3849,14 @@
               ],
               "side_a": [
                 "JOUTI Eric (BRA)",
-                "DANI Mudit (IND)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "DANI Mudit (IND)",
                 "WATANABE Laura (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lima 2024 | JOUTI Eric (BRA) | LUPULESKU Izabela (SRB) | DANI Mudit (IND) | WATANABE Laura (BRA) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:6 8:11 11:2 13:11 | JOUTI Eric | LUPULESKU Izabela | "
             },
             {
@@ -4082,7 +3888,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SINGEORZAN Ioana",
               "all_players_in_row": [
                 "VEGA Paulina (CHI)",
                 "RIOS Valentina (CHI)",
@@ -4091,17 +3897,14 @@
               ],
               "side_a": [
                 "VEGA Paulina (CHI)",
-                "LUPULESKU Izabela (SRB)"
+                "RIOS Valentina (CHI)"
               ],
               "side_b": [
-                "RIOS Valentina (CHI)",
+                "LUPULESKU Izabela (SRB)",
                 "SINGEORZAN Ioana (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Lima 2024 | VEGA Paulina (CHI) | RIOS Valentina (CHI) | LUPULESKU Izabela (SRB) | SINGEORZAN Ioana (ROU) | WD | Main Draw | QuarterFinal | 1 - 3 | 7:11 11:6 7:11 5:11 | LUPULESKU Izabela | SINGEORZAN Ioana | "
             },
             {
@@ -4138,7 +3941,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "NOGUTI Henrique",
+              "winner": "NOGUTI Henrique / TAKAHASHI Giulia",
               "all_players_in_row": [
                 "JOUTI Eric (BRA)",
                 "LUPULESKU Izabela (SRB)",
@@ -4147,17 +3950,14 @@
               ],
               "side_a": [
                 "JOUTI Eric (BRA)",
-                "NOGUTI Henrique (BRA)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "NOGUTI Henrique (BRA)",
                 "TAKAHASHI Giulia (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lima 2024 | JOUTI Eric (BRA) | LUPULESKU Izabela (SRB) | NOGUTI Henrique (BRA) | TAKAHASHI Giulia (BRA) | XD | Main Draw | SemiFinal | 2 - 3 | 9:11 13:11 15:13 9:11 9:11 | NOGUTI Henrique | TAKAHASHI Giulia | "
             },
             {
@@ -4190,15 +3990,13 @@
                 "MENDOZA SALAZAR Karla Joana (PER)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "MENDOZA SALAZAR Karla Joana (PER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lima 2024 | LUPULESKU Izabela (SRB) |  | MENDOZA SALAZAR Karla Joana (PER) |  | WS | Main Draw | R16 | 3 - 0 | 11:2 11:7 11:6 | LUPULESKU Izabela |  | "
             },
             {
@@ -4231,15 +4029,13 @@
                 "ODO Satsuki (JPN)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "ODO Satsuki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Lima 2024 | LUPULESKU Izabela (SRB) |  | ODO Satsuki (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 8:11 5:11 3:11 | ODO Satsuki |  | "
             },
             {
@@ -4276,24 +4072,23 @@
                 "11:8",
                 "11:8"
               ],
-              "winner": "WANG Yi-Ju",
+              "winner": "WANG Yi-Ju / HUANG Yi-Hua",
               "all_players_in_row": [
+                "WANG Yi-Ju (TPE)",
+                "HUANG Yi-Hua (TPE)",
                 "LUPULESKU Izabela (SRB)",
                 "SINGEORZAN Ioana (ROU)"
               ],
               "side_a": [
                 "WANG Yi-Ju (TPE)",
-                "LUPULESKU Izabela (SRB)"
+                "HUANG Yi-Hua (TPE)"
               ],
               "side_b": [
-                "HUANG Yi-Hua (TPE)",
+                "LUPULESKU Izabela (SRB)",
                 "SINGEORZAN Ioana (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Lima 2024 | WANG Yi-Ju (TPE) | HUANG Yi-Hua (TPE) | LUPULESKU Izabela (SRB) | SINGEORZAN Ioana (ROU) | WD | Main Draw | SemiFinal | 3 - 2 | 11:9 8:11 7:11 11:8 11:8 | WANG Yi-Ju | HUANG Yi-Hua | "
             }
           ]
@@ -4341,15 +4136,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "DIAZ Adriana (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | DIAZ Adriana (PUR) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 4 - 0 | 11:9 11:5 11:8 11:7 | DIAZ Adriana |  | "
             }
           ]
@@ -4401,7 +4194,7 @@
                 "11:7",
                 "9:11"
               ],
-              "winner": "KUMAHARA Luca",
+              "winner": "KUMAHARA Luca / TAKAHASHI Giulia",
               "all_players_in_row": [
                 "ARAPOVIC Hana (CRO)",
                 "LUPULESKU Izabela (SRB)",
@@ -4410,17 +4203,14 @@
               ],
               "side_a": [
                 "ARAPOVIC Hana (CRO)",
-                "KUMAHARA Luca (BRA)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KUMAHARA Luca (BRA)",
                 "TAKAHASHI Giulia (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf II 2023 | ARAPOVIC Hana (CRO) | LUPULESKU Izabela (SRB) | KUMAHARA Luca (BRA) | TAKAHASHI Giulia (BRA) | WD | Qualification | QR8 | 2 - 3 | 8:11 8:11 11:5 11:7 9:11 | KUMAHARA Luca | TAKAHASHI Giulia | "
             },
             {
@@ -4452,7 +4242,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "KUBIK Maciej (POL)",
                 "WEGRZYN Anna (POL)",
@@ -4461,17 +4251,14 @@
               ],
               "side_a": [
                 "KUBIK Maciej (POL)",
-                "LEVAJAC Dimitrije (SRB)"
+                "WEGRZYN Anna (POL)"
               ],
               "side_b": [
-                "WEGRZYN Anna (POL)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf II 2023 | KUBIK Maciej (POL) | WEGRZYN Anna (POL) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 1 - 3 | 7:11 12:10 8:11 6:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -4505,18 +4292,17 @@
               ],
               "winner": "CHENG Hsien-Tzu",
               "all_players_in_row": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "side_a": [
                 "LUPULESKU Izabela (SRB)",
                 "CHENG Hsien-Tzu (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf II 2023 | LUPULESKU Izabela (SRB) |  | CHENG Hsien-Tzu (TPE) |  | WS | Main Draw | R64 | 1 - 3 | 7:11 6:11 16:14 8:11 | CHENG Hsien-Tzu |  | "
             },
             {
@@ -4543,7 +4329,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "PARK Ganghyeon",
+              "winner": "PARK Ganghyeon / KIM Nayeong",
               "all_players_in_row": [
                 "PARK Ganghyeon (KOR)",
                 "KIM Nayeong (KOR)",
@@ -4552,17 +4338,14 @@
               ],
               "side_a": [
                 "PARK Ganghyeon (KOR)",
-                "LEVAJAC Dimitrije (SRB)"
+                "KIM Nayeong (KOR)"
               ],
               "side_b": [
-                "KIM Nayeong (KOR)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf II 2023 | PARK Ganghyeon (KOR) | KIM Nayeong (KOR) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:7 11:4 | PARK Ganghyeon | KIM Nayeong | "
             }
           ]
@@ -4609,7 +4392,7 @@
                 "9:11",
                 "11:9"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -4618,17 +4401,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "LEVAJAC Dimitrije (SRB)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 3 - 2 | 8:11 12:10 11:7 9:11 11:9 | OYEBODE John | MONFARDINI Gaia | "
             },
             {
@@ -4671,15 +4451,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "AKASHEVA Zauresh (KAZ)",
+                "AKASHEVA Zauresh (KAZ)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | AKASHEVA Zauresh (KAZ) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 2 - 3 | 11:8 6:11 11:9 9:11 3:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -4712,15 +4490,13 @@
                 "HARIMOTO Miwa (JPN)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "HARIMOTO Miwa (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | LUPULESKU Izabela (SRB) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 4:11 10:12 | HARIMOTO Miwa |  | "
             },
             {
@@ -4747,7 +4523,7 @@
                 "13:11",
                 "11:4"
               ],
-              "winner": "KAUFMANN Annett",
+              "winner": "KAUFMANN Annett / WINTER Sabine",
               "all_players_in_row": [
                 "KAUFMANN Annett (GER)",
                 "WINTER Sabine (GER)",
@@ -4756,17 +4532,14 @@
               ],
               "side_a": [
                 "KAUFMANN Annett (GER)",
-                "ARAPOVIC Hana (CRO)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "ARAPOVIC Hana (CRO)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | KAUFMANN Annett (GER) | WINTER Sabine (GER) | ARAPOVIC Hana (CRO) | LUPULESKU Izabela (SRB) | WD | Main Draw | R16 | 3 - 0 | 12:10 13:11 11:4 | KAUFMANN Annett | WINTER Sabine | "
             }
           ]
@@ -4818,7 +4591,7 @@
                 "11:6",
                 "11:13"
               ],
-              "winner": "KULCZYCKI Samuel",
+              "winner": "KULCZYCKI Samuel / WEGRZYN Katarzyna",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -4827,17 +4600,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "KULCZYCKI Samuel (POL)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KULCZYCKI Samuel (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf III 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | KULCZYCKI Samuel (POL) | WEGRZYN Katarzyna (POL) | XD | Main Draw | R16 | 2 - 3 | 10:12 11:9 5:11 11:6 11:13 | KULCZYCKI Samuel | WEGRZYN Katarzyna | "
             },
             {
@@ -4890,15 +4660,13 @@
                 "NG Wing Lam (HKG)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf III 2022 | LUPULESKU Izabela (SRB) |  | NG Wing Lam (HKG) |  | WS | Main Draw | R64 | 3 - 4 | 11:8 11:9 9:11 10:12 7:11 13:11 1:11 | NG Wing Lam |  | "
             }
           ]
@@ -4945,7 +4713,7 @@
                 "10:12",
                 "11:9"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -4954,17 +4722,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "PICCOLIN Jordy (ITA)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "PICCOLIN Jordy (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | PICCOLIN Jordy (ITA) | VIVARELLI Debora (ITA) | XD | Main Draw | R16 | 3 - 2 | 13:15 11:7 12:10 10:12 11:9 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -5008,18 +4773,17 @@
               ],
               "winner": "LUPULESKU Izabela",
               "all_players_in_row": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "side_a": [
                 "LUPULESKU Izabela (SRB)",
                 "YEH Yi-Tian (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
+                "YEH Yi-Tian (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LUPULESKU Izabela (SRB) |  | YEH Yi-Tian (TPE) |  | WS | Main Draw | R64 | 4 - 2 | 7:11 11:6 11:7 12:10 5:11 11:6 | LUPULESKU Izabela |  | "
             },
             {
@@ -5072,15 +4836,13 @@
                 "LUTZ Camille (FRA)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LUPULESKU Izabela (SRB) |  | LUTZ Camille (FRA) |  | WS | Main Draw | R32 | 4 - 3 | 11:8 11:6 12:14 7:11 6:11 11:6 11:7 | LUPULESKU Izabela |  | "
             },
             {
@@ -5112,7 +4874,7 @@
                 "14:12",
                 "3:11"
               ],
-              "winner": "LIANG Yanning",
+              "winner": "LIANG Yanning / LENG Yutong",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -5121,17 +4883,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "LIANG Yanning (CHN)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "LIANG Yanning (CHN)",
                 "LENG Yutong (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | LIANG Yanning (CHN) | LENG Yutong (CHN) | XD | Main Draw | QuarterFinal | 1 - 3 | 3:11 7:11 14:12 3:11 | LIANG Yanning | LENG Yutong | "
             },
             {
@@ -5169,15 +4928,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ZENG Jian (SGP)",
+                "ZENG Jian (SGP)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | ZENG Jian (SGP) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 4 - 0 | 11:8 11:7 11:8 11:7 | ZENG Jian |  | "
             }
           ]
@@ -5214,7 +4971,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -5223,17 +4980,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "KENJAEV Zokhid (UZB)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KENJAEV Zokhid (UZB)",
                 "KHADJIEVA Rozalina (UZB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | KENJAEV Zokhid (UZB) | KHADJIEVA Rozalina (UZB) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:6 11:7 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -5276,15 +5030,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | XU Yi (CHN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 4 - 1 | 1:11 11:5 12:10 11:8 13:11 | XU Yi |  | "
             },
             {
@@ -5311,7 +5063,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -5320,17 +5072,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "KULCZYCKI Samuel (POL)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KULCZYCKI Samuel (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | KULCZYCKI Samuel (POL) | WEGRZYN Katarzyna (POL) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:7 11:9 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -5357,7 +5106,7 @@
                 "4:11",
                 "5:11"
               ],
-              "winner": "PARK Ganghyeon",
+              "winner": "PARK Ganghyeon / KIM Nayeong",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -5366,17 +5115,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "PARK Ganghyeon (KOR)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "PARK Ganghyeon (KOR)",
                 "KIM Nayeong (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | PARK Ganghyeon (KOR) | KIM Nayeong (KOR) | XD | Main Draw | SemiFinal | 0 - 3 | 5:11 4:11 5:11 | PARK Ganghyeon | KIM Nayeong | "
             }
           ]
@@ -5418,7 +5164,7 @@
                 "6:11",
                 "11:4"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / VIGNJEVIC Dragana",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "VIGNJEVIC Dragana (SRB)",
@@ -5427,17 +5173,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "BLASKOVA Zdena (CZE)"
+                "VIGNJEVIC Dragana (SRB)"
               ],
               "side_b": [
-                "VIGNJEVIC Dragana (SRB)",
+                "BLASKOVA Zdena (CZE)",
                 "TOMANOVSKA Katerina (CZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | LUPULESKU Izabela (SRB) | VIGNJEVIC Dragana (SRB) | BLASKOVA Zdena (CZE) | TOMANOVSKA Katerina (CZE) | WD | Main Draw | R32 | 3 - 1 | 11:8 11:2 6:11 11:4 | LUPULESKU Izabela | VIGNJEVIC Dragana | "
             },
             {
@@ -5469,7 +5212,7 @@
                 "10:12",
                 "11:8"
               ],
-              "winner": "DE NUTTE Sarah",
+              "winner": "DE NUTTE Sarah / NI Xia Lian",
               "all_players_in_row": [
                 "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)",
@@ -5478,17 +5221,14 @@
               ],
               "side_a": [
                 "DE NUTTE Sarah (LUX)",
-                "LUPULESKU Izabela (SRB)"
+                "NI Xia Lian (LUX)"
               ],
               "side_b": [
-                "NI Xia Lian (LUX)",
+                "LUPULESKU Izabela (SRB)",
                 "VIGNJEVIC Dragana (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | LUPULESKU Izabela (SRB) | VIGNJEVIC Dragana (SRB) | WD | Main Draw | R16 | 3 - 1 | 11:7 11:3 10:12 11:8 | DE NUTTE Sarah | NI Xia Lian | "
             },
             {
@@ -5520,7 +5260,7 @@
                 "6:11",
                 "11:7"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / VIGNJEVIC Dragana",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "VIGNJEVIC Dragana (SRB)",
@@ -5529,17 +5269,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "AVAMERI Airi (EST)"
+                "VIGNJEVIC Dragana (SRB)"
               ],
               "side_b": [
-                "VIGNJEVIC Dragana (SRB)",
+                "AVAMERI Airi (EST)",
                 "HANSON Reelica (EST)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | LUPULESKU Izabela (SRB) | VIGNJEVIC Dragana (SRB) | AVAMERI Airi (EST) | HANSON Reelica (EST) | WD | Qualification | QR32 | 3 - 1 | 11:6 15:13 6:11 11:7 | LUPULESKU Izabela | VIGNJEVIC Dragana | "
             },
             {
@@ -5592,15 +5329,13 @@
                 "CIOBANU Irina (ROU)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "CIOBANU Irina (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | LUPULESKU Izabela (SRB) |  | CIOBANU Irina (ROU) |  | WS | Main Draw | R64 | 3 - 4 | 11:5 19:21 11:7 14:12 7:11 11:13 3:11 | CIOBANU Irina |  | "
             },
             {
@@ -5632,25 +5367,23 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
-                "CABALLERO Carlos (ESP)"
+                "CABALLERO Carlos (ESP)",
+                "ZHANG Sofia-Xuan (ESP)"
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "CABALLERO Carlos (ESP)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "CABALLERO Carlos (ESP)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | CABALLERO Carlos (ESP) | ZHANG Sofia-Xuan (ESP) | XD | Main Draw | R32 | 3 - 1 | 11:6 6:11 11:7 11:8 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -5682,7 +5415,7 @@
                 "11:13",
                 "6:11"
               ],
-              "winner": "KULCZYCKI Samuel",
+              "winner": "KULCZYCKI Samuel / WEGRZYN Katarzyna",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -5691,17 +5424,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "KULCZYCKI Samuel (POL)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KULCZYCKI Samuel (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | KULCZYCKI Samuel (POL) | WEGRZYN Katarzyna (POL) | XD | Main Draw | R16 | 1 - 3 | 8:11 11:9 11:13 6:11 | KULCZYCKI Samuel | WEGRZYN Katarzyna | "
             }
           ]
@@ -5748,7 +5478,7 @@
                 "11:8",
                 "3:11"
               ],
-              "winner": "KARAKASEVIC Aleksandar",
+              "winner": "KARAKASEVIC Aleksandar / SURJAN Sabina",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -5757,17 +5487,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "KARAKASEVIC Aleksandar (SRB)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KARAKASEVIC Aleksandar (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | KARAKASEVIC Aleksandar (SRB) | SURJAN Sabina (SRB) | XD | Main Draw | R16 | 2 - 3 | 2:11 5:11 14:12 11:8 3:11 | KARAKASEVIC Aleksandar | SURJAN Sabina | "
             },
             {
@@ -5815,15 +5542,13 @@
                 "NAGYVARADI Mercedes (HUN)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "NAGYVARADI Mercedes (HUN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LUPULESKU Izabela (SRB) |  | NAGYVARADI Mercedes (HUN) |  | WS | Main Draw | R64 | 2 - 4 | 8:11 10:12 6:11 11:9 11:7 3:11 | NAGYVARADI Mercedes |  | "
             },
             {
@@ -5855,7 +5580,7 @@
                 "11:4",
                 "11:5"
               ],
-              "winner": "DE NUTTE Sarah",
+              "winner": "DE NUTTE Sarah / NI Xia Lian",
               "all_players_in_row": [
                 "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)",
@@ -5864,17 +5589,14 @@
               ],
               "side_a": [
                 "DE NUTTE Sarah (LUX)",
-                "SURJAN Sabina (SRB)"
+                "NI Xia Lian (LUX)"
               ],
               "side_b": [
-                "NI Xia Lian (LUX)",
+                "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WD | Main Draw | R16 | 3 - 1 | 12:10 8:11 11:4 11:5 | DE NUTTE Sarah | NI Xia Lian | "
             }
           ]
@@ -5932,15 +5654,13 @@
                 "KULAKCEKEN Simay (TUR)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "KULAKCEKEN Simay (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | LUPULESKU Izabela (SRB) |  | KULAKCEKEN Simay (TUR) |  | WS | Qualification |  | 4 - 2 | 11:6 7:11 11:4 11:5 9:11 11:8 | LUPULESKU Izabela |  | "
             },
             {
@@ -5978,15 +5698,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "PAVADE Prithika (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PAVADE Prithika (FRA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification |  | 4 - 0 | 13:11 11:5 11:6 11:5 | PAVADE Prithika |  | "
             },
             {
@@ -6029,15 +5747,13 @@
                 "LOGHRAIBI Lynda (ALG)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "LOGHRAIBI Lynda (ALG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | LUPULESKU Izabela (SRB) |  | LOGHRAIBI Lynda (ALG) |  | WS | Qualification |  | 4 - 1 | 11:3 11:7 13:11 13:15 11:2 | LUPULESKU Izabela |  | "
             },
             {
@@ -6075,15 +5791,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 3 - 1 | 11:6 6:11 11:5 14:12 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6115,7 +5829,7 @@
                 "11:7",
                 "8:11"
               ],
-              "winner": "SURJAN Sabina",
+              "winner": "SURJAN Sabina / LUPULESKU Izabela",
               "all_players_in_row": [
                 "STEFANOVA Nikoleta (ITA)",
                 "ARLIA Nicole (ITA)",
@@ -6124,17 +5838,14 @@
               ],
               "side_a": [
                 "STEFANOVA Nikoleta (ITA)",
-                "SURJAN Sabina (SRB)"
+                "ARLIA Nicole (ITA)"
               ],
               "side_b": [
-                "ARLIA Nicole (ITA)",
+                "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | STEFANOVA Nikoleta (ITA) | ARLIA Nicole (ITA) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WT | Qualification |  | 1 - 3 | 3:11 4:11 11:7 8:11 | SURJAN Sabina | LUPULESKU Izabela | "
             },
             {
@@ -6167,15 +5878,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "STEFANOVA Nikoleta (ITA)",
+                "STEFANOVA Nikoleta (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | STEFANOVA Nikoleta (ITA) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 3 - 0 | 12:10 11:5 12:10 | STEFANOVA Nikoleta |  | "
             },
             {
@@ -6218,15 +5927,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 3 - 2 | 11:5 5:11 11:9 3:11 11:8 | ALTINKAYA Sibel |  | "
             },
             {
@@ -6264,15 +5971,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "YILMAZ Ozge (TUR)",
+                "YILMAZ Ozge (TUR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | YILMAZ Ozge (TUR) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 1 - 3 | 5:11 11:8 11:13 7:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -6315,15 +6020,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | LUPULESKU Izabela (SRB) |  | XIAO Maria (ESP) |  | WT | Main Draw | QuarterFinal | 3 - 2 | 11:7 11:9 9:11 3:11 11:5 | LUPULESKU Izabela |  | "
             },
             {
@@ -6361,15 +6064,13 @@
                 "MESHREF Dina (EGY)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | LUPULESKU Izabela (SRB) |  | MESHREF Dina (EGY) |  | WT | Main Draw | SemiFinal | 1 - 3 | 9:11 6:11 16:14 10:12 | MESHREF Dina |  | "
             },
             {
@@ -6407,15 +6108,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "PINTO Matilde (POR)",
+                "PINTO Matilde (POR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PINTO Matilde (POR) |  | LUPULESKU Izabela (SRB) |  | WT | Main Draw | Final | 1 - 3 | 13:11 11:13 5:11 6:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -6453,15 +6152,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | LUPULESKU Izabela (SRB) |  | WT | Main Draw | Final | 3 - 1 | 11:7 9:11 12:10 12:10 | SHAO Jieni |  | "
             },
             {
@@ -6499,15 +6196,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification |  | 0 - 4 | 8:11 4:11 5:11 6:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -6546,18 +6241,17 @@
               ],
               "winner": "LUPULESKU Izabela",
               "all_players_in_row": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "side_a": [
                 "LUPULESKU Izabela (SRB)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | LUPULESKU Izabela (SRB) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Qualification |  | 4 - 1 | 11:7 11:9 11:7 7:11 11:7 | LUPULESKU Izabela |  | "
             },
             {
@@ -6595,15 +6289,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification |  | 0 - 4 | 0:0 0:0 0:0 0:0 | LUPULESKU Izabela |  | "
             },
             {
@@ -6646,15 +6338,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | LUPULESKU Izabela (SRB) |  | SHAO Jieni (POR) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 4:11 11:1 9:11 5:11 6:11 | SHAO Jieni |  | "
             }
           ]
@@ -6697,15 +6387,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "QIN Yuxuan (CHN)",
+                "QIN Yuxuan (CHN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | QIN Yuxuan (CHN) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 0 | 11:6 11:3 11:9 | QIN Yuxuan |  | "
             },
             {
@@ -6737,7 +6425,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "AKULA Sreeja",
+              "winner": "AKULA Sreeja / TENNISON Reeth",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "TENNISON Reeth (IND)",
@@ -6746,17 +6434,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "SURJAN Sabina (SRB)"
+                "TENNISON Reeth (IND)"
               ],
               "side_b": [
-                "TENNISON Reeth (IND)",
+                "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | AKULA Sreeja (IND) | TENNISON Reeth (IND) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WD | Qualification | QR16 | 3 - 1 | 7:11 11:6 11:7 11:8 | AKULA Sreeja | TENNISON Reeth | "
             },
             {
@@ -6788,7 +6473,7 @@
                 "12:14",
                 "4:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "BAN Ivor (CRO)",
                 "ARAPOVIC Hana (CRO)",
@@ -6797,17 +6482,14 @@
               ],
               "side_a": [
                 "BAN Ivor (CRO)",
-                "LEVAJAC Dimitrije (SRB)"
+                "ARAPOVIC Hana (CRO)"
               ],
               "side_b": [
-                "ARAPOVIC Hana (CRO)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | BAN Ivor (CRO) | ARAPOVIC Hana (CRO) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 1 - 3 | 11:9 7:11 12:14 4:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -6834,7 +6516,7 @@
                 "3:11",
                 "6:11"
               ],
-              "winner": "IONESCU Ovidiu",
+              "winner": "IONESCU Ovidiu / SZOCS Bernadette",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -6843,17 +6525,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "IONESCU Ovidiu (ROU)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "IONESCU Ovidiu (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | QuarterFinal | 0 - 3 | 8:11 3:11 6:11 | IONESCU Ovidiu | SZOCS Bernadette | "
             }
           ]
@@ -6896,15 +6575,13 @@
                 "LIU Yangzi (AUS)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "LIU Yangzi (AUS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LUPULESKU Izabela (SRB) |  | LIU Yangzi (AUS) |  | WS | Qualification | QR32 | 0 - 3 | 10:12 5:11 4:11 | LIU Yangzi |  | "
             },
             {
@@ -6942,15 +6619,13 @@
                 "CHOI Haeeun (KOR)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "CHOI Haeeun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LUPULESKU Izabela (SRB) |  | CHOI Haeeun (KOR) |  | WS | Qualification | QR64 | 3 - 1 | 11:4 11:7 3:11 11:6 | LUPULESKU Izabela |  | "
             },
             {
@@ -6977,7 +6652,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "HO Kwan Kit",
+              "winner": "HO Kwan Kit / LEE Ho Ching",
               "all_players_in_row": [
                 "HO Kwan Kit (HKG)",
                 "LEE Ho Ching (HKG)",
@@ -6986,17 +6661,14 @@
               ],
               "side_a": [
                 "HO Kwan Kit (HKG)",
-                "LEVAJAC Dimitrije (SRB)"
+                "LEE Ho Ching (HKG)"
               ],
               "side_b": [
-                "LEE Ho Ching (HKG)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | HO Kwan Kit (HKG) | LEE Ho Ching (HKG) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 3 - 0 | 11:6 11:9 11:6 | HO Kwan Kit | LEE Ho Ching | "
             },
             {
@@ -7028,7 +6700,7 @@
                 "11:4",
                 "7:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "TODOROVIC Andrea (SRB)",
@@ -7037,17 +6709,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "YU Fu (POR)"
+                "TODOROVIC Andrea (SRB)"
               ],
               "side_b": [
-                "TODOROVIC Andrea (SRB)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LUPULESKU Izabela (SRB) | TODOROVIC Andrea (SRB) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 1 - 3 | 6:11 10:12 11:4 7:11 | YU Fu | SHAO Jieni | "
             }
           ]
@@ -7089,24 +6758,23 @@
                 "9:11",
                 "11:5"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
-                "LUPULESKU Izabela (SRB)"
+                "LUPULESKU Izabela (SRB)",
+                "HUANG Yan-Cheng (TPE)",
+                "HUANG Yi-Hua (TPE)"
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "HUANG Yan-Cheng (TPE)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "HUANG Yan-Cheng (TPE)",
                 "HUANG Yi-Hua (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | HUANG Yan-Cheng (TPE) | HUANG Yi-Hua (TPE) | XD | Main Draw | R16 | 3 - 1 | 11:4 11:7 9:11 11:5 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -7149,15 +6817,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "JEE Minhyung (AUS)",
+                "JEE Minhyung (AUS)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | JEE Minhyung (AUS) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 4 - 1 | 9:11 11:7 11:4 12:10 11:2 | JEE Minhyung |  | "
             },
             {
@@ -7189,7 +6855,7 @@
                 "2:11",
                 "6:11"
               ],
-              "winner": "PLETEA Cristian",
+              "winner": "PLETEA Cristian / DIACONU Adina",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -7198,17 +6864,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "PLETEA Cristian (ROU)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "PLETEA Cristian (ROU)",
                 "DIACONU Adina (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | PLETEA Cristian (ROU) | DIACONU Adina (ROU) | XD | Main Draw | QuarterFinal | 1 - 3 | 8:11 11:4 2:11 6:11 | PLETEA Cristian | DIACONU Adina | "
             }
           ]
@@ -7261,15 +6924,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "WAN Yuan (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | WAN Yuan (GER) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 2 | 11:8 9:11 11:8 8:11 11:6 | WAN Yuan |  | "
             },
             {
@@ -7296,7 +6957,7 @@
                 "8:11",
                 "4:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -7305,17 +6966,14 @@
               ],
               "side_a": [
                 "SURJAN Sabina (SRB)",
-                "SZOCS Bernadette (ROU)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | R32 | 0 - 3 | 2:11 8:11 4:11 | SZOCS Bernadette | POLCANOVA Sofia | "
             }
           ]
@@ -7362,7 +7020,7 @@
                 "11:9",
                 "4:11"
               ],
-              "winner": "COK Isa",
+              "winner": "COK Isa / LUTZ Charlotte",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "DIAZ Melanie (PUR)",
@@ -7371,17 +7029,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "COK Isa (FRA)"
+                "DIAZ Melanie (PUR)"
               ],
               "side_b": [
-                "DIAZ Melanie (PUR)",
+                "COK Isa (FRA)",
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | LUPULESKU Izabela (SRB) | DIAZ Melanie (PUR) | COK Isa (FRA) | LUTZ Charlotte (FRA) | WD | Main Draw | R16 | 2 - 3 | 6:11 14:12 10:12 11:9 4:11 | COK Isa | LUTZ Charlotte | "
             },
             {
@@ -7434,15 +7089,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ARLIA Nicole (ITA)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | ARLIA Nicole (ITA) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 3 - 4 | 11:7 11:9 5:11 11:13 7:11 11:8 5:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -7479,7 +7132,7 @@
                 "12:10",
                 "11:9"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -7488,17 +7141,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "LEBRUN Alexis (FRA)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "LEBRUN Alexis (FRA)",
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | LEBRUN Alexis (FRA) | LUTZ Charlotte (FRA) | XD | Main Draw | QuarterFinal | 3 - 2 | 12:10 7:11 7:11 12:10 11:9 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -7551,15 +7201,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "COK Isa (FRA)",
+                "COK Isa (FRA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | COK Isa (FRA) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 3 - 4 | 6:11 12:10 7:11 8:11 11:8 11:8 12:14 | LUPULESKU Izabela |  | "
             },
             {
@@ -7596,7 +7244,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -7605,17 +7253,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "KLAJBER Adam (SVK)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KLAJBER Adam (SVK)",
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | KLAJBER Adam (SVK) | KUKULKOVA Tatiana (SVK) | XD | Main Draw | SemiFinal | 3 - 2 | 10:12 14:12 8:11 11:7 11:9 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -7658,15 +7303,13 @@
                 "KALLBERG Christina (SWE)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "KALLBERG Christina (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | LUPULESKU Izabela (SRB) |  | KALLBERG Christina (SWE) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 7:11 9:11 9:11 11:4 12:14 | KALLBERG Christina |  | "
             },
             {
@@ -7703,7 +7346,7 @@
                 "6:11",
                 "11:5"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -7712,17 +7355,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "OYEBODE John (ITA)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | XD | Main Draw | Final | 3 - 2 | 11:8 8:11 11:5 6:11 11:5 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             }
           ]
@@ -7770,15 +7410,13 @@
                 "NEUMANN Josephina (GER)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "NEUMANN Josephina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf 2022 | LUPULESKU Izabela (SRB) |  | NEUMANN Josephina (GER) |  | WS | Main Draw | R32 | 4 - 0 | 12:10 11:6 11:6 11:6 | LUPULESKU Izabela |  | "
             },
             {
@@ -7805,7 +7443,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "DOBREVA Polina",
+              "winner": "DOBREVA Polina / ARAPOVIC Hana",
               "all_players_in_row": [
                 "DOBREVA Polina (BUL)",
                 "ARAPOVIC Hana (CRO)",
@@ -7814,17 +7452,14 @@
               ],
               "side_a": [
                 "DOBREVA Polina (BUL)",
-                "LUPULESKU Izabela (SRB)"
+                "ARAPOVIC Hana (CRO)"
               ],
               "side_b": [
-                "ARAPOVIC Hana (CRO)",
+                "LUPULESKU Izabela (SRB)",
                 "SCHOLZ Vivien (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf 2022 | DOBREVA Polina (BUL) | ARAPOVIC Hana (CRO) | LUPULESKU Izabela (SRB) | SCHOLZ Vivien (LUX) | WD | Main Draw | QuarterFinal | 3 - 0 | 0:0 0:0 0:0 | DOBREVA Polina | ARAPOVIC Hana | "
             },
             {
@@ -7872,15 +7507,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "SOLJA Amelie (AUT)",
+                "SOLJA Amelie (AUT)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf 2022 | SOLJA Amelie (AUT) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 2 - 4 | 13:11 9:11 8:11 11:7 9:11 5:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -7918,15 +7551,13 @@
                 "WINTER Sabine (GER)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "WINTER Sabine (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf 2022 | LUPULESKU Izabela (SRB) |  | WINTER Sabine (GER) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 5:11 7:11 9:11 2:11 | WINTER Sabine |  | "
             }
           ]
@@ -7973,7 +7604,7 @@
                 "11:8",
                 "11:9"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / SCHOLZ Vivien",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SCHOLZ Vivien (LUX)",
@@ -7982,17 +7613,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "BARAVOK Katsiaryna (AIN)"
+                "SCHOLZ Vivien (LUX)"
               ],
               "side_b": [
-                "SCHOLZ Vivien (LUX)",
+                "BARAVOK Katsiaryna (AIN)",
                 "TRIGOLOS Daria (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LUPULESKU Izabela (SRB) | SCHOLZ Vivien (LUX) | BARAVOK Katsiaryna (AIN) | TRIGOLOS Daria (AIN) | WD | Main Draw | R16 | 3 - 1 | 11:7 6:11 11:8 11:9 | LUPULESKU Izabela | SCHOLZ Vivien | "
             },
             {
@@ -8029,7 +7657,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "OEHME Benno",
+              "winner": "OEHME Benno / SCHOLZ Vivien",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -8038,17 +7666,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "OEHME Benno (GER)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "OEHME Benno (GER)",
                 "SCHOLZ Vivien (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | OEHME Benno (GER) | SCHOLZ Vivien (LUX) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:7 5:11 6:11 11:8 9:11 | OEHME Benno | SCHOLZ Vivien | "
             },
             {
@@ -8080,7 +7705,7 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "WAN Yuan",
+              "winner": "WAN Yuan / MANTZ Chantal",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SCHOLZ Vivien (LUX)",
@@ -8089,17 +7714,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "WAN Yuan (GER)"
+                "SCHOLZ Vivien (LUX)"
               ],
               "side_b": [
-                "SCHOLZ Vivien (LUX)",
+                "WAN Yuan (GER)",
                 "MANTZ Chantal (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LUPULESKU Izabela (SRB) | SCHOLZ Vivien (LUX) | WAN Yuan (GER) | MANTZ Chantal (GER) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:7 8:11 7:11 6:11 | WAN Yuan | MANTZ Chantal | "
             },
             {
@@ -8137,15 +7759,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "LIU Yangzi (AUS)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Feeder Dusseldorf 2021 | LIU Yangzi (AUS) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R16 | 4 - 0 | 11:6 11:8 11:3 11:7 | LIU Yangzi |  | "
             }
           ]
@@ -8193,15 +7813,13 @@
                 "SOLJA Petrissa (GER)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "SOLJA Petrissa (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LUPULESKU Izabela (SRB) |  | SOLJA Petrissa (GER) |  | WS | Main Draw | R128 | 0 - 4 | 6:11 4:11 6:11 8:11 | SOLJA Petrissa |  | "
             },
             {
@@ -8228,7 +7846,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -8237,17 +7855,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "KARAKASEVIC Aleksandar (SRB)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "KARAKASEVIC Aleksandar (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | KARAKASEVIC Aleksandar (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R64 | 3 - 0 | 12:10 11:9 11:7 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             },
             {
@@ -8274,7 +7889,7 @@
                 "10:12",
                 "7:11"
               ],
-              "winner": "POTA Georgina",
+              "winner": "POTA Georgina / MADARASZ Dora",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -8283,17 +7898,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "POTA Georgina (HUN)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "POTA Georgina (HUN)",
                 "MADARASZ Dora (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | POTA Georgina (HUN) | MADARASZ Dora (HUN) | WD | Main Draw | R64 | 0 - 3 | 9:11 10:12 7:11 | POTA Georgina | MADARASZ Dora | "
             }
           ]
@@ -8335,7 +7947,7 @@
                 "3:11",
                 "9:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "CHUA Josh (SGP)",
                 "WONG Xin Ru (SGP)",
@@ -8344,17 +7956,14 @@
               ],
               "side_a": [
                 "CHUA Josh (SGP)",
-                "LEVAJAC Dimitrije (SRB)"
+                "WONG Xin Ru (SGP)"
               ],
               "side_b": [
-                "WONG Xin Ru (SGP)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | CHUA Josh (SGP) | WONG Xin Ru (SGP) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R16 | 1 - 3 | 11:7 8:11 3:11 9:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -8392,15 +8001,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "LIU Weishan (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | LIU Weishan (CHN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 11:5 10:12 11:9 | LIU Weishan |  | "
             },
             {
@@ -8437,7 +8044,7 @@
                 "7:11",
                 "7:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "KHANIN Aleksandr (AIN)",
                 "TRIGOLOS Daria (AIN)",
@@ -8446,17 +8053,14 @@
               ],
               "side_a": [
                 "KHANIN Aleksandr (AIN)",
-                "LEVAJAC Dimitrije (SRB)"
+                "TRIGOLOS Daria (AIN)"
               ],
               "side_b": [
-                "TRIGOLOS Daria (AIN)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | KHANIN Aleksandr (AIN) | TRIGOLOS Daria (AIN) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | QuarterFinal | 2 - 3 | 10:12 11:5 11:6 7:11 7:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             },
             {
@@ -8483,7 +8087,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "WANG Chuqin",
+              "winner": "WANG Chuqin / WANG Yidi",
               "all_players_in_row": [
                 "WANG Chuqin (CHN)",
                 "WANG Yidi (CHN)",
@@ -8492,17 +8096,14 @@
               ],
               "side_a": [
                 "WANG Chuqin (CHN)",
-                "LEVAJAC Dimitrije (SRB)"
+                "WANG Yidi (CHN)"
               ],
               "side_b": [
-                "WANG Yidi (CHN)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | WANG Chuqin (CHN) | WANG Yidi (CHN) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | SemiFinal | 3 - 0 | 11:8 11:7 11:4 | WANG Chuqin | WANG Yidi | "
             }
           ]
@@ -8539,7 +8140,7 @@
                 "6:11",
                 "8:11"
               ],
-              "winner": "PERGEL Szandra",
+              "winner": "PERGEL Szandra / MADARASZ Dora",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -8548,17 +8149,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "PERGEL Szandra (HUN)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "PERGEL Szandra (HUN)",
                 "MADARASZ Dora (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | PERGEL Szandra (HUN) | MADARASZ Dora (HUN) | WD | Main Draw | R16 | 0 - 3 | 9:11 6:11 8:11 | PERGEL Szandra | MADARASZ Dora | "
             },
             {
@@ -8596,15 +8194,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "IMRE Leila (HUN)",
+                "IMRE Leila (HUN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | IMRE Leila (HUN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R32 | 1 - 3 | 11:3 8:11 10:12 6:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -8637,15 +8233,13 @@
                 "MIKHAILOVA Polina (AIN)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "MIKHAILOVA Polina (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | LUPULESKU Izabela (SRB) |  | MIKHAILOVA Polina (AIN) |  | WS | Main Draw | R16 | 0 - 3 | 3:11 7:11 8:11 | MIKHAILOVA Polina |  | "
             }
           ]
@@ -8687,7 +8281,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "CHASSELIN Pauline",
+              "winner": "CHASSELIN Pauline / PAVADE Prithika",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -8696,17 +8290,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "CHASSELIN Pauline (FRA)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "CHASSELIN Pauline (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | CHASSELIN Pauline (FRA) | PAVADE Prithika (FRA) | WD | Main Draw | R32 | 1 - 3 | 11:7 9:11 9:11 7:11 | CHASSELIN Pauline | PAVADE Prithika | "
             },
             {
@@ -8754,15 +8345,13 @@
                 "WINTER Sabine (GER)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "WINTER Sabine (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | LUPULESKU Izabela (SRB) |  | WINTER Sabine (GER) |  | WS | Main Draw | R64 | 2 - 4 | 7:11 14:12 2:11 11:9 6:11 8:11 | WINTER Sabine |  | "
             },
             {
@@ -8789,7 +8378,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "PETO Zsolt",
+              "winner": "PETO Zsolt / LUPULESKU Izabela",
               "all_players_in_row": [
                 "PETO Zsolt (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -8798,17 +8387,14 @@
               ],
               "side_a": [
                 "PETO Zsolt (SRB)",
-                "TAUBER Michael (ISR)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "TAUBER Michael (ISR)",
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | PETO Zsolt (SRB) | LUPULESKU Izabela (SRB) | TAUBER Michael (ISR) | HURSEY Anna (WAL) | XD | Qualification | QR32 | 3 - 0 | 11:7 11:5 11:8 | PETO Zsolt | LUPULESKU Izabela | "
             },
             {
@@ -8835,7 +8421,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "FRANZISKA Patrick",
+              "winner": "FRANZISKA Patrick / SOLJA Petrissa",
               "all_players_in_row": [
                 "PETO Zsolt (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -8844,17 +8430,14 @@
               ],
               "side_a": [
                 "PETO Zsolt (SRB)",
-                "FRANZISKA Patrick (GER)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "FRANZISKA Patrick (GER)",
                 "SOLJA Petrissa (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | PETO Zsolt (SRB) | LUPULESKU Izabela (SRB) | FRANZISKA Patrick (GER) | SOLJA Petrissa (GER) | XD | Main Draw | R32 | 0 - 3 | 1:11 7:11 5:11 | FRANZISKA Patrick | SOLJA Petrissa | "
             }
           ]
@@ -8912,15 +8495,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "LUPULESKU Izabela (SRB)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | LUPULESKU Izabela (SRB) |  | YUAN Jia Nan (FRA) |  | WS | Qualification | QR16 | 2 - 4 | 5:11 8:11 4:11 12:10 11:7 5:11 | YUAN Jia Nan |  | "
             }
           ]
@@ -8959,18 +8540,17 @@
               ],
               "winner": "LUPULESKU Izabela",
               "all_players_in_row": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "side_a": [
                 "LUPULESKU Izabela (SRB)",
                 "HO Tin-Tin (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_b": [
+                "HO Tin-Tin (ENG)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | LUPULESKU Izabela (SRB) |  | HO Tin-Tin (ENG) |  | WS | Qualification | QR64 | 3 - 0 | 11:8 11:5 11:7 | LUPULESKU Izabela |  | "
             },
             {
@@ -9013,15 +8593,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "KALLBERG Christina (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | KALLBERG Christina (SWE) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR16 | 3 - 2 | 9:11 12:10 9:11 11:8 14:12 | KALLBERG Christina |  | "
             },
             {
@@ -9059,15 +8637,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "KUKULKOVA Tatiana (SVK)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | KUKULKOVA Tatiana (SVK) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR32 | 1 - 3 | 7:11 5:11 11:6 11:13 | LUPULESKU Izabela |  | "
             },
             {
@@ -9104,7 +8680,7 @@
                 "8:11",
                 "11:4"
               ],
-              "winner": "KARAKASEVIC Aleksandar",
+              "winner": "KARAKASEVIC Aleksandar / LUPULESKU Izabela",
               "all_players_in_row": [
                 "KARAKASEVIC Aleksandar (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -9113,17 +8689,14 @@
               ],
               "side_a": [
                 "KARAKASEVIC Aleksandar (SRB)",
-                "KHANIN Aleksandr (AIN)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "KHANIN Aleksandr (AIN)",
                 "TRIGOLOS Daria (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | KARAKASEVIC Aleksandar (SRB) | LUPULESKU Izabela (SRB) | KHANIN Aleksandr (AIN) | TRIGOLOS Daria (AIN) | XD | Main Draw | R16 | 3 - 2 | 8:11 11:7 11:9 8:11 11:4 | KARAKASEVIC Aleksandar | LUPULESKU Izabela | "
             },
             {
@@ -9150,24 +8723,23 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / LIN Yun-Ju",
               "all_players_in_row": [
                 "KARAKASEVIC Aleksandar (SRB)",
-                "LUPULESKU Izabela (SRB)"
+                "LUPULESKU Izabela (SRB)",
+                "CHENG I-Ching (TPE)",
+                "LIN Yun-Ju (TPE)"
               ],
               "side_a": [
                 "KARAKASEVIC Aleksandar (SRB)",
-                "CHENG I-Ching (TPE)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "CHENG I-Ching (TPE)",
                 "LIN Yun-Ju (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | KARAKASEVIC Aleksandar (SRB) | LUPULESKU Izabela (SRB) | CHENG I-Ching (TPE) | LIN Yun-Ju (TPE) | XD | Main Draw | QuarterFinal | 0 - 3 | 0:0 0:0 0:0 | CHENG I-Ching | LIN Yun-Ju | "
             }
           ]
@@ -9210,15 +8782,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ABDELAZIZ Farah (EGY)",
+                "ABDELAZIZ Farah (EGY)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | ABDELAZIZ Farah (EGY) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 15:13 11:4 | ABDELAZIZ Farah |  | "
             },
             {
@@ -9250,7 +8820,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / IONESCU Ovidiu",
               "all_players_in_row": [
                 "SZOCS Bernadette (ROU)",
                 "IONESCU Ovidiu (ROU)",
@@ -9259,17 +8829,14 @@
               ],
               "side_a": [
                 "SZOCS Bernadette (ROU)",
-                "LUPULESKU Izabela (SRB)"
+                "IONESCU Ovidiu (ROU)"
               ],
               "side_b": [
-                "IONESCU Ovidiu (ROU)",
+                "LUPULESKU Izabela (SRB)",
                 "KARAKASEVIC Aleksandar (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | SZOCS Bernadette (ROU) | IONESCU Ovidiu (ROU) | LUPULESKU Izabela (SRB) | KARAKASEVIC Aleksandar (SRB) | XD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:4 11:7 11:9 | SZOCS Bernadette | IONESCU Ovidiu | "
             },
             {
@@ -9301,7 +8868,7 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "LUPULESKU Izabela",
+              "winner": "LUPULESKU Izabela / KARAKASEVIC Aleksandar",
               "all_players_in_row": [
                 "WANG Eugene (CAN)",
                 "ZHANG Mo (CAN)",
@@ -9310,17 +8877,14 @@
               ],
               "side_a": [
                 "WANG Eugene (CAN)",
-                "LUPULESKU Izabela (SRB)"
+                "ZHANG Mo (CAN)"
               ],
               "side_b": [
-                "ZHANG Mo (CAN)",
+                "LUPULESKU Izabela (SRB)",
                 "KARAKASEVIC Aleksandar (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | WANG Eugene (CAN) | ZHANG Mo (CAN) | LUPULESKU Izabela (SRB) | KARAKASEVIC Aleksandar (SRB) | XD | Main Draw | R16 | 1 - 3 | 11:6 7:11 7:11 6:11 | LUPULESKU Izabela | KARAKASEVIC Aleksandar | "
             }
           ]

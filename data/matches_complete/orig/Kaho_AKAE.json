@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Kaho AKAE",
-  "english_name": "Kaho AKAE",
+  "player_name": "AKAE Kaho",
+  "english_name": "AKAE Kaho",
   "country": "JPN",
   "country_code": "JPN",
   "continent": "",
@@ -50,15 +50,13 @@
                 "MOHAMED Aia (QAT)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "MOHAMED Aia (QAT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-ATTU Asian Cup Haikou 2026 | AKAE Kaho (JPN) |  | MOHAMED Aia (QAT) |  | WS | Qualification |  | 3 - 0 | 11:1 11:3 11:4 | AKAE Kaho |  | "
             },
             {
@@ -91,15 +89,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WANG Manyu (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-ATTU Asian Cup Haikou 2026 | WANG Manyu (CHN) |  | AKAE Kaho (JPN) |  | WS | Qualification |  | 3 - 0 | 11:6 11:7 11:7 | WANG Manyu |  | "
             },
             {
@@ -138,18 +134,17 @@
               ],
               "winner": "AKAE Kaho",
               "all_players_in_row": [
-                "AKAE Kaho (JPN)"
-              ],
-              "side_a": [
                 "AKAE Kaho (JPN)",
                 "LI Yu-Jhun (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
+                "LI Yu-Jhun (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-ATTU Asian Cup Haikou 2026 | AKAE Kaho (JPN) |  | LI Yu-Jhun (TPE) |  | WS | Qualification |  | 3 - 2 | 10:12 8:11 12:10 11:8 11:8 | AKAE Kaho |  | "
             },
             {
@@ -192,15 +187,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "NAGASAKI Miyu (JPN)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-ATTU Asian Cup Haikou 2026 | NAGASAKI Miyu (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R16 | 3 - 2 | 9:11 11:7 6:11 11:8 11:8 | NAGASAKI Miyu |  | "
             }
           ]
@@ -242,7 +235,7 @@
                 "5:11",
                 "6:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "CARNOVALE Miriam (ITA)",
                 "MINURRI Sofia (ITA)",
@@ -251,17 +244,14 @@
               ],
               "side_a": [
                 "CARNOVALE Miriam (ITA)",
-                "AKAE Kaho (JPN)"
+                "MINURRI Sofia (ITA)"
               ],
               "side_b": [
-                "MINURRI Sofia (ITA)",
+                "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | CARNOVALE Miriam (ITA) | MINURRI Sofia (ITA) | AKAE Kaho (JPN) | MENDE Rin (JPN) | WD | Main Draw | R16 | 0 - 3 | 8:11 5:11 6:11 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -294,15 +284,13 @@
                 "COK Isa (FRA)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "COK Isa (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) |  | COK Isa (FRA) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:7 15:13 | AKAE Kaho |  | "
             },
             {
@@ -334,7 +322,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)",
@@ -343,17 +331,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "KUKULKOVA Tatiana (SVK)"
+                "MENDE Rin (JPN)"
               ],
               "side_b": [
-                "MENDE Rin (JPN)",
+                "KUKULKOVA Tatiana (SVK)",
                 "MORET Rachel (SUI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) | MENDE Rin (JPN) | KUKULKOVA Tatiana (SVK) | MORET Rachel (SUI) | WD | Main Draw | QuarterFinal | 3 - 1 | 12:14 11:5 11:7 11:9 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -386,15 +371,13 @@
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) |  | SURJAN Sabina (SRB) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 11:7 11:5 | AKAE Kaho |  | "
             },
             {
@@ -426,7 +409,7 @@
                 "11:8",
                 "11:3"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)",
@@ -435,17 +418,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "KIM Seongjin (KOR)"
+                "MENDE Rin (JPN)"
               ],
               "side_b": [
-                "MENDE Rin (JPN)",
+                "KIM Seongjin (KOR)",
                 "LEE Daeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) | MENDE Rin (JPN) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | SemiFinal | 3 - 1 | 14:12 10:12 11:8 11:3 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -478,15 +458,13 @@
                 "WIELGOS Zuzanna (POL)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) |  | WIELGOS Zuzanna (POL) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:7 11:7 | AKAE Kaho |  | "
             },
             {
@@ -524,15 +502,13 @@
                 "CHOI Haeeun (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "CHOI Haeeun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) |  | CHOI Haeeun (KOR) |  | WS | Main Draw | SemiFinal | 3 - 1 | 13:15 11:4 11:6 11:3 | AKAE Kaho |  | "
             },
             {
@@ -564,7 +540,7 @@
                 "11:9",
                 "2:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "CHOI Seoyeon (KOR)",
                 "LEE Daeun (KOR)",
@@ -573,17 +549,14 @@
               ],
               "side_a": [
                 "CHOI Seoyeon (KOR)",
-                "AKAE Kaho (JPN)"
+                "LEE Daeun (KOR)"
               ],
               "side_b": [
-                "LEE Daeun (KOR)",
+                "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | CHOI Seoyeon (KOR) | LEE Daeun (KOR) | AKAE Kaho (JPN) | MENDE Rin (JPN) | WD | Main Draw | Final | 1 - 3 | 5:11 5:11 11:9 2:11 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -626,15 +599,13 @@
                 "YANG Ha Eun (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | AKAE Kaho (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | Final | 2 - 3 | 9:11 9:11 11:6 11:6 4:11 | YANG Ha Eun |  | "
             }
           ]
@@ -671,7 +642,7 @@
                 "11:2",
                 "11:6"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)",
@@ -680,17 +651,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "RAHIMI Elina (IRI)"
+                "MENDE Rin (JPN)"
               ],
               "side_b": [
-                "MENDE Rin (JPN)",
+                "RAHIMI Elina (IRI)",
                 "HANSSON Matilda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) | MENDE Rin (JPN) | RAHIMI Elina (IRI) | HANSSON Matilda (SWE) | WD | Main Draw | R16 | 3 - 0 | 11:7 11:2 11:6 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -723,15 +691,13 @@
                 "SCHOLZ Vivien (LUX)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SCHOLZ Vivien (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) |  | SCHOLZ Vivien (LUX) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:8 11:2 | AKAE Kaho |  | "
             },
             {
@@ -758,7 +724,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "BERGSTROM Linda (SWE)",
@@ -767,17 +733,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "AKAE Kaho (JPN)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | VARADY Barbora (SVK) | BERGSTROM Linda (SWE) | AKAE Kaho (JPN) | MENDE Rin (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 8:11 8:11 9:11 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -810,15 +773,13 @@
                 "VARADY Barbora (SVK)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "VARADY Barbora (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) |  | VARADY Barbora (SVK) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:3 11:8 | AKAE Kaho |  | "
             },
             {
@@ -855,7 +816,7 @@
                 "11:3",
                 "11:9"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)",
@@ -864,17 +825,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "CHOI Haeeun (KOR)"
+                "MENDE Rin (JPN)"
               ],
               "side_b": [
-                "MENDE Rin (JPN)",
+                "CHOI Haeeun (KOR)",
                 "YOO Siwoo (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) | MENDE Rin (JPN) | CHOI Haeeun (KOR) | YOO Siwoo (KOR) | WD | Main Draw | SemiFinal | 3 - 2 | 7:11 13:11 7:11 11:3 11:9 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -907,15 +865,13 @@
                 "SASAO Asuka (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SASAO Asuka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) |  | SASAO Asuka (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:9 11:9 | AKAE Kaho |  | "
             },
             {
@@ -948,15 +904,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:7 12:10 11:8 | AKAE Kaho |  | "
             },
             {
@@ -983,7 +937,7 @@
                 "11:8",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)",
@@ -992,17 +946,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "KIM Seongjin (KOR)"
+                "MENDE Rin (JPN)"
               ],
               "side_b": [
-                "MENDE Rin (JPN)",
+                "KIM Seongjin (KOR)",
                 "LEE Daeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) | MENDE Rin (JPN) | KIM Seongjin (KOR) | LEE Daeun (KOR) | WD | Main Draw | Final | 3 - 0 | 12:10 11:8 11:8 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -1045,15 +996,13 @@
                 "KIM Seongjin (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "KIM Seongjin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) |  | KIM Seongjin (KOR) |  | WS | Main Draw | Final | 3 - 2 | 11:9 2:11 11:3 8:11 11:2 | AKAE Kaho |  | "
             }
           ]
@@ -1101,15 +1050,13 @@
                 "DIACONU Adina (ROU)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "DIACONU Adina (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | AKAE Kaho (JPN) |  | DIACONU Adina (ROU) |  | WS | Main Draw | R32 | 3 - 1 | 11:8 11:7 11:13 11:7 | AKAE Kaho |  | "
             },
             {
@@ -1142,15 +1089,13 @@
                 "HASHIMOTO Honoka (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "HASHIMOTO Honoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | AKAE Kaho (JPN) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 8:11 3:11 | HASHIMOTO Honoka |  | "
             }
           ]
@@ -1187,7 +1132,7 @@
                 "11:4",
                 "11:6"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -1196,17 +1141,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "PUCHOVANOVA Nikoleta (SVK)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "PUCHOVANOVA Nikoleta (SVK)",
                 "LABOSOVA Ema (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | PUCHOVANOVA Nikoleta (SVK) | LABOSOVA Ema (SVK) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:4 11:6 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -1239,15 +1181,13 @@
                 "PUCHOVANOVA Nikoleta (SVK)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "PUCHOVANOVA Nikoleta (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) |  | PUCHOVANOVA Nikoleta (SVK) |  | WS | Main Draw | R32 | 3 - 0 | 11:3 11:7 11:9 | AKAE Kaho |  | "
             },
             {
@@ -1279,7 +1219,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -1288,17 +1228,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "MISCHEK Karoline (AUT)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "MISCHEK Karoline (AUT)",
                 "LIU Yuan (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | MISCHEK Karoline (AUT) | LIU Yuan (AUT) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:3 8:11 11:7 11:5 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -1341,15 +1278,13 @@
                 "LIU Yuan (AUT)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "LIU Yuan (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) |  | LIU Yuan (AUT) |  | WS | Main Draw | R16 | 3 - 2 | 11:3 7:11 9:11 11:6 11:8 | AKAE Kaho |  | "
             },
             {
@@ -1386,7 +1321,7 @@
                 "6:11",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -1395,17 +1330,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "MEN Shuohan (NED)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "MEN Shuohan (NED)",
                 "SCHOLZ Vivien (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | MEN Shuohan (NED) | SCHOLZ Vivien (LUX) | WD | Main Draw | SemiFinal | 3 - 2 | 11:4 4:11 11:6 6:11 11:8 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -1438,15 +1370,13 @@
                 "BAJOR Natalia (POL)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) |  | BAJOR Natalia (POL) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:7 11:7 | AKAE Kaho |  | "
             },
             {
@@ -1484,15 +1414,13 @@
                 "MALOBABIC Ivana (CRO)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "MALOBABIC Ivana (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) |  | MALOBABIC Ivana (CRO) |  | WS | Main Draw | SemiFinal | 3 - 1 | 11:3 9:11 11:5 11:2 | AKAE Kaho |  | "
             },
             {
@@ -1524,7 +1452,7 @@
                 "11:5",
                 "11:7"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -1533,17 +1461,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "BAJOR Natalia (POL)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "BAJOR Natalia (POL)",
                 "BRZYSKA Anna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | BAJOR Natalia (POL) | BRZYSKA Anna (POL) | WD | Main Draw | Final | 3 - 1 | 10:12 11:8 11:5 11:7 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -1576,15 +1501,13 @@
                 "YOO Yerin (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "YOO Yerin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) |  | YOO Yerin (KOR) |  | WS | Main Draw | Final | 3 - 0 | 11:8 11:4 11:9 | AKAE Kaho |  | "
             }
           ]
@@ -1626,7 +1549,7 @@
                 "6:11",
                 "8:11"
               ],
-              "winner": "KIM Woojin",
+              "winner": "KIM Woojin / YANG Ha Eun",
               "all_players_in_row": [
                 "HAGIHARA Keishi (JPN)",
                 "AKAE Kaho (JPN)",
@@ -1635,17 +1558,14 @@
               ],
               "side_a": [
                 "HAGIHARA Keishi (JPN)",
-                "KIM Woojin (KOR)"
+                "AKAE Kaho (JPN)"
               ],
               "side_b": [
-                "AKAE Kaho (JPN)",
+                "KIM Woojin (KOR)",
                 "YANG Ha Eun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | HAGIHARA Keishi (JPN) | AKAE Kaho (JPN) | KIM Woojin (KOR) | YANG Ha Eun (KOR) | XD | Main Draw | R16 | 1 - 3 | 11:8 8:11 6:11 8:11 | KIM Woojin | YANG Ha Eun | "
             },
             {
@@ -1672,7 +1592,7 @@
                 "8:11",
                 "4:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / ASO Reina",
               "all_players_in_row": [
                 "CHOI Yeseo (KOR)",
                 "LEE Dahye (KOR)",
@@ -1681,17 +1601,14 @@
               ],
               "side_a": [
                 "CHOI Yeseo (KOR)",
-                "AKAE Kaho (JPN)"
+                "LEE Dahye (KOR)"
               ],
               "side_b": [
-                "LEE Dahye (KOR)",
+                "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | CHOI Yeseo (KOR) | LEE Dahye (KOR) | AKAE Kaho (JPN) | ASO Reina (JPN) | WD | Main Draw | R16 | 0 - 3 | 4:11 8:11 4:11 | AKAE Kaho | ASO Reina | "
             },
             {
@@ -1724,15 +1641,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WANG Ke (USA)",
+                "WANG Ke (USA)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | WANG Ke (USA) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 6:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -1764,7 +1679,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1773,17 +1688,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "AKAE Kaho (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | AKAE Kaho (JPN) | ASO Reina (JPN) | WD | Main Draw | QuarterFinal | 3 - 1 | 7:11 11:7 11:8 11:6 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1816,15 +1728,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "LUTZ Camille (FRA)",
+                "LUTZ Camille (FRA)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | LUTZ Camille (FRA) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 4:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -1867,15 +1777,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "YANG Ha Eun (KOR)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | YANG Ha Eun (KOR) |  | AKAE Kaho (JPN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 12:10 6:11 11:7 10:12 3:11 | AKAE Kaho |  | "
             },
             {
@@ -1918,15 +1826,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SATO Hitomi (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | SemiFinal | 2 - 3 | 11:2 11:13 11:8 8:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -1964,15 +1870,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | AKAE Kaho (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | Final | 3 - 1 | 11:8 6:11 11:4 14:12 | AKAE Kaho |  | "
             }
           ]
@@ -2009,7 +1913,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "HAGIHARA Keishi",
+              "winner": "HAGIHARA Keishi / AKAE Kaho",
               "all_players_in_row": [
                 "HAGIHARA Keishi (JPN)",
                 "AKAE Kaho (JPN)",
@@ -2018,17 +1922,14 @@
               ],
               "side_a": [
                 "HAGIHARA Keishi (JPN)",
-                "BOTHA Bosman (USA)"
+                "AKAE Kaho (JPN)"
               ],
               "side_b": [
-                "AKAE Kaho (JPN)",
+                "BOTHA Bosman (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | HAGIHARA Keishi (JPN) | AKAE Kaho (JPN) | BOTHA Bosman (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:8 | HAGIHARA Keishi | AKAE Kaho | "
             },
             {
@@ -2055,7 +1956,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / ASO Reina",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)",
@@ -2064,17 +1965,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "CHEN Lichen (USA)"
+                "ASO Reina (JPN)"
               ],
               "side_b": [
-                "ASO Reina (JPN)",
+                "CHEN Lichen (USA)",
                 "GUO Jiangshan (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKAE Kaho (JPN) | ASO Reina (JPN) | CHEN Lichen (USA) | GUO Jiangshan (USA) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:8 | AKAE Kaho | ASO Reina | "
             },
             {
@@ -2107,15 +2005,13 @@
                 "SCHREINER Franziska (GER)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SCHREINER Franziska (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKAE Kaho (JPN) |  | SCHREINER Franziska (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:8 | AKAE Kaho |  | "
             },
             {
@@ -2142,7 +2038,7 @@
                 "7:11",
                 "11:13"
               ],
-              "winner": "HAGIHARA Keishi",
+              "winner": "HAGIHARA Keishi / AKAE Kaho",
               "all_players_in_row": [
                 "LEE Hoyun (KOR)",
                 "BARCENAS Clio (MEX)",
@@ -2151,17 +2047,14 @@
               ],
               "side_a": [
                 "LEE Hoyun (KOR)",
-                "HAGIHARA Keishi (JPN)"
+                "BARCENAS Clio (MEX)"
               ],
               "side_b": [
-                "BARCENAS Clio (MEX)",
+                "HAGIHARA Keishi (JPN)",
                 "AKAE Kaho (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | LEE Hoyun (KOR) | BARCENAS Clio (MEX) | HAGIHARA Keishi (JPN) | AKAE Kaho (JPN) | XD | Main Draw | QuarterFinal | 0 - 3 | 8:11 7:11 11:13 | HAGIHARA Keishi | AKAE Kaho | "
             },
             {
@@ -2198,7 +2091,7 @@
                 "6:11",
                 "11:6"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -2207,17 +2100,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "AKAE Kaho (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | AKAE Kaho (JPN) | ASO Reina (JPN) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:6 11:5 11:13 6:11 11:6 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2250,15 +2140,13 @@
                 "CHOI Yeseo (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "CHOI Yeseo (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKAE Kaho (JPN) |  | CHOI Yeseo (KOR) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:4 11:4 | AKAE Kaho |  | "
             },
             {
@@ -2296,15 +2184,13 @@
                 "WANG Amy (USA)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "WANG Amy (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKAE Kaho (JPN) |  | WANG Amy (USA) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:9 14:12 11:1 | AKAE Kaho |  | "
             },
             {
@@ -2331,7 +2217,7 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "HAGIHARA Keishi",
+              "winner": "HAGIHARA Keishi / AKAE Kaho",
               "all_players_in_row": [
                 "HAGIHARA Keishi (JPN)",
                 "AKAE Kaho (JPN)",
@@ -2340,17 +2226,14 @@
               ],
               "side_a": [
                 "HAGIHARA Keishi (JPN)",
-                "NARESH Nandan (USA)"
+                "AKAE Kaho (JPN)"
               ],
               "side_b": [
-                "AKAE Kaho (JPN)",
+                "NARESH Nandan (USA)",
                 "YEOH Irene (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | HAGIHARA Keishi (JPN) | AKAE Kaho (JPN) | NARESH Nandan (USA) | YEOH Irene (USA) | XD | Main Draw | SemiFinal | 3 - 0 | 11:8 11:5 11:6 | HAGIHARA Keishi | AKAE Kaho | "
             },
             {
@@ -2388,15 +2271,13 @@
                 "SATO Hitomi (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SATO Hitomi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKAE Kaho (JPN) |  | SATO Hitomi (JPN) |  | WS | Main Draw | SemiFinal | 3 - 1 | 5:11 11:9 11:5 11:3 | AKAE Kaho |  | "
             },
             {
@@ -2423,7 +2304,7 @@
                 "11:3",
                 "11:7"
               ],
-              "winner": "AIDA Satoshi",
+              "winner": "AIDA Satoshi / SATO Hitomi",
               "all_players_in_row": [
                 "AIDA Satoshi (JPN)",
                 "SATO Hitomi (JPN)",
@@ -2432,17 +2313,14 @@
               ],
               "side_a": [
                 "AIDA Satoshi (JPN)",
-                "HAGIHARA Keishi (JPN)"
+                "SATO Hitomi (JPN)"
               ],
               "side_b": [
-                "SATO Hitomi (JPN)",
+                "HAGIHARA Keishi (JPN)",
                 "AKAE Kaho (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AIDA Satoshi (JPN) | SATO Hitomi (JPN) | HAGIHARA Keishi (JPN) | AKAE Kaho (JPN) | XD | Main Draw | Final | 3 - 0 | 11:6 11:3 11:7 | AIDA Satoshi | SATO Hitomi | "
             },
             {
@@ -2480,15 +2358,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | SHIBATA Saki (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | Final | 3 - 1 | 11:8 7:11 11:8 11:6 | SHIBATA Saki |  | "
             }
           ]
@@ -2531,15 +2407,13 @@
                 "MEN Shuohan (NED)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "MEN Shuohan (NED)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | AKAE Kaho (JPN) |  | MEN Shuohan (NED) |  | WS | Qualification | QR32 | 3 - 0 | 11:5 11:8 11:3 | AKAE Kaho |  | "
             },
             {
@@ -2577,15 +2451,13 @@
                 "ZHU Sibing (CHN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "ZHU Sibing (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | AKAE Kaho (JPN) |  | ZHU Sibing (CHN) |  | WS | Qualification | QR16 | 1 - 3 | 11:9 5:11 6:11 4:11 | ZHU Sibing |  | "
             }
           ]
@@ -2628,15 +2500,13 @@
                 "MUKHERJEE Sutirtha (IND)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "MUKHERJEE Sutirtha (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | AKAE Kaho (JPN) |  | MUKHERJEE Sutirtha (IND) |  | WS | Qualification | QR64 | 3 - 0 | 11:0 11:0 11:0 | AKAE Kaho |  | "
             },
             {
@@ -2674,15 +2544,13 @@
                 "KIM Seongjin (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "KIM Seongjin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | AKAE Kaho (JPN) |  | KIM Seongjin (KOR) |  | WS | Qualification | QR32 | 1 - 3 | 7:11 9:11 11:4 10:12 | KIM Seongjin |  | "
             }
           ]
@@ -2730,15 +2598,13 @@
                 "YAN Yutong (CHN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "YAN Yutong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) |  | YAN Yutong (CHN) |  | WS | Qualification |  | 3 - 1 | 11:7 4:11 11:6 11:5 | AKAE Kaho |  | "
             },
             {
@@ -2771,15 +2637,13 @@
                 "COK Isa (FRA)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "COK Isa (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) |  | COK Isa (FRA) |  | WS | Qualification |  | 3 - 0 | 11:9 11:5 11:5 | AKAE Kaho |  | "
             },
             {
@@ -2806,7 +2670,7 @@
                 "5:11",
                 "8:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "MEN Shuohan (NED)",
                 "DENG Zhen (USA)",
@@ -2815,17 +2679,14 @@
               ],
               "side_a": [
                 "MEN Shuohan (NED)",
-                "AKAE Kaho (JPN)"
+                "DENG Zhen (USA)"
               ],
               "side_b": [
-                "DENG Zhen (USA)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | MEN Shuohan (NED) | DENG Zhen (USA) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR8 | 0 - 3 | 6:11 5:11 8:11 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -2858,15 +2719,13 @@
                 "TOFANT Ana (SLO)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "TOFANT Ana (SLO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) |  | TOFANT Ana (SLO) |  | WS | Qualification | QR16 | 3 - 0 | 11:8 11:3 13:11 | AKAE Kaho |  | "
             },
             {
@@ -2893,7 +2752,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -2902,17 +2761,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "YU Fu (POR)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:7 11:4 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -2950,15 +2806,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "YOKOI Sakura (JPN)",
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | YOKOI Sakura (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 3 - 1 | 10:12 11:7 11:4 11:4 | YOKOI Sakura |  | "
             },
             {
@@ -2985,7 +2839,7 @@
                 "4:11",
                 "5:11"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / RYU Hanna",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -2994,17 +2848,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "KIM Nayeong (KOR)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "KIM Nayeong (KOR)",
                 "RYU Hanna (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | KIM Nayeong (KOR) | RYU Hanna (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 4:11 5:11 | KIM Nayeong | RYU Hanna | "
             }
           ]
@@ -3046,7 +2897,7 @@
                 "11:8",
                 "12:10"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -3055,17 +2906,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "VARADY Barbora (SVK)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "VARADY Barbora (SVK)",
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | VARADY Barbora (SVK) | KUKULKOVA Tatiana (SVK) | WD | Main Draw | R16 | 3 - 1 | 7:11 11:6 11:8 12:10 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -3098,15 +2946,13 @@
                 "WU Ying Syuan (TPE)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "WU Ying Syuan (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | AKAE Kaho (JPN) |  | WU Ying Syuan (TPE) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:7 11:3 | AKAE Kaho |  | "
             },
             {
@@ -3133,7 +2979,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "TOFANT Ana (SLO)",
                 "AKASHEVA Zauresh (KAZ)",
@@ -3142,17 +2988,14 @@
               ],
               "side_a": [
                 "TOFANT Ana (SLO)",
-                "AKAE Kaho (JPN)"
+                "AKASHEVA Zauresh (KAZ)"
               ],
               "side_b": [
-                "AKASHEVA Zauresh (KAZ)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | TOFANT Ana (SLO) | AKASHEVA Zauresh (KAZ) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 3:11 7:11 4:11 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -3190,15 +3033,13 @@
                 "ORTEGA Daniela (CHI)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "ORTEGA Daniela (CHI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | AKAE Kaho (JPN) |  | ORTEGA Daniela (CHI) |  | WS | Main Draw | R16 | 3 - 1 | 6:11 11:8 11:4 11:3 | AKAE Kaho |  | "
             },
             {
@@ -3225,7 +3066,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "YOVKOVA Maria (BUL)",
                 "GERASIMATOU Ioanna (GRE)",
@@ -3234,17 +3075,14 @@
               ],
               "side_a": [
                 "YOVKOVA Maria (BUL)",
-                "AKAE Kaho (JPN)"
+                "GERASIMATOU Ioanna (GRE)"
               ],
               "side_b": [
-                "GERASIMATOU Ioanna (GRE)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | YOVKOVA Maria (BUL) | GERASIMATOU Ioanna (GRE) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | SemiFinal | 0 - 3 | 3:11 6:11 6:11 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -3282,15 +3120,13 @@
                 "SATO Hitomi (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SATO Hitomi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | AKAE Kaho (JPN) |  | SATO Hitomi (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 8:11 8:11 13:11 8:11 | SATO Hitomi |  | "
             },
             {
@@ -3327,7 +3163,7 @@
                 "10:12",
                 "13:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / YOKOI Sakura",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -3336,17 +3172,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "AKAE Kaho (JPN)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | Final | 3 - 2 | 5:11 11:9 12:10 10:12 13:11 | SATO Hitomi | YOKOI Sakura | "
             }
           ]
@@ -3389,15 +3222,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WONG Jasmin (ENG)",
+                "WONG Jasmin (ENG)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | WONG Jasmin (ENG) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 3:11 5:11 | AKAE Kaho |  | "
             },
             {
@@ -3430,15 +3261,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "MORET Rachel (SUI)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | MORET Rachel (SUI) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 3:11 8:11 5:11 | AKAE Kaho |  | "
             },
             {
@@ -3471,15 +3300,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WIELGOS Zuzanna (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | WIELGOS Zuzanna (POL) |  | AKAE Kaho (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 7:11 9:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -3517,15 +3344,13 @@
                 "HURSEY Anna (WAL)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | AKAE Kaho (JPN) |  | HURSEY Anna (WAL) |  | WS | Main Draw | SemiFinal | 1 - 3 | 9:11 5:11 11:7 8:11 | HURSEY Anna |  | "
             }
           ]
@@ -3567,7 +3392,7 @@
                 "5:11",
                 "11:6"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / ASO Reina",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)",
@@ -3576,17 +3401,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "KLEMPEREROVA Anna (CZE)"
+                "ASO Reina (JPN)"
               ],
               "side_b": [
-                "ASO Reina (JPN)",
+                "KLEMPEREROVA Anna (CZE)",
                 "GROFOVA Karin (CZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | AKAE Kaho (JPN) | ASO Reina (JPN) | KLEMPEREROVA Anna (CZE) | GROFOVA Karin (CZE) | WD | Qualification | QR16 | 3 - 1 | 11:9 11:5 5:11 11:6 | AKAE Kaho | ASO Reina | "
             },
             {
@@ -3618,7 +3440,7 @@
                 "11:2",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / ASO Reina",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)",
@@ -3627,17 +3449,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "GONZALEZ Roxy (VEN)"
+                "ASO Reina (JPN)"
               ],
               "side_b": [
-                "ASO Reina (JPN)",
+                "GONZALEZ Roxy (VEN)",
                 "OBANDO Camila (VEN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | AKAE Kaho (JPN) | ASO Reina (JPN) | GONZALEZ Roxy (VEN) | OBANDO Camila (VEN) | WD | Qualification | QR8 | 3 - 1 | 9:11 11:3 11:2 11:8 | AKAE Kaho | ASO Reina | "
             },
             {
@@ -3670,15 +3489,13 @@
                 "ZAHARIA Elena (ROU)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "ZAHARIA Elena (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | AKAE Kaho (JPN) |  | ZAHARIA Elena (ROU) |  | WS | Main Draw | R64 | 3 - 0 | 11:8 11:5 11:7 | AKAE Kaho |  | "
             },
             {
@@ -3716,15 +3533,13 @@
                 "VEGA Paulina (CHI)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "VEGA Paulina (CHI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | AKAE Kaho (JPN) |  | VEGA Paulina (CHI) |  | WS | Main Draw | R32 | 3 - 1 | 11:2 9:11 11:1 11:5 | AKAE Kaho |  | "
             },
             {
@@ -3756,7 +3571,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / ASO Reina",
               "all_players_in_row": [
                 "SCHREINER Franziska (GER)",
                 "WAN Yuan (GER)",
@@ -3765,17 +3580,14 @@
               ],
               "side_a": [
                 "SCHREINER Franziska (GER)",
-                "AKAE Kaho (JPN)"
+                "WAN Yuan (GER)"
               ],
               "side_b": [
-                "WAN Yuan (GER)",
+                "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SCHREINER Franziska (GER) | WAN Yuan (GER) | AKAE Kaho (JPN) | ASO Reina (JPN) | WD | Main Draw | R16 | 1 - 3 | 13:11 4:11 7:11 4:11 | AKAE Kaho | ASO Reina | "
             },
             {
@@ -3807,7 +3619,7 @@
                 "10:12",
                 "8:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / DIACONU Adina",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)",
@@ -3816,17 +3628,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "DRAGOMAN Andreea (ROU)"
+                "ASO Reina (JPN)"
               ],
               "side_b": [
-                "ASO Reina (JPN)",
+                "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | AKAE Kaho (JPN) | ASO Reina (JPN) | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | WD | Main Draw | QuarterFinal | 1 - 3 | 9:11 14:12 10:12 8:11 | DRAGOMAN Andreea | DIACONU Adina | "
             },
             {
@@ -3859,15 +3668,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SATO Hitomi (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R16 | 3 - 0 | 11:2 11:5 11:4 | SATO Hitomi |  | "
             }
           ]
@@ -3904,7 +3711,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "KIM Seongjin (KOR)",
                 "SOO Wai Yam (HKG)",
@@ -3913,17 +3720,14 @@
               ],
               "side_a": [
                 "KIM Seongjin (KOR)",
-                "AKAE Kaho (JPN)"
+                "SOO Wai Yam (HKG)"
               ],
               "side_b": [
-                "SOO Wai Yam (HKG)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seongjin (KOR) | SOO Wai Yam (HKG) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR16 | 0 - 3 | 10:12 9:11 9:11 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -3950,7 +3754,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "DENG Zhen (USA)",
                 "MEN Shuohan (NED)",
@@ -3959,17 +3763,14 @@
               ],
               "side_a": [
                 "DENG Zhen (USA)",
-                "AKAE Kaho (JPN)"
+                "MEN Shuohan (NED)"
               ],
               "side_b": [
-                "MEN Shuohan (NED)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | DENG Zhen (USA) | MEN Shuohan (NED) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR8 | 0 - 3 | 6:11 11:13 8:11 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -4002,15 +3803,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "YAREMCHUK Solomiya (UKR)",
+                "YAREMCHUK Solomiya (UKR)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | YAREMCHUK Solomiya (UKR) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 6:11 5:11 | AKAE Kaho |  | "
             },
             {
@@ -4053,15 +3852,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "YOKOI Sakura (JPN)",
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | YOKOI Sakura (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 2 - 3 | 11:5 5:11 14:12 6:11 8:11 | AKAE Kaho |  | "
             },
             {
@@ -4098,7 +3895,7 @@
                 "11:5",
                 "3:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "BAJOR Natalia (POL)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -4107,17 +3904,14 @@
               ],
               "side_a": [
                 "BAJOR Natalia (POL)",
-                "AKAE Kaho (JPN)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | BAJOR Natalia (POL) | KUKULKOVA Tatiana (SVK) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | R16 | 2 - 3 | 11:13 9:11 11:8 11:5 3:11 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -4149,7 +3943,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -4158,17 +3952,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "AKASHEVA Zauresh (KAZ)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "AKASHEVA Zauresh (KAZ)",
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | AKASHEVA Zauresh (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:2 11:7 11:8 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -4211,15 +4002,13 @@
                 "HURSEY Anna (WAL)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | AKAE Kaho (JPN) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R16 | 2 - 3 | 11:7 9:11 11:6 9:11 7:11 | HURSEY Anna |  | "
             },
             {
@@ -4256,7 +4045,7 @@
                 "11:7",
                 "10:12"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -4265,17 +4054,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "JEGER Mateja (CRO)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 2 - 3 | 11:7 7:11 6:11 11:7 10:12 | JEGER Mateja | RAKOVAC Lea | "
             }
           ]
@@ -4323,15 +4109,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "RAHIMI Elina (IRI)",
+                "RAHIMI Elina (IRI)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | RAHIMI Elina (IRI) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 11:6 15:17 7:11 8:11 | AKAE Kaho |  | "
             },
             {
@@ -4374,15 +4158,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | WINTER Sabine (GER) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R16 | 3 - 2 | 11:5 11:2 7:11 8:11 11:7 | WINTER Sabine |  | "
             }
           ]
@@ -4421,18 +4203,17 @@
               ],
               "winner": "TSAI Yun-En",
               "all_players_in_row": [
-                "AKAE Kaho (JPN)"
-              ],
-              "side_a": [
                 "AKAE Kaho (JPN)",
                 "TSAI Yun-En (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
+                "TSAI Yun-En (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | AKAE Kaho (JPN) |  | TSAI Yun-En (TPE) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 9:11 17:19 | TSAI Yun-En |  | "
             }
           ]
@@ -4480,15 +4261,13 @@
                 "BAJOR Natalia (POL)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) |  | BAJOR Natalia (POL) |  | XT | Qualification |  | 3 - 0 | 12:10 12:10 12:10 | AKAE Kaho |  | "
             },
             {
@@ -4515,7 +4294,7 @@
                 "11:3",
                 "11:5"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / HAGIHARA Keishi",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "HAGIHARA Keishi (JPN)",
@@ -4524,17 +4303,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "YEHIA Alaa (EGY)"
+                "HAGIHARA Keishi (JPN)"
               ],
               "side_b": [
-                "HAGIHARA Keishi (JPN)",
+                "YEHIA Alaa (EGY)",
                 "MOSTAFA Badr (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | HAGIHARA Keishi (JPN) | YEHIA Alaa (EGY) | MOSTAFA Badr (EGY) | XT | Qualification |  | 3 - 0 | 11:6 11:3 11:5 | AKAE Kaho | HAGIHARA Keishi | "
             },
             {
@@ -4561,7 +4337,7 @@
                 "9:11",
                 "11:5"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / HAGIHARA Keishi",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "HAGIHARA Keishi (JPN)",
@@ -4570,17 +4346,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "SCHREINER Franziska (GER)"
+                "HAGIHARA Keishi (JPN)"
               ],
               "side_b": [
-                "HAGIHARA Keishi (JPN)",
+                "SCHREINER Franziska (GER)",
                 "MEISSNER Cedric (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | HAGIHARA Keishi (JPN) | SCHREINER Franziska (GER) | MEISSNER Cedric (GER) | XT | Qualification |  | 2 - 1 | 11:6 9:11 11:5 | AKAE Kaho | HAGIHARA Keishi | "
             },
             {
@@ -4607,7 +4380,7 @@
                 "9:11",
                 "11:9"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)",
@@ -4616,17 +4389,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "NG Wing Lam (HKG)"
+                "MENDE Rin (JPN)"
               ],
               "side_b": [
-                "MENDE Rin (JPN)",
+                "NG Wing Lam (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | MENDE Rin (JPN) | NG Wing Lam (HKG) | DOO Hoi Kem (HKG) | XT | Qualification |  | 2 - 1 | 11:8 9:11 11:9 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -4653,7 +4423,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "NG Wing Lam",
+              "winner": "NG Wing Lam / YIU Kwan To",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "HAGIHARA Keishi (JPN)",
@@ -4662,17 +4432,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "NG Wing Lam (HKG)"
+                "HAGIHARA Keishi (JPN)"
               ],
               "side_b": [
-                "HAGIHARA Keishi (JPN)",
+                "NG Wing Lam (HKG)",
                 "YIU Kwan To (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | HAGIHARA Keishi (JPN) | NG Wing Lam (HKG) | YIU Kwan To (HKG) | XT | Qualification |  | 1 - 2 | 11:6 6:11 9:11 | NG Wing Lam | YIU Kwan To | "
             },
             {
@@ -4699,7 +4466,7 @@
                 "12:10",
                 "9:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / HAGIHARA Keishi",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "HAGIHARA Keishi (JPN)",
@@ -4708,17 +4475,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "KIM Nayeong (KOR)"
+                "HAGIHARA Keishi (JPN)"
               ],
               "side_b": [
-                "HAGIHARA Keishi (JPN)",
+                "KIM Nayeong (KOR)",
                 "CHO Daeseong (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | HAGIHARA Keishi (JPN) | KIM Nayeong (KOR) | CHO Daeseong (KOR) | XT | Qualification |  | 2 - 1 | 11:7 12:10 9:11 | AKAE Kaho | HAGIHARA Keishi | "
             },
             {
@@ -4740,7 +4504,7 @@
                 "11:6",
                 "0:0"
               ],
-              "winner": "SUN Yingsha",
+              "winner": "SUN Yingsha / WANG Yidi",
               "all_players_in_row": [
                 "SUN Yingsha (CHN)",
                 "WANG Yidi (CHN)",
@@ -4749,17 +4513,14 @@
               ],
               "side_a": [
                 "SUN Yingsha (CHN)",
-                "SASAO Asuka (JPN)"
+                "WANG Yidi (CHN)"
               ],
               "side_b": [
-                "WANG Yidi (CHN)",
+                "SASAO Asuka (JPN)",
                 "AKAE Kaho (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | SUN Yingsha (CHN) | WANG Yidi (CHN) | SASAO Asuka (JPN) | AKAE Kaho (JPN) | XT | Qualification |  | 1 - 0 | 11:6 0:0 | SUN Yingsha | WANG Yidi | "
             },
             {
@@ -4792,15 +4553,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WANG Manyu (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | WANG Manyu (CHN) |  | AKAE Kaho (JPN) |  | XT | Qualification |  | 3 - 0 | 11:7 11:5 11:5 | WANG Manyu |  | "
             },
             {
@@ -4827,7 +4586,7 @@
                 "9:11",
                 "12:14"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / IONESCU Ovidiu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "HAGIHARA Keishi (JPN)",
@@ -4836,17 +4595,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "SZOCS Bernadette (ROU)"
+                "HAGIHARA Keishi (JPN)"
               ],
               "side_b": [
-                "HAGIHARA Keishi (JPN)",
+                "SZOCS Bernadette (ROU)",
                 "IONESCU Ovidiu (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | HAGIHARA Keishi (JPN) | SZOCS Bernadette (ROU) | IONESCU Ovidiu (ROU) | XT | Qualification |  | 0 - 3 | 7:11 9:11 12:14 | SZOCS Bernadette | IONESCU Ovidiu | "
             },
             {
@@ -4873,7 +4629,7 @@
                 "11:6",
                 "13:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / HAGIHARA Keishi",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "HAGIHARA Keishi (JPN)",
@@ -4882,17 +4638,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "LUTZ Camille (FRA)"
+                "HAGIHARA Keishi (JPN)"
               ],
               "side_b": [
-                "HAGIHARA Keishi (JPN)",
+                "LUTZ Camille (FRA)",
                 "DORR Esteban (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | HAGIHARA Keishi (JPN) | LUTZ Camille (FRA) | DORR Esteban (FRA) | XT | Qualification |  | 2 - 1 | 9:11 11:6 13:11 | AKAE Kaho | HAGIHARA Keishi | "
             },
             {
@@ -4919,7 +4672,7 @@
                 "2:11",
                 "11:9"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TANAKA Yuta",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TANAKA Yuta (JPN)",
@@ -4928,17 +4681,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "MOYLAND Sally (USA)"
+                "TANAKA Yuta (JPN)"
               ],
               "side_b": [
-                "TANAKA Yuta (JPN)",
+                "MOYLAND Sally (USA)",
                 "NARESH Nandan (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | TANAKA Yuta (JPN) | MOYLAND Sally (USA) | NARESH Nandan (USA) | XT | Qualification |  | 2 - 1 | 11:9 2:11 11:9 | AKAE Kaho | TANAKA Yuta | "
             }
           ]
@@ -4981,15 +4731,13 @@
                 "HANSSON Matilda (SWE)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "HANSSON Matilda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | AKAE Kaho (JPN) |  | HANSSON Matilda (SWE) |  | WS | Main Draw | R64 | 3 - 0 | 11:4 11:3 11:7 | AKAE Kaho |  | "
             },
             {
@@ -5022,15 +4770,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "SINGEORZAN Ioana (ROU)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | SINGEORZAN Ioana (ROU) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 5:11 11:13 | AKAE Kaho |  | "
             },
             {
@@ -5063,15 +4809,13 @@
                 "MORET Rachel (SUI)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "MORET Rachel (SUI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | AKAE Kaho (JPN) |  | MORET Rachel (SUI) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:4 11:5 | AKAE Kaho |  | "
             },
             {
@@ -5109,15 +4853,13 @@
                 "BRZYSKA Anna (POL)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "BRZYSKA Anna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | AKAE Kaho (JPN) |  | BRZYSKA Anna (POL) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:7 10:12 11:5 11:9 | AKAE Kaho |  | "
             },
             {
@@ -5150,15 +4892,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "UESAWA Anne (JPN)",
+                "UESAWA Anne (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | UESAWA Anne (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | SemiFinal | 0 - 3 | 6:11 7:11 5:11 | AKAE Kaho |  | "
             },
             {
@@ -5191,15 +4931,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WANG Xiaotong (CHN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | WANG Xiaotong (CHN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | Final | 3 - 0 | 11:7 11:7 11:6 | WANG Xiaotong |  | "
             }
           ]
@@ -5242,15 +4980,13 @@
                 "MUTLU Sidelya (BUL)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "MUTLU Sidelya (BUL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | AKAE Kaho (JPN) |  | MUTLU Sidelya (BUL) |  | WS | Main Draw | R64 | 3 - 0 | 11:3 11:7 11:2 | AKAE Kaho |  | "
             },
             {
@@ -5288,15 +5024,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "PARK Gahyeon (KOR)",
+                "PARK Gahyeon (KOR)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | PARK Gahyeon (KOR) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 3:11 2:11 11:9 8:11 | AKAE Kaho |  | "
             },
             {
@@ -5329,15 +5063,13 @@
                 "KUKULKOVA Tatiana (SVK)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | AKAE Kaho (JPN) |  | KUKULKOVA Tatiana (SVK) |  | WS | Main Draw | R16 | 3 - 0 | 11:0 11:5 11:3 | AKAE Kaho |  | "
             },
             {
@@ -5370,15 +5102,13 @@
                 "OJIO Yuna (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "OJIO Yuna (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | AKAE Kaho (JPN) |  | OJIO Yuna (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 11:13 6:11 8:11 | OJIO Yuna |  | "
             }
           ]
@@ -5421,15 +5151,13 @@
                 "HO Ying (MAS)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "HO Ying (MAS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Almaty 2024 | AKAE Kaho (JPN) |  | HO Ying (MAS) |  | WS | Qualification | QR32 | 3 - 0 | 11:6 11:6 11:6 | AKAE Kaho |  | "
             },
             {
@@ -5467,15 +5195,13 @@
                 "YOO Siwoo (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "YOO Siwoo (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Almaty 2024 | AKAE Kaho (JPN) |  | YOO Siwoo (KOR) |  | WS | Qualification | QR16 | 1 - 3 | 9:11 11:5 5:11 8:11 | YOO Siwoo |  | "
             }
           ]
@@ -5518,15 +5244,13 @@
                 "ASHTARI Mahshid (IRI)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "ASHTARI Mahshid (IRI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Havirov 2024 | AKAE Kaho (JPN) |  | ASHTARI Mahshid (IRI) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 11:9 11:4 | AKAE Kaho |  | "
             },
             {
@@ -5559,15 +5283,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "MIRKADIROVA Sarvinoz (KAZ)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Havirov 2024 | MIRKADIROVA Sarvinoz (KAZ) |  | AKAE Kaho (JPN) |  | WS | Qualification | QR32 | 0 - 3 | 4:11 3:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -5600,15 +5322,13 @@
                 "COK Isa (FRA)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "COK Isa (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Havirov 2024 | AKAE Kaho (JPN) |  | COK Isa (FRA) |  | WS | Qualification | QR16 | 3 - 0 | 11:4 11:7 11:5 | AKAE Kaho |  | "
             },
             {
@@ -5646,15 +5366,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "SURJAN Sabina (SRB)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Havirov 2024 | SURJAN Sabina (SRB) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R64 | 1 - 3 | 11:8 4:11 4:11 4:11 | AKAE Kaho |  | "
             },
             {
@@ -5697,15 +5415,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "SUH Hyo Won (KOR)",
+                "SUH Hyo Won (KOR)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Havirov 2024 | SUH Hyo Won (KOR) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 3 - 2 | 7:11 11:7 6:11 11:6 11:8 | SUH Hyo Won |  | "
             }
           ]
@@ -5744,18 +5460,17 @@
               ],
               "winner": "AKAE Kaho",
               "all_players_in_row": [
-                "AKAE Kaho (JPN)"
-              ],
-              "side_a": [
                 "AKAE Kaho (JPN)",
                 "WANG Yi-Ju (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
+                "WANG Yi-Ju (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | AKAE Kaho (JPN) |  | WANG Yi-Ju (TPE) |  | WS | Qualification | QR64 | 3 - 0 | 12:10 11:7 11:9 | AKAE Kaho |  | "
             },
             {
@@ -5793,15 +5508,13 @@
                 "YOON Hyobin (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "YOON Hyobin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | AKAE Kaho (JPN) |  | YOON Hyobin (KOR) |  | WS | Qualification | QR32 | 1 - 3 | 12:10 11:13 8:11 4:11 | YOON Hyobin |  | "
             }
           ]
@@ -5848,7 +5561,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "NOMURA Moe",
+              "winner": "NOMURA Moe / AKAE Kaho",
               "all_players_in_row": [
                 "NOMURA Moe (JPN)",
                 "AKAE Kaho (JPN)",
@@ -5857,17 +5570,14 @@
               ],
               "side_a": [
                 "NOMURA Moe (JPN)",
-                "LEE Daeun (KOR)"
+                "AKAE Kaho (JPN)"
               ],
               "side_b": [
-                "AKAE Kaho (JPN)",
+                "LEE Daeun (KOR)",
                 "COK Isa (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | NOMURA Moe (JPN) | AKAE Kaho (JPN) | LEE Daeun (KOR) | COK Isa (FRA) | WD | Qualification | QR8 | 3 - 1 | 11:2 5:11 11:9 11:9 | NOMURA Moe | AKAE Kaho | "
             },
             {
@@ -5900,15 +5610,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "TODOROVIC Andrea (SRB)",
+                "TODOROVIC Andrea (SRB)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | TODOROVIC Andrea (SRB) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 11:13 8:11 8:11 | AKAE Kaho |  | "
             },
             {
@@ -5945,7 +5653,7 @@
                 "11:8",
                 "11:5"
               ],
-              "winner": "LABOSOVA Ema",
+              "winner": "LABOSOVA Ema / VARADY Barbora",
               "all_players_in_row": [
                 "LABOSOVA Ema (SVK)",
                 "VARADY Barbora (SVK)",
@@ -5954,17 +5662,14 @@
               ],
               "side_a": [
                 "LABOSOVA Ema (SVK)",
-                "NOMURA Moe (JPN)"
+                "VARADY Barbora (SVK)"
               ],
               "side_b": [
-                "VARADY Barbora (SVK)",
+                "NOMURA Moe (JPN)",
                 "AKAE Kaho (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | LABOSOVA Ema (SVK) | VARADY Barbora (SVK) | NOMURA Moe (JPN) | AKAE Kaho (JPN) | WD | Main Draw | R16 | 3 - 2 | 11:7 8:11 8:11 11:8 11:5 | LABOSOVA Ema | VARADY Barbora | "
             },
             {
@@ -5997,15 +5702,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "LUTZ Charlotte (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | LUTZ Charlotte (FRA) |  | AKAE Kaho (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 5:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -6034,18 +5737,17 @@
               ],
               "winner": "AKAE Kaho",
               "all_players_in_row": [
-                "AKAE Kaho (JPN)"
-              ],
-              "side_a": [
                 "AKAE Kaho (JPN)",
                 "CHIEN Tung-Chuan (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | AKAE Kaho (JPN) |  | CHIEN Tung-Chuan (TPE) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 11:5 11:4 | AKAE Kaho |  | "
             },
             {
@@ -6078,15 +5780,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "HE Zhuojia (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Panagyurishte 2023 | HE Zhuojia (CHN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 12:10 11:5 | HE Zhuojia |  | "
             }
           ]
@@ -6134,15 +5834,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "ERNST Emine (NED)",
+                "ERNST Emine (NED)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | ERNST Emine (NED) |  | AKAE Kaho (JPN) |  | WS | Qualification | QR64 | 1 - 3 | 6:11 5:11 11:7 8:11 | AKAE Kaho |  | "
             },
             {
@@ -6185,15 +5883,13 @@
                 "CIOBANU Irina (ROU)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "CIOBANU Irina (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Olomouc 2023 | AKAE Kaho (JPN) |  | CIOBANU Irina (ROU) |  | WS | Qualification | QR32 | 2 - 3 | 13:11 11:9 8:11 8:11 7:11 | CIOBANU Irina |  | "
             }
           ]
@@ -6251,15 +5947,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "KIM Yejin (KOR)",
+                "KIM Yejin (KOR)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Youth Championships Rades 2022 | KIM Yejin (KOR) |  | AKAE Kaho (JPN) |  | U19WT | Main Draw | QuarterFinal | 2 - 3 | 11:7 1:11 11:8 7:11 12:14 | AKAE Kaho |  | "
             }
           ]
@@ -6302,15 +5996,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "TOKIC Sara (SLO)",
+                "TOKIC Sara (SLO)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | TOKIC Sara (SLO) |  | AKAE Kaho (JPN) |  | U19WS | Qualification |  | 0 - 3 | 5:11 8:11 6:11 | AKAE Kaho |  | "
             },
             {
@@ -6343,15 +6035,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "BOROVEC Bruna (CRO)",
+                "BOROVEC Bruna (CRO)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | BOROVEC Bruna (CRO) |  | AKAE Kaho (JPN) |  | U19WS | Qualification |  | 0 - 3 | 8:11 3:11 8:11 | AKAE Kaho |  | "
             },
             {
@@ -6389,15 +6079,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "JOARDAR Oishiki (IND)",
+                "JOARDAR Oishiki (IND)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | JOARDAR Oishiki (IND) |  | AKAE Kaho (JPN) |  | U19WS | Main Draw | R64 | 1 - 3 | 6:11 5:11 11:4 3:11 | AKAE Kaho |  | "
             },
             {
@@ -6430,15 +6118,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WONG Hoi Tung (HKG)",
+                "WONG Hoi Tung (HKG)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | WONG Hoi Tung (HKG) |  | AKAE Kaho (JPN) |  | U19WS | Main Draw | R32 | 0 - 3 | 8:11 2:11 6:11 | AKAE Kaho |  | "
             },
             {
@@ -6471,15 +6157,13 @@
                 "RAD Elvira (ESP)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "RAD Elvira (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | AKAE Kaho (JPN) |  | RAD Elvira (ESP) |  | U19WS | Main Draw | R16 | 3 - 0 | 11:5 11:5 14:12 | AKAE Kaho |  | "
             },
             {
@@ -6512,15 +6196,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "RODRIGUEZ Alondra (PUR)",
+                "RODRIGUEZ Alondra (PUR)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | RODRIGUEZ Alondra (PUR) |  | AKAE Kaho (JPN) |  | U19WS | Main Draw | QuarterFinal | 0 - 3 | 6:11 2:11 3:11 | AKAE Kaho |  | "
             },
             {
@@ -6553,15 +6235,13 @@
                 "KIM Nayeong (KOR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "KIM Nayeong (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | AKAE Kaho (JPN) |  | KIM Nayeong (KOR) |  | U19WS | Main Draw | SemiFinal | 3 - 0 | 11:3 11:6 12:10 | AKAE Kaho |  | "
             },
             {
@@ -6594,15 +6274,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "OJIO Yuna (JPN)",
+                "OJIO Yuna (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Senec 2022 | OJIO Yuna (JPN) |  | AKAE Kaho (JPN) |  | U19WS | Main Draw | Final | 0 - 3 | 9:11 6:11 5:11 | AKAE Kaho |  | "
             }
           ]
@@ -6645,15 +6323,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "MAGDIEVA Markhabo (UZB)",
+                "MAGDIEVA Markhabo (UZB)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Szombathely 2022 | MAGDIEVA Markhabo (UZB) |  | AKAE Kaho (JPN) |  | U19WS | Qualification |  | 0 - 3 | 7:11 7:11 8:11 | AKAE Kaho |  | "
             },
             {
@@ -6686,15 +6362,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WANI Sayali (IND)",
+                "WANI Sayali (IND)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Szombathely 2022 | WANI Sayali (IND) |  | AKAE Kaho (JPN) |  | U19WS | Qualification |  | 0 - 3 | 7:11 5:11 4:11 | AKAE Kaho |  | "
             },
             {
@@ -6727,15 +6401,13 @@
                 "RODRIGUEZ Alondra (PUR)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "RODRIGUEZ Alondra (PUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Youth Contender Szombathely 2022 | AKAE Kaho (JPN) |  | RODRIGUEZ Alondra (PUR) |  | U19WS | Main Draw | R64 | 3 - 0 | 11:5 14:12 11:5 | AKAE Kaho |  | "
             },
             {
@@ -6768,15 +6440,13 @@
                 "SINGEORZAN Ioana (ROU)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SINGEORZAN Ioana (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Youth Contender Szombathely 2022 | AKAE Kaho (JPN) |  | SINGEORZAN Ioana (ROU) |  | U19WS | Main Draw | R32 | 3 - 0 | 11:7 11:5 11:9 | AKAE Kaho |  | "
             },
             {
@@ -6809,15 +6479,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "WONG Hoi Tung (HKG)",
+                "WONG Hoi Tung (HKG)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Szombathely 2022 | WONG Hoi Tung (HKG) |  | AKAE Kaho (JPN) |  | U19WS | Main Draw | R16 | 0 - 3 | 4:11 6:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -6855,15 +6523,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "MIRKADIROVA Sarvinoz (KAZ)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Youth Contender Szombathely 2022 | MIRKADIROVA Sarvinoz (KAZ) |  | AKAE Kaho (JPN) |  | U19WS | Main Draw | QuarterFinal | 1 - 3 | 6:11 11:9 8:11 7:11 | AKAE Kaho |  | "
             },
             {
@@ -6901,15 +6567,13 @@
                 "AOKI Sachi (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "AOKI Sachi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Youth Contender Szombathely 2022 | AKAE Kaho (JPN) |  | AOKI Sachi (JPN) |  | U19WS | Main Draw | SemiFinal | 1 - 3 | 8:11 14:12 8:11 8:11 | AOKI Sachi |  | "
             }
           ]
@@ -6957,15 +6621,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "PINYOPISAN Phantita (THA)",
+                "PINYOPISAN Phantita (THA)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | PINYOPISAN Phantita (THA) |  | AKAE Kaho (JPN) |  | U19WT | Qualification |  | 1 - 3 | 7:11 10:12 11:9 13:15 | AKAE Kaho |  | "
             },
             {
@@ -6998,15 +6660,13 @@
                 "SER Lin Qian (SGP)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SER Lin Qian (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | AKAE Kaho (JPN) |  | SER Lin Qian (SGP) |  | U19WT | Qualification |  | 3 - 0 | 11:3 11:7 13:11 | AKAE Kaho |  | "
             },
             {
@@ -7045,18 +6705,17 @@
               ],
               "winner": "AKAE Kaho",
               "all_players_in_row": [
-                "AKAE Kaho (JPN)"
-              ],
-              "side_a": [
                 "AKAE Kaho (JPN)",
                 "TSAI Yun-En (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
+                "TSAI Yun-En (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | AKAE Kaho (JPN) |  | TSAI Yun-En (TPE) |  | U19WT | Main Draw | SemiFinal | 3 - 2 | 9:11 11:4 11:5 5:11 11:5 | AKAE Kaho |  | "
             },
             {
@@ -7095,18 +6754,17 @@
               ],
               "winner": "HUANG Yu-Jie",
               "all_players_in_row": [
-                "AKAE Kaho (JPN)"
-              ],
-              "side_a": [
                 "AKAE Kaho (JPN)",
                 "HUANG Yu-Jie (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | AKAE Kaho (JPN) |  | HUANG Yu-Jie (TPE) |  | U19WT | Main Draw | SemiFinal | 2 - 3 | 10:12 12:10 7:11 11:6 7:11 | HUANG Yu-Jie |  | "
             },
             {
@@ -7138,7 +6796,7 @@
                 "4:11",
                 "5:11"
               ],
-              "winner": "SAKAI Yuhi",
+              "winner": "SAKAI Yuhi / AKAE Kaho",
               "all_players_in_row": [
                 "WONG Andy (SGP)",
                 "CHENG Janissa (SGP)",
@@ -7147,17 +6805,14 @@
               ],
               "side_a": [
                 "WONG Andy (SGP)",
-                "SAKAI Yuhi (JPN)"
+                "CHENG Janissa (SGP)"
               ],
               "side_b": [
-                "CHENG Janissa (SGP)",
+                "SAKAI Yuhi (JPN)",
                 "AKAE Kaho (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | WONG Andy (SGP) | CHENG Janissa (SGP) | SAKAI Yuhi (JPN) | AKAE Kaho (JPN) | U19XD | Main Draw | R32 | 1 - 3 | 3:11 11:7 4:11 5:11 | SAKAI Yuhi | AKAE Kaho | "
             },
             {
@@ -7194,7 +6849,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "LIM Yunoh",
+              "winner": "LIM Yunoh / LEE Daeun",
               "all_players_in_row": [
                 "SAKAI Yuhi (JPN)",
                 "AKAE Kaho (JPN)",
@@ -7203,17 +6858,14 @@
               ],
               "side_a": [
                 "SAKAI Yuhi (JPN)",
-                "LIM Yunoh (KOR)"
+                "AKAE Kaho (JPN)"
               ],
               "side_b": [
-                "AKAE Kaho (JPN)",
+                "LIM Yunoh (KOR)",
                 "LEE Daeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | SAKAI Yuhi (JPN) | AKAE Kaho (JPN) | LIM Yunoh (KOR) | LEE Daeun (KOR) | U19XD | Main Draw | R16 | 2 - 3 | 11:7 12:14 11:8 9:11 9:11 | LIM Yunoh | LEE Daeun | "
             },
             {
@@ -7256,15 +6908,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "LEE Daeun (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | LEE Daeun (KOR) |  | AKAE Kaho (JPN) |  | U19WS | Qualification |  | 2 - 3 | 8:11 9:11 11:8 11:6 8:11 | AKAE Kaho |  | "
             },
             {
@@ -7297,15 +6947,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "NG Wing Lam (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | NG Wing Lam (HKG) |  | AKAE Kaho (JPN) |  | U19WS | Qualification |  | 3 - 0 | 12:10 11:4 11:3 | NG Wing Lam |  | "
             },
             {
@@ -7332,7 +6980,7 @@
                 "12:10",
                 "11:1"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / SUZUKI Misaki",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "SUZUKI Misaki (JPN)",
@@ -7341,17 +6989,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "ILOUKHANI Setayesh (IRI)"
+                "SUZUKI Misaki (JPN)"
               ],
               "side_b": [
-                "SUZUKI Misaki (JPN)",
+                "ILOUKHANI Setayesh (IRI)",
                 "NAGHIBI Nilia (IRI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | AKAE Kaho (JPN) | SUZUKI Misaki (JPN) | ILOUKHANI Setayesh (IRI) | NAGHIBI Nilia (IRI) | U19WD | Main Draw | R32 | 3 - 0 | 11:5 12:10 11:1 | AKAE Kaho | SUZUKI Misaki | "
             },
             {
@@ -7388,7 +7033,7 @@
                 "5:11",
                 "1:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / SUZUKI Misaki",
               "all_players_in_row": [
                 "MANI Nithya (IND)",
                 "KOTECHA Taneesha (IND)",
@@ -7397,17 +7042,14 @@
               ],
               "side_a": [
                 "MANI Nithya (IND)",
-                "AKAE Kaho (JPN)"
+                "KOTECHA Taneesha (IND)"
               ],
               "side_b": [
-                "KOTECHA Taneesha (IND)",
+                "AKAE Kaho (JPN)",
                 "SUZUKI Misaki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | MANI Nithya (IND) | KOTECHA Taneesha (IND) | AKAE Kaho (JPN) | SUZUKI Misaki (JPN) | U19WD | Main Draw | R16 | 2 - 3 | 10:12 14:12 11:8 5:11 1:11 | AKAE Kaho | SUZUKI Misaki | "
             },
             {
@@ -7434,7 +7076,7 @@
                 "11:2",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / SUZUKI Misaki",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "SUZUKI Misaki (JPN)",
@@ -7443,17 +7085,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "CHENG Janissa (SGP)"
+                "SUZUKI Misaki (JPN)"
               ],
               "side_b": [
-                "SUZUKI Misaki (JPN)",
+                "CHENG Janissa (SGP)",
                 "SER Lin Qian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | AKAE Kaho (JPN) | SUZUKI Misaki (JPN) | CHENG Janissa (SGP) | SER Lin Qian (SGP) | U19WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:2 11:8 | AKAE Kaho | SUZUKI Misaki | "
             },
             {
@@ -7485,7 +7124,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / SUZUKI Misaki",
               "all_players_in_row": [
                 "CHEN Yi (CHN)",
                 "QIN Yuxuan (CHN)",
@@ -7494,17 +7133,14 @@
               ],
               "side_a": [
                 "CHEN Yi (CHN)",
-                "AKAE Kaho (JPN)"
+                "QIN Yuxuan (CHN)"
               ],
               "side_b": [
-                "QIN Yuxuan (CHN)",
+                "AKAE Kaho (JPN)",
                 "SUZUKI Misaki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | CHEN Yi (CHN) | QIN Yuxuan (CHN) | AKAE Kaho (JPN) | SUZUKI Misaki (JPN) | U19WD | Main Draw | SemiFinal | 1 - 3 | 9:11 11:5 9:11 7:11 | AKAE Kaho | SUZUKI Misaki | "
             },
             {
@@ -7531,24 +7167,23 @@
                 "9:11",
                 "10:12"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / SUZUKI Misaki",
               "all_players_in_row": [
+                "HUANG Ching-Chia (TPE)",
+                "WANG Hsiao-Hsin (TPE)",
                 "AKAE Kaho (JPN)",
                 "SUZUKI Misaki (JPN)"
               ],
               "side_a": [
                 "HUANG Ching-Chia (TPE)",
-                "AKAE Kaho (JPN)"
+                "WANG Hsiao-Hsin (TPE)"
               ],
               "side_b": [
-                "WANG Hsiao-Hsin (TPE)",
+                "AKAE Kaho (JPN)",
                 "SUZUKI Misaki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Asian Youth Championships Vientiane 2022 | HUANG Ching-Chia (TPE) | WANG Hsiao-Hsin (TPE) | AKAE Kaho (JPN) | SUZUKI Misaki (JPN) | U19WD | Main Draw | Final | 0 - 3 | 13:15 9:11 10:12 | AKAE Kaho | SUZUKI Misaki | "
             }
           ]

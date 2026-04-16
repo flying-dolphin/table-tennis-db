@@ -50,15 +50,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "DOO Hoi Kem (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | DOO Hoi Kem (HKG) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:6 11:8 | DOO Hoi Kem |  | "
             }
           ]
@@ -106,15 +104,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "LOY Ming Ying (SGP)",
+                "LOY Ming Ying (SGP)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | LOY Ming Ying (SGP) |  | XU Yi (CHN) |  | WS | Qualification | QR64 | 0 - 3 | 12:14 5:11 3:11 | XU Yi |  | "
             },
             {
@@ -157,15 +153,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | VARADY Barbora (SVK) |  | XU Yi (CHN) |  | WS | Qualification | QR32 | 2 - 3 | 10:12 11:7 1:11 11:6 8:11 | XU Yi |  | "
             },
             {
@@ -204,18 +198,17 @@
               ],
               "winner": "XU Yi",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "HUANG Yu-Jie (TPE)",
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "side_b": [
+                "XU Yi (CHN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | HUANG Yu-Jie (TPE) |  | XU Yi (CHN) |  | WS | Qualification | QR16 | 2 - 3 | 15:13 12:10 1:11 10:12 11:13 | XU Yi |  | "
             },
             {
@@ -254,18 +247,17 @@
               ],
               "winner": "CHEN Szu-Yu",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "CHEN Szu-Yu (TPE)",
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHEN Szu-Yu (TPE)"
+              ],
+              "side_b": [
+                "XU Yi (CHN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | CHEN Szu-Yu (TPE) |  | XU Yi (CHN) |  | WS | Main Draw | R64 | 3 - 2 | 9:11 13:11 10:12 13:11 12:10 | CHEN Szu-Yu |  | "
             },
             {
@@ -302,7 +294,7 @@
                 "7:11",
                 "9:11"
               ],
-              "winner": "WANG Xiaotong",
+              "winner": "WANG Xiaotong / XU Yi",
               "all_players_in_row": [
                 "MUKHERJEE Ayhika (IND)",
                 "MUKHERJEE Sutirtha (IND)",
@@ -311,17 +303,14 @@
               ],
               "side_a": [
                 "MUKHERJEE Ayhika (IND)",
-                "WANG Xiaotong (CHN)"
+                "MUKHERJEE Sutirtha (IND)"
               ],
               "side_b": [
-                "MUKHERJEE Sutirtha (IND)",
+                "WANG Xiaotong (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | MUKHERJEE Ayhika (IND) | MUKHERJEE Sutirtha (IND) | WANG Xiaotong (CHN) | XU Yi (CHN) | WD | Main Draw | R32 | 2 - 3 | 11:7 11:7 9:11 7:11 9:11 | WANG Xiaotong | XU Yi | "
             },
             {
@@ -353,7 +342,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "WANG Xiaotong",
+              "winner": "WANG Xiaotong / XU Yi",
               "all_players_in_row": [
                 "WANG Xiaotong (CHN)",
                 "XU Yi (CHN)",
@@ -362,17 +351,14 @@
               ],
               "side_a": [
                 "WANG Xiaotong (CHN)",
-                "KIM Nayeong (KOR)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "KIM Nayeong (KOR)",
                 "RYU Hanna (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | WANG Xiaotong (CHN) | XU Yi (CHN) | KIM Nayeong (KOR) | RYU Hanna (KOR) | WD | Main Draw | R16 | 3 - 1 | 9:11 11:9 11:5 11:8 | WANG Xiaotong | XU Yi | "
             },
             {
@@ -409,7 +395,7 @@
                 "11:7",
                 "2:11"
               ],
-              "winner": "WANG Xiaotong",
+              "winner": "WANG Xiaotong / XU Yi",
               "all_players_in_row": [
                 "KAUFMANN Annett (GER)",
                 "LIU Yangzi (AUS)",
@@ -418,17 +404,14 @@
               ],
               "side_a": [
                 "KAUFMANN Annett (GER)",
-                "WANG Xiaotong (CHN)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "WANG Xiaotong (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | KAUFMANN Annett (GER) | LIU Yangzi (AUS) | WANG Xiaotong (CHN) | XU Yi (CHN) | WD | Main Draw | QuarterFinal | 2 - 3 | 9:11 11:7 6:11 11:7 2:11 | WANG Xiaotong | XU Yi | "
             },
             {
@@ -465,7 +448,7 @@
                 "11:5",
                 "9:11"
               ],
-              "winner": "HAYATA Hina",
+              "winner": "HAYATA Hina / JOO Cheonhui",
               "all_players_in_row": [
                 "WANG Xiaotong (CHN)",
                 "XU Yi (CHN)",
@@ -474,17 +457,14 @@
               ],
               "side_a": [
                 "WANG Xiaotong (CHN)",
-                "HAYATA Hina (JPN)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "HAYATA Hina (JPN)",
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | WANG Xiaotong (CHN) | XU Yi (CHN) | HAYATA Hina (JPN) | JOO Cheonhui (KOR) | WD | Main Draw | SemiFinal | 2 - 3 | 11:9 9:11 9:11 11:5 9:11 | HAYATA Hina | JOO Cheonhui | "
             }
           ]
@@ -527,15 +507,13 @@
                 "KAMALOVA Arujan (UZB)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "KAMALOVA Arujan (UZB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | XU Yi (CHN) |  | KAMALOVA Arujan (UZB) |  | WS | Qualification | QR32 | 3 - 0 | 11:5 11:4 11:7 | XU Yi |  | "
             },
             {
@@ -573,15 +551,13 @@
                 "PANFILOVA Maria (AIN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "PANFILOVA Maria (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | XU Yi (CHN) |  | PANFILOVA Maria (AIN) |  | WS | Qualification | QR16 | 3 - 1 | 11:5 11:7 7:11 11:4 | XU Yi |  | "
             },
             {
@@ -614,15 +590,13 @@
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | XU Yi (CHN) |  | MIRKADIROVA Sarvinoz (KAZ) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:0 11:4 | XU Yi |  | "
             },
             {
@@ -660,15 +634,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "LEE Eunhye (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | LEE Eunhye (KOR) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 1 - 3 | 11:8 9:11 5:11 7:11 | XU Yi |  | "
             },
             {
@@ -706,15 +678,13 @@
                 "HASHIMOTO Honoka (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "HASHIMOTO Honoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | XU Yi (CHN) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 11:9 9:11 7:11 7:11 | HASHIMOTO Honoka |  | "
             }
           ]
@@ -767,15 +737,13 @@
                 "SHI Xunyao (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SHI Xunyao (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | XU Yi (CHN) |  | SHI Xunyao (CHN) |  | WS | Main Draw | R64 | 3 - 2 | 7:11 5:11 11:5 11:9 11:7 | XU Yi |  | "
             },
             {
@@ -808,15 +776,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "HAN Ying (GER)",
+                "HAN Ying (GER)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | HAN Ying (GER) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:7 11:9 | HAN Ying |  | "
             }
           ]
@@ -869,15 +835,13 @@
                 "LEE Daeun (KOR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LEE Daeun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | XU Yi (CHN) |  | LEE Daeun (KOR) |  | WS | Qualification | QR64 | 3 - 2 | 6:11 19:17 8:11 11:9 11:8 | XU Yi |  | "
             },
             {
@@ -915,15 +879,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "ASO Reina (JPN)",
+                "ASO Reina (JPN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | ASO Reina (JPN) |  | XU Yi (CHN) |  | WS | Qualification | QR32 | 1 - 3 | 12:14 7:11 11:7 6:11 | XU Yi |  | "
             },
             {
@@ -966,15 +928,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "FAN Shuhan (CHN)",
+                "FAN Shuhan (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | FAN Shuhan (CHN) |  | XU Yi (CHN) |  | WS | Qualification | QR16 | 2 - 3 | 11:5 7:11 10:12 11:8 5:11 | XU Yi |  | "
             },
             {
@@ -1001,7 +961,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "YUAN Licen",
+              "winner": "YUAN Licen / XU Yi",
               "all_players_in_row": [
                 "YUAN Licen (CHN)",
                 "XU Yi (CHN)",
@@ -1010,17 +970,14 @@
               ],
               "side_a": [
                 "YUAN Licen (CHN)",
-                "YIU Kwan To (HKG)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "YIU Kwan To (HKG)",
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | YUAN Licen (CHN) | XU Yi (CHN) | YIU Kwan To (HKG) | NG Wing Lam (HKG) | XD | Main Draw | R16 | 3 - 0 | 11:2 11:9 11:8 | YUAN Licen | XU Yi | "
             },
             {
@@ -1063,15 +1020,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | HAYATA Hina (JPN) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 2 - 3 | 11:7 11:7 9:11 9:11 4:11 | XU Yi |  | "
             },
             {
@@ -1098,7 +1053,7 @@
                 "11:3",
                 "11:8"
               ],
-              "winner": "LIM Jonghoon",
+              "winner": "LIM Jonghoon / SHIN Yubin",
               "all_players_in_row": [
                 "LIM Jonghoon (KOR)",
                 "SHIN Yubin (KOR)",
@@ -1107,17 +1062,14 @@
               ],
               "side_a": [
                 "LIM Jonghoon (KOR)",
-                "YUAN Licen (CHN)"
+                "SHIN Yubin (KOR)"
               ],
               "side_b": [
-                "SHIN Yubin (KOR)",
+                "YUAN Licen (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | LIM Jonghoon (KOR) | SHIN Yubin (KOR) | YUAN Licen (CHN) | XU Yi (CHN) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:3 11:8 | LIM Jonghoon | SHIN Yubin | "
             },
             {
@@ -1150,15 +1102,13 @@
                 "KIHARA Miyuu (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "KIHARA Miyuu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | XU Yi (CHN) |  | KIHARA Miyuu (JPN) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:9 11:8 | XU Yi |  | "
             },
             {
@@ -1201,15 +1151,13 @@
                 "SHI Xunyao (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SHI Xunyao (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | XU Yi (CHN) |  | SHI Xunyao (CHN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 11:8 5:11 11:8 10:12 2:11 | SHI Xunyao |  | "
             }
           ]
@@ -1248,18 +1196,17 @@
               ],
               "winner": "YEH Yi-Tian",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "YEH Yi-Tian (TPE)",
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "YEH Yi-Tian (TPE)"
+              ],
+              "side_b": [
+                "XU Yi (CHN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | YEH Yi-Tian (TPE) |  | XU Yi (CHN) |  | WS | Qualification | QR64 | 3 - 0 | 11:6 12:10 11:7 | YEH Yi-Tian |  | "
             }
           ]
@@ -1302,15 +1249,13 @@
                 "YAN Yutong (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "YAN Yutong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | XU Yi (CHN) |  | YAN Yutong (CHN) |  | WS | Qualification |  | 3 - 0 | 11:9 11:5 11:5 | XU Yi |  | "
             },
             {
@@ -1348,15 +1293,13 @@
                 "KONG Tsz Lam (HKG)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "KONG Tsz Lam (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | XU Yi (CHN) |  | KONG Tsz Lam (HKG) |  | WS | Qualification |  | 3 - 1 | 9:11 11:8 12:10 11:7 | XU Yi |  | "
             },
             {
@@ -1389,15 +1332,13 @@
                 "WONG Hoi Tung (HKG)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "WONG Hoi Tung (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | XU Yi (CHN) |  | WONG Hoi Tung (HKG) |  | WS | Qualification |  | 3 - 0 | 11:9 11:6 11:4 | XU Yi |  | "
             },
             {
@@ -1440,15 +1381,13 @@
                 "YOKOI Sakura (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "YOKOI Sakura (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | XU Yi (CHN) |  | YOKOI Sakura (JPN) |  | WS | Main Draw | R32 | 2 - 3 | 6:11 11:9 11:4 12:14 5:11 | YOKOI Sakura |  | "
             },
             {
@@ -1485,7 +1424,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / XU Yi",
               "all_players_in_row": [
                 "SHI Xunyao (CHN)",
                 "LIU Weishan (CHN)",
@@ -1494,17 +1433,14 @@
               ],
               "side_a": [
                 "SHI Xunyao (CHN)",
-                "CHEN Yi (CHN)"
+                "LIU Weishan (CHN)"
               ],
               "side_b": [
-                "LIU Weishan (CHN)",
+                "CHEN Yi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | SHI Xunyao (CHN) | LIU Weishan (CHN) | CHEN Yi (CHN) | XU Yi (CHN) | WD | Main Draw | QuarterFinal | 2 - 3 | 11:9 9:11 11:9 11:13 8:11 | CHEN Yi | XU Yi | "
             },
             {
@@ -1531,7 +1467,7 @@
                 "7:11",
                 "1:11"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / XU Yi",
               "all_players_in_row": [
                 "QIN Yuxuan (CHN)",
                 "ZONG Geman (CHN)",
@@ -1540,17 +1476,14 @@
               ],
               "side_a": [
                 "QIN Yuxuan (CHN)",
-                "CHEN Yi (CHN)"
+                "ZONG Geman (CHN)"
               ],
               "side_b": [
-                "ZONG Geman (CHN)",
+                "CHEN Yi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | QIN Yuxuan (CHN) | ZONG Geman (CHN) | CHEN Yi (CHN) | XU Yi (CHN) | WD | Main Draw | SemiFinal | 0 - 3 | 9:11 7:11 1:11 | CHEN Yi | XU Yi | "
             },
             {
@@ -1587,7 +1520,7 @@
                 "4:11",
                 "11:6"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / RYU Hanna",
               "all_players_in_row": [
                 "KIM Nayeong (KOR)",
                 "RYU Hanna (KOR)",
@@ -1596,17 +1529,14 @@
               ],
               "side_a": [
                 "KIM Nayeong (KOR)",
-                "CHEN Yi (CHN)"
+                "RYU Hanna (KOR)"
               ],
               "side_b": [
-                "RYU Hanna (KOR)",
+                "CHEN Yi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | KIM Nayeong (KOR) | RYU Hanna (KOR) | CHEN Yi (CHN) | XU Yi (CHN) | WD | Main Draw | Final | 3 - 2 | 11:9 4:11 11:5 4:11 11:6 | KIM Nayeong | RYU Hanna | "
             }
           ]
@@ -1649,15 +1579,13 @@
                 "LEE Daeun (KOR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LEE Daeun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | XU Yi (CHN) |  | LEE Daeun (KOR) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:5 11:6 | XU Yi |  | "
             },
             {
@@ -1695,15 +1623,13 @@
                 "HAN Feier (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "HAN Feier (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | XU Yi (CHN) |  | HAN Feier (CHN) |  | WS | Main Draw | R32 | 3 - 1 | 11:8 3:11 11:6 11:6 | XU Yi |  | "
             },
             {
@@ -1736,15 +1662,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "ZHU Sibing (CHN)",
+                "ZHU Sibing (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | ZHU Sibing (CHN) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 3 - 0 | 11:6 11:8 11:9 | ZHU Sibing |  | "
             }
           ]
@@ -1792,15 +1716,13 @@
                 "UESAWA Anne (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "UESAWA Anne (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | XU Yi (CHN) |  | UESAWA Anne (JPN) |  | U19WT | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:5 11:9 | XU Yi |  | "
             },
             {
@@ -1838,15 +1760,13 @@
                 "CHOI Nahyun (KOR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "CHOI Nahyun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | XU Yi (CHN) |  | CHOI Nahyun (KOR) |  | U19WT | Main Draw | SemiFinal | 3 - 1 | 11:7 11:8 8:11 11:4 | XU Yi |  | "
             }
           ]
@@ -1899,15 +1819,13 @@
                 "ORTEGA Daniela (CHI)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ORTEGA Daniela (CHI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | XU Yi (CHN) |  | ORTEGA Daniela (CHI) |  | WS | Qualification | QR64 | 3 - 2 | 9:11 11:9 11:7 7:11 11:3 | XU Yi |  | "
             },
             {
@@ -1946,18 +1864,17 @@
               ],
               "winner": "CHENG Hsien-Tzu",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "XU Yi (CHN)",
                 "CHENG Hsien-Tzu (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | XU Yi (CHN) |  | CHENG Hsien-Tzu (TPE) |  | WS | Qualification | QR32 | 2 - 3 | 11:3 10:12 5:11 11:9 8:11 | CHENG Hsien-Tzu |  | "
             },
             {
@@ -1984,7 +1901,7 @@
                 "4:11",
                 "10:12"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / XU Yi",
               "all_players_in_row": [
                 "LUTZ Charlotte (FRA)",
                 "LUTZ Camille (FRA)",
@@ -1993,17 +1910,14 @@
               ],
               "side_a": [
                 "LUTZ Charlotte (FRA)",
-                "CHEN Yi (CHN)"
+                "LUTZ Camille (FRA)"
               ],
               "side_b": [
-                "LUTZ Camille (FRA)",
+                "CHEN Yi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | LUTZ Charlotte (FRA) | LUTZ Camille (FRA) | CHEN Yi (CHN) | XU Yi (CHN) | WD | Main Draw | R32 | 0 - 3 | 9:11 4:11 10:12 | CHEN Yi | XU Yi | "
             },
             {
@@ -2040,7 +1954,7 @@
                 "7:11",
                 "11:3"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / XU Yi",
               "all_players_in_row": [
                 "CHEN Yi (CHN)",
                 "XU Yi (CHN)",
@@ -2049,17 +1963,14 @@
               ],
               "side_a": [
                 "CHEN Yi (CHN)",
-                "ZHU Chengzhu (HKG)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "ZHU Chengzhu (HKG)",
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | CHEN Yi (CHN) | XU Yi (CHN) | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | WD | Main Draw | R16 | 3 - 2 | 11:5 12:10 4:11 7:11 11:3 | CHEN Yi | XU Yi | "
             },
             {
@@ -2091,7 +2002,7 @@
                 "11:9",
                 "8:11"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / XU Yi",
               "all_players_in_row": [
                 "DIAZ Adriana (PUR)",
                 "PAVADE Prithika (FRA)",
@@ -2100,17 +2011,14 @@
               ],
               "side_a": [
                 "DIAZ Adriana (PUR)",
-                "CHEN Yi (CHN)"
+                "PAVADE Prithika (FRA)"
               ],
               "side_b": [
-                "PAVADE Prithika (FRA)",
+                "CHEN Yi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | DIAZ Adriana (PUR) | PAVADE Prithika (FRA) | CHEN Yi (CHN) | XU Yi (CHN) | WD | Main Draw | QuarterFinal | 1 - 3 | 5:11 7:11 11:9 8:11 | CHEN Yi | XU Yi | "
             },
             {
@@ -2137,7 +2045,7 @@
                 "11:8",
                 "11:5"
               ],
-              "winner": "QIAN Tianyi",
+              "winner": "QIAN Tianyi / CHEN Xingtong",
               "all_players_in_row": [
                 "QIAN Tianyi (CHN)",
                 "CHEN Xingtong (CHN)",
@@ -2146,17 +2054,14 @@
               ],
               "side_a": [
                 "QIAN Tianyi (CHN)",
-                "CHEN Yi (CHN)"
+                "CHEN Xingtong (CHN)"
               ],
               "side_b": [
-                "CHEN Xingtong (CHN)",
+                "CHEN Yi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | QIAN Tianyi (CHN) | CHEN Xingtong (CHN) | CHEN Yi (CHN) | XU Yi (CHN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:7 11:8 11:5 | QIAN Tianyi | CHEN Xingtong | "
             }
           ]
@@ -2193,7 +2098,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / ZONG Geman",
               "all_players_in_row": [
                 "YANG Yiyun (CHN)",
                 "ZHU Sibing (CHN)",
@@ -2202,17 +2107,14 @@
               ],
               "side_a": [
                 "YANG Yiyun (CHN)",
-                "XU Yi (CHN)"
+                "ZHU Sibing (CHN)"
               ],
               "side_b": [
-                "ZHU Sibing (CHN)",
+                "XU Yi (CHN)",
                 "ZONG Geman (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | YANG Yiyun (CHN) | ZHU Sibing (CHN) | XU Yi (CHN) | ZONG Geman (CHN) | WD | Main Draw | R16 | 0 - 3 | 7:11 9:11 9:11 | XU Yi | ZONG Geman | "
             },
             {
@@ -2245,15 +2147,13 @@
                 "CORDERO Lucia (GUA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "CORDERO Lucia (GUA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | XU Yi (CHN) |  | CORDERO Lucia (GUA) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:4 11:7 | XU Yi |  | "
             },
             {
@@ -2285,24 +2185,23 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "CHIEN Tung-Chuan",
+              "winner": "CHIEN Tung-Chuan / LIU Hsing-Yin",
               "all_players_in_row": [
                 "XU Yi (CHN)",
-                "ZONG Geman (CHN)"
+                "ZONG Geman (CHN)",
+                "CHIEN Tung-Chuan (TPE)",
+                "LIU Hsing-Yin (TPE)"
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "CHIEN Tung-Chuan (TPE)"
+                "ZONG Geman (CHN)"
               ],
               "side_b": [
-                "ZONG Geman (CHN)",
+                "CHIEN Tung-Chuan (TPE)",
                 "LIU Hsing-Yin (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | XU Yi (CHN) | ZONG Geman (CHN) | CHIEN Tung-Chuan (TPE) | LIU Hsing-Yin (TPE) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:4 7:11 8:11 9:11 | CHIEN Tung-Chuan | LIU Hsing-Yin | "
             },
             {
@@ -2340,15 +2239,13 @@
                 "WANG Xiaotong (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "WANG Xiaotong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | XU Yi (CHN) |  | WANG Xiaotong (CHN) |  | WS | Main Draw | R16 | 1 - 3 | 12:10 4:11 9:11 5:11 | WANG Xiaotong |  | "
             }
           ]
@@ -2385,7 +2282,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "XU Yi (CHN)",
                 "FAN Shuhan (CHN)",
@@ -2394,17 +2291,14 @@
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "PERSOVA Viktoria (BUL)"
+                "FAN Shuhan (CHN)"
               ],
               "side_b": [
-                "FAN Shuhan (CHN)",
+                "PERSOVA Viktoria (BUL)",
                 "TOFANT Ana (SLO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | XU Yi (CHN) | FAN Shuhan (CHN) | PERSOVA Viktoria (BUL) | TOFANT Ana (SLO) | WD | Main Draw | R16 | 3 - 0 | 11:3 11:8 11:6 | XU Yi | FAN Shuhan | "
             },
             {
@@ -2442,15 +2336,13 @@
                 "WIELGOS Zuzanna (POL)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | XU Yi (CHN) |  | WIELGOS Zuzanna (POL) |  | WS | Main Draw | R32 | 3 - 1 | 11:7 6:11 13:11 11:7 | XU Yi |  | "
             },
             {
@@ -2477,7 +2369,7 @@
                 "4:11",
                 "2:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "KUKULKOVA Tatiana (SVK)",
                 "LABOSOVA Ema (SVK)",
@@ -2486,17 +2378,14 @@
               ],
               "side_a": [
                 "KUKULKOVA Tatiana (SVK)",
-                "XU Yi (CHN)"
+                "LABOSOVA Ema (SVK)"
               ],
               "side_b": [
-                "LABOSOVA Ema (SVK)",
+                "XU Yi (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | KUKULKOVA Tatiana (SVK) | LABOSOVA Ema (SVK) | XU Yi (CHN) | FAN Shuhan (CHN) | WD | Main Draw | QuarterFinal | 0 - 3 | 3:11 4:11 2:11 | XU Yi | FAN Shuhan | "
             },
             {
@@ -2529,15 +2418,13 @@
                 "HASHIMOTO Honoka (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "HASHIMOTO Honoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | XU Yi (CHN) |  | HASHIMOTO Honoka (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 2:11 8:11 5:11 | HASHIMOTO Honoka |  | "
             },
             {
@@ -2564,7 +2451,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "ODO Satsuki",
+              "winner": "ODO Satsuki / YOKOI Sakura",
               "all_players_in_row": [
                 "ODO Satsuki (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -2573,17 +2460,14 @@
               ],
               "side_a": [
                 "ODO Satsuki (JPN)",
-                "XU Yi (CHN)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "XU Yi (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | XU Yi (CHN) | FAN Shuhan (CHN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:5 11:7 11:4 | ODO Satsuki | YOKOI Sakura | "
             }
           ]
@@ -2626,15 +2510,13 @@
                 "ELNAGHI Rouaa (EGY)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ELNAGHI Rouaa (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Muscat 2024 | XU Yi (CHN) |  | ELNAGHI Rouaa (EGY) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:7 11:3 | XU Yi |  | "
             },
             {
@@ -2671,7 +2553,7 @@
                 "9:11",
                 "11:5"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "XU Yi (CHN)",
                 "FAN Shuhan (CHN)",
@@ -2680,17 +2562,14 @@
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "GOEL Radhapriya (IND)"
+                "FAN Shuhan (CHN)"
               ],
               "side_b": [
-                "FAN Shuhan (CHN)",
+                "GOEL Radhapriya (IND)",
                 "KUTUMBALE Anusha (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Muscat 2024 | XU Yi (CHN) | FAN Shuhan (CHN) | GOEL Radhapriya (IND) | KUTUMBALE Anusha (IND) | WD | Main Draw | QuarterFinal | 3 - 2 | 8:11 11:6 11:9 9:11 11:5 | XU Yi | FAN Shuhan | "
             },
             {
@@ -2723,15 +2602,13 @@
                 "DENG Zhen (USA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "DENG Zhen (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Muscat 2024 | XU Yi (CHN) |  | DENG Zhen (USA) |  | WS | Main Draw | R16 | 3 - 0 | 11:4 11:6 12:10 | XU Yi |  | "
             },
             {
@@ -2758,7 +2635,7 @@
                 "10:12",
                 "5:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "WANG Xiaotong (CHN)",
                 "HAN Feier (CHN)",
@@ -2767,17 +2644,14 @@
               ],
               "side_a": [
                 "WANG Xiaotong (CHN)",
-                "XU Yi (CHN)"
+                "HAN Feier (CHN)"
               ],
               "side_b": [
-                "HAN Feier (CHN)",
+                "XU Yi (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Muscat 2024 | WANG Xiaotong (CHN) | HAN Feier (CHN) | XU Yi (CHN) | FAN Shuhan (CHN) | WD | Main Draw | SemiFinal | 0 - 3 | 2:11 10:12 5:11 | XU Yi | FAN Shuhan | "
             },
             {
@@ -2815,15 +2689,13 @@
                 "QIN Yuxuan (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "QIN Yuxuan (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Muscat 2024 | XU Yi (CHN) |  | QIN Yuxuan (CHN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 11:13 12:10 6:11 9:11 | QIN Yuxuan |  | "
             },
             {
@@ -2855,7 +2727,7 @@
                 "11:5",
                 "11:9"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "XU Yi (CHN)",
                 "FAN Shuhan (CHN)",
@@ -2864,17 +2736,14 @@
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "YANG Yiyun (CHN)"
+                "FAN Shuhan (CHN)"
               ],
               "side_b": [
-                "FAN Shuhan (CHN)",
+                "YANG Yiyun (CHN)",
                 "ZHU Sibing (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Muscat 2024 | XU Yi (CHN) | FAN Shuhan (CHN) | YANG Yiyun (CHN) | ZHU Sibing (CHN) | WD | Main Draw | Final | 3 - 1 | 11:4 8:11 11:5 11:9 | XU Yi | FAN Shuhan | "
             }
           ]
@@ -2921,7 +2790,7 @@
                 "11:8",
                 "7:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "KLEE Sophia (GER)",
                 "SCHREINER Franziska (GER)",
@@ -2930,17 +2799,14 @@
               ],
               "side_a": [
                 "KLEE Sophia (GER)",
-                "XU Yi (CHN)"
+                "SCHREINER Franziska (GER)"
               ],
               "side_b": [
-                "SCHREINER Franziska (GER)",
+                "XU Yi (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | KLEE Sophia (GER) | SCHREINER Franziska (GER) | XU Yi (CHN) | FAN Shuhan (CHN) | WD | Main Draw | R16 | 2 - 3 | 11:7 7:11 3:11 11:8 7:11 | XU Yi | FAN Shuhan | "
             },
             {
@@ -2973,15 +2839,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "STERNER Anastasia (AUT)",
+                "STERNER Anastasia (AUT)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | STERNER Anastasia (AUT) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 11:13 7:11 | XU Yi |  | "
             },
             {
@@ -3013,7 +2877,7 @@
                 "4:11",
                 "11:6"
               ],
-              "winner": "WANG Xiaotong",
+              "winner": "WANG Xiaotong / HAN Feier",
               "all_players_in_row": [
                 "WANG Xiaotong (CHN)",
                 "HAN Feier (CHN)",
@@ -3022,17 +2886,14 @@
               ],
               "side_a": [
                 "WANG Xiaotong (CHN)",
-                "XU Yi (CHN)"
+                "HAN Feier (CHN)"
               ],
               "side_b": [
-                "HAN Feier (CHN)",
+                "XU Yi (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | WANG Xiaotong (CHN) | HAN Feier (CHN) | XU Yi (CHN) | FAN Shuhan (CHN) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:5 11:8 4:11 11:6 | WANG Xiaotong | HAN Feier | "
             },
             {
@@ -3075,15 +2936,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "YANG Yiyun (CHN)",
+                "YANG Yiyun (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | YANG Yiyun (CHN) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 3 - 2 | 6:11 4:11 11:9 11:9 15:13 | YANG Yiyun |  | "
             }
           ]
@@ -3132,18 +2991,17 @@
               ],
               "winner": "XU Yi",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "SU Pei-Ling (TPE)",
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "SU Pei-Ling (TPE)"
+              ],
+              "side_b": [
+                "XU Yi (CHN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Taiyuan 2024 | SU Pei-Ling (TPE) |  | XU Yi (CHN) |  | WS | Qualification | QR16 | 2 - 3 | 10:12 6:11 12:10 11:7 8:11 | XU Yi |  | "
             },
             {
@@ -3181,15 +3039,13 @@
                 "GHOSH Swastika (IND)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "GHOSH Swastika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Taiyuan 2024 | XU Yi (CHN) |  | GHOSH Swastika (IND) |  | WS | Main Draw | R32 | 3 - 1 | 11:5 7:11 11:5 11:8 | XU Yi |  | "
             },
             {
@@ -3222,15 +3078,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "WANG Yidi (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Taiyuan 2024 | WANG Yidi (CHN) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 3 - 0 | 11:1 11:4 13:11 | WANG Yidi |  | "
             }
           ]
@@ -3273,15 +3127,13 @@
                 "TAN Zhao Yun (SGP)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "TAN Zhao Yun (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Star Contender Singapore 2024 | XU Yi (CHN) |  | TAN Zhao Yun (SGP) |  | U19WS | Qualification |  | 3 - 0 | 11:6 11:7 11:7 | XU Yi |  | "
             },
             {
@@ -3314,15 +3166,13 @@
                 "VARTIKAR Pritha (IND)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "VARTIKAR Pritha (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Star Contender Singapore 2024 | XU Yi (CHN) |  | VARTIKAR Pritha (IND) |  | U19WS | Qualification |  | 3 - 0 | 11:4 11:4 11:5 | XU Yi |  | "
             },
             {
@@ -3355,15 +3205,13 @@
                 "TAYAPITAK Wirakarn (THA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "TAYAPITAK Wirakarn (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Star Contender Singapore 2024 | XU Yi (CHN) |  | TAYAPITAK Wirakarn (THA) |  | U19WS | Qualification |  | 3 - 0 | 11:3 11:7 11:8 | XU Yi |  | "
             },
             {
@@ -3401,15 +3249,13 @@
                 "SER Lin Qian (SGP)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SER Lin Qian (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Star Contender Singapore 2024 | XU Yi (CHN) |  | SER Lin Qian (SGP) |  | U19WS | Main Draw | R16 | 1 - 3 | 13:11 10:12 10:12 6:11 | SER Lin Qian |  | "
             }
           ]
@@ -3462,15 +3308,13 @@
                 "KAUFMANN Annett (GER)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "KAUFMANN Annett (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | XU Yi (CHN) |  | KAUFMANN Annett (GER) |  | U19WT | Main Draw | QuarterFinal | 3 - 1 | 11:3 11:7 7:11 11:9 | XU Yi |  | "
             },
             {
@@ -3503,15 +3347,13 @@
                 "GHORPADE Yashaswini (IND)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "GHORPADE Yashaswini (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | XU Yi (CHN) |  | GHORPADE Yashaswini (IND) |  | U19WT | Main Draw | SemiFinal | 3 - 0 | 11:4 11:7 11:7 | XU Yi |  | "
             },
             {
@@ -3543,7 +3385,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "QUEK Izaac",
+              "winner": "QUEK Izaac / KAUFMANN Annett",
               "all_players_in_row": [
                 "WEN Ruibo (CHN)",
                 "XU Yi (CHN)",
@@ -3552,17 +3394,14 @@
               ],
               "side_a": [
                 "WEN Ruibo (CHN)",
-                "QUEK Izaac (SGP)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "QUEK Izaac (SGP)",
                 "KAUFMANN Annett (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | WEN Ruibo (CHN) | XU Yi (CHN) | QUEK Izaac (SGP) | KAUFMANN Annett (GER) | U19XD | Main Draw | R32 | 1 - 3 | 11:9 7:11 6:11 6:11 | QUEK Izaac | KAUFMANN Annett | "
             },
             {
@@ -3595,15 +3434,13 @@
                 "OJIO Haruna (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "OJIO Haruna (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | XU Yi (CHN) |  | OJIO Haruna (JPN) |  | U19WT | Main Draw | Final | 0 - 3 | 7:11 8:11 10:12 | OJIO Haruna |  | "
             },
             {
@@ -3635,7 +3472,7 @@
                 "9:11",
                 "11:5"
               ],
-              "winner": "KUAI Man",
+              "winner": "KUAI Man / XU Yi",
               "all_players_in_row": [
                 "KUAI Man (CHN)",
                 "XU Yi (CHN)",
@@ -3644,17 +3481,14 @@
               ],
               "side_a": [
                 "KUAI Man (CHN)",
-                "MENDE Rin (JPN)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "MENDE Rin (JPN)",
                 "OJIO Haruna (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | KUAI Man (CHN) | XU Yi (CHN) | MENDE Rin (JPN) | OJIO Haruna (JPN) | U19WD | Main Draw | R16 | 3 - 1 | 11:9 11:8 9:11 11:5 | KUAI Man | XU Yi | "
             },
             {
@@ -3686,7 +3520,7 @@
                 "11:3",
                 "11:3"
               ],
-              "winner": "KUAI Man",
+              "winner": "KUAI Man / XU Yi",
               "all_players_in_row": [
                 "KUAI Man (CHN)",
                 "XU Yi (CHN)",
@@ -3695,17 +3529,14 @@
               ],
               "side_a": [
                 "KUAI Man (CHN)",
-                "WONG Hoi Tung (HKG)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "WONG Hoi Tung (HKG)",
                 "KONG Tsz Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | KUAI Man (CHN) | XU Yi (CHN) | WONG Hoi Tung (HKG) | KONG Tsz Lam (HKG) | U19WD | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:9 11:3 11:3 | KUAI Man | XU Yi | "
             },
             {
@@ -3748,15 +3579,13 @@
                 "MATIUNINA Veronika (UKR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MATIUNINA Veronika (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | XU Yi (CHN) |  | MATIUNINA Veronika (UKR) |  | U19WS | Main Draw | R32 | 4 - 1 | 11:4 9:11 11:3 11:7 11:8 | XU Yi |  | "
             },
             {
@@ -3799,15 +3628,13 @@
                 "CHENG Pusyuan (TPE)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "CHENG Pusyuan (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | XU Yi (CHN) |  | CHENG Pusyuan (TPE) |  | U19WS | Main Draw | R16 | 4 - 1 | 13:11 11:2 9:11 11:5 11:9 | XU Yi |  | "
             },
             {
@@ -3844,7 +3671,7 @@
                 "8:11",
                 "11:8"
               ],
-              "winner": "KUAI Man",
+              "winner": "KUAI Man / XU Yi",
               "all_players_in_row": [
                 "KUAI Man (CHN)",
                 "XU Yi (CHN)",
@@ -3853,17 +3680,14 @@
               ],
               "side_a": [
                 "KUAI Man (CHN)",
-                "LEE Daeun (KOR)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "LEE Daeun (KOR)",
                 "PARK Gahyeon (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | KUAI Man (CHN) | XU Yi (CHN) | LEE Daeun (KOR) | PARK Gahyeon (KOR) | U19WD | Main Draw | SemiFinal | 3 - 2 | 12:10 11:5 6:11 8:11 11:8 | KUAI Man | XU Yi | "
             },
             {
@@ -3901,15 +3725,13 @@
                 "WONG Hoi Tung (HKG)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "WONG Hoi Tung (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | XU Yi (CHN) |  | WONG Hoi Tung (HKG) |  | U19WS | Main Draw | QuarterFinal | 4 - 0 | 11:9 11:5 12:10 11:5 | XU Yi |  | "
             },
             {
@@ -3936,7 +3758,7 @@
                 "4:11",
                 "4:11"
               ],
-              "winner": "KUAI Man",
+              "winner": "KUAI Man / XU Yi",
               "all_players_in_row": [
                 "HURSEY Anna (WAL)",
                 "KAUFMANN Annett (GER)",
@@ -3945,17 +3767,14 @@
               ],
               "side_a": [
                 "HURSEY Anna (WAL)",
-                "KUAI Man (CHN)"
+                "KAUFMANN Annett (GER)"
               ],
               "side_b": [
-                "KAUFMANN Annett (GER)",
+                "KUAI Man (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | HURSEY Anna (WAL) | KAUFMANN Annett (GER) | KUAI Man (CHN) | XU Yi (CHN) | U19WD | Main Draw | Final | 0 - 3 | 6:11 4:11 4:11 | KUAI Man | XU Yi | "
             },
             {
@@ -4003,15 +3822,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "ZAHARIA Elena (ROU)",
+                "ZAHARIA Elena (ROU)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | ZAHARIA Elena (ROU) |  | XU Yi (CHN) |  | U19WS | Main Draw | SemiFinal | 4 - 2 | 11:9 13:11 10:12 11:6 8:11 11:9 | ZAHARIA Elena |  | "
             }
           ]
@@ -4064,15 +3881,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "CHEN Yi (CHN)",
+                "CHEN Yi (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | CHEN Yi (CHN) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 4:11 13:15 11:8 11:9 | CHEN Yi |  | "
             }
           ]
@@ -4115,15 +3930,13 @@
                 "JEON Jihee (KOR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "JEON Jihee (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Lanzhou 2023 | XU Yi (CHN) |  | JEON Jihee (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 4:11 4:11 | JEON Jihee |  | "
             }
           ]
@@ -4166,15 +3979,13 @@
                 "SREECHAK Wiranchana (THA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SREECHAK Wiranchana (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | XU Yi (CHN) |  | SREECHAK Wiranchana (THA) |  | U19WS | Qualification |  | 3 - 0 | 11:6 11:5 11:4 | XU Yi |  | "
             },
             {
@@ -4212,15 +4023,13 @@
                 "MOHAN Deshna (IND)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MOHAN Deshna (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | XU Yi (CHN) |  | MOHAN Deshna (IND) |  | U19WS | Qualification |  | 3 - 1 | 11:5 11:7 10:12 11:4 | XU Yi |  | "
             },
             {
@@ -4253,15 +4062,13 @@
                 "JOARDAR Oishiki (IND)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "JOARDAR Oishiki (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | XU Yi (CHN) |  | JOARDAR Oishiki (IND) |  | U19WS | Main Draw | R32 | 3 - 0 | 11:2 11:6 11:9 | XU Yi |  | "
             },
             {
@@ -4295,18 +4102,17 @@
               ],
               "winner": "XU Yi",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "XU Yi (CHN)",
                 "CHEN Chia-I (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
+                "CHEN Chia-I (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | XU Yi (CHN) |  | CHEN Chia-I (TPE) |  | U19WS | Main Draw | R16 | 3 - 1 | 7:11 11:9 11:6 11:8 | XU Yi |  | "
             },
             {
@@ -4339,15 +4145,13 @@
                 "ZHANG Xiangyu (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ZHANG Xiangyu (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | XU Yi (CHN) |  | ZHANG Xiangyu (CHN) |  | U19WS | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:9 14:12 | XU Yi |  | "
             },
             {
@@ -4385,15 +4189,13 @@
                 "FAN Shuhan (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "FAN Shuhan (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | XU Yi (CHN) |  | FAN Shuhan (CHN) |  | U19WS | Main Draw | SemiFinal | 1 - 3 | 4:11 10:12 11:5 6:11 | FAN Shuhan |  | "
             },
             {
@@ -4420,7 +4222,7 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "ZHU Jiaqi",
+              "winner": "ZHU Jiaqi / XU Yi",
               "all_players_in_row": [
                 "ZHU Jiaqi (CHN)",
                 "XU Yi (CHN)",
@@ -4429,17 +4231,14 @@
               ],
               "side_a": [
                 "ZHU Jiaqi (CHN)",
-                "PHATHITMYXAY Phoumpanya (LAO)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "PHATHITMYXAY Phoumpanya (LAO)",
                 "XAIPHETVONG Thipphavanh (LAO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | ZHU Jiaqi (CHN) | XU Yi (CHN) | PHATHITMYXAY Phoumpanya (LAO) | XAIPHETVONG Thipphavanh (LAO) | U19XD | Main Draw | R64 | 3 - 0 | 11:3 11:6 11:9 | ZHU Jiaqi | XU Yi | "
             },
             {
@@ -4466,7 +4265,7 @@
                 "11:5",
                 "11:9"
               ],
-              "winner": "ZHU Jiaqi",
+              "winner": "ZHU Jiaqi / XU Yi",
               "all_players_in_row": [
                 "ZHU Jiaqi (CHN)",
                 "XU Yi (CHN)",
@@ -4475,17 +4274,14 @@
               ],
               "side_a": [
                 "ZHU Jiaqi (CHN)",
-                "WONG Wan Hei (HKG)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "WONG Wan Hei (HKG)",
                 "WONG Tsz Yui (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | ZHU Jiaqi (CHN) | XU Yi (CHN) | WONG Wan Hei (HKG) | WONG Tsz Yui (HKG) | U19XD | Main Draw | R32 | 3 - 0 | 11:2 11:5 11:9 | ZHU Jiaqi | XU Yi | "
             },
             {
@@ -4522,24 +4318,23 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "ZHU Jiaqi",
+              "winner": "ZHU Jiaqi / XU Yi",
               "all_players_in_row": [
+                "HSU Hsien-Chia (TPE)",
+                "LIU Ru-Yun (TPE)",
                 "ZHU Jiaqi (CHN)",
                 "XU Yi (CHN)"
               ],
               "side_a": [
                 "HSU Hsien-Chia (TPE)",
-                "ZHU Jiaqi (CHN)"
+                "LIU Ru-Yun (TPE)"
               ],
               "side_b": [
-                "LIU Ru-Yun (TPE)",
+                "ZHU Jiaqi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | HSU Hsien-Chia (TPE) | LIU Ru-Yun (TPE) | ZHU Jiaqi (CHN) | XU Yi (CHN) | U19XD | Main Draw | R16 | 2 - 3 | 11:9 7:11 5:11 11:9 9:11 | ZHU Jiaqi | XU Yi | "
             },
             {
@@ -4566,7 +4361,7 @@
                 "11:9",
                 "11:4"
               ],
-              "winner": "ZHU Jiaqi",
+              "winner": "ZHU Jiaqi / XU Yi",
               "all_players_in_row": [
                 "ZHU Jiaqi (CHN)",
                 "XU Yi (CHN)",
@@ -4575,17 +4370,14 @@
               ],
               "side_a": [
                 "ZHU Jiaqi (CHN)",
-                "LEE Yong Yi (MAS)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "LEE Yong Yi (MAS)",
                 "LIM Jing Shuen (MAS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | ZHU Jiaqi (CHN) | XU Yi (CHN) | LEE Yong Yi (MAS) | LIM Jing Shuen (MAS) | U19XD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:9 11:4 | ZHU Jiaqi | XU Yi | "
             },
             {
@@ -4622,7 +4414,7 @@
                 "11:9",
                 "14:16"
               ],
-              "winner": "ZHU Jiaqi",
+              "winner": "ZHU Jiaqi / XU Yi",
               "all_players_in_row": [
                 "HUANG Youzheng (CHN)",
                 "QIN Yuxuan (CHN)",
@@ -4631,17 +4423,14 @@
               ],
               "side_a": [
                 "HUANG Youzheng (CHN)",
-                "ZHU Jiaqi (CHN)"
+                "QIN Yuxuan (CHN)"
               ],
               "side_b": [
-                "QIN Yuxuan (CHN)",
+                "ZHU Jiaqi (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | HUANG Youzheng (CHN) | QIN Yuxuan (CHN) | ZHU Jiaqi (CHN) | XU Yi (CHN) | U19XD | Main Draw | SemiFinal | 2 - 3 | 8:11 9:11 11:9 11:9 14:16 | ZHU Jiaqi | XU Yi | "
             },
             {
@@ -4668,7 +4457,7 @@
                 "2:11",
                 "6:11"
               ],
-              "winner": "WEN Ruibo",
+              "winner": "WEN Ruibo / ZHANG Xiangyu",
               "all_players_in_row": [
                 "ZHU Jiaqi (CHN)",
                 "XU Yi (CHN)",
@@ -4677,17 +4466,14 @@
               ],
               "side_a": [
                 "ZHU Jiaqi (CHN)",
-                "WEN Ruibo (CHN)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "WEN Ruibo (CHN)",
                 "ZHANG Xiangyu (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Bangkok 2023 | ZHU Jiaqi (CHN) | XU Yi (CHN) | WEN Ruibo (CHN) | ZHANG Xiangyu (CHN) | U19XD | Main Draw | Final | 0 - 3 | 4:11 2:11 6:11 | WEN Ruibo | ZHANG Xiangyu | "
             }
           ]
@@ -4724,7 +4510,7 @@
                 "5:11",
                 "8:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / DING Yijie",
               "all_players_in_row": [
                 "AMRUTE Shruti (IND)",
                 "GHOSH Swastika (IND)",
@@ -4733,17 +4519,14 @@
               ],
               "side_a": [
                 "AMRUTE Shruti (IND)",
-                "XU Yi (CHN)"
+                "GHOSH Swastika (IND)"
               ],
               "side_b": [
-                "GHOSH Swastika (IND)",
+                "XU Yi (CHN)",
                 "DING Yijie (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Bangkok 2023 | AMRUTE Shruti (IND) | GHOSH Swastika (IND) | XU Yi (CHN) | DING Yijie (CHN) | WD | Main Draw | R16 | 0 - 3 | 3:11 5:11 8:11 | XU Yi | DING Yijie | "
             },
             {
@@ -4776,15 +4559,13 @@
                 "RYU Hanna (KOR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "RYU Hanna (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Bangkok 2023 | XU Yi (CHN) |  | RYU Hanna (KOR) |  | WS | Main Draw | R32 | 3 - 0 | 12:10 11:5 11:8 | XU Yi |  | "
             },
             {
@@ -4821,7 +4602,7 @@
                 "11:6",
                 "5:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / DING Yijie",
               "all_players_in_row": [
                 "YOON Hyobin (KOR)",
                 "SIM Hyunju (KOR)",
@@ -4830,17 +4611,14 @@
               ],
               "side_a": [
                 "YOON Hyobin (KOR)",
-                "XU Yi (CHN)"
+                "SIM Hyunju (KOR)"
               ],
               "side_b": [
-                "SIM Hyunju (KOR)",
+                "XU Yi (CHN)",
                 "DING Yijie (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Bangkok 2023 | YOON Hyobin (KOR) | SIM Hyunju (KOR) | XU Yi (CHN) | DING Yijie (CHN) | WD | Main Draw | QuarterFinal | 2 - 3 | 5:11 11:2 10:12 11:6 5:11 | XU Yi | DING Yijie | "
             },
             {
@@ -4879,18 +4657,17 @@
               ],
               "winner": "XU Yi",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "XU Yi (CHN)",
                 "HUANG Yu-Chiao (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
+                "HUANG Yu-Chiao (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Bangkok 2023 | XU Yi (CHN) |  | HUANG Yu-Chiao (TPE) |  | WS | Main Draw | R16 | 3 - 2 | 6:11 11:4 9:11 11:4 11:8 | XU Yi |  | "
             },
             {
@@ -4923,15 +4700,13 @@
                 "QIN Yuxuan (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "QIN Yuxuan (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Bangkok 2023 | XU Yi (CHN) |  | QIN Yuxuan (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:8 14:12 | XU Yi |  | "
             },
             {
@@ -4963,7 +4738,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "ZHANG Xiangyu",
+              "winner": "ZHANG Xiangyu / ZONG Geman",
               "all_players_in_row": [
                 "XU Yi (CHN)",
                 "DING Yijie (CHN)",
@@ -4972,17 +4747,14 @@
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "ZHANG Xiangyu (CHN)"
+                "DING Yijie (CHN)"
               ],
               "side_b": [
-                "DING Yijie (CHN)",
+                "ZHANG Xiangyu (CHN)",
                 "ZONG Geman (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Bangkok 2023 | XU Yi (CHN) | DING Yijie (CHN) | ZHANG Xiangyu (CHN) | ZONG Geman (CHN) | WD | Main Draw | SemiFinal | 1 - 3 | 11:9 7:11 8:11 9:11 | ZHANG Xiangyu | ZONG Geman | "
             },
             {
@@ -5025,15 +4797,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "MORI Sakura (JPN)",
+                "MORI Sakura (JPN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Bangkok 2023 | MORI Sakura (JPN) |  | XU Yi (CHN) |  | WS | Main Draw | SemiFinal | 3 - 2 | 6:11 11:7 11:9 8:11 12:10 | MORI Sakura |  | "
             }
           ]
@@ -5070,7 +4840,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "CHEN Yuanyu",
+              "winner": "CHEN Yuanyu / XU Yi",
               "all_players_in_row": [
                 "KHAN Abbas (PAK)",
                 "FAWAD Hoor (PAK)",
@@ -5079,17 +4849,14 @@
               ],
               "side_a": [
                 "KHAN Abbas (PAK)",
-                "CHEN Yuanyu (CHN)"
+                "FAWAD Hoor (PAK)"
               ],
               "side_b": [
-                "FAWAD Hoor (PAK)",
+                "CHEN Yuanyu (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | KHAN Abbas (PAK) | FAWAD Hoor (PAK) | CHEN Yuanyu (CHN) | XU Yi (CHN) | U19XD | Main Draw | R32 | 0 - 3 | 0:11 9:11 8:11 | CHEN Yuanyu | XU Yi | "
             },
             {
@@ -5116,7 +4883,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "CHEN Yuanyu",
+              "winner": "CHEN Yuanyu / XU Yi",
               "all_players_in_row": [
                 "NUCHCHART Sitisak (THA)",
                 "AUEAWIRIYAYOTHIN Wanwisa (THA)",
@@ -5125,17 +4892,14 @@
               ],
               "side_a": [
                 "NUCHCHART Sitisak (THA)",
-                "CHEN Yuanyu (CHN)"
+                "AUEAWIRIYAYOTHIN Wanwisa (THA)"
               ],
               "side_b": [
-                "AUEAWIRIYAYOTHIN Wanwisa (THA)",
+                "CHEN Yuanyu (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | NUCHCHART Sitisak (THA) | AUEAWIRIYAYOTHIN Wanwisa (THA) | CHEN Yuanyu (CHN) | XU Yi (CHN) | U19XD | Main Draw | R16 | 0 - 3 | 6:11 8:11 8:11 | CHEN Yuanyu | XU Yi | "
             },
             {
@@ -5172,7 +4936,7 @@
                 "11:3",
                 "3:11"
               ],
-              "winner": "CHEN Yuanyu",
+              "winner": "CHEN Yuanyu / XU Yi",
               "all_players_in_row": [
                 "YIU Kwan To (HKG)",
                 "KONG Tsz Lam (HKG)",
@@ -5181,17 +4945,14 @@
               ],
               "side_a": [
                 "YIU Kwan To (HKG)",
-                "CHEN Yuanyu (CHN)"
+                "KONG Tsz Lam (HKG)"
               ],
               "side_b": [
-                "KONG Tsz Lam (HKG)",
+                "CHEN Yuanyu (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | YIU Kwan To (HKG) | KONG Tsz Lam (HKG) | CHEN Yuanyu (CHN) | XU Yi (CHN) | U19XD | Main Draw | QuarterFinal | 2 - 3 | 11:9 7:11 10:12 11:3 3:11 | CHEN Yuanyu | XU Yi | "
             },
             {
@@ -5224,15 +4985,13 @@
                 "ALI Maryam (QAT)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ALI Maryam (QAT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | XU Yi (CHN) |  | ALI Maryam (QAT) |  | U19WS | Qualification |  | 3 - 0 | 0:0 0:0 0:0 | XU Yi |  | "
             },
             {
@@ -5265,15 +5024,13 @@
                 "KAMALOVA Arujan (UZB)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "KAMALOVA Arujan (UZB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | XU Yi (CHN) |  | KAMALOVA Arujan (UZB) |  | U19WS | Qualification |  | 3 - 0 | 11:4 11:6 11:5 | XU Yi |  | "
             },
             {
@@ -5311,15 +5068,13 @@
                 "WANI Sayali (IND)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "WANI Sayali (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | XU Yi (CHN) |  | WANI Sayali (IND) |  | U19WS | Main Draw | R16 | 4 - 0 | 12:10 11:8 18:16 11:2 | XU Yi |  | "
             },
             {
@@ -5357,15 +5112,13 @@
                 "MENDE Rin (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MENDE Rin (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | XU Yi (CHN) |  | MENDE Rin (JPN) |  | U19WS | Main Draw | QuarterFinal | 4 - 0 | 11:8 11:8 11:8 15:13 | XU Yi |  | "
             },
             {
@@ -5402,7 +5155,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "YOSHIYAMA Kazuki",
+              "winner": "YOSHIYAMA Kazuki / AOKI Sachi",
               "all_players_in_row": [
                 "YOSHIYAMA Kazuki (JPN)",
                 "AOKI Sachi (JPN)",
@@ -5411,17 +5164,14 @@
               ],
               "side_a": [
                 "YOSHIYAMA Kazuki (JPN)",
-                "CHEN Yuanyu (CHN)"
+                "AOKI Sachi (JPN)"
               ],
               "side_b": [
-                "AOKI Sachi (JPN)",
+                "CHEN Yuanyu (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | YOSHIYAMA Kazuki (JPN) | AOKI Sachi (JPN) | CHEN Yuanyu (CHN) | XU Yi (CHN) | U19XD | Main Draw | SemiFinal | 3 - 2 | 8:11 7:11 13:11 11:9 11:9 | YOSHIYAMA Kazuki | AOKI Sachi | "
             },
             {
@@ -5448,7 +5198,7 @@
                 "7:11",
                 "7:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / QIN Yuxuan",
               "all_players_in_row": [
                 "CHAN Shiu Lam (HKG)",
                 "LEE Tsz Wai (HKG)",
@@ -5457,17 +5207,14 @@
               ],
               "side_a": [
                 "CHAN Shiu Lam (HKG)",
-                "XU Yi (CHN)"
+                "LEE Tsz Wai (HKG)"
               ],
               "side_b": [
-                "LEE Tsz Wai (HKG)",
+                "XU Yi (CHN)",
                 "QIN Yuxuan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | CHAN Shiu Lam (HKG) | LEE Tsz Wai (HKG) | XU Yi (CHN) | QIN Yuxuan (CHN) | U19WD | Main Draw | R16 | 0 - 3 | 7:11 7:11 7:11 | XU Yi | QIN Yuxuan | "
             },
             {
@@ -5504,25 +5251,23 @@
                 "3:11",
                 "8:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / QIN Yuxuan",
               "all_players_in_row": [
                 "CHENG Pusyuan (TPE)",
+                "LIU Ru-Yun (TPE)",
                 "XU Yi (CHN)",
                 "QIN Yuxuan (CHN)"
               ],
               "side_a": [
                 "CHENG Pusyuan (TPE)",
-                "XU Yi (CHN)"
+                "LIU Ru-Yun (TPE)"
               ],
               "side_b": [
-                "LIU Ru-Yun (TPE)",
+                "XU Yi (CHN)",
                 "QIN Yuxuan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | CHENG Pusyuan (TPE) | LIU Ru-Yun (TPE) | XU Yi (CHN) | QIN Yuxuan (CHN) | U19WD | Main Draw | QuarterFinal | 2 - 3 | 11:8 11:7 11:13 3:11 8:11 | XU Yi | QIN Yuxuan | "
             },
             {
@@ -5549,7 +5294,7 @@
                 "12:10",
                 "15:13"
               ],
-              "winner": "OJIO Haruna",
+              "winner": "OJIO Haruna / MENDE Rin",
               "all_players_in_row": [
                 "OJIO Haruna (JPN)",
                 "MENDE Rin (JPN)",
@@ -5558,17 +5303,14 @@
               ],
               "side_a": [
                 "OJIO Haruna (JPN)",
-                "XU Yi (CHN)"
+                "MENDE Rin (JPN)"
               ],
               "side_b": [
-                "MENDE Rin (JPN)",
+                "XU Yi (CHN)",
                 "QIN Yuxuan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | OJIO Haruna (JPN) | MENDE Rin (JPN) | XU Yi (CHN) | QIN Yuxuan (CHN) | U19WD | Main Draw | SemiFinal | 3 - 0 | 12:10 12:10 15:13 | OJIO Haruna | MENDE Rin | "
             },
             {
@@ -5616,15 +5358,13 @@
                 "OJIO Haruna (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "OJIO Haruna (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | XU Yi (CHN) |  | OJIO Haruna (JPN) |  | U19WS | Main Draw | SemiFinal | 4 - 2 | 6:11 11:8 11:6 11:8 8:11 11:6 | XU Yi |  | "
             },
             {
@@ -5677,15 +5417,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "FAN Shuhan (CHN)",
+                "FAN Shuhan (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Asian Youth Championships Doha 2023 | FAN Shuhan (CHN) |  | XU Yi (CHN) |  | U19WS | Main Draw | Final | 4 - 3 | 11:8 11:5 8:11 8:11 10:12 11:3 11:7 | FAN Shuhan |  | "
             }
           ]
@@ -5728,15 +5466,13 @@
                 "POON Yat (ENG)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "POON Yat (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Spa 2023 | XU Yi (CHN) |  | POON Yat (ENG) |  | U19WS | Qualification |  | 3 - 0 | 11:4 11:7 11:8 | XU Yi |  | "
             },
             {
@@ -5769,15 +5505,13 @@
                 "SANTA Mariana (POR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SANTA Mariana (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Spa 2023 | XU Yi (CHN) |  | SANTA Mariana (POR) |  | U19WS | Qualification |  | 3 - 0 | 11:7 11:6 11:8 | XU Yi |  | "
             },
             {
@@ -5810,15 +5544,13 @@
                 "BADAWY Farida (EGY)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "BADAWY Farida (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Spa 2023 | XU Yi (CHN) |  | BADAWY Farida (EGY) |  | U19WS | Main Draw | R64 | 3 - 0 | 11:8 11:7 11:7 | XU Yi |  | "
             },
             {
@@ -5861,15 +5593,13 @@
                 "ZHANG Xiangyu (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ZHANG Xiangyu (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Spa 2023 | XU Yi (CHN) |  | ZHANG Xiangyu (CHN) |  | U19WS | Main Draw | R32 | 2 - 3 | 11:6 8:11 8:11 11:8 12:14 | ZHANG Xiangyu |  | "
             }
           ]
@@ -5912,15 +5642,13 @@
                 "POON Yat (ENG)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "POON Yat (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Metz 2023 | XU Yi (CHN) |  | POON Yat (ENG) |  | U19WS | Qualification |  | 3 - 0 | 11:6 13:11 11:7 | XU Yi |  | "
             },
             {
@@ -5953,15 +5681,13 @@
                 "MUNNE Mariona (ESP)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MUNNE Mariona (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Metz 2023 | XU Yi (CHN) |  | MUNNE Mariona (ESP) |  | U19WS | Qualification |  | 3 - 0 | 11:5 11:4 11:5 | XU Yi |  | "
             },
             {
@@ -5994,15 +5720,13 @@
                 "MATOS Ines (POR)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MATOS Ines (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Metz 2023 | XU Yi (CHN) |  | MATOS Ines (POR) |  | U19WS | Main Draw | R64 | 3 - 0 | 11:4 11:7 11:3 | XU Yi |  | "
             },
             {
@@ -6035,15 +5759,13 @@
                 "BLED Gaetane (FRA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "BLED Gaetane (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Metz 2023 | XU Yi (CHN) |  | BLED Gaetane (FRA) |  | U19WS | Main Draw | R32 | 3 - 0 | 11:6 12:10 11:7 | XU Yi |  | "
             },
             {
@@ -6076,15 +5798,13 @@
                 "MOYLAND Sally (USA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Metz 2023 | XU Yi (CHN) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | R16 | 3 - 0 | 11:9 11:8 11:7 | XU Yi |  | "
             },
             {
@@ -6117,15 +5837,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "LEE Seungmi (KOR)",
+                "LEE Seungmi (KOR)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Contender Metz 2023 | LEE Seungmi (KOR) |  | XU Yi (CHN) |  | U19WS | Main Draw | QuarterFinal | 0 - 3 | 7:11 6:11 10:12 | XU Yi |  | "
             },
             {
@@ -6168,15 +5886,13 @@
                 "QIN Yuxuan (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "QIN Yuxuan (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Metz 2023 | XU Yi (CHN) |  | QIN Yuxuan (CHN) |  | U19WS | Main Draw | SemiFinal | 2 - 3 | 11:8 12:10 9:11 10:12 13:15 | QIN Yuxuan |  | "
             }
           ]
@@ -6219,15 +5935,13 @@
                 "COSIC Dora (CRO)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "COSIC Dora (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | XU Yi (CHN) |  | COSIC Dora (CRO) |  | U19WS | Qualification |  | 3 - 0 | 11:3 11:2 11:5 | XU Yi |  | "
             },
             {
@@ -6260,15 +5974,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "KAUFMANN Annett (GER)",
+                "KAUFMANN Annett (GER)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | KAUFMANN Annett (GER) |  | XU Yi (CHN) |  | U19WS | Qualification |  | 0 - 3 | 8:11 3:11 12:14 | XU Yi |  | "
             },
             {
@@ -6301,15 +6013,13 @@
                 "WIELGOS Zuzanna (POL)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | XU Yi (CHN) |  | WIELGOS Zuzanna (POL) |  | U19WS | Qualification |  | 3 - 0 | 11:7 14:12 11:9 | XU Yi |  | "
             },
             {
@@ -6336,7 +6046,7 @@
                 "7:11",
                 "9:11"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "GRIESEL Mia (GER)",
                 "PRANJKOVIC Naomi (GER)",
@@ -6345,17 +6055,14 @@
               ],
               "side_a": [
                 "GRIESEL Mia (GER)",
-                "XU Yi (CHN)"
+                "PRANJKOVIC Naomi (GER)"
               ],
               "side_b": [
-                "PRANJKOVIC Naomi (GER)",
+                "XU Yi (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | GRIESEL Mia (GER) | PRANJKOVIC Naomi (GER) | XU Yi (CHN) | FAN Shuhan (CHN) | U19WD | Main Draw | R16 | 0 - 3 | 3:11 7:11 9:11 | XU Yi | FAN Shuhan | "
             },
             {
@@ -6382,7 +6089,7 @@
                 "11:3",
                 "11:8"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "XU Yi (CHN)",
                 "FAN Shuhan (CHN)",
@@ -6391,17 +6098,14 @@
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "PARK Gahyeon (KOR)"
+                "FAN Shuhan (CHN)"
               ],
               "side_b": [
-                "FAN Shuhan (CHN)",
+                "PARK Gahyeon (KOR)",
                 "YOO Yerin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | XU Yi (CHN) | FAN Shuhan (CHN) | PARK Gahyeon (KOR) | YOO Yerin (KOR) | U19WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:3 11:8 | XU Yi | FAN Shuhan | "
             },
             {
@@ -6444,15 +6148,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "PAVADE Prithika (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | PAVADE Prithika (FRA) |  | XU Yi (CHN) |  | U19WS | Main Draw | R16 | 2 - 3 | 6:11 6:11 11:9 11:6 9:11 | XU Yi |  | "
             },
             {
@@ -6490,15 +6192,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "CHENG Pusyuan (TPE)",
+                "CHENG Pusyuan (TPE)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | CHENG Pusyuan (TPE) |  | XU Yi (CHN) |  | U19WS | Main Draw | QuarterFinal | 1 - 3 | 6:11 7:11 11:9 7:11 | XU Yi |  | "
             },
             {
@@ -6535,7 +6235,7 @@
                 "11:8",
                 "10:12"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "LUTZ Charlotte (FRA)",
                 "PAVADE Prithika (FRA)",
@@ -6544,17 +6244,14 @@
               ],
               "side_a": [
                 "LUTZ Charlotte (FRA)",
-                "XU Yi (CHN)"
+                "PAVADE Prithika (FRA)"
               ],
               "side_b": [
-                "PAVADE Prithika (FRA)",
+                "XU Yi (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | LUTZ Charlotte (FRA) | PAVADE Prithika (FRA) | XU Yi (CHN) | FAN Shuhan (CHN) | U19WD | Main Draw | SemiFinal | 2 - 3 | 6:11 9:11 11:7 11:8 10:12 | XU Yi | FAN Shuhan | "
             },
             {
@@ -6592,15 +6289,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "LEE Daeun (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | LEE Daeun (KOR) |  | XU Yi (CHN) |  | U19WS | Main Draw | SemiFinal | 1 - 3 | 4:11 12:10 5:11 3:11 | XU Yi |  | "
             },
             {
@@ -6632,7 +6327,7 @@
                 "10:12",
                 "11:6"
               ],
-              "winner": "XU Yi",
+              "winner": "XU Yi / FAN Shuhan",
               "all_players_in_row": [
                 "XU Yi (CHN)",
                 "FAN Shuhan (CHN)",
@@ -6641,17 +6336,14 @@
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "LEE Daeun (KOR)"
+                "FAN Shuhan (CHN)"
               ],
               "side_b": [
-                "FAN Shuhan (CHN)",
+                "LEE Daeun (KOR)",
                 "KIM Seongjin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | XU Yi (CHN) | FAN Shuhan (CHN) | LEE Daeun (KOR) | KIM Seongjin (KOR) | U19WD | Main Draw | Final | 3 - 1 | 11:9 11:5 10:12 11:6 | XU Yi | FAN Shuhan | "
             },
             {
@@ -6694,15 +6386,13 @@
                 "FAN Shuhan (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "FAN Shuhan (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Podgorica 2023 | XU Yi (CHN) |  | FAN Shuhan (CHN) |  | U19WS | Main Draw | Final | 3 - 2 | 9:11 11:8 11:9 7:11 11:9 | XU Yi |  | "
             }
           ]
@@ -6745,15 +6435,13 @@
                 "LAVROVA Yelizaveta (KAZ)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LAVROVA Yelizaveta (KAZ)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Wladyslawowo 2023 | XU Yi (CHN) |  | LAVROVA Yelizaveta (KAZ) |  | U19WS | Qualification |  | 3 - 0 | 11:2 11:6 11:5 | XU Yi |  | "
             },
             {
@@ -6791,15 +6479,13 @@
                 "HOLDA Karolina (POL)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "HOLDA Karolina (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Wladyslawowo 2023 | XU Yi (CHN) |  | HOLDA Karolina (POL) |  | U19WS | Qualification |  | 3 - 1 | 11:9 13:15 11:9 11:9 | XU Yi |  | "
             },
             {
@@ -6832,15 +6518,13 @@
                 "LAI Chloe (SGP)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LAI Chloe (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Wladyslawowo 2023 | XU Yi (CHN) |  | LAI Chloe (SGP) |  | U19WS | Main Draw | R32 | 3 - 0 | 11:7 11:8 14:12 | XU Yi |  | "
             },
             {
@@ -6883,15 +6567,13 @@
                 "WIELGOS Zuzanna (POL)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Wladyslawowo 2023 | XU Yi (CHN) |  | WIELGOS Zuzanna (POL) |  | U19WS | Main Draw | R16 | 2 - 3 | 10:12 9:11 11:7 11:7 3:11 | WIELGOS Zuzanna |  | "
             }
           ]
@@ -6939,15 +6621,13 @@
                 "TSVIGUN Alissa (KAZ)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "TSVIGUN Alissa (KAZ)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Berlin 2023 | XU Yi (CHN) |  | TSVIGUN Alissa (KAZ) |  | U19WS | Qualification |  | 3 - 1 | 11:2 10:12 11:2 11:9 | XU Yi |  | "
             },
             {
@@ -6980,15 +6660,13 @@
                 "MERK Melanie (GER)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MERK Melanie (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Berlin 2023 | XU Yi (CHN) |  | MERK Melanie (GER) |  | U19WS | Qualification |  | 3 - 0 | 11:6 11:7 11:6 | XU Yi |  | "
             },
             {
@@ -7026,15 +6704,13 @@
                 "SZTWIERTNIA Ilona (POL)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SZTWIERTNIA Ilona (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Berlin 2023 | XU Yi (CHN) |  | SZTWIERTNIA Ilona (POL) |  | U19WS | Main Draw | R32 | 3 - 1 | 11:5 8:11 11:6 11:6 | XU Yi |  | "
             },
             {
@@ -7072,15 +6748,13 @@
                 "ZONG Geman (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ZONG Geman (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Berlin 2023 | XU Yi (CHN) |  | ZONG Geman (CHN) |  | U19WS | Main Draw | R16 | 3 - 1 | 15:13 11:5 13:15 11:3 | XU Yi |  | "
             },
             {
@@ -7109,18 +6783,17 @@
               ],
               "winner": "XU Yi",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "XU Yi (CHN)",
                 "TSAI Yun-En (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
+                "TSAI Yun-En (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Contender Berlin 2023 | XU Yi (CHN) |  | TSAI Yun-En (TPE) |  | U19WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 13:11 11:5 | XU Yi |  | "
             },
             {
@@ -7158,15 +6831,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "QIN Yuxuan (CHN)",
+                "QIN Yuxuan (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Contender Berlin 2023 | QIN Yuxuan (CHN) |  | XU Yi (CHN) |  | U19WS | Main Draw | SemiFinal | 1 - 3 | 10:12 11:13 11:7 5:11 | XU Yi |  | "
             },
             {
@@ -7209,15 +6880,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "FAN Shuhan (CHN)",
+                "FAN Shuhan (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Contender Berlin 2023 | FAN Shuhan (CHN) |  | XU Yi (CHN) |  | U19WS | Main Draw | Final | 3 - 2 | 11:13 11:8 12:10 10:12 12:10 | FAN Shuhan |  | "
             }
           ]
@@ -7265,15 +6934,13 @@
                 "MANTZ Chantal (GER)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "MANTZ Chantal (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf II 2023 | XU Yi (CHN) |  | MANTZ Chantal (GER) |  | WS | Main Draw | R64 | 3 - 1 | 11:9 17:15 3:11 11:5 | XU Yi |  | "
             },
             {
@@ -7311,15 +6978,13 @@
                 "LIU Yangzi (AUS)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LIU Yangzi (AUS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf II 2023 | XU Yi (CHN) |  | LIU Yangzi (AUS) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:8 6:11 15:13 | XU Yi |  | "
             },
             {
@@ -7357,15 +7022,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "WU Yangchen (CHN)",
+                "WU Yangchen (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf II 2023 | WU Yangchen (CHN) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 3 - 1 | 9:11 11:6 11:6 11:9 | WU Yangchen |  | "
             }
           ]
@@ -7408,15 +7071,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "LEE Hoi Man (HKG)",
+                "LEE Hoi Man (HKG)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | LEE Hoi Man (HKG) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 5:11 6:11 | XU Yi |  | "
             },
             {
@@ -7449,15 +7110,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "LIU Yangzi (AUS)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | LIU Yangzi (AUS) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 9:11 6:11 | XU Yi |  | "
             },
             {
@@ -7500,15 +7159,13 @@
                 "ZONG Geman (CHN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ZONG Geman (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | XU Yi (CHN) |  | ZONG Geman (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 7:11 11:9 4:11 11:7 11:8 | XU Yi |  | "
             },
             {
@@ -7541,15 +7198,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | XU Yi (CHN) |  | XIAO Maria (ESP) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:3 11:7 11:8 | XU Yi |  | "
             },
             {
@@ -7592,15 +7247,13 @@
                 "KAUFMANN Annett (GER)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "KAUFMANN Annett (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | XU Yi (CHN) |  | KAUFMANN Annett (GER) |  | WS | Main Draw | Final | 2 - 3 | 10:12 12:10 11:5 6:11 4:11 | KAUFMANN Annett |  | "
             }
           ]
@@ -7652,7 +7305,7 @@
                 "11:6",
                 "11:1"
               ],
-              "winner": "FAN Shuhan",
+              "winner": "FAN Shuhan / XU Yi",
               "all_players_in_row": [
                 "FAN Shuhan (CHN)",
                 "XU Yi (CHN)",
@@ -7661,17 +7314,14 @@
               ],
               "side_a": [
                 "FAN Shuhan (CHN)",
-                "WANG Yiduo (CHN)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "WANG Yiduo (CHN)",
                 "CHU Hanwen (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | FAN Shuhan (CHN) | XU Yi (CHN) | WANG Yiduo (CHN) | CHU Hanwen (CHN) | WD | Qualification | QR8 | 3 - 2 | 7:11 5:11 12:10 11:6 11:1 | FAN Shuhan | XU Yi | "
             },
             {
@@ -7704,15 +7354,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "SMIRNOVA Alexandra (KAZ)",
+                "SMIRNOVA Alexandra (KAZ)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | SMIRNOVA Alexandra (KAZ) |  | XU Yi (CHN) |  | WS | Qualification | QR16 | 0 - 3 | 3:11 4:11 5:11 | XU Yi |  | "
             },
             {
@@ -7744,7 +7392,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "FAN Shuhan",
+              "winner": "FAN Shuhan / XU Yi",
               "all_players_in_row": [
                 "SCHOLZ Vivien (LUX)",
                 "ASHKEYEVA Aray (KAZ)",
@@ -7753,17 +7401,14 @@
               ],
               "side_a": [
                 "SCHOLZ Vivien (LUX)",
-                "FAN Shuhan (CHN)"
+                "ASHKEYEVA Aray (KAZ)"
               ],
               "side_b": [
-                "ASHKEYEVA Aray (KAZ)",
+                "FAN Shuhan (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | SCHOLZ Vivien (LUX) | ASHKEYEVA Aray (KAZ) | FAN Shuhan (CHN) | XU Yi (CHN) | WD | Main Draw | R16 | 1 - 3 | 11:8 0:11 6:11 9:11 | FAN Shuhan | XU Yi | "
             },
             {
@@ -7796,15 +7441,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "CHASSELIN Pauline (FRA)",
+                "CHASSELIN Pauline (FRA)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | CHASSELIN Pauline (FRA) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 10:12 10:12 | XU Yi |  | "
             },
             {
@@ -7831,7 +7474,7 @@
                 "11:6",
                 "11:5"
               ],
-              "winner": "HAYATA Hina",
+              "winner": "HAYATA Hina / HIRANO Miu",
               "all_players_in_row": [
                 "HAYATA Hina (JPN)",
                 "HIRANO Miu (JPN)",
@@ -7840,17 +7483,14 @@
               ],
               "side_a": [
                 "HAYATA Hina (JPN)",
-                "FAN Shuhan (CHN)"
+                "HIRANO Miu (JPN)"
               ],
               "side_b": [
-                "HIRANO Miu (JPN)",
+                "FAN Shuhan (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | HAYATA Hina (JPN) | HIRANO Miu (JPN) | FAN Shuhan (CHN) | XU Yi (CHN) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:6 11:5 | HAYATA Hina | HIRANO Miu | "
             },
             {
@@ -7883,15 +7523,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "HIRANO Miu (JPN)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | HIRANO Miu (JPN) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:9 11:8 | HIRANO Miu |  | "
             }
           ]
@@ -7939,15 +7577,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "WU Yangchen (CHN)",
+                "WU Yangchen (CHN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | WU Yangchen (CHN) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 11:4 9:11 7:11 9:11 | XU Yi |  | "
             },
             {
@@ -7974,7 +7610,7 @@
                 "8:11",
                 "5:11"
               ],
-              "winner": "ZHOU Qihao",
+              "winner": "ZHOU Qihao / QIAN Tianyi",
               "all_players_in_row": [
                 "YAN Sheng (CHN)",
                 "XU Yi (CHN)",
@@ -7983,17 +7619,14 @@
               ],
               "side_a": [
                 "YAN Sheng (CHN)",
-                "ZHOU Qihao (CHN)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "ZHOU Qihao (CHN)",
                 "QIAN Tianyi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | YAN Sheng (CHN) | XU Yi (CHN) | ZHOU Qihao (CHN) | QIAN Tianyi (CHN) | XD | Main Draw | R16 | 0 - 3 | 5:11 8:11 5:11 | ZHOU Qihao | QIAN Tianyi | "
             },
             {
@@ -8025,7 +7658,7 @@
                 "11:3",
                 "12:10"
               ],
-              "winner": "FAN Shuhan",
+              "winner": "FAN Shuhan / XU Yi",
               "all_players_in_row": [
                 "FAN Shuhan (CHN)",
                 "XU Yi (CHN)",
@@ -8034,17 +7667,14 @@
               ],
               "side_a": [
                 "FAN Shuhan (CHN)",
-                "WANG Yiduo (CHN)"
+                "XU Yi (CHN)"
               ],
               "side_b": [
-                "XU Yi (CHN)",
+                "WANG Yiduo (CHN)",
                 "CHU Hanwen (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | FAN Shuhan (CHN) | XU Yi (CHN) | WANG Yiduo (CHN) | CHU Hanwen (CHN) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:8 11:3 12:10 | FAN Shuhan | XU Yi | "
             },
             {
@@ -8082,15 +7712,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "CHOI Hyojoo (KOR)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHOI Hyojoo (KOR) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 3 - 1 | 11:5 13:11 8:11 11:2 | CHOI Hyojoo |  | "
             },
             {
@@ -8117,7 +7745,7 @@
                 "11:1",
                 "11:6"
               ],
-              "winner": "CHEN Xingtong",
+              "winner": "CHEN Xingtong / QIAN Tianyi",
               "all_players_in_row": [
                 "CHEN Xingtong (CHN)",
                 "QIAN Tianyi (CHN)",
@@ -8126,17 +7754,14 @@
               ],
               "side_a": [
                 "CHEN Xingtong (CHN)",
-                "FAN Shuhan (CHN)"
+                "QIAN Tianyi (CHN)"
               ],
               "side_b": [
-                "QIAN Tianyi (CHN)",
+                "FAN Shuhan (CHN)",
                 "XU Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHEN Xingtong (CHN) | QIAN Tianyi (CHN) | FAN Shuhan (CHN) | XU Yi (CHN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:3 11:1 11:6 | CHEN Xingtong | QIAN Tianyi | "
             }
           ]
@@ -8189,15 +7814,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "RONCALLO Valentina (ITA)",
+                "RONCALLO Valentina (ITA)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | RONCALLO Valentina (ITA) |  | XU Yi (CHN) |  | WS | Qualification | QR32 | 2 - 3 | 13:11 9:11 8:11 11:7 5:11 | XU Yi |  | "
             },
             {
@@ -8240,15 +7863,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "SUGASAWA Yukari (JPN)",
+                "SUGASAWA Yukari (JPN)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | SUGASAWA Yukari (JPN) |  | XU Yi (CHN) |  | WS | Qualification | QR16 | 2 - 3 | 10:12 11:8 8:11 11:8 6:11 | XU Yi |  | "
             },
             {
@@ -8291,15 +7912,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | XU Yi (CHN) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 4 - 1 | 1:11 11:5 12:10 11:8 13:11 | XU Yi |  | "
             },
             {
@@ -8347,15 +7966,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "TODOROVIC Andrea (SRB)",
+                "TODOROVIC Andrea (SRB)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | TODOROVIC Andrea (SRB) |  | XU Yi (CHN) |  | WS | Main Draw | R32 | 2 - 4 | 10:12 11:8 2:11 3:11 11:8 7:11 | XU Yi |  | "
             },
             {
@@ -8393,15 +8010,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "CHASSELIN Pauline (FRA)",
+                "CHASSELIN Pauline (FRA)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | CHASSELIN Pauline (FRA) |  | XU Yi (CHN) |  | WS | Main Draw | R16 | 0 - 4 | 17:19 7:11 7:11 3:11 | XU Yi |  | "
             },
             {
@@ -8454,15 +8069,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | XU Yi (CHN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 11:6 9:11 7:11 11:8 11:8 8:11 11:6 | XU Yi |  | "
             },
             {
@@ -8500,15 +8113,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "LEE Eunhye (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LEE Eunhye (KOR) |  | XU Yi (CHN) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:0 11:0 11:0 11:0 | LEE Eunhye |  | "
             }
           ]
@@ -8551,15 +8162,13 @@
                 "STEPANOVA Gabriela (CZE)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "STEPANOVA Gabriela (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | XU Yi (CHN) |  | STEPANOVA Gabriela (CZE) |  | WS | Qualification | QR64 | 3 - 0 | 11:8 11:1 11:9 | XU Yi |  | "
             },
             {
@@ -8592,15 +8201,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "SKATTET Rikke (NOR)",
+                "SKATTET Rikke (NOR)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | SKATTET Rikke (NOR) |  | XU Yi (CHN) |  | WS | Qualification | QR32 | 0 - 3 | 4:11 5:11 3:11 | XU Yi |  | "
             },
             {
@@ -8638,15 +8245,13 @@
                 "LEE Hoi Man (HKG)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "LEE Hoi Man (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | XU Yi (CHN) |  | LEE Hoi Man (HKG) |  | WS | Qualification | QR16 | 3 - 1 | 11:9 11:3 7:11 13:11 | XU Yi |  | "
             },
             {
@@ -8699,15 +8304,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "ARAPOVIC Hana (CRO)",
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | ARAPOVIC Hana (CRO) |  | XU Yi (CHN) |  | WS | Main Draw | R64 | 3 - 4 | 12:10 12:10 6:11 1:11 13:11 6:11 8:11 | XU Yi |  | "
             },
             {
@@ -8744,7 +8347,7 @@
                 "11:8",
                 "7:11"
               ],
-              "winner": "MUKHERJEE Ayhika",
+              "winner": "MUKHERJEE Ayhika / SEN Prapti",
               "all_players_in_row": [
                 "XU Yi (CHN)",
                 "HAN Feier (CHN)",
@@ -8753,17 +8356,14 @@
               ],
               "side_a": [
                 "XU Yi (CHN)",
-                "MUKHERJEE Ayhika (IND)"
+                "HAN Feier (CHN)"
               ],
               "side_b": [
-                "HAN Feier (CHN)",
+                "MUKHERJEE Ayhika (IND)",
                 "SEN Prapti (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | XU Yi (CHN) | HAN Feier (CHN) | MUKHERJEE Ayhika (IND) | SEN Prapti (IND) | WD | Main Draw | R16 | 2 - 3 | 9:11 11:4 7:11 11:8 7:11 | MUKHERJEE Ayhika | SEN Prapti | "
             },
             {
@@ -8801,15 +8401,13 @@
                 "SATO Hitomi (JPN)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SATO Hitomi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | XU Yi (CHN) |  | SATO Hitomi (JPN) |  | WS | Main Draw | R32 | 0 - 4 | 2:11 4:11 7:11 5:11 | SATO Hitomi |  | "
             }
           ]
@@ -8858,18 +8456,17 @@
               ],
               "winner": "XU Yi",
               "all_players_in_row": [
-                "XU Yi (CHN)"
-              ],
-              "side_a": [
                 "HUANG Yi-Hua (TPE)",
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "HUANG Yi-Hua (TPE)"
+              ],
+              "side_b": [
+                "XU Yi (CHN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | HUANG Yi-Hua (TPE) |  | XU Yi (CHN) |  | WS | Qualification | QR128 | 2 - 3 | 11:8 11:6 2:11 10:12 8:11 | XU Yi |  | "
             },
             {
@@ -8902,15 +8499,13 @@
                 "XU Yi (CHN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "XU Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | AKULA Sreeja (IND) |  | XU Yi (CHN) |  | WS | Qualification | QR64 | 0 - 3 | 6:11 7:11 4:11 | XU Yi |  | "
             },
             {
@@ -8948,15 +8543,13 @@
                 "ARLIA Nicole (ITA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "ARLIA Nicole (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | XU Yi (CHN) |  | ARLIA Nicole (ITA) |  | WS | Qualification | QR32 | 3 - 1 | 11:7 9:11 11:0 11:7 | XU Yi |  | "
             },
             {
@@ -8999,15 +8592,13 @@
                 "CIOBANU Irina (ROU)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "CIOBANU Irina (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | XU Yi (CHN) |  | CIOBANU Irina (ROU) |  | WS | Qualification | QR16 | 3 - 2 | 12:10 11:13 11:7 6:11 12:10 | XU Yi |  | "
             },
             {
@@ -9045,15 +8636,13 @@
                 "SHAN Xiaona (GER)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "SHAN Xiaona (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | XU Yi (CHN) |  | SHAN Xiaona (GER) |  | WS | Main Draw | R32 | 1 - 3 | 4:11 4:11 11:3 5:11 | SHAN Xiaona |  | "
             }
           ]

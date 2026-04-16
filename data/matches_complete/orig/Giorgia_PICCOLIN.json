@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Giorgia PICCOLIN",
-  "english_name": "Giorgia PICCOLIN",
+  "player_name": "PICCOLIN Giorgia",
+  "english_name": "PICCOLIN Giorgia",
   "country": "ITA",
   "country_code": "ITA",
   "continent": "",
@@ -60,15 +60,13 @@
                 "MUKHERJEE Sutirtha (IND)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "MUKHERJEE Sutirtha (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | PICCOLIN Giorgia (ITA) |  | MUKHERJEE Sutirtha (IND) |  | WS | Main Draw | R32 | 2 - 3 | 14:12 8:11 11:8 7:11 9:11 | MUKHERJEE Sutirtha |  | "
             }
           ]
@@ -111,15 +109,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "KANEYOSHI Yuka (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:5 11:6 | KANEYOSHI Yuka |  | "
             }
           ]
@@ -167,15 +163,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "YOO Yerin (KOR)",
+                "YOO Yerin (KOR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | YOO Yerin (KOR) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR64 | 3 - 1 | 7:11 11:6 12:10 11:6 | YOO Yerin |  | "
             }
           ]
@@ -217,7 +211,7 @@
                 "4:11",
                 "11:8"
               ],
-              "winner": "BADOWSKI Marek",
+              "winner": "BADOWSKI Marek / WIELGOS Zuzanna",
               "all_players_in_row": [
                 "BADOWSKI Marek (POL)",
                 "WIELGOS Zuzanna (POL)",
@@ -226,17 +220,14 @@
               ],
               "side_a": [
                 "BADOWSKI Marek (POL)",
-                "STOYANOV Niagol (ITA)"
+                "WIELGOS Zuzanna (POL)"
               ],
               "side_b": [
-                "WIELGOS Zuzanna (POL)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | BADOWSKI Marek (POL) | WIELGOS Zuzanna (POL) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 1 | 11:6 11:5 4:11 11:8 | BADOWSKI Marek | WIELGOS Zuzanna | "
             },
             {
@@ -269,15 +260,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "MALOBABIC Ivana (CRO)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | MALOBABIC Ivana (CRO) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 4:11 11:13 | PICCOLIN Giorgia |  | "
             },
             {
@@ -304,7 +293,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / MONFARDINI Gaia",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -313,17 +302,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "ARLIA Nicole (ITA)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R16 | 0 - 3 | 9:11 6:11 7:11 | ARLIA Nicole | MONFARDINI Gaia | "
             },
             {
@@ -361,15 +347,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "GUO ZHENG Nina (FRA)",
+                "GUO ZHENG Nina (FRA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | GUO ZHENG Nina (FRA) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 1 - 3 | 9:11 9:11 11:6 8:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -407,15 +391,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "EERLAND Britt (NED)",
+                "EERLAND Britt (NED)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Lille 2026 | EERLAND Britt (NED) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:4 11:13 11:5 12:10 | EERLAND Britt |  | "
             }
           ]
@@ -462,7 +444,7 @@
                 "7:11",
                 "7:11"
               ],
-              "winner": "CHO Seungmin",
+              "winner": "CHO Seungmin / YOO Siwoo",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -471,17 +453,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "CHO Seungmin (KOR)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "CHO Seungmin (KOR)",
                 "YOO Siwoo (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | CHO Seungmin (KOR) | YOO Siwoo (KOR) | XD | Main Draw | R16 | 1 - 3 | 9:11 13:11 7:11 7:11 | CHO Seungmin | YOO Siwoo | "
             },
             {
@@ -519,15 +498,13 @@
                 "ARLIA Nicole (ITA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "ARLIA Nicole (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | PICCOLIN Giorgia (ITA) |  | ARLIA Nicole (ITA) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:4 8:11 11:3 | PICCOLIN Giorgia |  | "
             },
             {
@@ -570,15 +547,13 @@
                 "YANG Ha Eun (KOR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | PICCOLIN Giorgia (ITA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 2 - 3 | 11:9 11:4 5:11 4:11 9:11 | YANG Ha Eun |  | "
             }
           ]
@@ -620,7 +595,7 @@
                 "13:11",
                 "11:9"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / WU Jiamuwa",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "WU Jiamuwa (AUS)",
@@ -629,17 +604,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "PICCOLIN Giorgia (ITA)"
+                "WU Jiamuwa (AUS)"
               ],
               "side_b": [
-                "WU Jiamuwa (AUS)",
+                "PICCOLIN Giorgia (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | PICCOLIN Giorgia (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R16 | 3 - 1 | 8:11 11:8 13:11 11:9 | LIU Yangzi | WU Jiamuwa | "
             },
             {
@@ -677,15 +649,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "KUKULKOVA Tatiana (SVK)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | KUKULKOVA Tatiana (SVK) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 3 - 1 | 11:8 11:8 6:11 11:8 | KUKULKOVA Tatiana |  | "
             }
           ]
@@ -727,7 +697,7 @@
                 "11:8",
                 "11:9"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -736,17 +706,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "PINTO Matilde (POR)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "PINTO Matilde (POR)",
                 "MATOS Ines (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | PINTO Matilde (POR) | MATOS Ines (POR) | WD | Qualification | QR8 | 3 - 1 | 11:13 11:9 11:8 11:9 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -783,7 +750,7 @@
                 "8:11",
                 "15:13"
               ],
-              "winner": "VERDONSCHOT Wim",
+              "winner": "VERDONSCHOT Wim / KLEE Sophia",
               "all_players_in_row": [
                 "VERDONSCHOT Wim (GER)",
                 "KLEE Sophia (GER)",
@@ -792,17 +759,14 @@
               ],
               "side_a": [
                 "VERDONSCHOT Wim (GER)",
-                "STOYANOV Niagol (ITA)"
+                "KLEE Sophia (GER)"
               ],
               "side_b": [
-                "KLEE Sophia (GER)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | VERDONSCHOT Wim (GER) | KLEE Sophia (GER) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 2 | 13:11 6:11 11:8 8:11 15:13 | VERDONSCHOT Wim | KLEE Sophia | "
             },
             {
@@ -834,7 +798,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "WATANABE Laura",
+              "winner": "WATANABE Laura / TAKAHASHI Giulia",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -843,17 +807,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "WATANABE Laura (BRA)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "WATANABE Laura (BRA)",
                 "TAKAHASHI Giulia (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WATANABE Laura (BRA) | TAKAHASHI Giulia (BRA) | WD | Main Draw | R16 | 1 - 3 | 9:11 11:6 8:11 6:11 | WATANABE Laura | TAKAHASHI Giulia | "
             },
             {
@@ -891,15 +852,13 @@
                 "DYMYTRENKO Anastasiya (UKR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "DYMYTRENKO Anastasiya (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | PICCOLIN Giorgia (ITA) |  | DYMYTRENKO Anastasiya (UKR) |  | WS | Main Draw | R32 | 3 - 1 | 11:7 4:11 11:7 11:6 | PICCOLIN Giorgia |  | "
             },
             {
@@ -937,15 +896,13 @@
                 "JEGER Mateja (CRO)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "JEGER Mateja (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | PICCOLIN Giorgia (ITA) |  | JEGER Mateja (CRO) |  | WS | Main Draw | R16 | 1 - 3 | 11:5 8:11 5:11 8:11 | JEGER Mateja |  | "
             }
           ]
@@ -998,15 +955,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ARAPOVIC Hana (CRO)",
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | ARAPOVIC Hana (CRO) |  | PICCOLIN Giorgia (ITA) |  | WT | Qualification |  | 3 - 2 | 11:5 7:11 11:8 6:11 11:2 | ARAPOVIC Hana |  | "
             },
             {
@@ -1044,15 +999,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "RAKOVAC Lea (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | PICCOLIN Giorgia (ITA) |  | WT | Qualification |  | 3 - 1 | 11:8 12:10 8:11 11:7 | RAKOVAC Lea |  | "
             },
             {
@@ -1091,18 +1044,17 @@
               ],
               "winner": "PICCOLIN Giorgia",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "PICCOLIN Giorgia (ITA)",
                 "HO Tin-Tin (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
+                "HO Tin-Tin (ENG)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | PICCOLIN Giorgia (ITA) |  | HO Tin-Tin (ENG) |  | WT | Qualification |  | 3 - 2 | 8:11 12:10 10:12 12:10 12:10 | PICCOLIN Giorgia |  | "
             },
             {
@@ -1140,15 +1092,13 @@
                 "YU Tianer (ENG)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "YU Tianer (ENG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | PICCOLIN Giorgia (ITA) |  | YU Tianer (ENG) |  | WT | Qualification |  | 1 - 3 | 7:11 4:11 11:9 4:11 | YU Tianer |  | "
             }
           ]
@@ -1196,15 +1146,13 @@
                 "DE NUTTE Sarah (LUX)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | PICCOLIN Giorgia (ITA) |  | DE NUTTE Sarah (LUX) |  | WS | Qualification | QR64 | 1 - 3 | 4:11 7:11 11:6 9:11 | DE NUTTE Sarah |  | "
             }
           ]
@@ -1252,15 +1200,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "HANSSON Matilda (SWE)",
+                "HANSSON Matilda (SWE)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | HANSSON Matilda (SWE) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR64 | 1 - 3 | 4:11 14:12 9:11 9:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -1298,15 +1244,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "HOCHART Leana (FRA)",
+                "HOCHART Leana (FRA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | HOCHART Leana (FRA) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR32 | 1 - 3 | 12:10 6:11 7:11 5:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -1339,15 +1283,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | YU Fu (POR) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 3 - 0 | 11:7 11:6 11:7 | YU Fu |  | "
             }
           ]
@@ -1389,7 +1331,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "GHOSH Anirban",
+              "winner": "GHOSH Anirban / ROY Krittwika",
               "all_players_in_row": [
                 "GHOSH Anirban (IND)",
                 "ROY Krittwika (IND)",
@@ -1398,17 +1340,14 @@
               ],
               "side_a": [
                 "GHOSH Anirban (IND)",
-                "STOYANOV Niagol (ITA)"
+                "ROY Krittwika (IND)"
               ],
               "side_b": [
-                "ROY Krittwika (IND)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | GHOSH Anirban (IND) | ROY Krittwika (IND) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 1 | 5:11 11:5 11:7 11:8 | GHOSH Anirban | ROY Krittwika | "
             },
             {
@@ -1435,7 +1374,7 @@
                 "11:4",
                 "11:4"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -1444,17 +1383,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "AIYELABEGAN Sukurat (NGR)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "AIYELABEGAN Sukurat (NGR)",
                 "JIMOH Rofiat (NGR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | AIYELABEGAN Sukurat (NGR) | JIMOH Rofiat (NGR) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:4 11:4 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -1497,15 +1433,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "RYU Hanna (KOR)",
+                "RYU Hanna (KOR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | RYU Hanna (KOR) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 2 - 3 | 11:6 15:17 11:13 14:12 9:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -1537,7 +1471,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -1546,17 +1480,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "GODA Hana (EGY)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | QuarterFinal | 1 - 3 | 6:11 9:11 11:8 9:11 | GODA Hana | MESHREF Dina | "
             },
             {
@@ -1599,15 +1530,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "KIM Nayeong (KOR)",
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | KIM Nayeong (KOR) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 3 - 2 | 9:11 11:3 11:6 9:11 11:8 | KIM Nayeong |  | "
             }
           ]
@@ -1650,15 +1579,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "RAD Elvira (ESP)",
+                "RAD Elvira (ESP)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | RAD Elvira (ESP) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR64 | 0 - 3 | 4:11 9:11 2:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -1701,15 +1628,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ORTEGA Daniela (CHI)",
+                "ORTEGA Daniela (CHI)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | ORTEGA Daniela (CHI) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR32 | 2 - 3 | 11:6 11:9 9:11 4:11 9:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -1742,15 +1667,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ZENG Jian (SGP)",
+                "ZENG Jian (SGP)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | ZENG Jian (SGP) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 3 - 0 | 11:8 11:6 11:8 | ZENG Jian |  | "
             }
           ]
@@ -1787,7 +1710,7 @@
                 "11:7",
                 "13:11"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -1796,17 +1719,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "IONESCU Eduard (ROU)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "IONESCU Eduard (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | IONESCU Eduard (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | R64 | 3 - 0 | 15:13 11:7 13:11 | STOYANOV Niagol | PICCOLIN Giorgia | "
             },
             {
@@ -1844,15 +1764,13 @@
                 "MASSART Lilou (BEL)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "MASSART Lilou (BEL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | PICCOLIN Giorgia (ITA) |  | MASSART Lilou (BEL) |  | WS | Main Draw | R128 | 4 - 0 | 11:5 11:7 11:6 11:5 | PICCOLIN Giorgia |  | "
             },
             {
@@ -1884,7 +1802,7 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "ABDELAZIZ Youssef",
+              "winner": "ABDELAZIZ Youssef / ALHODABY Mariam",
               "all_players_in_row": [
                 "ABDELAZIZ Youssef (EGY)",
                 "ALHODABY Mariam (EGY)",
@@ -1893,17 +1811,14 @@
               ],
               "side_a": [
                 "ABDELAZIZ Youssef (EGY)",
-                "STOYANOV Niagol (ITA)"
+                "ALHODABY Mariam (EGY)"
               ],
               "side_b": [
-                "ALHODABY Mariam (EGY)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ABDELAZIZ Youssef (EGY) | ALHODABY Mariam (EGY) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R32 | 3 - 1 | 11:7 6:11 11:7 12:10 | ABDELAZIZ Youssef | ALHODABY Mariam | "
             },
             {
@@ -1946,15 +1861,13 @@
                 "SUH Hyo Won (KOR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "SUH Hyo Won (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | PICCOLIN Giorgia (ITA) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R64 | 1 - 4 | 6:11 12:10 8:11 4:11 8:11 | SUH Hyo Won |  | "
             }
           ]
@@ -2002,15 +1915,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "SAINI Suhana (IND)",
+                "SAINI Suhana (IND)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | SAINI Suhana (IND) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 7:11 11:8 9:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -2049,18 +1960,17 @@
               ],
               "winner": "ZHANG Sofia-Xuan",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "ZHANG Sofia-Xuan (ESP)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "side_b": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | ZHANG Sofia-Xuan (ESP) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 3 - 2 | 11:13 13:11 7:11 11:5 13:11 | ZHANG Sofia-Xuan |  | "
             }
           ]
@@ -2113,15 +2023,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "OMODA Kotomi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | OMODA Kotomi (JPN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 2 | 11:6 11:4 9:11 8:11 11:6 | OMODA Kotomi |  | "
             }
           ]
@@ -2174,15 +2082,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "BHOWMICK Divyanshi (IND)",
+                "BHOWMICK Divyanshi (IND)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | BHOWMICK Divyanshi (IND) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 3 - 2 | 13:15 11:9 9:11 11:1 11:6 | BHOWMICK Divyanshi |  | "
             }
           ]
@@ -2225,15 +2131,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "YAREMCHUK Solomiya (UKR)",
+                "YAREMCHUK Solomiya (UKR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | YAREMCHUK Solomiya (UKR) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR4 | 3 - 0 | 11:7 11:9 11:7 | YAREMCHUK Solomiya |  | "
             },
             {
@@ -2271,15 +2175,13 @@
                 "NI Xia Lian (LUX)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "NI Xia Lian (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | PICCOLIN Giorgia (ITA) |  | NI Xia Lian (LUX) |  | WS | Qualification | QR8 | 3 - 1 | 11:4 7:11 11:6 11:8 | PICCOLIN Giorgia |  | "
             }
           ]
@@ -2322,15 +2224,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "GUO Jiangshan (USA)",
+                "GUO Jiangshan (USA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | GUO Jiangshan (USA) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR64 | 0 - 3 | 9:11 3:11 9:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -2368,15 +2268,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ZARIF Audrey (FRA)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | ZARIF Audrey (FRA) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR32 | 1 - 3 | 11:13 11:8 7:11 4:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -2410,18 +2308,17 @@
               ],
               "winner": "PICCOLIN Giorgia",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "CHENG Hsien-Tzu (TPE)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "side_b": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | CHENG Hsien-Tzu (TPE) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 1 - 3 | 11:9 3:11 13:15 13:15 | PICCOLIN Giorgia |  | "
             },
             {
@@ -2455,18 +2352,17 @@
               ],
               "winner": "HUANG Yi-Hua",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "PICCOLIN Giorgia (ITA)",
                 "HUANG Yi-Hua (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
+                "HUANG Yi-Hua (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | PICCOLIN Giorgia (ITA) |  | HUANG Yi-Hua (TPE) |  | WS | Main Draw | R64 | 1 - 3 | 9:11 7:11 11:8 4:11 | HUANG Yi-Hua |  | "
             }
           ]
@@ -2519,15 +2415,13 @@
                 "WIELGOS Zuzanna (POL)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | PICCOLIN Giorgia (ITA) |  | WIELGOS Zuzanna (POL) |  | WS | Qualification |  | 3 - 2 | 11:7 9:11 5:11 11:8 11:4 | PICCOLIN Giorgia |  | "
             },
             {
@@ -2570,15 +2464,13 @@
                 "SER Lin Qian (SGP)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "SER Lin Qian (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | PICCOLIN Giorgia (ITA) |  | SER Lin Qian (SGP) |  | WS | Qualification |  | 3 - 2 | 2:11 11:9 7:11 13:11 14:12 | PICCOLIN Giorgia |  | "
             },
             {
@@ -2616,15 +2508,13 @@
                 "HIRANO Miu (JPN)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "HIRANO Miu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | PICCOLIN Giorgia (ITA) |  | HIRANO Miu (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 7:11 11:5 6:11 1:11 | HIRANO Miu |  | "
             }
           ]
@@ -2676,7 +2566,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "ZAKHAROV Vladislav",
+              "winner": "ZAKHAROV Vladislav / AKASHEVA Zauresh",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -2685,17 +2575,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "ZAKHAROV Vladislav (KAZ)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "ZAKHAROV Vladislav (KAZ)",
                 "AKASHEVA Zauresh (KAZ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | ZAKHAROV Vladislav (KAZ) | AKASHEVA Zauresh (KAZ) | XD | Main Draw | R16 | 2 - 3 | 9:11 11:9 11:5 8:11 7:11 | ZAKHAROV Vladislav | AKASHEVA Zauresh | "
             },
             {
@@ -2733,15 +2620,13 @@
                 "XU Huiyao (CHN)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "XU Huiyao (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | PICCOLIN Giorgia (ITA) |  | XU Huiyao (CHN) |  | WS | Main Draw | R32 | 3 - 1 | 12:10 8:11 11:8 11:8 | PICCOLIN Giorgia |  | "
             },
             {
@@ -2774,15 +2659,13 @@
                 "MALOBABIC Ivana (CRO)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "MALOBABIC Ivana (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | PICCOLIN Giorgia (ITA) |  | MALOBABIC Ivana (CRO) |  | WS | Main Draw | R16 | 0 - 3 | 4:11 7:11 0:11 | MALOBABIC Ivana |  | "
             }
           ]
@@ -2824,7 +2707,7 @@
                 "10:12",
                 "9:11"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "MOULLET Barish (SUI)",
                 "MORET Rachel (SUI)",
@@ -2833,17 +2716,14 @@
               ],
               "side_a": [
                 "MOULLET Barish (SUI)",
-                "STOYANOV Niagol (ITA)"
+                "MORET Rachel (SUI)"
               ],
               "side_b": [
-                "MORET Rachel (SUI)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Cagliari 2024 | MOULLET Barish (SUI) | MORET Rachel (SUI) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 1 - 3 | 11:7 12:14 10:12 9:11 | STOYANOV Niagol | PICCOLIN Giorgia | "
             },
             {
@@ -2870,7 +2750,7 @@
                 "8:11",
                 "10:12"
               ],
-              "winner": "MONFARDINI Gaia",
+              "winner": "MONFARDINI Gaia / VIVARELLI Debora",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -2879,17 +2759,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "MONFARDINI Gaia (ITA)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "MONFARDINI Gaia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Cagliari 2024 | ARLIA Nicole (ITA) | PICCOLIN Giorgia (ITA) | MONFARDINI Gaia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | R16 | 0 - 3 | 11:13 8:11 10:12 | MONFARDINI Gaia | VIVARELLI Debora | "
             },
             {
@@ -2921,7 +2798,7 @@
                 "8:11",
                 "11:13"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "YIGENLER Abdullah (TUR)",
                 "YILMAZ Ozge (TUR)",
@@ -2930,17 +2807,14 @@
               ],
               "side_a": [
                 "YIGENLER Abdullah (TUR)",
-                "STOYANOV Niagol (ITA)"
+                "YILMAZ Ozge (TUR)"
               ],
               "side_b": [
-                "YILMAZ Ozge (TUR)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Cagliari 2024 | YIGENLER Abdullah (TUR) | YILMAZ Ozge (TUR) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | QuarterFinal | 1 - 3 | 7:11 12:10 8:11 11:13 | STOYANOV Niagol | PICCOLIN Giorgia | "
             },
             {
@@ -2973,15 +2847,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "PLAIAN Tania (ROU)",
+                "PLAIAN Tania (ROU)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Cagliari 2024 | PLAIAN Tania (ROU) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 3:11 11:13 | PICCOLIN Giorgia |  | "
             },
             {
@@ -3018,7 +2890,7 @@
                 "10:12",
                 "11:4"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -3027,17 +2899,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "HO Jeongmun (KOR)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "HO Jeongmun (KOR)",
                 "YOO Siwoo (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Cagliari 2024 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | HO Jeongmun (KOR) | YOO Siwoo (KOR) | XD | Main Draw | SemiFinal | 3 - 2 | 2:11 12:10 11:8 10:12 11:4 | STOYANOV Niagol | PICCOLIN Giorgia | "
             },
             {
@@ -3075,15 +2944,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "TODOROVIC Andrea (SRB)",
+                "TODOROVIC Andrea (SRB)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Cagliari 2024 | TODOROVIC Andrea (SRB) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 3 - 1 | 11:2 9:11 11:3 11:4 | TODOROVIC Andrea |  | "
             },
             {
@@ -3115,7 +2982,7 @@
                 "6:11",
                 "11:9"
               ],
-              "winner": "OYEBODE John",
+              "winner": "OYEBODE John / MONFARDINI Gaia",
               "all_players_in_row": [
                 "OYEBODE John (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -3124,17 +2991,14 @@
               ],
               "side_a": [
                 "OYEBODE John (ITA)",
-                "STOYANOV Niagol (ITA)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Cagliari 2024 | OYEBODE John (ITA) | MONFARDINI Gaia (ITA) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | Final | 3 - 1 | 11:7 13:11 6:11 11:9 | OYEBODE John | MONFARDINI Gaia | "
             }
           ]
@@ -3176,7 +3040,7 @@
                 "11:6",
                 "13:11"
               ],
-              "winner": "ARLIA Nicole",
+              "winner": "ARLIA Nicole / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -3185,17 +3049,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "RAD Elvira (ESP)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "RAD Elvira (ESP)",
                 "BETZ Ramona Maarit (FIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | ARLIA Nicole (ITA) | PICCOLIN Giorgia (ITA) | RAD Elvira (ESP) | BETZ Ramona Maarit (FIN) | WD | Qualification | QR32 | 3 - 1 | 8:11 11:5 11:6 13:11 | ARLIA Nicole | PICCOLIN Giorgia | "
             },
             {
@@ -3222,7 +3083,7 @@
                 "11:5",
                 "11:9"
               ],
-              "winner": "XIAO Maria",
+              "winner": "XIAO Maria / DIACONU Adina",
               "all_players_in_row": [
                 "XIAO Maria (ESP)",
                 "DIACONU Adina (ROU)",
@@ -3231,17 +3092,14 @@
               ],
               "side_a": [
                 "XIAO Maria (ESP)",
-                "ARLIA Nicole (ITA)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "ARLIA Nicole (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | XIAO Maria (ESP) | DIACONU Adina (ROU) | ARLIA Nicole (ITA) | PICCOLIN Giorgia (ITA) | WD | Main Draw | R32 | 3 - 0 | 11:8 11:5 11:9 | XIAO Maria | DIACONU Adina | "
             },
             {
@@ -3284,15 +3142,13 @@
                 "KLEE Sophia (GER)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "KLEE Sophia (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | PICCOLIN Giorgia (ITA) |  | KLEE Sophia (GER) |  | WS | Main Draw | R64 | 4 - 1 | 11:7 11:9 11:3 6:11 12:10 | PICCOLIN Giorgia |  | "
             },
             {
@@ -3335,15 +3191,13 @@
                 "DRAGOMAN Andreea (ROU)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | PICCOLIN Giorgia (ITA) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 1 - 4 | 11:9 6:11 10:12 7:11 5:11 | DRAGOMAN Andreea |  | "
             }
           ]
@@ -3396,15 +3250,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | PICCOLIN Giorgia (ITA) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R64 | 2 - 3 | 6:11 12:10 8:11 11:6 8:11 | YUAN Jia Nan |  | "
             }
           ]
@@ -3457,15 +3309,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "PARANANG Orawan (THA)",
+                "PARANANG Orawan (THA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Zagreb 2023 | PARANANG Orawan (THA) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 3 - 1 | 11:7 11:5 9:11 11:8 | PARANANG Orawan |  | "
             },
             {
@@ -3508,15 +3358,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "LAM Yee Lok (HKG)",
+                "LAM Yee Lok (HKG)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Zagreb 2023 | LAM Yee Lok (HKG) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR32 | 2 - 3 | 11:9 8:11 11:5 9:11 8:11 | PICCOLIN Giorgia |  | "
             }
           ]
@@ -3579,15 +3427,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "TERPOU Elisavet (GRE)",
+                "TERPOU Elisavet (GRE)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | TERPOU Elisavet (GRE) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 0 - 4 | 6:11 3:11 9:11 8:11 0:0 0:0 0:0 | PICCOLIN Giorgia |  | "
             },
             {
@@ -3640,15 +3486,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "HAN Ying (GER)",
+                "HAN Ying (GER)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | HAN Ying (GER) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 4 - 0 | 11:2 11:3 11:1 11:7 0:0 0:0 0:0 | HAN Ying |  | "
             }
           ]
@@ -3690,24 +3534,23 @@
                 "3:11",
                 "8:11"
               ],
-              "winner": "LIN Yun-Ju",
+              "winner": "LIN Yun-Ju / CHEN Szu-Yu",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
-                "PICCOLIN Giorgia (ITA)"
+                "PICCOLIN Giorgia (ITA)",
+                "LIN Yun-Ju (TPE)",
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "LIN Yun-Ju (TPE)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "LIN Yun-Ju (TPE)",
                 "CHEN Szu-Yu (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | LIN Yun-Ju (TPE) | CHEN Szu-Yu (TPE) | XD | Main Draw | R64 | 1 - 3 | 11:6 8:11 3:11 8:11 | LIN Yun-Ju | CHEN Szu-Yu | "
             },
             {
@@ -3744,24 +3587,23 @@
                 "7:11",
                 "11:8"
               ],
-              "winner": "CHEN Szu-Yu",
+              "winner": "CHEN Szu-Yu / HUANG Yi-Hua",
               "all_players_in_row": [
+                "CHEN Szu-Yu (TPE)",
+                "HUANG Yi-Hua (TPE)",
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
               "side_a": [
                 "CHEN Szu-Yu (TPE)",
-                "PICCOLIN Giorgia (ITA)"
+                "HUANG Yi-Hua (TPE)"
               ],
               "side_b": [
-                "HUANG Yi-Hua (TPE)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | CHEN Szu-Yu (TPE) | HUANG Yi-Hua (TPE) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | R64 | 3 - 2 | 11:7 11:13 11:6 7:11 11:8 | CHEN Szu-Yu | HUANG Yi-Hua | "
             },
             {
@@ -3804,15 +3646,13 @@
                 "NG Wing Lam (HKG)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | PICCOLIN Giorgia (ITA) |  | NG Wing Lam (HKG) |  | WS | Main Draw | R128 | 4 - 1 | 9:11 11:5 11:8 11:4 11:6 | PICCOLIN Giorgia |  | "
             },
             {
@@ -3850,15 +3690,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | HAYATA Hina (JPN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 4 - 0 | 11:7 11:4 11:2 11:8 | HAYATA Hina |  | "
             }
           ]
@@ -3900,7 +3738,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "LAM Siu Hang",
+              "winner": "LAM Siu Hang / ZHU Chengzhu",
               "all_players_in_row": [
                 "LAM Siu Hang (HKG)",
                 "ZHU Chengzhu (HKG)",
@@ -3909,17 +3747,14 @@
               ],
               "side_a": [
                 "LAM Siu Hang (HKG)",
-                "STOYANOV Niagol (ITA)"
+                "ZHU Chengzhu (HKG)"
               ],
               "side_b": [
-                "ZHU Chengzhu (HKG)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | LAM Siu Hang (HKG) | ZHU Chengzhu (HKG) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Qualification | QR16 | 3 - 1 | 7:11 11:6 11:6 11:7 | LAM Siu Hang | ZHU Chengzhu | "
             },
             {
@@ -3952,15 +3787,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "TOMANOVSKA Katerina (CZE)",
+                "TOMANOVSKA Katerina (CZE)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | TOMANOVSKA Katerina (CZE) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR32 | 0 - 3 | 9:11 4:11 8:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -4003,15 +3836,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "NG Wing Lam (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | NG Wing Lam (HKG) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 3 - 2 | 10:12 11:8 6:11 13:11 11:8 | NG Wing Lam |  | "
             },
             {
@@ -4049,15 +3880,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | VARADY Barbora (SVK) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 1 - 3 | 11:13 11:9 7:11 9:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -4095,15 +3924,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | PICCOLIN Giorgia (ITA) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 1 - 3 | 5:11 5:11 12:10 6:11 | POLCANOVA Sofia |  | "
             }
           ]
@@ -4156,15 +3983,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "TOLIOU Aikaterini (GRE)",
+                "TOLIOU Aikaterini (GRE)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Antalya 2023 | TOLIOU Aikaterini (GRE) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 3 - 2 | 8:11 11:9 11:6 7:11 11:3 | TOLIOU Aikaterini |  | "
             }
           ]
@@ -4208,18 +4033,17 @@
               ],
               "winner": "SU Pei-Ling",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "PICCOLIN Giorgia (ITA)",
                 "SU Pei-Ling (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
+                "SU Pei-Ling (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Singapore Smash 2023 | PICCOLIN Giorgia (ITA) |  | SU Pei-Ling (TPE) |  | WS | Qualification | QR64 | 1 - 3 | 7:11 11:7 4:11 8:11 | SU Pei-Ling |  | "
             }
           ]
@@ -4266,7 +4090,7 @@
                 "6:11",
                 "11:7"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)",
@@ -4275,17 +4099,14 @@
               ],
               "side_a": [
                 "ROBLES Alvaro (ESP)",
-                "STOYANOV Niagol (ITA)"
+                "XIAO Maria (ESP)"
               ],
               "side_b": [
-                "XIAO Maria (ESP)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 2 | 11:8 11:7 8:11 6:11 11:7 | ROBLES Alvaro | XIAO Maria | "
             },
             {
@@ -4318,15 +4139,13 @@
                 "ZHANG Xiangyu (CHN)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "ZHANG Xiangyu (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | PICCOLIN Giorgia (ITA) |  | ZHANG Xiangyu (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 3:11 1:11 | ZHANG Xiangyu |  | "
             },
             {
@@ -4358,24 +4177,23 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "HUANG Yi-Hua",
+              "winner": "HUANG Yi-Hua / HUANG Yu-Jie",
               "all_players_in_row": [
+                "HUANG Yi-Hua (TPE)",
+                "HUANG Yu-Jie (TPE)",
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
               "side_a": [
                 "HUANG Yi-Hua (TPE)",
-                "PICCOLIN Giorgia (ITA)"
+                "HUANG Yu-Jie (TPE)"
               ],
               "side_b": [
-                "HUANG Yu-Jie (TPE)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | HUANG Yi-Hua (TPE) | HUANG Yu-Jie (TPE) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | R16 | 3 - 1 | 11:4 8:11 11:7 11:8 | HUANG Yi-Hua | HUANG Yu-Jie | "
             }
           ]
@@ -4423,15 +4241,13 @@
                 "DOO Hoi Kem (HKG)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "DOO Hoi Kem (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | PICCOLIN Giorgia (ITA) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R32 | 1 - 3 | 4:11 11:9 5:11 6:11 | DOO Hoi Kem |  | "
             }
           ]
@@ -4474,15 +4290,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ALHODABY Marwa (EGY)",
+                "ALHODABY Marwa (EGY)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | ALHODABY Marwa (EGY) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR32 | 0 - 3 | 8:11 9:11 2:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -4514,7 +4328,7 @@
                 "11:9",
                 "11:5"
               ],
-              "winner": "PLETEA Cristian",
+              "winner": "PLETEA Cristian / DIACONU Adina",
               "all_players_in_row": [
                 "PLETEA Cristian (ROU)",
                 "DIACONU Adina (ROU)",
@@ -4523,17 +4337,14 @@
               ],
               "side_a": [
                 "PLETEA Cristian (ROU)",
-                "STOYANOV Niagol (ITA)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | PLETEA Cristian (ROU) | DIACONU Adina (ROU) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Qualification | QR8 | 3 - 1 | 11:3 10:12 11:9 11:5 | PLETEA Cristian | DIACONU Adina | "
             },
             {
@@ -4565,7 +4376,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "WEGRZYN Anna",
+              "winner": "WEGRZYN Anna / WEGRZYN Katarzyna",
               "all_players_in_row": [
                 "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -4574,17 +4385,14 @@
               ],
               "side_a": [
                 "VIVARELLI Debora (ITA)",
-                "WEGRZYN Anna (POL)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "WEGRZYN Anna (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | WD | Qualification | QR8 | 1 - 3 | 7:11 11:7 6:11 7:11 | WEGRZYN Anna | WEGRZYN Katarzyna | "
             },
             {
@@ -4622,15 +4430,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "MADARASZ Dora (HUN)",
+                "MADARASZ Dora (HUN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | MADARASZ Dora (HUN) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 3 - 1 | 11:6 12:10 11:13 11:9 | MADARASZ Dora |  | "
             },
             {
@@ -4662,7 +4468,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "VIVARELLI Debora",
+              "winner": "VIVARELLI Debora / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -4671,17 +4477,14 @@
               ],
               "side_a": [
                 "VIVARELLI Debora (ITA)",
-                "POTA Georgina (HUN)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "POTA Georgina (HUN)",
                 "MADARASZ Dora (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | POTA Georgina (HUN) | MADARASZ Dora (HUN) | WD | Main Draw | R16 | 3 - 1 | 7:11 12:10 11:4 11:7 | VIVARELLI Debora | PICCOLIN Giorgia | "
             },
             {
@@ -4708,7 +4511,7 @@
                 "2:11",
                 "5:11"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Zion",
               "all_players_in_row": [
                 "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -4717,17 +4520,14 @@
               ],
               "side_a": [
                 "VIVARELLI Debora (ITA)",
-                "CHOI Hyojoo (KOR)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 2:11 5:11 | CHOI Hyojoo | LEE Zion | "
             }
           ]
@@ -4780,15 +4580,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "LI Ching Wan (HKG)",
+                "LI Ching Wan (HKG)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | LI Ching Wan (HKG) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR64 | 3 - 1 | 13:11 9:11 11:9 11:7 | LI Ching Wan |  | "
             },
             {
@@ -4820,7 +4618,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "BATRA Manika",
+              "winner": "BATRA Manika / KAMATH Archana",
               "all_players_in_row": [
                 "BATRA Manika (IND)",
                 "KAMATH Archana (IND)",
@@ -4829,17 +4627,14 @@
               ],
               "side_a": [
                 "BATRA Manika (IND)",
-                "VIVARELLI Debora (ITA)"
+                "KAMATH Archana (IND)"
               ],
               "side_b": [
-                "KAMATH Archana (IND)",
+                "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | BATRA Manika (IND) | KAMATH Archana (IND) | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | WD | Main Draw | R16 | 3 - 1 | 4:11 11:8 11:4 11:9 | BATRA Manika | KAMATH Archana | "
             },
             {
@@ -4866,7 +4661,7 @@
                 "6:11",
                 "11:13"
               ],
-              "winner": "PLETEA Cristian",
+              "winner": "PLETEA Cristian / DIACONU Adina",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -4875,17 +4670,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "PLETEA Cristian (ROU)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "PLETEA Cristian (ROU)",
                 "DIACONU Adina (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | PLETEA Cristian (ROU) | DIACONU Adina (ROU) | XD | Main Draw | R16 | 0 - 3 | 5:11 6:11 11:13 | PLETEA Cristian | DIACONU Adina | "
             }
           ]
@@ -4933,15 +4725,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ZHU Chengzhu (HKG)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | ZHU Chengzhu (HKG) |  | PICCOLIN Giorgia (ITA) |  | WT | Qualification |  | 3 - 1 | 11:8 7:11 11:5 11:1 | ZHU Chengzhu |  | "
             },
             {
@@ -4974,15 +4764,13 @@
                 "WATANABE Laura (BRA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "WATANABE Laura (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | PICCOLIN Giorgia (ITA) |  | WATANABE Laura (BRA) |  | WT | Qualification |  | 3 - 0 | 11:8 11:8 11:5 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5020,15 +4808,13 @@
                 "TAKAHASHI Bruna (BRA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | PICCOLIN Giorgia (ITA) |  | TAKAHASHI Bruna (BRA) |  | WT | Qualification |  | 3 - 1 | 11:5 11:9 8:11 11:9 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5061,15 +4847,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "EDWARDS Lailaa (RSA)",
+                "EDWARDS Lailaa (RSA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | EDWARDS Lailaa (RSA) |  | PICCOLIN Giorgia (ITA) |  | WT | Qualification |  | 0 - 3 | 2:11 3:11 4:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5107,15 +4891,13 @@
                 "PAVADE Prithika (FRA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "PAVADE Prithika (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | PICCOLIN Giorgia (ITA) |  | PAVADE Prithika (FRA) |  | WT | Qualification |  | 1 - 3 | 7:11 6:11 11:7 5:11 | PAVADE Prithika |  | "
             }
           ]
@@ -5152,7 +4934,7 @@
                 "13:11",
                 "15:13"
               ],
-              "winner": "KRASTEV Petyo",
+              "winner": "KRASTEV Petyo / YOVKOVA Maria",
               "all_players_in_row": [
                 "KRASTEV Petyo (BUL)",
                 "YOVKOVA Maria (BUL)",
@@ -5161,17 +4943,14 @@
               ],
               "side_a": [
                 "KRASTEV Petyo (BUL)",
-                "STOYANOV Niagol (ITA)"
+                "YOVKOVA Maria (BUL)"
               ],
               "side_b": [
-                "YOVKOVA Maria (BUL)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | KRASTEV Petyo (BUL) | YOVKOVA Maria (BUL) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 0 | 11:6 13:11 15:13 | KRASTEV Petyo | YOVKOVA Maria | "
             },
             {
@@ -5209,15 +4988,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "DARI Helga (HUN)",
+                "DARI Helga (HUN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | DARI Helga (HUN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 0 - 4 | 8:11 11:13 6:11 2:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5244,7 +5021,7 @@
                 "11:8",
                 "15:13"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -5253,17 +5030,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "VIVARELLI Debora (ITA)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:8 15:13 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -5316,15 +5090,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "AKASHEVA Zauresh (KAZ)",
+                "AKASHEVA Zauresh (KAZ)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | AKASHEVA Zauresh (KAZ) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 4 | 10:12 14:16 3:11 11:8 11:3 11:7 7:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5372,15 +5144,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "WEGRZYN Anna (POL)",
+                "WEGRZYN Anna (POL)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | WEGRZYN Anna (POL) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 4 - 2 | 11:2 11:8 11:3 5:11 7:11 11:3 | WEGRZYN Anna |  | "
             }
           ]
@@ -5422,7 +5192,7 @@
                 "11:5",
                 "11:4"
               ],
-              "winner": "CHEN Alexander",
+              "winner": "CHEN Alexander / MISCHEK Karoline",
               "all_players_in_row": [
                 "CHEN Alexander (AUT)",
                 "MISCHEK Karoline (AUT)",
@@ -5431,17 +5201,14 @@
               ],
               "side_a": [
                 "CHEN Alexander (AUT)",
-                "STOYANOV Niagol (ITA)"
+                "MISCHEK Karoline (AUT)"
               ],
               "side_b": [
-                "MISCHEK Karoline (AUT)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | CHEN Alexander (AUT) | MISCHEK Karoline (AUT) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 1 | 11:8 7:11 11:5 11:4 | CHEN Alexander | MISCHEK Karoline | "
             },
             {
@@ -5494,15 +5261,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "TOLIOU Aikaterini (GRE)",
+                "TOLIOU Aikaterini (GRE)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | TOLIOU Aikaterini (GRE) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 3 - 4 | 11:7 10:12 6:11 7:11 11:9 11:5 7:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5534,7 +5299,7 @@
                 "1:11",
                 "5:11"
               ],
-              "winner": "WU Yangchen",
+              "winner": "WU Yangchen / ZANG Xiaotong",
               "all_players_in_row": [
                 "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -5543,17 +5308,14 @@
               ],
               "side_a": [
                 "VIVARELLI Debora (ITA)",
-                "WU Yangchen (CHN)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "WU Yangchen (CHN)",
                 "ZANG Xiaotong (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | WU Yangchen (CHN) | ZANG Xiaotong (CHN) | WD | Main Draw | R16 | 1 - 3 | 9:11 14:12 1:11 5:11 | WU Yangchen | ZANG Xiaotong | "
             },
             {
@@ -5606,15 +5368,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "LUTZ Charlotte (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | LUTZ Charlotte (FRA) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 4 | 10:12 11:5 11:8 4:11 11:0 8:11 7:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5667,15 +5427,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "WAN Yuan (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | WAN Yuan (GER) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 3 - 4 | 11:5 9:11 11:1 10:12 11:5 6:11 8:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5728,15 +5486,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "XU Yi (CHN)",
+                "XU Yi (CHN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Olomouc 2022 | XU Yi (CHN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 11:6 9:11 7:11 11:8 11:8 8:11 11:6 | XU Yi |  | "
             }
           ]
@@ -5773,7 +5529,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "MATOS Ines (POR)",
                 "PINTO Matilde (POR)",
@@ -5782,17 +5538,14 @@
               ],
               "side_a": [
                 "MATOS Ines (POR)",
-                "PICCOLIN Giorgia (ITA)"
+                "PINTO Matilde (POR)"
               ],
               "side_b": [
-                "PINTO Matilde (POR)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | MATOS Ines (POR) | PINTO Matilde (POR) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | R32 | 0 - 3 | 7:11 8:11 8:11 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -5824,7 +5577,7 @@
                 "9:11",
                 "11:7"
               ],
-              "winner": "XIAO Maria",
+              "winner": "XIAO Maria / DIACONU Adina",
               "all_players_in_row": [
                 "XIAO Maria (ESP)",
                 "DIACONU Adina (ROU)",
@@ -5833,17 +5586,14 @@
               ],
               "side_a": [
                 "XIAO Maria (ESP)",
-                "PICCOLIN Giorgia (ITA)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | XIAO Maria (ESP) | DIACONU Adina (ROU) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | R16 | 3 - 1 | 12:10 11:8 9:11 11:7 | XIAO Maria | DIACONU Adina | "
             },
             {
@@ -5886,15 +5636,13 @@
                 "GONDERINGER Tessy (LUX)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "GONDERINGER Tessy (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | PICCOLIN Giorgia (ITA) |  | GONDERINGER Tessy (LUX) |  | WS | Main Draw | R64 | 4 - 1 | 12:10 7:11 11:3 11:6 11:7 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5942,15 +5690,13 @@
                 "MATELOVA Hana (CZE)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | PICCOLIN Giorgia (ITA) |  | MATELOVA Hana (CZE) |  | WS | Main Draw | R32 | 4 - 2 | 9:11 11:9 11:8 11:6 8:11 11:8 | PICCOLIN Giorgia |  | "
             },
             {
@@ -5993,15 +5739,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "KUKULKOVA Tatiana (SVK)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | KUKULKOVA Tatiana (SVK) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 1 - 4 | 7:11 10:12 3:11 11:9 2:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6039,15 +5783,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | WINTER Sabine (GER) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:9 11:8 11:7 11:6 | WINTER Sabine |  | "
             },
             {
@@ -6084,7 +5826,7 @@
                 "4:11",
                 "10:12"
               ],
-              "winner": "MLADENOVIC Luka",
+              "winner": "MLADENOVIC Luka / NI Xia Lian",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -6093,17 +5835,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "MLADENOVIC Luka (LUX)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "MLADENOVIC Luka (LUX)",
                 "NI Xia Lian (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | MLADENOVIC Luka (LUX) | NI Xia Lian (LUX) | XD | Main Draw | R32 | 2 - 3 | 11:8 8:11 11:9 4:11 10:12 | MLADENOVIC Luka | NI Xia Lian | "
             }
           ]
@@ -6146,15 +5885,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | DRAGOMAN Andreea (ROU) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR64 | 3 - 0 | 11:7 11:6 11:7 | DRAGOMAN Andreea |  | "
             }
           ]
@@ -6212,15 +5949,13 @@
                 "STRAZAR Katarina (SLO)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "STRAZAR Katarina (SLO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | STRAZAR Katarina (SLO) |  | WS | Qualification |  | 4 - 2 | 11:9 4:11 11:6 6:11 11:8 11:9 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6263,15 +5998,13 @@
                 "LUTZ Camille (FRA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | LUTZ Camille (FRA) |  | WS | Qualification |  | 4 - 1 | 11:8 11:7 9:11 11:8 11:9 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6309,15 +6042,13 @@
                 "YILMAZ Ozge (TUR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "YILMAZ Ozge (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | YILMAZ Ozge (TUR) |  | WT | Qualification |  | 3 - 1 | 11:4 13:11 7:11 11:8 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6354,7 +6085,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / STEFANOVA Nikoleta",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "STEFANOVA Nikoleta (ITA)",
@@ -6363,17 +6094,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "YILMAZ Ozge (TUR)"
+                "STEFANOVA Nikoleta (ITA)"
               ],
               "side_b": [
-                "STEFANOVA Nikoleta (ITA)",
+                "YILMAZ Ozge (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) | STEFANOVA Nikoleta (ITA) | YILMAZ Ozge (TUR) | ALTINKAYA Sibel (TUR) | WT | Qualification |  | 3 - 2 | 11:7 7:11 7:11 11:3 11:6 | PICCOLIN Giorgia | STEFANOVA Nikoleta | "
             },
             {
@@ -6411,15 +6139,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | ALTINKAYA Sibel (TUR) |  | WT | Qualification |  | 3 - 1 | 11:9 7:11 11:9 11:8 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6457,15 +6183,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 3 - 1 | 11:6 6:11 11:5 14:12 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6508,15 +6232,13 @@
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | SURJAN Sabina (SRB) |  | WT | Qualification |  | 2 - 3 | 9:11 12:10 9:11 11:6 16:18 | SURJAN Sabina |  | "
             },
             {
@@ -6554,15 +6276,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ZOGHLAMI Maram (TUN)",
+                "ZOGHLAMI Maram (TUN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ZOGHLAMI Maram (TUN) |  | PICCOLIN Giorgia (ITA) |  | WT | Main Draw | QuarterFinal | 1 - 3 | 5:11 11:9 5:11 5:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6594,7 +6314,7 @@
                 "6:11",
                 "1:11"
               ],
-              "winner": "STEFANOVA Nikoleta",
+              "winner": "STEFANOVA Nikoleta / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "ZOGHLAMI Maram (TUN)",
                 "GARCI Fadwa (TUN)",
@@ -6603,17 +6323,14 @@
               ],
               "side_a": [
                 "ZOGHLAMI Maram (TUN)",
-                "STEFANOVA Nikoleta (ITA)"
+                "GARCI Fadwa (TUN)"
               ],
               "side_b": [
-                "GARCI Fadwa (TUN)",
+                "STEFANOVA Nikoleta (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ZOGHLAMI Maram (TUN) | GARCI Fadwa (TUN) | STEFANOVA Nikoleta (ITA) | PICCOLIN Giorgia (ITA) | WT | Main Draw | QuarterFinal | 1 - 3 | 11:6 11:13 6:11 1:11 | STEFANOVA Nikoleta | PICCOLIN Giorgia | "
             },
             {
@@ -6656,15 +6373,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "MATOS Ines (POR)",
+                "MATOS Ines (POR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | MATOS Ines (POR) |  | PICCOLIN Giorgia (ITA) |  | WT | Main Draw | SemiFinal | 2 - 3 | 11:8 10:12 7:11 11:5 8:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6701,7 +6416,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / STEFANOVA Nikoleta",
               "all_players_in_row": [
                 "MATOS Ines (POR)",
                 "SHAO Jieni (POR)",
@@ -6710,17 +6425,14 @@
               ],
               "side_a": [
                 "MATOS Ines (POR)",
-                "PICCOLIN Giorgia (ITA)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "PICCOLIN Giorgia (ITA)",
                 "STEFANOVA Nikoleta (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | MATOS Ines (POR) | SHAO Jieni (POR) | PICCOLIN Giorgia (ITA) | STEFANOVA Nikoleta (ITA) | WT | Main Draw | SemiFinal | 2 - 3 | 8:11 11:5 15:13 8:11 9:11 | PICCOLIN Giorgia | STEFANOVA Nikoleta | "
             },
             {
@@ -6753,15 +6465,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | SHAO Jieni (POR) |  | PICCOLIN Giorgia (ITA) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:7 11:6 12:10 | SHAO Jieni |  | "
             },
             {
@@ -6804,15 +6514,13 @@
                 "GODA Hana (EGY)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | GODA Hana (EGY) |  | WT | Main Draw | Final | 2 - 3 | 4:11 11:5 8:11 12:10 8:11 | GODA Hana |  | "
             },
             {
@@ -6849,7 +6557,7 @@
                 "11:9",
                 "11:4"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / STEFANOVA Nikoleta",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "STEFANOVA Nikoleta (ITA)",
@@ -6858,17 +6566,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "GODA Hana (EGY)"
+                "STEFANOVA Nikoleta (ITA)"
               ],
               "side_b": [
-                "STEFANOVA Nikoleta (ITA)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) | STEFANOVA Nikoleta (ITA) | GODA Hana (EGY) | MESHREF Dina (EGY) | WT | Main Draw | Final | 3 - 2 | 11:7 6:11 9:11 11:9 11:4 | PICCOLIN Giorgia | STEFANOVA Nikoleta | "
             },
             {
@@ -6911,15 +6616,13 @@
                 "MESHREF Dina (EGY)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | MESHREF Dina (EGY) |  | WT | Main Draw | Final | 3 - 2 | 6:11 11:8 11:7 9:11 11:8 | PICCOLIN Giorgia |  | "
             },
             {
@@ -6963,18 +6666,17 @@
               ],
               "winner": "ZHANG Sofia-Xuan",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "PICCOLIN Giorgia (ITA)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Qualification |  | 2 - 4 | 13:11 11:7 8:11 4:11 3:11 10:12 | ZHANG Sofia-Xuan |  | "
             },
             {
@@ -7012,15 +6714,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification |  | 4 - 0 | 0:0 0:0 0:0 0:0 | ALTINKAYA Sibel |  | "
             },
             {
@@ -7058,15 +6758,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification |  | 0 - 4 | 0:0 0:0 0:0 0:0 | LUPULESKU Izabela |  | "
             }
           ]
@@ -7108,7 +6806,7 @@
                 "10:12",
                 "7:11"
               ],
-              "winner": "BAJOR Natalia",
+              "winner": "BAJOR Natalia / MORET Rachel",
               "all_players_in_row": [
                 "ARLIA Nicole (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -7117,17 +6815,14 @@
               ],
               "side_a": [
                 "ARLIA Nicole (ITA)",
-                "BAJOR Natalia (POL)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "BAJOR Natalia (POL)",
                 "MORET Rachel (SUI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | ARLIA Nicole (ITA) | PICCOLIN Giorgia (ITA) | BAJOR Natalia (POL) | MORET Rachel (SUI) | WD | Qualification | QR16 | 1 - 3 | 5:11 11:5 10:12 7:11 | BAJOR Natalia | MORET Rachel | "
             },
             {
@@ -7161,18 +6856,17 @@
               ],
               "winner": "HUANG Yu-Jie",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "PICCOLIN Giorgia (ITA)",
                 "HUANG Yu-Jie (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
+                "HUANG Yu-Jie (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | PICCOLIN Giorgia (ITA) |  | HUANG Yu-Jie (TPE) |  | WS | Qualification | QR64 | 1 - 3 | 6:11 4:11 11:7 8:11 | HUANG Yu-Jie |  | "
             },
             {
@@ -7199,7 +6893,7 @@
                 "11:3",
                 "11:7"
               ],
-              "winner": "HARIMOTO Tomokazu",
+              "winner": "HARIMOTO Tomokazu / HAYATA Hina",
               "all_players_in_row": [
                 "HARIMOTO Tomokazu (JPN)",
                 "HAYATA Hina (JPN)",
@@ -7208,17 +6902,14 @@
               ],
               "side_a": [
                 "HARIMOTO Tomokazu (JPN)",
-                "ROSSI Carlo (ITA)"
+                "HAYATA Hina (JPN)"
               ],
               "side_b": [
-                "HAYATA Hina (JPN)",
+                "ROSSI Carlo (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | HARIMOTO Tomokazu (JPN) | HAYATA Hina (JPN) | ROSSI Carlo (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 0 | 11:2 11:3 11:7 | HARIMOTO Tomokazu | HAYATA Hina | "
             }
           ]
@@ -7265,7 +6956,7 @@
                 "10:12",
                 "11:9"
               ],
-              "winner": "PICCOLIN Jordy",
+              "winner": "PICCOLIN Jordy / LAURENTI Jamila",
               "all_players_in_row": [
                 "PICCOLIN Jordy (ITA)",
                 "LAURENTI Jamila (ITA)",
@@ -7274,17 +6965,14 @@
               ],
               "side_a": [
                 "PICCOLIN Jordy (ITA)",
-                "STOYANOV Niagol (ITA)"
+                "LAURENTI Jamila (ITA)"
               ],
               "side_b": [
-                "LAURENTI Jamila (ITA)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | PICCOLIN Jordy (ITA) | LAURENTI Jamila (ITA) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 2 | 13:11 8:11 11:8 10:12 11:9 | PICCOLIN Jordy | LAURENTI Jamila | "
             },
             {
@@ -7322,15 +7010,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "LAURENTI Jamila (ITA)",
+                "LAURENTI Jamila (ITA)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | LAURENTI Jamila (ITA) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 0 - 4 | 2:11 11:13 9:11 5:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -7368,15 +7054,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "MORI Sakura (JPN)",
+                "MORI Sakura (JPN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Westchester 2022 | MORI Sakura (JPN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 4 - 0 | 11:6 11:7 11:4 11:7 | MORI Sakura |  | "
             }
           ]
@@ -7413,7 +7097,7 @@
                 "10:12",
                 "9:11"
               ],
-              "winner": "ROSSI Carlo",
+              "winner": "ROSSI Carlo / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "DE NODREST Leo (FRA)",
                 "LUTZ Camille (FRA)",
@@ -7422,17 +7106,14 @@
               ],
               "side_a": [
                 "DE NODREST Leo (FRA)",
-                "ROSSI Carlo (ITA)"
+                "LUTZ Camille (FRA)"
               ],
               "side_b": [
-                "LUTZ Camille (FRA)",
+                "ROSSI Carlo (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | DE NODREST Leo (FRA) | LUTZ Camille (FRA) | ROSSI Carlo (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 0 - 3 | 9:11 10:12 9:11 | ROSSI Carlo | PICCOLIN Giorgia | "
             },
             {
@@ -7459,7 +7140,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "ROSSI Carlo",
+              "winner": "ROSSI Carlo / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "ROSSI Carlo (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -7468,17 +7149,14 @@
               ],
               "side_a": [
                 "ROSSI Carlo (ITA)",
-                "PICCOLIN Jordy (ITA)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Jordy (ITA)",
                 "LAURENTI Jamila (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | ROSSI Carlo (ITA) | PICCOLIN Giorgia (ITA) | PICCOLIN Jordy (ITA) | LAURENTI Jamila (ITA) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:4 11:9 | ROSSI Carlo | PICCOLIN Giorgia | "
             },
             {
@@ -7516,15 +7194,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "KASHYAP Stuti (ANT)",
+                "KASHYAP Stuti (ANT)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | KASHYAP Stuti (ANT) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 0 - 4 | 9:11 3:11 2:11 5:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -7561,7 +7237,7 @@
                 "5:11",
                 "8:11"
               ],
-              "winner": "LIU Dan",
+              "winner": "LIU Dan / SUNG Rachel",
               "all_players_in_row": [
                 "ROSSI Carlo (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -7570,17 +7246,14 @@
               ],
               "side_a": [
                 "ROSSI Carlo (ITA)",
-                "LIU Dan (USA)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "LIU Dan (USA)",
                 "SUNG Rachel (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | ROSSI Carlo (ITA) | PICCOLIN Giorgia (ITA) | LIU Dan (USA) | SUNG Rachel (USA) | XD | Main Draw | SemiFinal | 2 - 3 | 3:11 11:9 17:15 5:11 8:11 | LIU Dan | SUNG Rachel | "
             },
             {
@@ -7619,18 +7292,17 @@
               ],
               "winner": "LIU Hsing-Yin",
               "all_players_in_row": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "side_a": [
                 "LIU Hsing-Yin (TPE)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LIU Hsing-Yin (TPE)"
+              ],
+              "side_b": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Fremont 2022 | LIU Hsing-Yin (TPE) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 4 - 1 | 11:4 11:7 11:4 7:11 11:6 | LIU Hsing-Yin |  | "
             }
           ]
@@ -7683,15 +7355,13 @@
                 "JEGER Mateja (CRO)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "JEGER Mateja (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | PICCOLIN Giorgia (ITA) |  | JEGER Mateja (CRO) |  | WS | Qualification | QR64 | 2 - 3 | 13:11 11:13 6:11 11:5 7:11 | JEGER Mateja |  | "
             },
             {
@@ -7728,7 +7398,7 @@
                 "12:10",
                 "11:4"
               ],
-              "winner": "MADARASZ Dora",
+              "winner": "MADARASZ Dora / POTA Georgina",
               "all_players_in_row": [
                 "MADARASZ Dora (HUN)",
                 "POTA Georgina (HUN)",
@@ -7737,17 +7407,14 @@
               ],
               "side_a": [
                 "MADARASZ Dora (HUN)",
-                "PICCOLIN Giorgia (ITA)"
+                "POTA Georgina (HUN)"
               ],
               "side_b": [
-                "POTA Georgina (HUN)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | MADARASZ Dora (HUN) | POTA Georgina (HUN) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | R32 | 3 - 2 | 11:5 7:11 9:11 12:10 11:4 | MADARASZ Dora | POTA Georgina | "
             }
           ]
@@ -7784,7 +7451,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -7793,17 +7460,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "SCHOLZ Vivien (LUX)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "SCHOLZ Vivien (LUX)",
                 "DOBREVA Polina (BUL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | SCHOLZ Vivien (LUX) | DOBREVA Polina (BUL) | WD | Main Draw | R16 | 3 - 0 | 0:0 0:0 0:0 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -7851,15 +7515,13 @@
                 "CHEVALLIER Clemence (FRA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "CHEVALLIER Clemence (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) |  | CHEVALLIER Clemence (FRA) |  | WS | Main Draw | R32 | 4 - 2 | 11:4 11:4 11:5 9:11 6:11 11:5 | PICCOLIN Giorgia |  | "
             },
             {
@@ -7891,7 +7553,7 @@
                 "2:11",
                 "11:9"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -7900,17 +7562,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "ARLIA Nicole (ITA)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "ARLIA Nicole (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | ARLIA Nicole (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:6 11:7 2:11 11:9 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -7958,15 +7617,13 @@
                 "DOBREVA Polina (BUL)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "DOBREVA Polina (BUL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) |  | DOBREVA Polina (BUL) |  | WS | Main Draw | R16 | 4 - 2 | 11:7 7:11 12:10 11:9 6:11 11:9 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8003,7 +7660,7 @@
                 "12:10",
                 "8:11"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "COK Isa (FRA)",
                 "LUTZ Charlotte (FRA)",
@@ -8012,17 +7669,14 @@
               ],
               "side_a": [
                 "COK Isa (FRA)",
-                "PICCOLIN Giorgia (ITA)"
+                "LUTZ Charlotte (FRA)"
               ],
               "side_b": [
-                "LUTZ Charlotte (FRA)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | COK Isa (FRA) | LUTZ Charlotte (FRA) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | SemiFinal | 2 - 3 | 9:11 8:11 12:10 12:10 8:11 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -8065,15 +7719,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "WAN Yuan (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | WAN Yuan (GER) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 3:11 7:11 11:9 11:13 6:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8116,15 +7768,13 @@
                 "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | SemiFinal | 1 - 4 | 5:11 7:11 5:11 11:3 10:12 | ABRAAMIAN Elizabet |  | "
             },
             {
@@ -8151,7 +7801,7 @@
                 "4:11",
                 "9:11"
               ],
-              "winner": "WAN Yuan",
+              "winner": "WAN Yuan / MANTZ Chantal",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -8160,17 +7810,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "WAN Yuan (GER)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "WAN Yuan (GER)",
                 "MANTZ Chantal (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WAN Yuan (GER) | MANTZ Chantal (GER) | WD | Main Draw | Final | 0 - 3 | 7:11 4:11 9:11 | WAN Yuan | MANTZ Chantal | "
             }
           ]
@@ -8233,15 +7880,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "SILVA Yadira (MEX)",
+                "SILVA Yadira (MEX)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SILVA Yadira (MEX) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R128 | 2 - 4 | 11:8 3:11 11:5 6:11 9:11 5:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8268,7 +7913,7 @@
                 "14:12",
                 "11:7"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -8277,17 +7922,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "GOMEZ Gustavo (CHI)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "GOMEZ Gustavo (CHI)",
                 "ORTEGA Daniela (CHI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | GOMEZ Gustavo (CHI) | ORTEGA Daniela (CHI) | XD | Main Draw | R64 | 3 - 0 | 13:11 14:12 11:7 | STOYANOV Niagol | PICCOLIN Giorgia | "
             },
             {
@@ -8325,15 +7967,13 @@
                 "ISHIKAWA Kasumi (JPN)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "ISHIKAWA Kasumi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | PICCOLIN Giorgia (ITA) |  | ISHIKAWA Kasumi (JPN) |  | WS | Main Draw | R64 | 0 - 4 | 12:14 5:11 4:11 7:11 | ISHIKAWA Kasumi |  | "
             },
             {
@@ -8360,7 +8000,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "WONG Chun Ting",
+              "winner": "WONG Chun Ting / DOO Hoi Kem",
               "all_players_in_row": [
                 "WONG Chun Ting (HKG)",
                 "DOO Hoi Kem (HKG)",
@@ -8369,17 +8009,14 @@
               ],
               "side_a": [
                 "WONG Chun Ting (HKG)",
-                "STOYANOV Niagol (ITA)"
+                "DOO Hoi Kem (HKG)"
               ],
               "side_b": [
-                "DOO Hoi Kem (HKG)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R32 | 3 - 0 | 11:5 11:9 11:6 | WONG Chun Ting | DOO Hoi Kem | "
             },
             {
@@ -8406,7 +8043,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "SOLJA Petrissa",
+              "winner": "SOLJA Petrissa / SHAN Xiaona",
               "all_players_in_row": [
                 "SOLJA Petrissa (GER)",
                 "SHAN Xiaona (GER)",
@@ -8415,17 +8052,14 @@
               ],
               "side_a": [
                 "SOLJA Petrissa (GER)",
-                "PICCOLIN Giorgia (ITA)"
+                "SHAN Xiaona (GER)"
               ],
               "side_b": [
-                "SHAN Xiaona (GER)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SOLJA Petrissa (GER) | SHAN Xiaona (GER) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | R32 | 3 - 0 | 12:10 11:7 11:4 | SOLJA Petrissa | SHAN Xiaona | "
             }
           ]
@@ -8468,15 +8102,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "PETEK Petra (CRO)",
+                "PETEK Petra (CRO)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | PETEK Petra (CRO) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR32 | 0 - 3 | 8:11 5:11 9:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8509,15 +8141,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "HARTBRICH Leonie (HUN)",
+                "HARTBRICH Leonie (HUN)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | HARTBRICH Leonie (HUN) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 0 - 3 | 6:11 6:11 8:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8550,15 +8180,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | SHAN Xiaona (GER) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:5 11:9 | SHAN Xiaona |  | "
             }
           ]
@@ -8601,15 +8229,13 @@
                 "CHEN Sofia Lu (AUT)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "CHEN Sofia Lu (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | PICCOLIN Giorgia (ITA) |  | CHEN Sofia Lu (AUT) |  | WS | Qualification | QR32 | 3 - 0 | 11:3 11:7 11:7 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8647,15 +8273,13 @@
                 "BERGAND Filippa (SWE)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "BERGAND Filippa (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | PICCOLIN Giorgia (ITA) |  | BERGAND Filippa (SWE) |  | WS | Qualification | QR16 | 3 - 1 | 11:9 12:10 7:11 11:9 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8692,7 +8316,7 @@
                 "11:13",
                 "11:9"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -8701,17 +8325,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "ALHODABY Mariam (EGY)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "ALHODABY Mariam (EGY)",
                 "ALHODABY Marwa (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | ALHODABY Mariam (EGY) | ALHODABY Marwa (EGY) | WD | Main Draw | R16 | 3 - 2 | 7:11 11:9 11:8 11:13 11:9 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -8744,15 +8365,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | POLCANOVA Sofia (AUT) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:6 11:5 | POLCANOVA Sofia |  | "
             },
             {
@@ -8779,7 +8398,7 @@
                 "9:11",
                 "11:13"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -8788,17 +8407,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "ROBLES Alvaro (ESP)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | XD | Main Draw | R16 | 0 - 3 | 9:11 9:11 11:13 | ROBLES Alvaro | XIAO Maria | "
             },
             {
@@ -8830,7 +8446,7 @@
                 "12:10",
                 "9:11"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / VIVARELLI Debora",
               "all_players_in_row": [
                 "GAUTHIER Lucie (FRA)",
                 "MIGOT Marie (FRA)",
@@ -8839,17 +8455,14 @@
               ],
               "side_a": [
                 "GAUTHIER Lucie (FRA)",
-                "PICCOLIN Giorgia (ITA)"
+                "MIGOT Marie (FRA)"
               ],
               "side_b": [
-                "MIGOT Marie (FRA)",
+                "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | GAUTHIER Lucie (FRA) | MIGOT Marie (FRA) | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | WD | Main Draw | QuarterFinal | 1 - 3 | 10:12 2:11 12:10 9:11 | PICCOLIN Giorgia | VIVARELLI Debora | "
             },
             {
@@ -8876,7 +8489,7 @@
                 "5:11",
                 "9:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -8885,17 +8498,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "BERGSTROM Linda (SWE)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | SemiFinal | 0 - 3 | 6:11 5:11 9:11 | BERGSTROM Linda | KALLBERG Christina | "
             }
           ]
@@ -8948,15 +8558,13 @@
                 "VEGA Paulina (CHI)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "VEGA Paulina (CHI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | PICCOLIN Giorgia (ITA) |  | VEGA Paulina (CHI) |  | WS | Main Draw | R32 | 3 - 2 | 6:11 11:9 3:11 12:10 11:9 | PICCOLIN Giorgia |  | "
             },
             {
@@ -8993,7 +8601,7 @@
                 "11:5",
                 "11:9"
               ],
-              "winner": "SKACHKOV Kirill",
+              "winner": "SKACHKOV Kirill / VOROBEVA Olga",
               "all_players_in_row": [
                 "SKACHKOV Kirill (AIN)",
                 "VOROBEVA Olga (AIN)",
@@ -9002,17 +8610,14 @@
               ],
               "side_a": [
                 "SKACHKOV Kirill (AIN)",
-                "STOYANOV Niagol (ITA)"
+                "VOROBEVA Olga (AIN)"
               ],
               "side_b": [
-                "VOROBEVA Olga (AIN)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | SKACHKOV Kirill (AIN) | VOROBEVA Olga (AIN) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 2 | 5:11 5:11 11:6 11:5 11:9 | SKACHKOV Kirill | VOROBEVA Olga | "
             },
             {
@@ -9055,15 +8660,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "BATRA Manika (IND)",
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | BATRA Manika (IND) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 3 - 2 | 12:10 11:13 11:5 4:11 11:8 | BATRA Manika |  | "
             }
           ]
@@ -9105,7 +8708,7 @@
                 "10:12",
                 "9:11"
               ],
-              "winner": "KUKULKOVA Tatiana",
+              "winner": "KUKULKOVA Tatiana / LABOSOVA Ema",
               "all_players_in_row": [
                 "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -9114,17 +8717,14 @@
               ],
               "side_a": [
                 "VIVARELLI Debora (ITA)",
-                "KUKULKOVA Tatiana (SVK)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "KUKULKOVA Tatiana (SVK)",
                 "LABOSOVA Ema (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | KUKULKOVA Tatiana (SVK) | LABOSOVA Ema (SVK) | WD | Main Draw | R32 | 1 - 3 | 11:5 9:11 10:12 9:11 | KUKULKOVA Tatiana | LABOSOVA Ema | "
             },
             {
@@ -9157,15 +8757,13 @@
                 "SKATTET Rikke (NOR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "SKATTET Rikke (NOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | PICCOLIN Giorgia (ITA) |  | SKATTET Rikke (NOR) |  | WS | Qualification |  | 3 - 0 | 11:7 11:2 11:4 | PICCOLIN Giorgia |  | "
             },
             {
@@ -9203,15 +8801,13 @@
                 "TERPOU Elisavet (GRE)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "TERPOU Elisavet (GRE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | PICCOLIN Giorgia (ITA) |  | TERPOU Elisavet (GRE) |  | WS | Qualification |  | 3 - 1 | 11:4 8:11 11:6 11:7 | PICCOLIN Giorgia |  | "
             },
             {
@@ -9249,15 +8845,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | VARADY Barbora (SVK) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R64 | 4 - 0 | 11:8 11:9 11:5 11:6 | VARADY Barbora |  | "
             },
             {
@@ -9284,7 +8878,7 @@
                 "4:11",
                 "4:11"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "KONSTANTINOPOULOS Giorgos (GRE)",
                 "TERPOU Elisavet (GRE)",
@@ -9293,17 +8887,14 @@
               ],
               "side_a": [
                 "KONSTANTINOPOULOS Giorgos (GRE)",
-                "STOYANOV Niagol (ITA)"
+                "TERPOU Elisavet (GRE)"
               ],
               "side_b": [
-                "TERPOU Elisavet (GRE)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | KONSTANTINOPOULOS Giorgos (GRE) | TERPOU Elisavet (GRE) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R32 | 0 - 3 | 1:11 4:11 4:11 | STOYANOV Niagol | PICCOLIN Giorgia | "
             },
             {
@@ -9335,7 +8926,7 @@
                 "11:8",
                 "11:3"
               ],
-              "winner": "OLAH Benedek",
+              "winner": "OLAH Benedek / EERLAND Britt",
               "all_players_in_row": [
                 "OLAH Benedek (FIN)",
                 "EERLAND Britt (NED)",
@@ -9344,17 +8935,14 @@
               ],
               "side_a": [
                 "OLAH Benedek (FIN)",
-                "STOYANOV Niagol (ITA)"
+                "EERLAND Britt (NED)"
               ],
               "side_b": [
-                "EERLAND Britt (NED)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | OLAH Benedek (FIN) | EERLAND Britt (NED) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Main Draw | R16 | 3 - 1 | 11:4 5:11 11:8 11:3 | OLAH Benedek | EERLAND Britt | "
             }
           ]
@@ -9412,15 +9000,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "MORET Rachel (SUI)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | MORET Rachel (SUI) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R16 | 2 - 4 | 12:10 4:11 11:6 8:11 5:11 2:11 | PICCOLIN Giorgia |  | "
             },
             {
@@ -9473,15 +9059,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "DVORAK Galia (ESP)",
+                "DVORAK Galia (ESP)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | DVORAK Galia (ESP) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 3:11 12:10 7:11 11:6 14:16 13:11 11:8 | DVORAK Galia |  | "
             }
           ]
@@ -9529,15 +9113,13 @@
                 "LOEUILLETTE Stephanie (FRA)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "LOEUILLETTE Stephanie (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | PICCOLIN Giorgia (ITA) |  | LOEUILLETTE Stephanie (FRA) |  | WS | Qualification | QR64 | 1 - 3 | 6:11 5:11 11:9 6:11 | LOEUILLETTE Stephanie |  | "
             },
             {
@@ -9564,7 +9146,7 @@
                 "1:11",
                 "7:11"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "ASSAR Khalid (EGY)",
                 "HELMY Yousra (EGY)",
@@ -9573,17 +9155,14 @@
               ],
               "side_a": [
                 "ASSAR Khalid (EGY)",
-                "STOYANOV Niagol (ITA)"
+                "HELMY Yousra (EGY)"
               ],
               "side_b": [
-                "HELMY Yousra (EGY)",
+                "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | ASSAR Khalid (EGY) | HELMY Yousra (EGY) | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | XD | Qualification | QR16 | 0 - 3 | 9:11 1:11 7:11 | STOYANOV Niagol | PICCOLIN Giorgia | "
             },
             {
@@ -9610,7 +9189,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "JEON Jihee",
+              "winner": "JEON Jihee / LEE Sang Su",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -9619,17 +9198,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "JEON Jihee (KOR)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "JEON Jihee (KOR)",
                 "LEE Sang Su (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | JEON Jihee (KOR) | LEE Sang Su (KOR) | XD | Main Draw | R16 | 0 - 3 | 7:11 9:11 6:11 | JEON Jihee | LEE Sang Su | "
             }
           ]
@@ -9666,7 +9242,7 @@
                 "2:11",
                 "5:11"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / STOYANOV Niagol",
               "all_players_in_row": [
                 "PLATONOV Pavel (AIN)",
                 "BOGDANOVA Nadezhda (AIN)",
@@ -9675,17 +9251,14 @@
               ],
               "side_a": [
                 "PLATONOV Pavel (AIN)",
-                "PICCOLIN Giorgia (ITA)"
+                "BOGDANOVA Nadezhda (AIN)"
               ],
               "side_b": [
-                "BOGDANOVA Nadezhda (AIN)",
+                "PICCOLIN Giorgia (ITA)",
                 "STOYANOV Niagol (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | PLATONOV Pavel (AIN) | BOGDANOVA Nadezhda (AIN) | PICCOLIN Giorgia (ITA) | STOYANOV Niagol (ITA) | XD | Qualification | QR16 | 0 - 3 | 8:11 2:11 5:11 | PICCOLIN Giorgia | STOYANOV Niagol | "
             },
             {
@@ -9718,15 +9291,13 @@
                 "YANG Ha Eun (KOR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | PICCOLIN Giorgia (ITA) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR64 | 0 - 3 | 9:11 10:12 7:11 | YANG Ha Eun |  | "
             },
             {
@@ -9758,7 +9329,7 @@
                 "11:7",
                 "7:11"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "STOYANOV Niagol (ITA)",
@@ -9767,17 +9338,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "ROBLES Alvaro (ESP)"
+                "STOYANOV Niagol (ITA)"
               ],
               "side_b": [
-                "STOYANOV Niagol (ITA)",
+                "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | PICCOLIN Giorgia (ITA) | STOYANOV Niagol (ITA) | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | XD | Main Draw | R16 | 1 - 3 | 4:11 8:11 11:7 7:11 | ROBLES Alvaro | XIAO Maria | "
             }
           ]

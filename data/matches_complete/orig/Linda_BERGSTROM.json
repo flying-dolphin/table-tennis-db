@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Linda BERGSTROM",
-  "english_name": "Linda BERGSTROM",
+  "player_name": "BERGSTROM Linda",
+  "english_name": "BERGSTROM Linda",
   "country": "SWE",
   "country_code": "SWE",
   "continent": "",
@@ -50,15 +50,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SHIN Yubin (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | SHIN Yubin (KOR) |  | BERGSTROM Linda (SWE) |  | WS | Qualification |  | 3 - 0 | 11:4 11:2 11:5 | SHIN Yubin |  | "
             },
             {
@@ -96,15 +94,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "ZENG Jian (SGP)",
+                "ZENG Jian (SGP)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | ZENG Jian (SGP) |  | BERGSTROM Linda (SWE) |  | WS | Qualification |  | 3 - 1 | 11:7 12:14 11:5 11:8 | ZENG Jian |  | "
             }
           ]
@@ -141,7 +137,7 @@
                 "11:3",
                 "11:7"
               ],
-              "winner": "OMODA Kotomi",
+              "winner": "OMODA Kotomi / IMAEDA Manami",
               "all_players_in_row": [
                 "OMODA Kotomi (JPN)",
                 "IMAEDA Manami (JPN)",
@@ -150,17 +146,14 @@
               ],
               "side_a": [
                 "OMODA Kotomi (JPN)",
-                "BERGSTROM Linda (SWE)"
+                "IMAEDA Manami (JPN)"
               ],
               "side_b": [
-                "IMAEDA Manami (JPN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | OMODA Kotomi (JPN) | IMAEDA Manami (JPN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:3 11:7 | OMODA Kotomi | IMAEDA Manami | "
             },
             {
@@ -193,15 +186,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MORET Rachel (SUI)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | MORET Rachel (SUI) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 0 - 3 | 1:11 7:11 8:11 | BERGSTROM Linda |  | "
             },
             {
@@ -239,15 +230,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MALOBABIC Ivana (CRO)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | MALOBABIC Ivana (CRO) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 1 - 3 | 11:9 6:11 9:11 5:11 | BERGSTROM Linda |  | "
             },
             {
@@ -285,15 +274,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | MONFARDINI Gaia (ITA) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 12:10 7:11 4:11 8:11 | BERGSTROM Linda |  | "
             },
             {
@@ -336,15 +323,13 @@
                 "OMODA Kotomi (JPN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "OMODA Kotomi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | BERGSTROM Linda (SWE) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | SemiFinal | 2 - 3 | 9:11 11:13 11:8 14:12 11:13 | OMODA Kotomi |  | "
             }
           ]
@@ -387,15 +372,13 @@
                 "ODO Satsuki (JPN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "ODO Satsuki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | BERGSTROM Linda (SWE) |  | ODO Satsuki (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 11:13 11:13 5:11 | ODO Satsuki |  | "
             }
           ]
@@ -438,15 +421,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "LUTZ Charlotte (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | LUTZ Charlotte (FRA) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 3 - 0 | 11:0 11:3 11:6 | LUTZ Charlotte |  | "
             }
           ]
@@ -499,15 +480,13 @@
                 "HURSEY Anna (WAL)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | BERGSTROM Linda (SWE) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R32 | 2 - 3 | 11:4 7:11 12:10 7:11 7:11 | HURSEY Anna |  | "
             }
           ]
@@ -555,15 +534,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SHIN Yubin (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | SHIN Yubin (KOR) |  | BERGSTROM Linda (SWE) |  | XT | Qualification |  | 2 - 1 | 10:12 12:10 11:5 | SHIN Yubin |  | "
             },
             {
@@ -596,15 +573,13 @@
                 "REYES LAI Jessica (USA)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "REYES LAI Jessica (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BERGSTROM Linda (SWE) |  | REYES LAI Jessica (USA) |  | XT | Qualification |  | 3 - 0 | 11:2 11:7 11:8 | BERGSTROM Linda |  | "
             },
             {
@@ -633,18 +608,17 @@
               ],
               "winner": "BERGSTROM Linda",
               "all_players_in_row": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "side_a": [
                 "HUANG Yu-Chiao (TPE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "HUANG Yu-Chiao (TPE)"
+              ],
+              "side_b": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | HUANG Yu-Chiao (TPE) |  | BERGSTROM Linda (SWE) |  | XT | Qualification |  | 0 - 3 | 15:17 9:11 5:11 | BERGSTROM Linda |  | "
             },
             {
@@ -677,15 +651,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | WINTER Sabine (GER) |  | BERGSTROM Linda (SWE) |  | XT | Qualification |  | 1 - 2 | 11:13 11:8 14:16 | BERGSTROM Linda |  | "
             },
             {
@@ -707,7 +679,7 @@
                 "12:10",
                 "0:0"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -716,17 +688,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "BERGSTROM Linda (SWE)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | XT | Qualification |  | 1 - 0 | 12:10 0:0 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -759,15 +728,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "ZHU Chengzhu (HKG)",
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | ZHU Chengzhu (HKG) |  | BERGSTROM Linda (SWE) |  | XT | Qualification |  | 3 - 0 | 11:6 11:8 11:7 | ZHU Chengzhu |  | "
             },
             {
@@ -803,17 +770,14 @@
               ],
               "side_a": [
                 "ZHU Chengzhu (HKG)",
-                "KALLBERG Christina (SWE)"
+                "NG Wing Lam (HKG)"
               ],
               "side_b": [
-                "NG Wing Lam (HKG)",
+                "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | XT | Qualification |  | 1 - 1 | 8:11 13:11 0:0 |  |  | "
             },
             {
@@ -846,15 +810,13 @@
                 "RAKOVAC Lea (CRO)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BERGSTROM Linda (SWE) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 0 - 3 | 9:11 9:11 7:11 | RAKOVAC Lea |  | "
             },
             {
@@ -887,15 +849,13 @@
                 "LUTZ Charlotte (FRA)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BERGSTROM Linda (SWE) |  | LUTZ Charlotte (FRA) |  | XT | Qualification |  | 1 - 2 | 10:12 5:11 11:4 | LUTZ Charlotte |  | "
             },
             {
@@ -928,15 +888,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "WANG Yidi (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | WANG Yidi (CHN) |  | BERGSTROM Linda (SWE) |  | XT | Qualification |  | 2 - 1 | 7:11 11:7 11:9 | WANG Yidi |  | "
             },
             {
@@ -963,7 +921,7 @@
                 "11:7",
                 "11:7"
               ],
-              "winner": "KUAI Man",
+              "winner": "KUAI Man / WANG Manyu",
               "all_players_in_row": [
                 "KUAI Man (CHN)",
                 "WANG Manyu (CHN)",
@@ -972,17 +930,14 @@
               ],
               "side_a": [
                 "KUAI Man (CHN)",
-                "BERGSTROM Linda (SWE)"
+                "WANG Manyu (CHN)"
               ],
               "side_b": [
-                "WANG Manyu (CHN)",
+                "BERGSTROM Linda (SWE)",
                 "BERGAND Filippa (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | KUAI Man (CHN) | WANG Manyu (CHN) | BERGSTROM Linda (SWE) | BERGAND Filippa (SWE) | XT | Qualification |  | 3 - 0 | 11:6 11:7 11:7 | KUAI Man | WANG Manyu | "
             }
           ]
@@ -1029,25 +984,23 @@
                 "14:12",
                 "11:7"
               ],
-              "winner": "GREEN Connor",
+              "winner": "GREEN Connor / HO Tin-Tin",
               "all_players_in_row": [
                 "GREEN Connor (ENG)",
+                "HO Tin-Tin (ENG)",
                 "RANEFUR Elias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
                 "GREEN Connor (ENG)",
-                "RANEFUR Elias (SWE)"
+                "HO Tin-Tin (ENG)"
               ],
               "side_b": [
-                "HO Tin-Tin (ENG)",
+                "RANEFUR Elias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | GREEN Connor (ENG) | HO Tin-Tin (ENG) | RANEFUR Elias (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | R16 | 3 - 2 | 11:5 2:11 6:11 14:12 11:7 | GREEN Connor | HO Tin-Tin | "
             },
             {
@@ -1080,15 +1033,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "LEE Seojin (KOR)",
+                "LEE Seojin (KOR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | LEE Seojin (KOR) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 4:11 4:11 | BERGSTROM Linda |  | "
             },
             {
@@ -1115,7 +1066,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / MENDE Rin",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "BERGSTROM Linda (SWE)",
@@ -1124,17 +1075,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "AKAE Kaho (JPN)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "AKAE Kaho (JPN)",
                 "MENDE Rin (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | VARADY Barbora (SVK) | BERGSTROM Linda (SWE) | AKAE Kaho (JPN) | MENDE Rin (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 8:11 8:11 9:11 | AKAE Kaho | MENDE Rin | "
             },
             {
@@ -1177,15 +1125,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "ASO Reina (JPN)",
+                "ASO Reina (JPN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | ASO Reina (JPN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 3 - 2 | 11:5 11:9 8:11 10:12 11:4 | ASO Reina |  | "
             }
           ]
@@ -1238,15 +1184,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender London 2025 | BERGSTROM Linda (SWE) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R64 | 2 - 3 | 11:6 6:11 8:11 11:8 10:12 | MITTELHAM Nina |  | "
             }
           ]
@@ -1289,15 +1233,13 @@
                 "GERASIMATOU Ioanna (GRE)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "GERASIMATOU Ioanna (GRE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BERGSTROM Linda (SWE) |  | GERASIMATOU Ioanna (GRE) |  | WT | Qualification |  | 3 - 0 | 11:8 11:8 11:9 | BERGSTROM Linda |  | "
             },
             {
@@ -1330,15 +1272,13 @@
                 "SKERBINZ Nina (AUT)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SKERBINZ Nina (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BERGSTROM Linda (SWE) |  | SKERBINZ Nina (AUT) |  | WT | Qualification |  | 3 - 0 | 11:4 11:7 11:6 | BERGSTROM Linda |  | "
             },
             {
@@ -1376,15 +1316,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BERGSTROM Linda (SWE) |  | POLCANOVA Sofia (AUT) |  | WT | Qualification |  | 1 - 3 | 9:11 11:9 5:11 5:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -1417,15 +1355,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BERGSTROM Linda (SWE) |  | XIAO Maria (ESP) |  | WT | MAIN | 16 | 3 - 0 | 12:10 11:5 11:7 | BERGSTROM Linda |  | "
             },
             {
@@ -1458,15 +1394,13 @@
                 "KAUFMANN Annett (GER)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "KAUFMANN Annett (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BERGSTROM Linda (SWE) |  | KAUFMANN Annett (GER) |  | WT | MAIN | 8 | 0 - 3 | 7:11 8:11 8:11 | KAUFMANN Annett |  | "
             }
           ]
@@ -1503,7 +1437,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "GAUZY Simon",
+              "winner": "GAUZY Simon / PAVADE Prithika",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -1512,17 +1446,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "GAUZY Simon (FRA)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "GAUZY Simon (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | GAUZY Simon (FRA) | PAVADE Prithika (FRA) | XD | Main Draw | R32 | 0 - 3 | 3:11 8:11 9:11 | GAUZY Simon | PAVADE Prithika | "
             },
             {
@@ -1559,7 +1490,7 @@
                 "5:11",
                 "11:3"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / KAUFMANN Annett",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "KAUFMANN Annett (GER)",
@@ -1568,17 +1499,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "BERGSTROM Linda (SWE)"
+                "KAUFMANN Annett (GER)"
               ],
               "side_b": [
-                "KAUFMANN Annett (GER)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | LIU Yangzi (AUS) | KAUFMANN Annett (GER) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R32 | 3 - 2 | 11:7 8:11 11:5 5:11 11:3 | LIU Yangzi | KAUFMANN Annett | "
             },
             {
@@ -1611,15 +1539,13 @@
                 "ROOSE Alma (SWE)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "ROOSE Alma (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | BERGSTROM Linda (SWE) |  | ROOSE Alma (SWE) |  | WS | Main Draw | R64 | 3 - 0 | 11:8 11:8 11:8 | BERGSTROM Linda |  | "
             },
             {
@@ -1652,15 +1578,13 @@
                 "ITO Mima (JPN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "ITO Mima (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | BERGSTROM Linda (SWE) |  | ITO Mima (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 3:11 8:11 | ITO Mima |  | "
             }
           ]
@@ -1708,15 +1632,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "HASHIMOTO Honoka (JPN)",
+                "HASHIMOTO Honoka (JPN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | HASHIMOTO Honoka (JPN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 3 - 1 | 12:14 11:7 12:10 11:3 | HASHIMOTO Honoka |  | "
             },
             {
@@ -1743,7 +1665,7 @@
                 "11:7",
                 "11:2"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / BERGSTROM Linda",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -1752,17 +1674,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "JEE Minhyung (AUS)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "JEE Minhyung (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R32 | 3 - 0 | 11:9 11:7 11:2 | KALLBERG Christina | BERGSTROM Linda | "
             },
             {
@@ -1794,7 +1713,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "VARADY Barbora",
+              "winner": "VARADY Barbora / MATELOVA Hana",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "MATELOVA Hana (CZE)",
@@ -1803,17 +1722,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "KALLBERG Christina (SWE)"
+                "MATELOVA Hana (CZE)"
               ],
               "side_b": [
-                "MATELOVA Hana (CZE)",
+                "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | VARADY Barbora (SVK) | MATELOVA Hana (CZE) | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | WD | Main Draw | R16 | 3 - 1 | 11:7 10:12 11:6 11:7 | VARADY Barbora | MATELOVA Hana | "
             }
           ]
@@ -1860,7 +1776,7 @@
                 "11:7",
                 "9:11"
               ],
-              "winner": "HARAC Ece",
+              "winner": "HARAC Ece / YILMAZ Ozge",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -1869,17 +1785,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "HARAC Ece (TUR)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "HARAC Ece (TUR)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | HARAC Ece (TUR) | YILMAZ Ozge (TUR) | WD | Main Draw | R16 | 2 - 3 | 11:5 9:11 12:14 11:7 9:11 | HARAC Ece | YILMAZ Ozge | "
             },
             {
@@ -1917,15 +1830,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SHI Xunyao (CHN)",
+                "SHI Xunyao (CHN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | SHI Xunyao (CHN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 3 - 1 | 6:11 11:7 11:7 11:3 | SHI Xunyao |  | "
             }
           ]
@@ -1972,7 +1883,7 @@
                 "11:8",
                 "5:11"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / BERGSTROM Linda",
               "all_players_in_row": [
                 "ARPAS Samuel (SVK)",
                 "VARADY Barbora (SVK)",
@@ -1981,17 +1892,14 @@
               ],
               "side_a": [
                 "ARPAS Samuel (SVK)",
-                "KARLSSON Mattias (SWE)"
+                "VARADY Barbora (SVK)"
               ],
               "side_b": [
-                "VARADY Barbora (SVK)",
+                "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ARPAS Samuel (SVK) | VARADY Barbora (SVK) | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | R64 | 2 - 3 | 11:8 2:11 3:11 11:8 5:11 | KARLSSON Mattias | BERGSTROM Linda | "
             },
             {
@@ -2023,7 +1931,7 @@
                 "9:11",
                 "14:12"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / LEE Eunhye",
               "all_players_in_row": [
                 "KIM Nayeong (KOR)",
                 "LEE Eunhye (KOR)",
@@ -2032,17 +1940,14 @@
               ],
               "side_a": [
                 "KIM Nayeong (KOR)",
-                "BERGSTROM Linda (SWE)"
+                "LEE Eunhye (KOR)"
               ],
               "side_b": [
-                "LEE Eunhye (KOR)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | KIM Nayeong (KOR) | LEE Eunhye (KOR) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R64 | 3 - 1 | 11:7 11:8 9:11 14:12 | KIM Nayeong | LEE Eunhye | "
             },
             {
@@ -2085,15 +1990,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "YAREMCHUK Solomiya (UKR)",
+                "YAREMCHUK Solomiya (UKR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | YAREMCHUK Solomiya (UKR) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R128 | 1 - 4 | 4:11 9:11 6:11 11:9 9:11 | BERGSTROM Linda |  | "
             },
             {
@@ -2125,7 +2028,7 @@
                 "12:10",
                 "5:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -2134,17 +2037,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "GARDOS Robert (AUT)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R32 | 1 - 3 | 9:11 3:11 12:10 5:11 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -2187,15 +2087,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MATELOVA Hana (CZE)",
+                "MATELOVA Hana (CZE)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MATELOVA Hana (CZE) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 4 - 1 | 11:6 11:5 9:11 11:7 12:10 | MATELOVA Hana |  | "
             }
           ]
@@ -2232,7 +2130,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / BERGSTROM Linda",
               "all_players_in_row": [
                 "SUN Yang (CHN)",
                 "HU Yi (CHN)",
@@ -2241,17 +2139,14 @@
               ],
               "side_a": [
                 "SUN Yang (CHN)",
-                "KARLSSON Mattias (SWE)"
+                "HU Yi (CHN)"
               ],
               "side_b": [
-                "HU Yi (CHN)",
+                "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | SUN Yang (CHN) | HU Yi (CHN) | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | XD | Qualification | QR8 | 0 - 3 | 4:11 9:11 9:11 | KARLSSON Mattias | BERGSTROM Linda | "
             },
             {
@@ -2283,7 +2178,7 @@
                 "6:11",
                 "11:3"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / BERGSTROM Linda",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -2292,17 +2187,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "ABDELAZIZ Youssef (EGY)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "ABDELAZIZ Youssef (EGY)",
                 "ALHODABY Mariam (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | ABDELAZIZ Youssef (EGY) | ALHODABY Mariam (EGY) | XD | Main Draw | R16 | 3 - 1 | 11:3 11:7 6:11 11:3 | KARLSSON Mattias | BERGSTROM Linda | "
             },
             {
@@ -2339,7 +2231,7 @@
                 "12:10",
                 "6:11"
               ],
-              "winner": "MATSUSHIMA Sora",
+              "winner": "MATSUSHIMA Sora / HARIMOTO Miwa",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -2348,17 +2240,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "MATSUSHIMA Sora (JPN)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "MATSUSHIMA Sora (JPN)",
                 "HARIMOTO Miwa (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | MATSUSHIMA Sora (JPN) | HARIMOTO Miwa (JPN) | XD | Main Draw | QuarterFinal | 2 - 3 | 12:10 7:11 8:11 12:10 6:11 | MATSUSHIMA Sora | HARIMOTO Miwa | "
             },
             {
@@ -2391,15 +2280,13 @@
                 "YANG Huize (CHN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "YANG Huize (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | BERGSTROM Linda (SWE) |  | YANG Huize (CHN) |  | WS | Main Draw | R32 | 3 - 0 | 13:11 11:7 11:8 | BERGSTROM Linda |  | "
             },
             {
@@ -2426,7 +2313,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "SASAO Asuka",
+              "winner": "SASAO Asuka / UESAWA Anne",
               "all_players_in_row": [
                 "SASAO Asuka (JPN)",
                 "UESAWA Anne (JPN)",
@@ -2435,17 +2322,14 @@
               ],
               "side_a": [
                 "SASAO Asuka (JPN)",
-                "BERGSTROM Linda (SWE)"
+                "UESAWA Anne (JPN)"
               ],
               "side_b": [
-                "UESAWA Anne (JPN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | SASAO Asuka (JPN) | UESAWA Anne (JPN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 3 - 0 | 13:11 11:7 11:8 | SASAO Asuka | UESAWA Anne | "
             },
             {
@@ -2478,15 +2362,13 @@
                 "HAYATA Hina (JPN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "HAYATA Hina (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | BERGSTROM Linda (SWE) |  | HAYATA Hina (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 6:11 5:11 | HAYATA Hina |  | "
             }
           ]
@@ -2534,15 +2416,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SHAN Xiaona (GER) |  | BERGSTROM Linda (SWE) |  | WS | Qualification |  | 2 - 2 | 10:12 7:11 11:4 11:8 |  |  | "
             },
             {
@@ -2580,15 +2460,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "WANG Manyu (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | WANG Manyu (CHN) |  | BERGSTROM Linda (SWE) |  | WS | Qualification |  | 3 - 1 | 11:8 8:11 11:8 12:10 | WANG Manyu |  | "
             }
           ]
@@ -2636,15 +2514,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SAMARA Elizabeta (ROU)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | SAMARA Elizabeta (ROU) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:13 12:10 11:2 11:8 | SAMARA Elizabeta |  | "
             },
             {
@@ -2677,15 +2553,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | BERGSTROM Linda (SWE) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 0 | 12:10 13:11 15:13 | BERGSTROM Linda |  | "
             }
           ]
@@ -2728,15 +2602,13 @@
                 "SHAN Xiaona (GER)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SHAN Xiaona (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | BERGSTROM Linda (SWE) |  | SHAN Xiaona (GER) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:7 12:10 | BERGSTROM Linda |  | "
             },
             {
@@ -2773,7 +2645,7 @@
                 "6:11",
                 "8:11"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -2782,17 +2654,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "JEE Minhyung (AUS)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "JEE Minhyung (AUS)",
                 "GHORPADE Yashaswini (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | JEE Minhyung (AUS) | GHORPADE Yashaswini (IND) | WD | Main Draw | R32 | 2 - 3 | 11:13 11:9 11:7 6:11 8:11 | JEE Minhyung | GHORPADE Yashaswini | "
             },
             {
@@ -2825,15 +2694,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "QIAN Tianyi (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | QIAN Tianyi (CHN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 12:10 11:8 | QIAN Tianyi |  | "
             }
           ]
@@ -2875,7 +2742,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "QIAN Tianyi",
+              "winner": "QIAN Tianyi / SHI Xunyao",
               "all_players_in_row": [
                 "QIAN Tianyi (CHN)",
                 "SHI Xunyao (CHN)",
@@ -2884,17 +2751,14 @@
               ],
               "side_a": [
                 "QIAN Tianyi (CHN)",
-                "KALLBERG Christina (SWE)"
+                "SHI Xunyao (CHN)"
               ],
               "side_b": [
-                "SHI Xunyao (CHN)",
+                "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | QIAN Tianyi (CHN) | SHI Xunyao (CHN) | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | WD | Qualification | QR8 | 3 - 1 | 10:12 11:7 11:6 11:7 | QIAN Tianyi | SHI Xunyao | "
             },
             {
@@ -2927,15 +2791,13 @@
                 "ZHU Yuling (MAC)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "ZHU Yuling (MAC)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | BERGSTROM Linda (SWE) |  | ZHU Yuling (MAC) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 6:11 9:11 | ZHU Yuling |  | "
             }
           ]
@@ -2977,7 +2839,7 @@
                 "11:9",
                 "12:10"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / BERGSTROM Linda",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -2986,17 +2848,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "NG Wing Lam (HKG)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "NG Wing Lam (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | NG Wing Lam (HKG) | DOO Hoi Kem (HKG) | XT | Qualification |  | 2 - 1 | 7:11 11:9 12:10 | KALLBERG Christina | BERGSTROM Linda | "
             },
             {
@@ -3029,15 +2888,13 @@
                 "NG Wing Lam (HKG)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | BERGSTROM Linda (SWE) |  | NG Wing Lam (HKG) |  | XT | Qualification |  | 2 - 1 | 11:4 10:12 11:6 | BERGSTROM Linda |  | "
             },
             {
@@ -3064,7 +2921,7 @@
                 "11:9",
                 "0:0"
               ],
-              "winner": "ZARIF Audrey",
+              "winner": "ZARIF Audrey / LUTZ Camille",
               "all_players_in_row": [
                 "ZARIF Audrey (FRA)",
                 "LUTZ Camille (FRA)",
@@ -3073,17 +2930,14 @@
               ],
               "side_a": [
                 "ZARIF Audrey (FRA)",
-                "KALLBERG Christina (SWE)"
+                "LUTZ Camille (FRA)"
               ],
               "side_b": [
-                "LUTZ Camille (FRA)",
+                "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | ZARIF Audrey (FRA) | LUTZ Camille (FRA) | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | XT | Qualification |  | 2 - 0 | 11:8 11:9 0:0 | ZARIF Audrey | LUTZ Camille | "
             },
             {
@@ -3116,15 +2970,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "ZARIF Audrey (FRA)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | ZARIF Audrey (FRA) |  | BERGSTROM Linda (SWE) |  | XT | Qualification |  | 0 - 3 | 10:12 7:11 1:11 | BERGSTROM Linda |  | "
             },
             {
@@ -3157,15 +3009,13 @@
                 "XU Jessie (CAN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "XU Jessie (CAN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | BERGSTROM Linda (SWE) |  | XU Jessie (CAN) |  | XT | Qualification |  | 3 - 0 | 11:6 11:6 11:3 | BERGSTROM Linda |  | "
             }
           ]
@@ -3202,7 +3052,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3211,17 +3061,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "BEZEG Reka (SRB)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "BEZEG Reka (SRB)",
                 "MAKSUTI Aneta (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | BEZEG Reka (SRB) | MAKSUTI Aneta (SRB) | WD | Main Draw | R32 | 3 - 0 | 11:7 11:9 11:7 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -3253,7 +3100,7 @@
                 "7:11",
                 "12:10"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3262,17 +3109,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "KAUFMANN Annett (GER)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "KAUFMANN Annett (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | KAUFMANN Annett (GER) | MITTELHAM Nina (GER) | WD | Main Draw | R16 | 3 - 1 | 11:9 15:13 7:11 12:10 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -3299,7 +3143,7 @@
                 "7:11",
                 "10:12"
               ],
-              "winner": "MATELOVA Hana",
+              "winner": "MATELOVA Hana / VARADY Barbora",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3308,17 +3152,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "MATELOVA Hana (CZE)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "MATELOVA Hana (CZE)",
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | MATELOVA Hana (CZE) | VARADY Barbora (SVK) | WD | Main Draw | QuarterFinal | 0 - 3 | 8:11 7:11 10:12 | MATELOVA Hana | VARADY Barbora | "
             },
             {
@@ -3356,15 +3197,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "CHIRIACOVA Alexandra (MDA)",
+                "CHIRIACOVA Alexandra (MDA)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | CHIRIACOVA Alexandra (MDA) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 0 - 4 | 3:11 4:11 10:12 8:11 | BERGSTROM Linda |  | "
             },
             {
@@ -3402,15 +3241,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MALOBABIC Ivana (CRO)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | MALOBABIC Ivana (CRO) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 0 - 4 | 9:11 6:11 8:11 8:11 | BERGSTROM Linda |  | "
             },
             {
@@ -3458,15 +3295,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | SZOCS Bernadette (ROU) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 4 - 2 | 9:11 11:6 6:11 11:7 11:8 13:11 | SZOCS Bernadette |  | "
             },
             {
@@ -3503,7 +3338,7 @@
                 "11:4",
                 "11:8"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / BERGSTROM Linda",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -3512,17 +3347,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "ANGELAKIS Konstantinos (GRE)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "ANGELAKIS Konstantinos (GRE)",
                 "TOLIOU Aikaterini (GRE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | ANGELAKIS Konstantinos (GRE) | TOLIOU Aikaterini (GRE) | XD | Qualification | QR32 | 3 - 2 | 11:5 7:11 4:11 11:4 11:8 | KARLSSON Mattias | BERGSTROM Linda | "
             },
             {
@@ -3554,7 +3386,7 @@
                 "11:8",
                 "11:5"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / BERGSTROM Linda",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -3563,17 +3395,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "ECSEKI Nandor (HUN)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "ECSEKI Nandor (HUN)",
                 "BALINT Bernadett (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | ECSEKI Nandor (HUN) | BALINT Bernadett (HUN) | XD | Main Draw | R32 | 3 - 1 | 11:9 9:11 11:8 11:5 | KARLSSON Mattias | BERGSTROM Linda | "
             },
             {
@@ -3610,7 +3439,7 @@
                 "11:5",
                 "11:4"
               ],
-              "winner": "GAUZY Simon",
+              "winner": "GAUZY Simon / PAVADE Prithika",
               "all_players_in_row": [
                 "GAUZY Simon (FRA)",
                 "PAVADE Prithika (FRA)",
@@ -3619,17 +3448,14 @@
               ],
               "side_a": [
                 "GAUZY Simon (FRA)",
-                "KARLSSON Mattias (SWE)"
+                "PAVADE Prithika (FRA)"
               ],
               "side_b": [
-                "PAVADE Prithika (FRA)",
+                "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | GAUZY Simon (FRA) | PAVADE Prithika (FRA) | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | R16 | 3 - 2 | 9:11 11:9 7:11 11:5 11:4 | GAUZY Simon | PAVADE Prithika | "
             }
           ]
@@ -3682,15 +3508,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "DOO Hoi Kem (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | DOO Hoi Kem (HKG) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 3 - 2 | 11:8 11:6 8:11 10:12 14:12 | DOO Hoi Kem |  | "
             },
             {
@@ -3722,7 +3546,7 @@
                 "10:12",
                 "9:11"
               ],
-              "winner": "DIAZ Adriana",
+              "winner": "DIAZ Adriana / PAVADE Prithika",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3731,17 +3555,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "DIAZ Adriana (PUR)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "DIAZ Adriana (PUR)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | DIAZ Adriana (PUR) | PAVADE Prithika (FRA) | WD | Main Draw | R32 | 1 - 3 | 15:13 10:12 10:12 9:11 | DIAZ Adriana | PAVADE Prithika | "
             }
           ]
@@ -3778,7 +3599,7 @@
                 "10:12",
                 "4:11"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / BERGSTROM Linda",
               "all_players_in_row": [
                 "SISANOVAS Ignas (LTU)",
                 "POON Yat (ENG)",
@@ -3787,17 +3608,14 @@
               ],
               "side_a": [
                 "SISANOVAS Ignas (LTU)",
-                "KARLSSON Mattias (SWE)"
+                "POON Yat (ENG)"
               ],
               "side_b": [
-                "POON Yat (ENG)",
+                "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | SISANOVAS Ignas (LTU) | POON Yat (ENG) | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | R16 | 0 - 3 | 8:11 10:12 4:11 | KARLSSON Mattias | BERGSTROM Linda | "
             },
             {
@@ -3824,7 +3642,7 @@
                 "11:5",
                 "11:7"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3833,17 +3651,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "HANDEN Anja (SWE)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "HANDEN Anja (SWE)",
                 "SVENSSON Agnes (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | HANDEN Anja (SWE) | SVENSSON Agnes (SWE) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:5 11:7 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -3875,7 +3690,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / BERGSTROM Linda",
               "all_players_in_row": [
                 "FRIIS Martin (SWE)",
                 "BERGAND Filippa (SWE)",
@@ -3884,17 +3699,14 @@
               ],
               "side_a": [
                 "FRIIS Martin (SWE)",
-                "KARLSSON Mattias (SWE)"
+                "BERGAND Filippa (SWE)"
               ],
               "side_b": [
-                "BERGAND Filippa (SWE)",
+                "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | FRIIS Martin (SWE) | BERGAND Filippa (SWE) | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | QuarterFinal | 1 - 3 | 9:11 9:11 11:8 9:11 | KARLSSON Mattias | BERGSTROM Linda | "
             },
             {
@@ -3932,15 +3744,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "BERGAND Filippa (SWE)",
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | BERGAND Filippa (SWE) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 1 - 3 | 10:12 11:8 7:11 10:12 | BERGSTROM Linda |  | "
             },
             {
@@ -3972,7 +3782,7 @@
                 "3:11",
                 "4:11"
               ],
-              "winner": "WANG Xiaotong",
+              "winner": "WANG Xiaotong / HAN Feier",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3981,17 +3791,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "WANG Xiaotong (CHN)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "WANG Xiaotong (CHN)",
                 "HAN Feier (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WANG Xiaotong (CHN) | HAN Feier (CHN) | WD | Main Draw | QuarterFinal | 1 - 3 | 10:12 11:5 3:11 4:11 | WANG Xiaotong | HAN Feier | "
             },
             {
@@ -4029,15 +3836,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "BRZYSKA Anna (POL)",
+                "BRZYSKA Anna (POL)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | BRZYSKA Anna (POL) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 3 - 1 | 11:8 11:8 8:11 11:9 | BRZYSKA Anna |  | "
             },
             {
@@ -4069,7 +3874,7 @@
                 "11:8",
                 "11:8"
               ],
-              "winner": "XU Haidong",
+              "winner": "XU Haidong / FAN Shuhan",
               "all_players_in_row": [
                 "XU Haidong (CHN)",
                 "FAN Shuhan (CHN)",
@@ -4078,17 +3883,14 @@
               ],
               "side_a": [
                 "XU Haidong (CHN)",
-                "KARLSSON Mattias (SWE)"
+                "FAN Shuhan (CHN)"
               ],
               "side_b": [
-                "FAN Shuhan (CHN)",
+                "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | XU Haidong (CHN) | FAN Shuhan (CHN) | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | SemiFinal | 3 - 1 | 6:11 11:8 11:8 11:8 | XU Haidong | FAN Shuhan | "
             }
           ]
@@ -4140,7 +3942,7 @@
                 "11:5",
                 "6:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "ZENG Jian (SGP)",
                 "GOI Rui Xuan (SGP)",
@@ -4149,17 +3951,14 @@
               ],
               "side_a": [
                 "ZENG Jian (SGP)",
-                "BERGSTROM Linda (SWE)"
+                "GOI Rui Xuan (SGP)"
               ],
               "side_b": [
-                "GOI Rui Xuan (SGP)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | ZENG Jian (SGP) | GOI Rui Xuan (SGP) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 2 - 3 | 7:11 11:9 9:11 11:5 6:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -4197,15 +3996,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "LUTZ Charlotte (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | LUTZ Charlotte (FRA) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 3 - 1 | 11:8 6:11 11:6 11:9 | LUTZ Charlotte |  | "
             },
             {
@@ -4242,7 +4039,7 @@
                 "11:6",
                 "8:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -4251,17 +4048,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "BERGSTROM Linda (SWE)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | QuarterFinal | 2 - 3 | 10:12 9:11 11:6 11:6 8:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -4298,7 +4092,7 @@
                 "7:11",
                 "11:4"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -4307,17 +4101,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "DIACONU Adina (ROU)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "DIACONU Adina (ROU)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | DIACONU Adina (ROU) | XIAO Maria (ESP) | WD | Main Draw | SemiFinal | 3 - 2 | 11:7 11:3 8:11 7:11 11:4 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -4344,7 +4135,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / ZHU Chengzhu",
               "all_players_in_row": [
                 "DOO Hoi Kem (HKG)",
                 "ZHU Chengzhu (HKG)",
@@ -4353,17 +4144,14 @@
               ],
               "side_a": [
                 "DOO Hoi Kem (HKG)",
-                "BERGSTROM Linda (SWE)"
+                "ZHU Chengzhu (HKG)"
               ],
               "side_b": [
-                "ZHU Chengzhu (HKG)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | DOO Hoi Kem (HKG) | ZHU Chengzhu (HKG) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | Final | 3 - 0 | 11:7 11:8 11:6 | DOO Hoi Kem | ZHU Chengzhu | "
             }
           ]
@@ -4411,15 +4199,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "ITO Mima (JPN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Champions Macao 2022 | ITO Mima (JPN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 3 - 1 | 9:11 11:8 11:6 11:6 | ITO Mima |  | "
             }
           ]
@@ -4472,15 +4258,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SAMARA Elizabeta (ROU)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SAMARA Elizabeta (ROU) |  | BERGSTROM Linda (SWE) |  | WT | Qualification |  | 2 - 3 | 8:11 8:11 11:6 16:14 9:11 | BERGSTROM Linda |  | "
             },
             {
@@ -4523,15 +4307,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SZOCS Bernadette (ROU) |  | BERGSTROM Linda (SWE) |  | WT | Qualification |  | 2 - 3 | 7:11 11:7 12:14 11:7 2:11 | BERGSTROM Linda |  | "
             },
             {
@@ -4564,15 +4346,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | BERGSTROM Linda (SWE) |  | SHAO Jieni (POR) |  | WT | Qualification |  | 3 - 0 | 11:6 11:6 11:6 | BERGSTROM Linda |  | "
             },
             {
@@ -4615,15 +4395,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | BERGSTROM Linda (SWE) |  | YU Fu (POR) |  | WT | Qualification |  | 2 - 3 | 11:7 7:11 8:11 13:11 9:11 | YU Fu |  | "
             },
             {
@@ -4662,18 +4440,17 @@
               ],
               "winner": "BERGSTROM Linda",
               "all_players_in_row": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "side_a": [
                 "LI Yu-Jhun (TPE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LI Yu-Jhun (TPE)"
+              ],
+              "side_b": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | LI Yu-Jhun (TPE) |  | BERGSTROM Linda (SWE) |  | WT | Qualification |  | 2 - 3 | 8:11 13:15 11:4 11:9 4:11 | BERGSTROM Linda |  | "
             },
             {
@@ -4712,18 +4489,17 @@
               ],
               "winner": "BERGSTROM Linda",
               "all_players_in_row": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "side_a": [
                 "LIU Hsing-Yin (TPE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LIU Hsing-Yin (TPE)"
+              ],
+              "side_b": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | LIU Hsing-Yin (TPE) |  | BERGSTROM Linda (SWE) |  | WT | Qualification |  | 2 - 3 | 9:11 11:6 11:7 2:11 10:12 | BERGSTROM Linda |  | "
             }
           ]
@@ -4760,7 +4536,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / BERGSTROM Linda",
               "all_players_in_row": [
                 "CHASSELIN Pauline (FRA)",
                 "WAN Yuan (GER)",
@@ -4769,17 +4545,14 @@
               ],
               "side_a": [
                 "CHASSELIN Pauline (FRA)",
-                "KALLBERG Christina (SWE)"
+                "WAN Yuan (GER)"
               ],
               "side_b": [
-                "WAN Yuan (GER)",
+                "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | CHASSELIN Pauline (FRA) | WAN Yuan (GER) | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | WD | Main Draw | R16 | 0 - 3 | 7:11 6:11 9:11 | KALLBERG Christina | BERGSTROM Linda | "
             },
             {
@@ -4822,15 +4595,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "ZONG Geman (CHN)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | ZONG Geman (CHN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 2 - 3 | 11:6 8:11 6:11 11:5 6:11 | BERGSTROM Linda |  | "
             },
             {
@@ -4862,7 +4633,7 @@
                 "11:7",
                 "5:11"
               ],
-              "winner": "PISTEJ Lubomir",
+              "winner": "PISTEJ Lubomir / VARADY Barbora",
               "all_players_in_row": [
                 "KALLBERG Anton (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -4871,17 +4642,14 @@
               ],
               "side_a": [
                 "KALLBERG Anton (SWE)",
-                "PISTEJ Lubomir (SVK)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "PISTEJ Lubomir (SVK)",
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | KALLBERG Anton (SWE) | BERGSTROM Linda (SWE) | PISTEJ Lubomir (SVK) | VARADY Barbora (SVK) | XD | Main Draw | R16 | 1 - 3 | 10:12 2:11 11:7 5:11 | PISTEJ Lubomir | VARADY Barbora | "
             },
             {
@@ -4908,7 +4676,7 @@
                 "11:5",
                 "12:10"
               ],
-              "winner": "ZENG Jian",
+              "winner": "ZENG Jian / ZHOU Jingyi",
               "all_players_in_row": [
                 "ZENG Jian (SGP)",
                 "ZHOU Jingyi (SGP)",
@@ -4917,17 +4685,14 @@
               ],
               "side_a": [
                 "ZENG Jian (SGP)",
-                "KALLBERG Christina (SWE)"
+                "ZHOU Jingyi (SGP)"
               ],
               "side_b": [
-                "ZHOU Jingyi (SGP)",
+                "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | ZENG Jian (SGP) | ZHOU Jingyi (SGP) | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | WD | Main Draw | QuarterFinal | 3 - 0 | 13:11 11:5 12:10 | ZENG Jian | ZHOU Jingyi | "
             },
             {
@@ -4960,15 +4725,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Almaty 2022 | HAYATA Hina (JPN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:6 11:9 | HAYATA Hina |  | "
             }
           ]
@@ -5016,15 +4779,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "HRISTOVA Kalina (BUL)",
+                "HRISTOVA Kalina (BUL)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | HRISTOVA Kalina (BUL) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 0 - 4 | 5:11 6:11 6:11 6:11 | BERGSTROM Linda |  | "
             },
             {
@@ -5051,7 +4812,7 @@
                 "11:8",
                 "15:13"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -5060,17 +4821,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "VIVARELLI Debora (ITA)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "VIVARELLI Debora (ITA)",
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | VIVARELLI Debora (ITA) | PICCOLIN Giorgia (ITA) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:8 15:13 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -5113,15 +4871,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SURJAN Sabina (SRB)",
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | SURJAN Sabina (SRB) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 1 - 4 | 6:11 4:11 5:11 11:8 5:11 | BERGSTROM Linda |  | "
             },
             {
@@ -5148,7 +4904,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -5157,17 +4913,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "KIM Nayeong (KOR)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "KIM Nayeong (KOR)",
                 "YOON Hyobin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | KIM Nayeong (KOR) | YOON Hyobin (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:3 11:6 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -5201,18 +4954,17 @@
               ],
               "winner": "BERGSTROM Linda",
               "all_players_in_row": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "side_a": [
                 "ZHANG Sofia-Xuan (ESP)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "side_b": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | ZHANG Sofia-Xuan (ESP) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 0 - 4 | 7:11 7:11 6:11 5:11 | BERGSTROM Linda |  | "
             },
             {
@@ -5249,7 +5001,7 @@
                 "1:11",
                 "5:11"
               ],
-              "winner": "PAVADE Prithika",
+              "winner": "PAVADE Prithika / LUTZ Camille",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -5258,17 +5010,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "PAVADE Prithika (FRA)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "PAVADE Prithika (FRA)",
                 "LUTZ Camille (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | PAVADE Prithika (FRA) | LUTZ Camille (FRA) | WD | Main Draw | SemiFinal | 2 - 3 | 13:15 11:4 11:9 1:11 5:11 | PAVADE Prithika | LUTZ Camille | "
             },
             {
@@ -5316,15 +5065,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "WU Yangchen (CHN)",
+                "WU Yangchen (CHN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | WU Yangchen (CHN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | QuarterFinal | 4 - 2 | 6:11 11:4 11:8 8:11 15:13 22:20 | WU Yangchen |  | "
             }
           ]
@@ -5361,7 +5108,7 @@
                 "6:11",
                 "11:13"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "SURJAN Sabina (SRB)",
                 "TODOROVIC Andrea (SRB)",
@@ -5370,17 +5117,14 @@
               ],
               "side_a": [
                 "SURJAN Sabina (SRB)",
-                "BERGSTROM Linda (SWE)"
+                "TODOROVIC Andrea (SRB)"
               ],
               "side_b": [
-                "TODOROVIC Andrea (SRB)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | SURJAN Sabina (SRB) | TODOROVIC Andrea (SRB) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R32 | 0 - 3 | 8:11 6:11 11:13 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -5412,7 +5156,7 @@
                 "3:11",
                 "7:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGAND Filippa (SWE)",
                 "MUSKANTOR Rebecca (SWE)",
@@ -5421,17 +5165,14 @@
               ],
               "side_a": [
                 "BERGAND Filippa (SWE)",
-                "BERGSTROM Linda (SWE)"
+                "MUSKANTOR Rebecca (SWE)"
               ],
               "side_b": [
-                "MUSKANTOR Rebecca (SWE)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | BERGAND Filippa (SWE) | MUSKANTOR Rebecca (SWE) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 1 - 3 | 11:7 3:11 3:11 7:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -5463,7 +5204,7 @@
                 "7:11",
                 "11:8"
               ],
-              "winner": "DE NUTTE Sarah",
+              "winner": "DE NUTTE Sarah / NI Xia Lian",
               "all_players_in_row": [
                 "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)",
@@ -5472,17 +5213,14 @@
               ],
               "side_a": [
                 "DE NUTTE Sarah (LUX)",
-                "BERGSTROM Linda (SWE)"
+                "NI Xia Lian (LUX)"
               ],
               "side_b": [
-                "NI Xia Lian (LUX)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:6 13:11 7:11 11:8 | DE NUTTE Sarah | NI Xia Lian | "
             },
             {
@@ -5520,15 +5258,13 @@
                 "CARLSEN Rebekka (NOR)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "CARLSEN Rebekka (NOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | BERGSTROM Linda (SWE) |  | CARLSEN Rebekka (NOR) |  | WS | Main Draw | R64 | 4 - 0 | 11:3 11:9 11:3 11:7 | BERGSTROM Linda |  | "
             },
             {
@@ -5571,15 +5307,13 @@
                 "DRAGOMAN Andreea (ROU)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | BERGSTROM Linda (SWE) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 1 - 4 | 9:11 11:4 14:16 9:11 7:11 | DRAGOMAN Andreea |  | "
             },
             {
@@ -5616,7 +5350,7 @@
                 "12:10",
                 "11:3"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -5625,17 +5359,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "MOREGARD Truls (SWE)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "MOREGARD Truls (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | MOREGARD Truls (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | R32 | 3 - 2 | 4:11 11:7 12:14 12:10 11:3 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -5672,7 +5403,7 @@
                 "10:12",
                 "11:8"
               ],
-              "winner": "MOREGARD Truls",
+              "winner": "MOREGARD Truls / BERGSTROM Linda",
               "all_players_in_row": [
                 "MOREGARD Truls (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -5681,17 +5412,14 @@
               ],
               "side_a": [
                 "MOREGARD Truls (SWE)",
-                "LIBENE Toomas (EST)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "LIBENE Toomas (EST)",
                 "AVAMERI Airi (EST)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | MOREGARD Truls (SWE) | BERGSTROM Linda (SWE) | LIBENE Toomas (EST) | AVAMERI Airi (EST) | XD | Qualification | QR32 | 3 - 2 | 9:11 11:9 11:1 10:12 11:8 | MOREGARD Truls | BERGSTROM Linda | "
             }
           ]
@@ -5738,7 +5466,7 @@
                 "8:11",
                 "10:12"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "FEJOS Anna (HUN)",
                 "DARI Helga (HUN)",
@@ -5747,17 +5475,14 @@
               ],
               "side_a": [
                 "FEJOS Anna (HUN)",
-                "BERGSTROM Linda (SWE)"
+                "DARI Helga (HUN)"
               ],
               "side_b": [
-                "DARI Helga (HUN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | FEJOS Anna (HUN) | DARI Helga (HUN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Qualification | QR8 | 2 - 3 | 7:11 11:7 11:7 8:11 10:12 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -5790,15 +5515,13 @@
                 "SUH Hyo Won (KOR)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SUH Hyo Won (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | BERGSTROM Linda (SWE) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 7:11 14:16 11:13 | SUH Hyo Won |  | "
             },
             {
@@ -5825,7 +5548,7 @@
                 "11:9",
                 "11:5"
               ],
-              "winner": "HIRANO Miu",
+              "winner": "HIRANO Miu / ISHIKAWA Kasumi",
               "all_players_in_row": [
                 "HIRANO Miu (JPN)",
                 "ISHIKAWA Kasumi (JPN)",
@@ -5834,17 +5557,14 @@
               ],
               "side_a": [
                 "HIRANO Miu (JPN)",
-                "BERGSTROM Linda (SWE)"
+                "ISHIKAWA Kasumi (JPN)"
               ],
               "side_b": [
-                "ISHIKAWA Kasumi (JPN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | HIRANO Miu (JPN) | ISHIKAWA Kasumi (JPN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:5 | HIRANO Miu | ISHIKAWA Kasumi | "
             }
           ]
@@ -5897,15 +5617,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "CHITALE Diya (IND)",
+                "CHITALE Diya (IND)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | CHITALE Diya (IND) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 1 - 4 | 8:11 12:10 10:12 7:11 2:11 | BERGSTROM Linda |  | "
             },
             {
@@ -5958,15 +5676,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MUKHERJEE Ayhika (IND)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | MUKHERJEE Ayhika (IND) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 3 - 4 | 11:3 11:7 5:11 9:11 11:6 7:11 7:11 | BERGSTROM Linda |  | "
             },
             {
@@ -6009,15 +5725,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "LEE Zion (KOR)",
+                "LEE Zion (KOR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Otocec 2022 | LEE Zion (KOR) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 4 - 1 | 11:7 7:11 11:5 11:9 11:6 | LEE Zion |  | "
             }
           ]
@@ -6054,7 +5768,7 @@
                 "7:11",
                 "7:11"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / KUAI Man",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -6063,17 +5777,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "CHEN Yi (CHN)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "CHEN Yi (CHN)",
                 "KUAI Man (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | CHEN Yi (CHN) | KUAI Man (CHN) | WD | Main Draw | R16 | 0 - 3 | 16:18 7:11 7:11 | CHEN Yi | KUAI Man | "
             },
             {
@@ -6102,18 +5813,17 @@
               ],
               "winner": "CHENG I-Ching",
               "all_players_in_row": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "side_a": [
                 "BERGSTROM Linda (SWE)",
                 "CHENG I-Ching (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
+                "CHENG I-Ching (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | BERGSTROM Linda (SWE) |  | CHENG I-Ching (TPE) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 7:11 4:11 | CHENG I-Ching |  | "
             }
           ]
@@ -6161,15 +5871,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MADARASZ Dora (HUN)",
+                "MADARASZ Dora (HUN)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | MADARASZ Dora (HUN) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 1 - 3 | 11:4 8:11 13:15 10:12 | BERGSTROM Linda |  | "
             },
             {
@@ -6196,7 +5904,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "KIHARA Miyuu",
+              "winner": "KIHARA Miyuu / NAGASAKI Miyu",
               "all_players_in_row": [
                 "KIHARA Miyuu (JPN)",
                 "NAGASAKI Miyu (JPN)",
@@ -6205,17 +5913,14 @@
               ],
               "side_a": [
                 "KIHARA Miyuu (JPN)",
-                "BERGSTROM Linda (SWE)"
+                "NAGASAKI Miyu (JPN)"
               ],
               "side_b": [
-                "NAGASAKI Miyu (JPN)",
+                "BERGSTROM Linda (SWE)",
                 "MISCHEK Karoline (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | KIHARA Miyuu (JPN) | NAGASAKI Miyu (JPN) | BERGSTROM Linda (SWE) | MISCHEK Karoline (AUT) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:6 11:7 | KIHARA Miyuu | NAGASAKI Miyu | "
             },
             {
@@ -6254,18 +5959,17 @@
               ],
               "winner": "BERGSTROM Linda",
               "all_players_in_row": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "side_a": [
                 "BERGSTROM Linda (SWE)",
                 "CHENG I-Ching (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
+                "CHENG I-Ching (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | BERGSTROM Linda (SWE) |  | CHENG I-Ching (TPE) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 12:10 5:11 7:11 11:6 | BERGSTROM Linda |  | "
             },
             {
@@ -6294,18 +5998,17 @@
               ],
               "winner": "CHEN Szu-Yu",
               "all_players_in_row": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "side_a": [
                 "CHEN Szu-Yu (TPE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHEN Szu-Yu (TPE)"
+              ],
+              "side_b": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | CHEN Szu-Yu (TPE) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 11:9 11:8 | CHEN Szu-Yu |  | "
             }
           ]
@@ -6347,7 +6050,7 @@
                 "11:8",
                 "8:11"
               ],
-              "winner": "KIHARA Miyuu",
+              "winner": "KIHARA Miyuu / NAGASAKI Miyu",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -6356,17 +6059,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "KIHARA Miyuu (JPN)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "KIHARA Miyuu (JPN)",
                 "NAGASAKI Miyu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | KIHARA Miyuu (JPN) | NAGASAKI Miyu (JPN) | WD | Main Draw | QuarterFinal | 1 - 3 | 10:12 9:11 11:8 8:11 | KIHARA Miyuu | NAGASAKI Miyu | "
             },
             {
@@ -6404,15 +6104,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "DOO Hoi Kem (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | DOO Hoi Kem (HKG) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 1 - 3 | 11:9 5:11 4:11 7:11 | BERGSTROM Linda |  | "
             },
             {
@@ -6439,7 +6137,7 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / BERGSTROM Linda",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -6448,17 +6146,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "LIU Weishan (CHN)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "LIU Weishan (CHN)",
                 "QIAN Tianyi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | LIU Weishan (CHN) | QIAN Tianyi (CHN) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:6 11:6 | KALLBERG Christina | BERGSTROM Linda | "
             },
             {
@@ -6496,15 +6191,13 @@
                 "FAN Siqi (CHN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "FAN Siqi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | BERGSTROM Linda (SWE) |  | FAN Siqi (CHN) |  | WS | Main Draw | R16 | 1 - 3 | 11:9 7:11 6:11 3:11 | FAN Siqi |  | "
             }
           ]
@@ -6557,15 +6250,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SUH Hyo Won (KOR)",
+                "SUH Hyo Won (KOR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | SUH Hyo Won (KOR) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 3 - 2 | 11:8 8:11 11:6 7:11 13:11 | SUH Hyo Won |  | "
             },
             {
@@ -6592,7 +6283,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -6601,17 +6292,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "SZOCS Bernadette (ROU)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | R16 | 0 - 3 | 3:11 9:11 8:11 | SZOCS Bernadette | POLCANOVA Sofia | "
             }
           ]
@@ -6664,15 +6352,13 @@
                 "ARGUELLES Camila (ARG)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "ARGUELLES Camila (ARG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | BERGSTROM Linda (SWE) |  | ARGUELLES Camila (ARG) |  | WS | Main Draw | R128 | 4 - 0 | 11:5 11:3 11:7 11:1 | BERGSTROM Linda |  | "
             },
             {
@@ -6710,15 +6396,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "MATELOVA Hana (CZE)",
+                "MATELOVA Hana (CZE)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | MATELOVA Hana (CZE) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R64 | 0 - 4 | 8:11 5:11 7:11 4:11 | BERGSTROM Linda |  | "
             },
             {
@@ -6755,7 +6439,7 @@
                 "12:10",
                 "12:10"
               ],
-              "winner": "POTA Georgina",
+              "winner": "POTA Georgina / MADARASZ Dora",
               "all_players_in_row": [
                 "POTA Georgina (HUN)",
                 "MADARASZ Dora (HUN)",
@@ -6764,17 +6448,14 @@
               ],
               "side_a": [
                 "POTA Georgina (HUN)",
-                "BERGSTROM Linda (SWE)"
+                "MADARASZ Dora (HUN)"
               ],
               "side_b": [
-                "MADARASZ Dora (HUN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | POTA Georgina (HUN) | MADARASZ Dora (HUN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R32 | 3 - 2 | 9:11 12:10 6:11 12:10 12:10 | POTA Georgina | MADARASZ Dora | "
             },
             {
@@ -6812,15 +6493,13 @@
                 "WANG Manyu (CHN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "WANG Manyu (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | BERGSTROM Linda (SWE) |  | WANG Manyu (CHN) |  | WS | Main Draw | R32 | 0 - 4 | 10:12 6:11 8:11 2:11 | WANG Manyu |  | "
             }
           ]
@@ -6867,7 +6546,7 @@
                 "11:8",
                 "11:4"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / BERGSTROM Linda",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -6876,17 +6555,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "LIN Ye (CAN)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "LIN Ye (CAN)",
                 "ZENG Jian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | LIN Ye (CAN) | ZENG Jian (SGP) | WD | Main Draw | R16 | 3 - 2 | 11:7 8:11 3:11 11:8 11:4 | KALLBERG Christina | BERGSTROM Linda | "
             },
             {
@@ -6924,15 +6600,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | VARADY Barbora (SVK) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 1 - 3 | 7:11 4:11 11:8 9:11 | BERGSTROM Linda |  | "
             },
             {
@@ -6964,7 +6638,7 @@
                 "4:11",
                 "9:11"
               ],
-              "winner": "CHASSELIN Pauline",
+              "winner": "CHASSELIN Pauline / PAVADE Prithika",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -6973,17 +6647,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "CHASSELIN Pauline (FRA)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "CHASSELIN Pauline (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | CHASSELIN Pauline (FRA) | PAVADE Prithika (FRA) | WD | Main Draw | QuarterFinal | 1 - 3 | 7:11 11:2 4:11 9:11 | CHASSELIN Pauline | PAVADE Prithika | "
             },
             {
@@ -7021,15 +6692,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "EERLAND Britt (NED)",
+                "EERLAND Britt (NED)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | EERLAND Britt (NED) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 1 - 3 | 11:9 6:11 3:11 6:11 | BERGSTROM Linda |  | "
             },
             {
@@ -7067,15 +6736,13 @@
                 "ZENG Jian (SGP)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "ZENG Jian (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | BERGSTROM Linda (SWE) |  | ZENG Jian (SGP) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:8 10:12 11:7 11:3 | BERGSTROM Linda |  | "
             },
             {
@@ -7123,15 +6790,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "NI Xia Lian (LUX)",
+                "NI Xia Lian (LUX)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | NI Xia Lian (LUX) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | SemiFinal | 4 - 2 | 13:15 8:11 11:5 11:9 11:6 11:7 | NI Xia Lian |  | "
             }
           ]
@@ -7178,7 +6843,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "MANTZ Chantal (GER)",
                 "WAN Yuan (GER)",
@@ -7187,17 +6852,14 @@
               ],
               "side_a": [
                 "MANTZ Chantal (GER)",
-                "BERGSTROM Linda (SWE)"
+                "WAN Yuan (GER)"
               ],
               "side_b": [
-                "WAN Yuan (GER)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MANTZ Chantal (GER) | WAN Yuan (GER) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 2 - 3 | 12:10 7:11 11:5 9:11 7:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -7235,15 +6897,13 @@
                 "MIGOT Marie (FRA)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "MIGOT Marie (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | BERGSTROM Linda (SWE) |  | MIGOT Marie (FRA) |  | WS | Main Draw | R32 | 3 - 1 | 15:13 11:6 8:11 11:8 | BERGSTROM Linda |  | "
             },
             {
@@ -7270,7 +6930,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "MOSTAFAVI Leili (FRA)",
                 "ZARIF Audrey (FRA)",
@@ -7279,17 +6939,14 @@
               ],
               "side_a": [
                 "MOSTAFAVI Leili (FRA)",
-                "BERGSTROM Linda (SWE)"
+                "ZARIF Audrey (FRA)"
               ],
               "side_b": [
-                "ZARIF Audrey (FRA)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MOSTAFAVI Leili (FRA) | ZARIF Audrey (FRA) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | QuarterFinal | 0 - 3 | 6:11 7:11 5:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -7327,15 +6984,13 @@
                 "DIAZ Adriana (PUR)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "DIAZ Adriana (PUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | BERGSTROM Linda (SWE) |  | DIAZ Adriana (PUR) |  | WS | Main Draw | R16 | 1 - 3 | 6:11 9:11 12:10 5:11 | DIAZ Adriana |  | "
             },
             {
@@ -7362,7 +7017,7 @@
                 "5:11",
                 "9:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -7371,17 +7026,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "BERGSTROM Linda (SWE)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | SemiFinal | 0 - 3 | 6:11 5:11 9:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -7418,7 +7070,7 @@
                 "11:7",
                 "9:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "MORET Rachel (SUI)",
                 "TRIGOLOS Daria (AIN)",
@@ -7427,17 +7079,14 @@
               ],
               "side_a": [
                 "MORET Rachel (SUI)",
-                "BERGSTROM Linda (SWE)"
+                "TRIGOLOS Daria (AIN)"
               ],
               "side_b": [
-                "TRIGOLOS Daria (AIN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MORET Rachel (SUI) | TRIGOLOS Daria (AIN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | Final | 2 - 3 | 12:10 9:11 7:11 11:7 9:11 | BERGSTROM Linda | KALLBERG Christina | "
             }
           ]
@@ -7474,7 +7123,7 @@
                 "3:11",
                 "6:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / BERGAND Filippa",
               "all_players_in_row": [
                 "KAMATH Archana (IND)",
                 "TENNISON Reeth (IND)",
@@ -7483,17 +7132,14 @@
               ],
               "side_a": [
                 "KAMATH Archana (IND)",
-                "BERGSTROM Linda (SWE)"
+                "TENNISON Reeth (IND)"
               ],
               "side_b": [
-                "TENNISON Reeth (IND)",
+                "BERGSTROM Linda (SWE)",
                 "BERGAND Filippa (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | KAMATH Archana (IND) | TENNISON Reeth (IND) | BERGSTROM Linda (SWE) | BERGAND Filippa (SWE) | WD | Main Draw | R16 | 0 - 3 | 6:11 3:11 6:11 | BERGSTROM Linda | BERGAND Filippa | "
             },
             {
@@ -7520,7 +7166,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "TOMANOVSKA Katerina",
+              "winner": "TOMANOVSKA Katerina / BLASKOVA Zdena",
               "all_players_in_row": [
                 "TOMANOVSKA Katerina (CZE)",
                 "BLASKOVA Zdena (CZE)",
@@ -7529,17 +7175,14 @@
               ],
               "side_a": [
                 "TOMANOVSKA Katerina (CZE)",
-                "BERGSTROM Linda (SWE)"
+                "BLASKOVA Zdena (CZE)"
               ],
               "side_b": [
-                "BLASKOVA Zdena (CZE)",
+                "BERGSTROM Linda (SWE)",
                 "BERGAND Filippa (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | TOMANOVSKA Katerina (CZE) | BLASKOVA Zdena (CZE) | BERGSTROM Linda (SWE) | BERGAND Filippa (SWE) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:9 11:9 | TOMANOVSKA Katerina | BLASKOVA Zdena | "
             },
             {
@@ -7582,15 +7225,13 @@
                 "AKULA Sreeja (IND)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | BERGSTROM Linda (SWE) |  | AKULA Sreeja (IND) |  | WS | Main Draw | R16 | 4 - 1 | 11:6 11:9 8:11 13:11 11:7 | BERGSTROM Linda |  | "
             },
             {
@@ -7633,15 +7274,13 @@
                 "SHCHERBATYKH Valeriia (AIN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SHCHERBATYKH Valeriia (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | BERGSTROM Linda (SWE) |  | SHCHERBATYKH Valeriia (AIN) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 11:2 11:7 4:11 11:8 11:6 | BERGSTROM Linda |  | "
             },
             {
@@ -7694,15 +7333,13 @@
                 "MIGOT Marie (FRA)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "MIGOT Marie (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | BERGSTROM Linda (SWE) |  | MIGOT Marie (FRA) |  | WS | Main Draw | R32 | 4 - 3 | 12:10 11:5 7:11 9:11 11:2 7:11 11:7 | BERGSTROM Linda |  | "
             },
             {
@@ -7755,15 +7392,13 @@
                 "TAILAKOVA Mariia (AIN)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "TAILAKOVA Mariia (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | BERGSTROM Linda (SWE) |  | TAILAKOVA Mariia (AIN) |  | WS | Main Draw | SemiFinal | 3 - 4 | 9:11 11:9 11:8 9:11 6:11 12:10 6:11 | TAILAKOVA Mariia |  | "
             },
             {
@@ -7795,7 +7430,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "MOREGARD Truls",
+              "winner": "MOREGARD Truls / BERGSTROM Linda",
               "all_players_in_row": [
                 "ZELINKA Jakub (SVK)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -7804,17 +7439,14 @@
               ],
               "side_a": [
                 "ZELINKA Jakub (SVK)",
-                "MOREGARD Truls (SWE)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "MOREGARD Truls (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | ZELINKA Jakub (SVK) | KUKULKOVA Tatiana (SVK) | MOREGARD Truls (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | R16 | 1 - 3 | 11:7 2:11 8:11 7:11 | MOREGARD Truls | BERGSTROM Linda | "
             },
             {
@@ -7851,25 +7483,23 @@
                 "9:11",
                 "12:10"
               ],
-              "winner": "MOREGARD Truls",
+              "winner": "MOREGARD Truls / BERGSTROM Linda",
               "all_players_in_row": [
                 "MOREGARD Truls (SWE)",
                 "BERGSTROM Linda (SWE)",
-                "WALKER Samuel (ENG)"
+                "WALKER Samuel (ENG)",
+                "HO Tin-Tin (ENG)"
               ],
               "side_a": [
                 "MOREGARD Truls (SWE)",
-                "WALKER Samuel (ENG)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "WALKER Samuel (ENG)",
                 "HO Tin-Tin (ENG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | MOREGARD Truls (SWE) | BERGSTROM Linda (SWE) | WALKER Samuel (ENG) | HO Tin-Tin (ENG) | XD | Main Draw | QuarterFinal | 3 - 2 | 9:11 11:7 24:22 9:11 12:10 | MOREGARD Truls | BERGSTROM Linda | "
             },
             {
@@ -7896,7 +7526,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "MOREGARD Truls",
+              "winner": "MOREGARD Truls / BERGSTROM Linda",
               "all_players_in_row": [
                 "GREBENIUK Andrii (UKR)",
                 "DYMYTRENKO Anastasiya (UKR)",
@@ -7905,17 +7535,14 @@
               ],
               "side_a": [
                 "GREBENIUK Andrii (UKR)",
-                "MOREGARD Truls (SWE)"
+                "DYMYTRENKO Anastasiya (UKR)"
               ],
               "side_b": [
-                "DYMYTRENKO Anastasiya (UKR)",
+                "MOREGARD Truls (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | GREBENIUK Andrii (UKR) | DYMYTRENKO Anastasiya (UKR) | MOREGARD Truls (SWE) | BERGSTROM Linda (SWE) | XD | Qualification | QR16 | 0 - 3 | 11:13 6:11 5:11 | MOREGARD Truls | BERGSTROM Linda | "
             },
             {
@@ -7952,7 +7579,7 @@
                 "11:7",
                 "9:11"
               ],
-              "winner": "LIMONOV Anton",
+              "winner": "LIMONOV Anton / YAREMCHUK Solomiya",
               "all_players_in_row": [
                 "MOREGARD Truls (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -7961,17 +7588,14 @@
               ],
               "side_a": [
                 "MOREGARD Truls (SWE)",
-                "LIMONOV Anton (UKR)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "LIMONOV Anton (UKR)",
                 "YAREMCHUK Solomiya (UKR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Czech International Open Olomouc 2021 | MOREGARD Truls (SWE) | BERGSTROM Linda (SWE) | LIMONOV Anton (UKR) | YAREMCHUK Solomiya (UKR) | XD | Main Draw | SemiFinal | 2 - 3 | 9:11 11:8 3:11 11:7 9:11 | LIMONOV Anton | YAREMCHUK Solomiya | "
             }
           ]
@@ -8013,7 +7637,7 @@
                 "5:11",
                 "8:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "SELVAKUMAR Selena (IND)",
                 "AKULA Sreeja (IND)",
@@ -8022,17 +7646,14 @@
               ],
               "side_a": [
                 "SELVAKUMAR Selena (IND)",
-                "BERGSTROM Linda (SWE)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | SELVAKUMAR Selena (IND) | AKULA Sreeja (IND) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | R16 | 1 - 3 | 8:11 12:10 5:11 8:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -8075,15 +7696,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | AKULA Sreeja (IND) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 3 - 2 | 11:8 6:11 14:12 2:11 11:7 | AKULA Sreeja |  | "
             },
             {
@@ -8120,7 +7739,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "TAILAKOVA Mariia (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -8129,17 +7748,14 @@
               ],
               "side_a": [
                 "TAILAKOVA Mariia (AIN)",
-                "BERGSTROM Linda (SWE)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | TAILAKOVA Mariia (AIN) | ABRAAMIAN Elizabet (AIN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | QuarterFinal | 2 - 3 | 11:5 8:11 11:7 6:11 6:11 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -8166,7 +7782,7 @@
                 "11:4",
                 "11:8"
               ],
-              "winner": "VOROBEVA Olga",
+              "winner": "VOROBEVA Olga / NOSKOVA Yana",
               "all_players_in_row": [
                 "VOROBEVA Olga (AIN)",
                 "NOSKOVA Yana (AIN)",
@@ -8175,17 +7791,14 @@
               ],
               "side_a": [
                 "VOROBEVA Olga (AIN)",
-                "BERGSTROM Linda (SWE)"
+                "NOSKOVA Yana (AIN)"
               ],
               "side_b": [
-                "NOSKOVA Yana (AIN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | VOROBEVA Olga (AIN) | NOSKOVA Yana (AIN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:4 11:8 | VOROBEVA Olga | NOSKOVA Yana | "
             }
           ]
@@ -8248,15 +7861,13 @@
                 "MUKHERJEE Sutirtha (IND)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "MUKHERJEE Sutirtha (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | BERGSTROM Linda (SWE) |  | MUKHERJEE Sutirtha (IND) |  | WS | Main Draw | R128 | 3 - 4 | 11:5 9:11 13:11 11:9 3:11 9:11 5:11 | MUKHERJEE Sutirtha |  | "
             }
           ]
@@ -8293,7 +7904,7 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / BERGAND Filippa",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "BERGAND Filippa (SWE)",
@@ -8302,17 +7913,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "MISCHEK Karoline (AUT)"
+                "BERGAND Filippa (SWE)"
               ],
               "side_b": [
-                "BERGAND Filippa (SWE)",
+                "MISCHEK Karoline (AUT)",
                 "LIU Yuan (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | BERGSTROM Linda (SWE) | BERGAND Filippa (SWE) | MISCHEK Karoline (AUT) | LIU Yuan (AUT) | WD | Main Draw | R32 | 3 - 0 | 11:3 11:7 12:10 | BERGSTROM Linda | BERGAND Filippa | "
             },
             {
@@ -8344,7 +7952,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "EERLAND Britt",
+              "winner": "EERLAND Britt / POTA Georgina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "BERGAND Filippa (SWE)",
@@ -8353,17 +7961,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "EERLAND Britt (NED)"
+                "BERGAND Filippa (SWE)"
               ],
               "side_b": [
-                "BERGAND Filippa (SWE)",
+                "EERLAND Britt (NED)",
                 "POTA Georgina (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | BERGSTROM Linda (SWE) | BERGAND Filippa (SWE) | EERLAND Britt (NED) | POTA Georgina (HUN) | WD | Main Draw | R16 | 1 - 3 | 11:7 8:11 9:11 7:11 | EERLAND Britt | POTA Georgina | "
             },
             {
@@ -8406,15 +8011,13 @@
                 "HURSEY Anna (WAL)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | BERGSTROM Linda (SWE) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R64 | 4 - 1 | 11:9 11:8 5:11 11:8 11:3 | BERGSTROM Linda |  | "
             },
             {
@@ -8457,15 +8060,13 @@
                 "SZOCS Bernadette (ROU)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SZOCS Bernadette (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | BERGSTROM Linda (SWE) |  | SZOCS Bernadette (ROU) |  | WS | Main Draw | R32 | 4 - 1 | 11:7 9:11 11:7 11:9 13:11 | BERGSTROM Linda |  | "
             },
             {
@@ -8503,15 +8104,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | VARADY Barbora (SVK) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R16 | 0 - 4 | 9:11 8:11 8:11 4:11 | BERGSTROM Linda |  | "
             },
             {
@@ -8559,15 +8158,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SHAN Xiaona (GER) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | QuarterFinal | 4 - 2 | 10:12 9:11 11:8 11:4 11:8 11:8 | SHAN Xiaona |  | "
             }
           ]
@@ -8615,15 +8212,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "DIAZ Melanie (PUR)",
+                "DIAZ Melanie (PUR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | DIAZ Melanie (PUR) |  | BERGSTROM Linda (SWE) |  | WS | Qualification | QR16 | 0 - 4 | 6:11 8:11 7:11 8:11 | BERGSTROM Linda |  | "
             },
             {
@@ -8671,15 +8266,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | BERGSTROM Linda (SWE) |  | YUAN Jia Nan (FRA) |  | WS | Qualification | QR8 | 4 - 2 | 11:7 8:11 11:5 8:11 11:7 13:11 | BERGSTROM Linda |  | "
             },
             {
@@ -8717,15 +8310,13 @@
                 "SILVA Yadira (MEX)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "SILVA Yadira (MEX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | BERGSTROM Linda (SWE) |  | SILVA Yadira (MEX) |  | WS | Qualification | QR4 | 4 - 0 | 11:4 11:6 11:4 11:8 | BERGSTROM Linda |  | "
             },
             {
@@ -8768,15 +8359,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "PESOTSKA Margaryta (UKR)",
+                "PESOTSKA Margaryta (UKR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | PESOTSKA Margaryta (UKR) |  | BERGSTROM Linda (SWE) |  | WS | Qualification | QR2 | 1 - 4 | 7:11 11:13 11:9 7:11 9:11 | BERGSTROM Linda |  | "
             }
           ]
@@ -8824,15 +8413,13 @@
                 "BERGSTROM Linda (SWE)"
               ],
               "side_a": [
-                "LEE Zion (KOR)",
+                "LEE Zion (KOR)"
+              ],
+              "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | LEE Zion (KOR) |  | BERGSTROM Linda (SWE) |  | WS | Qualification | QR32 | 3 - 1 | 11:4 12:10 7:11 11:8 | LEE Zion |  | "
             }
           ]

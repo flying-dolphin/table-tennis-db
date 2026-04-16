@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Sofia POLCANOVA",
-  "english_name": "Sofia POLCANOVA",
+  "player_name": "POLCANOVA Sofia",
+  "english_name": "POLCANOVA Sofia",
   "country": "AUT",
   "country_code": "AUT",
   "continent": "",
@@ -50,15 +50,13 @@
                 "LAM Jocelyn (NZL)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "LAM Jocelyn (NZL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | POLCANOVA Sofia (AUT) |  | LAM Jocelyn (NZL) |  | WS | Qualification |  | 3 - 0 | 11:2 11:2 11:3 | POLCANOVA Sofia |  | "
             },
             {
@@ -91,15 +89,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "DIAZ Adriana (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | DIAZ Adriana (PUR) |  | POLCANOVA Sofia (AUT) |  | WS | Qualification |  | 3 - 0 | 11:9 11:9 11:7 | DIAZ Adriana |  | "
             }
           ]
@@ -142,15 +138,13 @@
                 "CHEN Xingtong (CHN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "CHEN Xingtong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | POLCANOVA Sofia (AUT) |  | CHEN Xingtong (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 9:11 4:11 | CHEN Xingtong |  | "
             }
           ]
@@ -187,7 +181,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / TAKAHASHI Bruna",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -196,17 +190,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "POLCANOVA Sofia (AUT)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "POLCANOVA Sofia (AUT)",
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | VARADY Barbora (SVK) | KUKULKOVA Tatiana (SVK) | POLCANOVA Sofia (AUT) | TAKAHASHI Bruna (BRA) | WD | Main Draw | R32 | 0 - 3 | 10:12 7:11 8:11 | POLCANOVA Sofia | TAKAHASHI Bruna | "
             },
             {
@@ -243,7 +234,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "CHAN Baldwin",
+              "winner": "CHAN Baldwin / KIM Nayeong",
               "all_players_in_row": [
                 "CHAN Baldwin (HKG)",
                 "KIM Nayeong (KOR)",
@@ -252,17 +243,14 @@
               ],
               "side_a": [
                 "CHAN Baldwin (HKG)",
-                "GARDOS Robert (AUT)"
+                "KIM Nayeong (KOR)"
               ],
               "side_b": [
-                "KIM Nayeong (KOR)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | CHAN Baldwin (HKG) | KIM Nayeong (KOR) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R32 | 3 - 2 | 9:11 8:11 11:3 11:9 11:9 | CHAN Baldwin | KIM Nayeong | "
             },
             {
@@ -300,15 +288,13 @@
                 "CHEN Yi (CHN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "CHEN Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | POLCANOVA Sofia (AUT) |  | CHEN Yi (CHN) |  | WS | Main Draw | R64 | 1 - 3 | 11:9 5:11 7:11 12:14 | CHEN Yi |  | "
             },
             {
@@ -340,7 +326,7 @@
                 "5:11",
                 "4:11"
               ],
-              "winner": "KUAI Man",
+              "winner": "KUAI Man / CHEN Yi",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "TAKAHASHI Bruna (BRA)",
@@ -349,17 +335,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "KUAI Man (CHN)"
+                "TAKAHASHI Bruna (BRA)"
               ],
               "side_b": [
-                "TAKAHASHI Bruna (BRA)",
+                "KUAI Man (CHN)",
                 "CHEN Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | POLCANOVA Sofia (AUT) | TAKAHASHI Bruna (BRA) | KUAI Man (CHN) | CHEN Yi (CHN) | WD | Main Draw | R16 | 1 - 3 | 11:7 6:11 5:11 4:11 | KUAI Man | CHEN Yi | "
             }
           ]
@@ -402,15 +385,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | SHAO Jieni (POR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 0 - 3 | 5:11 7:11 8:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -443,15 +424,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | YUAN Jia Nan (FRA) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 19:17 11:7 11:4 | YUAN Jia Nan |  | "
             }
           ]
@@ -488,7 +467,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "BAJOR Natalia (POL)",
                 "POLCANOVA Sofia (AUT)",
@@ -497,17 +476,14 @@
               ],
               "side_a": [
                 "BAJOR Natalia (POL)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | BAJOR Natalia (POL) | POLCANOVA Sofia (AUT) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | R16 | 0 - 3 | 7:11 9:11 7:11 | ABRAAMIAN Elizabet | VORONINA Vlada | "
             },
             {
@@ -550,15 +526,13 @@
                 "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | POLCANOVA Sofia (AUT) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R32 | 3 - 2 | 11:4 11:6 7:11 5:11 11:5 | POLCANOVA Sofia |  | "
             },
             {
@@ -601,15 +575,13 @@
                 "SHIN Yubin (KOR)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "SHIN Yubin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | POLCANOVA Sofia (AUT) |  | SHIN Yubin (KOR) |  | WS | Main Draw | R16 | 2 - 3 | 11:2 4:11 11:9 9:11 5:11 | SHIN Yubin |  | "
             }
           ]
@@ -657,15 +629,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Champions Doha 2026 | POLCANOVA Sofia (AUT) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R32 | 3 - 1 | 7:11 11:8 11:8 11:7 | POLCANOVA Sofia |  | "
             },
             {
@@ -703,15 +673,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "WANG Yidi (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Champions Doha 2026 | WANG Yidi (CHN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 3 - 1 | 7:11 11:7 11:6 12:10 | WANG Yidi |  | "
             }
           ]
@@ -769,15 +737,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | SZOCS Bernadette (ROU) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 2 - 3 | 11:4 11:13 5:11 11:6 3:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -815,15 +781,13 @@
                 "ITO Mima (JPN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "ITO Mima (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | POLCANOVA Sofia (AUT) |  | ITO Mima (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 9:11 11:8 5:11 8:11 | ITO Mima |  | "
             }
           ]
@@ -862,18 +826,17 @@
               ],
               "winner": "POLCANOVA Sofia",
               "all_players_in_row": [
-                "POLCANOVA Sofia (AUT)"
-              ],
-              "side_a": [
                 "CHENG I-Ching (TPE)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHENG I-Ching (TPE)"
+              ],
+              "side_b": [
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | CHENG I-Ching (TPE) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 9:11 9:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -916,15 +879,13 @@
                 "CHEN Yi (CHN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "CHEN Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | POLCANOVA Sofia (AUT) |  | CHEN Yi (CHN) |  | WS | Main Draw | R16 | 2 - 3 | 13:11 8:11 9:11 11:9 7:11 | CHEN Yi |  | "
             }
           ]
@@ -967,15 +928,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "KALLBERG Christina (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | KALLBERG Christina (SWE) |  | POLCANOVA Sofia (AUT) |  | WT | Qualification |  | 0 - 3 | 5:11 9:11 8:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -1013,15 +972,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BERGSTROM Linda (SWE) |  | POLCANOVA Sofia (AUT) |  | WT | Qualification |  | 1 - 3 | 9:11 11:9 5:11 5:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -1054,15 +1011,13 @@
                 "PAPADIMITRIOU Malamatenia (GRE)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "PAPADIMITRIOU Malamatenia (GRE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | POLCANOVA Sofia (AUT) |  | PAPADIMITRIOU Malamatenia (GRE) |  | WT | Qualification |  | 3 - 0 | 11:7 11:4 11:8 | POLCANOVA Sofia |  | "
             },
             {
@@ -1095,15 +1050,13 @@
                 "TOLIOU Aikaterini (GRE)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "TOLIOU Aikaterini (GRE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | POLCANOVA Sofia (AUT) |  | TOLIOU Aikaterini (GRE) |  | WT | Qualification |  | 3 - 0 | 13:11 11:8 11:7 | POLCANOVA Sofia |  | "
             },
             {
@@ -1136,15 +1089,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "WIELGOS Zuzanna (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | WIELGOS Zuzanna (POL) |  | POLCANOVA Sofia (AUT) |  | WT | MAIN | 16 | 0 - 3 | 10:12 16:18 10:12 | POLCANOVA Sofia |  | "
             },
             {
@@ -1182,15 +1133,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "BAJOR Natalia (POL)",
+                "BAJOR Natalia (POL)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BAJOR Natalia (POL) |  | POLCANOVA Sofia (AUT) |  | WT | MAIN | 16 | 1 - 3 | 6:11 11:6 11:13 7:11 | POLCANOVA Sofia |  | "
             }
           ]
@@ -1233,15 +1182,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "PARANANG Orawan (THA)",
+                "PARANANG Orawan (THA)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | PARANANG Orawan (THA) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 9:11 9:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -1274,15 +1221,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SHIN Yubin (KOR)",
+                "SHIN Yubin (KOR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | SHIN Yubin (KOR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:4 14:12 | SHIN Yubin |  | "
             }
           ]
@@ -1335,15 +1280,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "DIAZ Adriana (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Macao 2025 | DIAZ Adriana (PUR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 3 - 2 | 5:11 11:6 5:11 11:6 11:9 | DIAZ Adriana |  | "
             }
           ]
@@ -1396,15 +1339,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "CHEN Yi (CHN)",
+                "CHEN Yi (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | CHEN Yi (CHN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R64 | 3 - 2 | 11:7 11:2 8:11 7:11 11:5 | CHEN Yi |  | "
             },
             {
@@ -1436,7 +1377,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -1445,17 +1386,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "BURGOS Nicolas (CHI)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "BURGOS Nicolas (CHI)",
                 "VEGA Paulina (CHI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | BURGOS Nicolas (CHI) | VEGA Paulina (CHI) | XD | Main Draw | R32 | 3 - 1 | 6:11 11:4 11:8 11:7 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -1482,7 +1420,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "LIN Shidong",
+              "winner": "LIN Shidong / KUAI Man",
               "all_players_in_row": [
                 "LIN Shidong (CHN)",
                 "KUAI Man (CHN)",
@@ -1491,17 +1429,14 @@
               ],
               "side_a": [
                 "LIN Shidong (CHN)",
-                "GARDOS Robert (AUT)"
+                "KUAI Man (CHN)"
               ],
               "side_b": [
-                "KUAI Man (CHN)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | LIN Shidong (CHN) | KUAI Man (CHN) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R16 | 3 - 0 | 11:2 11:3 11:6 | LIN Shidong | KUAI Man | "
             }
           ]
@@ -1544,15 +1479,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "OMODA Kotomi (JPN)",
+                "OMODA Kotomi (JPN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | OMODA Kotomi (JPN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 3 - 0 | 11:2 11:3 11:8 | OMODA Kotomi |  | "
             }
           ]
@@ -1589,7 +1522,7 @@
                 "10:12",
                 "7:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -1598,17 +1531,14 @@
               ],
               "side_a": [
                 "LEVAJAC Dimitrije (SRB)",
-                "GARDOS Robert (AUT)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R64 | 0 - 3 | 12:14 10:12 7:11 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -1656,15 +1586,13 @@
                 "PARANANG Orawan (THA)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "PARANANG Orawan (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | POLCANOVA Sofia (AUT) |  | PARANANG Orawan (THA) |  | WS | Main Draw | R128 | 4 - 2 | 8:11 7:11 12:10 11:8 16:14 13:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -1691,7 +1619,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "KUNDA Mubanga (ZAM)",
                 "NALAVWE Latifa (ZAM)",
@@ -1700,17 +1628,14 @@
               ],
               "side_a": [
                 "KUNDA Mubanga (ZAM)",
-                "POLCANOVA Sofia (AUT)"
+                "NALAVWE Latifa (ZAM)"
               ],
               "side_b": [
-                "NALAVWE Latifa (ZAM)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | KUNDA Mubanga (ZAM) | NALAVWE Latifa (ZAM) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R64 | 0 - 3 | 1:11 6:11 3:11 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -1737,7 +1662,7 @@
                 "5:11",
                 "7:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "BARCENAS Clio (MEX)",
                 "COSSIO Arantxa (MEX)",
@@ -1746,17 +1671,14 @@
               ],
               "side_a": [
                 "BARCENAS Clio (MEX)",
-                "POLCANOVA Sofia (AUT)"
+                "COSSIO Arantxa (MEX)"
               ],
               "side_b": [
-                "COSSIO Arantxa (MEX)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | BARCENAS Clio (MEX) | COSSIO Arantxa (MEX) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R32 | 0 - 3 | 6:11 5:11 7:11 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -1788,7 +1710,7 @@
                 "12:10",
                 "5:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -1797,17 +1719,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "GARDOS Robert (AUT)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | KARLSSON Mattias (SWE) | BERGSTROM Linda (SWE) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R32 | 1 - 3 | 9:11 3:11 12:10 5:11 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -1834,7 +1753,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "LIN Shidong",
+              "winner": "LIN Shidong / KUAI Man",
               "all_players_in_row": [
                 "LIN Shidong (CHN)",
                 "KUAI Man (CHN)",
@@ -1843,17 +1762,14 @@
               ],
               "side_a": [
                 "LIN Shidong (CHN)",
-                "GARDOS Robert (AUT)"
+                "KUAI Man (CHN)"
               ],
               "side_b": [
-                "KUAI Man (CHN)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LIN Shidong (CHN) | KUAI Man (CHN) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R16 | 3 - 0 | 11:2 11:3 11:6 | LIN Shidong | KUAI Man | "
             },
             {
@@ -1901,15 +1817,13 @@
                 "DRAGOMAN Andreea (ROU)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | POLCANOVA Sofia (AUT) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 2 - 4 | 11:5 7:11 9:11 11:13 11:8 8:11 | DRAGOMAN Andreea |  | "
             },
             {
@@ -1946,7 +1860,7 @@
                 "5:11",
                 "5:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "MATELOVA Hana (CZE)",
                 "VARADY Barbora (SVK)",
@@ -1955,17 +1869,14 @@
               ],
               "side_a": [
                 "MATELOVA Hana (CZE)",
-                "POLCANOVA Sofia (AUT)"
+                "VARADY Barbora (SVK)"
               ],
               "side_b": [
-                "VARADY Barbora (SVK)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MATELOVA Hana (CZE) | VARADY Barbora (SVK) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R16 | 2 - 3 | 7:11 11:9 11:9 5:11 5:11 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -1997,7 +1908,7 @@
                 "4:11",
                 "12:10"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -2006,17 +1917,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "WINTER Sabine (GER)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "WINTER Sabine (GER)",
                 "WAN Yuan (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WINTER Sabine (GER) | WAN Yuan (GER) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:7 11:8 4:11 12:10 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -2053,7 +1961,7 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "SHIN Yubin (KOR)",
                 "RYU Hanna (KOR)",
@@ -2062,17 +1970,14 @@
               ],
               "side_a": [
                 "SHIN Yubin (KOR)",
-                "POLCANOVA Sofia (AUT)"
+                "RYU Hanna (KOR)"
               ],
               "side_b": [
-                "RYU Hanna (KOR)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | SHIN Yubin (KOR) | RYU Hanna (KOR) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | SemiFinal | 2 - 3 | 5:11 11:8 8:11 11:9 9:11 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -2099,7 +2004,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "WANG Manyu",
+              "winner": "WANG Manyu / KUAI Man",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -2108,17 +2013,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "WANG Manyu (CHN)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "WANG Manyu (CHN)",
                 "KUAI Man (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WANG Manyu (CHN) | KUAI Man (CHN) | WD | Main Draw | Final | 0 - 3 | 6:11 6:11 5:11 | WANG Manyu | KUAI Man | "
             }
           ]
@@ -2166,15 +2068,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SUN Yingsha (CHN)",
+                "SUN Yingsha (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SUN Yingsha (CHN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 4 - 0 | 11:3 11:4 15:13 11:9 | SUN Yingsha |  | "
             },
             {
@@ -2212,15 +2112,13 @@
                 "GODA Hana (EGY)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | POLCANOVA Sofia (AUT) |  | GODA Hana (EGY) |  | WS | Qualification |  | 3 - 1 | 11:8 11:7 8:11 11:8 | POLCANOVA Sofia |  | "
             },
             {
@@ -2258,15 +2156,13 @@
                 "SEAK Hui Li (MAC)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "SEAK Hui Li (MAC)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | POLCANOVA Sofia (AUT) |  | SEAK Hui Li (MAC) |  | WS | Qualification |  | 4 - 0 | 11:6 11:4 11:2 11:0 | POLCANOVA Sofia |  | "
             }
           ]
@@ -2309,15 +2205,13 @@
                 "HAN Ying (GER)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "HAN Ying (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | POLCANOVA Sofia (AUT) |  | HAN Ying (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:8 11:4 | POLCANOVA Sofia |  | "
             },
             {
@@ -2350,15 +2244,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "ITO Mima (JPN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | ITO Mima (JPN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:7 11:7 | ITO Mima |  | "
             }
           ]
@@ -2401,15 +2293,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SUN Yingsha (CHN)",
+                "SUN Yingsha (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Chongqing 2025 | SUN Yingsha (CHN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:7 11:8 | SUN Yingsha |  | "
             }
           ]
@@ -2457,15 +2347,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | WINTER Sabine (GER) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:3 6:11 11:5 13:11 | WINTER Sabine |  | "
             },
             {
@@ -2498,15 +2386,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "YAREMCHUK Solomiya (UKR)",
+                "YAREMCHUK Solomiya (UKR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | YAREMCHUK Solomiya (UKR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 9:11 10:12 | POLCANOVA Sofia |  | "
             }
           ]
@@ -2543,7 +2429,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "COSSIO Arantxa (MEX)",
                 "VEGA Paulina (CHI)",
@@ -2552,17 +2438,14 @@
               ],
               "side_a": [
                 "COSSIO Arantxa (MEX)",
-                "SZOCS Bernadette (ROU)"
+                "VEGA Paulina (CHI)"
               ],
               "side_b": [
-                "VEGA Paulina (CHI)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | COSSIO Arantxa (MEX) | VEGA Paulina (CHI) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | R32 | 0 - 3 | 5:11 7:11 5:11 | SZOCS Bernadette | POLCANOVA Sofia | "
             },
             {
@@ -2600,15 +2483,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "TAKAHASHI Bruna (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | TAKAHASHI Bruna (BRA) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R64 | 1 - 3 | 19:17 7:11 8:11 8:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -2635,7 +2516,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -2644,17 +2525,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "BAE Hwan (AUS)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "BAE Hwan (AUS)",
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | BAE Hwan (AUS) | NG Wing Lam (HKG) | XD | Main Draw | R16 | 3 - 0 | 11:7 11:7 11:5 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -2697,15 +2575,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SAMARA Elizabeta (ROU)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | SAMARA Elizabeta (ROU) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 2 - 3 | 10:12 11:8 11:9 9:11 10:12 | POLCANOVA Sofia |  | "
             },
             {
@@ -2737,7 +2613,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)",
@@ -2746,17 +2622,14 @@
               ],
               "side_a": [
                 "SZOCS Bernadette (ROU)",
-                "KUKULKOVA Tatiana (SVK)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "KUKULKOVA Tatiana (SVK)",
                 "BAJOR Natalia (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | KUKULKOVA Tatiana (SVK) | BAJOR Natalia (POL) | WD | Main Draw | R16 | 3 - 1 | 4:11 13:11 11:4 11:9 | SZOCS Bernadette | POLCANOVA Sofia | "
             },
             {
@@ -2783,7 +2656,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "WONG Chun Ting",
+              "winner": "WONG Chun Ting / DOO Hoi Kem",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -2792,17 +2665,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "WONG Chun Ting (HKG)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "WONG Chun Ting (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | XD | Main Draw | QuarterFinal | 0 - 3 | 9:11 7:11 5:11 | WONG Chun Ting | DOO Hoi Kem | "
             },
             {
@@ -2829,7 +2699,7 @@
                 "4:11",
                 "6:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -2838,17 +2708,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "SZOCS Bernadette (ROU)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | QuarterFinal | 0 - 3 | 3:11 4:11 6:11 | SZOCS Bernadette | POLCANOVA Sofia | "
             },
             {
@@ -2881,15 +2748,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SUN Yingsha (CHN)",
+                "SUN Yingsha (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | SUN Yingsha (CHN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:6 11:6 | SUN Yingsha |  | "
             },
             {
@@ -2916,7 +2781,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "SUN Yingsha",
+              "winner": "SUN Yingsha / WANG Yidi",
               "all_players_in_row": [
                 "SUN Yingsha (CHN)",
                 "WANG Yidi (CHN)",
@@ -2925,17 +2790,14 @@
               ],
               "side_a": [
                 "SUN Yingsha (CHN)",
-                "SZOCS Bernadette (ROU)"
+                "WANG Yidi (CHN)"
               ],
               "side_b": [
-                "WANG Yidi (CHN)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | SUN Yingsha (CHN) | WANG Yidi (CHN) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:7 11:8 | SUN Yingsha | WANG Yidi | "
             }
           ]
@@ -2993,15 +2855,13 @@
                 "HIRANO Miu (JPN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "HIRANO Miu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Finals Fukuoka 2024 | POLCANOVA Sofia (AUT) |  | HIRANO Miu (JPN) |  | WS | Main Draw | R16 | 2 - 3 | 9:11 11:8 11:9 9:11 5:11 | HIRANO Miu |  | "
             }
           ]
@@ -3038,7 +2898,7 @@
                 "9:11",
                 "4:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "YAREMCHUK Solomiya (UKR)",
                 "MATIUNINA Veronika (UKR)",
@@ -3047,17 +2907,14 @@
               ],
               "side_a": [
                 "YAREMCHUK Solomiya (UKR)",
-                "POLCANOVA Sofia (AUT)"
+                "MATIUNINA Veronika (UKR)"
               ],
               "side_b": [
-                "MATIUNINA Veronika (UKR)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | YAREMCHUK Solomiya (UKR) | MATIUNINA Veronika (UKR) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R32 | 0 - 3 | 5:11 9:11 4:11 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -3089,7 +2946,7 @@
                 "11:5",
                 "8:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "HARAC Ece (TUR)",
                 "YILMAZ Ozge (TUR)",
@@ -3098,17 +2955,14 @@
               ],
               "side_a": [
                 "HARAC Ece (TUR)",
-                "POLCANOVA Sofia (AUT)"
+                "YILMAZ Ozge (TUR)"
               ],
               "side_b": [
-                "YILMAZ Ozge (TUR)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | HARAC Ece (TUR) | YILMAZ Ozge (TUR) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R16 | 1 - 3 | 8:11 5:11 11:5 8:11 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -3135,7 +2989,7 @@
                 "13:15",
                 "9:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "XIAO Maria (ESP)",
                 "DIACONU Adina (ROU)",
@@ -3144,17 +2998,14 @@
               ],
               "side_a": [
                 "XIAO Maria (ESP)",
-                "POLCANOVA Sofia (AUT)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | XIAO Maria (ESP) | DIACONU Adina (ROU) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 13:15 9:11 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -3191,7 +3042,7 @@
                 "5:11",
                 "11:3"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -3200,17 +3051,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "LUPULESKU Izabela (SRB)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | WD | Main Draw | SemiFinal | 3 - 2 | 10:12 11:4 11:5 5:11 11:3 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -3247,7 +3095,7 @@
                 "11:7",
                 "6:11"
               ],
-              "winner": "MATELOVA Hana",
+              "winner": "MATELOVA Hana / VARADY Barbora",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -3256,17 +3104,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "MATELOVA Hana (CZE)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "MATELOVA Hana (CZE)",
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | MATELOVA Hana (CZE) | VARADY Barbora (SVK) | WD | Main Draw | Final | 2 - 3 | 7:11 11:7 9:11 11:7 6:11 | MATELOVA Hana | VARADY Barbora | "
             },
             {
@@ -3304,15 +3149,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "CAREY Charlotte (WAL)",
+                "CAREY Charlotte (WAL)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | CAREY Charlotte (WAL) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 10:12 5:11 8:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -3350,15 +3193,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "MATIUNINA Veronika (UKR)",
+                "MATIUNINA Veronika (UKR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | MATIUNINA Veronika (UKR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 0 - 4 | 5:11 4:11 6:11 8:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -3396,15 +3237,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "KALLBERG Christina (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | KALLBERG Christina (SWE) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 0 - 4 | 8:11 4:11 9:11 10:12 | POLCANOVA Sofia |  | "
             },
             {
@@ -3447,15 +3286,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | WINTER Sabine (GER) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 11:7 8:11 3:11 8:11 10:12 | POLCANOVA Sofia |  | "
             },
             {
@@ -3498,15 +3335,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | MITTELHAM Nina (GER) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | SemiFinal | 1 - 4 | 10:12 7:11 12:10 4:11 6:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -3549,15 +3384,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | SZOCS Bernadette (ROU) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | Final | 1 - 4 | 8:11 13:11 10:12 6:11 9:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -3594,7 +3427,7 @@
                 "8:11",
                 "11:7"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -3603,17 +3436,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "KVETON Ondrej (CZE)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "KVETON Ondrej (CZE)",
                 "POLAKOVA Veronika (CZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | KVETON Ondrej (CZE) | POLAKOVA Veronika (CZE) | XD | Main Draw | R32 | 3 - 2 | 11:5 8:11 11:7 8:11 11:7 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -3650,7 +3480,7 @@
                 "9:11",
                 "11:8"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -3659,17 +3489,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "KUBIK Maciej (POL)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "KUBIK Maciej (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | KUBIK Maciej (POL) | WEGRZYN Katarzyna (POL) | XD | Main Draw | R16 | 3 - 2 | 11:8 9:11 11:3 9:11 11:8 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -3696,7 +3523,7 @@
                 "11:8",
                 "11:9"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -3705,17 +3532,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "LEVAJAC Dimitrije (SRB)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:8 11:9 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -3752,7 +3576,7 @@
                 "11:9",
                 "16:14"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -3761,17 +3585,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "FRANZISKA Patrick (GER)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "FRANZISKA Patrick (GER)",
                 "KAUFMANN Annett (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | FRANZISKA Patrick (GER) | KAUFMANN Annett (GER) | XD | Main Draw | SemiFinal | 3 - 2 | 11:8 10:12 12:14 11:9 16:14 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -3798,7 +3619,7 @@
                 "11:9",
                 "12:10"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)",
@@ -3807,17 +3628,14 @@
               ],
               "side_a": [
                 "ROBLES Alvaro (ESP)",
-                "GARDOS Robert (AUT)"
+                "XIAO Maria (ESP)"
               ],
               "side_b": [
-                "XIAO Maria (ESP)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | Final | 3 - 0 | 11:8 11:9 12:10 | ROBLES Alvaro | XIAO Maria | "
             }
           ]
@@ -3870,15 +3688,13 @@
                 "KIHARA Miyuu (JPN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "KIHARA Miyuu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | POLCANOVA Sofia (AUT) |  | KIHARA Miyuu (JPN) |  | WS | Main Draw | R64 | 3 - 2 | 8:11 11:9 7:11 12:10 11:7 | POLCANOVA Sofia |  | "
             },
             {
@@ -3910,7 +3726,7 @@
                 "11:5",
                 "11:3"
               ],
-              "winner": "HARIMOTO Miwa",
+              "winner": "HARIMOTO Miwa / KIHARA Miyuu",
               "all_players_in_row": [
                 "HARIMOTO Miwa (JPN)",
                 "KIHARA Miyuu (JPN)",
@@ -3919,17 +3735,14 @@
               ],
               "side_a": [
                 "HARIMOTO Miwa (JPN)",
-                "POLCANOVA Sofia (AUT)"
+                "KIHARA Miyuu (JPN)"
               ],
               "side_b": [
-                "KIHARA Miyuu (JPN)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | HARIMOTO Miwa (JPN) | KIHARA Miyuu (JPN) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R32 | 3 - 1 | 11:9 5:11 11:5 11:3 | HARIMOTO Miwa | KIHARA Miyuu | "
             },
             {
@@ -3966,7 +3779,7 @@
                 "11:8",
                 "6:11"
               ],
-              "winner": "YUAN Licen",
+              "winner": "YUAN Licen / SHI Xunyao",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -3975,17 +3788,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "YUAN Licen (CHN)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "YUAN Licen (CHN)",
                 "SHI Xunyao (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | YUAN Licen (CHN) | SHI Xunyao (CHN) | XD | Main Draw | R16 | 2 - 3 | 4:11 14:12 6:11 11:8 6:11 | YUAN Licen | SHI Xunyao | "
             },
             {
@@ -4023,15 +3833,13 @@
                 "WANG Xiaotong (CHN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "WANG Xiaotong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | POLCANOVA Sofia (AUT) |  | WANG Xiaotong (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 4:11 12:14 11:8 4:11 | WANG Xiaotong |  | "
             }
           ]
@@ -4079,15 +3887,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "COSSIO Arantxa (MEX)",
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | COSSIO Arantxa (MEX) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R64 | 0 - 4 | 4:11 3:11 4:11 8:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -4135,15 +3941,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | SHAO Jieni (POR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 2 - 4 | 12:10 9:11 7:11 3:11 14:12 7:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -4181,15 +3985,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SZOCS Bernadette (ROU)",
+                "SZOCS Bernadette (ROU)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | SZOCS Bernadette (ROU) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 0 - 4 | 10:12 4:11 11:13 9:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -4227,15 +4029,13 @@
                 "CHEN Meng (CHN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "CHEN Meng (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | POLCANOVA Sofia (AUT) |  | CHEN Meng (CHN) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 5:11 3:11 0:11 8:11 | CHEN Meng |  | "
             }
           ]
@@ -4277,7 +4077,7 @@
                 "11:3",
                 "11:1"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -4286,17 +4086,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "SER Lin Qian (SGP)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "SER Lin Qian (SGP)",
                 "ZHOU Jingyi (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | SER Lin Qian (SGP) | ZHOU Jingyi (SGP) | WD | Qualification | QR16 | 3 - 0 | 11:5 11:3 11:1 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -4328,24 +4125,23 @@
                 "9:11",
                 "11:13"
               ],
-              "winner": "LI Yu-Jhun",
+              "winner": "LI Yu-Jhun / CHENG I-Ching",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
-                "SZOCS Bernadette (ROU)"
+                "SZOCS Bernadette (ROU)",
+                "LI Yu-Jhun (TPE)",
+                "CHENG I-Ching (TPE)"
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "LI Yu-Jhun (TPE)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "LI Yu-Jhun (TPE)",
                 "CHENG I-Ching (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | LI Yu-Jhun (TPE) | CHENG I-Ching (TPE) | WD | Qualification | QR8 | 1 - 3 | 11:6 8:11 9:11 11:13 | LI Yu-Jhun | CHENG I-Ching | "
             },
             {
@@ -4377,7 +4173,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "HABESOHN Daniel",
+              "winner": "HABESOHN Daniel / POLCANOVA Sofia",
               "all_players_in_row": [
                 "THAKKAR Manav (IND)",
                 "KAMATH Archana (IND)",
@@ -4386,17 +4182,14 @@
               ],
               "side_a": [
                 "THAKKAR Manav (IND)",
-                "HABESOHN Daniel (AUT)"
+                "KAMATH Archana (IND)"
               ],
               "side_b": [
-                "KAMATH Archana (IND)",
+                "HABESOHN Daniel (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | THAKKAR Manav (IND) | KAMATH Archana (IND) | HABESOHN Daniel (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R16 | 1 - 3 | 6:11 11:9 9:11 8:11 | HABESOHN Daniel | POLCANOVA Sofia | "
             },
             {
@@ -4434,15 +4227,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "BILENKO Tetyana (UKR)",
+                "BILENKO Tetyana (UKR)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | BILENKO Tetyana (UKR) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 11:8 8:11 6:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -4480,15 +4271,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "KATO Miyu (JPN)",
+                "KATO Miyu (JPN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | KATO Miyu (JPN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 3 - 1 | 8:11 11:9 11:7 12:10 | KATO Miyu |  | "
             },
             {
@@ -4515,24 +4304,23 @@
                 "11:4",
                 "11:8"
               ],
-              "winner": "LIN Yun-Ju",
+              "winner": "LIN Yun-Ju / CHENG I-Ching",
               "all_players_in_row": [
+                "LIN Yun-Ju (TPE)",
+                "CHENG I-Ching (TPE)",
                 "HABESOHN Daniel (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
                 "LIN Yun-Ju (TPE)",
-                "HABESOHN Daniel (AUT)"
+                "CHENG I-Ching (TPE)"
               ],
               "side_b": [
-                "CHENG I-Ching (TPE)",
+                "HABESOHN Daniel (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | LIN Yun-Ju (TPE) | CHENG I-Ching (TPE) | HABESOHN Daniel (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:4 11:8 | LIN Yun-Ju | CHENG I-Ching | "
             }
           ]
@@ -4575,15 +4363,13 @@
                 "LIU Yangzi (AUS)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "LIU Yangzi (AUS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | POLCANOVA Sofia (AUT) |  | LIU Yangzi (AUS) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:8 11:3 | POLCANOVA Sofia |  | "
             },
             {
@@ -4615,7 +4401,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "WONG Chun Ting",
+              "winner": "WONG Chun Ting / DOO Hoi Kem",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)",
@@ -4624,17 +4410,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "WONG Chun Ting (HKG)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "WONG Chun Ting (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | XD | Main Draw | R16 | 1 - 3 | 3:11 10:12 11:8 9:11 | WONG Chun Ting | DOO Hoi Kem | "
             },
             {
@@ -4677,15 +4460,13 @@
                 "ZHANG Rui (CHN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "ZHANG Rui (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | POLCANOVA Sofia (AUT) |  | ZHANG Rui (CHN) |  | WS | Main Draw | R16 | 2 - 3 | 8:11 11:9 7:11 11:7 6:11 | ZHANG Rui |  | "
             }
           ]
@@ -4733,15 +4514,13 @@
                 "SZOCS Bernadette (ROU)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "SZOCS Bernadette (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | POLCANOVA Sofia (AUT) |  | SZOCS Bernadette (ROU) |  | WS | Main Draw | R64 | 3 - 1 | 11:7 9:11 12:10 11:5 | POLCANOVA Sofia |  | "
             },
             {
@@ -4779,15 +4558,13 @@
                 "DOO Hoi Kem (HKG)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "DOO Hoi Kem (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | POLCANOVA Sofia (AUT) |  | DOO Hoi Kem (HKG) |  | WS | Main Draw | R32 | 3 - 1 | 4:11 11:9 12:10 11:6 | POLCANOVA Sofia |  | "
             },
             {
@@ -4814,7 +4591,7 @@
                 "8:11",
                 "4:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)",
@@ -4823,17 +4600,14 @@
               ],
               "side_a": [
                 "SURJAN Sabina (SRB)",
-                "SZOCS Bernadette (ROU)"
+                "LUPULESKU Izabela (SRB)"
               ],
               "side_b": [
-                "LUPULESKU Izabela (SRB)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | R32 | 0 - 3 | 2:11 8:11 4:11 | SZOCS Bernadette | POLCANOVA Sofia | "
             },
             {
@@ -4860,7 +4634,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -4869,17 +4643,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "SZOCS Bernadette (ROU)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | R16 | 0 - 3 | 3:11 9:11 8:11 | SZOCS Bernadette | POLCANOVA Sofia | "
             },
             {
@@ -4906,7 +4677,7 @@
                 "12:10",
                 "11:9"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)",
@@ -4915,17 +4686,14 @@
               ],
               "side_a": [
                 "SZOCS Bernadette (ROU)",
-                "CHOI Hyojoo (KOR)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 12:10 11:9 | SZOCS Bernadette | POLCANOVA Sofia | "
             },
             {
@@ -4962,7 +4730,7 @@
                 "13:11",
                 "9:11"
               ],
-              "winner": "HAYATA Hina",
+              "winner": "HAYATA Hina / ITO Mima",
               "all_players_in_row": [
                 "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)",
@@ -4971,17 +4739,14 @@
               ],
               "side_a": [
                 "SZOCS Bernadette (ROU)",
-                "HAYATA Hina (JPN)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "HAYATA Hina (JPN)",
                 "ITO Mima (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | HAYATA Hina (JPN) | ITO Mima (JPN) | WD | Main Draw | SemiFinal | 2 - 3 | 5:11 11:8 13:15 13:11 9:11 | HAYATA Hina | ITO Mima | "
             },
             {
@@ -5019,15 +4784,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SAWETTABUT Suthasini (THA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | SAWETTABUT Suthasini (THA) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 1 - 3 | 8:11 11:8 6:11 9:11 | POLCANOVA Sofia |  | "
             },
             {
@@ -5060,15 +4823,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "WANG Manyu (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | WANG Manyu (CHN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 12:10 11:8 11:2 | WANG Manyu |  | "
             }
           ]
@@ -5131,15 +4892,13 @@
                 "NI Xia Lian (LUX)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "NI Xia Lian (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | POLCANOVA Sofia (AUT) |  | NI Xia Lian (LUX) |  | WS | Main Draw | QuarterFinal | 4 - 3 | 13:11 11:2 14:12 10:12 1:11 5:11 11:7 | POLCANOVA Sofia |  | "
             },
             {
@@ -5182,15 +4941,13 @@
                 "POTA Georgina (HUN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "POTA Georgina (HUN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | POLCANOVA Sofia (AUT) |  | POTA Georgina (HUN) |  | WS | Main Draw | R16 | 4 - 1 | 4:11 11:5 11:7 11:9 11:9 | POLCANOVA Sofia |  | "
             },
             {
@@ -5238,15 +4995,13 @@
                 "MIKHAILOVA Polina (AIN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "MIKHAILOVA Polina (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | POLCANOVA Sofia (AUT) |  | MIKHAILOVA Polina (AIN) |  | WS | Main Draw | SemiFinal | 2 - 4 | 11:9 9:11 13:11 7:11 7:11 4:11 | MIKHAILOVA Polina |  | "
             }
           ]
@@ -5299,15 +5054,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Cup Finals Singapore 2021 | SATO Hitomi (JPN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 3 - 1 | 11:13 12:10 13:11 11:9 | SATO Hitomi |  | "
             }
           ]
@@ -5370,15 +5123,13 @@
                 "DIACONU Adina (ROU)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "DIACONU Adina (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | POLCANOVA Sofia (AUT) |  | DIACONU Adina (ROU) |  | WS | Main Draw | R128 | 3 - 4 | 13:11 9:11 5:11 5:11 11:7 11:8 7:11 | DIACONU Adina |  | "
             },
             {
@@ -5405,7 +5156,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "SHRESTHA Nabita (NEP)",
                 "MAHARJAN Elina (NEP)",
@@ -5414,17 +5165,14 @@
               ],
               "side_a": [
                 "SHRESTHA Nabita (NEP)",
-                "POLCANOVA Sofia (AUT)"
+                "MAHARJAN Elina (NEP)"
               ],
               "side_b": [
-                "MAHARJAN Elina (NEP)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SHRESTHA Nabita (NEP) | MAHARJAN Elina (NEP) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | R64 | 0 - 3 | 0:0 0:0 0:0 | POLCANOVA Sofia | SZOCS Bernadette | "
             },
             {
@@ -5451,7 +5199,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "ISHIKAWA Kasumi",
+              "winner": "ISHIKAWA Kasumi / HIRANO Miu",
               "all_players_in_row": [
                 "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)",
@@ -5460,17 +5208,14 @@
               ],
               "side_a": [
                 "POLCANOVA Sofia (AUT)",
-                "ISHIKAWA Kasumi (JPN)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "ISHIKAWA Kasumi (JPN)",
                 "HIRANO Miu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | ISHIKAWA Kasumi (JPN) | HIRANO Miu (JPN) | WD | Main Draw | R32 | 0 - 3 | 12:14 8:11 6:11 | ISHIKAWA Kasumi | HIRANO Miu | "
             }
           ]
@@ -5507,7 +5252,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "SKACHKOV Kirill",
+              "winner": "SKACHKOV Kirill / VOROBEVA Olga",
               "all_players_in_row": [
                 "SKACHKOV Kirill (AIN)",
                 "VOROBEVA Olga (AIN)",
@@ -5516,17 +5261,14 @@
               ],
               "side_a": [
                 "SKACHKOV Kirill (AIN)",
-                "HABESOHN Daniel (AUT)"
+                "VOROBEVA Olga (AIN)"
               ],
               "side_b": [
-                "VOROBEVA Olga (AIN)",
+                "HABESOHN Daniel (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | SKACHKOV Kirill (AIN) | VOROBEVA Olga (AIN) | HABESOHN Daniel (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R16 | 3 - 0 | 0:0 0:0 0:0 | SKACHKOV Kirill | VOROBEVA Olga | "
             }
           ]
@@ -5569,15 +5311,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | POLCANOVA Sofia (AUT) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:6 11:5 | POLCANOVA Sofia |  | "
             },
             {
@@ -5609,7 +5349,7 @@
                 "11:9",
                 "7:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "ISHIY Vitor (BRA)",
                 "TAKAHASHI Bruna (BRA)",
@@ -5618,17 +5358,14 @@
               ],
               "side_a": [
                 "ISHIY Vitor (BRA)",
-                "GARDOS Robert (AUT)"
+                "TAKAHASHI Bruna (BRA)"
               ],
               "side_b": [
-                "TAKAHASHI Bruna (BRA)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | ISHIY Vitor (BRA) | TAKAHASHI Bruna (BRA) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R16 | 1 - 3 | 9:11 6:11 11:9 7:11 | GARDOS Robert | POLCANOVA Sofia | "
             },
             {
@@ -5666,15 +5403,13 @@
                 "TAILAKOVA Mariia (AIN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "TAILAKOVA Mariia (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | POLCANOVA Sofia (AUT) |  | TAILAKOVA Mariia (AIN) |  | WS | Main Draw | R16 | 3 - 1 | 5:11 11:7 11:5 11:8 | POLCANOVA Sofia |  | "
             },
             {
@@ -5701,7 +5436,7 @@
                 "11:3",
                 "11:9"
               ],
-              "winner": "LEBESSON Emmanuel",
+              "winner": "LEBESSON Emmanuel / YUAN Jia Nan",
               "all_players_in_row": [
                 "LEBESSON Emmanuel (FRA)",
                 "YUAN Jia Nan (FRA)",
@@ -5710,17 +5445,14 @@
               ],
               "side_a": [
                 "LEBESSON Emmanuel (FRA)",
-                "GARDOS Robert (AUT)"
+                "YUAN Jia Nan (FRA)"
               ],
               "side_b": [
-                "YUAN Jia Nan (FRA)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | LEBESSON Emmanuel (FRA) | YUAN Jia Nan (FRA) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:3 11:9 | LEBESSON Emmanuel | YUAN Jia Nan | "
             },
             {
@@ -5758,15 +5490,13 @@
                 "TRIGOLOS Daria (AIN)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "TRIGOLOS Daria (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | POLCANOVA Sofia (AUT) |  | TRIGOLOS Daria (AIN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 12:14 11:4 11:7 11:5 | POLCANOVA Sofia |  | "
             },
             {
@@ -5814,15 +5544,13 @@
                 "MATELOVA Hana (CZE)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | POLCANOVA Sofia (AUT) |  | MATELOVA Hana (CZE) |  | WS | Main Draw | SemiFinal | 2 - 4 | 11:7 10:12 7:11 11:4 9:11 6:11 | MATELOVA Hana |  | "
             }
           ]
@@ -5880,15 +5608,13 @@
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | POLCANOVA Sofia (AUT) |  | SHAO Jieni (POR) |  | WS | Main Draw | R16 | 4 - 2 | 11:7 5:11 6:11 11:8 11:7 11:6 | POLCANOVA Sofia |  | "
             },
             {
@@ -5931,15 +5657,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | POLCANOVA Sofia (AUT) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 3:11 7:11 11:8 11:13 8:11 | MITTELHAM Nina |  | "
             }
           ]
@@ -5987,15 +5711,13 @@
                 "BATRA Manika (IND)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "BATRA Manika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | POLCANOVA Sofia (AUT) |  | BATRA Manika (IND) |  | WS | Main Draw | R32 | 4 - 0 | 11:8 11:2 11:5 11:7 | POLCANOVA Sofia |  | "
             },
             {
@@ -6033,15 +5755,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "ISHIKAWA Kasumi (JPN)",
+                "ISHIKAWA Kasumi (JPN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | ISHIKAWA Kasumi (JPN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 4 - 0 | 11:8 11:8 12:10 11:9 | ISHIKAWA Kasumi |  | "
             },
             {
@@ -6074,15 +5794,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "CHEN Meng (CHN)",
+                "CHEN Meng (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | CHEN Meng (CHN) |  | POLCANOVA Sofia (AUT) |  | WT | Main Draw | R16 | 3 - 0 | 11:3 11:3 11:6 | CHEN Meng |  | "
             }
           ]
@@ -6130,15 +5848,13 @@
                 "OLIVEIRA Leila (POR)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "OLIVEIRA Leila (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | POLCANOVA Sofia (AUT) |  | OLIVEIRA Leila (POR) |  | WS | Main Draw | R64 | 4 - 0 | 11:3 11:3 11:9 12:10 | POLCANOVA Sofia |  | "
             },
             {
@@ -6191,15 +5907,13 @@
                 "DIACONU Adina (ROU)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "DIACONU Adina (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | POLCANOVA Sofia (AUT) |  | DIACONU Adina (ROU) |  | WS | Main Draw | R32 | 4 - 3 | 11:9 5:11 9:11 11:8 11:4 6:11 11:4 | POLCANOVA Sofia |  | "
             },
             {
@@ -6247,15 +5961,13 @@
                 "TODOROVIC Andrea (SRB)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "TODOROVIC Andrea (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | POLCANOVA Sofia (AUT) |  | TODOROVIC Andrea (SRB) |  | WS | Main Draw | R16 | 4 - 2 | 11:13 11:1 12:10 9:11 11:8 11:9 | POLCANOVA Sofia |  | "
             },
             {
@@ -6298,15 +6010,13 @@
                 "PESOTSKA Margaryta (UKR)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | POLCANOVA Sofia (AUT) |  | PESOTSKA Margaryta (UKR) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 4:11 17:15 7:11 8:11 13:15 | PESOTSKA Margaryta |  | "
             }
           ]
@@ -6359,15 +6069,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "WANG Yidi (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2020 | 2020 ITTF Finals Zhengzhou 2020 | WANG Yidi (CHN) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 4 - 0 | 11:3 14:12 11:7 11:7 | WANG Yidi |  | "
             }
           ]
@@ -6430,15 +6138,13 @@
                 "HAN Ying (GER)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "HAN Ying (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | POLCANOVA Sofia (AUT) |  | HAN Ying (GER) |  | WS | Main Draw | R16 | 3 - 4 | 7:11 11:9 11:5 9:11 11:8 5:11 6:11 | HAN Ying |  | "
             }
           ]

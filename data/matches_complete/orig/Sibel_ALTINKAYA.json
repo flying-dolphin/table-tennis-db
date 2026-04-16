@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Sibel ALTINKAYA",
-  "english_name": "Sibel ALTINKAYA",
+  "player_name": "ALTINKAYA Sibel",
+  "english_name": "ALTINKAYA Sibel",
   "country": "TUR",
   "country_code": "TUR",
   "continent": "",
@@ -54,7 +54,7 @@
                 "6:11",
                 "8:11"
               ],
-              "winner": "FRIIS Martin",
+              "winner": "FRIIS Martin / BERGAND Filippa",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -63,17 +63,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "FRIIS Martin (SWE)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "FRIIS Martin (SWE)",
                 "BERGAND Filippa (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | FRIIS Martin (SWE) | BERGAND Filippa (SWE) | XD | Main Draw | R16 | 2 - 3 | 12:10 11:8 2:11 6:11 8:11 | FRIIS Martin | BERGAND Filippa | "
             },
             {
@@ -110,7 +107,7 @@
                 "14:12",
                 "11:7"
               ],
-              "winner": "WATANABE Laura",
+              "winner": "WATANABE Laura / RIOS Valentina",
               "all_players_in_row": [
                 "WATANABE Laura (BRA)",
                 "RIOS Valentina (CHI)",
@@ -119,17 +116,14 @@
               ],
               "side_a": [
                 "WATANABE Laura (BRA)",
-                "HARAC Ece (TUR)"
+                "RIOS Valentina (CHI)"
               ],
               "side_b": [
-                "RIOS Valentina (CHI)",
+                "HARAC Ece (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | WATANABE Laura (BRA) | RIOS Valentina (CHI) | HARAC Ece (TUR) | ALTINKAYA Sibel (TUR) | WD | Main Draw | R16 | 3 - 2 | 5:11 11:9 6:11 14:12 11:7 | WATANABE Laura | RIOS Valentina | "
             },
             {
@@ -162,15 +156,13 @@
                 "TAKEYA Misuzu (JPN)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ALTINKAYA Sibel (TUR) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 7:11 5:11 | TAKEYA Misuzu |  | "
             }
           ]
@@ -223,15 +215,13 @@
                 "WU Jiamuwa (AUS)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "WU Jiamuwa (AUS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | ALTINKAYA Sibel (TUR) |  | WU Jiamuwa (AUS) |  | WS | Qualification | QR64 | 3 - 2 | 11:7 11:7 4:11 4:11 11:5 | ALTINKAYA Sibel |  | "
             },
             {
@@ -264,15 +254,13 @@
                 "MORET Rachel (SUI)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "MORET Rachel (SUI)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | ALTINKAYA Sibel (TUR) |  | MORET Rachel (SUI) |  | WS | Qualification | QR32 | 0 - 3 | 9:11 16:18 10:12 | MORET Rachel |  | "
             }
           ]
@@ -320,15 +308,13 @@
                 "WIELGOS Zuzanna (POL)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | ALTINKAYA Sibel (TUR) |  | WIELGOS Zuzanna (POL) |  | WS | Main Draw | R32 | 1 - 3 | 11:13 6:11 11:6 7:11 | WIELGOS Zuzanna |  | "
             }
           ]
@@ -365,24 +351,23 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "TSAI Yun-En",
+              "winner": "TSAI Yun-En / HUANG Yu-Jie",
               "all_players_in_row": [
+                "TSAI Yun-En (TPE)",
+                "HUANG Yu-Jie (TPE)",
                 "HARAC Ece (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
                 "TSAI Yun-En (TPE)",
-                "HARAC Ece (TUR)"
+                "HUANG Yu-Jie (TPE)"
               ],
               "side_b": [
-                "HUANG Yu-Jie (TPE)",
+                "HARAC Ece (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | TSAI Yun-En (TPE) | HUANG Yu-Jie (TPE) | HARAC Ece (TUR) | ALTINKAYA Sibel (TUR) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:7 11:8 | TSAI Yun-En | HUANG Yu-Jie | "
             },
             {
@@ -425,15 +410,13 @@
                 "MUKHERJEE Ayhika (IND)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "MUKHERJEE Ayhika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | ALTINKAYA Sibel (TUR) |  | MUKHERJEE Ayhika (IND) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 11:5 9:11 7:11 11:7 | ALTINKAYA Sibel |  | "
             },
             {
@@ -466,15 +449,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "DOO Hoi Kem (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | DOO Hoi Kem (HKG) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R16 | 3 - 0 | 11:3 11:0 11:0 | DOO Hoi Kem |  | "
             }
           ]
@@ -522,15 +503,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "LEE Daeun (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Parma 2025 | LEE Daeun (KOR) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 12:10 11:6 | LEE Daeun |  | "
             }
           ]
@@ -578,15 +557,13 @@
                 "FARYAL Bisma (PAK)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "FARYAL Bisma (PAK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Islamic Solidarity Games Riyadh 2025 | ALTINKAYA Sibel (TUR) |  | FARYAL Bisma (PAK) |  | WS | Main Draw | R32 | 4 - 0 | 11:5 11:9 11:1 11:4 | ALTINKAYA Sibel |  | "
             },
             {
@@ -624,15 +601,13 @@
                 "EDGHILL Chelsea (GUY)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "EDGHILL Chelsea (GUY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Islamic Solidarity Games Riyadh 2025 | ALTINKAYA Sibel (TUR) |  | EDGHILL Chelsea (GUY) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 15:13 11:5 11:8 11:1 | ALTINKAYA Sibel |  | "
             },
             {
@@ -659,7 +634,7 @@
                 "11:9",
                 "11:1"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -668,17 +643,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "BATIX Ylane (CMR)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "BATIX Ylane (CMR)",
                 "KOULAOUINHI Lorenza (CMR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Islamic Solidarity Games Riyadh 2025 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | BATIX Ylane (CMR) | KOULAOUINHI Lorenza (CMR) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:9 11:1 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             },
             {
@@ -726,15 +698,13 @@
                 "FATHY Hend (EGY)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "FATHY Hend (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Islamic Solidarity Games Riyadh 2025 | ALTINKAYA Sibel (TUR) |  | FATHY Hend (EGY) |  | WS | Main Draw | R16 | 4 - 2 | 11:6 3:11 11:7 11:9 8:11 11:7 | ALTINKAYA Sibel |  | "
             },
             {
@@ -761,7 +731,7 @@
                 "11:8",
                 "11:8"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -770,17 +740,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "AHMADZADA Adil (AZE)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "AHMADZADA Adil (AZE)",
                 "NURMATOVA Marziyya (AZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Islamic Solidarity Games Riyadh 2025 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | AHMADZADA Adil (AZE) | NURMATOVA Marziyya (AZE) | XD | Main Draw | SemiFinal | 3 - 0 | 11:3 11:8 11:8 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             },
             {
@@ -833,15 +800,13 @@
                 "ZAZA Hend (SYR)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "ZAZA Hend (SYR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Islamic Solidarity Games Riyadh 2025 | ALTINKAYA Sibel (TUR) |  | ZAZA Hend (SYR) |  | WS | Main Draw | SemiFinal | 3 - 4 | 11:5 7:11 7:11 5:11 11:4 11:5 8:11 | ZAZA Hend |  | "
             },
             {
@@ -868,7 +833,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -877,17 +842,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "AHMED Md Javed (BAN)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "AHMED Md Javed (BAN)",
                 "SAI Khoy (BAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Islamic Solidarity Games Riyadh 2025 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | AHMED Md Javed (BAN) | SAI Khoy (BAN) | XD | Main Draw | Final | 3 - 0 | 11:5 11:8 11:6 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             }
           ]
@@ -935,15 +897,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "PESOTSKA Margaryta (UKR)",
+                "PESOTSKA Margaryta (UKR)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | PESOTSKA Margaryta (UKR) |  | ALTINKAYA Sibel (TUR) |  | WT | Qualification |  | 3 - 1 | 8:11 11:3 11:8 11:6 | PESOTSKA Margaryta |  | "
             },
             {
@@ -976,15 +936,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | VARADY Barbora (SVK) |  | ALTINKAYA Sibel (TUR) |  | WT | Qualification |  | 3 - 0 | 12:10 11:9 11:9 | VARADY Barbora |  | "
             },
             {
@@ -1022,15 +980,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | MONFARDINI Gaia (ITA) |  | ALTINKAYA Sibel (TUR) |  | WT | Position Draw | 8 | 3 - 1 | 13:11 6:11 11:8 11:8 | MONFARDINI Gaia |  | "
             },
             {
@@ -1073,15 +1029,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "ARLIA Nicole (ITA)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | ARLIA Nicole (ITA) |  | ALTINKAYA Sibel (TUR) |  | WT | Position Draw | 8 | 2 - 3 | 12:10 11:8 10:12 7:11 7:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -1119,15 +1073,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | YUAN Jia Nan (FRA) |  | ALTINKAYA Sibel (TUR) |  | WT | Position Draw | 4 | 3 - 1 | 11:5 11:2 8:11 11:7 | YUAN Jia Nan |  | "
             }
           ]
@@ -1180,15 +1132,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "VEGA Paulina (CHI)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | VEGA Paulina (CHI) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR64 | 2 - 3 | 11:8 11:7 7:11 9:11 4:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -1221,15 +1171,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "ZHU Sibing (CHN)",
+                "ZHU Sibing (CHN)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | ZHU Sibing (CHN) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR32 | 3 - 0 | 13:11 11:8 11:5 | ZHU Sibing |  | "
             }
           ]
@@ -1276,7 +1224,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -1285,17 +1233,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "OKANO Shunsuke (JPN)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | R16 | 2 - 3 | 11:7 6:11 14:12 6:11 3:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -1327,7 +1272,7 @@
                 "11:7",
                 "11:1"
               ],
-              "winner": "ALTINKAYA Sibel",
+              "winner": "ALTINKAYA Sibel / DEMIR Merve",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "DEMIR Merve (TUR)",
@@ -1336,17 +1281,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "WATANABE Laura (BRA)"
+                "DEMIR Merve (TUR)"
               ],
               "side_b": [
-                "DEMIR Merve (TUR)",
+                "WATANABE Laura (BRA)",
                 "STRASSBURGER Victoria (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | ALTINKAYA Sibel (TUR) | DEMIR Merve (TUR) | WATANABE Laura (BRA) | STRASSBURGER Victoria (BRA) | WD | Main Draw | R16 | 3 - 1 | 11:7 9:11 11:7 11:1 | ALTINKAYA Sibel | DEMIR Merve | "
             },
             {
@@ -1379,15 +1321,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "TOFANT Ana (SLO)",
+                "TOFANT Ana (SLO)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | TOFANT Ana (SLO) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 11:13 9:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -1419,7 +1359,7 @@
                 "14:12",
                 "11:9"
               ],
-              "winner": "SER Lin Qian",
+              "winner": "SER Lin Qian / LOY Ming Ying",
               "all_players_in_row": [
                 "SER Lin Qian (SGP)",
                 "LOY Ming Ying (SGP)",
@@ -1428,17 +1368,14 @@
               ],
               "side_a": [
                 "SER Lin Qian (SGP)",
-                "ALTINKAYA Sibel (TUR)"
+                "LOY Ming Ying (SGP)"
               ],
               "side_b": [
-                "LOY Ming Ying (SGP)",
+                "ALTINKAYA Sibel (TUR)",
                 "DEMIR Merve (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SER Lin Qian (SGP) | LOY Ming Ying (SGP) | ALTINKAYA Sibel (TUR) | DEMIR Merve (TUR) | WD | Main Draw | QuarterFinal | 3 - 1 | 10:12 11:6 14:12 11:9 | SER Lin Qian | LOY Ming Ying | "
             },
             {
@@ -1476,15 +1413,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "SAFAEI Shima (IRI)",
+                "SAFAEI Shima (IRI)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SAFAEI Shima (IRI) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R16 | 3 - 1 | 9:11 11:9 11:6 11:8 | SAFAEI Shima |  | "
             }
           ]
@@ -1546,7 +1481,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -1555,17 +1490,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "GUNDUZ Ibrahim (TUR)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | QIU Dang (GER) | MITTELHAM Nina (GER) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:6 11:3 11:9 0:0 0:0 0:0 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -1612,7 +1544,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -1621,17 +1553,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "MOREGARD Truls (SWE)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "MOREGARD Truls (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | MOREGARD Truls (SWE) | KALLBERG Christina (SWE) | XD | Main Draw | R16 | 3 - 2 | 11:7 11:5 3:11 8:11 13:11 0:0 0:0 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             },
             {
@@ -1684,15 +1613,13 @@
                 "BLASKOVA Zdena (CZE)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "BLASKOVA Zdena (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | ALTINKAYA Sibel (TUR) |  | BLASKOVA Zdena (CZE) |  | WS | Main Draw | R64 | 3 - 4 | 7:11 12:10 11:8 9:11 11:8 9:11 9:11 | BLASKOVA Zdena |  | "
             }
           ]
@@ -1735,15 +1662,13 @@
                 "OJOMU Ajoke (NGR)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "OJOMU Ajoke (NGR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Lagos 2023 | ALTINKAYA Sibel (TUR) |  | OJOMU Ajoke (NGR) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:4 11:9 | ALTINKAYA Sibel |  | "
             },
             {
@@ -1776,15 +1701,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Lagos 2023 | VARADY Barbora (SVK) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R16 | 3 - 0 | 14:12 11:7 11:9 | VARADY Barbora |  | "
             }
           ]
@@ -1832,15 +1755,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | ALTINKAYA Sibel (TUR) |  | XIAO Maria (ESP) |  | WS | Main Draw | R128 | 0 - 4 | 7:11 10:12 10:12 6:11 | XIAO Maria |  | "
             },
             {
@@ -1867,7 +1788,7 @@
                 "0:11",
                 "0:11"
               ],
-              "winner": "ALTINKAYA Sibel",
+              "winner": "ALTINKAYA Sibel / KULAKCEKEN Simay",
               "all_players_in_row": [
                 "KHALIKOVA Kamila (UZB)",
                 "NORKULOVA Mekhriniso (UZB)",
@@ -1876,17 +1797,14 @@
               ],
               "side_a": [
                 "KHALIKOVA Kamila (UZB)",
-                "ALTINKAYA Sibel (TUR)"
+                "NORKULOVA Mekhriniso (UZB)"
               ],
               "side_b": [
-                "NORKULOVA Mekhriniso (UZB)",
+                "ALTINKAYA Sibel (TUR)",
                 "KULAKCEKEN Simay (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | KHALIKOVA Kamila (UZB) | NORKULOVA Mekhriniso (UZB) | ALTINKAYA Sibel (TUR) | KULAKCEKEN Simay (TUR) | WD | Main Draw | R64 | 0 - 3 | 0:11 0:11 0:11 | ALTINKAYA Sibel | KULAKCEKEN Simay | "
             },
             {
@@ -1913,7 +1831,7 @@
                 "11:8",
                 "13:11"
               ],
-              "winner": "IONESCU Ovidiu",
+              "winner": "IONESCU Ovidiu / SZOCS Bernadette",
               "all_players_in_row": [
                 "IONESCU Ovidiu (ROU)",
                 "SZOCS Bernadette (ROU)",
@@ -1922,17 +1840,14 @@
               ],
               "side_a": [
                 "IONESCU Ovidiu (ROU)",
-                "GUNDUZ Ibrahim (TUR)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R64 | 3 - 0 | 11:6 11:8 13:11 | IONESCU Ovidiu | SZOCS Bernadette | "
             },
             {
@@ -1959,24 +1874,23 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / LI Yu-Jhun",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
-                "KULAKCEKEN Simay (TUR)"
+                "KULAKCEKEN Simay (TUR)",
+                "CHENG I-Ching (TPE)",
+                "LI Yu-Jhun (TPE)"
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "CHENG I-Ching (TPE)"
+                "KULAKCEKEN Simay (TUR)"
               ],
               "side_b": [
-                "KULAKCEKEN Simay (TUR)",
+                "CHENG I-Ching (TPE)",
                 "LI Yu-Jhun (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | ALTINKAYA Sibel (TUR) | KULAKCEKEN Simay (TUR) | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | WD | Main Draw | R32 | 0 - 3 | 2:11 6:11 9:11 | CHENG I-Ching | LI Yu-Jhun | "
             }
           ]
@@ -2029,15 +1943,13 @@
                 "ANDO Minami (JPN)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "ANDO Minami (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | ALTINKAYA Sibel (TUR) |  | ANDO Minami (JPN) |  | WS | Qualification | QR32 | 2 - 3 | 11:6 8:11 11:6 5:11 6:11 | ANDO Minami |  | "
             }
           ]
@@ -2079,7 +1991,7 @@
                 "10:12",
                 "5:11"
               ],
-              "winner": "LYNE Karen",
+              "winner": "LYNE Karen / TEE Ai Xin",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "KULAKCEKEN Simay (TUR)",
@@ -2088,17 +2000,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "LYNE Karen (MAS)"
+                "KULAKCEKEN Simay (TUR)"
               ],
               "side_b": [
-                "KULAKCEKEN Simay (TUR)",
+                "LYNE Karen (MAS)",
                 "TEE Ai Xin (MAS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Antalya 2023 | ALTINKAYA Sibel (TUR) | KULAKCEKEN Simay (TUR) | LYNE Karen (MAS) | TEE Ai Xin (MAS) | WD | Qualification | QR8 | 1 - 3 | 11:8 4:11 10:12 5:11 | LYNE Karen | TEE Ai Xin | "
             },
             {
@@ -2135,7 +2044,7 @@
                 "11:5",
                 "11:5"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -2144,17 +2053,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "CHOONG Javen (MAS)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "CHOONG Javen (MAS)",
                 "LYNE Karen (MAS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Antalya 2023 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | CHOONG Javen (MAS) | LYNE Karen (MAS) | XD | Main Draw | R16 | 3 - 2 | 11:5 7:11 7:11 11:5 11:5 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             },
             {
@@ -2192,15 +2098,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "ZAHARIA Elena (ROU)",
+                "ZAHARIA Elena (ROU)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Antalya 2023 | ZAHARIA Elena (ROU) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R64 | 3 - 1 | 11:6 11:2 5:11 11:9 | ZAHARIA Elena |  | "
             },
             {
@@ -2227,7 +2131,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "LEVAJAC Dimitrije",
+              "winner": "LEVAJAC Dimitrije / LUPULESKU Izabela",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -2236,17 +2140,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "LEVAJAC Dimitrije (SRB)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "LEVAJAC Dimitrije (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Antalya 2023 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | LEVAJAC Dimitrije (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | QuarterFinal | 0 - 3 | 10:12 9:11 6:11 | LEVAJAC Dimitrije | LUPULESKU Izabela | "
             }
           ]
@@ -2299,15 +2200,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "KUMAHARA Luca (BRA)",
+                "KUMAHARA Luca (BRA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Singapore Smash 2023 | KUMAHARA Luca (BRA) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR64 | 3 - 2 | 11:4 7:11 9:11 11:3 14:12 | KUMAHARA Luca |  | "
             }
           ]
@@ -2355,15 +2254,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "ZHANG Wenjing (HKG)",
+                "ZHANG Wenjing (HKG)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | ZHANG Wenjing (HKG) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR32 | 1 - 3 | 9:11 8:11 11:7 9:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -2401,15 +2298,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "MUKHERJEE Ayhika (IND)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | MUKHERJEE Ayhika (IND) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR16 | 1 - 3 | 11:6 6:11 8:11 7:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -2447,15 +2342,13 @@
                 "SAWETTABUT Suthasini (THA)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "SAWETTABUT Suthasini (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | ALTINKAYA Sibel (TUR) |  | SAWETTABUT Suthasini (THA) |  | WS | Main Draw | R64 | 1 - 3 | 14:12 6:11 7:11 10:12 | SAWETTABUT Suthasini |  | "
             }
           ]
@@ -2498,15 +2391,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "LUTZ Charlotte (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Dusseldorf 2023 | LUTZ Charlotte (FRA) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 13:11 11:9 | LUTZ Charlotte |  | "
             }
           ]
@@ -2554,15 +2445,13 @@
                 "CAREY Charlotte (WAL)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "CAREY Charlotte (WAL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | ALTINKAYA Sibel (TUR) |  | CAREY Charlotte (WAL) |  | WS | Qualification | QR32 | 1 - 3 | 10:12 11:9 10:12 6:11 | CAREY Charlotte |  | "
             },
             {
@@ -2589,7 +2478,7 @@
                 "7:11",
                 "11:13"
               ],
-              "winner": "HARTBRICH Leonie",
+              "winner": "HARTBRICH Leonie / DARI Helga",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "SOLJA Amelie (AUT)",
@@ -2598,17 +2487,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "HARTBRICH Leonie (HUN)"
+                "SOLJA Amelie (AUT)"
               ],
               "side_b": [
-                "SOLJA Amelie (AUT)",
+                "HARTBRICH Leonie (HUN)",
                 "DARI Helga (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | ALTINKAYA Sibel (TUR) | SOLJA Amelie (AUT) | HARTBRICH Leonie (HUN) | DARI Helga (HUN) | WD | Qualification | QR8 | 0 - 3 | 9:11 7:11 11:13 | HARTBRICH Leonie | DARI Helga | "
             }
           ]
@@ -2645,7 +2531,7 @@
                 "11:4",
                 "11:2"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "MESHREF Dina (EGY)",
                 "ALTINKAYA Sibel (TUR)",
@@ -2654,17 +2540,14 @@
               ],
               "side_a": [
                 "MESHREF Dina (EGY)",
-                "MASHWABI Boipelo (RSA)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "MASHWABI Boipelo (RSA)",
                 "MOTHUPI Boingotlo (RSA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Durban 2023 | MESHREF Dina (EGY) | ALTINKAYA Sibel (TUR) | MASHWABI Boipelo (RSA) | MOTHUPI Boingotlo (RSA) | WD | Qualification | QR8 | 3 - 0 | 11:2 11:4 11:2 | MESHREF Dina | ALTINKAYA Sibel | "
             },
             {
@@ -2691,24 +2574,23 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ALTINKAYA Sibel",
               "all_players_in_row": [
+                "HUANG Yu-Jie (TPE)",
+                "YEH Yi-Tian (TPE)",
                 "MESHREF Dina (EGY)",
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
                 "HUANG Yu-Jie (TPE)",
-                "MESHREF Dina (EGY)"
+                "YEH Yi-Tian (TPE)"
               ],
               "side_b": [
-                "YEH Yi-Tian (TPE)",
+                "MESHREF Dina (EGY)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Durban 2023 | HUANG Yu-Jie (TPE) | YEH Yi-Tian (TPE) | MESHREF Dina (EGY) | ALTINKAYA Sibel (TUR) | WD | Main Draw | R16 | 0 - 3 | 6:11 9:11 8:11 | MESHREF Dina | ALTINKAYA Sibel | "
             },
             {
@@ -2741,15 +2623,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "QIAN Tianyi (CHN)",
+                "QIAN Tianyi (CHN)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Durban 2023 | QIAN Tianyi (CHN) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:5 11:3 | QIAN Tianyi |  | "
             },
             {
@@ -2781,7 +2661,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "VARADY Barbora",
+              "winner": "VARADY Barbora / LUTZ Camille",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "LUTZ Camille (FRA)",
@@ -2790,17 +2670,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "MESHREF Dina (EGY)"
+                "LUTZ Camille (FRA)"
               ],
               "side_b": [
-                "LUTZ Camille (FRA)",
+                "MESHREF Dina (EGY)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Durban 2023 | VARADY Barbora (SVK) | LUTZ Camille (FRA) | MESHREF Dina (EGY) | ALTINKAYA Sibel (TUR) | WD | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:0 11:7 11:9 | VARADY Barbora | LUTZ Camille | "
             }
           ]
@@ -2852,7 +2729,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "CAREY Charlotte",
+              "winner": "CAREY Charlotte / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "CAREY Charlotte (WAL)",
                 "ALTINKAYA Sibel (TUR)",
@@ -2861,17 +2738,14 @@
               ],
               "side_a": [
                 "CAREY Charlotte (WAL)",
-                "DE NUTTE Sarah (LUX)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "DE NUTTE Sarah (LUX)",
                 "GONDERINGER Tessy (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | CAREY Charlotte (WAL) | ALTINKAYA Sibel (TUR) | DE NUTTE Sarah (LUX) | GONDERINGER Tessy (LUX) | WD | Qualification | QR16 | 3 - 2 | 4:11 11:9 7:11 11:7 11:5 | CAREY Charlotte | ALTINKAYA Sibel | "
             },
             {
@@ -2898,7 +2772,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "DIACONU Adina",
+              "winner": "DIACONU Adina / XIAO Maria",
               "all_players_in_row": [
                 "CAREY Charlotte (WAL)",
                 "ALTINKAYA Sibel (TUR)",
@@ -2907,17 +2781,14 @@
               ],
               "side_a": [
                 "CAREY Charlotte (WAL)",
-                "DIACONU Adina (ROU)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "DIACONU Adina (ROU)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | CAREY Charlotte (WAL) | ALTINKAYA Sibel (TUR) | DIACONU Adina (ROU) | XIAO Maria (ESP) | WD | Qualification | QR8 | 0 - 3 | 7:11 7:11 4:11 | DIACONU Adina | XIAO Maria | "
             },
             {
@@ -2955,15 +2826,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "CHITALE Diya (IND)",
+                "CHITALE Diya (IND)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | CHITALE Diya (IND) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R32 | 1 - 3 | 12:10 9:11 5:11 9:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -3006,15 +2875,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "MATELOVA Hana (CZE)",
+                "MATELOVA Hana (CZE)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | MATELOVA Hana (CZE) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R16 | 2 - 3 | 6:11 11:7 11:6 7:11 6:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -3047,15 +2914,13 @@
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | ALTINKAYA Sibel (TUR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 9:11 7:11 10:12 | SAMARA Elizabeta |  | "
             }
           ]
@@ -3092,25 +2957,23 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "KULAKCEKEN Simay",
+              "winner": "KULAKCEKEN Simay / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "KULAKCEKEN Simay (TUR)",
                 "ALTINKAYA Sibel (TUR)",
-                "CAREY Charlotte (WAL)"
+                "CAREY Charlotte (WAL)",
+                "ZHANG Sofia-Xuan (ESP)"
               ],
               "side_a": [
                 "KULAKCEKEN Simay (TUR)",
-                "CAREY Charlotte (WAL)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "CAREY Charlotte (WAL)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | KULAKCEKEN Simay (TUR) | ALTINKAYA Sibel (TUR) | CAREY Charlotte (WAL) | ZHANG Sofia-Xuan (ESP) | WD | Qualification | QR16 | 3 - 0 | 11:8 11:6 11:9 | KULAKCEKEN Simay | ALTINKAYA Sibel | "
             },
             {
@@ -3137,7 +3000,7 @@
                 "11:0",
                 "11:0"
               ],
-              "winner": "KODJABASHEV Denislav",
+              "winner": "KODJABASHEV Denislav / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "KODJABASHEV Denislav (BUL)",
                 "ALTINKAYA Sibel (TUR)",
@@ -3146,17 +3009,14 @@
               ],
               "side_a": [
                 "KODJABASHEV Denislav (BUL)",
-                "KENJAEV Zokhid (UZB)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "KENJAEV Zokhid (UZB)",
                 "KHADJIEVA Rozalina (UZB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | KODJABASHEV Denislav (BUL) | ALTINKAYA Sibel (TUR) | KENJAEV Zokhid (UZB) | KHADJIEVA Rozalina (UZB) | XD | Qualification | QR16 | 3 - 0 | 11:0 11:0 11:0 | KODJABASHEV Denislav | ALTINKAYA Sibel | "
             },
             {
@@ -3193,7 +3053,7 @@
                 "10:12",
                 "11:5"
               ],
-              "winner": "KODJABASHEV Denislav",
+              "winner": "KODJABASHEV Denislav / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "KODJABASHEV Denislav (BUL)",
                 "ALTINKAYA Sibel (TUR)",
@@ -3202,17 +3062,14 @@
               ],
               "side_a": [
                 "KODJABASHEV Denislav (BUL)",
-                "REDZIMSKI Milosz (POL)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "REDZIMSKI Milosz (POL)",
                 "WEGRZYN Anna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | KODJABASHEV Denislav (BUL) | ALTINKAYA Sibel (TUR) | REDZIMSKI Milosz (POL) | WEGRZYN Anna (POL) | XD | Qualification | QR8 | 3 - 2 | 9:11 11:5 11:7 10:12 11:5 | KODJABASHEV Denislav | ALTINKAYA Sibel | "
             },
             {
@@ -3239,7 +3096,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "KULAKCEKEN Simay",
+              "winner": "KULAKCEKEN Simay / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "MUSKANTOR Rebecca (SWE)",
                 "BERGAND Filippa (SWE)",
@@ -3248,17 +3105,14 @@
               ],
               "side_a": [
                 "MUSKANTOR Rebecca (SWE)",
-                "KULAKCEKEN Simay (TUR)"
+                "BERGAND Filippa (SWE)"
               ],
               "side_b": [
-                "BERGAND Filippa (SWE)",
+                "KULAKCEKEN Simay (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | MUSKANTOR Rebecca (SWE) | BERGAND Filippa (SWE) | KULAKCEKEN Simay (TUR) | ALTINKAYA Sibel (TUR) | WD | Qualification | QR8 | 0 - 3 | 5:11 6:11 7:11 | KULAKCEKEN Simay | ALTINKAYA Sibel | "
             },
             {
@@ -3285,7 +3139,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "XU Haidong",
+              "winner": "XU Haidong / WU Yangchen",
               "all_players_in_row": [
                 "XU Haidong (CHN)",
                 "WU Yangchen (CHN)",
@@ -3294,17 +3148,14 @@
               ],
               "side_a": [
                 "XU Haidong (CHN)",
-                "KODJABASHEV Denislav (BUL)"
+                "WU Yangchen (CHN)"
               ],
               "side_b": [
-                "WU Yangchen (CHN)",
+                "KODJABASHEV Denislav (BUL)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | XU Haidong (CHN) | WU Yangchen (CHN) | KODJABASHEV Denislav (BUL) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R16 | 3 - 0 | 11:9 11:6 11:8 | XU Haidong | WU Yangchen | "
             },
             {
@@ -3352,15 +3203,13 @@
                 "COK Isa (FRA)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "COK Isa (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | ALTINKAYA Sibel (TUR) |  | COK Isa (FRA) |  | WS | Main Draw | R64 | 4 - 2 | 12:10 12:10 11:8 9:11 7:11 11:6 | ALTINKAYA Sibel |  | "
             },
             {
@@ -3392,7 +3241,7 @@
                 "11:2",
                 "11:9"
               ],
-              "winner": "KULAKCEKEN Simay",
+              "winner": "KULAKCEKEN Simay / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "KULAKCEKEN Simay (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -3401,17 +3250,14 @@
               ],
               "side_a": [
                 "KULAKCEKEN Simay (TUR)",
-                "GOI Rui Xuan (SGP)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "GOI Rui Xuan (SGP)",
                 "WONG Xin Ru (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | KULAKCEKEN Simay (TUR) | ALTINKAYA Sibel (TUR) | GOI Rui Xuan (SGP) | WONG Xin Ru (SGP) | WD | Main Draw | R16 | 3 - 1 | 7:11 11:7 11:2 11:9 | KULAKCEKEN Simay | ALTINKAYA Sibel | "
             },
             {
@@ -3449,15 +3295,13 @@
                 "WEGRZYN Anna (POL)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "WEGRZYN Anna (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | ALTINKAYA Sibel (TUR) |  | WEGRZYN Anna (POL) |  | WS | Main Draw | R32 | 0 - 4 | 4:11 6:11 0:11 0:11 | WEGRZYN Anna |  | "
             },
             {
@@ -3484,7 +3328,7 @@
                 "11:8",
                 "11:3"
               ],
-              "winner": "ZENG Jian",
+              "winner": "ZENG Jian / ZHOU Jingyi",
               "all_players_in_row": [
                 "ZENG Jian (SGP)",
                 "ZHOU Jingyi (SGP)",
@@ -3493,17 +3337,14 @@
               ],
               "side_a": [
                 "ZENG Jian (SGP)",
-                "KULAKCEKEN Simay (TUR)"
+                "ZHOU Jingyi (SGP)"
               ],
               "side_b": [
-                "ZHOU Jingyi (SGP)",
+                "KULAKCEKEN Simay (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | ZENG Jian (SGP) | ZHOU Jingyi (SGP) | KULAKCEKEN Simay (TUR) | ALTINKAYA Sibel (TUR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:8 11:3 | ZENG Jian | ZHOU Jingyi | "
             }
           ]
@@ -3545,7 +3386,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "WEGRZYN Anna",
+              "winner": "WEGRZYN Anna / WEGRZYN Katarzyna",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "KULAKCEKEN Simay (TUR)",
@@ -3554,17 +3395,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "WEGRZYN Anna (POL)"
+                "KULAKCEKEN Simay (TUR)"
               ],
               "side_b": [
-                "KULAKCEKEN Simay (TUR)",
+                "WEGRZYN Anna (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | ALTINKAYA Sibel (TUR) | KULAKCEKEN Simay (TUR) | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | WD | Qualification | QR32 | 1 - 3 | 11:6 7:11 6:11 6:11 | WEGRZYN Anna | WEGRZYN Katarzyna | "
             },
             {
@@ -3607,15 +3445,13 @@
                 "MISCHEK Karoline (AUT)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "MISCHEK Karoline (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | ALTINKAYA Sibel (TUR) |  | MISCHEK Karoline (AUT) |  | WS | Main Draw | R64 | 1 - 4 | 8:11 13:15 11:9 10:12 9:11 | MISCHEK Karoline |  | "
             },
             {
@@ -3642,7 +3478,7 @@
                 "12:10",
                 "14:12"
               ],
-              "winner": "DYJAS Jakub",
+              "winner": "DYJAS Jakub / PARTYKA Natalia",
               "all_players_in_row": [
                 "DYJAS Jakub (POL)",
                 "PARTYKA Natalia (POL)",
@@ -3651,17 +3487,14 @@
               ],
               "side_a": [
                 "DYJAS Jakub (POL)",
-                "GUNDUZ Ibrahim (TUR)"
+                "PARTYKA Natalia (POL)"
               ],
               "side_b": [
-                "PARTYKA Natalia (POL)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | DYJAS Jakub (POL) | PARTYKA Natalia (POL) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R32 | 3 - 0 | 12:10 12:10 14:12 | DYJAS Jakub | PARTYKA Natalia | "
             },
             {
@@ -3693,7 +3526,7 @@
                 "8:11",
                 "11:3"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -3702,17 +3535,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "ALEXANDROV Teodor (BUL)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALEXANDROV Teodor (BUL)",
                 "DOBREVA Polina (BUL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | ALEXANDROV Teodor (BUL) | DOBREVA Polina (BUL) | XD | Qualification | QR32 | 3 - 1 | 11:6 12:10 8:11 11:3 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             }
           ]
@@ -3759,7 +3589,7 @@
                 "11:5",
                 "9:11"
               ],
-              "winner": "GHOSH Swastika",
+              "winner": "GHOSH Swastika / ROY Krittwika",
               "all_players_in_row": [
                 "KULAKCEKEN Simay (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -3768,17 +3598,14 @@
               ],
               "side_a": [
                 "KULAKCEKEN Simay (TUR)",
-                "GHOSH Swastika (IND)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "GHOSH Swastika (IND)",
                 "ROY Krittwika (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | KULAKCEKEN Simay (TUR) | ALTINKAYA Sibel (TUR) | GHOSH Swastika (IND) | ROY Krittwika (IND) | WD | Qualification | QR16 | 2 - 3 | 12:14 11:4 7:11 11:5 9:11 | GHOSH Swastika | ROY Krittwika | "
             },
             {
@@ -3817,18 +3644,17 @@
               ],
               "winner": "ALTINKAYA Sibel",
               "all_players_in_row": [
-                "ALTINKAYA Sibel (TUR)"
-              ],
-              "side_a": [
                 "ALTINKAYA Sibel (TUR)",
                 "HUANG Yu-Wen (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
+                "HUANG Yu-Wen (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | ALTINKAYA Sibel (TUR) |  | HUANG Yu-Wen (TPE) |  | WS | Qualification | QR32 | 3 - 2 | 11:4 8:11 11:9 7:11 11:5 | ALTINKAYA Sibel |  | "
             },
             {
@@ -3861,15 +3687,13 @@
                 "YOON Hyobin (KOR)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "YOON Hyobin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | ALTINKAYA Sibel (TUR) |  | YOON Hyobin (KOR) |  | WS | Qualification | QR16 | 0 - 3 | 4:11 8:11 8:11 | YOON Hyobin |  | "
             },
             {
@@ -3907,15 +3731,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "LEE Zion (KOR)",
+                "LEE Zion (KOR)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | LEE Zion (KOR) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R32 | 3 - 1 | 12:10 11:1 6:11 14:12 | LEE Zion |  | "
             },
             {
@@ -3942,7 +3764,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "TANVIRIYAVECHAKUL Padasak (THA)",
                 "SAWETTABUT Suthasini (THA)",
@@ -3951,17 +3773,14 @@
               ],
               "side_a": [
                 "TANVIRIYAVECHAKUL Padasak (THA)",
-                "GUNDUZ Ibrahim (TUR)"
+                "SAWETTABUT Suthasini (THA)"
               ],
               "side_b": [
-                "SAWETTABUT Suthasini (THA)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | TANVIRIYAVECHAKUL Padasak (THA) | SAWETTABUT Suthasini (THA) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R16 | 0 - 3 | 9:11 9:11 9:11 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             },
             {
@@ -3988,24 +3807,23 @@
                 "11:8",
                 "12:10"
               ],
-              "winner": "FENG Yi-Hsin",
+              "winner": "FENG Yi-Hsin / CHEN Szu-Yu",
               "all_players_in_row": [
+                "FENG Yi-Hsin (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
                 "FENG Yi-Hsin (TPE)",
-                "GUNDUZ Ibrahim (TUR)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Tunis 2022 | FENG Yi-Hsin (TPE) | CHEN Szu-Yu (TPE) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:8 12:10 | FENG Yi-Hsin | CHEN Szu-Yu | "
             }
           ]
@@ -4053,15 +3871,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "YOO Eunchong (KOR)",
+                "YOO Eunchong (KOR)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | YOO Eunchong (KOR) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R64 | 4 - 0 | 11:5 11:5 11:8 11:8 | YOO Eunchong |  | "
             }
           ]
@@ -4109,15 +3925,13 @@
                 "DIACONU Adina (ROU)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "DIACONU Adina (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | ALTINKAYA Sibel (TUR) |  | DIACONU Adina (ROU) |  | WS | Qualification | QR64 | 1 - 3 | 5:11 9:11 11:6 10:12 | DIACONU Adina |  | "
             }
           ]
@@ -4175,15 +3989,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "MESHREF Dina (EGY)",
+                "MESHREF Dina (EGY)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | MESHREF Dina (EGY) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification |  | 4 - 2 | 9:11 3:11 11:9 11:9 11:3 11:5 | MESHREF Dina |  | "
             },
             {
@@ -4226,15 +4038,13 @@
                 "TOLIOU Aikaterini (GRE)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "TOLIOU Aikaterini (GRE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | TOLIOU Aikaterini (GRE) |  | WS | Qualification |  | 4 - 1 | 4:11 11:5 11:4 11:5 11:6 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4267,15 +4077,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "ARLIA Nicole (ITA)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ARLIA Nicole (ITA) |  | ALTINKAYA Sibel (TUR) |  | WT | Qualification |  | 0 - 3 | 5:11 6:11 8:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4312,7 +4120,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "PICCOLIN Giorgia",
+              "winner": "PICCOLIN Giorgia / STEFANOVA Nikoleta",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "STEFANOVA Nikoleta (ITA)",
@@ -4321,17 +4129,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "YILMAZ Ozge (TUR)"
+                "STEFANOVA Nikoleta (ITA)"
               ],
               "side_b": [
-                "STEFANOVA Nikoleta (ITA)",
+                "YILMAZ Ozge (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) | STEFANOVA Nikoleta (ITA) | YILMAZ Ozge (TUR) | ALTINKAYA Sibel (TUR) | WT | Qualification |  | 3 - 2 | 11:7 7:11 7:11 11:3 11:6 | PICCOLIN Giorgia | STEFANOVA Nikoleta | "
             },
             {
@@ -4369,15 +4174,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "PICCOLIN Giorgia (ITA)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | PICCOLIN Giorgia (ITA) |  | ALTINKAYA Sibel (TUR) |  | WT | Qualification |  | 3 - 1 | 11:9 7:11 11:9 11:8 | PICCOLIN Giorgia |  | "
             },
             {
@@ -4420,15 +4223,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | LUPULESKU Izabela (SRB) |  | WT | Qualification |  | 3 - 2 | 11:5 5:11 11:9 3:11 11:8 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4465,7 +4266,7 @@
                 "12:14",
                 "4:11"
               ],
-              "winner": "SURJAN Sabina",
+              "winner": "SURJAN Sabina / JOKIC Tijana",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "YILMAZ Ozge (TUR)",
@@ -4474,17 +4275,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "SURJAN Sabina (SRB)"
+                "YILMAZ Ozge (TUR)"
               ],
               "side_b": [
-                "YILMAZ Ozge (TUR)",
+                "SURJAN Sabina (SRB)",
                 "JOKIC Tijana (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) | YILMAZ Ozge (TUR) | SURJAN Sabina (SRB) | JOKIC Tijana (SRB) | WT | Qualification |  | 2 - 3 | 11:13 11:7 11:4 12:14 4:11 | SURJAN Sabina | JOKIC Tijana | "
             },
             {
@@ -4522,15 +4320,13 @@
                 "SURJAN Sabina (SRB)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | SURJAN Sabina (SRB) |  | WT | Qualification |  | 3 - 1 | 11:7 11:9 6:11 11:7 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4568,15 +4364,13 @@
                 "LUPULESKU Izabela (SRB)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification |  | 0 - 4 | 8:11 4:11 5:11 6:11 | LUPULESKU Izabela |  | "
             },
             {
@@ -4614,15 +4408,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification |  | 4 - 0 | 0:0 0:0 0:0 0:0 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4661,18 +4453,17 @@
               ],
               "winner": "ALTINKAYA Sibel",
               "all_players_in_row": [
-                "ALTINKAYA Sibel (TUR)"
-              ],
-              "side_a": [
                 "ALTINKAYA Sibel (TUR)",
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | ALTINKAYA Sibel (TUR) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Qualification |  | 4 - 1 | 11:6 12:10 11:9 10:12 11:5 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4710,15 +4501,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "YANG Xiaoxin (MON)",
+                "YANG Xiaoxin (MON)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Mediterranean Games Oran 2022 | YANG Xiaoxin (MON) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:5 11:3 11:9 11:7 | YANG Xiaoxin |  | "
             }
           ]
@@ -4766,15 +4555,13 @@
                 "TAKAHASHI Giulia (BRA)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "TAKAHASHI Giulia (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | ALTINKAYA Sibel (TUR) |  | TAKAHASHI Giulia (BRA) |  | WS | Qualification | QR16 | 3 - 1 | 13:15 11:5 11:7 11:3 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4801,7 +4588,7 @@
                 "11:6",
                 "11:3"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4810,17 +4597,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "GUNDUZ Ibrahim (TUR)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R16 | 3 - 0 | 11:5 11:6 11:3 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -4858,15 +4642,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "ORTEGA Daniela (CHI)",
+                "ORTEGA Daniela (CHI)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | ORTEGA Daniela (CHI) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 7:11 11:5 8:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4893,7 +4675,7 @@
                 "10:12",
                 "7:11"
               ],
-              "winner": "MORI Sakura",
+              "winner": "MORI Sakura / SASAO Asuka",
               "all_players_in_row": [
                 "KULAKCEKEN Simay (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -4902,17 +4684,14 @@
               ],
               "side_a": [
                 "KULAKCEKEN Simay (TUR)",
-                "MORI Sakura (JPN)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "MORI Sakura (JPN)",
                 "SASAO Asuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | KULAKCEKEN Simay (TUR) | ALTINKAYA Sibel (TUR) | MORI Sakura (JPN) | SASAO Asuka (JPN) | WD | Main Draw | R16 | 0 - 3 | 9:11 10:12 7:11 | MORI Sakura | SASAO Asuka | "
             },
             {
@@ -4950,15 +4729,13 @@
                 "DE NUTTE Sarah (LUX)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | ALTINKAYA Sibel (TUR) |  | DE NUTTE Sarah (LUX) |  | WS | Main Draw | R16 | 3 - 1 | 8:11 11:6 11:9 11:6 | ALTINKAYA Sibel |  | "
             },
             {
@@ -4992,18 +4769,17 @@
               ],
               "winner": "SU Pei-Ling",
               "all_players_in_row": [
-                "ALTINKAYA Sibel (TUR)"
-              ],
-              "side_a": [
                 "SU Pei-Ling (TPE)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "SU Pei-Ling (TPE)"
+              ],
+              "side_b": [
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | SU Pei-Ling (TPE) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:5 10:12 11:3 11:8 | SU Pei-Ling |  | "
             }
           ]
@@ -5051,15 +4827,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "KIM Byeolnim (KOR)",
+                "KIM Byeolnim (KOR)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | KIM Byeolnim (KOR) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR64 | 1 - 3 | 7:11 11:5 11:13 8:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -5092,15 +4866,13 @@
                 "MORI Sakura (JPN)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "MORI Sakura (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | ALTINKAYA Sibel (TUR) |  | MORI Sakura (JPN) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 7:11 8:11 | MORI Sakura |  | "
             }
           ]
@@ -5148,15 +4920,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "LEE Daeun (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LEE Daeun (KOR) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR64 | 3 - 1 | 9:11 11:5 11:6 12:10 | LEE Daeun |  | "
             }
           ]
@@ -5203,7 +4973,7 @@
                 "6:11",
                 "11:8"
               ],
-              "winner": "SAWETTABUT Jinnipa",
+              "winner": "SAWETTABUT Jinnipa / KHETKHUAN Tamolwan",
               "all_players_in_row": [
                 "SAWETTABUT Jinnipa (THA)",
                 "KHETKHUAN Tamolwan (THA)",
@@ -5212,17 +4982,14 @@
               ],
               "side_a": [
                 "SAWETTABUT Jinnipa (THA)",
-                "ALTINKAYA Sibel (TUR)"
+                "KHETKHUAN Tamolwan (THA)"
               ],
               "side_b": [
-                "KHETKHUAN Tamolwan (THA)",
+                "ALTINKAYA Sibel (TUR)",
                 "KULAKCEKEN Simay (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | SAWETTABUT Jinnipa (THA) | KHETKHUAN Tamolwan (THA) | ALTINKAYA Sibel (TUR) | KULAKCEKEN Simay (TUR) | WD | Qualification | QR16 | 3 - 2 | 9:11 11:7 11:8 6:11 11:8 | SAWETTABUT Jinnipa | KHETKHUAN Tamolwan | "
             },
             {
@@ -5249,7 +5016,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "XUE Fei",
+              "winner": "XUE Fei / ZHANG Rui",
               "all_players_in_row": [
                 "XUE Fei (CHN)",
                 "ZHANG Rui (CHN)",
@@ -5258,17 +5025,14 @@
               ],
               "side_a": [
                 "XUE Fei (CHN)",
-                "GUNDUZ Ibrahim (TUR)"
+                "ZHANG Rui (CHN)"
               ],
               "side_b": [
-                "ZHANG Rui (CHN)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | XUE Fei (CHN) | ZHANG Rui (CHN) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R16 | 3 - 0 | 11:5 11:5 11:8 | XUE Fei | ZHANG Rui | "
             },
             {
@@ -5306,15 +5070,13 @@
                 "LIU Weishan (CHN)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "LIU Weishan (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | ALTINKAYA Sibel (TUR) |  | LIU Weishan (CHN) |  | WS | Main Draw | R64 | 0 - 4 | 5:11 5:11 10:12 9:11 | LIU Weishan |  | "
             }
           ]
@@ -5357,15 +5119,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "TOLIOU Aikaterini (GRE)",
+                "TOLIOU Aikaterini (GRE)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | TOLIOU Aikaterini (GRE) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR32 | 0 - 3 | 12:14 7:11 4:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -5408,15 +5168,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "DE NUTTE Sarah (LUX)",
+                "DE NUTTE Sarah (LUX)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | DE NUTTE Sarah (LUX) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR16 | 3 - 2 | 11:7 11:8 6:11 5:11 11:9 | DE NUTTE Sarah |  | "
             }
           ]
@@ -5459,15 +5217,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | DRAGOMAN Andreea (ROU) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 11:5 11:6 | DRAGOMAN Andreea |  | "
             },
             {
@@ -5494,7 +5250,7 @@
                 "6:11",
                 "8:11"
               ],
-              "winner": "HE Zhuojia",
+              "winner": "HE Zhuojia / LIU Weishan",
               "all_players_in_row": [
                 "TODOROVIC Andrea (SRB)",
                 "ALTINKAYA Sibel (TUR)",
@@ -5503,17 +5259,14 @@
               ],
               "side_a": [
                 "TODOROVIC Andrea (SRB)",
-                "HE Zhuojia (CHN)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "HE Zhuojia (CHN)",
                 "LIU Weishan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | TODOROVIC Andrea (SRB) | ALTINKAYA Sibel (TUR) | HE Zhuojia (CHN) | LIU Weishan (CHN) | WD | Qualification | QR16 | 0 - 3 | 5:11 6:11 8:11 | HE Zhuojia | LIU Weishan | "
             },
             {
@@ -5550,7 +5303,7 @@
                 "11:7",
                 "9:11"
               ],
-              "winner": "ISHIY Vitor",
+              "winner": "ISHIY Vitor / TAKAHASHI Bruna",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -5559,17 +5312,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "ISHIY Vitor (BRA)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "ISHIY Vitor (BRA)",
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | ISHIY Vitor (BRA) | TAKAHASHI Bruna (BRA) | XD | Main Draw | R16 | 2 - 3 | 5:11 11:4 8:11 11:7 9:11 | ISHIY Vitor | TAKAHASHI Bruna | "
             }
           ]
@@ -5622,15 +5372,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "ENRIQUEZ Mabelyn (GUA)",
+                "ENRIQUEZ Mabelyn (GUA)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ENRIQUEZ Mabelyn (GUA) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R128 | 0 - 4 | 5:11 2:11 7:11 5:11 | ALTINKAYA Sibel |  | "
             },
             {
@@ -5657,7 +5405,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "GUNDUZ Ibrahim",
+              "winner": "GUNDUZ Ibrahim / ALTINKAYA Sibel",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -5666,17 +5414,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "KARAKASEVIC Aleksandar (SRB)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "KARAKASEVIC Aleksandar (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | KARAKASEVIC Aleksandar (SRB) | LUPULESKU Izabela (SRB) | XD | Main Draw | R64 | 3 - 0 | 12:10 11:9 11:7 | GUNDUZ Ibrahim | ALTINKAYA Sibel | "
             },
             {
@@ -5713,7 +5458,7 @@
                 "7:11",
                 "11:5"
               ],
-              "winner": "SUNG Joanna",
+              "winner": "SUNG Joanna / SUNG Rachel",
               "all_players_in_row": [
                 "SUNG Joanna (USA)",
                 "SUNG Rachel (USA)",
@@ -5722,17 +5467,14 @@
               ],
               "side_a": [
                 "SUNG Joanna (USA)",
-                "ALTINKAYA Sibel (TUR)"
+                "SUNG Rachel (USA)"
               ],
               "side_b": [
-                "SUNG Rachel (USA)",
+                "ALTINKAYA Sibel (TUR)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SUNG Joanna (USA) | SUNG Rachel (USA) | ALTINKAYA Sibel (TUR) | YILMAZ Ozge (TUR) | WD | Main Draw | R64 | 3 - 2 | 12:10 11:5 4:11 7:11 11:5 | SUNG Joanna | SUNG Rachel | "
             },
             {
@@ -5770,15 +5512,13 @@
                 "WANG Amy (USA)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "WANG Amy (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ALTINKAYA Sibel (TUR) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 5:11 6:11 9:11 | WANG Amy |  | "
             },
             {
@@ -5815,7 +5555,7 @@
                 "12:10",
                 "10:12"
               ],
-              "winner": "PANG Koen",
+              "winner": "PANG Koen / LIN Ye",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -5824,17 +5564,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "PANG Koen (SGP)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "PANG Koen (SGP)",
                 "LIN Ye (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | PANG Koen (SGP) | LIN Ye (CAN) | XD | Main Draw | R32 | 2 - 3 | 7:11 13:11 7:11 12:10 10:12 | PANG Koen | LIN Ye | "
             }
           ]
@@ -5876,7 +5613,7 @@
                 "11:3",
                 "18:16"
               ],
-              "winner": "ALTINKAYA Sibel",
+              "winner": "ALTINKAYA Sibel / TOLIOU Aikaterini",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "TOLIOU Aikaterini (GRE)",
@@ -5885,17 +5622,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "GONDERINGER Tessy (LUX)"
+                "TOLIOU Aikaterini (GRE)"
               ],
               "side_b": [
-                "TOLIOU Aikaterini (GRE)",
+                "GONDERINGER Tessy (LUX)",
                 "BARBOSA Ariel (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) | TOLIOU Aikaterini (GRE) | GONDERINGER Tessy (LUX) | BARBOSA Ariel (LUX) | WD | Qualification | QR32 | 3 - 1 | 11:8 12:14 11:3 18:16 | ALTINKAYA Sibel | TOLIOU Aikaterini | "
             },
             {
@@ -5932,7 +5666,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "TOLIOU Aikaterini (GRE)",
@@ -5941,17 +5675,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "YU Fu (POR)"
+                "TOLIOU Aikaterini (GRE)"
               ],
               "side_b": [
-                "TOLIOU Aikaterini (GRE)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) | TOLIOU Aikaterini (GRE) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R32 | 2 - 3 | 11:9 9:11 11:8 8:11 7:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -5989,15 +5720,13 @@
                 "RILISKYTE Emilija (LTU)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "RILISKYTE Emilija (LTU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) |  | RILISKYTE Emilija (LTU) |  | WS | Qualification |  | 3 - 1 | 10:12 11:9 13:11 11:6 | ALTINKAYA Sibel |  | "
             },
             {
@@ -6035,15 +5764,13 @@
                 "YAREMCHUK Solomiya (UKR)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "YAREMCHUK Solomiya (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) |  | YAREMCHUK Solomiya (UKR) |  | WS | Qualification |  | 1 - 3 | 9:11 11:6 7:11 7:11 | YAREMCHUK Solomiya |  | "
             },
             {
@@ -6076,15 +5803,13 @@
                 "MLADENOVA Biljana (MKD)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "MLADENOVA Biljana (MKD)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) |  | MLADENOVA Biljana (MKD) |  | WS | Qualification |  | 3 - 0 | 11:6 11:1 11:3 | ALTINKAYA Sibel |  | "
             },
             {
@@ -6137,15 +5862,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | MITTELHAM Nina (GER) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R64 | 3 - 4 | 11:3 7:11 11:8 10:12 11:3 5:11 11:13 | ALTINKAYA Sibel |  | "
             },
             {
@@ -6188,15 +5911,13 @@
                 "DE NUTTE Sarah (LUX)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) |  | DE NUTTE Sarah (LUX) |  | WS | Main Draw | R32 | 1 - 4 | 11:7 4:11 8:11 9:11 6:11 | DE NUTTE Sarah |  | "
             },
             {
@@ -6223,7 +5944,7 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "KALLBERG Anton",
+              "winner": "KALLBERG Anton / KALLBERG Christina",
               "all_players_in_row": [
                 "KALLBERG Anton (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -6232,17 +5953,14 @@
               ],
               "side_a": [
                 "KALLBERG Anton (SWE)",
-                "GUNDUZ Ibrahim (TUR)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | KALLBERG Anton (SWE) | KALLBERG Christina (SWE) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R32 | 3 - 0 | 11:8 11:6 11:9 | KALLBERG Anton | KALLBERG Christina | "
             }
           ]
@@ -6295,15 +6013,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "SHAHSAVARI Neda (IRI)",
+                "SHAHSAVARI Neda (IRI)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | SHAHSAVARI Neda (IRI) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R16 | 1 - 4 | 6:11 11:7 7:11 3:11 13:15 | ALTINKAYA Sibel |  | "
             },
             {
@@ -6351,15 +6067,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "XIAO Maria (ESP)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Singles Qualification Tournament Doha 2021 | XIAO Maria (ESP) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | QuarterFinal | 4 - 2 | 8:11 11:13 11:9 12:10 11:9 11:9 | XIAO Maria |  | "
             }
           ]

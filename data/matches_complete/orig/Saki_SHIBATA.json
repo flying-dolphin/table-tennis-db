@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Saki SHIBATA",
-  "english_name": "Saki SHIBATA",
+  "player_name": "SHIBATA Saki",
+  "english_name": "SHIBATA Saki",
   "country": "JPN",
   "country_code": "JPN",
   "continent": "",
@@ -55,15 +55,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "NG Wing Lam (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Taiyuan 2026 | NG Wing Lam (HKG) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 3:11 11:7 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -100,7 +98,7 @@
                 "11:2",
                 "11:7"
               ],
-              "winner": "SHIBATA Saki",
+              "winner": "SHIBATA Saki / TAKAMORI Mao",
               "all_players_in_row": [
                 "SHIBATA Saki (JPN)",
                 "TAKAMORI Mao (JPN)",
@@ -109,17 +107,14 @@
               ],
               "side_a": [
                 "SHIBATA Saki (JPN)",
-                "YAO Ruixuan (CHN)"
+                "TAKAMORI Mao (JPN)"
               ],
               "side_b": [
-                "TAKAMORI Mao (JPN)",
+                "YAO Ruixuan (CHN)",
                 "JIANG Yiyi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Taiyuan 2026 | SHIBATA Saki (JPN) | TAKAMORI Mao (JPN) | YAO Ruixuan (CHN) | JIANG Yiyi (CHN) | WD | Main Draw | R16 | 3 - 2 | 8:11 7:11 11:9 11:2 11:7 | SHIBATA Saki | TAKAMORI Mao | "
             },
             {
@@ -151,7 +146,7 @@
                 "11:8",
                 "11:2"
               ],
-              "winner": "SHIBATA Saki",
+              "winner": "SHIBATA Saki / TAKAMORI Mao",
               "all_players_in_row": [
                 "SHIBATA Saki (JPN)",
                 "TAKAMORI Mao (JPN)",
@@ -160,17 +155,14 @@
               ],
               "side_a": [
                 "SHIBATA Saki (JPN)",
-                "QIN Yuxuan (CHN)"
+                "TAKAMORI Mao (JPN)"
               ],
               "side_b": [
-                "TAKAMORI Mao (JPN)",
+                "QIN Yuxuan (CHN)",
                 "ZONG Geman (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Taiyuan 2026 | SHIBATA Saki (JPN) | TAKAMORI Mao (JPN) | QIN Yuxuan (CHN) | ZONG Geman (CHN) | WD | Main Draw | QuarterFinal | 3 - 1 | 7:11 11:7 11:8 11:2 | SHIBATA Saki | TAKAMORI Mao | "
             },
             {
@@ -208,15 +200,13 @@
                 "ZHU Ziyu (CHN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "ZHU Ziyu (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Taiyuan 2026 | SHIBATA Saki (JPN) |  | ZHU Ziyu (CHN) |  | WS | Main Draw | R16 | 1 - 3 | 8:11 10:12 11:9 8:11 | ZHU Ziyu |  | "
             },
             {
@@ -248,7 +238,7 @@
                 "7:11",
                 "13:11"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / NG Wing Lam",
               "all_players_in_row": [
                 "DOO Hoi Kem (HKG)",
                 "NG Wing Lam (HKG)",
@@ -257,17 +247,14 @@
               ],
               "side_a": [
                 "DOO Hoi Kem (HKG)",
-                "SHIBATA Saki (JPN)"
+                "NG Wing Lam (HKG)"
               ],
               "side_b": [
-                "NG Wing Lam (HKG)",
+                "SHIBATA Saki (JPN)",
                 "TAKAMORI Mao (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Taiyuan 2026 | DOO Hoi Kem (HKG) | NG Wing Lam (HKG) | SHIBATA Saki (JPN) | TAKAMORI Mao (JPN) | WD | Main Draw | SemiFinal | 3 - 1 | 11:7 11:8 7:11 13:11 | DOO Hoi Kem | NG Wing Lam | "
             }
           ]
@@ -309,7 +296,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "KIM Seongjin (KOR)",
                 "JOO Cheonhui (KOR)",
@@ -318,17 +305,14 @@
               ],
               "side_a": [
                 "KIM Seongjin (KOR)",
-                "SATO Hitomi (JPN)"
+                "JOO Cheonhui (KOR)"
               ],
               "side_b": [
-                "JOO Cheonhui (KOR)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | KIM Seongjin (KOR) | JOO Cheonhui (KOR) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | R16 | 1 - 3 | 11:6 8:11 9:11 8:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -365,7 +349,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "YOKOI Sakura",
+              "winner": "YOKOI Sakura / AOKI Sachi",
               "all_players_in_row": [
                 "YOKOI Sakura (JPN)",
                 "AOKI Sachi (JPN)",
@@ -374,17 +358,14 @@
               ],
               "side_a": [
                 "YOKOI Sakura (JPN)",
-                "SATO Hitomi (JPN)"
+                "AOKI Sachi (JPN)"
               ],
               "side_b": [
-                "AOKI Sachi (JPN)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | YOKOI Sakura (JPN) | AOKI Sachi (JPN) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:4 8:11 7:11 11:9 11:9 | YOKOI Sakura | AOKI Sachi | "
             },
             {
@@ -417,15 +398,13 @@
                 "RYU Hanna (KOR)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "RYU Hanna (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | SHIBATA Saki (JPN) |  | RYU Hanna (KOR) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 15:13 13:11 | SHIBATA Saki |  | "
             },
             {
@@ -463,15 +442,13 @@
                 "SATO Hitomi (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "SATO Hitomi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | SHIBATA Saki (JPN) |  | SATO Hitomi (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 10:12 11:9 9:11 10:12 | SATO Hitomi |  | "
             }
           ]
@@ -513,7 +490,7 @@
                 "10:12",
                 "11:9"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -522,17 +499,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "PAVADE Prithika (FRA)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "PAVADE Prithika (FRA)",
                 "YUAN Jia Nan (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | PAVADE Prithika (FRA) | YUAN Jia Nan (FRA) | WD | Main Draw | R16 | 3 - 1 | 11:9 11:9 10:12 11:9 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -575,15 +549,13 @@
                 "XIAO Maria (ESP)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | SHIBATA Saki (JPN) |  | XIAO Maria (ESP) |  | WS | Main Draw | R64 | 3 - 2 | 13:11 10:12 8:11 11:7 11:4 | SHIBATA Saki |  | "
             },
             {
@@ -615,7 +587,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "KIM Nayeong (KOR)",
                 "RYU Hanna (KOR)",
@@ -624,17 +596,14 @@
               ],
               "side_a": [
                 "KIM Nayeong (KOR)",
-                "SATO Hitomi (JPN)"
+                "RYU Hanna (KOR)"
               ],
               "side_b": [
-                "RYU Hanna (KOR)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | KIM Nayeong (KOR) | RYU Hanna (KOR) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | QuarterFinal | 1 - 3 | 9:11 11:8 9:11 8:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -677,15 +646,13 @@
                 "KIHARA Miyuu (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "KIHARA Miyuu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | SHIBATA Saki (JPN) |  | KIHARA Miyuu (JPN) |  | WS | Main Draw | R32 | 3 - 2 | 7:11 4:11 11:6 11:9 11:9 | SHIBATA Saki |  | "
             },
             {
@@ -717,7 +684,7 @@
                 "11:8",
                 "11:2"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -726,17 +693,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "SHI Xunyao (CHN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "SHI Xunyao (CHN)",
                 "WANG Xiaotong (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | SHI Xunyao (CHN) | WANG Xiaotong (CHN) | WD | Main Draw | SemiFinal | 3 - 1 | 9:11 11:7 11:8 11:2 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -769,15 +733,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "YOKOI Sakura (JPN)",
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | YOKOI Sakura (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 9:11 5:11 | SHIBATA Saki |  | "
             },
             {
@@ -820,15 +782,13 @@
                 "ZHU Yuling (MAC)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "ZHU Yuling (MAC)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | SHIBATA Saki (JPN) |  | ZHU Yuling (MAC) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 11:7 5:11 7:11 11:2 7:11 | ZHU Yuling |  | "
             },
             {
@@ -855,7 +815,7 @@
                 "4:11",
                 "9:11"
               ],
-              "winner": "YOKOI Sakura",
+              "winner": "YOKOI Sakura / ODO Satsuki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -864,17 +824,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "YOKOI Sakura (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "YOKOI Sakura (JPN)",
                 "ODO Satsuki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | YOKOI Sakura (JPN) | ODO Satsuki (JPN) | WD | Main Draw | Final | 0 - 3 | 10:12 4:11 9:11 | YOKOI Sakura | ODO Satsuki | "
             }
           ]
@@ -916,7 +873,7 @@
                 "11:5",
                 "11:3"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -925,17 +882,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "KIM Dahee (KOR)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "KIM Dahee (KOR)",
                 "YOO Yerin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | KIM Dahee (KOR) | YOO Yerin (KOR) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:5 11:3 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -968,15 +922,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "YILMAZ Ozge (TUR)",
+                "YILMAZ Ozge (TUR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | YILMAZ Ozge (TUR) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 5:11 3:11 | SHIBATA Saki |  | "
             },
             {
@@ -1008,7 +960,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1017,17 +969,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "YOO Siwoo (KOR)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "YOO Siwoo (KOR)",
                 "CHOI Haeeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | YOO Siwoo (KOR) | CHOI Haeeun (KOR) | WD | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:4 11:7 11:9 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1060,15 +1009,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "ROY Krittwika (IND)",
+                "ROY Krittwika (IND)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | ROY Krittwika (IND) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 6:11 9:11 3:11 | SHIBATA Saki |  | "
             },
             {
@@ -1095,7 +1042,7 @@
                 "11:4",
                 "11:4"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1104,17 +1051,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "BAISYA Poymantee (IND)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "BAISYA Poymantee (IND)",
                 "ROY Krittwika (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | BAISYA Poymantee (IND) | ROY Krittwika (IND) | WD | Main Draw | SemiFinal | 3 - 0 | 11:5 11:4 11:4 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1147,15 +1091,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "SASAO Asuka (JPN)",
+                "SASAO Asuka (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SASAO Asuka (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:7 11:3 | SASAO Asuka |  | "
             },
             {
@@ -1182,7 +1124,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1191,17 +1133,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "SER Lin Qian (SGP)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "SER Lin Qian (SGP)",
                 "LOY Ming Ying (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | SER Lin Qian (SGP) | LOY Ming Ying (SGP) | WD | Main Draw | Final | 3 - 0 | 11:4 11:8 11:7 | SATO Hitomi | SHIBATA Saki | "
             }
           ]
@@ -1244,15 +1183,13 @@
                 "LUO Isabella (USA)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "LUO Isabella (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SHIBATA Saki (JPN) |  | LUO Isabella (USA) |  | WS | Main Draw | R32 | 3 - 0 | 11:1 12:10 11:7 | SHIBATA Saki |  | "
             },
             {
@@ -1284,7 +1221,7 @@
                 "11:8",
                 "11:6"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1293,17 +1230,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "AKAE Kaho (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | AKAE Kaho (JPN) | ASO Reina (JPN) | WD | Main Draw | QuarterFinal | 3 - 1 | 7:11 11:7 11:8 11:6 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1341,15 +1275,13 @@
                 "UESAWA Anne (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "UESAWA Anne (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SHIBATA Saki (JPN) |  | UESAWA Anne (JPN) |  | WS | Main Draw | R16 | 3 - 1 | 11:4 11:9 10:12 11:7 | SHIBATA Saki |  | "
             },
             {
@@ -1381,7 +1313,7 @@
                 "9:11",
                 "11:4"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1390,17 +1322,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "MOYLAND Sally (USA)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "MOYLAND Sally (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | MOYLAND Sally (USA) | WANG Amy (USA) | WD | Main Draw | SemiFinal | 3 - 1 | 11:8 11:8 9:11 11:4 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1429,18 +1358,17 @@
               ],
               "winner": "SHIBATA Saki",
               "all_players_in_row": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "side_a": [
                 "SHIBATA Saki (JPN)",
                 "YEH Yi-Tian (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
+                "YEH Yi-Tian (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SHIBATA Saki (JPN) |  | YEH Yi-Tian (TPE) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:7 11:7 | SHIBATA Saki |  | "
             },
             {
@@ -1478,15 +1406,13 @@
                 "MOYLAND Sally (USA)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SHIBATA Saki (JPN) |  | MOYLAND Sally (USA) |  | WS | Main Draw | SemiFinal | 3 - 1 | 6:11 11:2 11:7 11:8 | SHIBATA Saki |  | "
             },
             {
@@ -1518,7 +1444,7 @@
                 "15:13",
                 "11:7"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1527,17 +1453,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "SASAO Asuka (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "SASAO Asuka (JPN)",
                 "UESAWA Anne (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | SASAO Asuka (JPN) | UESAWA Anne (JPN) | WD | Main Draw | Final | 3 - 1 | 10:12 11:8 15:13 11:7 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1575,15 +1498,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | AKAE Kaho (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | Final | 3 - 1 | 11:8 6:11 11:4 14:12 | AKAE Kaho |  | "
             }
           ]
@@ -1631,15 +1552,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "DIAZ Fabiola (PUR)",
+                "DIAZ Fabiola (PUR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | DIAZ Fabiola (PUR) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 8:11 11:5 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -1676,7 +1595,7 @@
                 "6:11",
                 "11:6"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1685,17 +1604,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "AKAE Kaho (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | AKAE Kaho (JPN) | ASO Reina (JPN) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:6 11:5 11:13 6:11 11:6 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1738,15 +1654,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "MOYLAND Sally (USA)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | MOYLAND Sally (USA) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 2 - 3 | 11:7 7:11 11:7 6:11 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -1773,7 +1687,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1782,17 +1696,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "AKASHEVA Zauresh (KAZ)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "AKASHEVA Zauresh (KAZ)",
                 "TOFANT Ana (SLO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | AKASHEVA Zauresh (KAZ) | TOFANT Ana (SLO) | WD | Main Draw | SemiFinal | 3 - 0 | 11:5 11:7 11:4 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -1825,15 +1736,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKULA Sreeja (IND) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 10:12 5:11 4:11 | SHIBATA Saki |  | "
             },
             {
@@ -1866,15 +1775,13 @@
                 "SASAO Asuka (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "SASAO Asuka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | SHIBATA Saki (JPN) |  | SASAO Asuka (JPN) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:9 11:4 11:8 | SHIBATA Saki |  | "
             },
             {
@@ -1911,7 +1818,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "SASAO Asuka",
+              "winner": "SASAO Asuka / UESAWA Anne",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -1920,17 +1827,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "SASAO Asuka (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "SASAO Asuka (JPN)",
                 "UESAWA Anne (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | SASAO Asuka (JPN) | UESAWA Anne (JPN) | WD | Main Draw | Final | 2 - 3 | 11:3 6:11 11:7 6:11 9:11 | SASAO Asuka | UESAWA Anne | "
             },
             {
@@ -1968,15 +1872,13 @@
                 "AKAE Kaho (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "AKAE Kaho (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | SHIBATA Saki (JPN) |  | AKAE Kaho (JPN) |  | WS | Main Draw | Final | 3 - 1 | 11:8 7:11 11:8 11:6 | SHIBATA Saki |  | "
             }
           ]
@@ -2013,7 +1915,7 @@
                 "11:5",
                 "11:5"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -2022,17 +1924,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "LI YING Im (MAS)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "LI YING Im (MAS)",
                 "LIM Jing Shuen (MAS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | LI YING Im (MAS) | LIM Jing Shuen (MAS) | WD | Qualification | QR8 | 3 - 0 | 11:1 11:5 11:5 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2070,15 +1969,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | DRAGOMAN Andreea (ROU) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 9:11 7:11 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -2105,7 +2002,7 @@
                 "11:13",
                 "4:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -2114,17 +2011,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "SATO Hitomi (JPN)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | LUPULESKU Izabela (SRB) | SURJAN Sabina (SRB) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | R16 | 0 - 3 | 5:11 11:13 4:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2151,7 +2045,7 @@
                 "11:5",
                 "11:7"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -2160,17 +2054,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "ZARIF Audrey (FRA)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "ZARIF Audrey (FRA)",
                 "LUTZ Camille (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | ZARIF Audrey (FRA) | LUTZ Camille (FRA) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:5 11:7 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2208,15 +2099,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "ASO Reina (JPN)",
+                "ASO Reina (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | ASO Reina (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 11:7 9:11 7:11 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -2243,7 +2132,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "MALOBABIC Ivana (CRO)",
                 "ARAPOVIC Hana (CRO)",
@@ -2252,17 +2141,14 @@
               ],
               "side_a": [
                 "MALOBABIC Ivana (CRO)",
-                "SATO Hitomi (JPN)"
+                "ARAPOVIC Hana (CRO)"
               ],
               "side_b": [
-                "ARAPOVIC Hana (CRO)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | MALOBABIC Ivana (CRO) | ARAPOVIC Hana (CRO) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | SemiFinal | 0 - 3 | 9:11 8:11 7:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2300,15 +2186,13 @@
                 "OMODA Kotomi (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "OMODA Kotomi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SHIBATA Saki (JPN) |  | OMODA Kotomi (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:5 11:6 12:10 | SHIBATA Saki |  | "
             },
             {
@@ -2341,15 +2225,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "CHOI Hyojoo (KOR)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | CHOI Hyojoo (KOR) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | SemiFinal | 0 - 3 | 6:11 8:11 10:12 | SHIBATA Saki |  | "
             },
             {
@@ -2381,7 +2263,7 @@
                 "7:11",
                 "11:1"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -2390,17 +2272,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "CHOI Hyojoo (KOR)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Daeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | WD | Main Draw | Final | 3 - 1 | 14:12 11:3 7:11 11:1 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2443,15 +2322,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SATO Hitomi (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | Final | 3 - 2 | 7:11 11:4 9:11 12:10 11:9 | SATO Hitomi |  | "
             }
           ]
@@ -2488,7 +2365,7 @@
                 "11:2",
                 "11:3"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -2497,17 +2374,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "SCHOLZ Vivien (LUX)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "SCHOLZ Vivien (LUX)",
                 "BURGOS Brianna (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | SCHOLZ Vivien (LUX) | BURGOS Brianna (PUR) | WD | Qualification | QR16 | 3 - 0 | 11:3 11:2 11:3 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2539,7 +2413,7 @@
                 "11:8",
                 "6:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SASAO Asuka (JPN)",
                 "UESAWA Anne (JPN)",
@@ -2548,17 +2422,14 @@
               ],
               "side_a": [
                 "SASAO Asuka (JPN)",
-                "SATO Hitomi (JPN)"
+                "UESAWA Anne (JPN)"
               ],
               "side_b": [
-                "UESAWA Anne (JPN)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | SASAO Asuka (JPN) | UESAWA Anne (JPN) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Qualification | QR8 | 1 - 3 | 8:11 5:11 11:8 6:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2591,15 +2462,13 @@
                 "KLEE Sophia (GER)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "KLEE Sophia (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | SHIBATA Saki (JPN) |  | KLEE Sophia (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:8 13:11 | SHIBATA Saki |  | "
             },
             {
@@ -2626,7 +2495,7 @@
                 "11:6",
                 "11:4"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -2635,17 +2504,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "TOFANT Ana (SLO)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "TOFANT Ana (SLO)",
                 "TOKIC Sara (SLO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | TOFANT Ana (SLO) | TOKIC Sara (SLO) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:6 11:4 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2682,7 +2548,7 @@
                 "10:12",
                 "9:11"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Daeun",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -2691,17 +2557,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "CHOI Hyojoo (KOR)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Daeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | WD | Main Draw | QuarterFinal | 2 - 3 | 12:14 11:3 12:10 10:12 9:11 | CHOI Hyojoo | LEE Daeun | "
             },
             {
@@ -2744,15 +2607,13 @@
                 "ARAPOVIC Hana (CRO)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | SHIBATA Saki (JPN) |  | ARAPOVIC Hana (CRO) |  | WS | Main Draw | R16 | 3 - 2 | 7:11 8:11 11:3 11:7 11:5 | SHIBATA Saki |  | "
             },
             {
@@ -2795,15 +2656,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "RAKOVAC Lea (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | RAKOVAC Lea (CRO) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 11:9 11:8 13:15 2:11 11:9 | RAKOVAC Lea |  | "
             }
           ]
@@ -2840,7 +2699,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "OPEKA Lara (SLO)",
                 "NOVAK Tjasa (SLO)",
@@ -2849,17 +2708,14 @@
               ],
               "side_a": [
                 "OPEKA Lara (SLO)",
-                "SATO Hitomi (JPN)"
+                "NOVAK Tjasa (SLO)"
               ],
               "side_b": [
-                "NOVAK Tjasa (SLO)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | OPEKA Lara (SLO) | NOVAK Tjasa (SLO) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Qualification | QR16 | 0 - 3 | 9:11 8:11 8:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2896,7 +2752,7 @@
                 "11:6",
                 "9:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "JOKIC Tijana (SRB)",
                 "BEZEG Reka (SRB)",
@@ -2905,17 +2761,14 @@
               ],
               "side_a": [
                 "JOKIC Tijana (SRB)",
-                "SATO Hitomi (JPN)"
+                "BEZEG Reka (SRB)"
               ],
               "side_b": [
-                "BEZEG Reka (SRB)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | JOKIC Tijana (SRB) | BEZEG Reka (SRB) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Qualification | QR8 | 2 - 3 | 3:11 6:11 11:7 11:6 9:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -2953,15 +2806,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "MIRKADIROVA Sarvinoz (KAZ)",
+                "MIRKADIROVA Sarvinoz (KAZ)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | MIRKADIROVA Sarvinoz (KAZ) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 5:11 1:11 11:8 6:11 | SHIBATA Saki |  | "
             },
             {
@@ -2998,7 +2849,7 @@
                 "11:5",
                 "11:3"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -3007,17 +2858,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "JEGER Mateja (CRO)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R16 | 3 - 2 | 7:11 7:11 11:8 11:5 11:3 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -3044,7 +2892,7 @@
                 "11:13",
                 "7:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "COSIC Dora (CRO)",
                 "PAVLOVIC Andrea (CRO)",
@@ -3053,17 +2901,14 @@
               ],
               "side_a": [
                 "COSIC Dora (CRO)",
-                "SATO Hitomi (JPN)"
+                "PAVLOVIC Andrea (CRO)"
               ],
               "side_b": [
-                "PAVLOVIC Andrea (CRO)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | COSIC Dora (CRO) | PAVLOVIC Andrea (CRO) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 3:11 11:13 7:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -3101,15 +2946,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "SASAO Asuka (JPN)",
+                "SASAO Asuka (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SASAO Asuka (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 11:8 9:11 8:11 7:11 | SHIBATA Saki |  | "
             },
             {
@@ -3136,7 +2979,7 @@
                 "10:12",
                 "7:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SINGEORZAN Ioana (ROU)",
                 "ARAPOVIC Hana (CRO)",
@@ -3145,17 +2988,14 @@
               ],
               "side_a": [
                 "SINGEORZAN Ioana (ROU)",
-                "SATO Hitomi (JPN)"
+                "ARAPOVIC Hana (CRO)"
               ],
               "side_b": [
-                "ARAPOVIC Hana (CRO)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SINGEORZAN Ioana (ROU) | ARAPOVIC Hana (CRO) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | SemiFinal | 0 - 3 | 2:11 10:12 7:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -3198,15 +3038,13 @@
                 "DRAGOMAN Andreea (ROU)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SHIBATA Saki (JPN) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 9:11 11:7 5:11 12:10 11:3 | SHIBATA Saki |  | "
             },
             {
@@ -3244,15 +3082,13 @@
                 "SATO Hitomi (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "SATO Hitomi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SHIBATA Saki (JPN) |  | SATO Hitomi (JPN) |  | WS | Main Draw | SemiFinal | 3 - 1 | 12:10 1:11 11:8 11:7 | SHIBATA Saki |  | "
             },
             {
@@ -3289,7 +3125,7 @@
                 "11:7",
                 "7:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "LYNE Karen (MAS)",
                 "TEE Ai Xin (MAS)",
@@ -3298,17 +3134,14 @@
               ],
               "side_a": [
                 "LYNE Karen (MAS)",
-                "SATO Hitomi (JPN)"
+                "TEE Ai Xin (MAS)"
               ],
               "side_b": [
-                "TEE Ai Xin (MAS)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | LYNE Karen (MAS) | TEE Ai Xin (MAS) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | Final | 2 - 3 | 12:10 8:11 9:11 11:7 7:11 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -3346,15 +3179,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | WINTER Sabine (GER) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | Final | 1 - 3 | 11:5 8:11 6:11 5:11 | SHIBATA Saki |  | "
             }
           ]
@@ -3408,18 +3239,17 @@
               ],
               "winner": "SHIBATA Saki",
               "all_players_in_row": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "side_a": [
                 "SHIBATA Saki (JPN)",
                 "YEH Yi-Tian (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
+                "YEH Yi-Tian (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Doha 2024 | SHIBATA Saki (JPN) |  | YEH Yi-Tian (TPE) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 12:10 11:13 8:11 11:9 | SHIBATA Saki |  | "
             },
             {
@@ -3452,15 +3282,13 @@
                 "ZHU Ziyu (CHN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "ZHU Ziyu (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Doha 2024 | SHIBATA Saki (JPN) |  | ZHU Ziyu (CHN) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 11:6 11:6 | SHIBATA Saki |  | "
             },
             {
@@ -3498,15 +3326,13 @@
                 "DING Yijie (CHN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "DING Yijie (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Doha 2024 | SHIBATA Saki (JPN) |  | DING Yijie (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:8 11:0 11:8 | SHIBATA Saki |  | "
             },
             {
@@ -3539,15 +3365,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "GHORPADE Yashaswini (IND)",
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Doha 2024 | GHORPADE Yashaswini (IND) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:7 11:8 13:11 | GHORPADE Yashaswini |  | "
             }
           ]
@@ -3590,15 +3414,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "OJIO Haruna (JPN)",
+                "OJIO Haruna (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | OJIO Haruna (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 5:11 13:15 | SHIBATA Saki |  | "
             },
             {
@@ -3631,15 +3453,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | SATO Hitomi (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 6:11 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -3672,15 +3492,13 @@
                 "HAN Feier (CHN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "HAN Feier (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | SHIBATA Saki (JPN) |  | HAN Feier (CHN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 10:12 10:12 8:11 | HAN Feier |  | "
             }
           ]
@@ -3723,15 +3541,13 @@
                 "PANKHAOYOY Supamas (THA)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "PANKHAOYOY Supamas (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | SHIBATA Saki (JPN) |  | PANKHAOYOY Supamas (THA) |  | WS | Qualification | QR32 | 3 - 0 | 11:9 11:4 11:4 | SHIBATA Saki |  | "
             },
             {
@@ -3760,18 +3576,17 @@
               ],
               "winner": "SHIBATA Saki",
               "all_players_in_row": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "side_a": [
                 "CHENG Hsien-Tzu (TPE)",
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "side_b": [
+                "SHIBATA Saki (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | CHENG Hsien-Tzu (TPE) |  | SHIBATA Saki (JPN) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 8:11 7:11 | SHIBATA Saki |  | "
             },
             {
@@ -3800,18 +3615,17 @@
               ],
               "winner": "SHIBATA Saki",
               "all_players_in_row": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "side_a": [
                 "LI Yu-Jhun (TPE)",
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "LI Yu-Jhun (TPE)"
+              ],
+              "side_b": [
+                "SHIBATA Saki (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | LI Yu-Jhun (TPE) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 2:11 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -3844,15 +3658,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "CHEN Xingtong (CHN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | CHEN Xingtong (CHN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:9 | CHEN Xingtong |  | "
             }
           ]
@@ -3895,15 +3707,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "MERK Melanie (GER)",
+                "MERK Melanie (GER)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | MERK Melanie (GER) |  | SHIBATA Saki (JPN) |  | WS | Qualification | QR64 | 0 - 3 | 3:11 8:11 11:13 | SHIBATA Saki |  | "
             },
             {
@@ -3941,15 +3751,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "HARAC Ece (TUR)",
+                "HARAC Ece (TUR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | HARAC Ece (TUR) |  | SHIBATA Saki (JPN) |  | WS | Qualification | QR32 | 1 - 3 | 6:11 11:13 11:8 4:11 | SHIBATA Saki |  | "
             },
             {
@@ -3982,15 +3790,13 @@
                 "RAD Elvira (ESP)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "RAD Elvira (ESP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | SHIBATA Saki (JPN) |  | RAD Elvira (ESP) |  | WS | Qualification | QR16 | 3 - 0 | 11:5 11:8 12:10 | SHIBATA Saki |  | "
             },
             {
@@ -4028,15 +3834,13 @@
                 "NG Wing Lam (HKG)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | SHIBATA Saki (JPN) |  | NG Wing Lam (HKG) |  | WS | Main Draw | R64 | 3 - 1 | 11:4 11:4 7:11 11:9 | SHIBATA Saki |  | "
             },
             {
@@ -4074,15 +3878,13 @@
                 "BAJOR Natalia (POL)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | SHIBATA Saki (JPN) |  | BAJOR Natalia (POL) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 3:11 11:8 11:8 | SHIBATA Saki |  | "
             },
             {
@@ -4115,15 +3917,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "MANTZ Chantal (GER)",
+                "MANTZ Chantal (GER)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | MANTZ Chantal (GER) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 4:11 5:11 | SHIBATA Saki |  | "
             },
             {
@@ -4156,15 +3956,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "ODO Satsuki (JPN)",
+                "ODO Satsuki (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf 2024 | ODO Satsuki (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:8 12:10 | ODO Satsuki |  | "
             }
           ]
@@ -4207,15 +4005,13 @@
                 "JAGNENKOVA Alina (EST)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "JAGNENKOVA Alina (EST)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | SHIBATA Saki (JPN) |  | JAGNENKOVA Alina (EST) |  | WS | Qualification | QR64 | 3 - 0 | 11:3 11:3 11:5 | SHIBATA Saki |  | "
             },
             {
@@ -4258,15 +4054,13 @@
                 "YOO Siwoo (KOR)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "YOO Siwoo (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | SHIBATA Saki (JPN) |  | YOO Siwoo (KOR) |  | WS | Qualification | QR32 | 3 - 2 | 11:7 11:9 4:11 9:11 12:10 | SHIBATA Saki |  | "
             },
             {
@@ -4304,15 +4098,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "STEFANOVA Nikoleta (ITA)",
+                "STEFANOVA Nikoleta (ITA)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | STEFANOVA Nikoleta (ITA) |  | SHIBATA Saki (JPN) |  | WS | Qualification | QR16 | 1 - 3 | 12:14 5:11 12:10 7:11 | SHIBATA Saki |  | "
             },
             {
@@ -4345,15 +4137,13 @@
                 "ZHOU Jingyi (SGP)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "ZHOU Jingyi (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | SHIBATA Saki (JPN) |  | ZHOU Jingyi (SGP) |  | WS | Main Draw | R64 | 3 - 0 | 11:2 11:8 13:11 | SHIBATA Saki |  | "
             },
             {
@@ -4386,15 +4176,13 @@
                 "MALOBABIC Ivana (CRO)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "MALOBABIC Ivana (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | SHIBATA Saki (JPN) |  | MALOBABIC Ivana (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:5 11:8 | SHIBATA Saki |  | "
             },
             {
@@ -4432,15 +4220,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "LABOSOVA Ema (SVK)",
+                "LABOSOVA Ema (SVK)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | LABOSOVA Ema (SVK) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 11:7 1:11 3:11 10:12 | SHIBATA Saki |  | "
             },
             {
@@ -4478,15 +4264,13 @@
                 "LEE Eunhye (KOR)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "LEE Eunhye (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | SHIBATA Saki (JPN) |  | LEE Eunhye (KOR) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 6:11 11:9 4:11 10:12 | LEE Eunhye |  | "
             }
           ]
@@ -4539,15 +4323,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "WAN Yuan (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | WAN Yuan (GER) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R64 | 0 - 4 | 2:11 8:11 6:11 9:11 | SHIBATA Saki |  | "
             },
             {
@@ -4585,15 +4367,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "DIACONU Adina (ROU)",
+                "DIACONU Adina (ROU)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | DIACONU Adina (ROU) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 0 - 4 | 6:11 8:11 3:11 6:11 | SHIBATA Saki |  | "
             },
             {
@@ -4636,15 +4416,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "JOO Cheonhui (KOR)",
+                "JOO Cheonhui (KOR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | JOO Cheonhui (KOR) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 1 - 4 | 11:5 6:11 11:13 7:11 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -4687,15 +4465,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "LEE Eunhye (KOR)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | LEE Eunhye (KOR) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 4:11 4:11 9:11 11:8 9:11 | SHIBATA Saki |  | "
             },
             {
@@ -4733,15 +4509,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "HE Zhuojia (CHN)",
+                "HE Zhuojia (CHN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | HE Zhuojia (CHN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:7 11:5 11:3 11:5 | HE Zhuojia |  | "
             }
           ]
@@ -4794,15 +4568,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "PARANANG Orawan (THA)",
+                "PARANANG Orawan (THA)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | PARANANG Orawan (THA) |  | SHIBATA Saki (JPN) |  | WS | Qualification | QR32 | 3 - 2 | 8:11 11:5 11:8 3:11 12:10 | PARANANG Orawan |  | "
             }
           ]
@@ -4855,15 +4627,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "PATKAR Madhurika (IND)",
+                "PATKAR Madhurika (IND)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | PATKAR Madhurika (IND) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R128 | 0 - 4 | 7:11 4:11 3:11 8:11 | SHIBATA Saki |  | "
             },
             {
@@ -4900,7 +4670,7 @@
                 "10:12",
                 "12:10"
               ],
-              "winner": "UDA Yukiya",
+              "winner": "UDA Yukiya / SHIBATA Saki",
               "all_players_in_row": [
                 "UDA Yukiya (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -4909,17 +4679,14 @@
               ],
               "side_a": [
                 "UDA Yukiya (JPN)",
-                "WANG Eugene (CAN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "WANG Eugene (CAN)",
                 "ZHANG Mo (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | UDA Yukiya (JPN) | SHIBATA Saki (JPN) | WANG Eugene (CAN) | ZHANG Mo (CAN) | XD | Main Draw | R64 | 3 - 2 | 11:9 9:11 11:6 10:12 12:10 | UDA Yukiya | SHIBATA Saki | "
             },
             {
@@ -4972,15 +4739,13 @@
                 "EERLAND Britt (NED)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "EERLAND Britt (NED)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SHIBATA Saki (JPN) |  | EERLAND Britt (NED) |  | WS | Main Draw | R64 | 4 - 3 | 11:3 7:11 11:13 11:4 11:5 6:11 11:6 | SHIBATA Saki |  | "
             },
             {
@@ -5017,7 +4782,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "HARIMOTO Tomokazu",
+              "winner": "HARIMOTO Tomokazu / HAYATA Hina",
               "all_players_in_row": [
                 "UDA Yukiya (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -5026,17 +4791,14 @@
               ],
               "side_a": [
                 "UDA Yukiya (JPN)",
-                "HARIMOTO Tomokazu (JPN)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "HARIMOTO Tomokazu (JPN)",
                 "HAYATA Hina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | UDA Yukiya (JPN) | SHIBATA Saki (JPN) | HARIMOTO Tomokazu (JPN) | HAYATA Hina (JPN) | XD | Main Draw | R32 | 2 - 3 | 11:4 5:11 11:7 6:11 5:11 | HARIMOTO Tomokazu | HAYATA Hina | "
             },
             {
@@ -5089,15 +4851,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "ITO Mima (JPN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ITO Mima (JPN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 4 - 3 | 11:6 9:11 6:11 11:6 11:8 2:11 11:6 | ITO Mima |  | "
             }
           ]
@@ -5139,7 +4899,7 @@
                 "9:11",
                 "11:7"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -5148,17 +4908,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "SHAHSAVARI Neda (IRI)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "SHAHSAVARI Neda (IRI)",
                 "ASHTARI Mahshid (IRI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | SHAHSAVARI Neda (IRI) | ASHTARI Mahshid (IRI) | WD | Main Draw | R32 | 3 - 1 | 11:6 11:3 9:11 11:7 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -5185,7 +4942,7 @@
                 "11:6",
                 "12:10"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -5194,17 +4951,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "CHOI Hyojoo (KOR)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | R16 | 3 - 0 | 14:12 11:6 12:10 | SATO Hitomi | SHIBATA Saki | "
             },
             {
@@ -5242,15 +4996,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "LIN Ye (CAN)",
+                "LIN Ye (CAN)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | LIN Ye (CAN) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R64 | 1 - 3 | 8:11 6:11 11:7 3:11 | SHIBATA Saki |  | "
             },
             {
@@ -5283,15 +5035,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "MUKHERJEE Ayhika (IND)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | MUKHERJEE Ayhika (IND) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 5:11 3:11 | SHIBATA Saki |  | "
             },
             {
@@ -5328,7 +5078,7 @@
                 "11:4",
                 "10:12"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / LEE Ho Ching",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -5337,17 +5087,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "DOO Hoi Kem (HKG)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "DOO Hoi Kem (HKG)",
                 "LEE Ho Ching (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | DOO Hoi Kem (HKG) | LEE Ho Ching (HKG) | WD | Main Draw | QuarterFinal | 2 - 3 | 10:12 11:4 3:11 11:4 10:12 | DOO Hoi Kem | LEE Ho Ching | "
             },
             {
@@ -5380,15 +5127,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "SAWETTABUT Jinnipa (THA)",
+                "SAWETTABUT Jinnipa (THA)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | SAWETTABUT Jinnipa (THA) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 5:11 6:11 1:11 | SHIBATA Saki |  | "
             },
             {
@@ -5421,15 +5166,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "SUH Hyo Won (KOR)",
+                "SUH Hyo Won (KOR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | SUH Hyo Won (KOR) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 8:11 13:15 12:14 | SHIBATA Saki |  | "
             },
             {
@@ -5472,15 +5215,13 @@
                 "HAYATA Hina (JPN)"
               ],
               "side_a": [
-                "SHIBATA Saki (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
                 "HAYATA Hina (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF-ATTU Asian Table Tennis Championships Doha 2021 | SHIBATA Saki (JPN) |  | HAYATA Hina (JPN) |  | WS | Main Draw | SemiFinal | 2 - 3 | 7:11 11:8 9:11 11:8 10:12 | HAYATA Hina |  | "
             }
           ]
@@ -5517,7 +5258,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "LIN Ye",
+              "winner": "LIN Ye / ZENG Jian",
               "all_players_in_row": [
                 "LIN Ye (CAN)",
                 "ZENG Jian (SGP)",
@@ -5526,17 +5267,14 @@
               ],
               "side_a": [
                 "LIN Ye (CAN)",
-                "SATO Hitomi (JPN)"
+                "ZENG Jian (SGP)"
               ],
               "side_b": [
-                "ZENG Jian (SGP)",
+                "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | LIN Ye (CAN) | ZENG Jian (SGP) | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:4 11:7 | LIN Ye | ZENG Jian | "
             },
             {
@@ -5574,15 +5312,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "ZENG Jian (SGP)",
+                "ZENG Jian (SGP)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | ZENG Jian (SGP) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 6:11 9:11 7:11 | SHIBATA Saki |  | "
             },
             {
@@ -5620,15 +5356,13 @@
                 "SHIBATA Saki (JPN)"
               ],
               "side_a": [
-                "JEON Jihee (KOR)",
+                "JEON Jihee (KOR)"
+              ],
+              "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | JEON Jihee (KOR) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 3 - 1 | 11:7 6:11 11:9 11:8 | JEON Jihee |  | "
             }
           ]

@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Nina MITTELHAM",
-  "english_name": "Nina MITTELHAM",
+  "player_name": "MITTELHAM Nina",
+  "english_name": "MITTELHAM Nina",
   "country": "GER",
   "country_code": "GER",
   "continent": "",
@@ -44,7 +44,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "KARLSSON Mattias",
+              "winner": "KARLSSON Mattias / MITTELHAM Nina",
               "all_players_in_row": [
                 "PRADHIVADHI Abhinandh (IND)",
                 "MANI Nithya (IND)",
@@ -53,17 +53,14 @@
               ],
               "side_a": [
                 "PRADHIVADHI Abhinandh (IND)",
-                "KARLSSON Mattias (SWE)"
+                "MANI Nithya (IND)"
               ],
               "side_b": [
-                "MANI Nithya (IND)",
+                "KARLSSON Mattias (SWE)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | PRADHIVADHI Abhinandh (IND) | MANI Nithya (IND) | KARLSSON Mattias (SWE) | MITTELHAM Nina (GER) | XD | Main Draw | R16 | 0 - 3 | 3:11 8:11 8:11 | KARLSSON Mattias | MITTELHAM Nina | "
             },
             {
@@ -95,7 +92,7 @@
                 "3:11",
                 "11:1"
               ],
-              "winner": "CHITALE Diya",
+              "winner": "CHITALE Diya / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -104,17 +101,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "DE NUTTE Sarah (LUX)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "DE NUTTE Sarah (LUX)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | CHITALE Diya (IND) | GHORPADE Yashaswini (IND) | DE NUTTE Sarah (LUX) | MITTELHAM Nina (GER) | WD | Main Draw | SemiFinal | 3 - 1 | 11:7 13:11 3:11 11:1 | CHITALE Diya | GHORPADE Yashaswini | "
             },
             {
@@ -157,15 +151,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "OKADA Kotona (JPN)",
+                "OKADA Kotona (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | OKADA Kotona (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 2 | 11:8 6:11 7:11 11:6 11:6 | OKADA Kotona |  | "
             },
             {
@@ -192,7 +184,7 @@
                 "4:11",
                 "4:11"
               ],
-              "winner": "DE NUTTE Sarah",
+              "winner": "DE NUTTE Sarah / MITTELHAM Nina",
               "all_players_in_row": [
                 "COKLAR Nursema (TUR)",
                 "KAHRAMAN Betul Nur (TUR)",
@@ -201,17 +193,14 @@
               ],
               "side_a": [
                 "COKLAR Nursema (TUR)",
-                "DE NUTTE Sarah (LUX)"
+                "KAHRAMAN Betul Nur (TUR)"
               ],
               "side_b": [
-                "KAHRAMAN Betul Nur (TUR)",
+                "DE NUTTE Sarah (LUX)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | COKLAR Nursema (TUR) | KAHRAMAN Betul Nur (TUR) | DE NUTTE Sarah (LUX) | MITTELHAM Nina (GER) | WD | Main Draw | QuarterFinal | 0 - 3 | 9:11 4:11 4:11 | DE NUTTE Sarah | MITTELHAM Nina | "
             },
             {
@@ -248,7 +237,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "YIGENLER Abdullah",
+              "winner": "YIGENLER Abdullah / HARAC Ece",
               "all_players_in_row": [
                 "KARLSSON Mattias (SWE)",
                 "MITTELHAM Nina (GER)",
@@ -257,17 +246,14 @@
               ],
               "side_a": [
                 "KARLSSON Mattias (SWE)",
-                "YIGENLER Abdullah (TUR)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "YIGENLER Abdullah (TUR)",
                 "HARAC Ece (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Cappadocia II 2026 | KARLSSON Mattias (SWE) | MITTELHAM Nina (GER) | YIGENLER Abdullah (TUR) | HARAC Ece (TUR) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:8 7:11 11:6 6:11 7:11 | YIGENLER Abdullah | HARAC Ece | "
             }
           ]
@@ -304,7 +290,7 @@
                 "11:4",
                 "11:5"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / SHAN Xiaona",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "SHAN Xiaona (GER)",
@@ -313,17 +299,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "ZOGHLAMI Maram (TUN)"
+                "SHAN Xiaona (GER)"
               ],
               "side_b": [
-                "SHAN Xiaona (GER)",
+                "ZOGHLAMI Maram (TUN)",
                 "SUISSI Balkis (TUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | MITTELHAM Nina (GER) | SHAN Xiaona (GER) | ZOGHLAMI Maram (TUN) | SUISSI Balkis (TUN) | WD | Main Draw | R16 | 3 - 0 | 11:1 11:4 11:5 | MITTELHAM Nina | SHAN Xiaona | "
             },
             {
@@ -366,15 +349,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "HARAC Ece (TUR)",
+                "HARAC Ece (TUR)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | HARAC Ece (TUR) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 2 - 3 | 15:13 4:11 11:9 8:11 10:12 | MITTELHAM Nina |  | "
             },
             {
@@ -411,7 +392,7 @@
                 "11:3",
                 "8:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / PANFILOVA Maria",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "SHAN Xiaona (GER)",
@@ -420,17 +401,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "SHAN Xiaona (GER)"
               ],
               "side_b": [
-                "SHAN Xiaona (GER)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "PANFILOVA Maria (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | MITTELHAM Nina (GER) | SHAN Xiaona (GER) | ABRAAMIAN Elizabet (AIN) | PANFILOVA Maria (AIN) | WD | Main Draw | QuarterFinal | 2 - 3 | 7:11 11:8 1:11 11:3 8:11 | ABRAAMIAN Elizabet | PANFILOVA Maria | "
             },
             {
@@ -463,15 +441,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "COK Isa (FRA)",
+                "COK Isa (FRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | COK Isa (FRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 12:14 7:11 | MITTELHAM Nina |  | "
             },
             {
@@ -514,15 +490,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "ABRAAMIAN Elizabet (AIN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 9:11 12:10 8:11 13:11 14:12 | ABRAAMIAN Elizabet |  | "
             }
           ]
@@ -569,7 +543,7 @@
                 "11:2",
                 "11:4"
               ],
-              "winner": "MEISSNER Cedric",
+              "winner": "MEISSNER Cedric / MITTELHAM Nina",
               "all_players_in_row": [
                 "MEISSNER Cedric (GER)",
                 "MITTELHAM Nina (GER)",
@@ -578,17 +552,14 @@
               ],
               "side_a": [
                 "MEISSNER Cedric (GER)",
-                "CHEN Alexander (AUT)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "CHEN Alexander (AUT)",
                 "BARAVOK Katsiaryna (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MEISSNER Cedric (GER) | MITTELHAM Nina (GER) | CHEN Alexander (AUT) | BARAVOK Katsiaryna (AIN) | XD | Qualification | QR8 | 3 - 2 | 11:4 1:11 7:11 11:2 11:4 | MEISSNER Cedric | MITTELHAM Nina | "
             },
             {
@@ -615,7 +586,7 @@
                 "8:11",
                 "10:12"
               ],
-              "winner": "MEISSNER Cedric",
+              "winner": "MEISSNER Cedric / MITTELHAM Nina",
               "all_players_in_row": [
                 "HRIBAR Peter (SLO)",
                 "TOFANT Ana (SLO)",
@@ -624,17 +595,14 @@
               ],
               "side_a": [
                 "HRIBAR Peter (SLO)",
-                "MEISSNER Cedric (GER)"
+                "TOFANT Ana (SLO)"
               ],
               "side_b": [
-                "TOFANT Ana (SLO)",
+                "MEISSNER Cedric (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | HRIBAR Peter (SLO) | TOFANT Ana (SLO) | MEISSNER Cedric (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R16 | 0 - 3 | 5:11 8:11 10:12 | MEISSNER Cedric | MITTELHAM Nina | "
             },
             {
@@ -666,7 +634,7 @@
                 "11:13",
                 "7:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / SCHREINER Franziska",
               "all_players_in_row": [
                 "AOKI Sachi (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -675,17 +643,14 @@
               ],
               "side_a": [
                 "AOKI Sachi (JPN)",
-                "MITTELHAM Nina (GER)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "MITTELHAM Nina (GER)",
                 "SCHREINER Franziska (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | AOKI Sachi (JPN) | YOKOI Sakura (JPN) | MITTELHAM Nina (GER) | SCHREINER Franziska (GER) | WD | Main Draw | R16 | 1 - 3 | 11:4 11:13 11:13 7:11 | MITTELHAM Nina | SCHREINER Franziska | "
             },
             {
@@ -718,15 +683,13 @@
                 "MISKIC Franka (CRO)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "MISKIC Franka (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) |  | MISKIC Franka (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:8 11:6 | MITTELHAM Nina |  | "
             },
             {
@@ -758,7 +721,7 @@
                 "4:11",
                 "8:11"
               ],
-              "winner": "MEISSNER Cedric",
+              "winner": "MEISSNER Cedric / MITTELHAM Nina",
               "all_players_in_row": [
                 "ARADO Felipe (BRA)",
                 "SHIRAY Karina (BRA)",
@@ -767,17 +730,14 @@
               ],
               "side_a": [
                 "ARADO Felipe (BRA)",
-                "MEISSNER Cedric (GER)"
+                "SHIRAY Karina (BRA)"
               ],
               "side_b": [
-                "SHIRAY Karina (BRA)",
+                "MEISSNER Cedric (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | ARADO Felipe (BRA) | SHIRAY Karina (BRA) | MEISSNER Cedric (GER) | MITTELHAM Nina (GER) | XD | Main Draw | QuarterFinal | 1 - 3 | 10:12 11:9 4:11 8:11 | MEISSNER Cedric | MITTELHAM Nina | "
             },
             {
@@ -809,7 +769,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / SCHREINER Franziska",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "SCHREINER Franziska (GER)",
@@ -818,17 +778,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "WEGRZYN Anna (POL)"
+                "SCHREINER Franziska (GER)"
               ],
               "side_b": [
-                "SCHREINER Franziska (GER)",
+                "WEGRZYN Anna (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) | SCHREINER Franziska (GER) | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:8 6:11 11:8 11:7 | MITTELHAM Nina | SCHREINER Franziska | "
             },
             {
@@ -866,15 +823,13 @@
                 "TAKEYA Misuzu (JPN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R16 | 3 - 1 | 8:11 15:13 11:0 11:6 | MITTELHAM Nina |  | "
             },
             {
@@ -901,7 +856,7 @@
                 "11:5",
                 "11:7"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)",
@@ -910,17 +865,14 @@
               ],
               "side_a": [
                 "ROBLES Alvaro (ESP)",
-                "MEISSNER Cedric (GER)"
+                "XIAO Maria (ESP)"
               ],
               "side_b": [
-                "XIAO Maria (ESP)",
+                "MEISSNER Cedric (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | MEISSNER Cedric (GER) | MITTELHAM Nina (GER) | XD | Main Draw | SemiFinal | 3 - 0 | 11:8 11:5 11:7 | ROBLES Alvaro | XIAO Maria | "
             },
             {
@@ -952,7 +904,7 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "SCHREINER Franziska (GER)",
@@ -961,17 +913,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "TAKEYA Misuzu (JPN)"
+                "SCHREINER Franziska (GER)"
               ],
               "side_b": [
-                "SCHREINER Franziska (GER)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) | SCHREINER Franziska (GER) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | SemiFinal | 1 - 3 | 7:11 7:11 11:9 9:11 | TAKEYA Misuzu | KANEYOSHI Yuka | "
             },
             {
@@ -1009,15 +958,13 @@
                 "LUTZ Charlotte (FRA)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) |  | LUTZ Charlotte (FRA) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 7:11 11:7 11:7 11:4 | MITTELHAM Nina |  | "
             },
             {
@@ -1055,15 +1002,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "AOKI Sachi (JPN)",
+                "AOKI Sachi (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | AOKI Sachi (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | SemiFinal | 1 - 3 | 6:11 11:8 9:11 9:11 | MITTELHAM Nina |  | "
             },
             {
@@ -1096,15 +1041,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "KANEYOSHI Yuka (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | Final | 3 - 0 | 11:7 11:9 11:6 | KANEYOSHI Yuka |  | "
             }
           ]
@@ -1152,15 +1095,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "HARIMOTO Miwa (JPN)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | HARIMOTO Miwa (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R64 | 3 - 1 | 8:11 11:4 11:2 11:4 | HARIMOTO Miwa |  | "
             }
           ]
@@ -1208,15 +1149,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | YUAN Jia Nan (FRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 1 | 11:6 11:6 5:11 13:11 | YUAN Jia Nan |  | "
             }
           ]
@@ -1263,7 +1202,7 @@
                 "11:9",
                 "8:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / HURSEY Anna",
               "all_players_in_row": [
                 "MESHREF Dina (EGY)",
                 "HELMY Yousra (EGY)",
@@ -1272,17 +1211,14 @@
               ],
               "side_a": [
                 "MESHREF Dina (EGY)",
-                "MITTELHAM Nina (GER)"
+                "HELMY Yousra (EGY)"
               ],
               "side_b": [
-                "HELMY Yousra (EGY)",
+                "MITTELHAM Nina (GER)",
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | MESHREF Dina (EGY) | HELMY Yousra (EGY) | MITTELHAM Nina (GER) | HURSEY Anna (WAL) | WD | Qualification | QR8 | 2 - 3 | 9:11 11:7 3:11 11:9 8:11 | MITTELHAM Nina | HURSEY Anna | "
             },
             {
@@ -1309,7 +1245,7 @@
                 "9:11",
                 "10:12"
               ],
-              "winner": "HUANG Youzheng",
+              "winner": "HUANG Youzheng / SHI Xunyao",
               "all_players_in_row": [
                 "DUDA Benedikt (GER)",
                 "MITTELHAM Nina (GER)",
@@ -1318,17 +1254,14 @@
               ],
               "side_a": [
                 "DUDA Benedikt (GER)",
-                "HUANG Youzheng (CHN)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "HUANG Youzheng (CHN)",
                 "SHI Xunyao (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | DUDA Benedikt (GER) | MITTELHAM Nina (GER) | HUANG Youzheng (CHN) | SHI Xunyao (CHN) | XD | Main Draw | R16 | 0 - 3 | 9:11 9:11 10:12 | HUANG Youzheng | SHI Xunyao | "
             },
             {
@@ -1361,15 +1294,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | MITTELHAM Nina (GER) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:6 11:2 | MITTELHAM Nina |  | "
             },
             {
@@ -1396,7 +1327,7 @@
                 "11:4",
                 "12:10"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / HURSEY Anna",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "HURSEY Anna (WAL)",
@@ -1405,17 +1336,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "BATRA Manika (IND)"
+                "HURSEY Anna (WAL)"
               ],
               "side_b": [
-                "HURSEY Anna (WAL)",
+                "BATRA Manika (IND)",
                 "CHITALE Diya (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | MITTELHAM Nina (GER) | HURSEY Anna (WAL) | BATRA Manika (IND) | CHITALE Diya (IND) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:4 12:10 | MITTELHAM Nina | HURSEY Anna | "
             },
             {
@@ -1442,7 +1370,7 @@
                 "13:11",
                 "11:6"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / NG Wing Lam",
               "all_players_in_row": [
                 "DOO Hoi Kem (HKG)",
                 "NG Wing Lam (HKG)",
@@ -1451,17 +1379,14 @@
               ],
               "side_a": [
                 "DOO Hoi Kem (HKG)",
-                "MITTELHAM Nina (GER)"
+                "NG Wing Lam (HKG)"
               ],
               "side_b": [
-                "NG Wing Lam (HKG)",
+                "MITTELHAM Nina (GER)",
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | DOO Hoi Kem (HKG) | NG Wing Lam (HKG) | MITTELHAM Nina (GER) | HURSEY Anna (WAL) | WD | Main Draw | QuarterFinal | 3 - 0 | 12:10 13:11 11:6 | DOO Hoi Kem | NG Wing Lam | "
             },
             {
@@ -1494,15 +1419,13 @@
                 "ZENG Jian (SGP)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "ZENG Jian (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | MITTELHAM Nina (GER) |  | ZENG Jian (SGP) |  | WS | Main Draw | R16 | 0 - 3 | 7:11 9:11 9:11 | ZENG Jian |  | "
             }
           ]
@@ -1544,7 +1467,7 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -1553,17 +1476,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "SZOCS Bernadette (ROU)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | XT | Qualification |  | 2 - 1 | 12:14 11:6 11:9 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -1596,15 +1516,13 @@
                 "WATANABE Laura (BRA)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "WATANABE Laura (BRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | MITTELHAM Nina (GER) |  | WATANABE Laura (BRA) |  | XT | Qualification |  | 2 - 1 | 13:11 11:3 9:11 | MITTELHAM Nina |  | "
             },
             {
@@ -1626,7 +1544,7 @@
                 "11:7",
                 "0:0"
               ],
-              "winner": "WINTER Sabine",
+              "winner": "WINTER Sabine / MITTELHAM Nina",
               "all_players_in_row": [
                 "WINTER Sabine (GER)",
                 "MITTELHAM Nina (GER)",
@@ -1635,17 +1553,14 @@
               ],
               "side_a": [
                 "WINTER Sabine (GER)",
-                "WATANABE Laura (BRA)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "WATANABE Laura (BRA)",
                 "STRASSBURGER Victoria (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | WINTER Sabine (GER) | MITTELHAM Nina (GER) | WATANABE Laura (BRA) | STRASSBURGER Victoria (BRA) | XT | Qualification |  | 1 - 0 | 11:7 0:0 | WINTER Sabine | MITTELHAM Nina | "
             },
             {
@@ -1667,7 +1582,7 @@
                 "12:10",
                 "0:0"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -1676,17 +1591,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "BERGSTROM Linda (SWE)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | XT | Qualification |  | 1 - 0 | 12:10 0:0 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -1713,7 +1625,7 @@
                 "11:9",
                 "6:11"
               ],
-              "winner": "ODO Satsuki",
+              "winner": "ODO Satsuki / MATSUSHIMA Sora",
               "all_players_in_row": [
                 "ODO Satsuki (JPN)",
                 "MATSUSHIMA Sora (JPN)",
@@ -1722,17 +1634,14 @@
               ],
               "side_a": [
                 "ODO Satsuki (JPN)",
-                "MITTELHAM Nina (GER)"
+                "MATSUSHIMA Sora (JPN)"
               ],
               "side_b": [
-                "MATSUSHIMA Sora (JPN)",
+                "MITTELHAM Nina (GER)",
                 "DUDA Benedikt (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | ODO Satsuki (JPN) | MATSUSHIMA Sora (JPN) | MITTELHAM Nina (GER) | DUDA Benedikt (GER) | XT | Qualification |  | 2 - 1 | 11:7 11:9 6:11 | ODO Satsuki | MATSUSHIMA Sora | "
             },
             {
@@ -1765,15 +1674,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "SUN Yingsha (CHN)",
+                "SUN Yingsha (CHN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | SUN Yingsha (CHN) |  | MITTELHAM Nina (GER) |  | XT | Qualification |  | 3 - 0 | 11:7 11:3 11:7 | SUN Yingsha |  | "
             },
             {
@@ -1800,7 +1707,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "WINTER Sabine",
+              "winner": "WINTER Sabine / MITTELHAM Nina",
               "all_players_in_row": [
                 "KIM Nayeong (KOR)",
                 "CHOI Hyojoo (KOR)",
@@ -1809,17 +1716,14 @@
               ],
               "side_a": [
                 "KIM Nayeong (KOR)",
-                "WINTER Sabine (GER)"
+                "CHOI Hyojoo (KOR)"
               ],
               "side_b": [
-                "CHOI Hyojoo (KOR)",
+                "WINTER Sabine (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | KIM Nayeong (KOR) | CHOI Hyojoo (KOR) | WINTER Sabine (GER) | MITTELHAM Nina (GER) | XT | Qualification |  | 1 - 2 | 11:9 9:11 7:11 | WINTER Sabine | MITTELHAM Nina | "
             },
             {
@@ -1846,7 +1750,7 @@
                 "11:6",
                 "1:11"
               ],
-              "winner": "WINTER Sabine",
+              "winner": "CHOI Hyojoo / WINTER Sabine / MITTELHAM Nina",
               "all_players_in_row": [
                 "LEE Eunhye (KOR)",
                 "CHOI Hyojoo (KOR)",
@@ -1854,18 +1758,15 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "LEE Eunhye (KOR)",
-                "WINTER Sabine (GER)"
+                "LEE Eunhye (KOR)"
               ],
               "side_b": [
                 "CHOI Hyojoo (KOR)",
+                "WINTER Sabine (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) | CHOI Hyojoo (KOR) | WINTER Sabine (GER) | MITTELHAM Nina (GER) | XT | Position Draw | 2 | 1 - 2 | 9:11 11:6 1:11 | WINTER Sabine | MITTELHAM Nina | "
             }
           ]
@@ -1908,15 +1809,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "MEN Shuohan (NED)",
+                "MEN Shuohan (NED)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | MEN Shuohan (NED) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 6:11 4:11 | MITTELHAM Nina |  | "
             },
             {
@@ -1954,15 +1853,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "TAKAHASHI Giulia (BRA)",
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | TAKAHASHI Giulia (BRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 1 - 3 | 10:12 11:8 5:11 5:11 | MITTELHAM Nina |  | "
             },
             {
@@ -2000,15 +1897,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | IDESAWA Kyoka (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:9 11:6 8:11 11:9 | IDESAWA Kyoka |  | "
             }
           ]
@@ -2051,15 +1946,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "ALHODABY Mariam (EGY)",
+                "ALHODABY Mariam (EGY)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | ALHODABY Mariam (EGY) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 3:11 6:11 | MITTELHAM Nina |  | "
             },
             {
@@ -2092,15 +1985,13 @@
                 "SHIN Yubin (KOR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "SHIN Yubin (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | MITTELHAM Nina (GER) |  | SHIN Yubin (KOR) |  | WS | Main Draw | R16 | 0 - 3 | 3:11 11:13 6:11 | SHIN Yubin |  | "
             }
           ]
@@ -2153,15 +2044,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender London 2025 | BERGSTROM Linda (SWE) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R64 | 2 - 3 | 11:6 6:11 8:11 11:8 10:12 | MITTELHAM Nina |  | "
             },
             {
@@ -2194,15 +2083,13 @@
                 "HIRANO Miu (JPN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "HIRANO Miu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender London 2025 | MITTELHAM Nina (GER) |  | HIRANO Miu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 6:11 5:11 | HIRANO Miu |  | "
             }
           ]
@@ -2245,15 +2132,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "PASHLEY Ella (ENG)",
+                "PASHLEY Ella (ENG)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | PASHLEY Ella (ENG) |  | MITTELHAM Nina (GER) |  | WT | MAIN | 16 | 0 - 3 | 6:11 7:11 7:11 | MITTELHAM Nina |  | "
             },
             {
@@ -2286,15 +2171,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "BERGAND Filippa (SWE)",
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | BERGAND Filippa (SWE) |  | MITTELHAM Nina (GER) |  | WT | MAIN | 8 | 0 - 3 | 6:11 10:12 5:11 | MITTELHAM Nina |  | "
             },
             {
@@ -2332,15 +2215,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "PINTO Matilde (POR)",
+                "PINTO Matilde (POR)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | PINTO Matilde (POR) |  | MITTELHAM Nina (GER) |  | WT | MAIN | 4 | 1 - 3 | 12:10 6:11 9:11 8:11 | MITTELHAM Nina |  | "
             },
             {
@@ -2378,15 +2259,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | MITTELHAM Nina (GER) |  | WT | MAIN | 2 | 1 - 3 | 12:14 8:11 11:8 5:11 | MITTELHAM Nina |  | "
             }
           ]
@@ -2439,15 +2318,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "ARAPOVIC Hana (CRO)",
+                "ARAPOVIC Hana (CRO)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | ARAPOVIC Hana (CRO) |  | MITTELHAM Nina (GER) |  | WS | Qualification | QR64 | 2 - 3 | 11:6 9:11 6:11 11:7 2:11 | MITTELHAM Nina |  | "
             },
             {
@@ -2480,15 +2357,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "BERGAND Filippa (SWE)",
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | BERGAND Filippa (SWE) |  | MITTELHAM Nina (GER) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 4:11 2:11 | MITTELHAM Nina |  | "
             },
             {
@@ -2526,15 +2401,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "ZHU Ziyu (CHN)",
+                "ZHU Ziyu (CHN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | ZHU Ziyu (CHN) |  | MITTELHAM Nina (GER) |  | WS | Qualification | QR16 | 3 - 1 | 11:9 7:11 11:9 11:7 | ZHU Ziyu |  | "
             }
           ]
@@ -2582,15 +2455,13 @@
                 "PARANANG Orawan (THA)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "PARANANG Orawan (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | MITTELHAM Nina (GER) |  | PARANANG Orawan (THA) |  | WS | Qualification |  | 1 - 3 | 11:9 6:11 9:11 1:11 | PARANANG Orawan |  | "
             },
             {
@@ -2628,15 +2499,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | HAYATA Hina (JPN) |  | MITTELHAM Nina (GER) |  | WS | Qualification |  | 4 - 0 | 11:0 11:0 11:0 11:0 | HAYATA Hina |  | "
             }
           ]
@@ -2684,15 +2553,13 @@
                 "CHEN Xingtong (CHN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "CHEN Xingtong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | MITTELHAM Nina (GER) |  | CHEN Xingtong (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 11:4 4:11 10:12 8:11 | CHEN Xingtong |  | "
             }
           ]
@@ -2735,15 +2602,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "BERGSTROM Linda (SWE)",
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | BERGSTROM Linda (SWE) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 0 | 12:10 13:11 15:13 | BERGSTROM Linda |  | "
             }
           ]
@@ -2791,15 +2656,13 @@
                 "WINTER Sabine (GER)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "WINTER Sabine (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | MITTELHAM Nina (GER) |  | WINTER Sabine (GER) |  | WS | Main Draw | R64 | 3 - 1 | 3:11 11:5 11:7 12:10 | MITTELHAM Nina |  | "
             },
             {
@@ -2832,15 +2695,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "HAYATA Hina (JPN)",
+                "HAYATA Hina (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | HAYATA Hina (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:3 11:8 | HAYATA Hina |  | "
             }
           ]
@@ -2877,7 +2738,7 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "ODO Satsuki",
+              "winner": "ODO Satsuki / YOKOI Sakura",
               "all_players_in_row": [
                 "ODO Satsuki (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -2886,17 +2747,14 @@
               ],
               "side_a": [
                 "ODO Satsuki (JPN)",
-                "SHAN Xiaona (GER)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "SHAN Xiaona (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | SHAN Xiaona (GER) | MITTELHAM Nina (GER) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:5 11:6 | ODO Satsuki | YOKOI Sakura | "
             },
             {
@@ -2934,15 +2792,13 @@
                 "KIHARA Miyuu (JPN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "KIHARA Miyuu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | MITTELHAM Nina (GER) |  | KIHARA Miyuu (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 7:11 11:6 8:11 | KIHARA Miyuu |  | "
             }
           ]
@@ -2990,15 +2846,13 @@
                 "HARIMOTO Miwa (JPN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "HARIMOTO Miwa (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | MITTELHAM Nina (GER) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 10:12 8:11 | HARIMOTO Miwa |  | "
             }
           ]
@@ -3041,15 +2895,13 @@
                 "ITO Mima (JPN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "ITO Mima (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Champions Montpellier 2024 | MITTELHAM Nina (GER) |  | ITO Mima (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 6:11 9:11 | ITO Mima |  | "
             }
           ]
@@ -3096,7 +2948,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "KAUFMANN Annett",
+              "winner": "KAUFMANN Annett / MITTELHAM Nina",
               "all_players_in_row": [
                 "CHIRIACOVA Alexandra (MDA)",
                 "DYMYTRENKO Anastasiya (UKR)",
@@ -3105,17 +2957,14 @@
               ],
               "side_a": [
                 "CHIRIACOVA Alexandra (MDA)",
-                "KAUFMANN Annett (GER)"
+                "DYMYTRENKO Anastasiya (UKR)"
               ],
               "side_b": [
-                "DYMYTRENKO Anastasiya (UKR)",
+                "KAUFMANN Annett (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | CHIRIACOVA Alexandra (MDA) | DYMYTRENKO Anastasiya (UKR) | KAUFMANN Annett (GER) | MITTELHAM Nina (GER) | WD | Main Draw | R32 | 2 - 3 | 3:11 12:10 11:8 7:11 8:11 | KAUFMANN Annett | MITTELHAM Nina | "
             },
             {
@@ -3147,7 +2996,7 @@
                 "7:11",
                 "12:10"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3156,17 +3005,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "KAUFMANN Annett (GER)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "KAUFMANN Annett (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | KAUFMANN Annett (GER) | MITTELHAM Nina (GER) | WD | Main Draw | R16 | 3 - 1 | 11:9 15:13 7:11 12:10 | BERGSTROM Linda | KALLBERG Christina | "
             },
             {
@@ -3204,15 +3050,13 @@
                 "TOLIOU Aikaterini (GRE)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "TOLIOU Aikaterini (GRE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | MITTELHAM Nina (GER) |  | TOLIOU Aikaterini (GRE) |  | WS | Main Draw | R64 | 4 - 0 | 11:6 11:7 11:6 11:7 | MITTELHAM Nina |  | "
             },
             {
@@ -3265,15 +3109,13 @@
                 "MONFARDINI Gaia (ITA)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | MITTELHAM Nina (GER) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R32 | 4 - 3 | 6:11 8:11 16:14 11:9 11:7 6:11 11:6 | MITTELHAM Nina |  | "
             },
             {
@@ -3321,15 +3163,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | MITTELHAM Nina (GER) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 4 - 2 | 9:11 11:5 11:9 9:11 11:8 11:6 | MITTELHAM Nina |  | "
             },
             {
@@ -3372,15 +3212,13 @@
                 "WAN Yuan (GER)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "WAN Yuan (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | MITTELHAM Nina (GER) |  | WAN Yuan (GER) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 11:6 11:5 9:11 11:7 11:8 | MITTELHAM Nina |  | "
             },
             {
@@ -3423,15 +3261,13 @@
                 "POLCANOVA Sofia (AUT)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | MITTELHAM Nina (GER) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | SemiFinal | 1 - 4 | 10:12 7:11 12:10 4:11 6:11 | POLCANOVA Sofia |  | "
             }
           ]
@@ -3479,15 +3315,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "JEE Minhyung (AUS)",
+                "JEE Minhyung (AUS)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | JEE Minhyung (AUS) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 9:11 7:11 8:11 | MITTELHAM Nina |  | "
             },
             {
@@ -3540,15 +3374,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "PYON Song Gyong (PRK)",
+                "PYON Song Gyong (PRK)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | PYON Song Gyong (PRK) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 4 - 3 | 6:11 9:11 11:9 11:8 11:8 7:11 11:7 | PYON Song Gyong |  | "
             },
             {
@@ -3580,7 +3412,7 @@
                 "10:12",
                 "6:11"
               ],
-              "winner": "LIM Jonghoon",
+              "winner": "LIM Jonghoon / SHIN Yubin",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -3589,17 +3421,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "LIM Jonghoon (KOR)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "LIM Jonghoon (KOR)",
                 "SHIN Yubin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | QIU Dang (GER) | MITTELHAM Nina (GER) | LIM Jonghoon (KOR) | SHIN Yubin (KOR) | XD | Main Draw | R16 | 0 - 4 | 10:12 9:11 10:12 6:11 | LIM Jonghoon | SHIN Yubin | "
             }
           ]
@@ -3652,15 +3481,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "ZHOU Jingyi (SGP)",
+                "ZHOU Jingyi (SGP)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | ZHOU Jingyi (SGP) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 2 - 3 | 5:11 5:11 11:5 11:8 11:13 | MITTELHAM Nina |  | "
             },
             {
@@ -3693,15 +3520,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "JEON Jihee (KOR)",
+                "JEON Jihee (KOR)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Bangkok 2024 | JEON Jihee (KOR) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 0 | 11:9 11:9 11:6 | JEON Jihee |  | "
             }
           ]
@@ -3754,15 +3579,13 @@
                 "PARANANG Orawan (THA)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "PARANANG Orawan (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Champions Chongqing 2024 | MITTELHAM Nina (GER) |  | PARANANG Orawan (THA) |  | WS | Main Draw | R32 | 2 - 3 | 8:11 11:6 7:11 11:6 8:11 | PARANANG Orawan |  | "
             }
           ]
@@ -3810,15 +3633,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "MUKHERJEE Ayhika (IND)",
+                "MUKHERJEE Ayhika (IND)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | MUKHERJEE Ayhika (IND) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 8:11 9:11 | MITTELHAM Nina |  | "
             },
             {
@@ -3856,15 +3677,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "LEE Zion (KOR)",
+                "LEE Zion (KOR)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | LEE Zion (KOR) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 1 - 3 | 8:11 7:11 11:5 9:11 | MITTELHAM Nina |  | "
             },
             {
@@ -3897,15 +3716,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "CHEN Xingtong (CHN)",
+                "CHEN Xingtong (CHN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | CHEN Xingtong (CHN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:6 11:3 | CHEN Xingtong |  | "
             }
           ]
@@ -3952,7 +3769,7 @@
                 "2:11",
                 "5:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "WEGRZYN Anna (POL)",
                 "WEGRZYN Katarzyna (POL)",
@@ -3961,17 +3778,14 @@
               ],
               "side_a": [
                 "WEGRZYN Anna (POL)",
-                "MITTELHAM Nina (GER)"
+                "WEGRZYN Katarzyna (POL)"
               ],
               "side_b": [
-                "WEGRZYN Katarzyna (POL)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | R32 | 2 - 3 | 11:8 11:8 4:11 2:11 5:11 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -3998,7 +3812,7 @@
                 "8:11",
                 "10:12"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "KAUFMANN Annett (GER)",
                 "SCHREINER Franziska (GER)",
@@ -4007,17 +3821,14 @@
               ],
               "side_a": [
                 "KAUFMANN Annett (GER)",
-                "MITTELHAM Nina (GER)"
+                "SCHREINER Franziska (GER)"
               ],
               "side_b": [
-                "SCHREINER Franziska (GER)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | KAUFMANN Annett (GER) | SCHREINER Franziska (GER) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | R16 | 0 - 3 | 5:11 8:11 10:12 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -4049,7 +3860,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "XIAO Maria",
+              "winner": "XIAO Maria / DIACONU Adina",
               "all_players_in_row": [
                 "XIAO Maria (ESP)",
                 "DIACONU Adina (ROU)",
@@ -4058,17 +3869,14 @@
               ],
               "side_a": [
                 "XIAO Maria (ESP)",
-                "MITTELHAM Nina (GER)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | XIAO Maria (ESP) | DIACONU Adina (ROU) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:9 11:13 11:8 11:7 | XIAO Maria | DIACONU Adina | "
             },
             {
@@ -4111,15 +3919,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "LUTZ Charlotte (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | LUTZ Charlotte (FRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R64 | 1 - 4 | 12:10 7:11 8:11 6:11 3:11 | MITTELHAM Nina |  | "
             },
             {
@@ -4162,15 +3968,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "WAN Yuan (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | WAN Yuan (GER) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 1 - 4 | 2:11 6:11 3:11 11:9 10:12 | MITTELHAM Nina |  | "
             },
             {
@@ -4218,15 +4022,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "DRAGOMAN Andreea (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 2 - 4 | 7:11 11:5 7:11 10:12 11:2 7:11 | MITTELHAM Nina |  | "
             },
             {
@@ -4279,15 +4081,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | YUAN Jia Nan (FRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 3 - 4 | 11:13 11:5 11:5 7:11 11:8 9:11 6:11 | MITTELHAM Nina |  | "
             },
             {
@@ -4330,15 +4130,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "SHAN Xiaona (GER)",
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAN Xiaona (GER) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | SemiFinal | 1 - 4 | 3:11 11:5 3:11 6:11 11:13 | MITTELHAM Nina |  | "
             },
             {
@@ -4376,15 +4174,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | POLCANOVA Sofia (AUT) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | Final | 4 - 0 | 11:9 11:2 11:0 11:0 | POLCANOVA Sofia |  | "
             },
             {
@@ -4421,7 +4217,7 @@
                 "12:10",
                 "11:3"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4430,17 +4226,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "MOREGARD Truls (SWE)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "MOREGARD Truls (SWE)",
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | MOREGARD Truls (SWE) | BERGSTROM Linda (SWE) | XD | Main Draw | R32 | 3 - 2 | 4:11 11:7 12:14 12:10 11:3 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -4472,7 +4265,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / POLCANOVA Sofia",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4481,17 +4274,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "GARDOS Robert (AUT)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "GARDOS Robert (AUT)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | GARDOS Robert (AUT) | POLCANOVA Sofia (AUT) | XD | Main Draw | R16 | 1 - 3 | 0:11 11:6 9:11 9:11 | GARDOS Robert | POLCANOVA Sofia | "
             }
           ]
@@ -4534,15 +4324,13 @@
                 "SUN Yingsha (CHN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "SUN Yingsha (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Champions Budapest 2022 | MITTELHAM Nina (GER) |  | SUN Yingsha (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 10:12 2:11 | SUN Yingsha |  | "
             }
           ]
@@ -4579,7 +4367,7 @@
                 "12:10",
                 "12:10"
               ],
-              "winner": "DE NUTTE Sarah",
+              "winner": "DE NUTTE Sarah / NI Xia Lian",
               "all_players_in_row": [
                 "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)",
@@ -4588,17 +4376,14 @@
               ],
               "side_a": [
                 "DE NUTTE Sarah (LUX)",
-                "WINTER Sabine (GER)"
+                "NI Xia Lian (LUX)"
               ],
               "side_b": [
-                "NI Xia Lian (LUX)",
+                "WINTER Sabine (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | WINTER Sabine (GER) | MITTELHAM Nina (GER) | WD | Main Draw | R16 | 3 - 0 | 11:9 12:10 12:10 | DE NUTTE Sarah | NI Xia Lian | "
             },
             {
@@ -4625,7 +4410,7 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4634,17 +4419,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "LEE Sang Su (KOR)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "LEE Sang Su (KOR)",
                 "CHOI Hyojoo (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | LEE Sang Su (KOR) | CHOI Hyojoo (KOR) | XD | Main Draw | R16 | 3 - 0 | 11:8 11:5 11:6 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -4671,7 +4453,7 @@
                 "2:11",
                 "9:11"
               ],
-              "winner": "HARIMOTO Tomokazu",
+              "winner": "HARIMOTO Tomokazu / HAYATA Hina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4680,17 +4462,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "HARIMOTO Tomokazu (JPN)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "HARIMOTO Tomokazu (JPN)",
                 "HAYATA Hina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | HARIMOTO Tomokazu (JPN) | HAYATA Hina (JPN) | XD | Main Draw | QuarterFinal | 0 - 3 | 2:11 2:11 9:11 | HARIMOTO Tomokazu | HAYATA Hina | "
             },
             {
@@ -4723,15 +4502,13 @@
                 "FAN Siqi (CHN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "FAN Siqi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | MITTELHAM Nina (GER) |  | FAN Siqi (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 9:11 7:11 | FAN Siqi |  | "
             }
           ]
@@ -4768,7 +4545,7 @@
                 "11:6",
                 "11:3"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4777,17 +4554,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "GUNDUZ Ibrahim (TUR)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R16 | 3 - 0 | 11:5 11:6 11:3 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -4825,15 +4599,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "KUMAHARA Luca (BRA)",
+                "KUMAHARA Luca (BRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | KUMAHARA Luca (BRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 1 - 3 | 12:10 8:11 6:11 8:11 | MITTELHAM Nina |  | "
             },
             {
@@ -4860,7 +4632,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4869,17 +4641,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "KALLBERG Anton (SWE)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "KALLBERG Anton (SWE)",
                 "WAN Yuan (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | KALLBERG Anton (SWE) | WAN Yuan (GER) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:7 11:9 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -4922,15 +4691,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "SILVA Yadira (MEX)",
+                "SILVA Yadira (MEX)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | SILVA Yadira (MEX) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 2 - 3 | 13:11 8:11 4:11 11:9 5:11 | MITTELHAM Nina |  | "
             },
             {
@@ -4962,7 +4729,7 @@
                 "9:11",
                 "11:9"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -4971,17 +4738,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "ROBLES Alvaro (ESP)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | XD | Main Draw | SemiFinal | 3 - 1 | 11:8 11:9 9:11 11:9 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -5014,15 +4778,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | YU Fu (POR) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 7:11 7:11 8:11 | MITTELHAM Nina |  | "
             },
             {
@@ -5070,15 +4832,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "TAKAHASHI Bruna (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | TAKAHASHI Bruna (BRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | SemiFinal | 2 - 4 | 7:11 12:10 6:11 11:9 11:13 9:11 | MITTELHAM Nina |  | "
             },
             {
@@ -5115,7 +4875,7 @@
                 "11:7",
                 "13:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -5124,17 +4884,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "GLOD Eric (LUX)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "GLOD Eric (LUX)",
                 "DE NUTTE Sarah (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | GLOD Eric (LUX) | DE NUTTE Sarah (LUX) | XD | Main Draw | Final | 3 - 2 | 9:11 10:12 11:8 11:7 13:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -5187,15 +4944,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "NAGASAKI Miyu (JPN)",
+                "NAGASAKI Miyu (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Lima 2022 | NAGASAKI Miyu (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | Final | 3 - 4 | 9:11 9:11 11:7 6:11 11:9 12:10 7:11 | MITTELHAM Nina |  | "
             }
           ]
@@ -5237,7 +4992,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "WONG Chun Ting (HKG)",
                 "DOO Hoi Kem (HKG)",
@@ -5246,17 +5001,14 @@
               ],
               "side_a": [
                 "WONG Chun Ting (HKG)",
-                "QIU Dang (GER)"
+                "DOO Hoi Kem (HKG)"
               ],
               "side_b": [
-                "DOO Hoi Kem (HKG)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | WONG Chun Ting (HKG) | DOO Hoi Kem (HKG) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R16 | 1 - 3 | 8:11 5:11 11:8 9:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -5293,7 +5045,7 @@
                 "8:11",
                 "12:10"
               ],
-              "winner": "WINTER Sabine",
+              "winner": "WINTER Sabine / MITTELHAM Nina",
               "all_players_in_row": [
                 "WINTER Sabine (GER)",
                 "MITTELHAM Nina (GER)",
@@ -5302,17 +5054,14 @@
               ],
               "side_a": [
                 "WINTER Sabine (GER)",
-                "ZENG Jian (SGP)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "ZENG Jian (SGP)",
                 "LIN Ye (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | WINTER Sabine (GER) | MITTELHAM Nina (GER) | ZENG Jian (SGP) | LIN Ye (CAN) | WD | Main Draw | R16 | 3 - 2 | 11:4 11:7 7:11 8:11 12:10 | WINTER Sabine | MITTELHAM Nina | "
             },
             {
@@ -5350,15 +5099,13 @@
                 "KATO Miyu (JPN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "KATO Miyu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | MITTELHAM Nina (GER) |  | KATO Miyu (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 7:11 12:10 10:12 5:11 | KATO Miyu |  | "
             },
             {
@@ -5395,24 +5142,23 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "HUANG Yi-Hua",
+              "winner": "HUANG Yi-Hua / CHEN Szu-Yu",
               "all_players_in_row": [
                 "WINTER Sabine (GER)",
-                "MITTELHAM Nina (GER)"
+                "MITTELHAM Nina (GER)",
+                "HUANG Yi-Hua (TPE)",
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_a": [
                 "WINTER Sabine (GER)",
-                "HUANG Yi-Hua (TPE)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "HUANG Yi-Hua (TPE)",
                 "CHEN Szu-Yu (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | WINTER Sabine (GER) | MITTELHAM Nina (GER) | HUANG Yi-Hua (TPE) | CHEN Szu-Yu (TPE) | WD | Main Draw | QuarterFinal | 2 - 3 | 6:11 14:12 11:7 9:11 6:11 | HUANG Yi-Hua | CHEN Szu-Yu | "
             },
             {
@@ -5444,7 +5190,7 @@
                 "11:3",
                 "9:11"
               ],
-              "winner": "IONESCU Ovidiu",
+              "winner": "IONESCU Ovidiu / SZOCS Bernadette",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -5453,17 +5199,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "IONESCU Ovidiu (ROU)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "IONESCU Ovidiu (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | QIU Dang (GER) | MITTELHAM Nina (GER) | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | QuarterFinal | 1 - 3 | 8:11 6:11 11:3 9:11 | IONESCU Ovidiu | SZOCS Bernadette | "
             }
           ]
@@ -5511,15 +5254,13 @@
                 "ALHODABY Mariam (EGY)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "ALHODABY Mariam (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | MITTELHAM Nina (GER) |  | ALHODABY Mariam (EGY) |  | WS | Main Draw | R64 | 3 - 1 | 8:11 11:4 11:6 11:8 | MITTELHAM Nina |  | "
             },
             {
@@ -5556,7 +5297,7 @@
                 "8:11",
                 "11:6"
               ],
-              "winner": "HO Kwan Kit",
+              "winner": "HO Kwan Kit / MITTELHAM Nina",
               "all_players_in_row": [
                 "HO Kwan Kit (HKG)",
                 "MITTELHAM Nina (GER)",
@@ -5565,17 +5306,14 @@
               ],
               "side_a": [
                 "HO Kwan Kit (HKG)",
-                "PISTEJ Lubomir (SVK)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "PISTEJ Lubomir (SVK)",
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | HO Kwan Kit (HKG) | MITTELHAM Nina (GER) | PISTEJ Lubomir (SVK) | VARADY Barbora (SVK) | XD | Main Draw | R16 | 3 - 2 | 11:9 9:11 11:3 8:11 11:6 | HO Kwan Kit | MITTELHAM Nina | "
             },
             {
@@ -5613,15 +5351,13 @@
                 "MADARASZ Dora (HUN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "MADARASZ Dora (HUN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | MITTELHAM Nina (GER) |  | MADARASZ Dora (HUN) |  | WS | Main Draw | R32 | 3 - 1 | 9:11 11:8 11:6 11:5 | MITTELHAM Nina |  | "
             },
             {
@@ -5653,7 +5389,7 @@
                 "11:5",
                 "11:9"
               ],
-              "winner": "LEBESSON Emmanuel",
+              "winner": "LEBESSON Emmanuel / YUAN Jia Nan",
               "all_players_in_row": [
                 "LEBESSON Emmanuel (FRA)",
                 "YUAN Jia Nan (FRA)",
@@ -5662,17 +5398,14 @@
               ],
               "side_a": [
                 "LEBESSON Emmanuel (FRA)",
-                "HO Kwan Kit (HKG)"
+                "YUAN Jia Nan (FRA)"
               ],
               "side_b": [
-                "YUAN Jia Nan (FRA)",
+                "HO Kwan Kit (HKG)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | LEBESSON Emmanuel (FRA) | YUAN Jia Nan (FRA) | HO Kwan Kit (HKG) | MITTELHAM Nina (GER) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:13 11:8 11:5 11:9 | LEBESSON Emmanuel | YUAN Jia Nan | "
             },
             {
@@ -5704,7 +5437,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -5713,17 +5446,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "LEE Ho Ching (HKG)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "LEE Ho Ching (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | LEE Ho Ching (HKG) | DOO Hoi Kem (HKG) | WD | Main Draw | R16 | 3 - 1 | 8:11 11:6 11:7 11:9 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -5755,7 +5485,7 @@
                 "10:12",
                 "8:11"
               ],
-              "winner": "DE NUTTE Sarah",
+              "winner": "DE NUTTE Sarah / NI Xia Lian",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -5764,17 +5494,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "DE NUTTE Sarah (LUX)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | WD | Main Draw | QuarterFinal | 1 - 3 | 13:11 7:11 10:12 8:11 | DE NUTTE Sarah | NI Xia Lian | "
             },
             {
@@ -5807,15 +5534,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "WANG Yidi (CHN)",
+                "WANG Yidi (CHN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | WANG Yidi (CHN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 0 | 11:5 11:5 11:9 | WANG Yidi |  | "
             }
           ]
@@ -5873,15 +5598,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "MIKHAILOVA Polina (AIN)",
+                "MIKHAILOVA Polina (AIN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | MIKHAILOVA Polina (AIN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 4 - 2 | 11:7 9:11 4:11 11:8 11:7 11:8 | MIKHAILOVA Polina |  | "
             },
             {
@@ -5924,15 +5647,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "MORET Rachel (SUI)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | MORET Rachel (SUI) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 1 - 4 | 11:8 5:11 7:11 7:11 8:11 | MITTELHAM Nina |  | "
             }
           ]
@@ -5985,15 +5706,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "WANG Amy (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | WANG Amy (USA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R128 | 4 - 0 | 11:8 11:9 11:6 11:9 | WANG Amy |  | "
             },
             {
@@ -6025,7 +5744,7 @@
                 "11:5",
                 "6:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "POLANSKY Tomas (CZE)",
                 "MATELOVA Hana (CZE)",
@@ -6034,17 +5753,14 @@
               ],
               "side_a": [
                 "POLANSKY Tomas (CZE)",
-                "QIU Dang (GER)"
+                "MATELOVA Hana (CZE)"
               ],
               "side_b": [
-                "MATELOVA Hana (CZE)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | POLANSKY Tomas (CZE) | MATELOVA Hana (CZE) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R64 | 1 - 3 | 14:16 10:12 11:5 6:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -6076,7 +5792,7 @@
                 "11:3",
                 "12:10"
               ],
-              "winner": "LIN Gaoyuan",
+              "winner": "LIN Gaoyuan / ZHANG Lily",
               "all_players_in_row": [
                 "LIN Gaoyuan (CHN)",
                 "ZHANG Lily (USA)",
@@ -6085,17 +5801,14 @@
               ],
               "side_a": [
                 "LIN Gaoyuan (CHN)",
-                "QIU Dang (GER)"
+                "ZHANG Lily (USA)"
               ],
               "side_b": [
-                "ZHANG Lily (USA)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LIN Gaoyuan (CHN) | ZHANG Lily (USA) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R32 | 3 - 1 | 12:14 11:8 11:3 12:10 | LIN Gaoyuan | ZHANG Lily | "
             },
             {
@@ -6122,7 +5835,7 @@
                 "9:11",
                 "0:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "GOI Rui Xuan (SGP)",
                 "WONG Xin Ru (SGP)",
@@ -6131,17 +5844,14 @@
               ],
               "side_a": [
                 "GOI Rui Xuan (SGP)",
-                "MITTELHAM Nina (GER)"
+                "WONG Xin Ru (SGP)"
               ],
               "side_b": [
-                "WONG Xin Ru (SGP)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | GOI Rui Xuan (SGP) | WONG Xin Ru (SGP) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | R32 | 0 - 3 | 6:11 9:11 0:11 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -6173,7 +5883,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "ITO Mima",
+              "winner": "ITO Mima / HAYATA Hina",
               "all_players_in_row": [
                 "ITO Mima (JPN)",
                 "HAYATA Hina (JPN)",
@@ -6182,17 +5892,14 @@
               ],
               "side_a": [
                 "ITO Mima (JPN)",
-                "MITTELHAM Nina (GER)"
+                "HAYATA Hina (JPN)"
               ],
               "side_b": [
-                "HAYATA Hina (JPN)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ITO Mima (JPN) | HAYATA Hina (JPN) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | R16 | 3 - 1 | 11:7 9:11 11:6 11:8 | ITO Mima | HAYATA Hina | "
             }
           ]
@@ -6229,7 +5936,7 @@
                 "11:9",
                 "12:10"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -6238,17 +5945,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "GOI Rui Xuan (SGP)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "GOI Rui Xuan (SGP)",
                 "WONG Xin Ru (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | GOI Rui Xuan (SGP) | WONG Xin Ru (SGP) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:9 12:10 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -6281,15 +5985,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "LIU Weishan (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LIU Weishan (CHN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:2 12:10 11:8 | LIU Weishan |  | "
             },
             {
@@ -6321,7 +6023,7 @@
                 "11:1",
                 "11:5"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -6330,17 +6032,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "STRAZAR Katarina (SLO)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "STRAZAR Katarina (SLO)",
                 "PAULIN Lea (SLO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | STRAZAR Katarina (SLO) | PAULIN Lea (SLO) | WD | Main Draw | QuarterFinal | 3 - 1 | 13:11 7:11 11:1 11:5 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -6372,7 +6071,7 @@
                 "4:11",
                 "7:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "CHASSELIN Pauline (FRA)",
                 "PAVADE Prithika (FRA)",
@@ -6381,17 +6080,14 @@
               ],
               "side_a": [
                 "CHASSELIN Pauline (FRA)",
-                "MITTELHAM Nina (GER)"
+                "PAVADE Prithika (FRA)"
               ],
               "side_b": [
-                "PAVADE Prithika (FRA)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | CHASSELIN Pauline (FRA) | PAVADE Prithika (FRA) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | SemiFinal | 1 - 3 | 11:2 9:11 4:11 7:11 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -6418,7 +6114,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "LIU Weishan",
+              "winner": "LIU Weishan / WANG Yidi",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -6427,17 +6123,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "LIU Weishan (CHN)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "LIU Weishan (CHN)",
                 "WANG Yidi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | LIU Weishan (CHN) | WANG Yidi (CHN) | WD | Main Draw | Final | 0 - 3 | 4:11 7:11 8:11 | LIU Weishan | WANG Yidi | "
             }
           ]
@@ -6485,15 +6178,13 @@
                 "BATRA Manika (IND)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "BATRA Manika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MITTELHAM Nina (GER) |  | BATRA Manika (IND) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 10:12 11:8 11:3 | MITTELHAM Nina |  | "
             },
             {
@@ -6520,7 +6211,7 @@
                 "10:12",
                 "4:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "APOLONIA Tiago (POR)",
                 "SHAO Jieni (POR)",
@@ -6529,17 +6220,14 @@
               ],
               "side_a": [
                 "APOLONIA Tiago (POR)",
-                "QIU Dang (GER)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | APOLONIA Tiago (POR) | SHAO Jieni (POR) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R16 | 0 - 3 | 7:11 10:12 4:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -6566,7 +6254,7 @@
                 "3:11",
                 "4:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "ABID Youssef (TUN)",
                 "ZOGHLAMI Maram (TUN)",
@@ -6575,17 +6263,14 @@
               ],
               "side_a": [
                 "ABID Youssef (TUN)",
-                "QIU Dang (GER)"
+                "ZOGHLAMI Maram (TUN)"
               ],
               "side_b": [
-                "ZOGHLAMI Maram (TUN)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | ABID Youssef (TUN) | ZOGHLAMI Maram (TUN) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | QuarterFinal | 0 - 3 | 5:11 3:11 4:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -6618,15 +6303,13 @@
                 "MADARASZ Dora (HUN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "MADARASZ Dora (HUN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MITTELHAM Nina (GER) |  | MADARASZ Dora (HUN) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:4 11:8 | MITTELHAM Nina |  | "
             },
             {
@@ -6653,7 +6336,7 @@
                 "12:10",
                 "11:3"
               ],
-              "winner": "KHANIN Aleksandr",
+              "winner": "KHANIN Aleksandr / TRIGOLOS Daria",
               "all_players_in_row": [
                 "KHANIN Aleksandr (AIN)",
                 "TRIGOLOS Daria (AIN)",
@@ -6662,17 +6345,14 @@
               ],
               "side_a": [
                 "KHANIN Aleksandr (AIN)",
-                "QIU Dang (GER)"
+                "TRIGOLOS Daria (AIN)"
               ],
               "side_b": [
-                "TRIGOLOS Daria (AIN)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | KHANIN Aleksandr (AIN) | TRIGOLOS Daria (AIN) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | SemiFinal | 3 - 0 | 11:7 12:10 11:3 | KHANIN Aleksandr | TRIGOLOS Daria | "
             },
             {
@@ -6715,15 +6395,13 @@
                 "MATELOVA Hana (CZE)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MITTELHAM Nina (GER) |  | MATELOVA Hana (CZE) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 7:11 11:4 11:8 10:12 8:11 | MATELOVA Hana |  | "
             }
           ]
@@ -6786,15 +6464,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "VARADY Barbora (SVK)",
+                "VARADY Barbora (SVK)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | VARADY Barbora (SVK) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 4 | 11:7 9:11 12:10 10:12 9:11 11:5 7:11 | MITTELHAM Nina |  | "
             },
             {
@@ -6837,15 +6513,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "POLCANOVA Sofia (AUT)",
+                "POLCANOVA Sofia (AUT)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | POLCANOVA Sofia (AUT) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 3:11 7:11 11:8 11:13 8:11 | MITTELHAM Nina |  | "
             },
             {
@@ -6883,15 +6557,13 @@
                 "MATELOVA Hana (CZE)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | MITTELHAM Nina (GER) |  | MATELOVA Hana (CZE) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:2 11:4 11:8 11:8 | MITTELHAM Nina |  | "
             },
             {
@@ -6934,15 +6606,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | MITTELHAM Nina (GER) |  | YU Fu (POR) |  | WS | Main Draw | Final | 4 - 1 | 11:8 8:11 11:6 11:3 14:12 | MITTELHAM Nina |  | "
             }
           ]
@@ -6979,25 +6649,23 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
+                "HO Tin-Tin (ENG)",
                 "BARDSLEY Charlotte (ENG)",
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
               "side_a": [
                 "HO Tin-Tin (ENG)",
-                "MITTELHAM Nina (GER)"
+                "BARDSLEY Charlotte (ENG)"
               ],
               "side_b": [
-                "BARDSLEY Charlotte (ENG)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | HO Tin-Tin (ENG) | BARDSLEY Charlotte (ENG) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | R32 | 0 - 3 | 4:11 8:11 8:11 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -7029,7 +6697,7 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DODEAN Daniela (ROU)",
@@ -7038,17 +6706,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "MITTELHAM Nina (GER)"
+                "DODEAN Daniela (ROU)"
               ],
               "side_b": [
-                "DODEAN Daniela (ROU)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SAMARA Elizabeta (ROU) | DODEAN Daniela (ROU) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | R16 | 1 - 3 | 7:11 11:7 7:11 6:11 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -7075,7 +6740,7 @@
                 "11:0",
                 "11:0"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -7084,17 +6749,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "EERLAND Britt (NED)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "EERLAND Britt (NED)",
                 "POTA Georgina (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | EERLAND Britt (NED) | POTA Georgina (HUN) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:0 11:0 11:0 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -7126,7 +6788,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "HAPONOVA Hanna (UKR)",
                 "BILENKO Tetyana (UKR)",
@@ -7135,17 +6797,14 @@
               ],
               "side_a": [
                 "HAPONOVA Hanna (UKR)",
-                "MITTELHAM Nina (GER)"
+                "BILENKO Tetyana (UKR)"
               ],
               "side_b": [
-                "BILENKO Tetyana (UKR)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | HAPONOVA Hanna (UKR) | BILENKO Tetyana (UKR) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | SemiFinal | 1 - 3 | 12:10 6:11 7:11 8:11 | MITTELHAM Nina | WINTER Sabine | "
             },
             {
@@ -7182,7 +6841,7 @@
                 "11:8",
                 "11:8"
               ],
-              "winner": "SOLJA Petrissa",
+              "winner": "SOLJA Petrissa / SHAN Xiaona",
               "all_players_in_row": [
                 "SOLJA Petrissa (GER)",
                 "SHAN Xiaona (GER)",
@@ -7191,17 +6850,14 @@
               ],
               "side_a": [
                 "SOLJA Petrissa (GER)",
-                "MITTELHAM Nina (GER)"
+                "SHAN Xiaona (GER)"
               ],
               "side_b": [
-                "SHAN Xiaona (GER)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SOLJA Petrissa (GER) | SHAN Xiaona (GER) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | Final | 3 - 2 | 7:11 11:7 10:12 11:8 11:8 | SOLJA Petrissa | SHAN Xiaona | "
             },
             {
@@ -7254,15 +6910,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | MITTELHAM Nina (GER) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | R64 | 3 - 4 | 11:3 7:11 11:8 10:12 11:3 5:11 11:13 | ALTINKAYA Sibel |  | "
             },
             {
@@ -7289,7 +6943,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "ECSEKI Nandor (HUN)",
                 "BALINT Bernadett (HUN)",
@@ -7298,17 +6952,14 @@
               ],
               "side_a": [
                 "ECSEKI Nandor (HUN)",
-                "QIU Dang (GER)"
+                "BALINT Bernadett (HUN)"
               ],
               "side_b": [
-                "BALINT Bernadett (HUN)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ECSEKI Nandor (HUN) | BALINT Bernadett (HUN) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R32 | 0 - 3 | 9:11 9:11 9:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -7345,7 +6996,7 @@
                 "5:11",
                 "5:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "IONESCU Ovidiu (ROU)",
                 "SZOCS Bernadette (ROU)",
@@ -7354,17 +7005,14 @@
               ],
               "side_a": [
                 "IONESCU Ovidiu (ROU)",
-                "QIU Dang (GER)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | R16 | 2 - 3 | 11:7 11:5 6:11 5:11 5:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -7391,7 +7039,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -7400,17 +7048,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "YIGENLER Abdullah (TUR)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "YIGENLER Abdullah (TUR)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | QIU Dang (GER) | MITTELHAM Nina (GER) | YIGENLER Abdullah (TUR) | YILMAZ Ozge (TUR) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:6 11:8 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -7447,7 +7092,7 @@
                 "5:11",
                 "13:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)",
@@ -7456,17 +7101,14 @@
               ],
               "side_a": [
                 "QIU Dang (GER)",
-                "LEBESSON Emmanuel (FRA)"
+                "MITTELHAM Nina (GER)"
               ],
               "side_b": [
-                "MITTELHAM Nina (GER)",
+                "LEBESSON Emmanuel (FRA)",
                 "YUAN Jia Nan (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | QIU Dang (GER) | MITTELHAM Nina (GER) | LEBESSON Emmanuel (FRA) | YUAN Jia Nan (FRA) | XD | Main Draw | SemiFinal | 3 - 2 | 14:12 11:7 4:11 5:11 13:11 | QIU Dang | MITTELHAM Nina | "
             },
             {
@@ -7493,7 +7135,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "QIU Dang",
+              "winner": "QIU Dang / MITTELHAM Nina",
               "all_players_in_row": [
                 "PISTEJ Lubomir (SVK)",
                 "VARADY Barbora (SVK)",
@@ -7502,17 +7144,14 @@
               ],
               "side_a": [
                 "PISTEJ Lubomir (SVK)",
-                "QIU Dang (GER)"
+                "VARADY Barbora (SVK)"
               ],
               "side_b": [
-                "VARADY Barbora (SVK)",
+                "QIU Dang (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | PISTEJ Lubomir (SVK) | VARADY Barbora (SVK) | QIU Dang (GER) | MITTELHAM Nina (GER) | XD | Main Draw | Final | 0 - 3 | 9:11 8:11 6:11 | QIU Dang | MITTELHAM Nina | "
             }
           ]
@@ -7560,15 +7199,13 @@
                 "ISHIKAWA Kasumi (JPN)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "ISHIKAWA Kasumi (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | MITTELHAM Nina (GER) |  | ISHIKAWA Kasumi (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 11:2 5:11 11:13 2:11 | ISHIKAWA Kasumi |  | "
             },
             {
@@ -7606,15 +7243,13 @@
                 "VIVARELLI Debora (ITA)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "VIVARELLI Debora (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | MITTELHAM Nina (GER) |  | VIVARELLI Debora (ITA) |  | WS | Main Draw | R64 | 3 - 1 | 9:11 11:6 11:6 11:5 | MITTELHAM Nina |  | "
             },
             {
@@ -7641,7 +7276,7 @@
                 "11:2",
                 "11:8"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / SHAN Xiaona",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "SHAN Xiaona (GER)",
@@ -7650,17 +7285,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "ALI Maha (QAT)"
+                "SHAN Xiaona (GER)"
               ],
               "side_b": [
-                "SHAN Xiaona (GER)",
+                "ALI Maha (QAT)",
                 "ALI Maryam (QAT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | MITTELHAM Nina (GER) | SHAN Xiaona (GER) | ALI Maha (QAT) | ALI Maryam (QAT) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:2 11:8 | MITTELHAM Nina | SHAN Xiaona | "
             },
             {
@@ -7687,7 +7319,7 @@
                 "12:10",
                 "11:9"
               ],
-              "winner": "ISHIKAWA Kasumi",
+              "winner": "ISHIKAWA Kasumi / HIRANO Miu",
               "all_players_in_row": [
                 "ISHIKAWA Kasumi (JPN)",
                 "HIRANO Miu (JPN)",
@@ -7696,17 +7328,14 @@
               ],
               "side_a": [
                 "ISHIKAWA Kasumi (JPN)",
-                "MITTELHAM Nina (GER)"
+                "HIRANO Miu (JPN)"
               ],
               "side_b": [
-                "HIRANO Miu (JPN)",
+                "MITTELHAM Nina (GER)",
                 "SHAN Xiaona (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | ISHIKAWA Kasumi (JPN) | HIRANO Miu (JPN) | MITTELHAM Nina (GER) | SHAN Xiaona (GER) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:9 12:10 11:9 | ISHIKAWA Kasumi | HIRANO Miu | "
             }
           ]
@@ -7749,15 +7378,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "ITO Mima (JPN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | ITO Mima (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 11:4 11:9 | ITO Mima |  | "
             },
             {
@@ -7789,7 +7416,7 @@
                 "6:11",
                 "11:7"
               ],
-              "winner": "LOEUILLETTE Stephanie",
+              "winner": "LOEUILLETTE Stephanie / YUAN Jia Nan",
               "all_players_in_row": [
                 "LOEUILLETTE Stephanie (FRA)",
                 "YUAN Jia Nan (FRA)",
@@ -7798,17 +7425,14 @@
               ],
               "side_a": [
                 "LOEUILLETTE Stephanie (FRA)",
-                "SHAN Xiaona (GER)"
+                "YUAN Jia Nan (FRA)"
               ],
               "side_b": [
-                "YUAN Jia Nan (FRA)",
+                "SHAN Xiaona (GER)",
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | LOEUILLETTE Stephanie (FRA) | YUAN Jia Nan (FRA) | SHAN Xiaona (GER) | MITTELHAM Nina (GER) | WD | Main Draw | R16 | 3 - 1 | 11:9 11:6 6:11 11:7 | LOEUILLETTE Stephanie | YUAN Jia Nan | "
             },
             {
@@ -7851,15 +7475,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "YUAN Jia Nan (FRA)",
+                "YUAN Jia Nan (FRA)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | YUAN Jia Nan (FRA) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R32 | 2 - 3 | 11:5 9:11 13:15 11:4 6:11 | MITTELHAM Nina |  | "
             }
           ]

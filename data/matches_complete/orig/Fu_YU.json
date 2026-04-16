@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Fu YU",
-  "english_name": "Fu YU",
+  "player_name": "YU Fu",
+  "english_name": "YU Fu",
   "country": "POR",
   "country_code": "POR",
   "continent": "",
@@ -50,15 +50,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "HIRANO Miu (JPN)",
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Taiyuan 2026 | HIRANO Miu (JPN) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:6 11:5 | HIRANO Miu |  | "
             }
           ]
@@ -101,15 +99,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "WANG Manyu (CHN)",
+                "WANG Manyu (CHN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | WANG Manyu (CHN) |  | YU Fu (POR) |  | WS | Qualification |  | 3 - 0 | 11:5 11:3 11:6 | WANG Manyu |  | "
             },
             {
@@ -147,15 +143,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "AKULA Sreeja (IND)",
+                "AKULA Sreeja (IND)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | AKULA Sreeja (IND) |  | YU Fu (POR) |  | WS | Qualification |  | 1 - 3 | 11:8 9:11 13:15 8:11 | YU Fu |  | "
             }
           ]
@@ -208,15 +202,13 @@
                 "JEE Minhyung (AUS)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | YU Fu (POR) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 2 | 11:3 11:7 3:11 10:12 12:10 | YU Fu |  | "
             },
             {
@@ -249,15 +241,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "WINTER Sabine (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | WINTER Sabine (GER) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:3 11:5 11:8 | WINTER Sabine |  | "
             }
           ]
@@ -300,15 +290,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "PAVADE Prithika (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | PAVADE Prithika (FRA) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 0 - 3 | 8:11 5:11 12:14 | YU Fu |  | "
             },
             {
@@ -351,15 +339,13 @@
                 "HAN Ying (GER)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "HAN Ying (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | YU Fu (POR) |  | HAN Ying (GER) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 8:11 11:6 8:11 11:5 4:11 | HAN Ying |  | "
             }
           ]
@@ -402,15 +388,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | MITTELHAM Nina (GER) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:6 11:2 | MITTELHAM Nina |  | "
             },
             {
@@ -437,7 +421,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "GHORPADE Yashaswini",
+              "winner": "GHORPADE Yashaswini / MUKHERJEE Ayhika",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -446,17 +430,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "GHORPADE Yashaswini (IND)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "GHORPADE Yashaswini (IND)",
                 "MUKHERJEE Ayhika (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | YU Fu (POR) | SHAO Jieni (POR) | GHORPADE Yashaswini (IND) | MUKHERJEE Ayhika (IND) | WD | Main Draw | R16 | 0 - 3 | 8:11 8:11 9:11 | GHORPADE Yashaswini | MUKHERJEE Ayhika | "
             }
           ]
@@ -509,15 +490,13 @@
                 "KALLBERG Christina (SWE)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "KALLBERG Christina (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | YU Fu (POR) |  | KALLBERG Christina (SWE) |  | WS | Main Draw | R64 | 1 - 3 | 8:11 12:10 6:11 8:11 | KALLBERG Christina |  | "
             },
             {
@@ -554,7 +533,7 @@
                 "5:11",
                 "12:10"
               ],
-              "winner": "CHITALE Diya",
+              "winner": "CHITALE Diya / GHOSH Swastika",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHOSH Swastika (IND)",
@@ -563,17 +542,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "YU Fu (POR)"
+                "GHOSH Swastika (IND)"
               ],
               "side_b": [
-                "GHOSH Swastika (IND)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | CHITALE Diya (IND) | GHOSH Swastika (IND) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 3 - 2 | 7:11 13:11 11:8 5:11 12:10 | CHITALE Diya | GHOSH Swastika | "
             }
           ]
@@ -616,15 +592,13 @@
                 "WINTER Sabine (GER)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "WINTER Sabine (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | YU Fu (POR) |  | WINTER Sabine (GER) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 5:11 7:11 | WINTER Sabine |  | "
             }
           ]
@@ -667,15 +641,13 @@
                 "MASSART Lilou (BEL)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "MASSART Lilou (BEL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | YU Fu (POR) |  | MASSART Lilou (BEL) |  | WT | Qualification |  | 3 - 0 | 11:7 11:5 11:5 | YU Fu |  | "
             },
             {
@@ -708,15 +680,13 @@
                 "MATELOVA Hana (CZE)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | YU Fu (POR) |  | MATELOVA Hana (CZE) |  | WT | Qualification |  | 3 - 0 | 11:6 11:8 11:7 | YU Fu |  | "
             },
             {
@@ -759,15 +729,13 @@
                 "DE NUTTE Sarah (LUX)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | YU Fu (POR) |  | DE NUTTE Sarah (LUX) |  | WT | MAIN | 16 | 3 - 2 | 11:8 11:9 9:11 9:11 12:10 | YU Fu |  | "
             },
             {
@@ -805,15 +773,13 @@
                 "PESOTSKA Margaryta (UKR)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | YU Fu (POR) |  | PESOTSKA Margaryta (UKR) |  | WT | MAIN | 8 | 1 - 3 | 11:4 4:11 9:11 4:11 | PESOTSKA Margaryta |  | "
             },
             {
@@ -856,15 +822,13 @@
                 "MATIUNINA Veronika (UKR)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "MATIUNINA Veronika (UKR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | YU Fu (POR) |  | MATIUNINA Veronika (UKR) |  | WT | MAIN | 8 | 3 - 2 | 11:7 4:11 12:10 6:11 11:3 | YU Fu |  | "
             },
             {
@@ -907,15 +871,13 @@
                 "WINTER Sabine (GER)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "WINTER Sabine (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | YU Fu (POR) |  | WINTER Sabine (GER) |  | WT | MAIN | 4 | 2 - 3 | 11:8 4:11 11:8 4:11 2:11 | WINTER Sabine |  | "
             }
           ]
@@ -958,15 +920,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "TAKAHASHI Bruna (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | TAKAHASHI Bruna (BRA) |  | YU Fu (POR) |  | WS | Main Draw | R64 | 3 - 0 | 11:7 11:7 11:6 | TAKAHASHI Bruna |  | "
             }
           ]
@@ -1014,15 +974,13 @@
                 "ALHODABY Marwa (EGY)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "ALHODABY Marwa (EGY)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | YU Fu (POR) |  | ALHODABY Marwa (EGY) |  | WS | Qualification | QR64 | 3 - 1 | 11:7 11:2 7:11 11:6 | YU Fu |  | "
             },
             {
@@ -1065,15 +1023,13 @@
                 "LUTZ Camille (FRA)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | YU Fu (POR) |  | LUTZ Camille (FRA) |  | WS | Qualification | QR32 | 3 - 2 | 11:6 7:11 10:12 11:5 11:4 | YU Fu |  | "
             },
             {
@@ -1106,15 +1062,13 @@
                 "PICCOLIN Giorgia (ITA)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | YU Fu (POR) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR16 | 3 - 0 | 11:7 11:6 11:7 | YU Fu |  | "
             },
             {
@@ -1152,15 +1106,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | YU Fu (POR) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R64 | 1 - 3 | 11:6 6:11 7:11 8:11 | YUAN Jia Nan |  | "
             }
           ]
@@ -1203,15 +1155,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "OJO Favour (NGR)",
+                "OJO Favour (NGR)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | OJO Favour (NGR) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 3:11 2:11 | YU Fu |  | "
             },
             {
@@ -1238,7 +1188,7 @@
                 "11:4",
                 "11:6"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -1247,17 +1197,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "OJO Favour (NGR)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "OJO Favour (NGR)",
                 "OKANLAWON Kadijat (NGR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | YU Fu (POR) | SHAO Jieni (POR) | OJO Favour (NGR) | OKANLAWON Kadijat (NGR) | WD | Main Draw | R16 | 3 - 0 | 11:4 11:4 11:6 | YU Fu | SHAO Jieni | "
             },
             {
@@ -1289,7 +1236,7 @@
                 "12:10",
                 "11:3"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -1298,17 +1245,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "AYOOLA Kabirat (NGR)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "AYOOLA Kabirat (NGR)",
                 "RABIU Aishat (NGR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | YU Fu (POR) | SHAO Jieni (POR) | AYOOLA Kabirat (NGR) | RABIU Aishat (NGR) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:5 6:11 12:10 11:3 | YU Fu | SHAO Jieni | "
             },
             {
@@ -1346,15 +1290,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "ALTINKAYA Sibel (TUR)",
+                "ALTINKAYA Sibel (TUR)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | ALTINKAYA Sibel (TUR) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 1 - 3 | 11:5 15:17 5:11 5:11 | YU Fu |  | "
             },
             {
@@ -1381,7 +1323,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -1390,17 +1332,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "GODA Hana (EGY)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | YU Fu (POR) | SHAO Jieni (POR) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | SemiFinal | 0 - 3 | 9:11 7:11 4:11 | GODA Hana | MESHREF Dina | "
             },
             {
@@ -1433,15 +1372,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "PAVADE Prithika (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | PAVADE Prithika (FRA) |  | YU Fu (POR) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:7 11:9 | PAVADE Prithika |  | "
             }
           ]
@@ -1484,15 +1421,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "WATANABE Laura (BRA)",
+                "WATANABE Laura (BRA)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | WATANABE Laura (BRA) |  | YU Fu (POR) |  | WS | Qualification | QR64 | 0 - 3 | 1:11 6:11 3:11 | YU Fu |  | "
             },
             {
@@ -1531,18 +1466,17 @@
               ],
               "winner": "YU Fu",
               "all_players_in_row": [
-                "YU Fu (POR)"
-              ],
-              "side_a": [
                 "CHENG Hsien-Tzu (TPE)",
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "CHENG Hsien-Tzu (TPE)"
+              ],
+              "side_b": [
+                "YU Fu (POR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | CHENG Hsien-Tzu (TPE) |  | YU Fu (POR) |  | WS | Qualification | QR32 | 2 - 3 | 11:9 7:11 11:4 8:11 6:11 | YU Fu |  | "
             },
             {
@@ -1575,15 +1509,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "LUTZ Charlotte (FRA)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | LUTZ Charlotte (FRA) |  | YU Fu (POR) |  | WS | Qualification | QR16 | 0 - 3 | 7:11 8:11 5:11 | YU Fu |  | "
             },
             {
@@ -1616,15 +1548,13 @@
                 "JEE Minhyung (AUS)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | YU Fu (POR) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 0 | 13:11 11:9 11:5 | YU Fu |  | "
             },
             {
@@ -1662,15 +1592,13 @@
                 "WANG Yidi (CHN)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "WANG Yidi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | YU Fu (POR) |  | WANG Yidi (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 4:11 11:8 6:11 | WANG Yidi |  | "
             }
           ]
@@ -1718,15 +1646,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "KONG Tsz Lam (HKG)",
+                "KONG Tsz Lam (HKG)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KONG Tsz Lam (HKG) |  | YU Fu (POR) |  | WS | Qualification | QR64 | 1 - 3 | 12:10 11:13 7:11 6:11 | YU Fu |  | "
             },
             {
@@ -1759,15 +1685,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "WONG Hoi Tung (HKG)",
+                "WONG Hoi Tung (HKG)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | WONG Hoi Tung (HKG) |  | YU Fu (POR) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 8:11 3:11 | YU Fu |  | "
             },
             {
@@ -1806,18 +1730,17 @@
               ],
               "winner": "YU Fu",
               "all_players_in_row": [
-                "YU Fu (POR)"
-              ],
-              "side_a": [
                 "YEH Yi-Tian (TPE)",
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "YEH Yi-Tian (TPE)"
+              ],
+              "side_b": [
+                "YU Fu (POR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | YEH Yi-Tian (TPE) |  | YU Fu (POR) |  | WS | Qualification | QR16 | 2 - 3 | 5:11 16:14 12:10 8:11 9:11 | YU Fu |  | "
             },
             {
@@ -1850,15 +1773,13 @@
                 "BATRA Manika (IND)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "BATRA Manika (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | YU Fu (POR) |  | BATRA Manika (IND) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 8:11 5:11 | BATRA Manika |  | "
             }
           ]
@@ -1895,7 +1816,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -1904,17 +1825,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "YU Fu (POR)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:7 11:4 | AKAE Kaho | TAKEYA Misuzu | "
             },
             {
@@ -1947,15 +1865,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | YU Fu (POR) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 6:11 8:11 | YUAN Jia Nan |  | "
             }
           ]
@@ -2008,15 +1924,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "WAN Yuan (GER)",
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | WAN Yuan (GER) |  | YU Fu (POR) |  | WS | Main Draw | R128 | 4 - 1 | 11:6 5:11 15:13 11:9 11:3 | WAN Yuan |  | "
             }
           ]
@@ -2064,15 +1978,13 @@
                 "LI Jie (NED)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "LI Jie (NED)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Taiyuan 2025 | YU Fu (POR) |  | LI Jie (NED) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 7:11 7:11 8:11 | LI Jie |  | "
             }
           ]
@@ -2115,15 +2027,13 @@
                 "HAN Ying (GER)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "HAN Ying (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | YU Fu (POR) |  | HAN Ying (GER) |  | WS | Main Draw | R16 | 0 - 3 | 6:11 12:14 4:11 | HAN Ying |  | "
             }
           ]
@@ -2166,15 +2076,13 @@
                 "HANFFOU Sarah (CMR)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "HANFFOU Sarah (CMR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | YU Fu (POR) |  | HANFFOU Sarah (CMR) |  | WS | Qualification | QR64 | 3 - 0 | 11:0 11:0 11:0 | YU Fu |  | "
             },
             {
@@ -2207,15 +2115,13 @@
                 "KUKULKOVA Tatiana (SVK)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | YU Fu (POR) |  | KUKULKOVA Tatiana (SVK) |  | WS | Qualification | QR32 | 3 - 0 | 11:1 11:8 11:3 | YU Fu |  | "
             },
             {
@@ -2248,15 +2154,13 @@
                 "ARAPOVIC Hana (CRO)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | YU Fu (POR) |  | ARAPOVIC Hana (CRO) |  | WS | Qualification | QR16 | 3 - 0 | 11:6 11:1 11:9 | YU Fu |  | "
             },
             {
@@ -2294,15 +2198,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "KUAI Man (CHN)",
+                "KUAI Man (CHN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | KUAI Man (CHN) |  | YU Fu (POR) |  | WS | Main Draw | R64 | 3 - 1 | 11:6 11:5 7:11 11:7 | KUAI Man |  | "
             }
           ]
@@ -2344,7 +2246,7 @@
                 "2:11",
                 "7:11"
               ],
-              "winner": "SHAO Jieni",
+              "winner": "SHAO Jieni / YU Fu",
               "all_players_in_row": [
                 "PAPADIMITRIOU Malamatenia (GRE)",
                 "TERPOU Elisavet (GRE)",
@@ -2353,17 +2255,14 @@
               ],
               "side_a": [
                 "PAPADIMITRIOU Malamatenia (GRE)",
-                "SHAO Jieni (POR)"
+                "TERPOU Elisavet (GRE)"
               ],
               "side_b": [
-                "TERPOU Elisavet (GRE)",
+                "SHAO Jieni (POR)",
                 "YU Fu (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | PAPADIMITRIOU Malamatenia (GRE) | TERPOU Elisavet (GRE) | SHAO Jieni (POR) | YU Fu (POR) | WD | Qualification | QR64 | 0 - 3 | 5:11 2:11 7:11 | SHAO Jieni | YU Fu | "
             },
             {
@@ -2400,7 +2299,7 @@
                 "11:13",
                 "7:11"
               ],
-              "winner": "YAREMCHUK Solomiya",
+              "winner": "YAREMCHUK Solomiya / MATIUNINA Veronika",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "YU Fu (POR)",
@@ -2409,17 +2308,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "YAREMCHUK Solomiya (UKR)"
+                "YU Fu (POR)"
               ],
               "side_b": [
-                "YU Fu (POR)",
+                "YAREMCHUK Solomiya (UKR)",
                 "MATIUNINA Veronika (UKR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | SHAO Jieni (POR) | YU Fu (POR) | YAREMCHUK Solomiya (UKR) | MATIUNINA Veronika (UKR) | WD | Qualification | QR32 | 2 - 3 | 11:7 7:11 11:9 11:13 7:11 | YAREMCHUK Solomiya | MATIUNINA Veronika | "
             },
             {
@@ -2457,15 +2353,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "GRIESEL Mia (GER)",
+                "GRIESEL Mia (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | GRIESEL Mia (GER) |  | YU Fu (POR) |  | WS | Main Draw | R64 | 0 - 4 | 8:11 2:11 8:11 9:11 | YU Fu |  | "
             },
             {
@@ -2503,15 +2397,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MORET Rachel (SUI)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | MORET Rachel (SUI) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 0 - 4 | 6:11 3:11 2:11 7:11 | YU Fu |  | "
             },
             {
@@ -2559,15 +2451,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | MITTELHAM Nina (GER) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 4 - 2 | 9:11 11:5 11:9 9:11 11:8 11:6 | MITTELHAM Nina |  | "
             }
           ]
@@ -2620,15 +2510,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "VEGA Paulina (CHI)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | VEGA Paulina (CHI) |  | YU Fu (POR) |  | WS | Qualification | QR64 | 2 - 3 | 11:8 11:9 8:11 6:11 5:11 | YU Fu |  | "
             },
             {
@@ -2671,15 +2559,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "KUKULKOVA Tatiana (SVK)",
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | KUKULKOVA Tatiana (SVK) |  | YU Fu (POR) |  | WS | Qualification | QR32 | 2 - 3 | 11:8 8:11 11:8 8:11 6:11 | YU Fu |  | "
             },
             {
@@ -2712,15 +2598,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MONFARDINI Gaia (ITA)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | MONFARDINI Gaia (ITA) |  | YU Fu (POR) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 8:11 6:11 | YU Fu |  | "
             },
             {
@@ -2753,15 +2637,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "ZONG Geman (CHN)",
+                "ZONG Geman (CHN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | ZONG Geman (CHN) |  | YU Fu (POR) |  | WS | Main Draw | R64 | 3 - 0 | 11:6 11:6 11:7 | ZONG Geman |  | "
             }
           ]
@@ -2809,15 +2691,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "JEON Jihee (KOR)",
+                "JEON Jihee (KOR)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | JEON Jihee (KOR) |  | YU Fu (POR) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 6:11 11:13 9:11 | YU Fu |  | "
             },
             {
@@ -2870,15 +2750,13 @@
                 "BAJOR Natalia (POL)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | YU Fu (POR) |  | BAJOR Natalia (POL) |  | WS | Main Draw | R32 | 3 - 4 | 7:11 8:11 17:15 11:4 11:7 10:12 8:11 | BAJOR Natalia |  | "
             }
           ]
@@ -2931,15 +2809,13 @@
                 "VIVARELLI Debora (ITA)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "VIVARELLI Debora (ITA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Mendoza 2024 | YU Fu (POR) |  | VIVARELLI Debora (ITA) |  | WS | Main Draw | R32 | 3 - 2 | 11:6 9:11 11:6 17:19 11:4 | YU Fu |  | "
             },
             {
@@ -2982,15 +2858,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MATELOVA Hana (CZE)",
+                "MATELOVA Hana (CZE)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Mendoza 2024 | MATELOVA Hana (CZE) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 3 - 2 | 7:11 11:3 6:11 11:3 14:12 | MATELOVA Hana |  | "
             }
           ]
@@ -3033,15 +2907,13 @@
                 "KALLBERG Christina (SWE)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "KALLBERG Christina (SWE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Contender Rio de Janeiro 2024 | YU Fu (POR) |  | KALLBERG Christina (SWE) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 7:11 9:11 | KALLBERG Christina |  | "
             }
           ]
@@ -3083,7 +2955,7 @@
                 "11:8",
                 "11:3"
               ],
-              "winner": "SHAO Jieni",
+              "winner": "SHAO Jieni / YU Fu",
               "all_players_in_row": [
                 "SHAO Jieni (POR)",
                 "YU Fu (POR)",
@@ -3092,17 +2964,14 @@
               ],
               "side_a": [
                 "SHAO Jieni (POR)",
-                "KHETKHUAN Tamolwan (THA)"
+                "YU Fu (POR)"
               ],
               "side_b": [
-                "YU Fu (POR)",
+                "KHETKHUAN Tamolwan (THA)",
                 "SAWETTABUT Jinnipa (THA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | SHAO Jieni (POR) | YU Fu (POR) | KHETKHUAN Tamolwan (THA) | SAWETTABUT Jinnipa (THA) | WD | Qualification | QR16 | 3 - 0 | 11:8 11:8 11:3 | SHAO Jieni | YU Fu | "
             },
             {
@@ -3139,24 +3008,23 @@
                 "11:13",
                 "11:7"
               ],
-              "winner": "HUANG Yi-Hua",
+              "winner": "HUANG Yi-Hua / CHEN Szu-Yu",
               "all_players_in_row": [
+                "HUANG Yi-Hua (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
               "side_a": [
                 "HUANG Yi-Hua (TPE)",
-                "YU Fu (POR)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | HUANG Yi-Hua (TPE) | CHEN Szu-Yu (TPE) | YU Fu (POR) | SHAO Jieni (POR) | WD | Qualification | QR8 | 3 - 2 | 11:13 11:2 11:5 11:13 11:7 | HUANG Yi-Hua | CHEN Szu-Yu | "
             },
             {
@@ -3194,15 +3062,13 @@
                 "KIHARA Miyuu (JPN)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "KIHARA Miyuu (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | YU Fu (POR) |  | KIHARA Miyuu (JPN) |  | WS | Main Draw | R64 | 1 - 3 | 11:7 5:11 4:11 2:11 | KIHARA Miyuu |  | "
             }
           ]
@@ -3249,7 +3115,7 @@
                 "6:11",
                 "4:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)",
@@ -3258,17 +3124,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "YU Fu (POR)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | YU Fu (POR) | SHAO Jieni (POR) | WD | Qualification | QR16 | 2 - 3 | 11:8 9:11 11:4 6:11 4:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -3295,7 +3158,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "KOH Kai Xin Pearlyn (SGP)",
                 "ZHANG Wanling (SGP)",
@@ -3304,17 +3167,14 @@
               ],
               "side_a": [
                 "KOH Kai Xin Pearlyn (SGP)",
-                "YU Fu (POR)"
+                "ZHANG Wanling (SGP)"
               ],
               "side_b": [
-                "ZHANG Wanling (SGP)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | KOH Kai Xin Pearlyn (SGP) | ZHANG Wanling (SGP) | YU Fu (POR) | SHAO Jieni (POR) | WD | Qualification | QR8 | 0 - 3 | 7:11 6:11 3:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -3341,7 +3201,7 @@
                 "9:11",
                 "4:11"
               ],
-              "winner": "JEON Jihee",
+              "winner": "JEON Jihee / YANG Ha Eun",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -3350,17 +3210,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "JEON Jihee (KOR)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "JEON Jihee (KOR)",
                 "YANG Ha Eun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | YU Fu (POR) | SHAO Jieni (POR) | JEON Jihee (KOR) | YANG Ha Eun (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 2:11 9:11 4:11 | JEON Jihee | YANG Ha Eun | "
             },
             {
@@ -3393,15 +3250,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "DIAZ Adriana (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | DIAZ Adriana (PUR) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:9 11:9 | DIAZ Adriana |  | "
             },
             {
@@ -3433,7 +3288,7 @@
                 "11:4",
                 "7:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "LUPULESKU Izabela (SRB)",
                 "TODOROVIC Andrea (SRB)",
@@ -3442,17 +3297,14 @@
               ],
               "side_a": [
                 "LUPULESKU Izabela (SRB)",
-                "YU Fu (POR)"
+                "TODOROVIC Andrea (SRB)"
               ],
               "side_b": [
-                "TODOROVIC Andrea (SRB)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LUPULESKU Izabela (SRB) | TODOROVIC Andrea (SRB) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 1 - 3 | 6:11 10:12 11:4 7:11 | YU Fu | SHAO Jieni | "
             }
           ]
@@ -3500,15 +3352,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "KALLBERG Christina (SWE)",
+                "KALLBERG Christina (SWE)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | KALLBERG Christina (SWE) |  | YU Fu (POR) |  | WS | Main Draw | R64 | 1 - 3 | 5:11 11:8 7:11 7:11 | YU Fu |  | "
             },
             {
@@ -3551,15 +3401,13 @@
                 "YUAN Jia Nan (FRA)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | YU Fu (POR) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R32 | 2 - 3 | 11:7 5:11 5:11 11:6 4:11 | YUAN Jia Nan |  | "
             }
           ]
@@ -3612,15 +3460,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "SAMARA Elizabeta (ROU)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | SAMARA Elizabeta (ROU) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 4 - 1 | 11:13 12:10 11:9 11:8 11:5 | SAMARA Elizabeta |  | "
             }
           ]
@@ -3673,15 +3519,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "CHITALE Diya (IND)",
+                "CHITALE Diya (IND)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | CHITALE Diya (IND) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 1 - 3 | 11:7 5:11 6:11 10:12 | YU Fu |  | "
             },
             {
@@ -3719,15 +3563,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "SHAO Jieni (POR)",
+                "SHAO Jieni (POR)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | SHAO Jieni (POR) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 1 - 3 | 11:5 10:12 9:11 9:11 | YU Fu |  | "
             },
             {
@@ -3765,15 +3607,13 @@
                 "NOSKOVA Yana (AIN)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "NOSKOVA Yana (AIN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | YU Fu (POR) |  | NOSKOVA Yana (AIN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 5:11 11:4 11:8 11:6 | YU Fu |  | "
             },
             {
@@ -3811,15 +3651,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "LIU Weishan (CHN)",
+                "LIU Weishan (CHN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LIU Weishan (CHN) |  | YU Fu (POR) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:7 12:10 11:5 11:4 | LIU Weishan |  | "
             }
           ]
@@ -3877,15 +3715,13 @@
                 "NI Xia Lian (LUX)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "NI Xia Lian (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | YU Fu (POR) |  | NI Xia Lian (LUX) |  | WS | Main Draw | R16 | 4 - 2 | 11:7 11:8 9:11 11:8 9:11 11:9 | YU Fu |  | "
             },
             {
@@ -3923,15 +3759,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MADARASZ Dora (HUN)",
+                "MADARASZ Dora (HUN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | MADARASZ Dora (HUN) |  | YU Fu (POR) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 4:11 8:11 8:11 12:14 | YU Fu |  | "
             },
             {
@@ -3984,15 +3818,13 @@
                 "SZOCS Bernadette (ROU)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "SZOCS Bernadette (ROU)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | YU Fu (POR) |  | SZOCS Bernadette (ROU) |  | WS | Main Draw | SemiFinal | 4 - 3 | 8:11 11:9 6:11 7:11 12:10 11:8 11:8 | YU Fu |  | "
             },
             {
@@ -4035,15 +3867,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "MITTELHAM Nina (GER)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | MITTELHAM Nina (GER) |  | YU Fu (POR) |  | WS | Main Draw | Final | 4 - 1 | 11:8 8:11 11:6 11:3 14:12 | MITTELHAM Nina |  | "
             }
           ]
@@ -4091,15 +3921,13 @@
                 "MUKHERJEE Sutirtha (IND)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "MUKHERJEE Sutirtha (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | YU Fu (POR) |  | MUKHERJEE Sutirtha (IND) |  | WS | Main Draw | R64 | 4 - 0 | 11:3 11:3 11:5 11:5 | YU Fu |  | "
             },
             {
@@ -4142,15 +3970,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "ITO Mima (JPN)",
+                "ITO Mima (JPN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | ITO Mima (JPN) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 4 - 1 | 11:9 5:11 11:5 11:4 11:5 | ITO Mima |  | "
             }
           ]
@@ -4197,7 +4023,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "ALTINKAYA Sibel (TUR)",
                 "TOLIOU Aikaterini (GRE)",
@@ -4206,17 +4032,14 @@
               ],
               "side_a": [
                 "ALTINKAYA Sibel (TUR)",
-                "YU Fu (POR)"
+                "TOLIOU Aikaterini (GRE)"
               ],
               "side_b": [
-                "TOLIOU Aikaterini (GRE)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ALTINKAYA Sibel (TUR) | TOLIOU Aikaterini (GRE) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R32 | 2 - 3 | 11:9 9:11 11:8 8:11 7:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -4248,7 +4071,7 @@
                 "4:11",
                 "4:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "JONSSON Jennifer (SWE)",
@@ -4257,17 +4080,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "YU Fu (POR)"
+                "JONSSON Jennifer (SWE)"
               ],
               "side_b": [
-                "JONSSON Jennifer (SWE)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | KALLBERG Christina (SWE) | JONSSON Jennifer (SWE) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 1 - 3 | 6:11 11:6 4:11 4:11 | YU Fu | SHAO Jieni | "
             },
             {
@@ -4294,7 +4114,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "HAPONOVA Hanna",
+              "winner": "HAPONOVA Hanna / BILENKO Tetyana",
               "all_players_in_row": [
                 "HAPONOVA Hanna (UKR)",
                 "BILENKO Tetyana (UKR)",
@@ -4303,17 +4123,14 @@
               ],
               "side_a": [
                 "HAPONOVA Hanna (UKR)",
-                "YU Fu (POR)"
+                "BILENKO Tetyana (UKR)"
               ],
               "side_b": [
-                "BILENKO Tetyana (UKR)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | HAPONOVA Hanna (UKR) | BILENKO Tetyana (UKR) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:7 11:9 | HAPONOVA Hanna | BILENKO Tetyana | "
             },
             {
@@ -4351,15 +4168,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "BARAVOK Katsiaryna (AIN)",
+                "BARAVOK Katsiaryna (AIN)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | BARAVOK Katsiaryna (AIN) |  | YU Fu (POR) |  | WS | Main Draw | R64 | 0 - 4 | 5:11 2:11 8:11 4:11 | YU Fu |  | "
             },
             {
@@ -4412,15 +4227,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "YAREMCHUK Solomiya (UKR)",
+                "YAREMCHUK Solomiya (UKR)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | YAREMCHUK Solomiya (UKR) |  | YU Fu (POR) |  | WS | Main Draw | R32 | 3 - 4 | 7:11 14:12 11:9 5:11 12:10 5:11 7:11 | YU Fu |  | "
             },
             {
@@ -4458,15 +4271,13 @@
                 "YU Fu (POR)"
               ],
               "side_a": [
-                "DODEAN Daniela (ROU)",
+                "DODEAN Daniela (ROU)"
+              ],
+              "side_b": [
                 "YU Fu (POR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | DODEAN Daniela (ROU) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 0 - 4 | 5:11 14:16 5:11 8:11 | YU Fu |  | "
             },
             {
@@ -4519,15 +4330,13 @@
                 "SOLJA Petrissa (GER)"
               ],
               "side_a": [
-                "YU Fu (POR)",
+                "YU Fu (POR)"
+              ],
+              "side_b": [
                 "SOLJA Petrissa (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | YU Fu (POR) |  | SOLJA Petrissa (GER) |  | WS | Main Draw | QuarterFinal | 3 - 4 | 6:11 11:13 2:11 11:8 15:13 11:2 4:11 | SOLJA Petrissa |  | "
             }
           ]

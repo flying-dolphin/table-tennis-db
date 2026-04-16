@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Kyoka IDESAWA",
-  "english_name": "Kyoka IDESAWA",
+  "player_name": "IDESAWA Kyoka",
+  "english_name": "IDESAWA Kyoka",
   "country": "JPN",
   "country_code": "JPN",
   "continent": "",
@@ -50,15 +50,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "NG Wing Lam (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | NG Wing Lam (HKG) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 3:11 7:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -101,15 +99,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "ABRAAMIAN Elizabet (AIN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R16 | 3 - 2 | 5:11 12:10 11:8 7:11 11:9 | ABRAAMIAN Elizabet |  | "
             }
           ]
@@ -151,7 +147,7 @@
                 "0:11",
                 "0:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "VALUCH Alexander (SVK)",
                 "LABOSOVA Ema (SVK)",
@@ -160,17 +156,14 @@
               ],
               "side_a": [
                 "VALUCH Alexander (SVK)",
-                "OKANO Shunsuke (JPN)"
+                "LABOSOVA Ema (SVK)"
               ],
               "side_b": [
-                "LABOSOVA Ema (SVK)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | VALUCH Alexander (SVK) | LABOSOVA Ema (SVK) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | R16 | 0 - 3 | 0:11 0:11 0:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -203,15 +196,13 @@
                 "DENG Zhen (USA)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "DENG Zhen (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | IDESAWA Kyoka (JPN) |  | DENG Zhen (USA) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:4 11:7 | IDESAWA Kyoka |  | "
             },
             {
@@ -243,7 +234,7 @@
                 "4:11",
                 "10:12"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "JANG Seongil (KOR)",
                 "YANG Ha Eun (KOR)",
@@ -252,17 +243,14 @@
               ],
               "side_a": [
                 "JANG Seongil (KOR)",
-                "OKANO Shunsuke (JPN)"
+                "YANG Ha Eun (KOR)"
               ],
               "side_b": [
-                "YANG Ha Eun (KOR)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | JANG Seongil (KOR) | YANG Ha Eun (KOR) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | QuarterFinal | 1 - 3 | 4:11 16:14 4:11 10:12 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -300,15 +288,13 @@
                 "LEE Daeun (KOR)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "LEE Daeun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | IDESAWA Kyoka (JPN) |  | LEE Daeun (KOR) |  | WS | Main Draw | R16 | 3 - 1 | 11:7 11:7 8:11 11:6 | IDESAWA Kyoka |  | "
             },
             {
@@ -335,7 +321,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "CHO Seungmin (KOR)",
                 "YOO Siwoo (KOR)",
@@ -344,17 +330,14 @@
               ],
               "side_a": [
                 "CHO Seungmin (KOR)",
-                "OKANO Shunsuke (JPN)"
+                "YOO Siwoo (KOR)"
               ],
               "side_b": [
-                "YOO Siwoo (KOR)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | CHO Seungmin (KOR) | YOO Siwoo (KOR) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | SemiFinal | 0 - 3 | 9:11 8:11 6:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -392,15 +375,13 @@
                 "MITTELHAM Nina (GER)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | IDESAWA Kyoka (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:9 11:6 8:11 11:9 | IDESAWA Kyoka |  | "
             },
             {
@@ -433,15 +414,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "AKAE Kaho (JPN)",
+                "AKAE Kaho (JPN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | AKAE Kaho (JPN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | SemiFinal | 3 - 0 | 11:7 12:10 11:8 | AKAE Kaho |  | "
             },
             {
@@ -473,7 +452,7 @@
                 "6:11",
                 "4:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "MLADENOVIC Luka (LUX)",
                 "VARADY Barbora (SVK)",
@@ -482,17 +461,14 @@
               ],
               "side_a": [
                 "MLADENOVIC Luka (LUX)",
-                "OKANO Shunsuke (JPN)"
+                "VARADY Barbora (SVK)"
               ],
               "side_b": [
-                "VARADY Barbora (SVK)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf II 2025 | MLADENOVIC Luka (LUX) | VARADY Barbora (SVK) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | Final | 1 - 3 | 13:11 6:11 6:11 4:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             }
           ]
@@ -539,7 +515,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -548,17 +524,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "OKANO Shunsuke (JPN)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | R16 | 2 - 3 | 11:7 6:11 14:12 6:11 3:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -591,15 +564,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "LOY Ming Ying (SGP)",
+                "LOY Ming Ying (SGP)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | LOY Ming Ying (SGP) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 7:11 8:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -636,7 +607,7 @@
                 "7:11",
                 "11:4"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -645,17 +616,14 @@
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "PAL Akash (IND)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "PAL Akash (IND)",
                 "BAISYA Poymantee (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | PAL Akash (IND) | BAISYA Poymantee (IND) | XD | Main Draw | QuarterFinal | 3 - 2 | 6:11 11:7 11:7 7:11 11:4 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -684,18 +652,17 @@
               ],
               "winner": "IDESAWA Kyoka",
               "all_players_in_row": [
-                "IDESAWA Kyoka (JPN)"
-              ],
-              "side_a": [
                 "ZHANG Sofia-Xuan (ESP)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "ZHANG Sofia-Xuan (ESP)"
+              ],
+              "side_b": [
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | ZHANG Sofia-Xuan (ESP) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 5:11 5:11 5:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -732,7 +699,7 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "GOMEZ Gustavo (CHI)",
                 "ORTEGA Daniela (CHI)",
@@ -741,17 +708,14 @@
               ],
               "side_a": [
                 "GOMEZ Gustavo (CHI)",
-                "OKANO Shunsuke (JPN)"
+                "ORTEGA Daniela (CHI)"
               ],
               "side_b": [
-                "ORTEGA Daniela (CHI)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | GOMEZ Gustavo (CHI) | ORTEGA Daniela (CHI) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | SemiFinal | 2 - 3 | 11:6 7:11 5:11 11:9 9:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -789,15 +753,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "SATO Hitomi (JPN)",
+                "SATO Hitomi (JPN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SATO Hitomi (JPN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:2 13:11 8:11 11:7 | SATO Hitomi |  | "
             },
             {
@@ -824,7 +786,7 @@
                 "4:11",
                 "4:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "YILMAZ Tugay (TUR)",
                 "HARAC Ece (TUR)",
@@ -833,17 +795,14 @@
               ],
               "side_a": [
                 "YILMAZ Tugay (TUR)",
-                "OKANO Shunsuke (JPN)"
+                "HARAC Ece (TUR)"
               ],
               "side_b": [
-                "HARAC Ece (TUR)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | YILMAZ Tugay (TUR) | HARAC Ece (TUR) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | Final | 0 - 3 | 8:11 4:11 4:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             }
           ]
@@ -880,7 +839,7 @@
                 "11:13",
                 "5:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -889,17 +848,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "OKANO Shunsuke (JPN)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | R16 | 0 - 3 | 8:11 11:13 5:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -928,19 +884,17 @@
               ],
               "winner": "IDESAWA Kyoka",
               "all_players_in_row": [
-                "ROSU Bianca (ROU)",
-                "IDESAWA Kyoka (JPN)"
-              ],
-              "side_a": [
                 "MEI-ROSU Bianca (ROU)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "MEI-ROSU Bianca (ROU)"
+              ],
+              "side_b": [
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | MEI-ROSU Bianca (ROU) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 3:11 7:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -967,7 +921,7 @@
                 "11:6",
                 "11:1"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -976,17 +930,14 @@
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "YIGENLER Abdullah (TUR)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "YIGENLER Abdullah (TUR)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | YIGENLER Abdullah (TUR) | YILMAZ Ozge (TUR) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:6 11:1 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -1024,15 +975,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "TAILAKOVA Mariia (AIN)",
+                "TAILAKOVA Mariia (AIN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | TAILAKOVA Mariia (AIN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 11:5 7:11 6:11 8:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -1059,7 +1008,7 @@
                 "8:11",
                 "11:13"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "SIDORENKO Vladimir (AIN)",
                 "TAILAKOVA Mariia (AIN)",
@@ -1068,17 +1017,14 @@
               ],
               "side_a": [
                 "SIDORENKO Vladimir (AIN)",
-                "OKANO Shunsuke (JPN)"
+                "TAILAKOVA Mariia (AIN)"
               ],
               "side_b": [
-                "TAILAKOVA Mariia (AIN)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | SIDORENKO Vladimir (AIN) | TAILAKOVA Mariia (AIN) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | SemiFinal | 0 - 3 | 7:11 8:11 11:13 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -1116,15 +1062,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "VORONINA Vlada (AIN)",
+                "VORONINA Vlada (AIN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | VORONINA Vlada (AIN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 2:11 8:11 15:13 4:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -1157,15 +1101,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "ABRAAMIAN Elizabet (AIN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | ABRAAMIAN Elizabet (AIN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | SemiFinal | 0 - 3 | 8:11 5:11 6:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -1202,7 +1144,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -1211,17 +1153,14 @@
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "PANG Koen (SGP)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "PANG Koen (SGP)",
                 "SER Lin Qian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | PANG Koen (SGP) | SER Lin Qian (SGP) | XD | Main Draw | Final | 3 - 2 | 10:12 8:11 11:9 11:9 11:6 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -1254,15 +1193,13 @@
                 "ALTINKAYA Sibel (TUR)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | IDESAWA Kyoka (JPN) |  | ALTINKAYA Sibel (TUR) |  | WS | Main Draw | Final | 3 - 0 | 11:6 12:10 11:9 | IDESAWA Kyoka |  | "
             }
           ]
@@ -1305,15 +1242,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "MAGDIEVA Markhabo (UZB)",
+                "MAGDIEVA Markhabo (UZB)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | MAGDIEVA Markhabo (UZB) |  | IDESAWA Kyoka (JPN) |  | WS | Qualification | QR32 | 0 - 3 | 2:11 8:11 3:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -1340,7 +1275,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "OJIO Yuna",
+              "winner": "OJIO Yuna / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OJIO Yuna (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -1349,17 +1284,14 @@
               ],
               "side_a": [
                 "OJIO Yuna (JPN)",
-                "ZHAXYLYKOVA Albina (KAZ)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "ZHAXYLYKOVA Albina (KAZ)",
                 "FU Darya (KAZ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | OJIO Yuna (JPN) | IDESAWA Kyoka (JPN) | ZHAXYLYKOVA Albina (KAZ) | FU Darya (KAZ) | WD | Qualification | QR8 | 3 - 0 | 11:1 11:6 11:8 | OJIO Yuna | IDESAWA Kyoka | "
             },
             {
@@ -1392,15 +1324,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "LYNE Karen (MAS)",
+                "LYNE Karen (MAS)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | LYNE Karen (MAS) |  | IDESAWA Kyoka (JPN) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 5:11 3:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -1433,15 +1363,13 @@
                 "KIM Nayeong (KOR)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "KIM Nayeong (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | IDESAWA Kyoka (JPN) |  | KIM Nayeong (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 7:11 6:11 | KIM Nayeong |  | "
             },
             {
@@ -1478,7 +1406,7 @@
                 "8:11",
                 "11:7"
               ],
-              "winner": "KAUFMANN Annett",
+              "winner": "KAUFMANN Annett / SHAN Xiaona",
               "all_players_in_row": [
                 "KAUFMANN Annett (GER)",
                 "SHAN Xiaona (GER)",
@@ -1487,17 +1415,14 @@
               ],
               "side_a": [
                 "KAUFMANN Annett (GER)",
-                "OJIO Yuna (JPN)"
+                "SHAN Xiaona (GER)"
               ],
               "side_b": [
-                "SHAN Xiaona (GER)",
+                "OJIO Yuna (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | KAUFMANN Annett (GER) | SHAN Xiaona (GER) | OJIO Yuna (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | R16 | 3 - 2 | 8:11 12:10 13:11 8:11 11:7 | KAUFMANN Annett | SHAN Xiaona | "
             }
           ]
@@ -1550,15 +1475,13 @@
                 "LEE Seungeun (KOR)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "LEE Seungeun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | IDESAWA Kyoka (JPN) |  | LEE Seungeun (KOR) |  | WS | Main Draw | R32 | 3 - 2 | 13:11 8:11 11:2 8:11 11:8 | IDESAWA Kyoka |  | "
             },
             {
@@ -1601,15 +1524,13 @@
                 "SASAO Asuka (JPN)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "SASAO Asuka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | IDESAWA Kyoka (JPN) |  | SASAO Asuka (JPN) |  | WS | Main Draw | R16 | 2 - 3 | 4:11 8:11 11:9 13:11 9:11 | SASAO Asuka |  | "
             }
           ]
@@ -1652,15 +1573,13 @@
                 "LEE Dahye (KOR)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "LEE Dahye (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | IDESAWA Kyoka (JPN) |  | LEE Dahye (KOR) |  | WS | Main Draw | R32 | 3 - 0 | 11:2 11:6 11:6 | IDESAWA Kyoka |  | "
             },
             {
@@ -1703,15 +1622,13 @@
                 "SASAO Asuka (JPN)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "SASAO Asuka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | IDESAWA Kyoka (JPN) |  | SASAO Asuka (JPN) |  | WS | Main Draw | R16 | 2 - 3 | 11:6 11:7 4:11 11:13 7:11 | SASAO Asuka |  | "
             }
           ]
@@ -1759,15 +1676,13 @@
                 "YILMAZ Ozge (TUR)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "YILMAZ Ozge (TUR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IDESAWA Kyoka (JPN) |  | YILMAZ Ozge (TUR) |  | WT | Qualification |  | 3 - 1 | 11:4 9:11 11:7 12:10 | IDESAWA Kyoka |  | "
             },
             {
@@ -1800,15 +1715,13 @@
                 "TAYAPITAK Wirakarn (THA)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "TAYAPITAK Wirakarn (THA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IDESAWA Kyoka (JPN) |  | TAYAPITAK Wirakarn (THA) |  | WT | Qualification |  | 3 - 0 | 11:6 12:10 11:1 | IDESAWA Kyoka |  | "
             },
             {
@@ -1841,15 +1754,13 @@
                 "LAI Chloe (SGP)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "LAI Chloe (SGP)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IDESAWA Kyoka (JPN) |  | LAI Chloe (SGP) |  | WT | Main Draw | R16 | 3 - 0 | 15:13 11:8 11:6 | IDESAWA Kyoka |  | "
             },
             {
@@ -1882,15 +1793,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "SINGEORZAN Ioana (ROU)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | SINGEORZAN Ioana (ROU) |  | IDESAWA Kyoka (JPN) |  | WT | Main Draw | QuarterFinal | 0 - 3 | 8:11 4:11 11:13 | IDESAWA Kyoka |  | "
             },
             {
@@ -1927,7 +1836,7 @@
                 "7:11",
                 "7:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "YIU Kwan To (HKG)",
                 "NG Wing Lam (HKG)",
@@ -1936,17 +1845,14 @@
               ],
               "side_a": [
                 "YIU Kwan To (HKG)",
-                "OKANO Shunsuke (JPN)"
+                "NG Wing Lam (HKG)"
               ],
               "side_b": [
-                "NG Wing Lam (HKG)",
+                "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | YIU Kwan To (HKG) | NG Wing Lam (HKG) | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | XD | Main Draw | R64 | 2 - 3 | 8:11 13:11 11:8 7:11 7:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -1979,15 +1885,13 @@
                 "WONG Hoi Tung (HKG)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "WONG Hoi Tung (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IDESAWA Kyoka (JPN) |  | WONG Hoi Tung (HKG) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:4 11:9 11:4 | IDESAWA Kyoka |  | "
             },
             {
@@ -2020,15 +1924,13 @@
                 "NG Wing Lam (HKG)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IDESAWA Kyoka (JPN) |  | NG Wing Lam (HKG) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:4 11:7 11:8 | IDESAWA Kyoka |  | "
             },
             {
@@ -2061,15 +1963,13 @@
                 "YANG Yiyun (CHN)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "YANG Yiyun (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IDESAWA Kyoka (JPN) |  | YANG Yiyun (CHN) |  | WT | Main Draw | Final | 3 - 0 | 11:8 11:1 12:10 | IDESAWA Kyoka |  | "
             },
             {
@@ -2102,15 +2002,13 @@
                 "WANG Xiaotong (CHN)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "WANG Xiaotong (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IDESAWA Kyoka (JPN) |  | WANG Xiaotong (CHN) |  | WT | Main Draw | Final | 3 - 0 | 11:5 15:13 11:6 | IDESAWA Kyoka |  | "
             },
             {
@@ -2142,24 +2040,23 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
-                "IDESAWA Kyoka (JPN)"
+                "IDESAWA Kyoka (JPN)",
+                "KAO Cheng-Jui (TPE)",
+                "CHIEN Tung-Chuan (TPE)"
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "KAO Cheng-Jui (TPE)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "KAO Cheng-Jui (TPE)",
                 "CHIEN Tung-Chuan (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | KAO Cheng-Jui (TPE) | CHIEN Tung-Chuan (TPE) | XD | Main Draw | R32 | 3 - 1 | 15:13 9:11 11:7 11:4 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -2191,7 +2088,7 @@
                 "7:11",
                 "11:7"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -2200,17 +2097,14 @@
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "KOLASA Szymon (POL)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "KOLASA Szymon (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | KOLASA Szymon (POL) | WEGRZYN Katarzyna (POL) | XD | Main Draw | R16 | 3 - 1 | 13:11 13:11 7:11 11:7 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -2242,7 +2136,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -2251,17 +2145,14 @@
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "THANMATHIKOM Napat (THA)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "THANMATHIKOM Napat (THA)",
                 "TAYAPITAK Wirakarn (THA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | THANMATHIKOM Napat (THA) | TAYAPITAK Wirakarn (THA) | XD | Main Draw | QuarterFinal | 4 - 0 | 11:5 11:8 11:9 11:9 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -2308,7 +2199,7 @@
                 "3:11",
                 "11:9"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -2317,17 +2208,14 @@
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "CHEN Junsong (CHN)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "CHEN Junsong (CHN)",
                 "WANG Xiaotong (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | CHEN Junsong (CHN) | WANG Xiaotong (CHN) | XD | Main Draw | SemiFinal | 4 - 3 | 11:5 11:8 12:10 3:11 11:13 3:11 11:9 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -2365,15 +2253,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "LIAO Ivy (CAN)",
+                "LIAO Ivy (CAN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | LIAO Ivy (CAN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R64 | 0 - 4 | 5:11 8:11 2:11 2:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -2400,7 +2286,7 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "AOI Sakura",
+              "winner": "AOI Sakura / IDESAWA Kyoka",
               "all_players_in_row": [
                 "AOI Sakura (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -2409,17 +2295,14 @@
               ],
               "side_a": [
                 "AOI Sakura (JPN)",
-                "GWON Yeonhui (KOR)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "GWON Yeonhui (KOR)",
                 "IM Jinah (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | AOI Sakura (JPN) | IDESAWA Kyoka (JPN) | GWON Yeonhui (KOR) | IM Jinah (KOR) | WD | Main Draw | R32 | 3 - 0 | 11:7 11:6 11:6 | AOI Sakura | IDESAWA Kyoka | "
             },
             {
@@ -2453,18 +2336,17 @@
               ],
               "winner": "IDESAWA Kyoka",
               "all_players_in_row": [
-                "IDESAWA Kyoka (JPN)"
-              ],
-              "side_a": [
                 "TSAI Yun-En (TPE)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "TSAI Yun-En (TPE)"
+              ],
+              "side_b": [
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | TSAI Yun-En (TPE) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R32 | 0 - 4 | 11:13 7:11 4:11 3:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -2491,7 +2373,7 @@
                 "11:4",
                 "17:15"
               ],
-              "winner": "AOI Sakura",
+              "winner": "AOI Sakura / IDESAWA Kyoka",
               "all_players_in_row": [
                 "AOI Sakura (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -2500,17 +2382,14 @@
               ],
               "side_a": [
                 "AOI Sakura (JPN)",
-                "HARAC Ece (TUR)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "HARAC Ece (TUR)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | AOI Sakura (JPN) | IDESAWA Kyoka (JPN) | HARAC Ece (TUR) | YILMAZ Ozge (TUR) | WD | Main Draw | R16 | 3 - 0 | 11:2 11:4 17:15 | AOI Sakura | IDESAWA Kyoka | "
             },
             {
@@ -2557,7 +2436,7 @@
                 "14:12",
                 "13:11"
               ],
-              "winner": "OKANO Shunsuke",
+              "winner": "OKANO Shunsuke / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OKANO Shunsuke (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -2566,17 +2445,14 @@
               ],
               "side_a": [
                 "OKANO Shunsuke (JPN)",
-                "ZENG Beixun (CHN)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "ZENG Beixun (CHN)",
                 "HAN Feier (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | OKANO Shunsuke (JPN) | IDESAWA Kyoka (JPN) | ZENG Beixun (CHN) | HAN Feier (CHN) | XD | Main Draw | Final | 4 - 3 | 12:10 10:12 7:11 8:11 11:2 14:12 13:11 | OKANO Shunsuke | IDESAWA Kyoka | "
             },
             {
@@ -2608,24 +2484,23 @@
                 "14:12",
                 "11:6"
               ],
-              "winner": "CHIEN Tung-Chuan",
+              "winner": "CHIEN Tung-Chuan / TSAI Yun-En",
               "all_players_in_row": [
+                "CHIEN Tung-Chuan (TPE)",
+                "TSAI Yun-En (TPE)",
                 "AOI Sakura (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
                 "CHIEN Tung-Chuan (TPE)",
-                "AOI Sakura (JPN)"
+                "TSAI Yun-En (TPE)"
               ],
               "side_b": [
-                "TSAI Yun-En (TPE)",
+                "AOI Sakura (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | CHIEN Tung-Chuan (TPE) | TSAI Yun-En (TPE) | AOI Sakura (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | QuarterFinal | 4 - 0 | 11:6 11:4 14:12 11:6 | CHIEN Tung-Chuan | TSAI Yun-En | "
             },
             {
@@ -2663,15 +2538,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "WEGRZYN Katarzyna (POL)",
+                "WEGRZYN Katarzyna (POL)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | WEGRZYN Katarzyna (POL) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R16 | 0 - 4 | 10:12 7:11 3:11 13:15 | IDESAWA Kyoka |  | "
             },
             {
@@ -2719,15 +2592,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "WANG Xiaotong (CHN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | WANG Xiaotong (CHN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | QuarterFinal | 4 - 2 | 5:11 11:6 12:10 10:12 11:7 11:9 | WANG Xiaotong |  | "
             }
           ]
@@ -2764,7 +2635,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "IDESAWA Kyoka",
+              "winner": "IDESAWA Kyoka / OMODA Kotomi",
               "all_players_in_row": [
                 "CRISTOBAL Ainhoa (ESP)",
                 "SASTRE Eugenia (ESP)",
@@ -2773,17 +2644,14 @@
               ],
               "side_a": [
                 "CRISTOBAL Ainhoa (ESP)",
-                "IDESAWA Kyoka (JPN)"
+                "SASTRE Eugenia (ESP)"
               ],
               "side_b": [
-                "SASTRE Eugenia (ESP)",
+                "IDESAWA Kyoka (JPN)",
                 "OMODA Kotomi (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | CRISTOBAL Ainhoa (ESP) | SASTRE Eugenia (ESP) | IDESAWA Kyoka (JPN) | OMODA Kotomi (JPN) | WD | Qualification | QR16 | 0 - 3 | 4:11 7:11 5:11 | IDESAWA Kyoka | OMODA Kotomi | "
             },
             {
@@ -2810,7 +2678,7 @@
                 "1:11",
                 "8:11"
               ],
-              "winner": "IDESAWA Kyoka",
+              "winner": "IDESAWA Kyoka / OMODA Kotomi",
               "all_players_in_row": [
                 "BLASKOVA Zdena (CZE)",
                 "HRABICOVA Klara (CZE)",
@@ -2819,17 +2687,14 @@
               ],
               "side_a": [
                 "BLASKOVA Zdena (CZE)",
-                "IDESAWA Kyoka (JPN)"
+                "HRABICOVA Klara (CZE)"
               ],
               "side_b": [
-                "HRABICOVA Klara (CZE)",
+                "IDESAWA Kyoka (JPN)",
                 "OMODA Kotomi (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | BLASKOVA Zdena (CZE) | HRABICOVA Klara (CZE) | IDESAWA Kyoka (JPN) | OMODA Kotomi (JPN) | WD | Qualification | QR8 | 0 - 3 | 3:11 1:11 8:11 | IDESAWA Kyoka | OMODA Kotomi | "
             },
             {
@@ -2867,15 +2732,13 @@
                 "ARAPOVIC Hana (CRO)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | IDESAWA Kyoka (JPN) |  | ARAPOVIC Hana (CRO) |  | WS | Main Draw | R32 | 1 - 3 | 11:5 8:11 10:12 13:15 | ARAPOVIC Hana |  | "
             },
             {
@@ -2912,7 +2775,7 @@
                 "13:11",
                 "9:11"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Daeun",
               "all_players_in_row": [
                 "IDESAWA Kyoka (JPN)",
                 "OMODA Kotomi (JPN)",
@@ -2921,17 +2784,14 @@
               ],
               "side_a": [
                 "IDESAWA Kyoka (JPN)",
-                "CHOI Hyojoo (KOR)"
+                "OMODA Kotomi (JPN)"
               ],
               "side_b": [
-                "OMODA Kotomi (JPN)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Daeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | IDESAWA Kyoka (JPN) | OMODA Kotomi (JPN) | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | WD | Main Draw | R16 | 2 - 3 | 7:11 6:11 11:6 13:11 9:11 | CHOI Hyojoo | LEE Daeun | "
             }
           ]
@@ -2974,15 +2834,13 @@
                 "MOYLAND Sally (USA)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | IDESAWA Kyoka (JPN) |  | MOYLAND Sally (USA) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 12:10 11:8 | IDESAWA Kyoka |  | "
             },
             {
@@ -3014,7 +2872,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "OJIO Yuna",
+              "winner": "OJIO Yuna / IDESAWA Kyoka",
               "all_players_in_row": [
                 "SER Lin Qian (SGP)",
                 "LOY Ming Ying (SGP)",
@@ -3023,17 +2881,14 @@
               ],
               "side_a": [
                 "SER Lin Qian (SGP)",
-                "OJIO Yuna (JPN)"
+                "LOY Ming Ying (SGP)"
               ],
               "side_b": [
-                "LOY Ming Ying (SGP)",
+                "OJIO Yuna (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | SER Lin Qian (SGP) | LOY Ming Ying (SGP) | OJIO Yuna (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | R16 | 1 - 3 | 8:11 6:11 11:8 9:11 | OJIO Yuna | IDESAWA Kyoka | "
             },
             {
@@ -3071,15 +2926,13 @@
                 "YANG Yiyun (CHN)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "YANG Yiyun (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | IDESAWA Kyoka (JPN) |  | YANG Yiyun (CHN) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 5:11 11:7 9:11 | YANG Yiyun |  | "
             },
             {
@@ -3116,7 +2969,7 @@
                 "4:11",
                 "11:5"
               ],
-              "winner": "OJIO Yuna",
+              "winner": "OJIO Yuna / IDESAWA Kyoka",
               "all_players_in_row": [
                 "OJIO Yuna (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -3125,17 +2978,14 @@
               ],
               "side_a": [
                 "OJIO Yuna (JPN)",
-                "LEE Hoi Man (HKG)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "LEE Hoi Man (HKG)",
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | OJIO Yuna (JPN) | IDESAWA Kyoka (JPN) | LEE Hoi Man (HKG) | NG Wing Lam (HKG) | WD | Main Draw | QuarterFinal | 3 - 2 | 5:11 11:7 11:5 4:11 11:5 | OJIO Yuna | IDESAWA Kyoka | "
             },
             {
@@ -3172,7 +3022,7 @@
                 "12:10",
                 "8:11"
               ],
-              "winner": "WANG Xiaotong",
+              "winner": "WANG Xiaotong / HAN Feier",
               "all_players_in_row": [
                 "OJIO Yuna (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -3181,17 +3031,14 @@
               ],
               "side_a": [
                 "OJIO Yuna (JPN)",
-                "WANG Xiaotong (CHN)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "WANG Xiaotong (CHN)",
                 "HAN Feier (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | OJIO Yuna (JPN) | IDESAWA Kyoka (JPN) | WANG Xiaotong (CHN) | HAN Feier (CHN) | WD | Main Draw | SemiFinal | 2 - 3 | 13:15 2:11 11:3 12:10 8:11 | WANG Xiaotong | HAN Feier | "
             }
           ]
@@ -3233,7 +3080,7 @@
                 "11:3",
                 "11:8"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -3242,17 +3089,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "ARGUELLES Camila (ARG)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "ARGUELLES Camila (ARG)",
                 "AVEZOU Agathe (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | ARGUELLES Camila (ARG) | AVEZOU Agathe (FRA) | WD | Qualification | QR8 | 3 - 0 | 11:2 11:3 11:8 | TAKEYA Misuzu | IDESAWA Kyoka | "
             },
             {
@@ -3285,15 +3129,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "MORET Rachel (SUI)",
+                "MORET Rachel (SUI)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | MORET Rachel (SUI) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 7:11 4:11 5:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -3326,15 +3168,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "DING Yijie (CHN)",
+                "DING Yijie (CHN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | DING Yijie (CHN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 9:11 5:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -3361,7 +3201,7 @@
                 "11:8",
                 "11:4"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -3370,17 +3210,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "CHOI Haeeun (KOR)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "CHOI Haeeun (KOR)",
                 "KIM Hana (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | CHOI Haeeun (KOR) | KIM Hana (KOR) | WD | Main Draw | R16 | 3 - 0 | 12:10 11:8 11:4 | TAKEYA Misuzu | IDESAWA Kyoka | "
             },
             {
@@ -3417,7 +3254,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / HAN Feier",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -3426,17 +3263,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "CHEN Yi (CHN)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "CHEN Yi (CHN)",
                 "HAN Feier (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | CHEN Yi (CHN) | HAN Feier (CHN) | WD | Main Draw | QuarterFinal | 2 - 3 | 9:11 11:7 11:9 9:11 8:11 | CHEN Yi | HAN Feier | "
             },
             {
@@ -3475,18 +3309,17 @@
               ],
               "winner": "IDESAWA Kyoka",
               "all_players_in_row": [
-                "IDESAWA Kyoka (JPN)"
-              ],
-              "side_a": [
                 "IDESAWA Kyoka (JPN)",
                 "LIU Hsing-Yin (TPE)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "side_a": [
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
+                "LIU Hsing-Yin (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | IDESAWA Kyoka (JPN) |  | LIU Hsing-Yin (TPE) |  | WS | Main Draw | R16 | 3 - 2 | 11:5 11:9 10:12 8:11 11:8 | IDESAWA Kyoka |  | "
             },
             {
@@ -3519,15 +3352,13 @@
                 "CHEN Yi (CHN)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "CHEN Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | IDESAWA Kyoka (JPN) |  | CHEN Yi (CHN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:7 11:8 | IDESAWA Kyoka |  | "
             },
             {
@@ -3560,15 +3391,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "XIAO Maria (ESP)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | XIAO Maria (ESP) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | SemiFinal | 0 - 3 | 5:11 8:11 8:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -3611,15 +3440,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "WANG Xiaotong (CHN)",
+                "WANG Xiaotong (CHN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | WANG Xiaotong (CHN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | Final | 2 - 3 | 11:9 10:12 11:5 5:11 9:11 | IDESAWA Kyoka |  | "
             }
           ]
@@ -3662,15 +3489,13 @@
                 "SADIKOVIC Enisa (LUX)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "SADIKOVIC Enisa (LUX)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | IDESAWA Kyoka (JPN) |  | SADIKOVIC Enisa (LUX) |  | WS | Qualification | QR32 | 3 - 0 | 11:5 11:3 11:2 | IDESAWA Kyoka |  | "
             },
             {
@@ -3702,7 +3527,7 @@
                 "3:11",
                 "11:8"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -3711,17 +3536,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "JI Eunchae (KOR)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "JI Eunchae (KOR)",
                 "PARK Joohyun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | JI Eunchae (KOR) | PARK Joohyun (KOR) | WD | Qualification | QR8 | 3 - 1 | 11:1 11:6 3:11 11:8 | TAKEYA Misuzu | IDESAWA Kyoka | "
             },
             {
@@ -3754,15 +3576,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "KRZYSIEK Paulina (POL)",
+                "KRZYSIEK Paulina (POL)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | KRZYSIEK Paulina (POL) |  | IDESAWA Kyoka (JPN) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 5:11 3:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -3795,15 +3615,13 @@
                 "Naina Ms (IND)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "Naina Ms (IND)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | IDESAWA Kyoka (JPN) |  | Naina Ms (IND) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 11:6 11:4 | IDESAWA Kyoka |  | "
             },
             {
@@ -3841,15 +3659,13 @@
                 "ZHU Yuling (MAC)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "ZHU Yuling (MAC)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | IDESAWA Kyoka (JPN) |  | ZHU Yuling (MAC) |  | WS | Main Draw | R32 | 3 - 1 | 12:10 8:11 11:4 11:4 | IDESAWA Kyoka |  | "
             },
             {
@@ -3876,7 +3692,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "MASSART Lilou (BEL)",
                 "JERSOVA Aleksandra (LAT)",
@@ -3885,17 +3701,14 @@
               ],
               "side_a": [
                 "MASSART Lilou (BEL)",
-                "TAKEYA Misuzu (JPN)"
+                "JERSOVA Aleksandra (LAT)"
               ],
               "side_b": [
-                "JERSOVA Aleksandra (LAT)",
+                "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | MASSART Lilou (BEL) | JERSOVA Aleksandra (LAT) | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | R16 | 0 - 3 | 4:11 6:11 5:11 | TAKEYA Misuzu | IDESAWA Kyoka | "
             },
             {
@@ -3932,7 +3745,7 @@
                 "12:10",
                 "12:10"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -3941,17 +3754,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "LI Yake (CHN)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "LI Yake (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | LI Yake (CHN) | FAN Shuhan (CHN) | WD | Main Draw | QuarterFinal | 3 - 2 | 4:11 11:9 7:11 12:10 12:10 | TAKEYA Misuzu | IDESAWA Kyoka | "
             },
             {
@@ -3989,15 +3799,13 @@
                 "IDESAWA Kyoka (JPN)"
               ],
               "side_a": [
-                "DING Yijie (CHN)",
+                "DING Yijie (CHN)"
+              ],
+              "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | DING Yijie (CHN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 4:11 11:9 8:11 7:11 | IDESAWA Kyoka |  | "
             },
             {
@@ -4024,7 +3832,7 @@
                 "14:12",
                 "11:9"
               ],
-              "winner": "RYU Hanna",
+              "winner": "RYU Hanna / YANG Ha Eun",
               "all_players_in_row": [
                 "RYU Hanna (KOR)",
                 "YANG Ha Eun (KOR)",
@@ -4033,17 +3841,14 @@
               ],
               "side_a": [
                 "RYU Hanna (KOR)",
-                "TAKEYA Misuzu (JPN)"
+                "YANG Ha Eun (KOR)"
               ],
               "side_b": [
-                "YANG Ha Eun (KOR)",
+                "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | RYU Hanna (KOR) | YANG Ha Eun (KOR) | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:6 14:12 11:9 | RYU Hanna | YANG Ha Eun | "
             },
             {
@@ -4081,15 +3886,13 @@
                 "YANG Ha Eun (KOR)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | IDESAWA Kyoka (JPN) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:3 8:11 11:6 11:3 | IDESAWA Kyoka |  | "
             },
             {
@@ -4127,15 +3930,13 @@
                 "CHEN Yi (CHN)"
               ],
               "side_a": [
-                "IDESAWA Kyoka (JPN)",
+                "IDESAWA Kyoka (JPN)"
+              ],
+              "side_b": [
                 "CHEN Yi (CHN)"
               ],
-              "side_b": [],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | IDESAWA Kyoka (JPN) |  | CHEN Yi (CHN) |  | WS | Main Draw | SemiFinal | 1 - 3 | 7:11 10:12 11:9 12:14 | CHEN Yi |  | "
             }
           ]
