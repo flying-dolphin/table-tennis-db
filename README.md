@@ -66,6 +66,12 @@ pip install requests beautifulsoup4 pypdf playwright
 playwright install chromium
 ```
 
+## 文档
+
+- [数据库设计](docs/design/DATABASE_DESIGN.md) — 表结构、关系、数据来源
+- [数据库使用与维护](docs/DATABASE_MAINTENANCE.md) — 部署、查询、更新、备份
+- [ITTF 排名规则](data/point_rules/ITTF-Ranking-Regulations-20260127.md) — 官方积分规则
+
 ## 数据来源
 
 - ITTF Results: <https://results.ittf.link>

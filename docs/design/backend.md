@@ -42,7 +42,8 @@
 
 ### 4.1 Pipeline 拆分
 
-- P1 排名和档案抓取：`scrape_rankings`
+- P1a 排名抓取（含 points breakdown）：`scrape_rankings`
+- P1b 运动员档案抓取：`scrape_profiles`
 - P2 比赛抓取：`scrape_matches`
 - P3 赛历抓取：`scrape_events_calendar`
 - P4 翻译任务：profiles/matches/events 三条翻译线

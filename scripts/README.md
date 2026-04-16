@@ -30,13 +30,13 @@ python scripts/validate_translation_dict.py --input scripts/data/translation_dic
 ### 翻译结果校验（events_calendar）
 
 ```bash
-python scripts/validate_events_translation.py --translated data/events_calendar/events_calendar_2026_cn.json
+python scripts/validate_events_translation.py --translated data/events_calendar/cn/events_calendar_2026.json
 ```
 
 严格对照原始文件：
 
 ```bash
-python scripts/validate_events_translation.py --translated data/events_calendar/events_calendar_2026_cn.json --raw data/events_calendar/events_calendar_2026.json
+python scripts/validate_events_translation.py --translated data/events_calendar/cn/events_calendar_2026.json --raw data/events_calendar/orig/events_calendar_2026.json
 ```
 
 ## Events Calendar 流程
@@ -48,15 +48,14 @@ python scripts/scrape_events_calendar.py --year 2026
 ```
 
 常用参数：
-- `--apply`：执行实际翻译（默认 dry-run 仅词典）
-- `--skip-translate`：只抓取，不翻译
 - `--force`：忽略 checkpoint 重新抓取
+- `--cdp-port`：复用已启动浏览器
 
 checkpoint 已拆分：
 - `data/events_calendar/checkpoint_scrape_{year}.json`
 - `data/events_calendar/checkpoint_translate_{year}.json`
 
-### 2) 独立翻译（推荐）
+### 2) 独立翻译
 
 ```bash
 python scripts/translate_events_calendar.py --year 2026
@@ -64,13 +63,11 @@ python scripts/translate_events_calendar.py --year 2026
 
 常用参数：
 - `--force`：从头翻译
-- `--no-resume`：禁用断点续跑
-- `--batch-size 10`：设置批量大小
+- `--rebuild-checkpoint`：从现有 cn 文件重建 checkpoint
 
 说明：
-- 成功定义是“全部事件翻译成功”。
-- 若存在未翻译项，脚本会返回非 0，并保留已翻译结果。
-- 输出文件会记录 `progress` 和 `source_hash` 以支持续跑一致性检查。
+- cn 文件保持与 orig 相同的结构，只翻译字符串值。
+- 若存在未翻译项，脚本会返回非 0，并保留已生成的 cn 文件。
 
 ## Matches 抓取与翻译
 
@@ -84,7 +81,6 @@ python scripts/scrape_matches.py
 - `--player-name "DOO Hoi Kem"`：只抓单个球员
 - `--cdp-port 9222`：复用已启动浏览器
 - `--init-session`：初始化登录态
-- `--no-translate`：只抓英文，不做翻译
 
 翻译比赛文件：
 
