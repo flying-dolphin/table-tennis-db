@@ -5,7 +5,7 @@ Translate match files from orig to cn using dictionary only.
 Translated fields (adds _zh suffix):
   - player_name, country
   - years[].events[]: event_name, event_type
-  - years[].events[].matches[]: sub_event, stage, round
+  - years[].events[].matches[]: sub_event, stage, round, side_a, side_b
 
 Values not found in the dictionary are collected and written to a missing
 translations file for human review.
@@ -48,9 +48,14 @@ FIELD_CATEGORY: dict[str, str] = {
     "sub_event": "terms_others",
     "stage": "round",
     "round": "round",
+    "side_a_player": "players",
+    "side_a_country": "locations",
+    "side_b_player": "players",
+    "side_b_country": "locations",
 }
 
 SKIP_VALUES = {"", "--"}
+SIDE_ENTRY_RE = re.compile(r"^(.+?)\s+\(([^)]+)\)$")
 
 
 def _translate_ck(filename: str) -> str:
@@ -105,6 +110,36 @@ def translate_value(
     return translated
 
 
+def translate_side_entry(
+    entry: str,
+    dt: DictTranslator,
+    missing: dict[str, set[str]],
+) -> str:
+    """Translate 'NAME (COUNTRY)' entry. Returns translated or original."""
+    if entry in SKIP_VALUES:
+        return entry
+
+    m = SIDE_ENTRY_RE.match(entry)
+    if not m:
+        missing["side_a_player"].add(entry)
+        return entry
+
+    name, country = m.group(1).strip(), m.group(2).strip()
+
+    translated_name = dt.translate(name, "players")
+    if translated_name == name:
+        missing["side_a_player"].add(name)
+
+    translated_country = dt.translate(country, "locations")
+    if translated_country == country:
+        missing["side_a_country"].add(country)
+
+    if translated_name == name and translated_country == country:
+        return entry
+
+    return f"{translated_name} ({translated_country})"
+
+
 def translate_file_data(data: dict, dt: DictTranslator, missing: dict[str, set[str]]) -> dict:
     """Return a new dict with _zh fields added for all translatable fields."""
     result = dict(data)
@@ -134,6 +169,12 @@ def translate_file_data(data: dict, dt: DictTranslator, missing: dict[str, set[s
                     value = match.get(field, "")
                     if value and value not in SKIP_VALUES:
                         m[f"{field}_zh"] = translate_value(value, field, dt, missing)
+
+                side_a_list = match.get("side_a", [])
+                side_b_list = match.get("side_b", [])
+                m["side_a_zh"] = [translate_side_entry(e, dt, missing) for e in side_a_list]
+                m["side_b_zh"] = [translate_side_entry(e, dt, missing) for e in side_b_list]
+
                 matches_result.append(m)
 
             ev["matches"] = matches_result
@@ -220,7 +261,10 @@ def run(args: argparse.Namespace) -> int:
     bootstrap_checkpoint(checkpoint, orig_dir, cn_dir)
 
     dt = DictTranslator()
-    missing = load_missing(missing_path)
+    if args.force:
+        missing = {f: set() for f in FIELD_CATEGORY}
+    else:
+        missing = load_missing(missing_path)
 
     if args.file:
         files = [orig_dir / args.file]
