@@ -8,17 +8,17 @@
   },
   "events": [
     {
-      "category_id": "WTT_GRAND_SMASH",
-      "category_name": "WTT Grand Smash",
-      "category_name_zh": "WTT大满贯",
-      "event_type": "WTT Grand Smash",
+      "category_id": "OLYMPIC_GAMES",
+      "category_name": "Olympic Games",
+      "category_name_zh": "奥运会",
+      "event_type": "Olympic Games",
       "event_kind": "--",
-      "ittf_rule_name": "WTT Grand Smash",
-      "json_code": "GS",
+      "ittf_rule_name": "Olympic Games",
+      "json_code": "OLY",
       "points_tier": "Premium",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
+      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles", "Teams"]
     },
     {
       "category_id": "ITTF_WTTC",
@@ -49,6 +49,45 @@
       "applicable_formats": ["Singles"]
     },
     {
+      "category_id": "CONTINENTAL_GAMES",
+      "category_name": "Continental Games",
+      "category_name_zh": "洲际运动会",
+      "event_type": "Continental Games",
+      "event_kind": "--",
+      "ittf_rule_name": "Continental Games",
+      "json_code": "CT",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
+    },
+    {
+      "category_id": "CONTINENTAL_CHAMPS",
+      "category_name": "Continental Championships",
+      "category_name_zh": "洲际锦标赛",
+      "event_type": "Continental",
+      "event_kind": "Senior Championships",
+      "ittf_rule_name": "Continental Championships",
+      "json_code": "CC",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
+    },
+    {
+      "category_id": "CONTINENTAL_CUP",
+      "category_name": "Continental Cup",
+      "category_name_zh": "洲际杯",
+      "event_type": "Continental",
+      "event_kind": "Senior Cup",
+      "ittf_rule_name": "Continental Cups",
+      "json_code": "CCUP",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": ["Singles"]
+    },
+    {
       "category_id": "WTT_FINALS",
       "category_name": "WTT Finals",
       "category_name_zh": "WTT总决赛",
@@ -60,6 +99,19 @@
       "points_eligible": true,
       "filtering_only": false,
       "applicable_formats": ["Singles", "Mixed Doubles"]
+    },
+    {
+      "category_id": "WTT_GRAND_SMASH",
+      "category_name": "WTT Grand Smash",
+      "category_name_zh": "WTT大满贯",
+      "event_type": "WTT Grand Smash",
+      "event_kind": "--",
+      "ittf_rule_name": "WTT Grand Smash",
+      "json_code": "GS",
+      "points_tier": "Premium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
     },
     {
       "category_id": "WTT_CHAMPIONS",
@@ -112,58 +164,6 @@
       "points_eligible": true,
       "filtering_only": false,
       "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "CONTINENTAL_CUP",
-      "category_name": "Continental Cup",
-      "category_name_zh": "洲际杯",
-      "event_type": "Continental",
-      "event_kind": "Senior Cup",
-      "ittf_rule_name": "Continental Cups",
-      "json_code": "CCUP",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles"]
-    },
-    {
-      "category_id": "CONTINENTAL_CHAMPS",
-      "category_name": "Continental Championships",
-      "category_name_zh": "洲际锦标赛",
-      "event_type": "Continental",
-      "event_kind": "Senior Championships",
-      "ittf_rule_name": "Continental Championships",
-      "json_code": "CC",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "CONTINENTAL_GAMES",
-      "category_name": "Continental Games",
-      "category_name_zh": "洲际运动会",
-      "event_type": "Continental Games",
-      "event_kind": "--",
-      "ittf_rule_name": "Continental Games",
-      "json_code": "CT",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "OLYMPIC_GAMES",
-      "category_name": "Olympic Games",
-      "category_name_zh": "奥运会",
-      "event_type": "Olympic Games",
-      "event_kind": "--",
-      "ittf_rule_name": "Olympic Games",
-      "json_code": "OLY",
-      "points_tier": "Premium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles", "Teams"]
     },
     {
       "category_id": "OLYMPIC_QUALIFICATION",
