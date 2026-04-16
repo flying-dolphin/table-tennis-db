@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-16T01:06:26.337550",
-    "total_entries": 1141
+    "updated_at": "2026-04-16T15:47:19.129151",
+    "total_entries": 1170
   },
   "entries": {
     "ma long": {
@@ -14847,6 +14847,383 @@
         "round": "none"
       },
       "updated_at": "2026-04-16T01:06:26.337550"
+    },
+    "wtt feeder": {
+      "original": "WTT Feeder",
+      "translated": "WTT支线赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "wtt star contender": {
+      "original": "WTT Star Contender",
+      "translated": "WTT球星挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "continental cup": {
+      "original": "Continental Cup",
+      "translated": "洲际杯",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "continental championships": {
+      "original": "Continental Championships",
+      "translated": "洲际锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world table tennis championships": {
+      "original": "ITTF World Table Tennis Championships",
+      "translated": "国际乒联世界乒乓球锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world team table tennis championships": {
+      "original": "ITTF World Team Table Tennis Championships",
+      "translated": "国际乒联世界乒乓球团体锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf mixed team world cup": {
+      "original": "ITTF Mixed Team World Cup",
+      "translated": "国际乒联混合团体世界杯",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "u19 wtt youth grand smash": {
+      "original": "U19 WTT Youth Grand Smash",
+      "translated": "U19 WTT青年大满贯",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "u19 wtt youth star contender": {
+      "original": "U19 WTT Youth Star Contender",
+      "translated": "U19 WTT青年球星挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "u19 wtt youth contender": {
+      "original": "U19 WTT Youth Contender",
+      "translated": "U19 WTT青年挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "u19 ittf world youth table tennis championships": {
+      "original": "U19 ITTF World Youth Table Tennis Championships",
+      "translated": "U19 国际乒联世界青年乒乓球锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "regional championships": {
+      "original": "Regional Championships",
+      "translated": "地区锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "regional cup": {
+      "original": "Regional Cup",
+      "translated": "地区杯",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "u21 continental championships": {
+      "original": "U21 Continental Championships",
+      "translated": "U21洲际锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "youth continental championships": {
+      "original": "Youth Continental Championships",
+      "translated": "青年洲际锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "youth continental cup": {
+      "original": "Youth Continental Cup",
+      "translated": "青年洲际杯",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "regional youth championships": {
+      "original": "Regional Youth Championships",
+      "translated": "地区青年锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf challenge series": {
+      "original": "ITTF Challenge Series",
+      "translated": "国际乒联挑战赛系列",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf challenge plus": {
+      "original": "ITTF Challenge Plus",
+      "translated": "国际乒联挑战赛+",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world junior circuit finals": {
+      "original": "ITTF World Junior Circuit Finals",
+      "translated": "国际乒联世界少年巡回赛总决赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world junior circuit premium": {
+      "original": "ITTF World Junior Circuit Premium",
+      "translated": "国际乒联世界少年巡回赛高级",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world junior circuit golden": {
+      "original": "ITTF World Junior Circuit Golden",
+      "translated": "国际乒联世界少年巡回赛黄金",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world tour challenge series": {
+      "original": "ITTF World Tour Challenge Series",
+      "translated": "国际乒联世界巡回赛挑战赛系列",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world tour finals": {
+      "original": "ITTF World Tour Finals",
+      "translated": "国际乒联世界巡回赛总决赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world tour grand finals": {
+      "original": "ITTF World Tour Grand Finals",
+      "translated": "国际乒联世界巡回赛大总决赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world tour major series": {
+      "original": "ITTF World Tour Major Series",
+      "translated": "国际乒联世界巡回赛主赛系列",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world tour platinum": {
+      "original": "ITTF World Tour Platinum",
+      "translated": "国际乒联世界巡回赛铂金",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "ittf world tour super series": {
+      "original": "ITTF World Tour Super Series",
+      "translated": "国际乒联世界巡回赛超级系列",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
+    },
+    "multi-sport games": {
+      "original": "Multi-Sport Games",
+      "translated": "综合运动会",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-16T15:47:19.129151"
     }
   }
 }
