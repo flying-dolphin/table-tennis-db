@@ -125,7 +125,6 @@ def main() -> int:
     batches = split_batches(pending, args.batch_size)
     total_batches = len(batches)
     total_ok = 0
-    total_fail = 0
 
     try:
         for i, batch in enumerate(batches, 1):
@@ -135,24 +134,20 @@ def main() -> int:
             result = translator._translate_batch(items, category="player_names")
 
             if not result:
-                logger.error(f"批次 {i}/{total_batches} 翻译失败，写入原文占位")
-                result = {}
+                logger.warning(f"批次 {i}/{total_batches} 翻译失败，跳过")
+                continue
 
-            # 逐条写入文件，保持顺序
             lines = []
             for name in batch:
-                translated = result.get(name, name)
-                lines.append(f"{name}:{translated}:players\n")
-                if translated != name:
+                translated = result.get(name)
+                if translated:
+                    lines.append(f"{name}:{translated}:players\n")
                     total_ok += 1
-                else:
-                    total_fail += 1
 
-            out_f.writelines(lines)
-            out_f.flush()  # 立即刷新到磁盘
-
-            translated_in_batch = sum(1 for name in batch if result.get(name, name) != name)
-            logger.info(f"批次 {i}/{total_batches} 完成：{translated_in_batch}/{len(batch)} 条已翻译，已写入")
+            if lines:
+                out_f.writelines(lines)
+                out_f.flush()
+                logger.info(f"批次 {i}/{total_batches} 完成：{len(lines)} 条已翻译，已写入")
 
     except KeyboardInterrupt:
         logger.warning("用户中断，已保存当前进度到输出文件")
@@ -167,7 +162,7 @@ def main() -> int:
             f" total={translator.total_tokens['total']}"
         )
 
-    logger.info(f"完成：共翻译 {total_ok} 条，保持原样 {total_fail} 条")
+    logger.info(f"完成：共翻译 {total_ok} 条")
     logger.info(f"输出文件: {output_file}")
     return 0
 
