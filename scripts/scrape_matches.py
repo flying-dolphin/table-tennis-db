@@ -49,8 +49,16 @@ DEFAULT_FROM_DATE = "2024-01-01"
 
 SCORE_RE = re.compile(r"(\d+)\s*-\s*(\d+)")
 GAME_RE = re.compile(r"(\d+):(\d+)")
-# 球员名字格式: "Name (COUNTRY)", "Name Surname (COUNTRY)", 或 "UPPER Surname (COUNTRY)"
-PLAYER_NAME_RE = re.compile(r"([A-Z][A-Za-z]*(?:\s+[A-Z][A-Za-z]*)+)\s*\(([A-Z]{3})\)")
+PLAYER_NAME_RE = re.compile(
+    r"([A-Z][A-Za-z]*(?:[-'\s][A-Za-z]+)*)\s*\(([A-Z]{3})\)"
+)
+STAGE_TOKENS = {
+    "main draw",
+    "qualification",
+    "qualifying",
+    "group",
+    "final",
+}
 
 
 def _ck_player_base(checkpoint: CheckpointStore, player_id: Any, player_name: str, from_date_str: str) -> str:
@@ -100,6 +108,64 @@ def _ck_event(ck_player: str, event: dict[str, Any]) -> str:
     raw = _event_identity_text(event)
     h = hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
     return f"{ck_player}|event:{h}"
+
+
+def _is_sub_event_token(token: str) -> bool:
+    token = (token or "").strip()
+    return bool(re.fullmatch(r"[A-Z0-9]{2,8}", token))
+
+
+def _is_stage_token(token: str) -> bool:
+    return (token or "").strip().lower() in STAGE_TOKENS
+
+
+def _extract_players_from_segment(segment: str) -> list[str]:
+    return [match.group(0).strip() for match in PLAYER_NAME_RE.finditer(segment or "")]
+
+
+def _parse_row_participants(row_text: str) -> tuple[str, list[str], list[str], list[str], str]:
+    tokens = [segment.strip() for segment in row_text.split("|")]
+    sub_event_idx = -1
+    for idx in range(2, len(tokens) - 1):
+        token = tokens[idx]
+        next_token = tokens[idx + 1] if idx + 1 < len(tokens) else ""
+        if _is_sub_event_token(token) and _is_stage_token(next_token):
+            sub_event_idx = idx
+            break
+
+    if sub_event_idx == -1:
+        all_players: list[str] = []
+        seen: set[str] = set()
+        for player in _extract_players_from_segment(row_text):
+            if player not in seen:
+                seen.add(player)
+                all_players.append(player)
+        side_a = all_players[:1]
+        side_b = all_players[1:]
+        return "", side_a, side_b, all_players, ""
+
+    sub_event = tokens[sub_event_idx]
+    participant_tokens = tokens[2:sub_event_idx]
+
+    side_a: list[str] = []
+    side_b: list[str] = []
+    if len(participant_tokens) >= 4:
+        for token in participant_tokens[:2]:
+            side_a.extend(_extract_players_from_segment(token))
+        for token in participant_tokens[2:4]:
+            side_b.extend(_extract_players_from_segment(token))
+    elif len(participant_tokens) >= 2:
+        side_a.extend(_extract_players_from_segment(participant_tokens[0]))
+        side_b.extend(_extract_players_from_segment(participant_tokens[1]))
+    elif participant_tokens:
+        side_a.extend(_extract_players_from_segment(participant_tokens[0]))
+        for token in participant_tokens[1:]:
+            side_b.extend(_extract_players_from_segment(token))
+
+    all_players = side_a + side_b
+    winner_tokens = [token for token in tokens[sub_event_idx + 5:] if token]
+    winner = " / ".join(winner_tokens)
+    return sub_event, side_a, side_b, all_players, winner
 
 # UA 与 sec-ch-ua 版本绑定为配对结构，避免版本不一致被检测
 # 按 OS 分组，运行时按实际系统选取，确保 UA / platform / DPR 三者自洽
@@ -563,37 +629,15 @@ def parse_match_from_row(
     if score_idx == -1 and not game_scores:
         return None
 
-    # 从所有 cell 文本中提取球员名字（格式: "Name (COUNTRY)"）
-    all_players_found: list[tuple[str, str]] = []  # (full_match, country_code)
-    for text in cell_texts:
-        for m in PLAYER_NAME_RE.finditer(text):
-            all_players_found.append((m.group(0), m.group(2)))
+    parsed_sub_event, parsed_side_a, parsed_side_b, parsed_all_players, parsed_winner = _parse_row_participants(row_text)
 
-    # 去重并保持顺序
-    seen_names: set[str] = set()
-    unique_players: list[str] = []
-    for full_name, _ in all_players_found:
-        if full_name not in seen_names:
-            seen_names.add(full_name)
-            unique_players.append(full_name)
+    # 从表格列提取作为补充，优先信任 raw_row_text 的列顺序。
+    explicit_side_a = [p for p in [player_a_text, player_b_text] if p and PLAYER_NAME_RE.search(p)]
+    explicit_side_b = [p for p in [player_x_text, player_y_text] if p and PLAYER_NAME_RE.search(p)]
 
-    # 优先使用表头列中的球员名来构建 side_a / side_b
-    explicit_players = [p for p in [player_a_text, player_x_text] if p]
-    explicit_opponents = [p for p in [player_b_text, player_y_text] if p]
-
-    side_a: list[str] = []
-    side_b: list[str] = []
-    if explicit_players or explicit_opponents:
-        side_a = explicit_players
-        side_b = explicit_opponents
-    elif score_idx >= 0 and unique_players:
-        # 简单策略：前一半是 side_a，后一半是 side_b
-        mid = len(unique_players) // 2
-        side_a = unique_players[:mid] if mid > 0 else unique_players[:1]
-        side_b = unique_players[mid:] if mid > 0 else unique_players[1:]
-    elif unique_players:
-        side_a = unique_players[:1]
-        side_b = unique_players[1:] if len(unique_players) > 1 else []
+    side_a: list[str] = parsed_side_a or explicit_side_a
+    side_b: list[str] = parsed_side_b or explicit_side_b
+    all_players = parsed_all_players or (side_a + side_b)
 
     # 同时保留 anchor 提取的名字作为备用（如果上面的方法失败）
     anchor_names_by_cell: list[list[str]] = []
@@ -612,14 +656,15 @@ def parse_match_from_row(
         mid = len(all_names) // 2
         side_a = all_names[:mid] if mid > 0 else all_names[:1]
         side_b = all_names[mid:] if mid > 0 else all_names[1:]
+        all_players = side_a + side_b
 
-    winner = winner_text
+    winner = parsed_winner or winner_text
     if not winner:
         winner_m = re.search(r"Winner:\s*([^|]+)", row_text, flags=re.IGNORECASE)
         if winner_m:
             winner = winner_m.group(1).strip()
 
-    sub_event = sub_event_text
+    sub_event = sub_event_text or parsed_sub_event
     if not sub_event:
         for token in ["WS", "MS", "WD", "MD", "XD", "U19", "U17", "U15"]:
             if re.search(rf"\b{re.escape(token)}\b", row_text):
@@ -672,13 +717,12 @@ def parse_match_from_row(
         "games": game_objects,
         "games_display": game_scores,
         "winner": winner,
-        "all_players_in_row": unique_players if unique_players else all_names,
+        "all_players_in_row": all_players if all_players else all_names,
         "side_a": side_a,
         "side_b": side_b,
         "teammates": teammates,
         "opponents": opponents,
         "result_for_player": result_for_player,
-        "result": result_for_player,
         "perspective": perspective,
         "raw_row_text": row_text,
     }
