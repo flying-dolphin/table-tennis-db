@@ -124,12 +124,12 @@ class LLMTranslator:
 
         Args:
             items: {key: value} 字典，key 提供给 LLM 作为参考，value 是待翻译内容
-            category: 翻译类型，支持 event / profile / other，默认 event
+            category: 翻译类型，支持 event / profile / player_names / other，默认 event
 
         Returns:
             {key: translated_value} 字典，翻译完全失败时返回 None
         """
-        if category not in ("event", "profile", "other"):
+        if category not in ("event", "profile", "player_names", "other"):
             logger.warning("不支持的翻译类型: %s，使用默认 event", category)
             category = "event"
 
@@ -299,6 +299,18 @@ class LLMTranslator:
             system_prompt = (
                 base_prompt
                 + "这是球员资料翻译，请使用标准中文体育术语和人名译名。\n\n"
+                "输出格式：每行严格输出 \"key: 译文\"，保持 key 不变。\n"
+                "不要解释，不要序号，不要多余内容。"
+            )
+        elif category == "player_names":
+            system_prompt = (
+                base_prompt
+                + "这是乒乓球运动员名字的翻译。请遵循以下规则：\n"
+                "1. 参考ITTF官方的中文人名译名\n"
+                "2. 中文姓名一般采用 \"姓 名\" 的格式（中文名在后）\n"
+                "3. 对于常见运动员，使用其官方通用的中文译名\n"
+                "4. 如果是欧洲名字，保持传统的罗马字符音译\n"
+                "5. 如果是亚洲名字，按照该国家或地区的官方翻译\n\n"
                 "输出格式：每行严格输出 \"key: 译文\"，保持 key 不变。\n"
                 "不要解释，不要序号，不要多余内容。"
             )
