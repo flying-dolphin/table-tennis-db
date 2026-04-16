@@ -16,8 +16,8 @@ except ImportError as e:
     ) from e
 
 # Load .env from the directory where this file resides
-_db_dir = Path(__file__).parent
-_dotenv_path = _db_dir / ".env"
+_db_dir = Path(__file__).parent.parent.parent
+_dotenv_path = _db_dir /  ".env"
 
 if _dotenv_path.exists():
     load_dotenv(dotenv_path=str(_dotenv_path), override=True)
