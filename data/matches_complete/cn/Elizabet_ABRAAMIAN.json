@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Elizabet ABRAAMIAN",
-  "english_name": "Elizabet ABRAAMIAN",
+  "player_name": "ABRAAMIAN Elizabet",
+  "english_name": "ABRAAMIAN Elizabet",
   "country": "AIN",
   "country_code": "AIN",
   "continent": "",
@@ -44,7 +44,7 @@
                 "2:11",
                 "3:11"
               ],
-              "winner": "DORR Esteban",
+              "winner": "DORR Esteban / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "AMEUR Habib (TUN)",
                 "ZOGHLAMI Maram (TUN)",
@@ -53,17 +53,14 @@
               ],
               "side_a": [
                 "AMEUR Habib (TUN)",
-                "DORR Esteban (FRA)"
+                "ZOGHLAMI Maram (TUN)"
               ],
               "side_b": [
-                "ZOGHLAMI Maram (TUN)",
+                "DORR Esteban (FRA)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | AMEUR Habib (TUN) | ZOGHLAMI Maram (TUN) | DORR Esteban (FRA) | ABRAAMIAN Elizabet (AIN) | XD | Qualification | QR8 | 0 - 3 | 3:11 2:11 3:11 | DORR Esteban | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -103,7 +100,7 @@
                 "11:13",
                 "11:4"
               ],
-              "winner": "DORR Esteban",
+              "winner": "DORR Esteban / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "DORR Esteban (FRA)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -112,17 +109,14 @@
               ],
               "side_a": [
                 "DORR Esteban (FRA)",
-                "NARESH Nandan (USA)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "NARESH Nandan (USA)",
                 "ORTEGA Daniela (CHI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | DORR Esteban (FRA) | ABRAAMIAN Elizabet (AIN) | NARESH Nandan (USA) | ORTEGA Daniela (CHI) | XD | Main Draw | R16 | 3 - 2 | 11:6 6:11 11:3 11:13 11:4 | DORR Esteban | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -162,7 +156,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / PANFILOVA Maria",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "PANFILOVA Maria (AIN)",
@@ -171,17 +165,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "TAILAKOVA Mariia (AIN)"
+                "PANFILOVA Maria (AIN)"
               ],
               "side_b": [
-                "PANFILOVA Maria (AIN)",
+                "TAILAKOVA Mariia (AIN)",
                 "SHCHERBATYKH Valeriia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) | PANFILOVA Maria (AIN) | TAILAKOVA Mariia (AIN) | SHCHERBATYKH Valeriia (AIN) | WD | Main Draw | R16 | 3 - 2 | 2:11 11:8 4:11 11:5 11:8 | ABRAAMIAN Elizabet | PANFILOVA Maria | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -232,15 +223,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "WAN Yuan (GER)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | WAN Yuan (GER) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R32 | 2 - 3 | 11:6 4:11 11:9 10:12 2:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -275,7 +259,7 @@
                 "11:5",
                 "5:11"
               ],
-              "winner": "DORR Esteban",
+              "winner": "DORR Esteban / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "TIKHONOV Evgeny (AIN)",
                 "PANFILOVA Maria (AIN)",
@@ -284,17 +268,14 @@
               ],
               "side_a": [
                 "TIKHONOV Evgeny (AIN)",
-                "DORR Esteban (FRA)"
+                "PANFILOVA Maria (AIN)"
               ],
               "side_b": [
-                "PANFILOVA Maria (AIN)",
+                "DORR Esteban (FRA)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | TIKHONOV Evgeny (AIN) | PANFILOVA Maria (AIN) | DORR Esteban (FRA) | ABRAAMIAN Elizabet (AIN) | XD | Main Draw | QuarterFinal | 1 - 3 | 7:11 8:11 11:5 5:11 | DORR Esteban | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -334,7 +315,7 @@
                 "11:3",
                 "8:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / PANFILOVA Maria",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "SHAN Xiaona (GER)",
@@ -343,17 +324,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "SHAN Xiaona (GER)"
               ],
               "side_b": [
-                "SHAN Xiaona (GER)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "PANFILOVA Maria (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | MITTELHAM Nina (GER) | SHAN Xiaona (GER) | ABRAAMIAN Elizabet (AIN) | PANFILOVA Maria (AIN) | WD | Main Draw | QuarterFinal | 2 - 3 | 7:11 11:8 1:11 11:3 8:11 | ABRAAMIAN Elizabet | PANFILOVA Maria | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -404,15 +382,8 @@
               "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "IDESAWA Kyoka (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | R16 | 3 - 2 | 5:11 12:10 11:8 7:11 11:9 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -452,7 +423,7 @@
                 "11:4",
                 "11:13"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "DORR Esteban (FRA)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -461,17 +432,14 @@
               ],
               "side_a": [
                 "DORR Esteban (FRA)",
-                "ROBLES Alvaro (ESP)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | DORR Esteban (FRA) | ABRAAMIAN Elizabet (AIN) | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | XD | Main Draw | SemiFinal | 2 - 3 | 14:16 9:11 11:9 11:4 11:13 | ROBLES Alvaro | XIAO Maria | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -522,15 +490,8 @@
               "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "MITTELHAM Nina (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 9:11 12:10 8:11 13:11 14:12 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -570,7 +531,7 @@
                 "13:11",
                 "5:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / PANFILOVA Maria",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -579,17 +540,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "PANFILOVA Maria (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | CHITALE Diya (IND) | GHORPADE Yashaswini (IND) | ABRAAMIAN Elizabet (AIN) | PANFILOVA Maria (AIN) | WD | Main Draw | SemiFinal | 2 - 3 | 7:11 10:12 12:10 13:11 5:11 | ABRAAMIAN Elizabet | PANFILOVA Maria | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -640,15 +598,8 @@
               "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "XIAO Maria (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) |  | XIAO Maria (ESP) |  | WS | Main Draw | SemiFinal | 3 - 2 | 7:11 11:9 11:3 6:11 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -688,7 +639,7 @@
                 "11:13",
                 "11:5"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / PANFILOVA Maria",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "PANFILOVA Maria (AIN)",
@@ -697,17 +648,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "TAKEYA Misuzu (JPN)"
+                "PANFILOVA Maria (AIN)"
               ],
               "side_b": [
-                "PANFILOVA Maria (AIN)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) | PANFILOVA Maria (AIN) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | Final | 3 - 2 | 11:8 11:7 9:11 11:13 11:5 | ABRAAMIAN Elizabet | PANFILOVA Maria | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -768,15 +716,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | JOO Cheonhui (KOR) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | Final | 3 - 4 | 11:9 11:5 9:11 11:8 4:11 8:11 11:13 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -839,15 +780,8 @@
               "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "PESOTSKA Margaryta (UKR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | ABRAAMIAN Elizabet (AIN) |  | PESOTSKA Margaryta (UKR) |  | WS | Qualification | QR64 | 2 - 3 | 8:11 7:11 11:3 11:8 10:12 | PESOTSKA Margaryta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -900,15 +834,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "MUKHERJEE Ayhika (IND)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Doha 2026 | MUKHERJEE Ayhika (IND) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 6:11 4:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -938,7 +865,7 @@
                 "12:10",
                 "12:10"
               ],
-              "winner": "HAN Feier",
+              "winner": "HAN Feier / FAN Shuhan",
               "all_players_in_row": [
                 "HAN Feier (CHN)",
                 "FAN Shuhan (CHN)",
@@ -947,17 +874,14 @@
               ],
               "side_a": [
                 "HAN Feier (CHN)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "FAN Shuhan (CHN)"
               ],
               "side_b": [
-                "FAN Shuhan (CHN)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Doha 2026 | HAN Feier (CHN) | FAN Shuhan (CHN) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 12:10 12:10 | HAN Feier | FAN Shuhan | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -998,15 +922,8 @@
               "side_b": [
                 "HO Tin-Tin (ENG)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "HO Tin-Tin (ENG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Doha 2026 | ABRAAMIAN Elizabet (AIN) |  | HO Tin-Tin (ENG) |  | WS | Main Draw | R16 | 0 - 3 | 6:11 8:11 2:11 | HO Tin-Tin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1064,15 +981,8 @@
               "side_b": [
                 "POLAKOVA Veronika (CZE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "POLAKOVA Veronika (CZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | ABRAAMIAN Elizabet (AIN) |  | POLAKOVA Veronika (CZE) |  | WS | Qualification |  | 3 - 1 | 11:9 7:11 11:8 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -1117,15 +1027,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "SER Lin Qian (SGP)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | SER Lin Qian (SGP) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification |  | 1 - 3 | 10:12 7:11 12:10 6:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -1165,15 +1068,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "PICARD Claire (FRA)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | PICARD Claire (FRA) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR16 | 0 - 3 | 12:14 6:11 13:15 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1214,15 +1110,8 @@
               "side_b": [
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "FAN Shuhan (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | ABRAAMIAN Elizabet (AIN) |  | FAN Shuhan (CHN) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 12:10 11:9 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1252,7 +1141,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / NG Wing Lam",
               "all_players_in_row": [
                 "DOO Hoi Kem (HKG)",
                 "NG Wing Lam (HKG)",
@@ -1261,17 +1150,14 @@
               ],
               "side_a": [
                 "DOO Hoi Kem (HKG)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "NG Wing Lam (HKG)"
               ],
               "side_b": [
-                "NG Wing Lam (HKG)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | DOO Hoi Kem (HKG) | NG Wing Lam (HKG) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:4 11:7 | DOO Hoi Kem | NG Wing Lam | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1312,15 +1198,8 @@
               "side_b": [
                 "ZONG Geman (CHN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ZONG Geman (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | ABRAAMIAN Elizabet (AIN) |  | ZONG Geman (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 10:12 9:11 | ZONG Geman |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1367,7 +1246,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -1376,17 +1255,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "SER Lin Qian (SGP)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "SER Lin Qian (SGP)",
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | SER Lin Qian (SGP) | KUKULKOVA Tatiana (SVK) | WD | Qualification | QR8 | 3 - 1 | 12:14 11:1 11:4 11:7 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -1421,7 +1297,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "KATSMAN Lev",
+              "winner": "KATSMAN Lev / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "BHATTACHARJEE Ankur (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -1430,17 +1306,14 @@
               ],
               "side_a": [
                 "BHATTACHARJEE Ankur (IND)",
-                "KATSMAN Lev (AIN)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | BHATTACHARJEE Ankur (IND) | GHORPADE Yashaswini (IND) | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | XD | Qualification | QR8 | 1 - 3 | 11:6 2:11 9:11 7:11 | KATSMAN Lev | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -1470,7 +1343,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "HUANG Youzheng",
+              "winner": "HUANG Youzheng / CHEN Yi",
               "all_players_in_row": [
                 "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -1479,17 +1352,14 @@
               ],
               "side_a": [
                 "KATSMAN Lev (AIN)",
-                "HUANG Youzheng (CHN)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "HUANG Youzheng (CHN)",
                 "CHEN Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | HUANG Youzheng (CHN) | CHEN Yi (CHN) | XD | Main Draw | R16 | 0 - 3 | 7:11 8:11 8:11 | HUANG Youzheng | CHEN Yi | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1519,7 +1389,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "BAJOR Natalia (POL)",
                 "POLCANOVA Sofia (AUT)",
@@ -1528,17 +1398,14 @@
               ],
               "side_a": [
                 "BAJOR Natalia (POL)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "POLCANOVA Sofia (AUT)"
               ],
               "side_b": [
-                "POLCANOVA Sofia (AUT)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | BAJOR Natalia (POL) | POLCANOVA Sofia (AUT) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | R16 | 0 - 3 | 7:11 9:11 7:11 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1584,15 +1451,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "NG Wing Lam (HKG)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | NG Wing Lam (HKG) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R64 | 1 - 3 | 4:11 11:13 12:10 7:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1622,7 +1482,7 @@
                 "10:12",
                 "6:11"
               ],
-              "winner": "YOKOI Sakura",
+              "winner": "YOKOI Sakura / ODO Satsuki",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -1631,17 +1491,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "YOKOI Sakura (JPN)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "YOKOI Sakura (JPN)",
                 "ODO Satsuki (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | YOKOI Sakura (JPN) | ODO Satsuki (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 6:11 10:12 6:11 | YOKOI Sakura | ODO Satsuki | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1692,15 +1549,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "POLCANOVA Sofia (AUT)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | POLCANOVA Sofia (AUT) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R32 | 3 - 2 | 11:4 11:6 7:11 5:11 11:5 | POLCANOVA Sofia |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1763,15 +1613,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "KUTUMBALE Anusha (IND)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | KUTUMBALE Anusha (IND) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR16 | 1 - 3 | 11:6 5:11 6:11 6:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1801,7 +1644,7 @@
                 "12:10",
                 "12:10"
               ],
-              "winner": "QUEK Izaac",
+              "winner": "QUEK Izaac / SER Lin Qian",
               "all_players_in_row": [
                 "QUEK Izaac (SGP)",
                 "SER Lin Qian (SGP)",
@@ -1810,17 +1653,14 @@
               ],
               "side_a": [
                 "QUEK Izaac (SGP)",
-                "KATSMAN Lev (AIN)"
+                "SER Lin Qian (SGP)"
               ],
               "side_b": [
-                "SER Lin Qian (SGP)",
+                "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | QUEK Izaac (SGP) | SER Lin Qian (SGP) | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | XD | Qualification | QR8 | 3 - 0 | 13:11 12:10 12:10 | QUEK Izaac | SER Lin Qian | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -1850,7 +1690,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -1859,17 +1699,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | VARADY Barbora (SVK) | KUKULKOVA Tatiana (SVK) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | R16 | 0 - 3 | 6:11 9:11 7:11 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1920,15 +1757,8 @@
               "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ARAPOVIC Hana (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ABRAAMIAN Elizabet (AIN) |  | ARAPOVIC Hana (CRO) |  | WS | Main Draw | R64 | 3 - 2 | 11:9 9:11 5:11 12:10 11:4 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1979,15 +1809,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "CHENG I-Ching (TPE)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | CHENG I-Ching (TPE) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R32 | 2 - 3 | 5:11 7:11 11:7 11:8 10:12 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2022,7 +1845,7 @@
                 "13:11",
                 "17:15"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -2031,17 +1854,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "SZOCS Bernadette (ROU)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:8 11:13 13:11 17:15 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2076,7 +1896,7 @@
                 "8:11",
                 "5:11"
               ],
-              "winner": "JOO Cheonhui",
+              "winner": "JOO Cheonhui / KIM Nayeong",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -2085,17 +1905,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "JOO Cheonhui (KOR)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "JOO Cheonhui (KOR)",
                 "KIM Nayeong (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | JOO Cheonhui (KOR) | KIM Nayeong (KOR) | WD | Main Draw | SemiFinal | 1 - 3 | 5:11 11:7 8:11 5:11 | JOO Cheonhui | KIM Nayeong | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2141,15 +1958,8 @@
               "side_b": [
                 "ZENG Jian (SGP)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ZENG Jian (SGP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ABRAAMIAN Elizabet (AIN) |  | ZENG Jian (SGP) |  | WS | Main Draw | R16 | 1 - 3 | 11:5 8:11 9:11 9:11 | ZENG Jian |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2212,15 +2022,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "PANFILOVA Maria (AIN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | PANFILOVA Maria (AIN) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification |  | 2 - 3 | 8:11 11:7 7:11 11:7 7:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2260,15 +2063,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "DEMIR Merve (TUR)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | DEMIR Merve (TUR) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification |  | 0 - 3 | 5:11 9:11 6:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2302,7 +2098,7 @@
                 "6:11",
                 "4:11"
               ],
-              "winner": "KATSMAN Lev",
+              "winner": "KATSMAN Lev / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "RIOS Carlos (VEN)",
                 "OBANDO Camila (VEN)",
@@ -2311,17 +2107,14 @@
               ],
               "side_a": [
                 "RIOS Carlos (VEN)",
-                "KATSMAN Lev (AIN)"
+                "OBANDO Camila (VEN)"
               ],
               "side_b": [
-                "OBANDO Camila (VEN)",
+                "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | RIOS Carlos (VEN) | OBANDO Camila (VEN) | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | XD | Qualification | QR8 | 1 - 3 | 11:7 4:11 6:11 4:11 | KATSMAN Lev | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -2351,7 +2144,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -2360,17 +2153,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "KIM Dahee (KOR)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "KIM Dahee (KOR)",
                 "YOO Yerin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | KIM Dahee (KOR) | YOO Yerin (KOR) | WD | Qualification | QR8 | 3 - 0 | 11:2 11:6 11:7 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -2410,7 +2200,7 @@
                 "11:4",
                 "9:11"
               ],
-              "winner": "YIGENLER Abdullah",
+              "winner": "YIGENLER Abdullah / YILMAZ Ozge",
               "all_players_in_row": [
                 "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -2419,17 +2209,14 @@
               ],
               "side_a": [
                 "KATSMAN Lev (AIN)",
-                "YIGENLER Abdullah (TUR)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "YIGENLER Abdullah (TUR)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | YIGENLER Abdullah (TUR) | YILMAZ Ozge (TUR) | XD | Main Draw | R16 | 2 - 3 | 8:11 11:2 11:13 11:4 9:11 | YIGENLER Abdullah | YILMAZ Ozge | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2475,15 +2262,8 @@
               "side_b": [
                 "CHOI Haeeun (KOR)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "CHOI Haeeun (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | ABRAAMIAN Elizabet (AIN) |  | CHOI Haeeun (KOR) |  | WS | Main Draw | R64 | 3 - 1 | 12:10 8:11 12:10 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2513,7 +2293,7 @@
                 "10:12",
                 "6:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "HARAC Ece (TUR)",
                 "YILMAZ Ozge (TUR)",
@@ -2522,17 +2302,14 @@
               ],
               "side_a": [
                 "HARAC Ece (TUR)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "YILMAZ Ozge (TUR)"
               ],
               "side_b": [
-                "YILMAZ Ozge (TUR)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | HARAC Ece (TUR) | YILMAZ Ozge (TUR) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | R16 | 0 - 3 | 9:11 10:12 6:11 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2583,15 +2360,8 @@
               "side_b": [
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "KALLBERG Christina (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | ABRAAMIAN Elizabet (AIN) |  | KALLBERG Christina (SWE) |  | WS | Main Draw | R32 | 3 - 2 | 11:6 11:5 7:11 8:11 11:5 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2631,7 +2401,7 @@
                 "10:12",
                 "11:8"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -2640,17 +2410,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "WATANABE Laura (BRA)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "WATANABE Laura (BRA)",
                 "TAKAHASHI Giulia (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WATANABE Laura (BRA) | TAKAHASHI Giulia (BRA) | WD | Main Draw | QuarterFinal | 3 - 2 | 9:11 11:2 11:9 10:12 11:8 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2691,15 +2458,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "TVEIT Leah (SWE)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | TVEIT Leah (SWE) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R16 | 0 - 3 | 6:11 7:11 8:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2734,7 +2494,7 @@
                 "11:7",
                 "10:12"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "SER Lin Qian (SGP)",
                 "LOY Ming Ying (SGP)",
@@ -2743,17 +2503,14 @@
               ],
               "side_a": [
                 "SER Lin Qian (SGP)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "LOY Ming Ying (SGP)"
               ],
               "side_b": [
-                "LOY Ming Ying (SGP)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | SER Lin Qian (SGP) | LOY Ming Ying (SGP) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | SemiFinal | 1 - 3 | 4:11 9:11 11:7 10:12 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2794,15 +2551,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | MESHREF Dina (EGY) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 8:11 9:11 11:13 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2843,15 +2593,8 @@
               "side_b": [
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "IDESAWA Kyoka (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | ABRAAMIAN Elizabet (AIN) |  | IDESAWA Kyoka (JPN) |  | WS | Main Draw | SemiFinal | 0 - 3 | 8:11 5:11 6:11 | IDESAWA Kyoka |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2886,7 +2629,7 @@
                 "8:11",
                 "13:15"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -2895,17 +2638,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | VARADY Barbora (SVK) | KUKULKOVA Tatiana (SVK) | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | WD | Main Draw | Final | 1 - 3 | 9:11 11:8 8:11 13:15 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2958,15 +2698,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "ZHAXYLYKOVA Albina (KAZ)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | ZHAXYLYKOVA Albina (KAZ) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR64 | 0 - 3 | 6:11 3:11 6:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -3012,15 +2745,8 @@
               "side_b": [
                 "SCHREINER Franziska (GER)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "SCHREINER Franziska (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | ABRAAMIAN Elizabet (AIN) |  | SCHREINER Franziska (GER) |  | WS | Qualification | QR32 | 3 - 1 | 12:10 11:3 10:12 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -3061,15 +2787,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "YANG Ha Eun (KOR)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | YANG Ha Eun (KOR) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR16 | 3 - 0 | 11:5 11:6 11:6 | YANG Ha Eun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -3109,7 +2828,7 @@
                 "7:11",
                 "11:7"
               ],
-              "winner": "KATSMAN Lev",
+              "winner": "KATSMAN Lev / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -3118,17 +2837,14 @@
               ],
               "side_a": [
                 "KATSMAN Lev (AIN)",
-                "SIDORENKO Vladimir (AIN)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "SIDORENKO Vladimir (AIN)",
                 "TAILAKOVA Mariia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | SIDORENKO Vladimir (AIN) | TAILAKOVA Mariia (AIN) | XD | Qualification | QR8 | 3 - 2 | 10:12 11:6 11:8 7:11 11:7 | KATSMAN Lev | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -3168,7 +2884,7 @@
                 "11:8",
                 "4:11"
               ],
-              "winner": "HUANG Youzheng",
+              "winner": "HUANG Youzheng / SHI Xunyao",
               "all_players_in_row": [
                 "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -3177,17 +2893,14 @@
               ],
               "side_a": [
                 "KATSMAN Lev (AIN)",
-                "HUANG Youzheng (CHN)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "HUANG Youzheng (CHN)",
                 "SHI Xunyao (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | HUANG Youzheng (CHN) | SHI Xunyao (CHN) | XD | Main Draw | R16 | 2 - 3 | 6:11 8:11 11:3 11:8 4:11 | HUANG Youzheng | SHI Xunyao | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3229,7 +2942,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "SIDORENKO Vladimir",
+              "winner": "SIDORENKO Vladimir / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "IONESCU Eduard (ROU)",
                 "SINGEORZAN Ioana (ROU)",
@@ -3238,17 +2951,14 @@
               ],
               "side_a": [
                 "IONESCU Eduard (ROU)",
-                "SIDORENKO Vladimir (AIN)"
+                "SINGEORZAN Ioana (ROU)"
               ],
               "side_b": [
-                "SINGEORZAN Ioana (ROU)",
+                "SIDORENKO Vladimir (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | IONESCU Eduard (ROU) | SINGEORZAN Ioana (ROU) | SIDORENKO Vladimir (AIN) | ABRAAMIAN Elizabet (AIN) | XD | Main Draw | R64 | 0 - 3 | 7:11 6:11 6:11 | SIDORENKO Vladimir | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3289,15 +2999,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "CASTRO SALAS Victoria Sofia (CRC)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | CASTRO SALAS Victoria Sofia (CRC) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification |  | 0 - 3 | 4:11 2:11 7:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3326,7 +3029,7 @@
                 "11:8",
                 "11:4"
               ],
-              "winner": "SIDORENKO Vladimir",
+              "winner": "SIDORENKO Vladimir / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "SIDORENKO Vladimir (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -3335,17 +3038,14 @@
               ],
               "side_a": [
                 "SIDORENKO Vladimir (AIN)",
-                "ZELINKA Jakub (SVK)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "ZELINKA Jakub (SVK)",
                 "LABOSOVA Ema (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | SIDORENKO Vladimir (AIN) | ABRAAMIAN Elizabet (AIN) | ZELINKA Jakub (SVK) | LABOSOVA Ema (SVK) | XD | Main Draw | R32 | 3 - 0 | 11:8 11:8 11:4 | SIDORENKO Vladimir | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3386,15 +3086,8 @@
               "side_b": [
                 "LIU Crystal (CAN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "LIU Crystal (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ABRAAMIAN Elizabet (AIN) |  | LIU Crystal (CAN) |  | WS | Qualification |  | 3 - 0 | 11:2 11:5 11:4 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3423,7 +3116,7 @@
                 "11:7",
                 "11:3"
               ],
-              "winner": "SIDORENKO Vladimir",
+              "winner": "SIDORENKO Vladimir / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "SIDORENKO Vladimir (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -3432,17 +3125,14 @@
               ],
               "side_a": [
                 "SIDORENKO Vladimir (AIN)",
-                "PICARD Vincent (FRA)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "PICARD Vincent (FRA)",
                 "COK Isa (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | SIDORENKO Vladimir (AIN) | ABRAAMIAN Elizabet (AIN) | PICARD Vincent (FRA) | COK Isa (FRA) | XD | Main Draw | R16 | 3 - 0 | 11:6 11:7 11:3 | SIDORENKO Vladimir | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3477,7 +3167,7 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / TAILAKOVA Mariia",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "TAILAKOVA Mariia (AIN)",
@@ -3486,17 +3176,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "SUNG Joanna (USA)"
+                "TAILAKOVA Mariia (AIN)"
               ],
               "side_b": [
-                "TAILAKOVA Mariia (AIN)",
+                "SUNG Joanna (USA)",
                 "TAN Angie (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ABRAAMIAN Elizabet (AIN) | TAILAKOVA Mariia (AIN) | SUNG Joanna (USA) | TAN Angie (USA) | WD | Main Draw | R64 | 3 - 1 | 11:5 10:12 11:6 11:6 | ABRAAMIAN Elizabet | TAILAKOVA Mariia | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3542,15 +3229,8 @@
               "side_b": [
                 "ABILZADE Khadija (AZE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ABILZADE Khadija (AZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ABRAAMIAN Elizabet (AIN) |  | ABILZADE Khadija (AZE) |  | WS | Main Draw | R128 | 4 - 0 | 11:2 11:6 11:5 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3600,7 +3280,7 @@
                 "11:9",
                 "12:10"
               ],
-              "winner": "CHAN Baldwin",
+              "winner": "CHAN Baldwin / WONG Hoi Tung",
               "all_players_in_row": [
                 "CHAN Baldwin (HKG)",
                 "WONG Hoi Tung (HKG)",
@@ -3609,17 +3289,14 @@
               ],
               "side_a": [
                 "CHAN Baldwin (HKG)",
-                "SIDORENKO Vladimir (AIN)"
+                "WONG Hoi Tung (HKG)"
               ],
               "side_b": [
-                "WONG Hoi Tung (HKG)",
+                "SIDORENKO Vladimir (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | CHAN Baldwin (HKG) | WONG Hoi Tung (HKG) | SIDORENKO Vladimir (AIN) | ABRAAMIAN Elizabet (AIN) | XD | Main Draw | QuarterFinal | 4 - 3 | 9:11 8:11 11:9 12:10 7:11 11:9 12:10 | CHAN Baldwin | WONG Hoi Tung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3665,15 +3342,8 @@
               "side_b": [
                 "HARAC Ece (TUR)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "HARAC Ece (TUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ABRAAMIAN Elizabet (AIN) |  | HARAC Ece (TUR) |  | WS | Main Draw | R64 | 4 - 0 | 11:8 11:1 11:4 11:1 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3703,7 +3373,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "NG Wing Lam",
+              "winner": "NG Wing Lam / WONG Hoi Tung",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "TAILAKOVA Mariia (AIN)",
@@ -3712,17 +3382,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "NG Wing Lam (HKG)"
+                "TAILAKOVA Mariia (AIN)"
               ],
               "side_b": [
-                "TAILAKOVA Mariia (AIN)",
+                "NG Wing Lam (HKG)",
                 "WONG Hoi Tung (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | ABRAAMIAN Elizabet (AIN) | TAILAKOVA Mariia (AIN) | NG Wing Lam (HKG) | WONG Hoi Tung (HKG) | WD | Main Draw | R32 | 0 - 3 | 4:11 9:11 9:11 | NG Wing Lam | WONG Hoi Tung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3778,15 +3445,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "LEE Hoi Man (HKG)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | LEE Hoi Man (HKG) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R32 | 2 - 4 | 11:9 11:9 4:11 8:11 7:11 4:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3832,15 +3492,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "WANG Xiaotong (CHN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | FISU World University Games Rhine-Ruhr 2025 | WANG Xiaotong (CHN) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R16 | 4 - 0 | 11:6 13:11 11:6 11:5 | WANG Xiaotong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3903,15 +3556,8 @@
               "side_b": [
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "LIU Yangzi (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | ABRAAMIAN Elizabet (AIN) |  | LIU Yangzi (AUS) |  | WS | Main Draw | R32 | 2 - 3 | 11:3 9:11 9:11 11:7 9:11 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3969,15 +3615,8 @@
               "side_b": [
                 "QI Fei (CHN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "QI Fei (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | ABRAAMIAN Elizabet (AIN) |  | QI Fei (CHN) |  | WS | Qualification | QR32 | 0 - 3 | 0:11 0:11 0:11 | QI Fei |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4045,15 +3684,8 @@
               "side_b": [
                 "HARTBRICH Leonie (HUN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "HARTBRICH Leonie (HUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | ABRAAMIAN Elizabet (AIN) |  | HARTBRICH Leonie (HUN) |  | WS | Main Draw | R64 | 4 - 2 | 9:11 11:8 11:2 11:6 8:11 11:9 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4083,7 +3715,7 @@
                 "11:0",
                 "11:0"
               ],
-              "winner": "CHEN Alexander",
+              "winner": "CHEN Alexander / MISCHEK Karoline",
               "all_players_in_row": [
                 "CHEN Alexander (AUT)",
                 "MISCHEK Karoline (AUT)",
@@ -4092,17 +3724,14 @@
               ],
               "side_a": [
                 "CHEN Alexander (AUT)",
-                "GREBNEV Maksim (AIN)"
+                "MISCHEK Karoline (AUT)"
               ],
               "side_b": [
-                "MISCHEK Karoline (AUT)",
+                "GREBNEV Maksim (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | CHEN Alexander (AUT) | MISCHEK Karoline (AUT) | GREBNEV Maksim (AIN) | ABRAAMIAN Elizabet (AIN) | XD | Main Draw | R16 | 3 - 0 | 11:0 11:0 11:0 | CHEN Alexander | MISCHEK Karoline | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4153,15 +3782,8 @@
               "side_b": [
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "KUKULKOVA Tatiana (SVK)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | ABRAAMIAN Elizabet (AIN) |  | KUKULKOVA Tatiana (SVK) |  | WS | Main Draw | R32 | 4 - 1 | 11:7 11:3 11:6 8:11 11:5 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4222,15 +3844,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "BERGAND Filippa (SWE)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | BERGAND Filippa (SWE) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R16 | 3 - 4 | 11:9 5:11 5:11 5:11 11:6 11:6 7:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4281,15 +3896,8 @@
               "side_b": [
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ZHANG Sofia-Xuan (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | ABRAAMIAN Elizabet (AIN) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 7:11 11:4 11:7 11:9 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4340,15 +3948,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | PICCOLIN Giorgia (ITA) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | SemiFinal | 1 - 4 | 5:11 7:11 5:11 11:3 10:12 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4409,15 +4010,8 @@
               "side_b": [
                 "SOLJA Amelie (AUT)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "SOLJA Amelie (AUT)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | ABRAAMIAN Elizabet (AIN) |  | SOLJA Amelie (AUT) |  | WS | Main Draw | Final | 4 - 3 | 11:13 7:11 11:7 8:11 11:6 11:5 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4485,15 +4079,8 @@
               "side_b": [
                 "CHEN Yi (CHN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "CHEN Yi (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | ABRAAMIAN Elizabet (AIN) |  | CHEN Yi (CHN) |  | U19WT | Main Draw | QuarterFinal | 3 - 2 | 2:11 5:11 13:11 11:9 12:10 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -4534,15 +4121,8 @@
               "side_b": [
                 "KUAI Man (CHN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "KUAI Man (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | ABRAAMIAN Elizabet (AIN) |  | KUAI Man (CHN) |  | U19WT | Main Draw | QuarterFinal | 0 - 3 | 6:11 9:11 6:11 | KUAI Man |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -4572,7 +4152,7 @@
                 "9:11",
                 "11:13"
               ],
-              "winner": "SIDORENKO Vladimir",
+              "winner": "SIDORENKO Vladimir / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "RINDERER Daniel (GER)",
                 "FATHY Hend (EGY)",
@@ -4581,17 +4161,14 @@
               ],
               "side_a": [
                 "RINDERER Daniel (GER)",
-                "SIDORENKO Vladimir (AIN)"
+                "FATHY Hend (EGY)"
               ],
               "side_b": [
-                "FATHY Hend (EGY)",
+                "SIDORENKO Vladimir (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | RINDERER Daniel (GER) | FATHY Hend (EGY) | SIDORENKO Vladimir (AIN) | ABRAAMIAN Elizabet (AIN) | U19XD | Main Draw | R32 | 0 - 3 | 1:11 9:11 11:13 | SIDORENKO Vladimir | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4626,7 +4203,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "SUNG Rachel",
+              "winner": "SUNG Rachel / WANG Amy",
               "all_players_in_row": [
                 "SUNG Rachel (USA)",
                 "WANG Amy (USA)",
@@ -4635,17 +4212,14 @@
               ],
               "side_a": [
                 "SUNG Rachel (USA)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | SUNG Rachel (USA) | WANG Amy (USA) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | R16 | 3 - 1 | 10:12 11:9 11:9 11:6 | SUNG Rachel | WANG Amy | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -4675,7 +4249,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "SIDORENKO Vladimir",
+              "winner": "SIDORENKO Vladimir / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "FERNANDEZ Carlos (PER)",
                 "DYMYTRENKO Anastasiya (UKR)",
@@ -4684,17 +4258,14 @@
               ],
               "side_a": [
                 "FERNANDEZ Carlos (PER)",
-                "SIDORENKO Vladimir (AIN)"
+                "DYMYTRENKO Anastasiya (UKR)"
               ],
               "side_b": [
-                "DYMYTRENKO Anastasiya (UKR)",
+                "SIDORENKO Vladimir (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | FERNANDEZ Carlos (PER) | DYMYTRENKO Anastasiya (UKR) | SIDORENKO Vladimir (AIN) | ABRAAMIAN Elizabet (AIN) | U19XD | Main Draw | R16 | 0 - 3 | 5:11 7:11 5:11 | SIDORENKO Vladimir | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4729,7 +4300,7 @@
                 "11:1",
                 "12:10"
               ],
-              "winner": "XIANG Peng",
+              "winner": "XIANG Peng / KUAI Man",
               "all_players_in_row": [
                 "XIANG Peng (CHN)",
                 "KUAI Man (CHN)",
@@ -4738,17 +4309,14 @@
               ],
               "side_a": [
                 "XIANG Peng (CHN)",
-                "SIDORENKO Vladimir (AIN)"
+                "KUAI Man (CHN)"
               ],
               "side_b": [
-                "KUAI Man (CHN)",
+                "SIDORENKO Vladimir (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | XIANG Peng (CHN) | KUAI Man (CHN) | SIDORENKO Vladimir (AIN) | ABRAAMIAN Elizabet (AIN) | U19XD | Main Draw | QuarterFinal | 3 - 1 | 11:9 7:11 11:1 12:10 | XIANG Peng | KUAI Man | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4799,15 +4367,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "YILMAZ Ozge (TUR)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | YILMAZ Ozge (TUR) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | R32 | 1 - 4 | 15:13 8:11 3:11 10:12 6:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -4853,15 +4414,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "MAGDIEVA Markhabo (UZB)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | MAGDIEVA Markhabo (UZB) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | R16 | 0 - 4 | 1:11 10:12 5:11 7:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -4912,15 +4466,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "WU Yangchen (CHN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Youth Championships Vila Nova de Gaia 2021 | WU Yangchen (CHN) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | QuarterFinal | 4 - 1 | 11:8 11:6 7:11 11:4 11:5 | WU Yangchen |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -4972,7 +4519,7 @@
                 "10:12",
                 "11:7"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)",
@@ -4981,17 +4528,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "MALOBABIC Ivana (CRO)"
+                "MALININA Natalia (AIN)"
               ],
               "side_b": [
-                "MALININA Natalia (AIN)",
+                "MALOBABIC Ivana (CRO)",
                 "JAZBEC Ida (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | MALOBABIC Ivana (CRO) | JAZBEC Ida (CRO) | WD | Main Draw | R64 | 3 - 2 | 11:9 4:11 11:3 10:12 11:7 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5021,7 +4565,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "JEON Jihee (KOR)",
                 "SHIN Yubin (KOR)",
@@ -5030,17 +4574,14 @@
               ],
               "side_a": [
                 "JEON Jihee (KOR)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "SHIN Yubin (KOR)"
               ],
               "side_b": [
-                "SHIN Yubin (KOR)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | JEON Jihee (KOR) | SHIN Yubin (KOR) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | WD | Main Draw | R32 | 0 - 3 | 0:0 0:0 0:0 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5070,7 +4611,7 @@
                 "9:11",
                 "10:12"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Zion",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)",
@@ -5079,17 +4620,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "CHOI Hyojoo (KOR)"
+                "MALININA Natalia (AIN)"
               ],
               "side_b": [
-                "MALININA Natalia (AIN)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | R16 | 0 - 3 | 8:11 9:11 10:12 | CHOI Hyojoo | LEE Zion | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5136,7 +4674,7 @@
                 "10:12",
                 "11:8"
               ],
-              "winner": "TAILAKOVA Mariia",
+              "winner": "TAILAKOVA Mariia / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "TAILAKOVA Mariia (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -5145,17 +4683,14 @@
               ],
               "side_a": [
                 "TAILAKOVA Mariia (AIN)",
-                "RILISKYTE Kornelija (LTU)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "RILISKYTE Kornelija (LTU)",
                 "KISEL Darya (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | TAILAKOVA Mariia (AIN) | ABRAAMIAN Elizabet (AIN) | RILISKYTE Kornelija (LTU) | KISEL Darya (AIN) | WD | Main Draw | R16 | 3 - 1 | 13:11 11:6 10:12 11:8 | TAILAKOVA Mariia | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5190,7 +4725,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "TAILAKOVA Mariia",
+              "winner": "TAILAKOVA Mariia / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "TAILAKOVA Mariia (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -5199,17 +4734,14 @@
               ],
               "side_a": [
                 "TAILAKOVA Mariia (AIN)",
-                "SCHREINER Franziska (GER)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "SCHREINER Franziska (GER)",
                 "KAUFMANN Annett (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | TAILAKOVA Mariia (AIN) | ABRAAMIAN Elizabet (AIN) | SCHREINER Franziska (GER) | KAUFMANN Annett (GER) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:7 9:11 11:9 11:6 | TAILAKOVA Mariia | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5244,7 +4776,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "YILMAZ Ozge",
+              "winner": "YILMAZ Ozge / HARAC Ece",
               "all_players_in_row": [
                 "TAILAKOVA Mariia (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -5253,17 +4785,14 @@
               ],
               "side_a": [
                 "TAILAKOVA Mariia (AIN)",
-                "YILMAZ Ozge (TUR)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "YILMAZ Ozge (TUR)",
                 "HARAC Ece (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | TAILAKOVA Mariia (AIN) | ABRAAMIAN Elizabet (AIN) | YILMAZ Ozge (TUR) | HARAC Ece (TUR) | WD | Main Draw | SemiFinal | 1 - 3 | 8:11 11:6 6:11 7:11 | YILMAZ Ozge | HARAC Ece | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5309,15 +4838,8 @@
               "side_b": [
                 "MUSKANTOR Rebecca (SWE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "MUSKANTOR Rebecca (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ABRAAMIAN Elizabet (AIN) |  | MUSKANTOR Rebecca (SWE) |  | WS | Qualification |  | 4 - 0 | 11:8 12:10 13:11 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5377,15 +4899,8 @@
               "side_b": [
                 "KISEL Darya (AIN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "KISEL Darya (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ABRAAMIAN Elizabet (AIN) |  | KISEL Darya (AIN) |  | WS | Qualification |  | 4 - 3 | 11:6 7:11 11:6 9:11 11:8 6:11 11:4 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5430,15 +4945,8 @@
               "side_b": [
                 "DARI Helga (HUN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "DARI Helga (HUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ABRAAMIAN Elizabet (AIN) |  | DARI Helga (HUN) |  | WS | Qualification |  | 4 - 0 | 11:8 11:9 11:5 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5483,15 +4991,8 @@
               "side_b": [
                 "ROOSE Alma (SWE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ROOSE Alma (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ABRAAMIAN Elizabet (AIN) |  | ROOSE Alma (SWE) |  | WS | Qualification |  | 4 - 0 | 11:8 11:4 11:9 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5541,15 +5042,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "LAURENTI Jamila (ITA)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | LAURENTI Jamila (ITA) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification |  | 1 - 4 | 12:10 4:11 3:11 6:11 4:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5594,15 +5088,8 @@
               "side_b": [
                 "OZKAYA Gul Pembe (TUR)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "OZKAYA Gul Pembe (TUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ABRAAMIAN Elizabet (AIN) |  | OZKAYA Gul Pembe (TUR) |  | WS | Qualification |  | 4 - 0 | 11:3 11:7 11:5 11:5 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5652,15 +5139,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "ZAHARIA Elena (ROU)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ZAHARIA Elena (ROU) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R16 | 4 - 1 | 9:11 11:9 15:13 11:9 11:7 | ZAHARIA Elena |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5700,7 +5180,7 @@
                 "6:11",
                 "11:4"
               ],
-              "winner": "KATSMAN Lev",
+              "winner": "KATSMAN Lev / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -5709,17 +5189,14 @@
               ],
               "side_a": [
                 "KATSMAN Lev (AIN)",
-                "DEGROS Nicolas (BEL)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "DEGROS Nicolas (BEL)",
                 "HARAC Ece (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | DEGROS Nicolas (BEL) | HARAC Ece (TUR) | XD | Main Draw | R32 | 3 - 2 | 11:6 11:13 11:7 6:11 11:4 | KATSMAN Lev | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5749,7 +5226,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "KATSMAN Lev",
+              "winner": "KATSMAN Lev / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -5758,17 +5235,14 @@
               ],
               "side_a": [
                 "KATSMAN Lev (AIN)",
-                "PLETEA Cristian (ROU)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "PLETEA Cristian (ROU)",
                 "PLAIAN Tania (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | PLETEA Cristian (ROU) | PLAIAN Tania (ROU) | XD | Main Draw | R16 | 3 - 0 | 11:7 11:7 11:4 | KATSMAN Lev | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5798,7 +5272,7 @@
                 "11:3",
                 "11:8"
               ],
-              "winner": "BERTRAND Irvin",
+              "winner": "BERTRAND Irvin / MOSTAFAVI Leili",
               "all_players_in_row": [
                 "BERTRAND Irvin (FRA)",
                 "MOSTAFAVI Leili (FRA)",
@@ -5807,17 +5281,14 @@
               ],
               "side_a": [
                 "BERTRAND Irvin (FRA)",
-                "KATSMAN Lev (AIN)"
+                "MOSTAFAVI Leili (FRA)"
               ],
               "side_b": [
-                "MOSTAFAVI Leili (FRA)",
+                "KATSMAN Lev (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | BERTRAND Irvin (FRA) | MOSTAFAVI Leili (FRA) | KATSMAN Lev (AIN) | ABRAAMIAN Elizabet (AIN) | XD | Main Draw | QuarterFinal | 3 - 0 | 13:11 11:3 11:8 | BERTRAND Irvin | MOSTAFAVI Leili | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5870,15 +5341,8 @@
               "side_b": [
                 "NOVAK Tjasa (SLO)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "NOVAK Tjasa (SLO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | ABRAAMIAN Elizabet (AIN) |  | NOVAK Tjasa (SLO) |  | WS | Qualification | QR32 | 3 - 0 | 11:5 11:8 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5924,15 +5388,8 @@
               "side_b": [
                 "ZARIF Audrey (FRA)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ZARIF Audrey (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | ABRAAMIAN Elizabet (AIN) |  | ZARIF Audrey (FRA) |  | WS | Qualification | QR16 | 3 - 1 | 6:11 12:10 11:9 11:3 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5962,7 +5419,7 @@
                 "11:3",
                 "11:4"
               ],
-              "winner": "BATRA Manika",
+              "winner": "BATRA Manika / KAMATH Archana",
               "all_players_in_row": [
                 "BATRA Manika (IND)",
                 "KAMATH Archana (IND)",
@@ -5971,17 +5428,14 @@
               ],
               "side_a": [
                 "BATRA Manika (IND)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "KAMATH Archana (IND)"
               ],
               "side_b": [
-                "KAMATH Archana (IND)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "NOSKOVA Yana (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | BATRA Manika (IND) | KAMATH Archana (IND) | ABRAAMIAN Elizabet (AIN) | NOSKOVA Yana (AIN) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:3 11:4 | BATRA Manika | KAMATH Archana | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6032,15 +5486,8 @@
               "side_b": [
                 "NI Xia Lian (LUX)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "NI Xia Lian (LUX)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | ABRAAMIAN Elizabet (AIN) |  | NI Xia Lian (LUX) |  | WS | Main Draw | R32 | 3 - 2 | 14:12 1:11 2:11 11:8 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6081,15 +5528,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "KAUFMANN Annett (GER)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | KAUFMANN Annett (GER) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 4:11 5:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6130,15 +5570,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "WANG Yidi (CHN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | WANG Yidi (CHN) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:8 11:3 | WANG Yidi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6191,15 +5624,8 @@
               "side_b": [
                 "VASENDOVA Jana (CZE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "VASENDOVA Jana (CZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ABRAAMIAN Elizabet (AIN) |  | VASENDOVA Jana (CZE) |  | U19WS | Qualification |  | 3 - 0 | 11:8 11:5 14:12 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6239,15 +5665,8 @@
               "side_b": [
                 "MEI-ROSU Bianca (ROU)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "MEI-ROSU Bianca (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ABRAAMIAN Elizabet (AIN) |  | MEI-ROSU Bianca (ROU) |  | U19WS | Qualification |  | 3 - 0 | 11:7 11:4 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6292,15 +5711,8 @@
               "side_b": [
                 "SZTWIERTNIA Ilona (POL)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "SZTWIERTNIA Ilona (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ABRAAMIAN Elizabet (AIN) |  | SZTWIERTNIA Ilona (POL) |  | U19WS | Qualification |  | 3 - 1 | 11:8 11:9 19:21 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6329,7 +5741,7 @@
                 "11:5",
                 "13:11"
               ],
-              "winner": "ZAHARIA Elena",
+              "winner": "ZAHARIA Elena / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "ZAHARIA Elena (ROU)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -6338,17 +5750,14 @@
               ],
               "side_a": [
                 "ZAHARIA Elena (ROU)",
-                "LUTZ Charlotte (FRA)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "LUTZ Charlotte (FRA)",
                 "MOBAREK Lucie (ALG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ZAHARIA Elena (ROU) | ABRAAMIAN Elizabet (AIN) | LUTZ Charlotte (FRA) | MOBAREK Lucie (ALG) | U19WD | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:5 13:11 | ZAHARIA Elena | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -6394,15 +5803,8 @@
               "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "LUTZ Charlotte (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ABRAAMIAN Elizabet (AIN) |  | LUTZ Charlotte (FRA) |  | U19WS | Main Draw | R16 | 3 - 1 | 11:7 11:6 3:11 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6448,15 +5850,8 @@
               "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ARAPOVIC Hana (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ABRAAMIAN Elizabet (AIN) |  | ARAPOVIC Hana (CRO) |  | U19WS | Main Draw | QuarterFinal | 3 - 1 | 11:6 11:7 9:11 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6486,7 +5881,7 @@
                 "11:1",
                 "11:5"
               ],
-              "winner": "ZAHARIA Elena",
+              "winner": "ZAHARIA Elena / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "ZAHARIA Elena (ROU)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -6495,17 +5890,14 @@
               ],
               "side_a": [
                 "ZAHARIA Elena (ROU)",
-                "MITROFAN Luciana (ROU)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "MITROFAN Luciana (ROU)",
                 "SINGEORZAN Ioana (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ZAHARIA Elena (ROU) | ABRAAMIAN Elizabet (AIN) | MITROFAN Luciana (ROU) | SINGEORZAN Ioana (ROU) | U19WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:1 11:5 | ZAHARIA Elena | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -6551,15 +5943,8 @@
               "side_b": [
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "VORONINA Vlada (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ABRAAMIAN Elizabet (AIN) |  | VORONINA Vlada (AIN) |  | U19WS | Main Draw | SemiFinal | 1 - 3 | 11:5 9:11 8:11 4:11 | VORONINA Vlada |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6599,7 +5984,7 @@
                 "11:6",
                 "11:4"
               ],
-              "winner": "ZAHARIA Elena",
+              "winner": "ZAHARIA Elena / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "ZAHARIA Elena (ROU)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -6608,17 +5993,14 @@
               ],
               "side_a": [
                 "ZAHARIA Elena (ROU)",
-                "ZADEROVA Linda (CZE)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "ZADEROVA Linda (CZE)",
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Wladyslawowo 2021 | ZAHARIA Elena (ROU) | ABRAAMIAN Elizabet (AIN) | ZADEROVA Linda (CZE) | ARAPOVIC Hana (CRO) | U19WD | Main Draw | Final | 3 - 2 | 8:11 13:11 9:11 11:6 11:4 | ZAHARIA Elena | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -6671,15 +6053,8 @@
               "side_b": [
                 "GHORPADE Yashaswini (IND)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "GHORPADE Yashaswini (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | ABRAAMIAN Elizabet (AIN) |  | GHORPADE Yashaswini (IND) |  | U19WS | Qualification |  | 3 - 0 | 11:2 11:6 11:9 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6719,15 +6094,8 @@
               "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "LUTZ Charlotte (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | ABRAAMIAN Elizabet (AIN) |  | LUTZ Charlotte (FRA) |  | U19WS | Qualification |  | 0 - 3 | 9:11 6:11 9:11 | LUTZ Charlotte |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6767,15 +6135,8 @@
               "side_b": [
                 "SALGADO Ines (POR)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "SALGADO Ines (POR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | ABRAAMIAN Elizabet (AIN) |  | SALGADO Ines (POR) |  | U19WS | Qualification |  | 3 - 0 | 11:5 11:2 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6804,7 +6165,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "TENTSER Liubov (AIN)",
                 "DARI Helga (HUN)",
@@ -6813,17 +6174,14 @@
               ],
               "side_a": [
                 "TENTSER Liubov (AIN)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "DARI Helga (HUN)"
               ],
               "side_b": [
-                "DARI Helga (HUN)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | TENTSER Liubov (AIN) | DARI Helga (HUN) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | QuarterFinal | 0 - 3 | 9:11 6:11 6:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -6869,15 +6227,8 @@
               "side_b": [
                 "KLEE Sophia (GER)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "KLEE Sophia (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | ABRAAMIAN Elizabet (AIN) |  | KLEE Sophia (GER) |  | U19WS | Main Draw | R16 | 3 - 1 | 11:8 11:5 6:11 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6918,15 +6269,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "BONDAREVA Anastasia (GER)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | BONDAREVA Anastasia (GER) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | QuarterFinal | 0 - 3 | 5:11 10:12 8:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6956,7 +6300,7 @@
                 "11:8",
                 "11:5"
               ],
-              "winner": "LUTZ Camille",
+              "winner": "LUTZ Camille / LUTZ Charlotte",
               "all_players_in_row": [
                 "LUTZ Camille (FRA)",
                 "LUTZ Charlotte (FRA)",
@@ -6965,17 +6309,14 @@
               ],
               "side_a": [
                 "LUTZ Camille (FRA)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "LUTZ Charlotte (FRA)"
               ],
               "side_b": [
-                "LUTZ Charlotte (FRA)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | LUTZ Camille (FRA) | LUTZ Charlotte (FRA) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | SemiFinal | 3 - 0 | 11:3 11:8 11:5 | LUTZ Camille | LUTZ Charlotte | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7026,15 +6367,8 @@
               "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "GODA Hana (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | ABRAAMIAN Elizabet (AIN) |  | GODA Hana (EGY) |  | U19WS | Main Draw | SemiFinal | 3 - 2 | 11:6 9:11 9:11 11:6 11:5 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7075,15 +6409,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "LUTZ Camille (FRA)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Star Contender Lisbon 2021 | LUTZ Camille (FRA) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | Final | 3 - 0 | 12:10 11:7 12:10 | LUTZ Camille |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7136,15 +6463,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "PAVLOVIC Andrea (CRO)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | PAVLOVIC Andrea (CRO) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 10:12 5:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -7185,15 +6505,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "NIKITCHANKA Alina (AIN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | NIKITCHANKA Alina (AIN) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 5:11 6:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -7223,7 +6536,7 @@
                 "11:13",
                 "6:11"
               ],
-              "winner": "TAILAKOVA Mariia",
+              "winner": "TAILAKOVA Mariia / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "WINTER Sabine (GER)",
                 "VEGA Paulina (CHI)",
@@ -7232,17 +6545,14 @@
               ],
               "side_a": [
                 "WINTER Sabine (GER)",
-                "TAILAKOVA Mariia (AIN)"
+                "VEGA Paulina (CHI)"
               ],
               "side_b": [
-                "VEGA Paulina (CHI)",
+                "TAILAKOVA Mariia (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | WINTER Sabine (GER) | VEGA Paulina (CHI) | TAILAKOVA Mariia (AIN) | ABRAAMIAN Elizabet (AIN) | WD | Main Draw | R16 | 0 - 3 | 6:11 11:13 6:11 | TAILAKOVA Mariia | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7288,15 +6598,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "TRIGOLOS Daria (AIN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | TRIGOLOS Daria (AIN) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 9:11 11:13 12:14 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7336,7 +6639,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "TAILAKOVA Mariia (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -7345,17 +6648,14 @@
               ],
               "side_a": [
                 "TAILAKOVA Mariia (AIN)",
-                "BERGSTROM Linda (SWE)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | TAILAKOVA Mariia (AIN) | ABRAAMIAN Elizabet (AIN) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | QuarterFinal | 2 - 3 | 11:5 8:11 11:7 6:11 6:11 | BERGSTROM Linda | KALLBERG Christina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7401,15 +6701,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "NAGYVARADI Mercedes (HUN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | NAGYVARADI Mercedes (HUN) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | R16 | 1 - 3 | 6:11 12:10 10:12 8:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7450,15 +6743,8 @@
               "side_b": [
                 "MIKHAILOVA Polina (AIN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "MIKHAILOVA Polina (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | ABRAAMIAN Elizabet (AIN) |  | MIKHAILOVA Polina (AIN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:6 11:5 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7504,15 +6790,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "BATRA Manika (IND)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | BATRA Manika (IND) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | SemiFinal | 0 - 4 | 10:12 9:11 10:12 8:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7558,15 +6837,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "YANG Xiaoxin (MON)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Budapest 2021 | YANG Xiaoxin (MON) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | Final | 4 - 0 | 11:9 12:10 11:6 11:1 | YANG Xiaoxin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7608,7 +6880,7 @@
                 "8:11",
                 "4:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "KASES Michelle (AUT)",
                 "SAROFEM Juliana (AUT)",
@@ -7617,17 +6889,14 @@
               ],
               "side_a": [
                 "KASES Michelle (AUT)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "SAROFEM Juliana (AUT)"
               ],
               "side_b": [
-                "SAROFEM Juliana (AUT)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | KASES Michelle (AUT) | SAROFEM Juliana (AUT) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | R64 | 0 - 3 | 7:11 8:11 4:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7657,7 +6926,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "HRABICOVA Klara (CZE)",
                 "HANAKOVA Nela (CZE)",
@@ -7666,17 +6935,14 @@
               ],
               "side_a": [
                 "HRABICOVA Klara (CZE)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "HANAKOVA Nela (CZE)"
               ],
               "side_b": [
-                "HANAKOVA Nela (CZE)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | HRABICOVA Klara (CZE) | HANAKOVA Nela (CZE) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | R32 | 0 - 3 | 8:11 9:11 6:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7716,7 +6982,7 @@
                 "5:11",
                 "3:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "MITROFAN Luciana (ROU)",
                 "RILISKYTE Emilija (LTU)",
@@ -7725,17 +6991,14 @@
               ],
               "side_a": [
                 "MITROFAN Luciana (ROU)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "RILISKYTE Emilija (LTU)"
               ],
               "side_b": [
-                "RILISKYTE Emilija (LTU)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | MITROFAN Luciana (ROU) | RILISKYTE Emilija (LTU) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | R16 | 2 - 3 | 10:12 11:4 13:11 5:11 3:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7770,7 +7033,7 @@
                 "11:9",
                 "5:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "PRANJKOVIC Naomi (GER)",
                 "MERENCO Camelia (MDA)",
@@ -7779,17 +7042,14 @@
               ],
               "side_a": [
                 "PRANJKOVIC Naomi (GER)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "MERENCO Camelia (MDA)"
               ],
               "side_b": [
-                "MERENCO Camelia (MDA)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | PRANJKOVIC Naomi (GER) | MERENCO Camelia (MDA) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | QuarterFinal | 1 - 3 | 5:11 6:11 11:9 5:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7824,7 +7084,7 @@
                 "11:8",
                 "12:10"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)",
@@ -7833,17 +7093,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "BRZYSKA Anna (POL)"
+                "MALININA Natalia (AIN)"
               ],
               "side_b": [
-                "MALININA Natalia (AIN)",
+                "BRZYSKA Anna (POL)",
                 "WIELGOS Zuzanna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | BRZYSKA Anna (POL) | WIELGOS Zuzanna (POL) | U19WD | Main Draw | SemiFinal | 3 - 1 | 11:7 6:11 11:8 12:10 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7878,7 +7135,7 @@
                 "7:11",
                 "9:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "KLEE Sophia (GER)",
                 "BONDAREVA Anastasia (GER)",
@@ -7887,17 +7144,14 @@
               ],
               "side_a": [
                 "KLEE Sophia (GER)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "BONDAREVA Anastasia (GER)"
               ],
               "side_b": [
-                "BONDAREVA Anastasia (GER)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | KLEE Sophia (GER) | BONDAREVA Anastasia (GER) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | Final | 1 - 3 | 10:12 11:9 7:11 9:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7943,15 +7197,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "ALKHOUSKAYA Ulyana (AIN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ALKHOUSKAYA Ulyana (AIN) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | R64 | 0 - 4 | 8:11 8:11 14:16 4:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8002,15 +7249,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "RILISKYTE Kornelija (LTU)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | RILISKYTE Kornelija (LTU) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | R32 | 1 - 4 | 7:11 11:8 5:11 6:11 9:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8071,15 +7311,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "SINGEORZAN Ioana (ROU)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | SINGEORZAN Ioana (ROU) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | R16 | 3 - 4 | 11:9 15:13 11:13 13:11 5:11 7:11 7:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8130,15 +7363,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "TOMINJAK Radmila (SRB)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | TOMINJAK Radmila (SRB) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | QuarterFinal | 1 - 4 | 11:7 2:11 4:11 2:11 2:11 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8189,15 +7415,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "LUTZ Camille (FRA)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | LUTZ Camille (FRA) |  | ABRAAMIAN Elizabet (AIN) |  | U19WS | Main Draw | SemiFinal | 1 - 4 | 13:11 3:11 5:11 6:11 11:13 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8243,15 +7462,8 @@
               "side_b": [
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "MALININA Natalia (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | MALININA Natalia (AIN) |  | U19WS | Main Draw | Final | 4 - 0 | 11:6 11:5 11:5 11:1 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8292,15 +7504,8 @@
               "side_b": [
                 "MUSKANTOR Rebecca (SWE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "MUSKANTOR Rebecca (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | MUSKANTOR Rebecca (SWE) |  | U19WT | Qualification |  | 3 - 0 | 11:8 13:11 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -8345,15 +7550,8 @@
               "side_b": [
                 "BAASAN Nomin (SWE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "BAASAN Nomin (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | BAASAN Nomin (SWE) |  | U19WT | Qualification |  | 3 - 1 | 12:14 11:3 11:5 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -8393,15 +7591,8 @@
               "side_b": [
                 "ZADEROVA Linda (CZE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ZADEROVA Linda (CZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | ZADEROVA Linda (CZE) |  | U19WT | Qualification |  | 3 - 0 | 11:9 11:7 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -8441,15 +7632,8 @@
               "side_b": [
                 "HRABICOVA Klara (CZE)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "HRABICOVA Klara (CZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | HRABICOVA Klara (CZE) |  | U19WT | Qualification |  | 3 - 0 | 11:8 11:8 11:5 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -8489,15 +7673,8 @@
               "side_b": [
                 "VAN DER VENNE Chana (NED)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "VAN DER VENNE Chana (NED)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | VAN DER VENNE Chana (NED) |  | U19WT | Qualification |  | 3 - 0 | 11:3 11:7 11:4 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -8547,15 +7724,8 @@
               "side_b": [
                 "ERNST Emine (NED)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "ERNST Emine (NED)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | ERNST Emine (NED) |  | U19WT | Qualification |  | 3 - 2 | 11:6 11:6 6:11 8:11 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -8600,15 +7770,8 @@
               "side_b": [
                 "SASTRE Eugenia (ESP)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "SASTRE Eugenia (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | SASTRE Eugenia (ESP) |  | U19WT | Main Draw | R16 | 3 - 1 | 9:11 11:7 11:7 11:3 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -8649,15 +7812,8 @@
               "side_b": [
                 "CRISTOBAL Ainhoa (ESP)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "CRISTOBAL Ainhoa (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | CRISTOBAL Ainhoa (ESP) |  | U19WT | Main Draw | R16 | 3 - 0 | 11:8 11:7 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -8698,15 +7854,8 @@
               "side_b": [
                 "KLEE Sophia (GER)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "KLEE Sophia (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | KLEE Sophia (GER) |  | U19WT | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:8 11:9 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -8747,15 +7896,8 @@
               "side_b": [
                 "COK Isa (FRA)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "COK Isa (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | COK Isa (FRA) |  | U19WT | Main Draw | SemiFinal | 3 - 0 | 11:7 12:10 11:8 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -8796,15 +7938,8 @@
               "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "LUTZ Camille (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | LUTZ Camille (FRA) |  | U19WT | Main Draw | SemiFinal | 3 - 0 | 11:5 11:8 11:4 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -8850,15 +7985,8 @@
               "side_b": [
                 "SINGEORZAN Ioana (ROU)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "SINGEORZAN Ioana (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | ABRAAMIAN Elizabet (AIN) |  | SINGEORZAN Ioana (ROU) |  | U19WT | Main Draw | Final | 1 - 3 | 10:12 9:11 11:6 9:11 | SINGEORZAN Ioana |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -8888,7 +8016,7 @@
                 "11:13",
                 "4:11"
               ],
-              "winner": "BOKOV Maksim",
+              "winner": "BOKOV Maksim / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "LINDSO Daniel (SWE)",
                 "HOLGERSSON Hannah (SWE)",
@@ -8897,17 +8025,14 @@
               ],
               "side_a": [
                 "LINDSO Daniel (SWE)",
-                "BOKOV Maksim (AIN)"
+                "HOLGERSSON Hannah (SWE)"
               ],
               "side_b": [
-                "HOLGERSSON Hannah (SWE)",
+                "BOKOV Maksim (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | LINDSO Daniel (SWE) | HOLGERSSON Hannah (SWE) | BOKOV Maksim (AIN) | ABRAAMIAN Elizabet (AIN) | U19XD | Main Draw | R64 | 0 - 3 | 8:11 11:13 4:11 | BOKOV Maksim | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -8937,7 +8062,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "BOKOV Maksim",
+              "winner": "BOKOV Maksim / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "TOPRAK Ekin Bahtiyar (TUR)",
                 "HARAC Ece (TUR)",
@@ -8946,17 +8071,14 @@
               ],
               "side_a": [
                 "TOPRAK Ekin Bahtiyar (TUR)",
-                "BOKOV Maksim (AIN)"
+                "HARAC Ece (TUR)"
               ],
               "side_b": [
-                "HARAC Ece (TUR)",
+                "BOKOV Maksim (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | TOPRAK Ekin Bahtiyar (TUR) | HARAC Ece (TUR) | BOKOV Maksim (AIN) | ABRAAMIAN Elizabet (AIN) | U19XD | Main Draw | R32 | 0 - 3 | 18:20 9:11 9:11 | BOKOV Maksim | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -8991,7 +8113,7 @@
                 "10:12",
                 "4:11"
               ],
-              "winner": "BOKOV Maksim",
+              "winner": "BOKOV Maksim / ABRAAMIAN Elizabet",
               "all_players_in_row": [
                 "KUBIK Maciej (POL)",
                 "KLEE Sophia (GER)",
@@ -9000,17 +8122,14 @@
               ],
               "side_a": [
                 "KUBIK Maciej (POL)",
-                "BOKOV Maksim (AIN)"
+                "KLEE Sophia (GER)"
               ],
               "side_b": [
-                "KLEE Sophia (GER)",
+                "BOKOV Maksim (AIN)",
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | KUBIK Maciej (POL) | KLEE Sophia (GER) | BOKOV Maksim (AIN) | ABRAAMIAN Elizabet (AIN) | U19XD | Main Draw | R16 | 1 - 3 | 10:12 11:8 10:12 4:11 | BOKOV Maksim | ABRAAMIAN Elizabet | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -9050,7 +8169,7 @@
                 "9:11",
                 "5:11"
               ],
-              "winner": "BAN Ivor",
+              "winner": "BAN Ivor / ARAPOVIC Hana",
               "all_players_in_row": [
                 "BOKOV Maksim (AIN)",
                 "ABRAAMIAN Elizabet (AIN)",
@@ -9059,17 +8178,14 @@
               ],
               "side_a": [
                 "BOKOV Maksim (AIN)",
-                "BAN Ivor (CRO)"
+                "ABRAAMIAN Elizabet (AIN)"
               ],
               "side_b": [
-                "ABRAAMIAN Elizabet (AIN)",
+                "BAN Ivor (CRO)",
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European Youth Championships Varazdin 2021 | BOKOV Maksim (AIN) | ABRAAMIAN Elizabet (AIN) | BAN Ivor (CRO) | ARAPOVIC Hana (CRO) | U19XD | Main Draw | QuarterFinal | 2 - 3 | 11:6 9:11 11:5 9:11 5:11 | BAN Ivor | ARAPOVIC Hana | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -9127,15 +8243,8 @@
               "side_b": [
                 "WILTSCHKOVA Dominika (SVK)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "WILTSCHKOVA Dominika (SVK)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | ABRAAMIAN Elizabet (AIN) |  | WILTSCHKOVA Dominika (SVK) |  | U19WS | Qualification |  | 3 - 1 | 9:11 11:8 11:9 11:4 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -9180,15 +8289,8 @@
               "side_b": [
                 "HARAC Ece (TUR)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "HARAC Ece (TUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | ABRAAMIAN Elizabet (AIN) |  | HARAC Ece (TUR) |  | U19WS | Qualification |  | 3 - 1 | 9:11 11:7 11:5 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -9228,15 +8330,8 @@
               "side_b": [
                 "MAHJOUB Farah (TUN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "MAHJOUB Farah (TUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | ABRAAMIAN Elizabet (AIN) |  | MAHJOUB Farah (TUN) |  | U19WS | Qualification |  | 3 - 0 | 11:5 11:3 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -9265,7 +8360,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "MATOS Ines (POR)",
                 "SANTOS Patricia (POR)",
@@ -9274,17 +8369,14 @@
               ],
               "side_a": [
                 "MATOS Ines (POR)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "SANTOS Patricia (POR)"
               ],
               "side_b": [
-                "SANTOS Patricia (POR)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | MATOS Ines (POR) | SANTOS Patricia (POR) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | QuarterFinal | 0 - 3 | 9:11 7:11 8:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -9325,15 +8417,8 @@
               "side_b": [
                 "KISEL Darya (AIN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "KISEL Darya (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | ABRAAMIAN Elizabet (AIN) |  | KISEL Darya (AIN) |  | U19WS | Main Draw | R16 | 3 - 0 | 11:6 11:5 11:7 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -9379,15 +8464,8 @@
               "side_b": [
                 "VORONINA Vlada (AIN)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "VORONINA Vlada (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | ABRAAMIAN Elizabet (AIN) |  | VORONINA Vlada (AIN) |  | U19WS | Main Draw | QuarterFinal | 1 - 3 | 8:11 11:13 11:1 4:11 | VORONINA Vlada |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -9417,7 +8495,7 @@
                 "3:11",
                 "5:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "SLAUTINA Arina (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -9426,17 +8504,14 @@
               ],
               "side_a": [
                 "SLAUTINA Arina (AIN)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | SLAUTINA Arina (AIN) | VORONINA Vlada (AIN) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | SemiFinal | 0 - 3 | 5:11 3:11 5:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -9466,7 +8541,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / MALININA Natalia",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHOSH Swastika (IND)",
@@ -9475,17 +8550,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "ABRAAMIAN Elizabet (AIN)"
+                "GHOSH Swastika (IND)"
               ],
               "side_b": [
-                "GHOSH Swastika (IND)",
+                "ABRAAMIAN Elizabet (AIN)",
                 "MALININA Natalia (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Youth Star Contender Tunis 2021 | CHITALE Diya (IND) | GHOSH Swastika (IND) | ABRAAMIAN Elizabet (AIN) | MALININA Natalia (AIN) | U19WD | Main Draw | Final | 0 - 3 | 3:11 6:11 7:11 | ABRAAMIAN Elizabet | MALININA Natalia | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -9548,15 +8620,8 @@
               "side_b": [
                 "PARANANG Orawan (THA)"
               ],
-              "teammates": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "opponents": [
-                "PARANANG Orawan (THA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | ABRAAMIAN Elizabet (AIN) |  | PARANANG Orawan (THA) |  | WS | Qualification | QR64 | 3 - 2 | 16:14 11:4 4:11 7:11 11:6 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -9597,15 +8662,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "YOKOI Sakura (JPN)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | YOKOI Sakura (JPN) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Qualification | QR32 | 3 - 0 | 11:2 11:8 11:4 | YOKOI Sakura |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",

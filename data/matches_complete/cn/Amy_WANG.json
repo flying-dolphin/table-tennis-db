@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Amy WANG",
-  "english_name": "Amy WANG",
+  "player_name": "WANG Amy",
+  "english_name": "WANG Amy",
   "country": "USA",
   "country_code": "USA",
   "continent": "",
@@ -60,15 +60,8 @@
               "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "LUTZ Charlotte (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | WANG Amy (USA) |  | LUTZ Charlotte (FRA) |  | WS | Qualification |  | 1 - 3 | 11:9 6:11 7:11 4:11 | LUTZ Charlotte |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -108,15 +101,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "KUAI Man (CHN)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | KUAI Man (CHN) |  | WANG Amy (USA) |  | WS | Qualification |  | 3 - 0 | 11:2 11:8 11:6 | KUAI Man |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -157,7 +143,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "REYES LAI Jessica",
+              "winner": "REYES LAI Jessica / WANG Amy",
               "all_players_in_row": [
                 "REYES LAI Jessica (USA)",
                 "WANG Amy (USA)",
@@ -166,17 +152,14 @@
               ],
               "side_a": [
                 "REYES LAI Jessica (USA)",
-                "NIE Jiayi (CAN)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "NIE Jiayi (CAN)",
                 "HUANG Olivia (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | REYES LAI Jessica (USA) | WANG Amy (USA) | NIE Jiayi (CAN) | HUANG Olivia (CAN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:4 11:8 11:7 | REYES LAI Jessica | WANG Amy | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -216,7 +199,7 @@
                 "14:12",
                 "12:10"
               ],
-              "winner": "PENDSE Tanish",
+              "winner": "PENDSE Tanish / CHEN Hildy",
               "all_players_in_row": [
                 "PENDSE Tanish (USA)",
                 "CHEN Hildy (USA)",
@@ -225,17 +208,14 @@
               ],
               "side_a": [
                 "PENDSE Tanish (USA)",
-                "BOTHA Bosman (USA)"
+                "CHEN Hildy (USA)"
               ],
               "side_b": [
-                "CHEN Hildy (USA)",
+                "BOTHA Bosman (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | PENDSE Tanish (USA) | CHEN Hildy (USA) | BOTHA Bosman (USA) | WANG Amy (USA) | XD | Main Draw | QuarterFinal | 3 - 2 | 11:6 10:12 7:11 14:12 12:10 | PENDSE Tanish | CHEN Hildy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -265,7 +245,7 @@
                 "12:10",
                 "11:8"
               ],
-              "winner": "REYES LAI Jessica",
+              "winner": "REYES LAI Jessica / WANG Amy",
               "all_players_in_row": [
                 "REYES LAI Jessica (USA)",
                 "WANG Amy (USA)",
@@ -274,17 +254,14 @@
               ],
               "side_a": [
                 "REYES LAI Jessica (USA)",
-                "YEOH Irene (USA)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "YEOH Irene (USA)",
                 "WANG Ke (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | REYES LAI Jessica (USA) | WANG Amy (USA) | YEOH Irene (USA) | WANG Ke (USA) | WD | Main Draw | Final | 3 - 0 | 11:4 12:10 11:8 | REYES LAI Jessica | WANG Amy | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -342,15 +319,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "SHIRAY Karina (BRA)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | SHIRAY Karina (BRA) |  | WANG Amy (USA) |  | WS | Main Draw | R16 | 0 - 4 | 8:11 11:13 2:11 8:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -401,15 +371,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "BURGOS Brianna (PUR)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | BURGOS Brianna (PUR) |  | WANG Amy (USA) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 6:11 11:6 6:11 9:11 8:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -460,15 +423,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | TAKAHASHI Bruna (BRA) |  | WANG Amy (USA) |  | WS | Main Draw | SemiFinal | 1 - 4 | 11:13 3:11 11:3 13:15 10:12 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -529,15 +485,8 @@
               "side_b": [
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "ZHANG Lily (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | WANG Amy (USA) |  | ZHANG Lily (USA) |  | WS | Main Draw | Final | 4 - 3 | 11:5 14:12 6:11 11:8 8:11 9:11 11:3 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -600,15 +549,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "PAVADE Prithika (FRA)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | PAVADE Prithika (FRA) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 3 - 1 | 9:11 11:8 11:8 11:3 | PAVADE Prithika |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -650,7 +592,7 @@
                 "10:12",
                 "6:11"
               ],
-              "winner": "CHOI Jiwook",
+              "winner": "CHOI Jiwook / LEE Dahye",
               "all_players_in_row": [
                 "BOTHA Bosman (USA)",
                 "WANG Amy (USA)",
@@ -659,17 +601,14 @@
               ],
               "side_a": [
                 "BOTHA Bosman (USA)",
-                "CHOI Jiwook (KOR)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "CHOI Jiwook (KOR)",
                 "LEE Dahye (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | BOTHA Bosman (USA) | WANG Amy (USA) | CHOI Jiwook (KOR) | LEE Dahye (KOR) | XD | Main Draw | R16 | 0 - 3 | 9:11 10:12 6:11 | CHOI Jiwook | LEE Dahye | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -715,15 +654,8 @@
               "side_b": [
                 "TOFANT Ana (SLO)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "TOFANT Ana (SLO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | WANG Amy (USA) |  | TOFANT Ana (SLO) |  | WS | Main Draw | R32 | 3 - 1 | 11:8 8:11 11:5 11:6 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -758,7 +690,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "MOYLAND Sally",
+              "winner": "MOYLAND Sally / WANG Amy",
               "all_players_in_row": [
                 "AKASHEVA Zauresh (KAZ)",
                 "TOFANT Ana (SLO)",
@@ -767,17 +699,14 @@
               ],
               "side_a": [
                 "AKASHEVA Zauresh (KAZ)",
-                "MOYLAND Sally (USA)"
+                "TOFANT Ana (SLO)"
               ],
               "side_b": [
-                "TOFANT Ana (SLO)",
+                "MOYLAND Sally (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | AKASHEVA Zauresh (KAZ) | TOFANT Ana (SLO) | MOYLAND Sally (USA) | WANG Amy (USA) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:6 5:11 9:11 9:11 | MOYLAND Sally | WANG Amy | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -818,15 +747,8 @@
               "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "YANG Ha Eun (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | WANG Amy (USA) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R16 | 0 - 3 | 10:12 10:12 5:11 | YANG Ha Eun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -861,7 +783,7 @@
                 "9:11",
                 "11:4"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -870,17 +792,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "MOYLAND Sally (USA)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "MOYLAND Sally (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | MOYLAND Sally (USA) | WANG Amy (USA) | WD | Main Draw | SemiFinal | 3 - 1 | 11:8 11:8 9:11 11:4 | SATO Hitomi | SHIBATA Saki | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -922,7 +841,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "HAGIHARA Keishi",
+              "winner": "HAGIHARA Keishi / AKAE Kaho",
               "all_players_in_row": [
                 "HAGIHARA Keishi (JPN)",
                 "AKAE Kaho (JPN)",
@@ -931,17 +850,14 @@
               ],
               "side_a": [
                 "HAGIHARA Keishi (JPN)",
-                "BOTHA Bosman (USA)"
+                "AKAE Kaho (JPN)"
               ],
               "side_b": [
-                "AKAE Kaho (JPN)",
+                "BOTHA Bosman (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | HAGIHARA Keishi (JPN) | AKAE Kaho (JPN) | BOTHA Bosman (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:8 | HAGIHARA Keishi | AKAE Kaho | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -982,15 +898,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "PICARD Claire (FRA)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | PICARD Claire (FRA) |  | WANG Amy (USA) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 4:11 6:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1036,15 +945,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "ASO Reina (JPN)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | ASO Reina (JPN) |  | WANG Amy (USA) |  | WS | Main Draw | R16 | 1 - 3 | 10:12 11:6 4:11 6:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1090,15 +992,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "AKAE Kaho (JPN)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | AKAE Kaho (JPN) |  | WANG Amy (USA) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:9 14:12 11:1 | AKAE Kaho |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1145,7 +1040,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "IONESCU Eduard",
+              "winner": "IONESCU Eduard / SZOCS Bernadette",
               "all_players_in_row": [
                 "BOTHA Bosman (USA)",
                 "WANG Amy (USA)",
@@ -1154,17 +1049,14 @@
               ],
               "side_a": [
                 "BOTHA Bosman (USA)",
-                "IONESCU Eduard (ROU)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "IONESCU Eduard (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | BOTHA Bosman (USA) | WANG Amy (USA) | IONESCU Eduard (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | R32 | 1 - 3 | 5:11 11:8 7:11 8:11 | IONESCU Eduard | SZOCS Bernadette | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1210,15 +1102,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "ZHANG Lily (USA)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | ZHANG Lily (USA) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 1 - 3 | 10:12 11:6 5:11 4:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1259,15 +1144,8 @@
               "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "YUAN Jia Nan (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | WANG Amy (USA) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 3:11 7:11 | YUAN Jia Nan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1309,7 +1187,7 @@
                 "1:11",
                 "9:11"
               ],
-              "winner": "WANG Chuqin",
+              "winner": "WANG Chuqin / SUN Yingsha",
               "all_players_in_row": [
                 "LIANG Jishan (USA)",
                 "WANG Amy (USA)",
@@ -1318,17 +1196,14 @@
               ],
               "side_a": [
                 "LIANG Jishan (USA)",
-                "WANG Chuqin (CHN)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "WANG Chuqin (CHN)",
                 "SUN Yingsha (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LIANG Jishan (USA) | WANG Amy (USA) | WANG Chuqin (CHN) | SUN Yingsha (CHN) | XD | Main Draw | R64 | 0 - 3 | 8:11 1:11 9:11 | WANG Chuqin | SUN Yingsha | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1389,15 +1264,8 @@
               "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "HURSEY Anna (WAL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | WANG Amy (USA) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R128 | 4 - 3 | 20:18 3:11 9:11 9:11 11:6 13:11 11:8 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1443,15 +1311,8 @@
               "side_b": [
                 "WANG Yidi (CHN)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "WANG Yidi (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | WANG Amy (USA) |  | WANG Yidi (CHN) |  | WS | Main Draw | R64 | 0 - 4 | 4:11 7:11 8:11 7:11 | WANG Yidi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1509,15 +1370,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SAMARA Elizabeta (ROU) |  | WANG Amy (USA) |  | WS | Qualification |  | 4 - 0 | 12:10 11:9 11:5 11:6 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -1562,15 +1416,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "SHIN Yubin (KOR)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SHIN Yubin (KOR) |  | WANG Amy (USA) |  | WS | Qualification |  | 3 - 1 | 11:3 11:6 9:11 11:8 | SHIN Yubin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -1637,15 +1484,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "ZENG Zhiying (CHI)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | ZENG Zhiying (CHI) |  | WANG Amy (USA) |  | WS | Main Draw | R16 | 2 - 4 | 5:11 6:11 12:10 11:9 9:11 7:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1696,15 +1536,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "BURGOS Brianna (PUR)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | BURGOS Brianna (PUR) |  | WANG Amy (USA) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 9:11 5:11 7:11 11:9 6:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1755,15 +1588,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | TAKAHASHI Bruna (BRA) |  | WANG Amy (USA) |  | WS | Main Draw | SemiFinal | 4 - 1 | 11:8 11:8 11:2 7:11 11:5 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1816,15 +1642,8 @@
               "side_b": [
                 "DIAZ Adriana (PUR)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "DIAZ Adriana (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | WANG Amy (USA) |  | DIAZ Adriana (PUR) |  | WS | Main Draw | R64 | 0 - 3 | 10:12 5:11 6:11 | DIAZ Adriana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1871,7 +1690,7 @@
                 "10:12",
                 "4:11"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / WANG Amy",
               "all_players_in_row": [
                 "ORANTES Diego (ESA)",
                 "SUAREZ Gabriela (ESA)",
@@ -1880,17 +1699,14 @@
               ],
               "side_a": [
                 "ORANTES Diego (ESA)",
-                "LIANG Jishan (USA)"
+                "SUAREZ Gabriela (ESA)"
               ],
               "side_b": [
-                "SUAREZ Gabriela (ESA)",
+                "LIANG Jishan (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | ORANTES Diego (ESA) | SUAREZ Gabriela (ESA) | LIANG Jishan (USA) | WANG Amy (USA) | XD | Main Draw | R32 | 0 - 3 | 7:11 10:12 4:11 | LIANG Jishan | WANG Amy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1925,7 +1741,7 @@
                 "5:11",
                 "4:11"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / WANG Amy",
               "all_players_in_row": [
                 "MINO Alberto (ECU)",
                 "ARELLANO Angelica (ECU)",
@@ -1934,17 +1750,14 @@
               ],
               "side_a": [
                 "MINO Alberto (ECU)",
-                "LIANG Jishan (USA)"
+                "ARELLANO Angelica (ECU)"
               ],
               "side_b": [
-                "ARELLANO Angelica (ECU)",
+                "LIANG Jishan (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | MINO Alberto (ECU) | ARELLANO Angelica (ECU) | LIANG Jishan (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 1 - 3 | 11:7 10:12 5:11 4:11 | LIANG Jishan | WANG Amy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1995,15 +1808,8 @@
               "side_b": [
                 "PAREDES Nathaly (ECU)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "PAREDES Nathaly (ECU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | WANG Amy (USA) |  | PAREDES Nathaly (ECU) |  | WS | Main Draw | R32 | 4 - 1 | 11:3 11:4 11:8 8:11 11:9 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2043,7 +1849,7 @@
                 "11:13",
                 "7:11"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / WANG Amy",
               "all_players_in_row": [
                 "CAMPOS Jorge (CUB)",
                 "FONSECA Daniela (CUB)",
@@ -2052,17 +1858,14 @@
               ],
               "side_a": [
                 "CAMPOS Jorge (CUB)",
-                "LIANG Jishan (USA)"
+                "FONSECA Daniela (CUB)"
               ],
               "side_b": [
-                "FONSECA Daniela (CUB)",
+                "LIANG Jishan (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | CAMPOS Jorge (CUB) | FONSECA Daniela (CUB) | LIANG Jishan (USA) | WANG Amy (USA) | XD | Main Draw | QuarterFinal | 2 - 3 | 8:11 11:7 11:6 11:13 7:11 | LIANG Jishan | WANG Amy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2113,15 +1916,8 @@
               "side_b": [
                 "FONSECA Daniela (CUB)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "FONSECA Daniela (CUB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | WANG Amy (USA) |  | FONSECA Daniela (CUB) |  | WS | Main Draw | R16 | 4 - 1 | 11:8 11:9 10:12 11:7 11:6 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2151,7 +1947,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "CALDERANO Hugo",
+              "winner": "CALDERANO Hugo / TAKAHASHI Bruna",
               "all_players_in_row": [
                 "LIANG Jishan (USA)",
                 "WANG Amy (USA)",
@@ -2160,17 +1956,14 @@
               ],
               "side_a": [
                 "LIANG Jishan (USA)",
-                "CALDERANO Hugo (BRA)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "CALDERANO Hugo (BRA)",
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | LIANG Jishan (USA) | WANG Amy (USA) | CALDERANO Hugo (BRA) | TAKAHASHI Bruna (BRA) | XD | Main Draw | SemiFinal | 0 - 3 | 7:11 6:11 3:11 | CALDERANO Hugo | TAKAHASHI Bruna | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2221,15 +2014,8 @@
               "side_b": [
                 "VEGA Paulina (CHI)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "VEGA Paulina (CHI)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | WANG Amy (USA) |  | VEGA Paulina (CHI) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 12:10 7:11 11:2 11:3 11:8 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2290,15 +2076,8 @@
               "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | WANG Amy (USA) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | SemiFinal | 3 - 4 | 11:7 14:12 11:8 6:11 5:11 10:12 6:11 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2339,15 +2118,8 @@
               "side_b": [
                 "ARGUELLES Camila (ARG)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "ARGUELLES Camila (ARG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | WANG Amy (USA) |  | ARGUELLES Camila (ARG) |  | WT | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:5 11:7 | WANG Amy |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -2388,15 +2160,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "ORTEGA Daniela (CHI)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | ORTEGA Daniela (CHI) |  | WANG Amy (USA) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:9 11:3 11:4 | ORTEGA Daniela |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -2449,15 +2214,8 @@
               "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Champions Macao 2024 | WANG Amy (USA) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 5:11 7:11 | BERGSTROM Linda |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2515,15 +2273,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "TOMMY Priscilla (VAN)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | TOMMY Priscilla (VAN) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 8:11 9:11 5:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2579,15 +2330,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "DIAZ Adriana (PUR)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | DIAZ Adriana (PUR) |  | WANG Amy (USA) |  | WS | Main Draw | R32 | 4 - 2 | 9:11 7:11 12:10 14:12 11:8 11:7 | DIAZ Adriana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2617,7 +2361,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "WAN Yuan",
+              "winner": "WAN Yuan / SHAN Xiaona",
               "all_players_in_row": [
                 "SUNG Rachel (USA)",
                 "WANG Amy (USA)",
@@ -2626,17 +2370,14 @@
               ],
               "side_a": [
                 "SUNG Rachel (USA)",
-                "WAN Yuan (GER)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "WAN Yuan (GER)",
                 "SHAN Xiaona (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | SUNG Rachel (USA) | WANG Amy (USA) | WAN Yuan (GER) | SHAN Xiaona (GER) | WT | Main Draw | R16 | 0 - 3 | 7:11 8:11 6:11 | WAN Yuan | SHAN Xiaona | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -2682,15 +2423,8 @@
               "side_b": [
                 "SHAN Xiaona (GER)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "SHAN Xiaona (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | WANG Amy (USA) |  | SHAN Xiaona (GER) |  | WT | Main Draw | R16 | 3 - 1 | 11:9 11:5 7:11 11:6 | WANG Amy |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -2748,15 +2482,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "HE Zhuojia (CHN)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Champions Chongqing 2024 | HE Zhuojia (CHN) |  | WANG Amy (USA) |  | WS | Main Draw | R32 | 3 - 1 | 11:6 11:3 8:11 11:5 | HE Zhuojia |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2819,15 +2546,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "MITTELHAM Nina (GER)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Saudi Smash 2024 | MITTELHAM Nina (GER) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 3 - 2 | 11:5 6:11 8:11 11:7 11:7 | MITTELHAM Nina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2885,15 +2605,8 @@
               "side_b": [
                 "SAWETTABUT Suthasini (THA)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "SAWETTABUT Suthasini (THA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Cup Macao 2024 | WANG Amy (USA) |  | SAWETTABUT Suthasini (THA) |  | WS | Qualification |  | 2 - 2 | 9:11 11:7 4:11 11:7 |  |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2938,15 +2651,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "ITO Mima (JPN)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF World Cup Macao 2024 | ITO Mima (JPN) |  | WANG Amy (USA) |  | WS | Qualification |  | 2 - 2 | 11:3 5:11 14:12 10:12 |  |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2997,7 +2703,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "SANGUANSIN Phakpoom",
+              "winner": "SANGUANSIN Phakpoom / PARANANG Orawan",
               "all_players_in_row": [
                 "SANGUANSIN Phakpoom (THA)",
                 "PARANANG Orawan (THA)",
@@ -3006,17 +2712,14 @@
               ],
               "side_a": [
                 "SANGUANSIN Phakpoom (THA)",
-                "KUMAR Nikhil (USA)"
+                "PARANANG Orawan (THA)"
               ],
               "side_b": [
-                "PARANANG Orawan (THA)",
+                "KUMAR Nikhil (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | World Mixed Olympic Qualification Havirov 2024 | SANGUANSIN Phakpoom (THA) | PARANANG Orawan (THA) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 4 - 1 | 11:6 11:8 8:11 11:9 11:7 | SANGUANSIN Phakpoom | PARANANG Orawan | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3066,7 +2769,7 @@
                 "11:9",
                 "12:14"
               ],
-              "winner": "KUMAR Nikhil",
+              "winner": "KUMAR Nikhil / WANG Amy",
               "all_players_in_row": [
                 "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)",
@@ -3075,17 +2778,14 @@
               ],
               "side_a": [
                 "GUNDUZ Ibrahim (TUR)",
-                "KUMAR Nikhil (USA)"
+                "ALTINKAYA Sibel (TUR)"
               ],
               "side_b": [
-                "ALTINKAYA Sibel (TUR)",
+                "KUMAR Nikhil (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | World Mixed Olympic Qualification Havirov 2024 | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 3 - 4 | 10:12 11:6 11:7 4:11 10:12 11:9 12:14 | KUMAR Nikhil | WANG Amy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3135,7 +2835,7 @@
                 "10:12",
                 "5:11"
               ],
-              "winner": "IONESCU Ovidiu",
+              "winner": "IONESCU Ovidiu / SZOCS Bernadette",
               "all_players_in_row": [
                 "KUMAR Nikhil (USA)",
                 "WANG Amy (USA)",
@@ -3144,17 +2844,14 @@
               ],
               "side_a": [
                 "KUMAR Nikhil (USA)",
-                "IONESCU Ovidiu (ROU)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "IONESCU Ovidiu (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | World Mixed Olympic Qualification Havirov 2024 | KUMAR Nikhil (USA) | WANG Amy (USA) | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | QuarterFinal | 3 - 4 | 11:6 7:11 12:10 6:11 13:11 10:12 5:11 | IONESCU Ovidiu | SZOCS Bernadette | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3207,15 +2904,8 @@
               "side_b": [
                 "DIAZ Adriana (PUR)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "DIAZ Adriana (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Champions Incheon 2024 | WANG Amy (USA) |  | DIAZ Adriana (PUR) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 9:11 11:13 | DIAZ Adriana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3268,15 +2958,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "XIAO Maria (ESP)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Singapore Smash 2024 | XIAO Maria (ESP) |  | WANG Amy (USA) |  | WS | Main Draw | R64 | 3 - 0 | 13:11 11:7 11:4 | XIAO Maria |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3334,15 +3017,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "SILVA Yadira (MEX)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | SILVA Yadira (MEX) |  | WANG Amy (USA) |  | WS | Main Draw | R16 | 0 - 4 | 9:11 7:11 3:11 5:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3388,15 +3064,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "TAKAHASHI Giulia (BRA)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | TAKAHASHI Giulia (BRA) |  | WANG Amy (USA) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 5:11 8:11 7:11 3:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3442,15 +3111,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "ZHANG Mo (CAN)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | ZHANG Mo (CAN) |  | WANG Amy (USA) |  | WS | Main Draw | SemiFinal | 0 - 4 | 11:13 8:11 2:11 8:11 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3511,15 +3173,8 @@
               "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Pan American Cup Corpus Christi 2024 | WANG Amy (USA) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | Final | 3 - 4 | 5:11 1:11 11:9 11:4 7:11 11:6 9:11 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3561,7 +3216,7 @@
                 "8:11",
                 "7:11"
               ],
-              "winner": "KUMAR Nikhil",
+              "winner": "KUMAR Nikhil / WANG Amy",
               "all_players_in_row": [
                 "LEVINSKI Mishel (USA)",
                 "TANG Yao (USA)",
@@ -3570,17 +3225,14 @@
               ],
               "side_a": [
                 "LEVINSKI Mishel (USA)",
-                "KUMAR Nikhil (USA)"
+                "TANG Yao (USA)"
               ],
               "side_b": [
-                "TANG Yao (USA)",
+                "KUMAR Nikhil (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | LEVINSKI Mishel (USA) | TANG Yao (USA) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | R16 | 0 - 3 | 4:11 8:11 7:11 | KUMAR Nikhil | WANG Amy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3626,15 +3278,8 @@
               "side_b": [
                 "COSSIO Arantxa (MEX)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "COSSIO Arantxa (MEX)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | WANG Amy (USA) |  | COSSIO Arantxa (MEX) |  | WS | Main Draw | R32 | 3 - 1 | 7:11 11:8 11:3 11:4 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3664,7 +3309,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "KUMAR Nikhil",
+              "winner": "KUMAR Nikhil / WANG Amy",
               "all_players_in_row": [
                 "KUMAR Nikhil (USA)",
                 "WANG Amy (USA)",
@@ -3673,17 +3318,14 @@
               ],
               "side_a": [
                 "KUMAR Nikhil (USA)",
-                "MADRID Marcos (MEX)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "MADRID Marcos (MEX)",
                 "SILVA Yadira (MEX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | KUMAR Nikhil (USA) | WANG Amy (USA) | MADRID Marcos (MEX) | SILVA Yadira (MEX) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:6 11:7 | KUMAR Nikhil | WANG Amy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3718,7 +3360,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "DENG Zhen",
+              "winner": "DENG Zhen / LIN Jiaqi",
               "all_players_in_row": [
                 "DENG Zhen (USA)",
                 "LIN Jiaqi (USA)",
@@ -3727,17 +3369,14 @@
               ],
               "side_a": [
                 "DENG Zhen (USA)",
-                "WANG Amy (USA)"
+                "LIN Jiaqi (USA)"
               ],
               "side_b": [
-                "LIN Jiaqi (USA)",
+                "WANG Amy (USA)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | DENG Zhen (USA) | LIN Jiaqi (USA) | WANG Amy (USA) | ZHANG Lily (USA) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:3 11:9 11:6 | DENG Zhen | LIN Jiaqi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3778,15 +3417,8 @@
               "side_b": [
                 "LIAO Ivy (CAN)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "LIAO Ivy (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | WANG Amy (USA) |  | LIAO Ivy (CAN) |  | WS | Main Draw | R16 | 3 - 0 | 11:6 11:7 11:4 | WANG Amy |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3821,7 +3453,7 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "KUMAR Nikhil",
+              "winner": "KUMAR Nikhil / WANG Amy",
               "all_players_in_row": [
                 "KUMAR Nikhil (USA)",
                 "WANG Amy (USA)",
@@ -3830,17 +3462,14 @@
               ],
               "side_a": [
                 "KUMAR Nikhil (USA)",
-                "CASTRO Rogelio (MEX)"
+                "WANG Amy (USA)"
               ],
               "side_b": [
-                "WANG Amy (USA)",
+                "CASTRO Rogelio (MEX)",
                 "COSSIO Arantxa (MEX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | KUMAR Nikhil (USA) | WANG Amy (USA) | CASTRO Rogelio (MEX) | COSSIO Arantxa (MEX) | XD | Main Draw | SemiFinal | 3 - 1 | 11:9 6:11 11:6 11:6 | KUMAR Nikhil | WANG Amy | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3891,15 +3520,8 @@
               "side_b": [
                 "AKULA Sreeja (IND)"
               ],
-              "teammates": [
-                "WANG Amy (USA)"
-              ],
-              "opponents": [
-                "AKULA Sreeja (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | WANG Amy (USA) |  | AKULA Sreeja (IND) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 9:11 11:9 1:11 11:6 9:11 | AKULA Sreeja |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3929,7 +3551,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "STOYANOV Niagol",
+              "winner": "STOYANOV Niagol / PICCOLIN Giorgia",
               "all_players_in_row": [
                 "STOYANOV Niagol (ITA)",
                 "PICCOLIN Giorgia (ITA)",
@@ -3938,17 +3560,14 @@
               ],
               "side_a": [
                 "STOYANOV Niagol (ITA)",
-                "KUMAR Nikhil (USA)"
+                "PICCOLIN Giorgia (ITA)"
               ],
               "side_b": [
-                "PICCOLIN Giorgia (ITA)",
+                "KUMAR Nikhil (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Corpus Christi 2024 | STOYANOV Niagol (ITA) | PICCOLIN Giorgia (ITA) | KUMAR Nikhil (USA) | WANG Amy (USA) | XD | Main Draw | Final | 3 - 0 | 11:9 11:9 11:7 | STOYANOV Niagol | PICCOLIN Giorgia | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3995,7 +3614,7 @@
                 "8:11",
                 "11:9"
               ],
-              "winner": "YUAN Jia Nan",
+              "winner": "YUAN Jia Nan / LEBRUN Alexis",
               "all_players_in_row": [
                 "YUAN Jia Nan (FRA)",
                 "LEBRUN Alexis (FRA)",
@@ -4004,17 +3623,14 @@
               ],
               "side_a": [
                 "YUAN Jia Nan (FRA)",
-                "WANG Amy (USA)"
+                "LEBRUN Alexis (FRA)"
               ],
               "side_b": [
-                "LEBRUN Alexis (FRA)",
+                "WANG Amy (USA)",
                 "NARESH Sid (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | YUAN Jia Nan (FRA) | LEBRUN Alexis (FRA) | WANG Amy (USA) | NARESH Sid (USA) | XT | Qualification |  | 2 - 1 | 11:7 8:11 11:9 | YUAN Jia Nan | LEBRUN Alexis | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -4043,7 +3659,7 @@
                 "9:11",
                 "11:5"
               ],
-              "winner": "LUTZ Camille",
+              "winner": "LUTZ Camille / PAVADE Prithika",
               "all_players_in_row": [
                 "LUTZ Camille (FRA)",
                 "PAVADE Prithika (FRA)",
@@ -4052,17 +3668,14 @@
               ],
               "side_a": [
                 "LUTZ Camille (FRA)",
-                "SUNG Rachel (USA)"
+                "PAVADE Prithika (FRA)"
               ],
               "side_b": [
-                "PAVADE Prithika (FRA)",
+                "SUNG Rachel (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | LUTZ Camille (FRA) | PAVADE Prithika (FRA) | SUNG Rachel (USA) | WANG Amy (USA) | XT | Qualification |  | 2 - 1 | 11:5 9:11 11:5 | LUTZ Camille | PAVADE Prithika | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -4091,7 +3704,7 @@
                 "11:4",
                 "11:6"
               ],
-              "winner": "HARIMOTO Miwa",
+              "winner": "HARIMOTO Miwa / TOGAMI Shunsuke",
               "all_players_in_row": [
                 "HARIMOTO Miwa (JPN)",
                 "TOGAMI Shunsuke (JPN)",
@@ -4100,17 +3713,14 @@
               ],
               "side_a": [
                 "HARIMOTO Miwa (JPN)",
-                "WANG Amy (USA)"
+                "TOGAMI Shunsuke (JPN)"
               ],
               "side_b": [
-                "TOGAMI Shunsuke (JPN)",
+                "WANG Amy (USA)",
                 "LIANG Jishan (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | HARIMOTO Miwa (JPN) | TOGAMI Shunsuke (JPN) | WANG Amy (USA) | LIANG Jishan (USA) | XT | Qualification |  | 3 - 0 | 11:6 11:4 11:6 | HARIMOTO Miwa | TOGAMI Shunsuke | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -4150,15 +3760,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | SAMARA Elizabeta (ROU) |  | WANG Amy (USA) |  | XT | Qualification |  | 3 - 0 | 11:1 11:9 11:6 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -4187,7 +3790,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "SUNG Rachel",
+              "winner": "SUNG Rachel / WANG Amy",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)",
@@ -4196,17 +3799,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "SUNG Rachel (USA)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "SUNG Rachel (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | SUNG Rachel (USA) | WANG Amy (USA) | XT | Qualification |  | 1 - 2 | 11:3 8:11 6:11 | SUNG Rachel | WANG Amy | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -4235,7 +3835,7 @@
                 "11:7",
                 "11:3"
               ],
-              "winner": "WANG Amy",
+              "winner": "WANG Amy / NARESH Sid",
               "all_players_in_row": [
                 "WANG Amy (USA)",
                 "NARESH Sid (USA)",
@@ -4244,17 +3844,14 @@
               ],
               "side_a": [
                 "WANG Amy (USA)",
-                "BROMLEY Michelle (AUS)"
+                "NARESH Sid (USA)"
               ],
               "side_b": [
-                "NARESH Sid (USA)",
+                "BROMLEY Michelle (AUS)",
                 "LEE Yonghun (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF Mixed Team World Cup Chengdu 2023 | WANG Amy (USA) | NARESH Sid (USA) | BROMLEY Michelle (AUS) | LEE Yonghun (AUS) | XT | Qualification |  | 3 - 0 | 11:2 11:7 11:3 | WANG Amy | NARESH Sid | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"

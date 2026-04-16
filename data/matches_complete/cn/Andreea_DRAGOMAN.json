@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Andreea DRAGOMAN",
-  "english_name": "Andreea DRAGOMAN",
+  "player_name": "DRAGOMAN Andreea",
+  "english_name": "DRAGOMAN Andreea",
   "country": "ROU",
   "country_code": "ROU",
   "continent": "",
@@ -55,15 +55,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "CHEN Xingtong (CHN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | CHEN Xingtong (CHN) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification |  | 3 - 0 | 11:4 11:5 11:8 | CHEN Xingtong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -108,15 +101,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "YEH Yi-Tian (TPE)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | YEH Yi-Tian (TPE) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification |  | 3 - 1 | 8:11 11:9 12:10 11:4 | YEH Yi-Tian |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -168,15 +154,8 @@
               "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "ARAPOVIC Hana (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | DRAGOMAN Andreea (ROU) |  | ARAPOVIC Hana (CRO) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 11:8 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -227,15 +206,8 @@
               "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "MONFARDINI Gaia (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | DRAGOMAN Andreea (ROU) |  | MONFARDINI Gaia (ITA) |  | WS | Qualification | QR32 | 2 - 3 | 7:11 13:15 11:7 11:3 5:11 | MONFARDINI Gaia |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -277,7 +249,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "MOVILEANU Darius",
+              "winner": "MOVILEANU Darius / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "DANI Mudit (IND)",
                 "MUKHERJEE Ayhika (IND)",
@@ -286,17 +258,14 @@
               ],
               "side_a": [
                 "DANI Mudit (IND)",
-                "MOVILEANU Darius (ROU)"
+                "MUKHERJEE Ayhika (IND)"
               ],
               "side_b": [
-                "MUKHERJEE Ayhika (IND)",
+                "MOVILEANU Darius (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | DANI Mudit (IND) | MUKHERJEE Ayhika (IND) | MOVILEANU Darius (ROU) | DRAGOMAN Andreea (ROU) | XD | Qualification | QR8 | 0 - 3 | 9:11 9:11 7:11 | MOVILEANU Darius | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -331,7 +300,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "DIACONU Adina",
+              "winner": "DIACONU Adina / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "DIACONU Adina (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -340,17 +309,14 @@
               ],
               "side_a": [
                 "DIACONU Adina (ROU)",
-                "KOTECHA Taneesha (IND)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "KOTECHA Taneesha (IND)",
                 "WANI Sayali (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | DIACONU Adina (ROU) | DRAGOMAN Andreea (ROU) | KOTECHA Taneesha (IND) | WANI Sayali (IND) | WD | Main Draw | R16 | 3 - 1 | 7:11 12:10 11:5 11:8 | DIACONU Adina | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -380,7 +346,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "DESAI Harmeet",
+              "winner": "DESAI Harmeet / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "DESAI Harmeet (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -389,17 +355,14 @@
               ],
               "side_a": [
                 "DESAI Harmeet (IND)",
-                "MOVILEANU Darius (ROU)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "MOVILEANU Darius (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | DESAI Harmeet (IND) | GHORPADE Yashaswini (IND) | MOVILEANU Darius (ROU) | DRAGOMAN Andreea (ROU) | XD | Main Draw | R16 | 3 - 0 | 11:8 11:4 11:7 | DESAI Harmeet | GHORPADE Yashaswini | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -440,15 +403,8 @@
               "side_b": [
                 "SAINI Suhana (IND)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "SAINI Suhana (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | DRAGOMAN Andreea (ROU) |  | SAINI Suhana (IND) |  | WS | Main Draw | R64 | 3 - 0 | 13:11 11:5 12:10 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -483,7 +439,7 @@
                 "11:9",
                 "11:3"
               ],
-              "winner": "RYU Hanna",
+              "winner": "RYU Hanna / KIM Nayeong",
               "all_players_in_row": [
                 "RYU Hanna (KOR)",
                 "KIM Nayeong (KOR)",
@@ -492,17 +448,14 @@
               ],
               "side_a": [
                 "RYU Hanna (KOR)",
-                "DIACONU Adina (ROU)"
+                "KIM Nayeong (KOR)"
               ],
               "side_b": [
-                "KIM Nayeong (KOR)",
+                "DIACONU Adina (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | RYU Hanna (KOR) | KIM Nayeong (KOR) | DIACONU Adina (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:6 11:13 11:9 11:3 | RYU Hanna | KIM Nayeong | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -553,15 +506,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "KIM Seongjin (KOR)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | KIM Seongjin (KOR) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 2 - 3 | 9:11 11:8 11:8 7:11 7:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -607,15 +553,8 @@
               "side_b": [
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | DRAGOMAN Andreea (ROU) |  | JOO Cheonhui (KOR) |  | WS | Main Draw | R16 | 3 - 1 | 11:5 4:11 11:8 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -656,15 +595,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "YOKOI Sakura (JPN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | YOKOI Sakura (JPN) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:8 11:9 | YOKOI Sakura |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -722,15 +654,8 @@
               "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | DRAGOMAN Andreea (ROU) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR8 | 1 - 3 | 9:11 11:6 5:11 8:11 | LUPULESKU Izabela |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -788,15 +713,8 @@
               "side_b": [
                 "STRASSBURGER Victoria (BRA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "STRASSBURGER Victoria (BRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | DRAGOMAN Andreea (ROU) |  | STRASSBURGER Victoria (BRA) |  | XT | Qualification |  | 3 - 0 | 11:5 11:2 14:12 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -853,15 +771,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "ZHANG Sofia-Xuan (ESP)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ZHANG Sofia-Xuan (ESP) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 1 - 3 | 11:9 7:11 6:11 5:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -891,7 +802,7 @@
                 "15:17",
                 "9:11"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / WU Jiamuwa",
               "all_players_in_row": [
                 "DIACONU Adina (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -900,17 +811,14 @@
               ],
               "side_a": [
                 "DIACONU Adina (ROU)",
-                "LIU Yangzi (AUS)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "LIU Yangzi (AUS)",
                 "WU Jiamuwa (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | DIACONU Adina (ROU) | DRAGOMAN Andreea (ROU) | LIU Yangzi (AUS) | WU Jiamuwa (AUS) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 15:17 9:11 | LIU Yangzi | WU Jiamuwa | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -951,15 +859,8 @@
               "side_b": [
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | DRAGOMAN Andreea (ROU) |  | JOO Cheonhui (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 10:12 6:11 | JOO Cheonhui |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1022,15 +923,8 @@
               "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "HURSEY Anna (WAL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | HURSEY Anna (WAL) |  | WT | Qualification |  | 3 - 2 | 12:10 11:8 8:11 8:11 11:9 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1080,15 +974,8 @@
               "side_b": [
                 "SADIKOVIC Enisa (LUX)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "SADIKOVIC Enisa (LUX)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | SADIKOVIC Enisa (LUX) |  | WT | Qualification |  | 3 - 2 | 11:9 9:11 6:11 11:3 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1138,15 +1025,8 @@
               "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "DE NUTTE Sarah (LUX)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | DE NUTTE Sarah (LUX) |  | WT | Qualification |  | 3 - 2 | 11:7 11:5 6:11 8:11 11:5 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1196,15 +1076,8 @@
               "side_b": [
                 "SURJAN Sabina (SRB)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "SURJAN Sabina (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | SURJAN Sabina (SRB) |  | WT | MAIN | 16 | 2 - 3 | 11:5 5:11 11:7 6:11 10:12 | SURJAN Sabina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1255,15 +1128,8 @@
               "side_b": [
                 "MAKSUTI Aneta (SRB)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "MAKSUTI Aneta (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | MAKSUTI Aneta (SRB) |  | WT | MAIN | 16 | 3 - 2 | 11:8 8:11 11:4 10:12 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1304,15 +1170,8 @@
               "side_b": [
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "VARADY Barbora (SVK)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | VARADY Barbora (SVK) |  | WT | MAIN | 8 | 3 - 0 | 11:3 11:9 11:7 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1353,15 +1212,8 @@
               "side_b": [
                 "MEN Shuohan (NED)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "MEN Shuohan (NED)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | MEN Shuohan (NED) |  | WT | MAIN | 4 | 3 - 0 | 11:8 11:5 11:5 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1407,15 +1259,8 @@
               "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "MITTELHAM Nina (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | DRAGOMAN Andreea (ROU) |  | MITTELHAM Nina (GER) |  | WT | MAIN | 2 | 1 - 3 | 12:14 8:11 11:8 5:11 | MITTELHAM Nina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1468,15 +1313,8 @@
               "side_b": [
                 "YANG Yiyun (CHN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "YANG Yiyun (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | DRAGOMAN Andreea (ROU) |  | YANG Yiyun (CHN) |  | WS | Qualification | QR64 | 0 - 3 | 9:11 8:11 8:11 | YANG Yiyun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1506,7 +1344,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "WANG Yidi",
+              "winner": "WANG Yidi / ZHANG Lily",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "LUTZ Charlotte (FRA)",
@@ -1515,17 +1353,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "WANG Yidi (CHN)"
+                "LUTZ Charlotte (FRA)"
               ],
               "side_b": [
-                "LUTZ Charlotte (FRA)",
+                "WANG Yidi (CHN)",
                 "ZHANG Lily (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | DRAGOMAN Andreea (ROU) | LUTZ Charlotte (FRA) | WANG Yidi (CHN) | ZHANG Lily (USA) | WD | Main Draw | R32 | 0 - 3 | 11:13 11:13 8:11 | WANG Yidi | ZHANG Lily | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1572,7 +1407,7 @@
                 "11:9",
                 "11:7"
               ],
-              "winner": "YANG Ha Eun",
+              "winner": "YANG Ha Eun / KIM Seoyun",
               "all_players_in_row": [
                 "YANG Ha Eun (KOR)",
                 "KIM Seoyun (KOR)",
@@ -1581,17 +1416,14 @@
               ],
               "side_a": [
                 "YANG Ha Eun (KOR)",
-                "DIACONU Adina (ROU)"
+                "KIM Seoyun (KOR)"
               ],
               "side_b": [
-                "KIM Seoyun (KOR)",
+                "DIACONU Adina (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | YANG Ha Eun (KOR) | KIM Seoyun (KOR) | DIACONU Adina (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R16 | 3 - 1 | 12:10 8:11 11:9 11:7 | YANG Ha Eun | KIM Seoyun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1637,15 +1469,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "LEE Eunhye (KOR)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | LEE Eunhye (KOR) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 8:11 11:9 11:8 | LEE Eunhye |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1708,15 +1533,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "VARADY Barbora (SVK)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | VARADY Barbora (SVK) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR64 | 3 - 2 | 5:11 3:11 11:8 11:9 11:6 | VARADY Barbora |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1774,15 +1592,8 @@
               "side_b": [
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "ZHANG Sofia-Xuan (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | DRAGOMAN Andreea (ROU) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Qualification | QR64 | 3 - 1 | 11:9 12:14 11:2 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1833,15 +1644,8 @@
               "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "ARAPOVIC Hana (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | DRAGOMAN Andreea (ROU) |  | ARAPOVIC Hana (CRO) |  | WS | Qualification | QR32 | 3 - 2 | 7:11 11:5 11:9 9:11 11:7 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1887,15 +1691,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | DRAGOMAN Andreea (ROU) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR16 | 3 - 1 | 8:11 11:9 12:10 11:8 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1941,15 +1738,8 @@
               "side_b": [
                 "HIRANO Miu (JPN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "HIRANO Miu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | DRAGOMAN Andreea (ROU) |  | HIRANO Miu (JPN) |  | WS | Main Draw | R64 | 1 - 3 | 11:7 4:11 4:11 8:11 | HIRANO Miu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1979,7 +1769,7 @@
                 "11:3",
                 "11:9"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "DRAGOMAN Andreea (ROU)",
@@ -1988,17 +1778,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "COSSIO Arantxa (MEX)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "COSSIO Arantxa (MEX)",
                 "BARCENAS Clio (MEX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | LIU Yangzi (AUS) | DRAGOMAN Andreea (ROU) | COSSIO Arantxa (MEX) | BARCENAS Clio (MEX) | WD | Main Draw | R32 | 3 - 0 | 11:7 11:3 11:9 | LIU Yangzi | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2038,7 +1825,7 @@
                 "13:11",
                 "6:11"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / RYU Hanna",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "DRAGOMAN Andreea (ROU)",
@@ -2047,17 +1834,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "KIM Nayeong (KOR)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "KIM Nayeong (KOR)",
                 "RYU Hanna (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | LIU Yangzi (AUS) | DRAGOMAN Andreea (ROU) | KIM Nayeong (KOR) | RYU Hanna (KOR) | WD | Main Draw | R16 | 2 - 3 | 6:11 11:9 6:11 13:11 6:11 | KIM Nayeong | RYU Hanna | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2120,15 +1904,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "YEH Yi-Tian (TPE)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | YEH Yi-Tian (TPE) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 3 - 2 | 9:11 7:11 11:8 11:8 11:9 | YEH Yi-Tian |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2191,15 +1968,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "SAWETTABUT Jinnipa (THA)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | SAWETTABUT Jinnipa (THA) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R128 | 1 - 4 | 5:11 11:8 6:11 3:11 7:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2239,7 +2009,7 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -2248,17 +2018,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "SAMARA Elizabeta (ROU)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R64 | 3 - 2 | 5:11 9:11 11:8 11:7 12:10 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2314,15 +2081,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "POLCANOVA Sofia (AUT)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | POLCANOVA Sofia (AUT) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 2 - 4 | 11:5 7:11 9:11 11:13 11:8 8:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2368,15 +2128,8 @@
               "side_b": [
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "PAVADE Prithika (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | DRAGOMAN Andreea (ROU) |  | PAVADE Prithika (FRA) |  | WS | Main Draw | R32 | 0 - 4 | 11:13 9:11 12:14 6:11 | PAVADE Prithika |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2439,15 +2192,8 @@
               "side_b": [
                 "VEGA Sofia (CHI)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "VEGA Sofia (CHI)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | DRAGOMAN Andreea (ROU) |  | VEGA Sofia (CHI) |  | WS | Qualification |  | 3 - 2 | 9:11 11:9 5:11 11:7 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2487,15 +2233,8 @@
               "side_b": [
                 "HAMROUNI Mariem (TUN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "HAMROUNI Mariem (TUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | DRAGOMAN Andreea (ROU) |  | HAMROUNI Mariem (TUN) |  | WS | Qualification |  | 3 - 0 | 11:3 11:0 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2535,15 +2274,8 @@
               "side_b": [
                 "ORTEGA Daniela (CHI)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "ORTEGA Daniela (CHI)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | DRAGOMAN Andreea (ROU) |  | ORTEGA Daniela (CHI) |  | WS | Qualification |  | 3 - 0 | 11:0 11:0 11:0 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2593,15 +2325,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "LUTZ Camille (FRA)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | LUTZ Camille (FRA) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR16 | 2 - 3 | 11:9 11:9 13:15 9:11 9:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -2642,15 +2367,8 @@
               "side_b": [
                 "HAYATA Hina (JPN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "HAYATA Hina (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Tunis 2025 | DRAGOMAN Andreea (ROU) |  | HAYATA Hina (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 10:12 8:11 4:11 | HAYATA Hina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2703,15 +2421,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "SOMMEROVA Helena (CZE)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | SOMMEROVA Helena (CZE) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 5:11 12:14 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2757,15 +2468,8 @@
               "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | DRAGOMAN Andreea (ROU) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 9:11 7:11 8:11 | SHIBATA Saki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2800,7 +2504,7 @@
                 "11:9",
                 "6:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / DIACONU Adina",
               "all_players_in_row": [
                 "HOCHART Leana (FRA)",
                 "LUTZ Charlotte (FRA)",
@@ -2809,17 +2513,14 @@
               ],
               "side_a": [
                 "HOCHART Leana (FRA)",
-                "DRAGOMAN Andreea (ROU)"
+                "LUTZ Charlotte (FRA)"
               ],
               "side_b": [
-                "LUTZ Charlotte (FRA)",
+                "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | HOCHART Leana (FRA) | LUTZ Charlotte (FRA) | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | WD | Main Draw | R16 | 1 - 3 | 9:11 6:11 11:9 6:11 | DRAGOMAN Andreea | DIACONU Adina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2854,7 +2555,7 @@
                 "10:12",
                 "8:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / DIACONU Adina",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "ASO Reina (JPN)",
@@ -2863,17 +2564,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "DRAGOMAN Andreea (ROU)"
+                "ASO Reina (JPN)"
               ],
               "side_b": [
-                "ASO Reina (JPN)",
+                "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | AKAE Kaho (JPN) | ASO Reina (JPN) | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | WD | Main Draw | QuarterFinal | 1 - 3 | 9:11 14:12 10:12 8:11 | DRAGOMAN Andreea | DIACONU Adina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2908,7 +2606,7 @@
                 "11:4",
                 "11:5"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Daeun",
               "all_players_in_row": [
                 "CHOI Hyojoo (KOR)",
                 "LEE Daeun (KOR)",
@@ -2917,17 +2615,14 @@
               ],
               "side_a": [
                 "CHOI Hyojoo (KOR)",
-                "DRAGOMAN Andreea (ROU)"
+                "LEE Daeun (KOR)"
               ],
               "side_b": [
-                "LEE Daeun (KOR)",
+                "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | WD | Main Draw | SemiFinal | 3 - 1 | 12:14 11:7 11:4 11:5 | CHOI Hyojoo | LEE Daeun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2990,15 +2685,8 @@
               "side_b": [
                 "LYNE Karen (MAS)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "LYNE Karen (MAS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | DRAGOMAN Andreea (ROU) |  | LYNE Karen (MAS) |  | WS | Main Draw | R32 | 3 - 2 | 16:14 11:8 9:11 10:12 11:8 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3049,15 +2737,8 @@
               "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "MONFARDINI Gaia (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | DRAGOMAN Andreea (ROU) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R16 | 3 - 2 | 7:11 11:9 6:11 11:9 11:2 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3108,15 +2789,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SHIBATA Saki (JPN) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 9:11 11:7 5:11 12:10 11:3 | SHIBATA Saki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3169,15 +2843,8 @@
               "side_b": [
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "WEGRZYN Katarzyna (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | DRAGOMAN Andreea (ROU) |  | WEGRZYN Katarzyna (POL) |  | WS | Main Draw | R64 | 0 - 3 | 9:11 9:11 7:11 | WEGRZYN Katarzyna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3240,15 +2907,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "KUKULKOVA Tatiana (SVK)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | KUKULKOVA Tatiana (SVK) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR64 | 3 - 2 | 7:11 11:4 11:6 4:11 15:13 | KUKULKOVA Tatiana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -3283,7 +2943,7 @@
                 "4:11",
                 "11:5"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -3292,17 +2952,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "ZHANG Mo (CAN)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "ZHANG Mo (CAN)",
                 "LIAO Ivy (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | ZHANG Mo (CAN) | LIAO Ivy (CAN) | WD | Main Draw | R32 | 3 - 1 | 11:3 11:8 4:11 11:5 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3337,7 +2994,7 @@
                 "14:16",
                 "5:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "MATELOVA Hana (CZE)",
@@ -3346,17 +3003,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "DRAGOMAN Andreea (ROU)"
+                "MATELOVA Hana (CZE)"
               ],
               "side_b": [
-                "MATELOVA Hana (CZE)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | VARADY Barbora (SVK) | MATELOVA Hana (CZE) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 1 - 3 | 3:11 11:8 14:16 5:11 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3386,7 +3040,7 @@
                 "4:11",
                 "6:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / POLCANOVA Sofia",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -3395,17 +3049,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "SZOCS Bernadette (ROU)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "SZOCS Bernadette (ROU)",
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | POLCANOVA Sofia (AUT) | WD | Main Draw | QuarterFinal | 0 - 3 | 3:11 4:11 6:11 | SZOCS Bernadette | POLCANOVA Sofia | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3463,15 +3114,8 @@
               "side_b": [
                 "CHEN Min-Hsin (TPE)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "CHEN Min-Hsin (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | DRAGOMAN Andreea (ROU) |  | CHEN Min-Hsin (TPE) |  | WS | Qualification |  | 1 - 3 | 6:11 8:11 13:11 4:11 | CHEN Min-Hsin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3516,15 +3160,8 @@
               "side_b": [
                 "LEE Hoi Man (HKG)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "LEE Hoi Man (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | DRAGOMAN Andreea (ROU) |  | LEE Hoi Man (HKG) |  | WS | Qualification |  | 3 - 1 | 6:11 11:5 11:9 11:7 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3569,15 +3206,8 @@
               "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "NG Wing Lam (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | DRAGOMAN Andreea (ROU) |  | NG Wing Lam (HKG) |  | WS | Qualification |  | 3 - 1 | 11:7 11:7 8:11 11:8 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3623,7 +3253,7 @@
                 "13:11",
                 "6:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "WAN Yuan (GER)",
                 "SCHREINER Franziska (GER)",
@@ -3632,17 +3262,14 @@
               ],
               "side_a": [
                 "WAN Yuan (GER)",
-                "SZOCS Bernadette (ROU)"
+                "SCHREINER Franziska (GER)"
               ],
               "side_b": [
-                "SCHREINER Franziska (GER)",
+                "SZOCS Bernadette (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | WAN Yuan (GER) | SCHREINER Franziska (GER) | SZOCS Bernadette (ROU) | DRAGOMAN Andreea (ROU) | XT | Qualification |  | 1 - 2 | 8:11 13:11 6:11 | SZOCS Bernadette | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -3671,7 +3298,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "NG Wing Lam",
+              "winner": "NG Wing Lam / DOO Hoi Kem",
               "all_players_in_row": [
                 "SZOCS Bernadette (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -3680,17 +3307,14 @@
               ],
               "side_a": [
                 "SZOCS Bernadette (ROU)",
-                "NG Wing Lam (HKG)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "NG Wing Lam (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | SZOCS Bernadette (ROU) | DRAGOMAN Andreea (ROU) | NG Wing Lam (HKG) | DOO Hoi Kem (HKG) | XT | Qualification |  | 1 - 2 | 11:9 9:11 6:11 | NG Wing Lam | DOO Hoi Kem | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -3714,7 +3338,7 @@
                 "6:11",
                 "0:0"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "MORI Sakura (JPN)",
                 "SASAO Asuka (JPN)",
@@ -3723,17 +3347,14 @@
               ],
               "side_a": [
                 "MORI Sakura (JPN)",
-                "SZOCS Bernadette (ROU)"
+                "SASAO Asuka (JPN)"
               ],
               "side_b": [
-                "SASAO Asuka (JPN)",
+                "SZOCS Bernadette (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MORI Sakura (JPN) | SASAO Asuka (JPN) | SZOCS Bernadette (ROU) | DRAGOMAN Andreea (ROU) | XT | Qualification |  | 0 - 1 | 6:11 0:0 | SZOCS Bernadette | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -3773,15 +3394,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "WANG Manyu (CHN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | WANG Manyu (CHN) |  | DRAGOMAN Andreea (ROU) |  | XT | Qualification |  | 3 - 0 | 15:13 11:6 11:1 | WANG Manyu |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -3843,15 +3457,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "LEE Daeun (KOR)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | LEE Daeun (KOR) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 2 - 3 | 8:11 11:9 9:11 11:7 8:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3902,15 +3509,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | MESHREF Dina (EGY) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R16 | 3 - 2 | 11:3 6:11 11:7 5:11 11:6 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3952,7 +3552,7 @@
                 "8:11",
                 "4:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "BOGDANOWICZ Natalia (POL)",
                 "BRZYSKA Anna (POL)",
@@ -3961,17 +3561,14 @@
               ],
               "side_a": [
                 "BOGDANOWICZ Natalia (POL)",
-                "DRAGOMAN Andreea (ROU)"
+                "BRZYSKA Anna (POL)"
               ],
               "side_b": [
-                "BRZYSKA Anna (POL)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | BOGDANOWICZ Natalia (POL) | BRZYSKA Anna (POL) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R32 | 0 - 3 | 8:11 8:11 4:11 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4011,7 +3608,7 @@
                 "6:11",
                 "13:11"
               ],
-              "winner": "GUO ZHENG Nina",
+              "winner": "GUO ZHENG Nina / HOCHART Leana",
               "all_players_in_row": [
                 "GUO ZHENG Nina (FRA)",
                 "HOCHART Leana (FRA)",
@@ -4020,17 +3617,14 @@
               ],
               "side_a": [
                 "GUO ZHENG Nina (FRA)",
-                "DRAGOMAN Andreea (ROU)"
+                "HOCHART Leana (FRA)"
               ],
               "side_b": [
-                "HOCHART Leana (FRA)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | GUO ZHENG Nina (FRA) | HOCHART Leana (FRA) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 3 - 2 | 11:7 11:9 10:12 6:11 13:11 | GUO ZHENG Nina | HOCHART Leana | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4091,15 +3685,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "ZARIF Audrey (FRA)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | ZARIF Audrey (FRA) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 3 - 4 | 11:5 11:9 6:11 2:11 7:11 11:4 5:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4150,15 +3737,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | European Championships Linz 2024 | PICCOLIN Giorgia (ITA) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 1 - 4 | 11:9 6:11 10:12 7:11 5:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4204,15 +3784,8 @@
               "side_b": [
                 "YUAN Jia Nan (FRA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "YUAN Jia Nan (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | DRAGOMAN Andreea (ROU) |  | YUAN Jia Nan (FRA) |  | WS | Main Draw | R16 | 0 - 4 | 6:11 8:11 2:11 7:11 | YUAN Jia Nan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4275,15 +3848,8 @@
               "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | DRAGOMAN Andreea (ROU) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 2 | 3:11 11:2 7:11 11:5 12:10 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4334,15 +3900,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "BERGAND Filippa (SWE)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | BERGAND Filippa (SWE) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR32 | 3 - 2 | 9:11 5:11 11:7 11:2 11:9 | BERGAND Filippa |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4372,7 +3931,7 @@
                 "7:11",
                 "9:11"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "ALHODABY Mariam (EGY)",
                 "ALHODABY Marwa (EGY)",
@@ -4381,17 +3940,14 @@
               ],
               "side_a": [
                 "ALHODABY Mariam (EGY)",
-                "SAMARA Elizabeta (ROU)"
+                "ALHODABY Marwa (EGY)"
               ],
               "side_b": [
-                "ALHODABY Marwa (EGY)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | ALHODABY Mariam (EGY) | ALHODABY Marwa (EGY) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R32 | 0 - 3 | 4:11 7:11 9:11 | SAMARA Elizabeta | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4421,7 +3977,7 @@
                 "11:9",
                 "11:5"
               ],
-              "winner": "WANG Yidi",
+              "winner": "WANG Yidi / SUN Yingsha",
               "all_players_in_row": [
                 "WANG Yidi (CHN)",
                 "SUN Yingsha (CHN)",
@@ -4430,17 +3986,14 @@
               ],
               "side_a": [
                 "WANG Yidi (CHN)",
-                "SAMARA Elizabeta (ROU)"
+                "SUN Yingsha (CHN)"
               ],
               "side_b": [
-                "SUN Yingsha (CHN)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | China Smash 2024 | WANG Yidi (CHN) | SUN Yingsha (CHN) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:9 11:5 | WANG Yidi | SUN Yingsha | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4503,15 +4056,8 @@
               "side_b": [
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "VIVARELLI Debora (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | DRAGOMAN Andreea (ROU) |  | VIVARELLI Debora (ITA) |  | WS | Main Draw | R64 | 4 - 0 | 11:5 11:5 11:2 11:2 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4567,15 +4113,8 @@
               "side_b": [
                 "LENG Yutong (CHN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "LENG Yutong (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Panagyurishte 2022 | DRAGOMAN Andreea (ROU) |  | LENG Yutong (CHN) |  | WS | Main Draw | R32 | 2 - 4 | 15:13 6:11 7:11 11:7 6:11 8:11 | LENG Yutong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4617,7 +4156,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -4626,17 +4165,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "GUISNEL Oceane (FRA)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "GUISNEL Oceane (FRA)",
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | GUISNEL Oceane (FRA) | LUTZ Charlotte (FRA) | WD | Main Draw | R32 | 3 - 0 | 11:7 11:8 11:7 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4666,7 +4202,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -4675,17 +4211,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "PUCHOVANOVA Nikoleta (SVK)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "PUCHOVANOVA Nikoleta (SVK)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | PUCHOVANOVA Nikoleta (SVK) | YILMAZ Ozge (TUR) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:7 11:5 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4715,7 +4248,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -4724,17 +4257,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "MATELOVA Hana (CZE)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "MATELOVA Hana (CZE)",
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | MATELOVA Hana (CZE) | VARADY Barbora (SVK) | WD | Main Draw | QuarterFinal | 3 - 0 | 12:10 11:7 11:4 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4769,7 +4299,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)",
@@ -4778,17 +4308,14 @@
               ],
               "side_a": [
                 "DE NUTTE Sarah (LUX)",
-                "DRAGOMAN Andreea (ROU)"
+                "NI Xia Lian (LUX)"
               ],
               "side_b": [
-                "NI Xia Lian (LUX)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | SemiFinal | 1 - 3 | 11:6 6:11 9:11 6:11 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4818,7 +4345,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -4827,17 +4354,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "POLCANOVA Sofia (AUT)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | Final | 0 - 3 | 16:18 6:11 9:11 | POLCANOVA Sofia | SZOCS Bernadette | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4878,15 +4402,8 @@
               "side_b": [
                 "RILISKYTE Kornelija (LTU)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "RILISKYTE Kornelija (LTU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) |  | RILISKYTE Kornelija (LTU) |  | WS | Qualification |  | 3 - 0 | 11:7 11:5 11:7 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4931,15 +4448,8 @@
               "side_b": [
                 "VIGNJEVIC Dragana (SRB)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "VIGNJEVIC Dragana (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) |  | VIGNJEVIC Dragana (SRB) |  | WS | Qualification |  | 3 - 1 | 11:8 11:8 6:11 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4989,15 +4499,8 @@
               "side_b": [
                 "TODOROVIC Andrea (SRB)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "TODOROVIC Andrea (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) |  | TODOROVIC Andrea (SRB) |  | WS | Main Draw | R64 | 4 - 1 | 11:8 12:10 11:8 5:11 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5048,15 +4551,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | BERGSTROM Linda (SWE) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 1 - 4 | 9:11 11:4 14:16 9:11 7:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5112,15 +4608,8 @@
               "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "MITTELHAM Nina (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R16 | 2 - 4 | 7:11 11:5 7:11 10:12 11:2 7:11 | MITTELHAM Nina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5188,15 +4677,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "MADARASZ Dora (HUN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | MADARASZ Dora (HUN) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 2 - 4 | 11:9 12:10 9:11 4:11 2:11 3:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5257,15 +4739,8 @@
               "side_b": [
                 "LI Yu-Jhun (TPE)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "LI Yu-Jhun (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder European Summer Series Budapest 2022 | DRAGOMAN Andreea (ROU) |  | LI Yu-Jhun (TPE) |  | WS | Main Draw | R32 | 3 - 4 | 11:6 13:11 8:11 11:13 5:11 11:9 8:11 | LI Yu-Jhun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5318,15 +4793,8 @@
               "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | DRAGOMAN Andreea (ROU) |  | PICCOLIN Giorgia (ITA) |  | WS | Qualification | QR64 | 3 - 0 | 11:7 11:6 11:7 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5372,15 +4840,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "KALLBERG Christina (SWE)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | KALLBERG Christina (SWE) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR32 | 1 - 3 | 6:11 12:10 6:11 7:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5421,15 +4882,8 @@
               "side_b": [
                 "SAWETTABUT Jinnipa (THA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "SAWETTABUT Jinnipa (THA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | DRAGOMAN Andreea (ROU) |  | SAWETTABUT Jinnipa (THA) |  | WS | Qualification | QR16 | 3 - 0 | 11:8 11:8 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5470,15 +4924,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "HIRANO Miu (JPN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender European Summer Series Budapest 2022 | HIRANO Miu (JPN) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 3 - 0 | 11:8 11:9 11:7 | HIRANO Miu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5531,15 +4978,8 @@
               "side_b": [
                 "GHOSH Swastika (IND)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "GHOSH Swastika (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | DRAGOMAN Andreea (ROU) |  | GHOSH Swastika (IND) |  | WS | Qualification | QR64 | 3 - 0 | 11:7 11:8 11:7 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5585,15 +5025,8 @@
               "side_b": [
                 "ZHU Chengzhu (HKG)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "ZHU Chengzhu (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | DRAGOMAN Andreea (ROU) |  | ZHU Chengzhu (HKG) |  | WS | Qualification | QR32 | 1 - 3 | 9:11 11:7 11:13 12:14 | ZHU Chengzhu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5656,15 +5089,8 @@
               "side_b": [
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | DRAGOMAN Andreea (ROU) |  | JOO Cheonhui (KOR) |  | WS | Qualification | QR64 | 2 - 3 | 11:8 6:11 9:11 11:7 10:12 | JOO Cheonhui |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5699,24 +5125,23 @@
                 "11:4",
                 "12:10"
               ],
-              "winner": "LI Yu-Jhun",
+              "winner": "LI Yu-Jhun / CHENG I-Ching",
               "all_players_in_row": [
+                "LI Yu-Jhun (TPE)",
+                "CHENG I-Ching (TPE)",
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
                 "LI Yu-Jhun (TPE)",
-                "DRAGOMAN Andreea (ROU)"
+                "CHENG I-Ching (TPE)"
               ],
               "side_b": [
-                "CHENG I-Ching (TPE)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | LI Yu-Jhun (TPE) | CHENG I-Ching (TPE) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 3 - 1 | 11:7 8:11 11:4 12:10 | LI Yu-Jhun | CHENG I-Ching | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5768,7 +5193,7 @@
                 "6:11",
                 "4:11"
               ],
-              "winner": "YU Fu",
+              "winner": "YU Fu / SHAO Jieni",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)",
@@ -5777,17 +5202,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "YU Fu (POR)"
+                "DIACONU Adina (ROU)"
               ],
               "side_b": [
-                "DIACONU Adina (ROU)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | YU Fu (POR) | SHAO Jieni (POR) | WD | Qualification | QR16 | 2 - 3 | 11:8 9:11 11:4 6:11 4:11 | YU Fu | SHAO Jieni | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -5838,15 +5260,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "TODOROVIC Andrea (SRB)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | TODOROVIC Andrea (SRB) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR64 | 3 - 2 | 9:11 11:7 11:4 8:11 14:12 | TODOROVIC Andrea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5893,7 +5308,7 @@
                 "11:7",
                 "11:3"
               ],
-              "winner": "YUAN Licen",
+              "winner": "YUAN Licen / LIU Weishan",
               "all_players_in_row": [
                 "YUAN Licen (CHN)",
                 "LIU Weishan (CHN)",
@@ -5902,17 +5317,14 @@
               ],
               "side_a": [
                 "YUAN Licen (CHN)",
-                "SIPOS Rares (ROU)"
+                "LIU Weishan (CHN)"
               ],
               "side_b": [
-                "LIU Weishan (CHN)",
+                "SIPOS Rares (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | YUAN Licen (CHN) | LIU Weishan (CHN) | SIPOS Rares (ROU) | DRAGOMAN Andreea (ROU) | XD | Main Draw | R16 | 3 - 1 | 5:11 11:9 11:7 11:3 | YUAN Licen | LIU Weishan | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5963,15 +5375,8 @@
               "side_b": [
                 "ARLIA Nicole (ITA)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "ARLIA Nicole (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | DRAGOMAN Andreea (ROU) |  | ARLIA Nicole (ITA) |  | WS | Main Draw | R64 | 1 - 4 | 10:12 9:11 7:11 11:6 10:12 | ARLIA Nicole |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6006,7 +5411,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "LIU Weishan",
+              "winner": "LIU Weishan / QI Fei",
               "all_players_in_row": [
                 "LIU Weishan (CHN)",
                 "QI Fei (CHN)",
@@ -6015,17 +5420,14 @@
               ],
               "side_a": [
                 "LIU Weishan (CHN)",
-                "DRAGOMAN Andreea (ROU)"
+                "QI Fei (CHN)"
               ],
               "side_b": [
-                "QI Fei (CHN)",
+                "DRAGOMAN Andreea (ROU)",
                 "DIACONU Adina (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LIU Weishan (CHN) | QI Fei (CHN) | DRAGOMAN Andreea (ROU) | DIACONU Adina (ROU) | WD | Main Draw | R16 | 3 - 1 | 11:7 9:11 11:7 11:8 | LIU Weishan | QI Fei | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6078,15 +5480,8 @@
               "side_b": [
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "ALTINKAYA Sibel (TUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | DRAGOMAN Andreea (ROU) |  | ALTINKAYA Sibel (TUR) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 11:5 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -6132,15 +5527,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "BAJOR Natalia (POL)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | BAJOR Natalia (POL) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR32 | 1 - 3 | 6:11 5:11 11:6 7:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -6181,15 +5569,8 @@
               "side_b": [
                 "KUAI Man (CHN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "KUAI Man (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | DRAGOMAN Andreea (ROU) |  | KUAI Man (CHN) |  | WS | Qualification | QR16 | 0 - 3 | 6:11 3:11 7:11 | KUAI Man |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -6229,24 +5610,23 @@
                 "9:11",
                 "11:9"
               ],
-              "winner": "LI Yu-Jhun",
+              "winner": "LI Yu-Jhun / CHEN Szu-Yu",
               "all_players_in_row": [
+                "LI Yu-Jhun (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
                 "LI Yu-Jhun (TPE)",
-                "DRAGOMAN Andreea (ROU)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | LI Yu-Jhun (TPE) | CHEN Szu-Yu (TPE) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 3 - 2 | 11:4 11:8 4:11 9:11 11:9 | LI Yu-Jhun | CHEN Szu-Yu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6324,15 +5704,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "LAVROVA Anastassiya (KAZ)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LAVROVA Anastassiya (KAZ) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R128 | 3 - 4 | 11:7 9:11 11:9 7:11 11:7 9:11 6:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6393,15 +5766,8 @@
               "side_b": [
                 "SOLJA Petrissa (GER)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "SOLJA Petrissa (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | DRAGOMAN Andreea (ROU) |  | SOLJA Petrissa (GER) |  | WS | Main Draw | R64 | 4 - 3 | 7:11 11:9 9:11 11:9 13:11 6:11 11:7 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6431,7 +5797,7 @@
                 "11:9",
                 "11:4"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -6440,17 +5806,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "ABDELAZIZ Farah (EGY)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "ABDELAZIZ Farah (EGY)",
                 "HELMY Yousra (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | ABDELAZIZ Farah (EGY) | HELMY Yousra (EGY) | WD | Main Draw | R32 | 3 - 0 | 11:9 11:9 11:4 | SAMARA Elizabeta | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6506,15 +5869,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "SAWETTABUT Suthasini (THA)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SAWETTABUT Suthasini (THA) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R32 | 4 - 2 | 11:4 11:3 8:11 7:11 11:8 11:7 | SAWETTABUT Suthasini |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6554,7 +5910,7 @@
                 "11:5",
                 "7:11"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "NOSKOVA Yana (AIN)",
                 "VOROBEVA Olga (AIN)",
@@ -6563,17 +5919,14 @@
               ],
               "side_a": [
                 "NOSKOVA Yana (AIN)",
-                "SAMARA Elizabeta (ROU)"
+                "VOROBEVA Olga (AIN)"
               ],
               "side_b": [
-                "VOROBEVA Olga (AIN)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | NOSKOVA Yana (AIN) | VOROBEVA Olga (AIN) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R16 | 2 - 3 | 11:5 7:11 7:11 11:5 7:11 | SAMARA Elizabeta | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6603,7 +5956,7 @@
                 "8:11",
                 "1:11"
               ],
-              "winner": "ITO Mima",
+              "winner": "ITO Mima / HAYATA Hina",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -6612,17 +5965,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "ITO Mima (JPN)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "ITO Mima (JPN)",
                 "HAYATA Hina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | ITO Mima (JPN) | HAYATA Hina (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 8:11 8:11 1:11 | ITO Mima | HAYATA Hina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6664,7 +6014,7 @@
                 "11:5",
                 "11:7"
               ],
-              "winner": "ARAPOVIC Hana",
+              "winner": "ARAPOVIC Hana / ZADEROVA Linda",
               "all_players_in_row": [
                 "ARAPOVIC Hana (CRO)",
                 "ZADEROVA Linda (CZE)",
@@ -6673,17 +6023,14 @@
               ],
               "side_a": [
                 "ARAPOVIC Hana (CRO)",
-                "DRAGOMAN Andreea (ROU)"
+                "ZADEROVA Linda (CZE)"
               ],
               "side_b": [
-                "ZADEROVA Linda (CZE)",
+                "DRAGOMAN Andreea (ROU)",
                 "ZAHARIA Elena (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ARAPOVIC Hana (CRO) | ZADEROVA Linda (CZE) | DRAGOMAN Andreea (ROU) | ZAHARIA Elena (ROU) | WD | Main Draw | R32 | 3 - 0 | 11:6 11:5 11:7 | ARAPOVIC Hana | ZADEROVA Linda | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6734,15 +6081,8 @@
               "side_b": [
                 "VISHNIAKOVA Olga (AIN)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "VISHNIAKOVA Olga (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | DRAGOMAN Andreea (ROU) |  | VISHNIAKOVA Olga (AIN) |  | WS | Qualification |  | 4 - 1 | 11:6 9:11 11:3 11:6 11:5 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6792,15 +6132,8 @@
               "side_b": [
                 "KLEE Sophia (GER)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "KLEE Sophia (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | DRAGOMAN Andreea (ROU) |  | KLEE Sophia (GER) |  | WS | Qualification |  | 4 - 1 | 12:10 11:3 11:6 7:11 16:14 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6855,15 +6188,8 @@
               "side_b": [
                 "DYMYTRENKO Anastasiya (UKR)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "DYMYTRENKO Anastasiya (UKR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | DRAGOMAN Andreea (ROU) |  | DYMYTRENKO Anastasiya (UKR) |  | WS | Qualification |  | 2 - 4 | 11:5 8:11 11:9 5:11 7:11 9:11 | DYMYTRENKO Anastasiya |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6908,15 +6234,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "SCHREINER Franziska (GER)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | SCHREINER Franziska (GER) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification |  | 0 - 4 | 12:14 8:11 7:11 8:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6966,15 +6285,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "HARAC Ece (TUR)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | HARAC Ece (TUR) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification |  | 1 - 4 | 11:9 9:11 2:11 4:11 6:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7019,15 +6331,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "PUCHOVANOVA Nikoleta (SVK)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | PUCHOVANOVA Nikoleta (SVK) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification |  | 0 - 4 | 8:11 4:11 4:11 2:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7077,15 +6382,8 @@
               "side_b": [
                 "RILISKYTE Kornelija (LTU)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "RILISKYTE Kornelija (LTU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | DRAGOMAN Andreea (ROU) |  | RILISKYTE Kornelija (LTU) |  | WS | Main Draw | R16 | 4 - 1 | 12:10 11:6 9:11 11:6 11:4 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7131,15 +6429,8 @@
               "side_b": [
                 "LABOSOVA Ema (SVK)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "LABOSOVA Ema (SVK)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | DRAGOMAN Andreea (ROU) |  | LABOSOVA Ema (SVK) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 12:10 11:6 11:7 11:3 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7190,15 +6481,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "TAILAKOVA Mariia (AIN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | TAILAKOVA Mariia (AIN) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | SemiFinal | 4 - 1 | 6:11 11:5 11:9 11:5 18:16 | TAILAKOVA Mariia |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7228,7 +6512,7 @@
                 "5:11",
                 "7:11"
               ],
-              "winner": "SIPOS Rares",
+              "winner": "SIPOS Rares / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "KARABAXHAK Fatih (KOS)",
                 "REINOL Vitalia (EST)",
@@ -7237,17 +6521,14 @@
               ],
               "side_a": [
                 "KARABAXHAK Fatih (KOS)",
-                "SIPOS Rares (ROU)"
+                "REINOL Vitalia (EST)"
               ],
               "side_b": [
-                "REINOL Vitalia (EST)",
+                "SIPOS Rares (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | KARABAXHAK Fatih (KOS) | REINOL Vitalia (EST) | SIPOS Rares (ROU) | DRAGOMAN Andreea (ROU) | XD | Main Draw | R32 | 0 - 3 | 4:11 5:11 7:11 | SIPOS Rares | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7287,7 +6568,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "SIPOS Rares",
+              "winner": "SIPOS Rares / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "DE NODREST Leo (FRA)",
                 "LUTZ Camille (FRA)",
@@ -7296,17 +6577,14 @@
               ],
               "side_a": [
                 "DE NODREST Leo (FRA)",
-                "SIPOS Rares (ROU)"
+                "LUTZ Camille (FRA)"
               ],
               "side_b": [
-                "LUTZ Camille (FRA)",
+                "SIPOS Rares (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | DE NODREST Leo (FRA) | LUTZ Camille (FRA) | SIPOS Rares (ROU) | DRAGOMAN Andreea (ROU) | XD | Main Draw | R16 | 2 - 3 | 4:11 11:6 11:9 6:11 6:11 | SIPOS Rares | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7336,7 +6614,7 @@
                 "11:13",
                 "4:11"
               ],
-              "winner": "SIPOS Rares",
+              "winner": "SIPOS Rares / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "ZELINKA Jakub (SVK)",
                 "PUCHOVANOVA Nikoleta (SVK)",
@@ -7345,17 +6623,14 @@
               ],
               "side_a": [
                 "ZELINKA Jakub (SVK)",
-                "SIPOS Rares (ROU)"
+                "PUCHOVANOVA Nikoleta (SVK)"
               ],
               "side_b": [
-                "PUCHOVANOVA Nikoleta (SVK)",
+                "SIPOS Rares (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | ZELINKA Jakub (SVK) | PUCHOVANOVA Nikoleta (SVK) | SIPOS Rares (ROU) | DRAGOMAN Andreea (ROU) | XD | Main Draw | QuarterFinal | 0 - 3 | 10:12 11:13 4:11 | SIPOS Rares | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7395,7 +6670,7 @@
                 "11:9",
                 "8:11"
               ],
-              "winner": "SIPOS Rares",
+              "winner": "SIPOS Rares / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "SIDORENKO Vladimir (AIN)",
                 "TAILAKOVA Mariia (AIN)",
@@ -7404,17 +6679,14 @@
               ],
               "side_a": [
                 "SIDORENKO Vladimir (AIN)",
-                "SIPOS Rares (ROU)"
+                "TAILAKOVA Mariia (AIN)"
               ],
               "side_b": [
-                "TAILAKOVA Mariia (AIN)",
+                "SIPOS Rares (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | SIDORENKO Vladimir (AIN) | TAILAKOVA Mariia (AIN) | SIPOS Rares (ROU) | DRAGOMAN Andreea (ROU) | XD | Main Draw | SemiFinal | 2 - 3 | 9:11 11:7 9:11 11:9 8:11 | SIPOS Rares | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7449,7 +6721,7 @@
                 "11:8",
                 "11:5"
               ],
-              "winner": "SIPOS Rares",
+              "winner": "SIPOS Rares / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "SIPOS Rares (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -7458,17 +6730,14 @@
               ],
               "side_a": [
                 "SIPOS Rares (ROU)",
-                "REMBERT Bastien (FRA)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "REMBERT Bastien (FRA)",
                 "COK Isa (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | European U21 Championships Spa 2021 | SIPOS Rares (ROU) | DRAGOMAN Andreea (ROU) | REMBERT Bastien (FRA) | COK Isa (FRA) | XD | Main Draw | Final | 3 - 1 | 12:10 3:11 11:8 11:5 | SIPOS Rares | DRAGOMAN Andreea | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7521,15 +6790,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "LABOSOVA Ema (SVK)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | LABOSOVA Ema (SVK) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR32 | 0 - 3 | 3:11 5:11 4:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -7575,15 +6837,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "GAUTHIER Lucie (FRA)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | GAUTHIER Lucie (FRA) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR16 | 3 - 1 | 7:11 11:5 11:6 11:6 | GAUTHIER Lucie |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -7613,7 +6868,7 @@
                 "5:11",
                 "1:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "HORVAT Polona (SLO)",
                 "KADIS Nusa (SLO)",
@@ -7622,17 +6877,14 @@
               ],
               "side_a": [
                 "HORVAT Polona (SLO)",
-                "SZOCS Bernadette (ROU)"
+                "KADIS Nusa (SLO)"
               ],
               "side_b": [
-                "KADIS Nusa (SLO)",
+                "SZOCS Bernadette (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | HORVAT Polona (SLO) | KADIS Nusa (SLO) | SZOCS Bernadette (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R16 | 0 - 3 | 3:11 5:11 1:11 | SZOCS Bernadette | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7672,7 +6924,7 @@
                 "11:5",
                 "11:5"
               ],
-              "winner": "LIN Ye",
+              "winner": "LIN Ye / ZENG Jian",
               "all_players_in_row": [
                 "LIN Ye (CAN)",
                 "ZENG Jian (SGP)",
@@ -7681,17 +6933,14 @@
               ],
               "side_a": [
                 "LIN Ye (CAN)",
-                "SZOCS Bernadette (ROU)"
+                "ZENG Jian (SGP)"
               ],
               "side_b": [
-                "ZENG Jian (SGP)",
+                "SZOCS Bernadette (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Lasko 2021 | LIN Ye (CAN) | ZENG Jian (SGP) | SZOCS Bernadette (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | QuarterFinal | 3 - 2 | 6:11 9:11 11:8 11:5 11:5 | LIN Ye | ZENG Jian | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7749,15 +6998,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "CHASSELIN Pauline (FRA)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | CHASSELIN Pauline (FRA) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification |  | 3 - 1 | 6:11 11:9 11:5 15:13 | CHASSELIN Pauline |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7797,15 +7039,8 @@
               "side_b": [
                 "MATOS Ines (POR)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "MATOS Ines (POR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | DRAGOMAN Andreea (ROU) |  | MATOS Ines (POR) |  | WS | Qualification |  | 3 - 0 | 14:12 11:6 11:6 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7845,15 +7080,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "KISEL Darya (AIN)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | KISEL Darya (AIN) |  | DRAGOMAN Andreea (ROU) |  | WS | Qualification | QR16 | 0 - 3 | 10:12 6:11 6:11 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -7904,15 +7132,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "HAN Ying (GER)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | HAN Ying (GER) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R64 | 4 - 1 | 11:4 8:11 11:4 11:5 11:7 | HAN Ying |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",

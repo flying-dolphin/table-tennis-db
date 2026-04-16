@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Lea RAKOVAC",
-  "english_name": "Lea RAKOVAC",
+  "player_name": "RAKOVAC Lea",
+  "english_name": "RAKOVAC Lea",
   "country": "CRO",
   "country_code": "CRO",
   "continent": "",
@@ -60,15 +60,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "HO Tin-Tin (ENG)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | HO Tin-Tin (ENG) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:7 16:18 11:7 | HO Tin-Tin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -126,15 +119,8 @@
               "side_b": [
                 "CHIEN Tung-Chuan (TPE)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "CHIEN Tung-Chuan (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | RAKOVAC Lea (CRO) |  | CHIEN Tung-Chuan (TPE) |  | WS | Main Draw | R64 | 1 - 3 | 7:11 11:8 11:13 6:11 | CHIEN Tung-Chuan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -192,15 +178,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "KAUFMANN Annett (GER)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | KAUFMANN Annett (GER) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR8 | 3 - 1 | 9:11 11:6 11:5 11:6 | KAUFMANN Annett |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -258,15 +237,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "BATRA Manika (IND)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BATRA Manika (IND) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 1 - 2 | 11:8 13:15 6:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -295,7 +267,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "GHORPADE Yashaswini",
+              "winner": "GHORPADE Yashaswini / CHITALE Diya",
               "all_players_in_row": [
                 "GHORPADE Yashaswini (IND)",
                 "CHITALE Diya (IND)",
@@ -304,17 +276,14 @@
               ],
               "side_a": [
                 "GHORPADE Yashaswini (IND)",
-                "RAKOVAC Lea (CRO)"
+                "CHITALE Diya (IND)"
               ],
               "side_b": [
-                "CHITALE Diya (IND)",
+                "RAKOVAC Lea (CRO)",
                 "JEGER Mateja (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | GHORPADE Yashaswini (IND) | CHITALE Diya (IND) | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | XT | Qualification |  | 3 - 0 | 11:9 11:9 11:8 | GHORPADE Yashaswini | CHITALE Diya | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -354,15 +323,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LIU Yangzi (AUS) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 2 - 1 | 11:13 12:10 13:11 | LIU Yangzi |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -402,15 +364,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "HARIMOTO Miwa (JPN)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | HARIMOTO Miwa (JPN) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 3 - 0 | 11:2 11:8 11:7 | HARIMOTO Miwa |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -434,7 +389,7 @@
                 "11:8",
                 "0:0"
               ],
-              "winner": "HARIMOTO Miwa",
+              "winner": "HARIMOTO Miwa / ODO Satsuki",
               "all_players_in_row": [
                 "HARIMOTO Miwa (JPN)",
                 "ODO Satsuki (JPN)",
@@ -443,17 +398,14 @@
               ],
               "side_a": [
                 "HARIMOTO Miwa (JPN)",
-                "JEGER Mateja (CRO)"
+                "ODO Satsuki (JPN)"
               ],
               "side_b": [
-                "ODO Satsuki (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | XT | Qualification |  | 1 - 0 | 11:8 0:0 | HARIMOTO Miwa | ODO Satsuki | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -493,15 +445,8 @@
               "side_b": [
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "LUTZ Charlotte (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | RAKOVAC Lea (CRO) |  | LUTZ Charlotte (FRA) |  | XT | Qualification |  | 0 - 3 | 11:13 3:11 6:11 | LUTZ Charlotte |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -539,17 +484,14 @@
               ],
               "side_a": [
                 "RAKOVAC Lea (CRO)",
-                "LUTZ Charlotte (FRA)"
+                "JEGER Mateja (CRO)"
               ],
               "side_b": [
-                "JEGER Mateja (CRO)",
+                "LUTZ Charlotte (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | LUTZ Charlotte (FRA) | PAVADE Prithika (FRA) | XT | Qualification |  | 1 - 1 | 11:9 9:11 0:0 |  |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -589,15 +531,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BERGSTROM Linda (SWE) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 0 - 3 | 9:11 9:11 7:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -637,15 +572,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "ZHU Chengzhu (HKG)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | ZHU Chengzhu (HKG) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 2 - 1 | 8:11 11:6 11:6 | ZHU Chengzhu |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -674,7 +602,7 @@
                 "11:8",
                 "11:9"
               ],
-              "winner": "ZHU Chengzhu",
+              "winner": "ZHU Chengzhu / NG Wing Lam",
               "all_players_in_row": [
                 "ZHU Chengzhu (HKG)",
                 "NG Wing Lam (HKG)",
@@ -683,17 +611,14 @@
               ],
               "side_a": [
                 "ZHU Chengzhu (HKG)",
-                "RAKOVAC Lea (CRO)"
+                "NG Wing Lam (HKG)"
               ],
               "side_b": [
-                "NG Wing Lam (HKG)",
+                "RAKOVAC Lea (CRO)",
                 "JEGER Mateja (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | XT | Qualification |  | 2 - 1 | 8:11 11:8 11:9 | ZHU Chengzhu | NG Wing Lam | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -733,15 +658,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "LEE Eunhye (KOR)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 1 - 2 | 9:11 8:11 11:8 | RAKOVAC Lea |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -770,7 +688,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / CHOI Hyojoo",
               "all_players_in_row": [
                 "KIM Nayeong (KOR)",
                 "CHOI Hyojoo (KOR)",
@@ -779,17 +697,14 @@
               ],
               "side_a": [
                 "KIM Nayeong (KOR)",
-                "JEGER Mateja (CRO)"
+                "CHOI Hyojoo (KOR)"
               ],
               "side_b": [
-                "CHOI Hyojoo (KOR)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | KIM Nayeong (KOR) | CHOI Hyojoo (KOR) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | XT | Qualification |  | 3 - 0 | 11:8 11:3 11:6 | KIM Nayeong | CHOI Hyojoo | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -840,7 +755,7 @@
                 "6:11",
                 "11:9"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -849,17 +764,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "LEAL Julia (POR)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "LEAL Julia (POR)",
                 "SANTA Mariana (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | LEAL Julia (POR) | SANTA Mariana (POR) | WD | Main Draw | R16 | 3 - 2 | 11:9 10:12 11:3 6:11 11:9 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -905,15 +817,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "LYNE Karen (MAS)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | LYNE Karen (MAS) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 1 - 3 | 7:11 9:11 11:7 9:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -948,7 +853,7 @@
                 "18:16",
                 "11:7"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -957,17 +862,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "MONFARDINI Gaia (ITA)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "MONFARDINI Gaia (ITA)",
                 "ARLIA Nicole (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WD | Main Draw | QuarterFinal | 3 - 1 | 12:10 10:12 18:16 11:7 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1013,15 +915,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "TEE Ai Xin (MAS)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | TEE Ai Xin (MAS) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R16 | 3 - 1 | 11:7 7:11 11:6 11:8 | TEE Ai Xin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1051,7 +946,7 @@
                 "11:1",
                 "11:8"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -1060,17 +955,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "BAJOR Natalia (POL)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "BAJOR Natalia (POL)",
                 "WIELGOS Zuzanna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | BAJOR Natalia (POL) | WIELGOS Zuzanna (POL) | WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:1 11:8 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1105,7 +997,7 @@
                 "4:11",
                 "14:12"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -1114,17 +1006,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "LYNE Karen (MAS)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "LYNE Karen (MAS)",
                 "TEE Ai Xin (MAS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | LYNE Karen (MAS) | TEE Ai Xin (MAS) | WD | Main Draw | Final | 3 - 1 | 11:8 11:9 4:11 14:12 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1187,15 +1076,8 @@
               "side_b": [
                 "YANG Yiyun (CHN)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "YANG Yiyun (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender London 2025 | RAKOVAC Lea (CRO) |  | YANG Yiyun (CHN) |  | WS | Main Draw | R64 | 2 - 3 | 6:11 11:7 12:10 5:11 5:11 | YANG Yiyun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1253,15 +1135,8 @@
               "side_b": [
                 "HO Tin-Tin (ENG)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "HO Tin-Tin (ENG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | HO Tin-Tin (ENG) |  | WT | Qualification |  | 3 - 1 | 8:11 11:7 11:6 11:6 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1301,15 +1176,8 @@
               "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "MONFARDINI Gaia (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | MONFARDINI Gaia (ITA) |  | WT | Qualification |  | 0 - 3 | 8:11 8:11 10:12 | MONFARDINI Gaia |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1354,15 +1222,8 @@
               "side_b": [
                 "PICCOLIN Giorgia (ITA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "PICCOLIN Giorgia (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | PICCOLIN Giorgia (ITA) |  | WT | Qualification |  | 3 - 1 | 11:8 12:10 8:11 11:7 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1412,15 +1273,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "KUKULKOVA Tatiana (SVK)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | KUKULKOVA Tatiana (SVK) |  | RAKOVAC Lea (CRO) |  | WT | MAIN | 16 | 3 - 2 | 2:11 11:8 11:7 8:11 11:9 | KUKULKOVA Tatiana |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1473,15 +1327,8 @@
               "side_b": [
                 "ZHU Sibing (CHN)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "ZHU Sibing (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | RAKOVAC Lea (CRO) |  | ZHU Sibing (CHN) |  | WS | Qualification | QR64 | 0 - 3 | 7:11 6:11 5:11 | ZHU Sibing |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1516,7 +1363,7 @@
                 "11:3",
                 "11:9"
               ],
-              "winner": "KAUFMANN Annett",
+              "winner": "KAUFMANN Annett / LIU Yangzi",
               "all_players_in_row": [
                 "KAUFMANN Annett (GER)",
                 "LIU Yangzi (AUS)",
@@ -1525,17 +1372,14 @@
               ],
               "side_a": [
                 "KAUFMANN Annett (GER)",
-                "JEGER Mateja (CRO)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | KAUFMANN Annett (GER) | LIU Yangzi (AUS) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R32 | 3 - 1 | 10:12 11:7 11:3 11:9 | KAUFMANN Annett | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1588,15 +1432,8 @@
               "side_b": [
                 "LEE Eunhye (KOR)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "LEE Eunhye (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | RAKOVAC Lea (CRO) |  | LEE Eunhye (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 8:11 9:11 | LEE Eunhye |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1636,7 +1473,7 @@
                 "11:7",
                 "7:11"
               ],
-              "winner": "BERGAND Filippa",
+              "winner": "BERGAND Filippa / BAASAN Nomin",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -1645,17 +1482,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "BERGAND Filippa (SWE)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "BERGAND Filippa (SWE)",
                 "BAASAN Nomin (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | BERGAND Filippa (SWE) | BAASAN Nomin (SWE) | WD | Main Draw | R32 | 2 - 3 | 11:7 4:11 4:11 11:7 7:11 | BERGAND Filippa | BAASAN Nomin | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1708,15 +1542,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "BURGOS Brianna (PUR)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | BURGOS Brianna (PUR) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR32 | 0 - 3 | 11:13 5:11 5:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1762,15 +1589,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | DRAGOMAN Andreea (ROU) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR16 | 3 - 1 | 8:11 11:9 12:10 11:8 | DRAGOMAN Andreea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1823,15 +1643,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "SHAN Xiaona (GER)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | SHAN Xiaona (GER) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:9 12:10 | SHAN Xiaona |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1894,15 +1707,8 @@
               "side_b": [
                 "STRAZAR Katarina (SLO)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "STRAZAR Katarina (SLO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | RAKOVAC Lea (CRO) |  | STRAZAR Katarina (SLO) |  | WS | Qualification | QR64 | 3 - 2 | 11:6 11:13 5:11 11:8 11:5 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1943,15 +1749,8 @@
               "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "YANG Ha Eun (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | RAKOVAC Lea (CRO) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 6:11 9:11 | YANG Ha Eun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1986,7 +1785,7 @@
                 "11:5",
                 "12:10"
               ],
-              "winner": "LEE Hoi Man",
+              "winner": "LEE Hoi Man / KONG Tsz Lam",
               "all_players_in_row": [
                 "LEE Hoi Man (HKG)",
                 "KONG Tsz Lam (HKG)",
@@ -1995,17 +1794,14 @@
               ],
               "side_a": [
                 "LEE Hoi Man (HKG)",
-                "RAKOVAC Lea (CRO)"
+                "KONG Tsz Lam (HKG)"
               ],
               "side_b": [
-                "KONG Tsz Lam (HKG)",
+                "RAKOVAC Lea (CRO)",
                 "JEGER Mateja (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | LEE Hoi Man (HKG) | KONG Tsz Lam (HKG) | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | WD | Qualification | QR8 | 3 - 1 | 7:11 11:5 11:5 12:10 | LEE Hoi Man | KONG Tsz Lam | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -2040,7 +1836,7 @@
                 "11:9",
                 "8:11"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / HAN Feier",
               "all_players_in_row": [
                 "RAKOVAC Lea (CRO)",
                 "JEGER Mateja (CRO)",
@@ -2049,17 +1845,14 @@
               ],
               "side_a": [
                 "RAKOVAC Lea (CRO)",
-                "CHEN Yi (CHN)"
+                "JEGER Mateja (CRO)"
               ],
               "side_b": [
-                "JEGER Mateja (CRO)",
+                "CHEN Yi (CHN)",
                 "HAN Feier (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | CHEN Yi (CHN) | HAN Feier (CHN) | WD | Main Draw | R16 | 1 - 3 | 9:11 5:11 11:9 8:11 | CHEN Yi | HAN Feier | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2117,15 +1910,8 @@
               "side_b": [
                 "RODRIGUEZ Alondra (PUR)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "RODRIGUEZ Alondra (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) |  | RODRIGUEZ Alondra (PUR) |  | WS | Qualification |  | 3 - 1 | 11:5 5:11 11:5 11:5 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2175,15 +1961,8 @@
               "side_b": [
                 "COSIC Dora (CRO)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "COSIC Dora (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) |  | COSIC Dora (CRO) |  | WS | Qualification |  | 3 - 2 | 9:11 11:6 10:12 11:6 11:5 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2228,15 +2007,8 @@
               "side_b": [
                 "ZAHARIA Elena (ROU)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "ZAHARIA Elena (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) |  | ZAHARIA Elena (ROU) |  | WS | Qualification | QR16 | 3 - 1 | 11:5 8:11 11:7 11:6 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -2277,15 +2049,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "ODO Satsuki (JPN)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | ODO Satsuki (JPN) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:6 11:9 | ODO Satsuki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2315,7 +2080,7 @@
                 "10:12",
                 "5:11"
               ],
-              "winner": "YOO Yerin",
+              "winner": "YOO Yerin / CHOI Nahyun",
               "all_players_in_row": [
                 "RAKOVAC Lea (CRO)",
                 "JEGER Mateja (CRO)",
@@ -2324,17 +2089,14 @@
               ],
               "side_a": [
                 "RAKOVAC Lea (CRO)",
-                "YOO Yerin (KOR)"
+                "JEGER Mateja (CRO)"
               ],
               "side_b": [
-                "JEGER Mateja (CRO)",
+                "YOO Yerin (KOR)",
                 "CHOI Nahyun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | YOO Yerin (KOR) | CHOI Nahyun (KOR) | WD | Main Draw | R16 | 0 - 3 | 7:11 10:12 5:11 | YOO Yerin | CHOI Nahyun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2376,7 +2138,7 @@
                 "11:3",
                 "11:7"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -2385,17 +2147,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "RAD Elvira (ESP)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "RAD Elvira (ESP)",
                 "RIERA Jana (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | RAD Elvira (ESP) | RIERA Jana (ESP) | WD | Main Draw | R16 | 3 - 0 | 11:7 11:3 11:7 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2436,15 +2195,8 @@
               "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "LUTZ Camille (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | RAKOVAC Lea (CRO) |  | LUTZ Camille (FRA) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 6:11 9:11 | LUTZ Camille |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2479,7 +2231,7 @@
                 "11:7",
                 "11:3"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -2488,17 +2240,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "LUTZ Camille (FRA)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "LUTZ Camille (FRA)",
                 "ZARIF Audrey (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | LUTZ Camille (FRA) | ZARIF Audrey (FRA) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:9 11:7 11:3 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2528,7 +2277,7 @@
                 "11:7",
                 "11:6"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / YOKOI Sakura",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -2537,17 +2286,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "JEGER Mateja (CRO)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 3 - 0 | 12:10 11:7 11:6 | SATO Hitomi | YOKOI Sakura | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2599,7 +2345,7 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -2608,17 +2354,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "SAMARA Elizabeta (ROU)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R64 | 3 - 2 | 5:11 9:11 11:8 11:7 12:10 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2664,15 +2407,8 @@
               "side_b": [
                 "GIRET Maylis (NCL)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "GIRET Maylis (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | RAKOVAC Lea (CRO) |  | GIRET Maylis (NCL) |  | WS | Main Draw | R128 | 4 - 0 | 11:1 11:1 11:2 11:9 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2728,15 +2464,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "HIRANO Miu (JPN)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | HIRANO Miu (JPN) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R64 | 2 - 4 | 8:11 11:7 10:12 11:5 6:11 7:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2776,7 +2505,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "TAN Zhao Yun (SGP)",
                 "ZHANG Wanling (SGP)",
@@ -2785,17 +2514,14 @@
               ],
               "side_a": [
                 "TAN Zhao Yun (SGP)",
-                "JEGER Mateja (CRO)"
+                "ZHANG Wanling (SGP)"
               ],
               "side_b": [
-                "ZHANG Wanling (SGP)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | TAN Zhao Yun (SGP) | ZHANG Wanling (SGP) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R32 | 2 - 3 | 6:11 11:9 13:11 8:11 8:11 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2851,15 +2577,8 @@
               "side_b": [
                 "SUH Hyo Won (KOR)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "SUH Hyo Won (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | RAKOVAC Lea (CRO) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R32 | 4 - 2 | 3:11 11:9 7:11 11:4 11:7 11:6 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2889,7 +2608,7 @@
                 "11:9",
                 "11:0"
               ],
-              "winner": "ODO Satsuki",
+              "winner": "ODO Satsuki / YOKOI Sakura",
               "all_players_in_row": [
                 "ODO Satsuki (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -2898,17 +2617,14 @@
               ],
               "side_a": [
                 "ODO Satsuki (JPN)",
-                "JEGER Mateja (CRO)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R16 | 3 - 0 | 12:10 11:9 11:0 | ODO Satsuki | YOKOI Sakura | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2954,15 +2670,8 @@
               "side_b": [
                 "ODO Satsuki (JPN)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "ODO Satsuki (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | RAKOVAC Lea (CRO) |  | ODO Satsuki (JPN) |  | WS | Main Draw | R16 | 0 - 4 | 3:11 9:11 7:11 5:11 | ODO Satsuki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3015,15 +2724,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "KIM Seoyun (KOR)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seoyun (KOR) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R64 | 0 - 3 | 7:11 7:11 15:17 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3074,15 +2776,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "TAKAHASHI Giulia (BRA)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | TAKAHASHI Giulia (BRA) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 2 - 3 | 11:7 11:6 4:11 10:12 10:12 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3122,7 +2817,7 @@
                 "1:11",
                 "11:7"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -3131,17 +2826,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "ARAPOVIC Hana (CRO)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "ARAPOVIC Hana (CRO)",
                 "MALOBABIC Ivana (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | ARAPOVIC Hana (CRO) | MALOBABIC Ivana (CRO) | WD | Main Draw | R16 | 3 - 2 | 11:4 7:11 12:10 1:11 11:7 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3171,7 +2863,7 @@
                 "7:11",
                 "10:12"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "CHOI Haeeun (KOR)",
                 "KIM Hana (KOR)",
@@ -3180,17 +2872,14 @@
               ],
               "side_a": [
                 "CHOI Haeeun (KOR)",
-                "JEGER Mateja (CRO)"
+                "KIM Hana (KOR)"
               ],
               "side_b": [
-                "KIM Hana (KOR)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | CHOI Haeeun (KOR) | KIM Hana (KOR) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 7:11 10:12 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3231,15 +2920,8 @@
               "side_b": [
                 "SCHREINER Franziska (GER)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "SCHREINER Franziska (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | RAKOVAC Lea (CRO) |  | SCHREINER Franziska (GER) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:8 11:5 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3279,7 +2961,7 @@
                 "11:7",
                 "10:12"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -3288,17 +2970,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "JEGER Mateja (CRO)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 2 - 3 | 11:7 7:11 6:11 11:7 10:12 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3349,15 +3028,8 @@
               "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | RAKOVAC Lea (CRO) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 11:9 11:8 13:15 2:11 11:9 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3408,15 +3080,8 @@
               "side_b": [
                 "CHOI Hyojoo (KOR)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "CHOI Hyojoo (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | RAKOVAC Lea (CRO) |  | CHOI Hyojoo (KOR) |  | WS | Main Draw | SemiFinal | 2 - 3 | 11:9 11:9 7:11 9:11 8:11 | CHOI Hyojoo |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3456,7 +3121,7 @@
                 "11:13",
                 "11:9"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -3465,17 +3130,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "CHOI Hyojoo (KOR)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Daeun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | WD | Main Draw | Final | 3 - 2 | 11:9 11:7 5:11 11:13 11:9 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3538,15 +3200,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "LI YING Im (MAS)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | LI YING Im (MAS) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 2 | 6:11 5:11 11:2 11:6 13:11 | LI YING Im |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3586,7 +3241,7 @@
                 "11:5",
                 "11:3"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -3595,17 +3250,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "JEGER Mateja (CRO)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R16 | 3 - 2 | 7:11 7:11 11:8 11:5 11:3 | SATO Hitomi | SHIBATA Saki | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3658,15 +3310,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "JEGER Mateja (CRO)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | JEGER Mateja (CRO) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R64 | 0 - 3 | 10:12 9:11 5:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3712,15 +3357,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "CHEN Yi (CHN)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | CHEN Yi (CHN) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 11:3 6:11 11:4 | CHEN Yi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3755,7 +3393,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -3764,17 +3402,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "KLEE Sophia (GER)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "KLEE Sophia (GER)",
                 "SCHREINER Franziska (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | KLEE Sophia (GER) | SCHREINER Franziska (GER) | WD | Main Draw | R16 | 3 - 1 | 11:9 6:11 11:7 11:9 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3809,7 +3444,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -3818,17 +3453,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "CHOI Haeeun (KOR)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "CHOI Haeeun (KOR)",
                 "YOO Siwoo (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | CHOI Haeeun (KOR) | YOO Siwoo (KOR) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:7 11:8 11:7 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3868,7 +3500,7 @@
                 "8:11",
                 "17:15"
               ],
-              "winner": "WAN Yuan",
+              "winner": "WAN Yuan / WINTER Sabine",
               "all_players_in_row": [
                 "WAN Yuan (GER)",
                 "WINTER Sabine (GER)",
@@ -3877,17 +3509,14 @@
               ],
               "side_a": [
                 "WAN Yuan (GER)",
-                "JEGER Mateja (CRO)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | WAN Yuan (GER) | WINTER Sabine (GER) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 3 - 2 | 6:11 12:10 11:9 8:11 17:15 | WAN Yuan | WINTER Sabine | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3945,15 +3574,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "TODOROVIC Andrea (SRB)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | TODOROVIC Andrea (SRB) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR64 | 1 - 3 | 3:11 8:11 13:11 7:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -3994,15 +3616,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "MATELOVA Hana (CZE)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | MATELOVA Hana (CZE) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR32 | 0 - 3 | 9:11 9:11 8:11 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4043,15 +3658,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | RAKOVAC Lea (CRO) |  | MOYLAND Sally (USA) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 9:11 7:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4109,15 +3717,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "KIM Nayeong (KOR)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Muscat 2024 | KIM Nayeong (KOR) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:4 11:6 | KIM Nayeong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4164,7 +3765,7 @@
                 "4:11",
                 "11:5"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -4173,17 +3774,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "BALINT Bernadett (HUN)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "BALINT Bernadett (HUN)",
                 "HARTBRICH Leonie (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | BALINT Bernadett (HUN) | HARTBRICH Leonie (HUN) | WD | Main Draw | R32 | 3 - 1 | 11:4 11:9 4:11 11:5 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4213,7 +3811,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "POTA Georgina",
+              "winner": "POTA Georgina / DE NUTTE Sarah",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -4222,17 +3820,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "POTA Georgina (HUN)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "POTA Georgina (HUN)",
                 "DE NUTTE Sarah (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | POTA Georgina (HUN) | DE NUTTE Sarah (LUX) | WD | Main Draw | R16 | 0 - 3 | 11:13 9:11 9:11 | POTA Georgina | DE NUTTE Sarah | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4278,15 +3873,8 @@
               "side_b": [
                 "BEZEG Reka (SRB)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "BEZEG Reka (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | RAKOVAC Lea (CRO) |  | BEZEG Reka (SRB) |  | WS | Qualification |  | 3 - 1 | 13:15 11:6 11:4 11:5 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4331,15 +3919,8 @@
               "side_b": [
                 "TOLIOU Aikaterini (GRE)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "TOLIOU Aikaterini (GRE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | RAKOVAC Lea (CRO) |  | TOLIOU Aikaterini (GRE) |  | WS | Qualification |  | 3 - 1 | 11:4 11:4 7:11 12:10 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4389,15 +3970,8 @@
               "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | European Championships Linz 2024 | RAKOVAC Lea (CRO) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 1 - 4 | 11:8 5:11 12:14 6:11 11:13 | LUPULESKU Izabela |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4439,7 +4013,7 @@
                 "11:6",
                 "11:2"
               ],
-              "winner": "YANG Yiyun",
+              "winner": "YANG Yiyun / ZHU Sibing",
               "all_players_in_row": [
                 "YANG Yiyun (CHN)",
                 "ZHU Sibing (CHN)",
@@ -4448,17 +4022,14 @@
               ],
               "side_a": [
                 "YANG Yiyun (CHN)",
-                "JEGER Mateja (CRO)"
+                "ZHU Sibing (CHN)"
               ],
               "side_b": [
-                "ZHU Sibing (CHN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | YANG Yiyun (CHN) | ZHU Sibing (CHN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:6 11:2 | YANG Yiyun | ZHU Sibing | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4499,15 +4070,8 @@
               "side_b": [
                 "MISCHEK Karoline (AUT)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "MISCHEK Karoline (AUT)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | RAKOVAC Lea (CRO) |  | MISCHEK Karoline (AUT) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:5 11:8 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4548,15 +4112,8 @@
               "side_b": [
                 "QIN Yuxuan (CHN)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "QIN Yuxuan (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | RAKOVAC Lea (CRO) |  | QIN Yuxuan (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 9:11 4:11 | QIN Yuxuan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4598,7 +4155,7 @@
                 "11:7",
                 "11:7"
               ],
-              "winner": "AUEAWIRIYAYOTHIN Wanwisa",
+              "winner": "AUEAWIRIYAYOTHIN Wanwisa / SAWETTABUT Jinnipa",
               "all_players_in_row": [
                 "AUEAWIRIYAYOTHIN Wanwisa (THA)",
                 "SAWETTABUT Jinnipa (THA)",
@@ -4607,17 +4164,14 @@
               ],
               "side_a": [
                 "AUEAWIRIYAYOTHIN Wanwisa (THA)",
-                "JEGER Mateja (CRO)"
+                "SAWETTABUT Jinnipa (THA)"
               ],
               "side_b": [
-                "SAWETTABUT Jinnipa (THA)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | AUEAWIRIYAYOTHIN Wanwisa (THA) | SAWETTABUT Jinnipa (THA) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Qualification | QR16 | 3 - 0 | 13:11 11:7 11:7 | AUEAWIRIYAYOTHIN Wanwisa | SAWETTABUT Jinnipa | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -4658,15 +4212,8 @@
               "side_b": [
                 "REYES LAI Jessica (USA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "REYES LAI Jessica (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | RAKOVAC Lea (CRO) |  | REYES LAI Jessica (USA) |  | WS | Qualification | QR64 | 3 - 0 | 11:5 11:8 16:14 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4712,15 +4259,8 @@
               "side_b": [
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "VIVARELLI Debora (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | RAKOVAC Lea (CRO) |  | VIVARELLI Debora (ITA) |  | WS | Qualification | QR32 | 3 - 1 | 11:9 7:11 11:6 11:7 | RAKOVAC Lea |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4766,15 +4306,8 @@
               "side_b": [
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [
-                "ZARIF Audrey (FRA)"
-              ],
-              "opponents": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | ZARIF Audrey (FRA) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR16 | 3 - 1 | 11:8 11:9 6:11 11:7 | ZARIF Audrey |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",

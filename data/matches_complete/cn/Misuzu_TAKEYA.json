@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Misuzu TAKEYA",
-  "english_name": "Misuzu TAKEYA",
+  "player_name": "TAKEYA Misuzu",
+  "english_name": "TAKEYA Misuzu",
   "country": "JPN",
   "country_code": "JPN",
   "continent": "",
@@ -49,7 +49,7 @@
                 "8:11",
                 "11:4"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)",
@@ -58,17 +58,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "GUO ZHENG Nina (FRA)"
+                "KANEYOSHI Yuka (JPN)"
               ],
               "side_b": [
-                "KANEYOSHI Yuka (JPN)",
+                "GUO ZHENG Nina (FRA)",
                 "HOCHART Leana (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | GUO ZHENG Nina (FRA) | HOCHART Leana (FRA) | WD | Main Draw | R16 | 3 - 1 | 13:11 11:4 8:11 11:4 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -109,15 +106,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "ALTINKAYA Sibel (TUR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ALTINKAYA Sibel (TUR) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 7:11 5:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -168,15 +158,8 @@
               "side_b": [
                 "ZHANG Sofia-Xuan (ESP)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "ZHANG Sofia-Xuan (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) |  | ZHANG Sofia-Xuan (ESP) |  | WS | Main Draw | R16 | 3 - 2 | 12:10 11:9 5:11 8:11 14:12 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -211,24 +194,23 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
-                "KANEYOSHI Yuka (JPN)"
+                "KANEYOSHI Yuka (JPN)",
+                "TSAI Yun-En (TPE)",
+                "CHIEN Tung-Chuan (TPE)"
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "TSAI Yun-En (TPE)"
+                "KANEYOSHI Yuka (JPN)"
               ],
               "side_b": [
-                "KANEYOSHI Yuka (JPN)",
+                "TSAI Yun-En (TPE)",
                 "CHIEN Tung-Chuan (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | TSAI Yun-En (TPE) | CHIEN Tung-Chuan (TPE) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:8 9:11 11:6 11:6 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -269,15 +251,8 @@
               "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "XIAO Maria (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) |  | XIAO Maria (ESP) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 5:11 8:11 8:11 | XIAO Maria |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -307,7 +282,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)",
@@ -316,17 +291,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "DAS Syndrela (IND)"
+                "KANEYOSHI Yuka (JPN)"
               ],
               "side_b": [
-                "KANEYOSHI Yuka (JPN)",
+                "DAS Syndrela (IND)",
                 "MUKHERJEE Sutirtha (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | DAS Syndrela (IND) | MUKHERJEE Sutirtha (IND) | WD | Main Draw | SemiFinal | 3 - 0 | 11:7 11:7 11:8 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -366,7 +338,7 @@
                 "11:13",
                 "11:5"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / PANFILOVA Maria",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "PANFILOVA Maria (AIN)",
@@ -375,17 +347,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "TAKEYA Misuzu (JPN)"
+                "PANFILOVA Maria (AIN)"
               ],
               "side_b": [
-                "PANFILOVA Maria (AIN)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) | PANFILOVA Maria (AIN) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | Final | 3 - 2 | 11:8 11:7 9:11 11:13 11:5 | ABRAAMIAN Elizabet | PANFILOVA Maria | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -427,7 +396,7 @@
                 "10:12",
                 "6:11"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "COSIC Dora (CRO)",
                 "PAPADIMITRIOU Malamatenia (GRE)",
@@ -436,17 +405,14 @@
               ],
               "side_a": [
                 "COSIC Dora (CRO)",
-                "TAKEYA Misuzu (JPN)"
+                "PAPADIMITRIOU Malamatenia (GRE)"
               ],
               "side_b": [
-                "PAPADIMITRIOU Malamatenia (GRE)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | COSIC Dora (CRO) | PAPADIMITRIOU Malamatenia (GRE) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Qualification | QR8 | 0 - 3 | 7:11 10:12 6:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -476,7 +442,7 @@
                 "2:11",
                 "8:11"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "CRISTOBAL Ainhoa (ESP)",
                 "RAD Elvira (ESP)",
@@ -485,17 +451,14 @@
               ],
               "side_a": [
                 "CRISTOBAL Ainhoa (ESP)",
-                "TAKEYA Misuzu (JPN)"
+                "RAD Elvira (ESP)"
               ],
               "side_b": [
-                "RAD Elvira (ESP)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | CRISTOBAL Ainhoa (ESP) | RAD Elvira (ESP) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | R16 | 0 - 3 | 1:11 2:11 8:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -541,15 +504,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "BRZYSKA Anna (POL)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | BRZYSKA Anna (POL) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 1 - 3 | 12:10 3:11 6:11 6:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -589,7 +545,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "BRZYSKA Anna (POL)",
                 "WIELGOS Zuzanna (POL)",
@@ -598,17 +554,14 @@
               ],
               "side_a": [
                 "BRZYSKA Anna (POL)",
-                "TAKEYA Misuzu (JPN)"
+                "WIELGOS Zuzanna (POL)"
               ],
               "side_b": [
-                "WIELGOS Zuzanna (POL)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | BRZYSKA Anna (POL) | WIELGOS Zuzanna (POL) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | QuarterFinal | 2 - 3 | 3:11 13:11 12:10 6:11 7:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -654,15 +607,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "MITTELHAM Nina (GER)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R16 | 3 - 1 | 8:11 15:13 11:0 11:6 | MITTELHAM Nina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -697,7 +643,7 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "SCHREINER Franziska (GER)",
@@ -706,17 +652,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "TAKEYA Misuzu (JPN)"
+                "SCHREINER Franziska (GER)"
               ],
               "side_b": [
-                "SCHREINER Franziska (GER)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) | SCHREINER Franziska (GER) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | SemiFinal | 1 - 3 | 7:11 7:11 11:9 9:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -756,7 +699,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)",
@@ -765,17 +708,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "KUKULKOVA Tatiana (SVK)"
+                "KANEYOSHI Yuka (JPN)"
               ],
               "side_b": [
-                "KANEYOSHI Yuka (JPN)",
+                "KUKULKOVA Tatiana (SVK)",
                 "ZARIF Audrey (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | KUKULKOVA Tatiana (SVK) | ZARIF Audrey (FRA) | WD | Main Draw | Final | 3 - 2 | 6:11 9:11 11:6 11:5 11:8 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -817,7 +757,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)",
@@ -826,17 +766,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "MALOBABIC Ivana (CRO)"
+                "KANEYOSHI Yuka (JPN)"
               ],
               "side_b": [
-                "KANEYOSHI Yuka (JPN)",
+                "MALOBABIC Ivana (CRO)",
                 "PAVLOVIC Andrea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | MALOBABIC Ivana (CRO) | PAVLOVIC Andrea (CRO) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:9 11:9 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -877,15 +814,8 @@
               "side_b": [
                 "MASSART Lilou (BEL)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "MASSART Lilou (BEL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | TAKEYA Misuzu (JPN) |  | MASSART Lilou (BEL) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:4 11:6 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -915,7 +845,7 @@
                 "4:11",
                 "10:12"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
               "all_players_in_row": [
                 "WIELGOS Zuzanna (POL)",
                 "MONFARDINI Gaia (ITA)",
@@ -924,17 +854,14 @@
               ],
               "side_a": [
                 "WIELGOS Zuzanna (POL)",
-                "TAKEYA Misuzu (JPN)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | WIELGOS Zuzanna (POL) | MONFARDINI Gaia (ITA) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 4:11 10:12 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -980,15 +907,8 @@
               "side_b": [
                 "COSIC Dora (CRO)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "COSIC Dora (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | TAKEYA Misuzu (JPN) |  | COSIC Dora (CRO) |  | WS | Main Draw | R16 | 3 - 1 | 11:9 12:10 8:11 11:2 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1018,7 +938,7 @@
                 "13:11",
                 "11:9"
               ],
-              "winner": "KIM Seongjin",
+              "winner": "KIM Seongjin / LEE Daeun",
               "all_players_in_row": [
                 "KIM Seongjin (KOR)",
                 "LEE Daeun (KOR)",
@@ -1027,17 +947,14 @@
               ],
               "side_a": [
                 "KIM Seongjin (KOR)",
-                "TAKEYA Misuzu (JPN)"
+                "LEE Daeun (KOR)"
               ],
               "side_b": [
-                "LEE Daeun (KOR)",
+                "TAKEYA Misuzu (JPN)",
                 "KANEYOSHI Yuka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KIM Seongjin (KOR) | LEE Daeun (KOR) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:5 13:11 11:9 | KIM Seongjin | LEE Daeun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1083,15 +1000,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "YEH Yi-Tian (TPE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | YEH Yi-Tian (TPE) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 9:11 11:4 11:9 11:8 | YEH Yi-Tian |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1159,15 +1069,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "MORSCH Lorena (GER)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | MORSCH Lorena (GER) |  | TAKEYA Misuzu (JPN) |  | U19WT | Main Draw | QuarterFinal | 2 - 3 | 11:7 14:12 10:12 9:11 10:12 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -1219,7 +1122,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "KOBAYASHI Hiromu",
+              "winner": "KOBAYASHI Hiromu / TAKEYA Misuzu",
               "all_players_in_row": [
                 "TAUBER Michael (ISR)",
                 "RIOS Valentina (CHI)",
@@ -1228,17 +1131,14 @@
               ],
               "side_a": [
                 "TAUBER Michael (ISR)",
-                "KOBAYASHI Hiromu (JPN)"
+                "RIOS Valentina (CHI)"
               ],
               "side_b": [
-                "RIOS Valentina (CHI)",
+                "KOBAYASHI Hiromu (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | TAUBER Michael (ISR) | RIOS Valentina (CHI) | KOBAYASHI Hiromu (JPN) | TAKEYA Misuzu (JPN) | XD | Qualification | QR16 | 2 - 3 | 9:11 11:9 14:12 6:11 9:11 | KOBAYASHI Hiromu | TAKEYA Misuzu | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -1268,25 +1168,23 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "GREEN Connor",
+              "winner": "GREEN Connor / HO Tin-Tin",
               "all_players_in_row": [
                 "GREEN Connor (ENG)",
+                "HO Tin-Tin (ENG)",
                 "KOBAYASHI Hiromu (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
               "side_a": [
                 "GREEN Connor (ENG)",
-                "KOBAYASHI Hiromu (JPN)"
+                "HO Tin-Tin (ENG)"
               ],
               "side_b": [
-                "HO Tin-Tin (ENG)",
+                "KOBAYASHI Hiromu (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | GREEN Connor (ENG) | HO Tin-Tin (ENG) | KOBAYASHI Hiromu (JPN) | TAKEYA Misuzu (JPN) | XD | Qualification | QR8 | 3 - 0 | 11:7 11:7 11:8 | GREEN Connor | HO Tin-Tin | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -1332,15 +1230,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "JI Eunchae (KOR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JI Eunchae (KOR) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 1 - 3 | 8:11 11:3 12:14 6:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1381,15 +1272,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "VEGA Paulina (CHI)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | VEGA Paulina (CHI) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 8:11 8:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1435,15 +1319,8 @@
               "side_b": [
                 "ARAPOVIC Hana (CRO)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "ARAPOVIC Hana (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | TAKEYA Misuzu (JPN) |  | ARAPOVIC Hana (CRO) |  | WS | Main Draw | R16 | 3 - 1 | 11:7 11:6 9:11 11:6 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1489,15 +1366,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "BYUN Seoyoung (KOR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | BYUN Seoyoung (KOR) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 11:8 8:11 8:11 9:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1538,15 +1408,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "HEO Yerim (KOR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | HEO Yerim (KOR) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | SemiFinal | 0 - 3 | 6:11 7:11 6:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1587,15 +1450,8 @@
               "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "BAJOR Natalia (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | TAKEYA Misuzu (JPN) |  | BAJOR Natalia (POL) |  | WS | Main Draw | Final | 3 - 0 | 11:9 12:10 11:7 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1658,15 +1514,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "ASHTARI Mahshid (IRI)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | ASHTARI Mahshid (IRI) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 3 - 2 | 4:11 12:10 5:11 11:8 11:7 | ASHTARI Mahshid |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1729,15 +1578,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "VORONINA Vlada (AIN)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | VORONINA Vlada (AIN) |  | TAKEYA Misuzu (JPN) |  | WS | Qualification | QR32 | 2 - 3 | 11:6 9:11 11:6 7:11 6:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1788,15 +1630,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "KIM Seoyun (KOR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | KIM Seoyun (KOR) |  | TAKEYA Misuzu (JPN) |  | WS | Qualification | QR16 | 2 - 3 | 11:8 4:11 10:12 11:9 5:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1837,15 +1672,8 @@
               "side_b": [
                 "YOKOI Sakura (JPN)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "YOKOI Sakura (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Almaty 2025 | TAKEYA Misuzu (JPN) |  | YOKOI Sakura (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 13:15 4:11 6:11 | YOKOI Sakura |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1898,15 +1726,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "SCIBRANIOVA Magdalena (CZE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | SCIBRANIOVA Magdalena (CZE) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 4:11 10:12 7:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1936,7 +1757,7 @@
                 "11:4",
                 "11:6"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -1945,17 +1766,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "PUCHOVANOVA Nikoleta (SVK)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "PUCHOVANOVA Nikoleta (SVK)",
                 "LABOSOVA Ema (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | PUCHOVANOVA Nikoleta (SVK) | LABOSOVA Ema (SVK) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:4 11:6 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2006,15 +1824,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "JOKIC Tijana (SRB)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | JOKIC Tijana (SRB) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 2 - 3 | 5:11 7:11 11:5 11:8 7:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2049,7 +1860,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -2058,17 +1869,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "MISCHEK Karoline (AUT)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "MISCHEK Karoline (AUT)",
                 "LIU Yuan (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | MISCHEK Karoline (AUT) | LIU Yuan (AUT) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:3 8:11 11:7 11:5 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2109,15 +1917,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "MATELOVA Hana (CZE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | MATELOVA Hana (CZE) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 12:10 11:2 | MATELOVA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2157,7 +1958,7 @@
                 "6:11",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -2166,17 +1967,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "MEN Shuohan (NED)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "MEN Shuohan (NED)",
                 "SCHOLZ Vivien (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | MEN Shuohan (NED) | SCHOLZ Vivien (LUX) | WD | Main Draw | SemiFinal | 3 - 2 | 11:4 4:11 11:6 6:11 11:8 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2211,7 +2009,7 @@
                 "11:5",
                 "11:7"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -2220,17 +2018,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "BAJOR Natalia (POL)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "BAJOR Natalia (POL)",
                 "BRZYSKA Anna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Olomouc 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | BAJOR Natalia (POL) | BRZYSKA Anna (POL) | WD | Main Draw | Final | 3 - 1 | 10:12 11:8 11:5 11:7 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2283,15 +2078,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "PIPEROVA Kalina (BUL)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Panagyurishte 2025 | PIPEROVA Kalina (BUL) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 3:11 2:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2342,15 +2130,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "DYMYTRENKO Anastasiya (UKR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Panagyurishte 2025 | DYMYTRENKO Anastasiya (UKR) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R16 | 3 - 2 | 11:7 3:11 11:5 5:11 11:6 | DYMYTRENKO Anastasiya |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2402,24 +2183,23 @@
                 "8:11",
                 "11:7"
               ],
-              "winner": "LIN Yen-Chun",
+              "winner": "LIN Yen-Chun / WU Jia-En",
               "all_players_in_row": [
+                "LIN Yen-Chun (TPE)",
+                "WU Jia-En (TPE)",
                 "ASAZU Aoto (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
               "side_a": [
                 "LIN Yen-Chun (TPE)",
-                "ASAZU Aoto (JPN)"
+                "WU Jia-En (TPE)"
               ],
               "side_b": [
-                "WU Jia-En (TPE)",
+                "ASAZU Aoto (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vientiane 2025 | LIN Yen-Chun (TPE) | WU Jia-En (TPE) | ASAZU Aoto (JPN) | TAKEYA Misuzu (JPN) | XD | Main Draw | R16 | 3 - 2 | 11:9 15:13 5:11 8:11 11:7 | LIN Yen-Chun | WU Jia-En | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2449,7 +2229,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "ASAZU Aoto",
+              "winner": "ASAZU Aoto / TAKEYA Misuzu",
               "all_players_in_row": [
                 "KWAN Man Ho (HKG)",
                 "LEE Hoi Man (HKG)",
@@ -2458,17 +2238,14 @@
               ],
               "side_a": [
                 "KWAN Man Ho (HKG)",
-                "ASAZU Aoto (JPN)"
+                "LEE Hoi Man (HKG)"
               ],
               "side_b": [
-                "LEE Hoi Man (HKG)",
+                "ASAZU Aoto (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vientiane 2025 | KWAN Man Ho (HKG) | LEE Hoi Man (HKG) | ASAZU Aoto (JPN) | TAKEYA Misuzu (JPN) | XD | Qualification | QR8 | 0 - 3 | 9:11 7:11 8:11 | ASAZU Aoto | TAKEYA Misuzu | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -2503,7 +2280,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "ASAZU Aoto",
+              "winner": "ASAZU Aoto / TAKEYA Misuzu",
               "all_players_in_row": [
                 "NAYRE Jann Mari (PHI)",
                 "CRUZ Kheith (PHI)",
@@ -2512,17 +2289,14 @@
               ],
               "side_a": [
                 "NAYRE Jann Mari (PHI)",
-                "ASAZU Aoto (JPN)"
+                "CRUZ Kheith (PHI)"
               ],
               "side_b": [
-                "CRUZ Kheith (PHI)",
+                "ASAZU Aoto (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vientiane 2025 | NAYRE Jann Mari (PHI) | CRUZ Kheith (PHI) | ASAZU Aoto (JPN) | TAKEYA Misuzu (JPN) | XD | Qualification | QR16 | 1 - 3 | 8:11 11:9 9:11 7:11 | ASAZU Aoto | TAKEYA Misuzu | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -2568,15 +2342,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "TEE Ai Xin (MAS)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vientiane 2025 | TEE Ai Xin (MAS) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R16 | 3 - 1 | 9:11 11:8 11:8 11:7 | TEE Ai Xin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2617,15 +2384,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "NGUYEN Khanh (VIE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Vientiane 2025 | NGUYEN Khanh (VIE) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 11:13 7:11 2:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2678,15 +2438,8 @@
               "side_b": [
                 "ZHANG Sunny (CAN)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "ZHANG Sunny (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | ZHANG Sunny (CAN) |  | U17WS | Qualification |  | 3 - 0 | 11:3 11:3 11:7 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -2726,15 +2479,8 @@
               "side_b": [
                 "CRUZ ROSADO Kailyn (PUR)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "CRUZ ROSADO Kailyn (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | CRUZ ROSADO Kailyn (PUR) |  | U17WS | Qualification |  | 3 - 0 | 11:6 11:5 11:3 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -2763,7 +2509,7 @@
                 "11:1",
                 "11:8"
               ],
-              "winner": "BOTHA Bosman",
+              "winner": "BOTHA Bosman / TAKEYA Misuzu",
               "all_players_in_row": [
                 "BOTHA Bosman (USA)",
                 "TAKEYA Misuzu (JPN)",
@@ -2772,17 +2518,14 @@
               ],
               "side_a": [
                 "BOTHA Bosman (USA)",
-                "AWAD Samuel (CAN)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "AWAD Samuel (CAN)",
                 "CRUZ ROSARIO Camila (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | BOTHA Bosman (USA) | TAKEYA Misuzu (JPN) | AWAD Samuel (CAN) | CRUZ ROSARIO Camila (PUR) | U19XD | Main Draw | R16 | 3 - 0 | 12:10 11:1 11:8 | BOTHA Bosman | TAKEYA Misuzu | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -2812,7 +2555,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / CRUZ Kheith",
               "all_players_in_row": [
                 "BOTHA Bosman (USA)",
                 "TAKEYA Misuzu (JPN)",
@@ -2821,17 +2564,14 @@
               ],
               "side_a": [
                 "BOTHA Bosman (USA)",
-                "SAREEN Aditya (AUS)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "SAREEN Aditya (AUS)",
                 "CRUZ Kheith (PHI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | BOTHA Bosman (USA) | TAKEYA Misuzu (JPN) | SAREEN Aditya (AUS) | CRUZ Kheith (PHI) | U19XD | Main Draw | QuarterFinal | 0 - 3 | 6:11 9:11 7:11 | SAREEN Aditya | CRUZ Kheith | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -2877,15 +2617,8 @@
               "side_b": [
                 "GOEL Prisha (IND)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "GOEL Prisha (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | GOEL Prisha (IND) |  | U17WS | Main Draw | QuarterFinal | 3 - 1 | 11:9 16:18 11:2 11:3 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2926,15 +2659,8 @@
               "side_b": [
                 "YU Mandy (USA)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "YU Mandy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | YU Mandy (USA) |  | U17WS | Main Draw | SemiFinal | 3 - 0 | 11:9 11:8 11:3 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2975,15 +2701,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "YEOH Irene (USA)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | YEOH Irene (USA) |  | TAKEYA Misuzu (JPN) |  | U17WS | Main Draw | Final | 0 - 3 | 6:11 6:11 4:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -3024,15 +2743,8 @@
               "side_b": [
                 "LIN Julia (CAN)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "LIN Julia (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | LIN Julia (CAN) |  | U19WS | Qualification |  | 3 - 0 | 11:2 11:3 11:9 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3072,15 +2784,8 @@
               "side_b": [
                 "JIN Yudi (USA)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "JIN Yudi (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | JIN Yudi (USA) |  | U19WS | Qualification |  | 3 - 0 | 11:6 11:7 11:2 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3125,15 +2830,8 @@
               "side_b": [
                 "CHEN Hildy (USA)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "CHEN Hildy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | CHEN Hildy (USA) |  | U19WS | Main Draw | R16 | 3 - 1 | 11:6 11:4 10:12 11:3 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3174,15 +2872,8 @@
               "side_b": [
                 "LEON Edmarie (PUR)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "LEON Edmarie (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | TAKEYA Misuzu (JPN) |  | LEON Edmarie (PUR) |  | U19WS | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:8 11:3 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3228,15 +2919,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | MOYLAND Sally (USA) |  | TAKEYA Misuzu (JPN) |  | U19WS | Main Draw | SemiFinal | 1 - 3 | 11:4 5:11 7:11 9:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3282,15 +2966,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "CRUZ Kheith (PHI)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | CRUZ Kheith (PHI) |  | TAKEYA Misuzu (JPN) |  | U19WS | Main Draw | Final | 1 - 3 | 4:11 13:11 9:11 10:12 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3343,15 +3020,8 @@
               "side_b": [
                 "HASANU Sofija (MKD)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "HASANU Sofija (MKD)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | TAKEYA Misuzu (JPN) |  | HASANU Sofija (MKD) |  | WS | Qualification |  | 3 - 0 | 11:4 11:4 11:8 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3396,15 +3066,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "JEGER Mateja (CRO)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | JEGER Mateja (CRO) |  | TAKEYA Misuzu (JPN) |  | WS | Qualification |  | 1 - 3 | 9:11 11:7 9:11 6:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3433,7 +3096,7 @@
                 "5:11",
                 "8:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "MEN Shuohan (NED)",
                 "DENG Zhen (USA)",
@@ -3442,17 +3105,14 @@
               ],
               "side_a": [
                 "MEN Shuohan (NED)",
-                "AKAE Kaho (JPN)"
+                "DENG Zhen (USA)"
               ],
               "side_b": [
-                "DENG Zhen (USA)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | MEN Shuohan (NED) | DENG Zhen (USA) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR8 | 0 - 3 | 6:11 5:11 8:11 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -3493,15 +3153,8 @@
               "side_b": [
                 "HARAC Ece (TUR)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "HARAC Ece (TUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | TAKEYA Misuzu (JPN) |  | HARAC Ece (TUR) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 3:11 12:14 | HARAC Ece |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -3531,7 +3184,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -3540,17 +3193,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "YU Fu (POR)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "YU Fu (POR)",
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | YU Fu (POR) | SHAO Jieni (POR) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:7 11:4 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3580,7 +3230,7 @@
                 "4:11",
                 "5:11"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / RYU Hanna",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -3589,17 +3239,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "KIM Nayeong (KOR)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "KIM Nayeong (KOR)",
                 "RYU Hanna (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Skopje 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | KIM Nayeong (KOR) | RYU Hanna (KOR) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 4:11 5:11 | KIM Nayeong | RYU Hanna | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3641,7 +3288,7 @@
                 "11:6",
                 "11:3"
               ],
-              "winner": "KAWAKAMI Ryuusei",
+              "winner": "KAWAKAMI Ryuusei / TAKEYA Misuzu",
               "all_players_in_row": [
                 "KAWAKAMI Ryuusei (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -3650,17 +3297,14 @@
               ],
               "side_a": [
                 "KAWAKAMI Ryuusei (JPN)",
-                "KARABAXHAK Fatih (KOS)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "KARABAXHAK Fatih (KOS)",
                 "IMERI Leoresa (KOS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | KAWAKAMI Ryuusei (JPN) | TAKEYA Misuzu (JPN) | KARABAXHAK Fatih (KOS) | IMERI Leoresa (KOS) | XD | Qualification | QR16 | 3 - 0 | 11:4 11:6 11:3 | KAWAKAMI Ryuusei | TAKEYA Misuzu | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -3695,25 +3339,23 @@
                 "11:8",
                 "11:8"
               ],
-              "winner": "HENCL Ivan",
+              "winner": "HENCL Ivan / WU Jia-En",
               "all_players_in_row": [
                 "HENCL Ivan (CRO)",
+                "WU Jia-En (TPE)",
                 "KAWAKAMI Ryuusei (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
               "side_a": [
                 "HENCL Ivan (CRO)",
-                "KAWAKAMI Ryuusei (JPN)"
+                "WU Jia-En (TPE)"
               ],
               "side_b": [
-                "WU Jia-En (TPE)",
+                "KAWAKAMI Ryuusei (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | HENCL Ivan (CRO) | WU Jia-En (TPE) | KAWAKAMI Ryuusei (JPN) | TAKEYA Misuzu (JPN) | XD | Qualification | QR8 | 3 - 1 | 11:9 8:11 11:8 11:8 | HENCL Ivan | WU Jia-En | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -3764,15 +3406,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "OMODA Kotomi (JPN)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | OMODA Kotomi (JPN) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 3 - 2 | 9:11 11:5 12:10 15:17 11:9 | OMODA Kotomi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3807,7 +3442,7 @@
                 "11:8",
                 "12:10"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -3816,17 +3451,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "VARADY Barbora (SVK)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "VARADY Barbora (SVK)",
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | VARADY Barbora (SVK) | KUKULKOVA Tatiana (SVK) | WD | Main Draw | R16 | 3 - 1 | 7:11 11:6 11:8 12:10 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3856,7 +3488,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "TOFANT Ana (SLO)",
                 "AKASHEVA Zauresh (KAZ)",
@@ -3865,17 +3497,14 @@
               ],
               "side_a": [
                 "TOFANT Ana (SLO)",
-                "AKAE Kaho (JPN)"
+                "AKASHEVA Zauresh (KAZ)"
               ],
               "side_b": [
-                "AKASHEVA Zauresh (KAZ)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | TOFANT Ana (SLO) | AKASHEVA Zauresh (KAZ) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 3:11 7:11 4:11 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3905,7 +3534,7 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "YOVKOVA Maria (BUL)",
                 "GERASIMATOU Ioanna (GRE)",
@@ -3914,17 +3543,14 @@
               ],
               "side_a": [
                 "YOVKOVA Maria (BUL)",
-                "AKAE Kaho (JPN)"
+                "GERASIMATOU Ioanna (GRE)"
               ],
               "side_b": [
-                "GERASIMATOU Ioanna (GRE)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | YOVKOVA Maria (BUL) | GERASIMATOU Ioanna (GRE) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | SemiFinal | 0 - 3 | 3:11 6:11 6:11 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3964,7 +3590,7 @@
                 "10:12",
                 "13:11"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / YOKOI Sakura",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -3973,17 +3599,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "AKAE Kaho (JPN)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | Final | 3 - 2 | 5:11 11:9 12:10 10:12 13:11 | SATO Hitomi | YOKOI Sakura | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4036,15 +3659,8 @@
               "side_b": [
                 "PETKOVA Anita (BUL)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "PETKOVA Anita (BUL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | TAKEYA Misuzu (JPN) |  | PETKOVA Anita (BUL) |  | U17WS | Qualification |  | 3 - 0 | 11:4 11:7 11:5 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -4084,15 +3700,8 @@
               "side_b": [
                 "GACAFERI Tuana (KOS)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "GACAFERI Tuana (KOS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | TAKEYA Misuzu (JPN) |  | GACAFERI Tuana (KOS) |  | U17WS | Qualification |  | 3 - 0 | 11:5 11:1 11:5 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -4132,15 +3741,8 @@
               "side_b": [
                 "ISUFI Arnisa (KOS)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "ISUFI Arnisa (KOS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | TAKEYA Misuzu (JPN) |  | ISUFI Arnisa (KOS) |  | U17WS | Qualification |  | 3 - 0 | 11:2 11:4 11:2 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -4190,15 +3792,8 @@
               "side_b": [
                 "NIKOLOVA Nina (BUL)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "NIKOLOVA Nina (BUL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | TAKEYA Misuzu (JPN) |  | NIKOLOVA Nina (BUL) |  | U17WS | Main Draw | R16 | 2 - 3 | 7:11 11:3 11:13 11:8 9:11 | NIKOLOVA Nina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -4238,7 +3833,7 @@
                 "11:6",
                 "6:11"
               ],
-              "winner": "KAWAKAMI Ryuusei",
+              "winner": "KAWAKAMI Ryuusei / TAKEYA Misuzu",
               "all_players_in_row": [
                 "WANG Lukas (GER)",
                 "HOLDA Karolina (POL)",
@@ -4247,17 +3842,14 @@
               ],
               "side_a": [
                 "WANG Lukas (GER)",
-                "KAWAKAMI Ryuusei (JPN)"
+                "HOLDA Karolina (POL)"
               ],
               "side_b": [
-                "HOLDA Karolina (POL)",
+                "KAWAKAMI Ryuusei (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | WANG Lukas (GER) | HOLDA Karolina (POL) | KAWAKAMI Ryuusei (JPN) | TAKEYA Misuzu (JPN) | U19XD | Main Draw | R16 | 2 - 3 | 2:11 3:11 11:8 11:6 6:11 | KAWAKAMI Ryuusei | TAKEYA Misuzu | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4292,7 +3884,7 @@
                 "5:11",
                 "11:4"
               ],
-              "winner": "KAWAKAMI Ryuusei",
+              "winner": "KAWAKAMI Ryuusei / TAKEYA Misuzu",
               "all_players_in_row": [
                 "KAWAKAMI Ryuusei (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -4301,17 +3893,14 @@
               ],
               "side_a": [
                 "KAWAKAMI Ryuusei (JPN)",
-                "DIMITROV Stefan (BUL)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "DIMITROV Stefan (BUL)",
                 "PERSOVA Viktoria (BUL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | KAWAKAMI Ryuusei (JPN) | TAKEYA Misuzu (JPN) | DIMITROV Stefan (BUL) | PERSOVA Viktoria (BUL) | U19XD | Main Draw | QuarterFinal | 3 - 1 | 11:5 11:9 5:11 11:4 | KAWAKAMI Ryuusei | TAKEYA Misuzu | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4341,7 +3930,7 @@
                 "3:11",
                 "10:12"
               ],
-              "winner": "KAWAKAMI Ryuusei",
+              "winner": "KAWAKAMI Ryuusei / TAKEYA Misuzu",
               "all_players_in_row": [
                 "VONEBJERG Simon (DEN)",
                 "HANSEN Maja (DEN)",
@@ -4350,17 +3939,14 @@
               ],
               "side_a": [
                 "VONEBJERG Simon (DEN)",
-                "KAWAKAMI Ryuusei (JPN)"
+                "HANSEN Maja (DEN)"
               ],
               "side_b": [
-                "HANSEN Maja (DEN)",
+                "KAWAKAMI Ryuusei (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | VONEBJERG Simon (DEN) | HANSEN Maja (DEN) | KAWAKAMI Ryuusei (JPN) | TAKEYA Misuzu (JPN) | U19XD | Main Draw | SemiFinal | 0 - 3 | 3:11 3:11 10:12 | KAWAKAMI Ryuusei | TAKEYA Misuzu | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4406,15 +3992,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "DAS Syndrela (IND)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | DAS Syndrela (IND) |  | TAKEYA Misuzu (JPN) |  | U19WS | Qualification |  | 1 - 3 | 7:11 6:11 11:9 12:14 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4454,15 +4033,8 @@
               "side_b": [
                 "OSMANI Lene (KOS)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "OSMANI Lene (KOS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | TAKEYA Misuzu (JPN) |  | OSMANI Lene (KOS) |  | U19WS | Qualification |  | 3 - 0 | 11:2 11:8 11:0 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4501,7 +4073,7 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "KWON Hyuk",
+              "winner": "KWON Hyuk / YOO Yerin",
               "all_players_in_row": [
                 "KWON Hyuk (KOR)",
                 "YOO Yerin (KOR)",
@@ -4510,17 +4082,14 @@
               ],
               "side_a": [
                 "KWON Hyuk (KOR)",
-                "KAWAKAMI Ryuusei (JPN)"
+                "YOO Yerin (KOR)"
               ],
               "side_b": [
-                "YOO Yerin (KOR)",
+                "KAWAKAMI Ryuusei (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | KWON Hyuk (KOR) | YOO Yerin (KOR) | KAWAKAMI Ryuusei (JPN) | TAKEYA Misuzu (JPN) | U19XD | Main Draw | Final | 3 - 2 | 9:11 10:12 11:9 11:7 12:10 | KWON Hyuk | YOO Yerin | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4566,15 +4135,8 @@
               "side_b": [
                 "TOKIC Sara (SLO)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "TOKIC Sara (SLO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Prishtina 2025 | TAKEYA Misuzu (JPN) |  | TOKIC Sara (SLO) |  | U19WS | Main Draw | QuarterFinal | 1 - 3 | 11:13 11:3 6:11 5:11 | TOKIC Sara |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -4627,15 +4189,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "WILTSCHKOVA Dominika (SVK)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | WILTSCHKOVA Dominika (SVK) |  | TAKEYA Misuzu (JPN) |  | WS | Qualification | QR32 | 0 - 3 | 11:13 9:11 4:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4686,15 +4241,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "CRISTOBAL Ainhoa (ESP)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Havirov 2025 | CRISTOBAL Ainhoa (ESP) |  | TAKEYA Misuzu (JPN) |  | WS | Qualification | QR16 | 3 - 2 | 2:11 6:11 11:6 14:12 11:6 | CRISTOBAL Ainhoa |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4757,15 +4305,8 @@
               "side_b": [
                 "KODET Hanka (CZE)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "KODET Hanka (CZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | TAKEYA Misuzu (JPN) |  | KODET Hanka (CZE) |  | WS | Qualification | QR64 | 2 - 3 | 11:7 6:11 11:4 10:12 9:11 | KODET Hanka |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -4795,7 +4336,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "KIM Seongjin (KOR)",
                 "SOO Wai Yam (HKG)",
@@ -4804,17 +4345,14 @@
               ],
               "side_a": [
                 "KIM Seongjin (KOR)",
-                "AKAE Kaho (JPN)"
+                "SOO Wai Yam (HKG)"
               ],
               "side_b": [
-                "SOO Wai Yam (HKG)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seongjin (KOR) | SOO Wai Yam (HKG) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR16 | 0 - 3 | 10:12 9:11 9:11 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -4844,7 +4382,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "DENG Zhen (USA)",
                 "MEN Shuohan (NED)",
@@ -4853,17 +4391,14 @@
               ],
               "side_a": [
                 "DENG Zhen (USA)",
-                "AKAE Kaho (JPN)"
+                "MEN Shuohan (NED)"
               ],
               "side_b": [
-                "MEN Shuohan (NED)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | DENG Zhen (USA) | MEN Shuohan (NED) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR8 | 0 - 3 | 6:11 11:13 8:11 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -4903,7 +4438,7 @@
                 "11:5",
                 "3:11"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "BAJOR Natalia (POL)",
                 "KUKULKOVA Tatiana (SVK)",
@@ -4912,17 +4447,14 @@
               ],
               "side_a": [
                 "BAJOR Natalia (POL)",
-                "AKAE Kaho (JPN)"
+                "KUKULKOVA Tatiana (SVK)"
               ],
               "side_b": [
-                "KUKULKOVA Tatiana (SVK)",
+                "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | BAJOR Natalia (POL) | KUKULKOVA Tatiana (SVK) | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | R16 | 2 - 3 | 11:13 9:11 11:8 11:5 3:11 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4957,7 +4489,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TAKEYA Misuzu",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -4966,17 +4498,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "AKASHEVA Zauresh (KAZ)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "AKASHEVA Zauresh (KAZ)",
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | AKASHEVA Zauresh (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:2 11:7 11:8 | AKAE Kaho | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5016,7 +4545,7 @@
                 "11:7",
                 "10:12"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -5025,17 +4554,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "JEGER Mateja (CRO)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 2 - 3 | 11:7 7:11 6:11 11:7 10:12 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5098,15 +4624,8 @@
               "side_b": [
                 "KIM Hana (KOR)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "KIM Hana (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | TAKEYA Misuzu (JPN) |  | KIM Hana (KOR) |  | WS | Main Draw | R64 | 3 - 2 | 11:9 6:11 11:6 7:11 11:6 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5152,15 +4671,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "SER Lin Qian (SGP)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SER Lin Qian (SGP) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 11:6 6:11 11:7 | SER Lin Qian |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5207,7 +4719,7 @@
                 "11:3",
                 "11:8"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -5216,17 +4728,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "ARGUELLES Camila (ARG)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "ARGUELLES Camila (ARG)",
                 "AVEZOU Agathe (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | ARGUELLES Camila (ARG) | AVEZOU Agathe (FRA) | WD | Qualification | QR8 | 3 - 0 | 11:2 11:3 11:8 | TAKEYA Misuzu | IDESAWA Kyoka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -5267,15 +4776,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "AKASHEVA Zauresh (KAZ)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | AKASHEVA Zauresh (KAZ) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 6:11 9:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5316,15 +4818,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "YOO Siwoo (KOR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | YOO Siwoo (KOR) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 3:11 7:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5354,7 +4849,7 @@
                 "11:8",
                 "11:4"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -5363,17 +4858,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "CHOI Haeeun (KOR)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "CHOI Haeeun (KOR)",
                 "KIM Hana (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | CHOI Haeeun (KOR) | KIM Hana (KOR) | WD | Main Draw | R16 | 3 - 0 | 12:10 11:8 11:4 | TAKEYA Misuzu | IDESAWA Kyoka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5413,7 +4905,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "CHEN Yi",
+              "winner": "CHEN Yi / HAN Feier",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -5422,17 +4914,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "CHEN Yi (CHN)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "CHEN Yi (CHN)",
                 "HAN Feier (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | CHEN Yi (CHN) | HAN Feier (CHN) | WD | Main Draw | QuarterFinal | 2 - 3 | 9:11 11:7 11:9 9:11 8:11 | CHEN Yi | HAN Feier | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5478,15 +4967,8 @@
               "side_b": [
                 "CHOI Hyojoo (KOR)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "CHOI Hyojoo (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | TAKEYA Misuzu (JPN) |  | CHOI Hyojoo (KOR) |  | WS | Main Draw | R16 | 3 - 1 | 11:5 11:7 4:11 11:8 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5527,15 +5009,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "WANG Xiaotong (CHN)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | WANG Xiaotong (CHN) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 0 | 11:4 11:6 11:4 | WANG Xiaotong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5582,7 +5057,7 @@
                 "3:11",
                 "11:8"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -5591,17 +5066,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "JI Eunchae (KOR)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "JI Eunchae (KOR)",
                 "PARK Joohyun (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | JI Eunchae (KOR) | PARK Joohyun (KOR) | WD | Qualification | QR8 | 3 - 1 | 11:1 11:6 3:11 11:8 | TAKEYA Misuzu | IDESAWA Kyoka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -5642,15 +5114,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "MASSART Lilou (BEL)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | MASSART Lilou (BEL) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 7:11 10:12 7:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5696,15 +5161,8 @@
               "side_b": [
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "WEGRZYN Katarzyna (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | TAKEYA Misuzu (JPN) |  | WEGRZYN Katarzyna (POL) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 9:11 11:7 11:7 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5734,7 +5192,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "MASSART Lilou (BEL)",
                 "JERSOVA Aleksandra (LAT)",
@@ -5743,17 +5201,14 @@
               ],
               "side_a": [
                 "MASSART Lilou (BEL)",
-                "TAKEYA Misuzu (JPN)"
+                "JERSOVA Aleksandra (LAT)"
               ],
               "side_b": [
-                "JERSOVA Aleksandra (LAT)",
+                "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | MASSART Lilou (BEL) | JERSOVA Aleksandra (LAT) | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | R16 | 0 - 3 | 4:11 6:11 5:11 | TAKEYA Misuzu | IDESAWA Kyoka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5793,7 +5248,7 @@
                 "12:10",
                 "12:10"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / IDESAWA Kyoka",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)",
@@ -5802,17 +5257,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "LI Yake (CHN)"
+                "IDESAWA Kyoka (JPN)"
               ],
               "side_b": [
-                "IDESAWA Kyoka (JPN)",
+                "LI Yake (CHN)",
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | LI Yake (CHN) | FAN Shuhan (CHN) | WD | Main Draw | QuarterFinal | 3 - 2 | 4:11 11:9 7:11 12:10 12:10 | TAKEYA Misuzu | IDESAWA Kyoka | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5858,15 +5310,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "CHIEN Tung-Chuan (TPE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | CHIEN Tung-Chuan (TPE) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R16 | 3 - 1 | 11:13 11:5 11:7 11:8 | CHIEN Tung-Chuan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5896,7 +5341,7 @@
                 "14:12",
                 "11:9"
               ],
-              "winner": "RYU Hanna",
+              "winner": "RYU Hanna / YANG Ha Eun",
               "all_players_in_row": [
                 "RYU Hanna (KOR)",
                 "YANG Ha Eun (KOR)",
@@ -5905,17 +5350,14 @@
               ],
               "side_a": [
                 "RYU Hanna (KOR)",
-                "TAKEYA Misuzu (JPN)"
+                "YANG Ha Eun (KOR)"
               ],
               "side_b": [
-                "YANG Ha Eun (KOR)",
+                "TAKEYA Misuzu (JPN)",
                 "IDESAWA Kyoka (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Dusseldorf II 2024 | RYU Hanna (KOR) | YANG Ha Eun (KOR) | TAKEYA Misuzu (JPN) | IDESAWA Kyoka (JPN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:6 14:12 11:9 | RYU Hanna | YANG Ha Eun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5968,15 +5410,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "HUANG Yu-Chiao (TPE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Halmstad 2024 | HUANG Yu-Chiao (TPE) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 3 - 0 | 12:10 11:8 11:7 | HUANG Yu-Chiao |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6034,15 +5469,8 @@
               "side_b": [
                 "UESAWA Anne (JPN)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "UESAWA Anne (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | TAKEYA Misuzu (JPN) |  | UESAWA Anne (JPN) |  | WS | Main Draw | R32 | 3 - 1 | 11:7 5:11 12:10 11:7 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6088,15 +5516,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "ODO Satsuki (JPN)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Panagyurishte 2024 | ODO Satsuki (JPN) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R16 | 3 - 1 | 7:11 11:5 11:7 12:10 | ODO Satsuki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6159,15 +5580,8 @@
               "side_b": [
                 "STEFANOVA Nikoleta (ITA)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "STEFANOVA Nikoleta (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Cappadocia 2024 | TAKEYA Misuzu (JPN) |  | STEFANOVA Nikoleta (ITA) |  | WS | Main Draw | R64 | 2 - 3 | 11:8 11:13 8:11 11:9 8:11 | STEFANOVA Nikoleta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6197,7 +5611,7 @@
                 "7:11",
                 "10:12"
               ],
-              "winner": "HASHIMOTO Honoka",
+              "winner": "HASHIMOTO Honoka / SATO Hitomi",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "UESAWA Anne (JPN)",
@@ -6206,17 +5620,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "HASHIMOTO Honoka (JPN)"
+                "UESAWA Anne (JPN)"
               ],
               "side_b": [
-                "UESAWA Anne (JPN)",
+                "HASHIMOTO Honoka (JPN)",
                 "SATO Hitomi (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Cappadocia 2024 | TAKEYA Misuzu (JPN) | UESAWA Anne (JPN) | HASHIMOTO Honoka (JPN) | SATO Hitomi (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 2:11 7:11 10:12 | HASHIMOTO Honoka | SATO Hitomi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6269,15 +5680,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "ODO Satsuki (JPN)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | ODO Satsuki (JPN) |  | TAKEYA Misuzu (JPN) |  | WS | Qualification | QR64 | 3 - 0 | 13:11 11:8 11:2 | ODO Satsuki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -6317,7 +5721,7 @@
                 "11:13",
                 "11:13"
               ],
-              "winner": "GUISNEL Oceane",
+              "winner": "GUISNEL Oceane / LOEUILLETTE Stephanie",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "UESAWA Anne (JPN)",
@@ -6326,17 +5730,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "GUISNEL Oceane (FRA)"
+                "UESAWA Anne (JPN)"
               ],
               "side_b": [
-                "UESAWA Anne (JPN)",
+                "GUISNEL Oceane (FRA)",
                 "LOEUILLETTE Stephanie (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Varazdin 2024 | TAKEYA Misuzu (JPN) | UESAWA Anne (JPN) | GUISNEL Oceane (FRA) | LOEUILLETTE Stephanie (FRA) | WD | Qualification | QR16 | 2 - 3 | 11:8 7:11 11:7 11:13 11:13 | GUISNEL Oceane | LOEUILLETTE Stephanie | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -6378,7 +5779,7 @@
                 "6:11",
                 "5:11"
               ],
-              "winner": "AMATO Antonino",
+              "winner": "AMATO Antonino / MISCHEK Karoline",
               "all_players_in_row": [
                 "AHMADIAN Mahdi (REF)",
                 "TAKEYA Misuzu (JPN)",
@@ -6387,17 +5788,14 @@
               ],
               "side_a": [
                 "AHMADIAN Mahdi (REF)",
-                "AMATO Antonino (ITA)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "AMATO Antonino (ITA)",
                 "MISCHEK Karoline (AUT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Otocec 2024 | AHMADIAN Mahdi (REF) | TAKEYA Misuzu (JPN) | AMATO Antonino (ITA) | MISCHEK Karoline (AUT) | XD | Qualification | QR16 | 0 - 3 | 1:11 6:11 5:11 | AMATO Antonino | MISCHEK Karoline | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -6432,7 +5830,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "TAKEYA Misuzu",
+              "winner": "TAKEYA Misuzu / UESAWA Anne",
               "all_players_in_row": [
                 "TAKEYA Misuzu (JPN)",
                 "UESAWA Anne (JPN)",
@@ -6441,17 +5839,14 @@
               ],
               "side_a": [
                 "TAKEYA Misuzu (JPN)",
-                "KLEE Sophia (GER)"
+                "UESAWA Anne (JPN)"
               ],
               "side_b": [
-                "UESAWA Anne (JPN)",
+                "KLEE Sophia (GER)",
                 "SCHREINER Franziska (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Otocec 2024 | TAKEYA Misuzu (JPN) | UESAWA Anne (JPN) | KLEE Sophia (GER) | SCHREINER Franziska (GER) | WD | Qualification | QR16 | 3 - 1 | 11:1 8:11 11:7 11:9 | TAKEYA Misuzu | UESAWA Anne | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -6492,15 +5887,8 @@
               "side_b": [
                 "BAASAN Nomin (SWE)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "BAASAN Nomin (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Otocec 2024 | TAKEYA Misuzu (JPN) |  | BAASAN Nomin (SWE) |  | WS | Qualification | QR32 | 3 - 0 | 11:2 11:5 11:9 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -6546,15 +5934,8 @@
               "side_b": [
                 "STEFANOVA Nikoleta (ITA)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "STEFANOVA Nikoleta (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Otocec 2024 | TAKEYA Misuzu (JPN) |  | STEFANOVA Nikoleta (ITA) |  | WS | Qualification | QR16 | 3 - 1 | 12:14 11:7 11:8 11:6 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -6584,7 +5965,7 @@
                 "11:6",
                 "13:11"
               ],
-              "winner": "BLASKOVA Zdena",
+              "winner": "BLASKOVA Zdena / ZADEROVA Linda",
               "all_players_in_row": [
                 "BLASKOVA Zdena (CZE)",
                 "ZADEROVA Linda (CZE)",
@@ -6593,17 +5974,14 @@
               ],
               "side_a": [
                 "BLASKOVA Zdena (CZE)",
-                "TAKEYA Misuzu (JPN)"
+                "ZADEROVA Linda (CZE)"
               ],
               "side_b": [
-                "ZADEROVA Linda (CZE)",
+                "TAKEYA Misuzu (JPN)",
                 "UESAWA Anne (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Otocec 2024 | BLASKOVA Zdena (CZE) | ZADEROVA Linda (CZE) | TAKEYA Misuzu (JPN) | UESAWA Anne (JPN) | WD | Qualification | QR8 | 3 - 0 | 11:6 11:6 13:11 | BLASKOVA Zdena | ZADEROVA Linda | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -6654,15 +6032,8 @@
               "side_b": [
                 "CAREY Charlotte (WAL)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "CAREY Charlotte (WAL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Otocec 2024 | TAKEYA Misuzu (JPN) |  | CAREY Charlotte (WAL) |  | WS | Main Draw | R64 | 3 - 2 | 11:6 11:13 6:11 11:5 11:7 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6713,15 +6084,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "LI Yu-Jhun (TPE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Otocec 2024 | LI Yu-Jhun (TPE) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 3 - 2 | 11:2 11:7 6:11 12:14 11:4 | LI Yu-Jhun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6768,7 +6132,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "SASAO Asuka",
+              "winner": "SASAO Asuka / TAKEYA Misuzu",
               "all_players_in_row": [
                 "TOLIOU Aikaterini (GRE)",
                 "PAPADIMITRIOU Malamatenia (GRE)",
@@ -6777,17 +6141,14 @@
               ],
               "side_a": [
                 "TOLIOU Aikaterini (GRE)",
-                "SASAO Asuka (JPN)"
+                "PAPADIMITRIOU Malamatenia (GRE)"
               ],
               "side_b": [
-                "PAPADIMITRIOU Malamatenia (GRE)",
+                "SASAO Asuka (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Biella 2023 | TOLIOU Aikaterini (GRE) | PAPADIMITRIOU Malamatenia (GRE) | SASAO Asuka (JPN) | TAKEYA Misuzu (JPN) | WD | Qualification | QR8 | 0 - 3 | 4:11 7:11 8:11 | SASAO Asuka | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -6828,15 +6189,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "TOFANT Ana (SLO)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Biella 2023 | TOFANT Ana (SLO) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 7:11 10:12 7:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6871,7 +6225,7 @@
                 "9:11",
                 "11:7"
               ],
-              "winner": "SASAO Asuka",
+              "winner": "SASAO Asuka / TAKEYA Misuzu",
               "all_players_in_row": [
                 "SASAO Asuka (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -6880,17 +6234,14 @@
               ],
               "side_a": [
                 "SASAO Asuka (JPN)",
-                "ALTINKAYA Sibel (TUR)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "ALTINKAYA Sibel (TUR)",
                 "TODOROVIC Andrea (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Biella 2023 | SASAO Asuka (JPN) | TAKEYA Misuzu (JPN) | ALTINKAYA Sibel (TUR) | TODOROVIC Andrea (SRB) | WD | Main Draw | R16 | 3 - 1 | 11:7 11:9 9:11 11:7 | SASAO Asuka | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6936,15 +6287,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "WEGRZYN Katarzyna (POL)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Biella 2023 | WEGRZYN Katarzyna (POL) |  | TAKEYA Misuzu (JPN) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:9 6:11 11:9 | WEGRZYN Katarzyna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6979,7 +6323,7 @@
                 "12:10",
                 "6:11"
               ],
-              "winner": "SASAO Asuka",
+              "winner": "SASAO Asuka / TAKEYA Misuzu",
               "all_players_in_row": [
                 "MONFARDINI Gaia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -6988,17 +6332,14 @@
               ],
               "side_a": [
                 "MONFARDINI Gaia (ITA)",
-                "SASAO Asuka (JPN)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "SASAO Asuka (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Biella 2023 | MONFARDINI Gaia (ITA) | VIVARELLI Debora (ITA) | SASAO Asuka (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | QuarterFinal | 1 - 3 | 9:11 7:11 12:10 6:11 | SASAO Asuka | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7033,7 +6374,7 @@
                 "11:3",
                 "11:9"
               ],
-              "winner": "SASAO Asuka",
+              "winner": "SASAO Asuka / TAKEYA Misuzu",
               "all_players_in_row": [
                 "SASAO Asuka (JPN)",
                 "TAKEYA Misuzu (JPN)",
@@ -7042,17 +6383,14 @@
               ],
               "side_a": [
                 "SASAO Asuka (JPN)",
-                "SURJAN Sabina (SRB)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "SURJAN Sabina (SRB)",
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Feeder Biella 2023 | SASAO Asuka (JPN) | TAKEYA Misuzu (JPN) | SURJAN Sabina (SRB) | LUPULESKU Izabela (SRB) | WD | Main Draw | SemiFinal | 3 - 1 | 11:7 6:11 11:3 11:9 | SASAO Asuka | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7082,7 +6420,7 @@
                 "7:11",
                 "2:11"
               ],
-              "winner": "SASAO Asuka",
+              "winner": "SASAO Asuka / TAKEYA Misuzu",
               "all_players_in_row": [
                 "WEGRZYN Anna (POL)",
                 "WEGRZYN Katarzyna (POL)",
@@ -7091,17 +6429,14 @@
               ],
               "side_a": [
                 "WEGRZYN Anna (POL)",
-                "SASAO Asuka (JPN)"
+                "WEGRZYN Katarzyna (POL)"
               ],
               "side_b": [
-                "WEGRZYN Katarzyna (POL)",
+                "SASAO Asuka (JPN)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Feeder Biella 2023 | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | SASAO Asuka (JPN) | TAKEYA Misuzu (JPN) | WD | Main Draw | Final | 0 - 3 | 9:11 7:11 2:11 | SASAO Asuka | TAKEYA Misuzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7154,15 +6489,8 @@
               "side_b": [
                 "CHEN Min-Hsin (TPE)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "CHEN Min-Hsin (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | TAKEYA Misuzu (JPN) |  | CHEN Min-Hsin (TPE) |  | U15WT | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:9 11:8 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子团体",
               "stage_zh": "正赛",
@@ -7203,15 +6531,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "KIM Eunseo (KOR)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | KIM Eunseo (KOR) |  | TAKEYA Misuzu (JPN) |  | U15WT | Main Draw | SemiFinal | 0 - 3 | 8:11 9:11 7:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子团体",
               "stage_zh": "正赛",
@@ -7262,15 +6583,8 @@
               "side_b": [
                 "CHEN Xianchang (CHN)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "CHEN Xianchang (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF World Youth Championships Nova Gorica 2023 | TAKEYA Misuzu (JPN) |  | CHEN Xianchang (CHN) |  | U15WT | Main Draw | Final | 2 - 3 | 11:6 9:11 9:11 11:4 8:11 | CHEN Xianchang |  | ",
               "sub_event_zh": "U15女子团体",
               "stage_zh": "正赛",
@@ -7323,15 +6637,8 @@
               "side_b": [
                 "STAJKOVSKA Monika (MKD)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "STAJKOVSKA Monika (MKD)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | TAKEYA Misuzu (JPN) |  | STAJKOVSKA Monika (MKD) |  | U15WS | Qualification |  | 3 - 0 | 11:4 11:7 11:4 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "资格赛"
@@ -7371,15 +6678,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "AVEZOU Agathe (FRA)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | AVEZOU Agathe (FRA) |  | TAKEYA Misuzu (JPN) |  | U19WS | Qualification |  | 0 - 3 | 3:11 2:11 2:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -7424,15 +6724,8 @@
               "side_b": [
                 "NEUMANN Josephina (GER)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "NEUMANN Josephina (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | TAKEYA Misuzu (JPN) |  | NEUMANN Josephina (GER) |  | U15WS | Qualification |  | 3 - 1 | 11:7 5:11 11:2 11:7 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "资格赛"
@@ -7477,15 +6770,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "WANI Sayali (IND)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | WANI Sayali (IND) |  | TAKEYA Misuzu (JPN) |  | U19WS | Qualification |  | 1 - 3 | 7:11 13:11 5:11 15:17 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -7525,15 +6811,8 @@
               "side_b": [
                 "CHEN Xianchang (CHN)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "CHEN Xianchang (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | TAKEYA Misuzu (JPN) |  | CHEN Xianchang (CHN) |  | U15WS | Qualification |  | 3 - 0 | 11:9 11:9 11:7 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "资格赛"
@@ -7578,15 +6857,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "CHENG Pusyuan (TPE)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | CHENG Pusyuan (TPE) |  | TAKEYA Misuzu (JPN) |  | U19WS | Qualification |  | 1 - 3 | 7:11 19:17 9:11 11:13 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -7620,7 +6892,7 @@
                 "11:9",
                 "14:16"
               ],
-              "winner": "NEUMANN Josephina",
+              "winner": "NEUMANN Josephina / TAKEYA Misuzu",
               "all_players_in_row": [
                 "XIA Xiaoxi (CHN)",
                 "ZHAO Wangqi (CHN)",
@@ -7629,17 +6901,14 @@
               ],
               "side_a": [
                 "XIA Xiaoxi (CHN)",
-                "NEUMANN Josephina (GER)"
+                "ZHAO Wangqi (CHN)"
               ],
               "side_b": [
-                "ZHAO Wangqi (CHN)",
+                "NEUMANN Josephina (GER)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | XIA Xiaoxi (CHN) | ZHAO Wangqi (CHN) | NEUMANN Josephina (GER) | TAKEYA Misuzu (JPN) | U15WD | Main Draw | R16 | 1 - 3 | 9:11 4:11 11:9 14:16 | NEUMANN Josephina | TAKEYA Misuzu | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -7674,24 +6943,23 @@
                 "6:11",
                 "10:12"
               ],
-              "winner": "NEUMANN Josephina",
+              "winner": "NEUMANN Josephina / TAKEYA Misuzu",
               "all_players_in_row": [
+                "CHEN Min-Hsin (TPE)",
+                "LAI Shiuan-En (TPE)",
                 "NEUMANN Josephina (GER)",
                 "TAKEYA Misuzu (JPN)"
               ],
               "side_a": [
                 "CHEN Min-Hsin (TPE)",
-                "NEUMANN Josephina (GER)"
+                "LAI Shiuan-En (TPE)"
               ],
               "side_b": [
-                "LAI Shiuan-En (TPE)",
+                "NEUMANN Josephina (GER)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | CHEN Min-Hsin (TPE) | LAI Shiuan-En (TPE) | NEUMANN Josephina (GER) | TAKEYA Misuzu (JPN) | U15WD | Main Draw | QuarterFinal | 1 - 3 | 6:11 11:8 6:11 10:12 | NEUMANN Josephina | TAKEYA Misuzu | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -7742,15 +7010,8 @@
               "side_b": [
                 "BLED Gaetane (FRA)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "BLED Gaetane (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | TAKEYA Misuzu (JPN) |  | BLED Gaetane (FRA) |  | U15WS | Main Draw | R16 | 3 - 2 | 11:7 11:1 2:11 8:11 11:6 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",
@@ -7791,15 +7052,8 @@
               "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "WIELGOS Zuzanna (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | TAKEYA Misuzu (JPN) |  | WIELGOS Zuzanna (POL) |  | U19WS | Main Draw | R16 | 3 - 0 | 11:3 11:9 12:10 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7845,15 +7099,8 @@
               "side_b": [
                 "KIM Eunseo (KOR)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "KIM Eunseo (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | TAKEYA Misuzu (JPN) |  | KIM Eunseo (KOR) |  | U15WS | Main Draw | QuarterFinal | 3 - 1 | 11:9 2:11 11:6 11:8 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",
@@ -7904,15 +7151,8 @@
               "side_b": [
                 "HOCHART Leana (FRA)"
               ],
-              "teammates": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "opponents": [
-                "HOCHART Leana (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | TAKEYA Misuzu (JPN) |  | HOCHART Leana (FRA) |  | U19WS | Main Draw | QuarterFinal | 2 - 3 | 7:11 11:7 7:11 11:4 11:13 | HOCHART Leana |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7947,7 +7187,7 @@
                 "8:11",
                 "11:8"
               ],
-              "winner": "NEUMANN Josephina",
+              "winner": "NEUMANN Josephina / TAKEYA Misuzu",
               "all_players_in_row": [
                 "NEUMANN Josephina (GER)",
                 "TAKEYA Misuzu (JPN)",
@@ -7956,17 +7196,14 @@
               ],
               "side_a": [
                 "NEUMANN Josephina (GER)",
-                "HOCHART Leana (FRA)"
+                "TAKEYA Misuzu (JPN)"
               ],
               "side_b": [
-                "TAKEYA Misuzu (JPN)",
+                "HOCHART Leana (FRA)",
                 "GUO ZHENG Nina (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | NEUMANN Josephina (GER) | TAKEYA Misuzu (JPN) | HOCHART Leana (FRA) | GUO ZHENG Nina (FRA) | U15WD | Main Draw | SemiFinal | 3 - 1 | 11:5 11:6 8:11 11:8 | NEUMANN Josephina | TAKEYA Misuzu | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -8007,15 +7244,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "HOCHART Leana (FRA)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | HOCHART Leana (FRA) |  | TAKEYA Misuzu (JPN) |  | U15WS | Main Draw | SemiFinal | 0 - 3 | 8:11 8:11 8:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",
@@ -8050,24 +7280,23 @@
                 "5:11",
                 "12:14"
               ],
-              "winner": "NEUMANN Josephina",
+              "winner": "NEUMANN Josephina / TAKEYA Misuzu",
               "all_players_in_row": [
+                "WU Jia-En (TPE)",
+                "PENG Yu-Han (TPE)",
                 "NEUMANN Josephina (GER)",
                 "TAKEYA Misuzu (JPN)"
               ],
               "side_a": [
                 "WU Jia-En (TPE)",
-                "NEUMANN Josephina (GER)"
+                "PENG Yu-Han (TPE)"
               ],
               "side_b": [
-                "PENG Yu-Han (TPE)",
+                "NEUMANN Josephina (GER)",
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | WU Jia-En (TPE) | PENG Yu-Han (TPE) | NEUMANN Josephina (GER) | TAKEYA Misuzu (JPN) | U15WD | Main Draw | Final | 1 - 3 | 14:12 8:11 5:11 12:14 | NEUMANN Josephina | TAKEYA Misuzu | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -8108,15 +7337,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "CHEN Xianchang (CHN)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Youth Star Contender Skopje 2023 | CHEN Xianchang (CHN) |  | TAKEYA Misuzu (JPN) |  | U15WS | Main Draw | Final | 3 - 0 | 11:9 11:3 11:9 | CHEN Xianchang |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",

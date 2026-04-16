@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Minhyung JEE",
-  "english_name": "Minhyung JEE",
+  "player_name": "JEE Minhyung",
+  "english_name": "JEE Minhyung",
   "country": "AUS",
   "country_code": "AUS",
   "continent": "",
@@ -44,7 +44,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "PAL Akash",
+              "winner": "PAL Akash / JEE Minhyung",
               "all_players_in_row": [
                 "PAL Akash (IND)",
                 "JEE Minhyung (AUS)",
@@ -53,17 +53,14 @@
               ],
               "side_a": [
                 "PAL Akash (IND)",
-                "GOMEZ Gustavo (CHI)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "GOMEZ Gustavo (CHI)",
                 "ORTEGA Daniela (CHI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | PAL Akash (IND) | JEE Minhyung (AUS) | GOMEZ Gustavo (CHI) | ORTEGA Daniela (CHI) | XD | Main Draw | R32 | 3 - 0 | 11:5 11:7 11:5 | PAL Akash | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -114,15 +111,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "YU Fu (POR)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | YU Fu (POR) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 2 | 11:3 11:7 3:11 10:12 12:10 | YU Fu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -157,7 +147,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "CHITALE Diya",
+              "winner": "CHITALE Diya / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -166,17 +156,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "JEE Minhyung (AUS)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "JEE Minhyung (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | CHITALE Diya (IND) | GHORPADE Yashaswini (IND) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R32 | 3 - 1 | 6:11 11:5 11:6 11:8 | CHITALE Diya | GHORPADE Yashaswini | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -206,7 +193,7 @@
                 "2:11",
                 "4:11"
               ],
-              "winner": "HUANG Youzheng",
+              "winner": "HUANG Youzheng / CHEN Yi",
               "all_players_in_row": [
                 "PAL Akash (IND)",
                 "JEE Minhyung (AUS)",
@@ -215,17 +202,14 @@
               ],
               "side_a": [
                 "PAL Akash (IND)",
-                "HUANG Youzheng (CHN)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "HUANG Youzheng (CHN)",
                 "CHEN Yi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | PAL Akash (IND) | JEE Minhyung (AUS) | HUANG Youzheng (CHN) | CHEN Yi (CHN) | XD | Main Draw | R16 | 0 - 3 | 6:11 2:11 4:11 | HUANG Youzheng | CHEN Yi | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -277,7 +261,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "PAL Akash",
+              "winner": "PAL Akash / NATH Kaushani",
               "all_players_in_row": [
                 "MLADENOVIC Luka (LUX)",
                 "JEE Minhyung (AUS)",
@@ -286,17 +270,14 @@
               ],
               "side_a": [
                 "MLADENOVIC Luka (LUX)",
-                "PAL Akash (IND)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "PAL Akash (IND)",
                 "NATH Kaushani (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | MLADENOVIC Luka (LUX) | JEE Minhyung (AUS) | PAL Akash (IND) | NATH Kaushani (IND) | XD | Main Draw | R16 | 2 - 3 | 14:12 11:4 8:11 9:11 8:11 | PAL Akash | NATH Kaushani | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -347,15 +328,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "MANI Nithya (IND)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | MANI Nithya (IND) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 2 | 10:12 12:10 8:11 11:7 11:7 | MANI Nithya |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -408,15 +382,8 @@
               "side_b": [
                 "OUTZEKHOVSKY Anais (PYF)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "OUTZEKHOVSKY Anais (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | JEE Minhyung (AUS) |  | OUTZEKHOVSKY Anais (PYF) |  | WS | Qualification |  | 3 - 0 | 11:4 11:2 11:1 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -456,15 +423,8 @@
               "side_b": [
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LAM Jocelyn (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | JEE Minhyung (AUS) |  | LAM Jocelyn (NZL) |  | WS | Qualification |  | 3 - 0 | 11:4 11:5 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -504,15 +464,8 @@
               "side_b": [
                 "GIRET Maylis (NCL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GIRET Maylis (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | JEE Minhyung (AUS) |  | GIRET Maylis (NCL) |  | WS | Qualification |  | 3 - 0 | 11:3 11:4 11:5 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -572,15 +525,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LI Chunli (NZL)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | LI Chunli (NZL) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 3 - 4 | 5:11 7:11 11:7 11:7 11:7 10:12 7:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -631,15 +577,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Oceania Cup Christchurch 2026 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 4 - 1 | 11:5 11:9 15:13 13:15 11:9 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -697,15 +636,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | JEE Minhyung (AUS) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 4:11 13:15 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -763,15 +695,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | JOO Cheonhui (KOR) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 11:13 11:4 11:6 | JOO Cheonhui |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -823,7 +748,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "PAL Akash",
+              "winner": "PAL Akash / JEE Minhyung",
               "all_players_in_row": [
                 "PAL Akash (IND)",
                 "JEE Minhyung (AUS)",
@@ -832,17 +757,14 @@
               ],
               "side_a": [
                 "PAL Akash (IND)",
-                "IONESCU Eduard (ROU)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "IONESCU Eduard (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | PAL Akash (IND) | JEE Minhyung (AUS) | IONESCU Eduard (ROU) | SZOCS Bernadette (ROU) | XD | Main Draw | R32 | 3 - 2 | 11:7 7:11 7:11 11:4 11:9 | PAL Akash | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -883,15 +805,8 @@
               "side_b": [
                 "KUAI Man (CHN)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "KUAI Man (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | JEE Minhyung (AUS) |  | KUAI Man (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 9:11 6:11 3:11 | KUAI Man |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -921,7 +836,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "SAWETTABUT Suthasini",
+              "winner": "SAWETTABUT Suthasini / PARANANG Orawan",
               "all_players_in_row": [
                 "SAWETTABUT Suthasini (THA)",
                 "PARANANG Orawan (THA)",
@@ -930,17 +845,14 @@
               ],
               "side_a": [
                 "SAWETTABUT Suthasini (THA)",
-                "GHORPADE Yashaswini (IND)"
+                "PARANANG Orawan (THA)"
               ],
               "side_b": [
-                "PARANANG Orawan (THA)",
+                "GHORPADE Yashaswini (IND)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | SAWETTABUT Suthasini (THA) | PARANANG Orawan (THA) | GHORPADE Yashaswini (IND) | JEE Minhyung (AUS) | WD | Main Draw | R32 | 3 - 0 | 11:9 11:5 11:8 | SAWETTABUT Suthasini | PARANANG Orawan | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -980,7 +892,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "ROBLES Alvaro",
+              "winner": "ROBLES Alvaro / XIAO Maria",
               "all_players_in_row": [
                 "ROBLES Alvaro (ESP)",
                 "XIAO Maria (ESP)",
@@ -989,17 +901,14 @@
               ],
               "side_a": [
                 "ROBLES Alvaro (ESP)",
-                "PAL Akash (IND)"
+                "XIAO Maria (ESP)"
               ],
               "side_b": [
-                "XIAO Maria (ESP)",
+                "PAL Akash (IND)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | ROBLES Alvaro (ESP) | XIAO Maria (ESP) | PAL Akash (IND) | JEE Minhyung (AUS) | XD | Main Draw | R16 | 3 - 2 | 11:7 10:12 8:11 11:4 11:7 | ROBLES Alvaro | XIAO Maria | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1052,15 +961,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "DOO Hoi Kem (HKG)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Macao 2025 | DOO Hoi Kem (HKG) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:9 11:8 | DOO Hoi Kem |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1113,15 +1015,8 @@
               "side_b": [
                 "HUANG Yi-Hua (TPE)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "HUANG Yi-Hua (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | JEE Minhyung (AUS) |  | HUANG Yi-Hua (TPE) |  | WS | Main Draw | R64 | 0 - 3 | 10:12 8:11 1:11 | HUANG Yi-Hua |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1156,7 +1051,7 @@
                 "8:11",
                 "11:5"
               ],
-              "winner": "PARANANG Orawan",
+              "winner": "PARANANG Orawan / SAWETTABUT Suthasini",
               "all_players_in_row": [
                 "PARANANG Orawan (THA)",
                 "SAWETTABUT Suthasini (THA)",
@@ -1165,17 +1060,14 @@
               ],
               "side_a": [
                 "PARANANG Orawan (THA)",
-                "JEE Minhyung (AUS)"
+                "SAWETTABUT Suthasini (THA)"
               ],
               "side_b": [
-                "SAWETTABUT Suthasini (THA)",
+                "JEE Minhyung (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | PARANANG Orawan (THA) | SAWETTABUT Suthasini (THA) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R32 | 3 - 1 | 11:6 11:8 8:11 11:5 | PARANANG Orawan | SAWETTABUT Suthasini | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1228,15 +1120,8 @@
               "side_b": [
                 "ODO Satsuki (JPN)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "ODO Satsuki (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Yokohama 2025 | JEE Minhyung (AUS) |  | ODO Satsuki (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 6:11 8:11 | ODO Satsuki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1289,15 +1174,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "YU Fu (POR)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | YU Fu (POR) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 0 | 13:11 11:9 11:5 | YU Fu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1327,7 +1205,7 @@
                 "11:7",
                 "11:2"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / BERGSTROM Linda",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -1336,17 +1214,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "JEE Minhyung (AUS)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "JEE Minhyung (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R32 | 3 - 0 | 11:9 11:7 11:2 | KALLBERG Christina | BERGSTROM Linda | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1399,15 +1274,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "WANG Xiaotong (CHN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Zagreb 2025 | WANG Xiaotong (CHN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:3 | WANG Xiaotong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1460,15 +1328,8 @@
               "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "HURSEY Anna (WAL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | JEE Minhyung (AUS) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R64 | 0 - 3 | 9:11 2:11 3:11 | HURSEY Anna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1521,15 +1382,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "NOTTE Uzzaniah Grace (NRU)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | NOTTE Uzzaniah Grace (NRU) |  | JEE Minhyung (AUS) |  | WT | Qualification |  | 0 - 3 | 2:11 1:11 0:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1569,15 +1423,8 @@
               "side_b": [
                 "GOLLOP Jodie (COK)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GOLLOP Jodie (COK)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) |  | GOLLOP Jodie (COK) |  | WT | Qualification |  | 3 - 0 | 11:2 11:2 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1617,15 +1464,8 @@
               "side_b": [
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LAM Jocelyn (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) |  | LAM Jocelyn (NZL) |  | WT | Qualification |  | 3 - 0 | 11:5 11:9 11:9 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1665,15 +1505,8 @@
               "side_b": [
                 "TERE Temehau (PYF)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "TERE Temehau (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) |  | TERE Temehau (PYF) |  | WS | Qualification |  | 3 - 0 | 11:1 11:6 11:3 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -1713,15 +1546,8 @@
               "side_b": [
                 "MORIYAMA PICARD Ayumi (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "MORIYAMA PICARD Ayumi (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) |  | MORIYAMA PICARD Ayumi (NZL) |  | WS | Qualification |  | 3 - 0 | 14:12 11:7 12:10 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -1750,7 +1576,7 @@
                 "1:11",
                 "2:11"
               ],
-              "winner": "LUU Finn",
+              "winner": "LUU Finn / JEE Minhyung",
               "all_players_in_row": [
                 "ITAIA Sharky (NRU)",
                 "NOTTE Uzzaniah Grace (NRU)",
@@ -1759,17 +1585,14 @@
               ],
               "side_a": [
                 "ITAIA Sharky (NRU)",
-                "LUU Finn (AUS)"
+                "NOTTE Uzzaniah Grace (NRU)"
               ],
               "side_b": [
-                "NOTTE Uzzaniah Grace (NRU)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | ITAIA Sharky (NRU) | NOTTE Uzzaniah Grace (NRU) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | R16 | 0 - 3 | 0:11 1:11 2:11 | LUU Finn | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1799,7 +1622,7 @@
                 "4:11",
                 "8:11"
               ],
-              "winner": "LUU Finn",
+              "winner": "LUU Finn / JEE Minhyung",
               "all_players_in_row": [
                 "BUCHANAN Griffin (NZL)",
                 "CHONG Josephine (NZL)",
@@ -1808,17 +1631,14 @@
               ],
               "side_a": [
                 "BUCHANAN Griffin (NZL)",
-                "LUU Finn (AUS)"
+                "CHONG Josephine (NZL)"
               ],
               "side_b": [
-                "CHONG Josephine (NZL)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | BUCHANAN Griffin (NZL) | CHONG Josephine (NZL) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | QuarterFinal | 0 - 3 | 6:11 4:11 8:11 | LUU Finn | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1848,7 +1668,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -1857,17 +1677,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "LUU Finn (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | SemiFinal | 3 - 0 | 12:10 11:9 11:8 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1897,7 +1714,7 @@
                 "11:1",
                 "11:3"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -1906,17 +1723,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "TERE Temehau (PYF)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "TERE Temehau (PYF)",
                 "SAYEGH Clara (PYF)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | TERE Temehau (PYF) | SAYEGH Clara (PYF) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:1 11:3 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1951,7 +1765,7 @@
                 "11:3",
                 "11:7"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -1960,17 +1774,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "LAM Jocelyn (NZL)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "LAM Jocelyn (NZL)",
                 "YI Yelena (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | LAM Jocelyn (NZL) | YI Yelena (NZL) | WD | Main Draw | SemiFinal | 3 - 1 | 11:6 7:11 11:3 11:7 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2005,7 +1816,7 @@
                 "11:7",
                 "11:6"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -2014,17 +1825,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "PSIHOGIOS Constantina (AUS)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "PSIHOGIOS Constantina (AUS)",
                 "WU Jiamuwa (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | PSIHOGIOS Constantina (AUS) | WU Jiamuwa (AUS) | WD | Main Draw | Final | 3 - 1 | 8:11 11:8 11:7 11:6 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2070,15 +1878,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "YI Yelena (NZL)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | YI Yelena (NZL) |  | JEE Minhyung (AUS) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 3:11 1:11 4:11 7:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2129,15 +1930,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 1 - 4 | 4:11 7:11 9:11 11:7 6:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2198,15 +1992,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 4 - 3 | 11:7 11:5 11:5 9:11 9:11 6:11 11:6 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2259,15 +2046,8 @@
               "side_b": [
                 "EERLAND Britt (NED)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "EERLAND Britt (NED)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | JEE Minhyung (AUS) |  | EERLAND Britt (NED) |  | WS | Main Draw | R32 | 0 - 3 | 11:13 9:11 6:11 | EERLAND Britt |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2314,7 +2094,7 @@
                 "7:11",
                 "11:7"
               ],
-              "winner": "CHAN Baldwin",
+              "winner": "CHAN Baldwin / ZHU Chengzhu",
               "all_players_in_row": [
                 "CHAN Baldwin (HKG)",
                 "ZHU Chengzhu (HKG)",
@@ -2323,17 +2103,14 @@
               ],
               "side_a": [
                 "CHAN Baldwin (HKG)",
-                "LUU Finn (AUS)"
+                "ZHU Chengzhu (HKG)"
               ],
               "side_b": [
-                "ZHU Chengzhu (HKG)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | CHAN Baldwin (HKG) | ZHU Chengzhu (HKG) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Qualification | QR8 | 3 - 1 | 11:5 11:8 7:11 11:7 | CHAN Baldwin | ZHU Chengzhu | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -2363,7 +2140,7 @@
                 "7:11",
                 "5:11"
               ],
-              "winner": "LIM Jonghoon",
+              "winner": "LIM Jonghoon / SHIN Yubin",
               "all_players_in_row": [
                 "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)",
@@ -2372,17 +2149,14 @@
               ],
               "side_a": [
                 "LUU Finn (AUS)",
-                "LIM Jonghoon (KOR)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "LIM Jonghoon (KOR)",
                 "SHIN Yubin (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | LUU Finn (AUS) | JEE Minhyung (AUS) | LIM Jonghoon (KOR) | SHIN Yubin (KOR) | XD | Main Draw | R16 | 0 - 3 | 2:11 7:11 5:11 | LIM Jonghoon | SHIN Yubin | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2417,24 +2191,23 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "VARADY Barbora",
+              "winner": "VARADY Barbora / JEE Minhyung",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
-                "JEE Minhyung (AUS)"
+                "JEE Minhyung (AUS)",
+                "HUANG Yi-Hua (TPE)",
+                "HUANG Yu-Jie (TPE)"
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "HUANG Yi-Hua (TPE)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "HUANG Yi-Hua (TPE)",
                 "HUANG Yu-Jie (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | VARADY Barbora (SVK) | JEE Minhyung (AUS) | HUANG Yi-Hua (TPE) | HUANG Yu-Jie (TPE) | WD | Main Draw | R16 | 3 - 1 | 10:12 11:8 11:7 12:10 | VARADY Barbora | JEE Minhyung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2475,15 +2248,8 @@
               "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "NG Wing Lam (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | JEE Minhyung (AUS) |  | NG Wing Lam (HKG) |  | WS | Main Draw | R64 | 3 - 0 | 19:17 11:6 11:9 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2513,7 +2279,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "JOO Cheonhui",
+              "winner": "JOO Cheonhui / NAGASAKI Miyu",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "JEE Minhyung (AUS)",
@@ -2522,17 +2288,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "JOO Cheonhui (KOR)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "JOO Cheonhui (KOR)",
                 "NAGASAKI Miyu (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | VARADY Barbora (SVK) | JEE Minhyung (AUS) | JOO Cheonhui (KOR) | NAGASAKI Miyu (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 6:11 9:11 9:11 | JOO Cheonhui | NAGASAKI Miyu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2573,15 +2336,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "HUANG Yi-Hua (TPE)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Chennai 2025 | HUANG Yi-Hua (TPE) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 0 | 12:10 11:2 11:8 | HUANG Yi-Hua |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2634,15 +2390,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "KUAI Man (CHN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Chongqing 2025 | KUAI Man (CHN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 0 | 11:3 11:9 11:5 | KUAI Man |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2700,15 +2449,8 @@
               "side_b": [
                 "GIRET Maylis (NCL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GIRET Maylis (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | JEE Minhyung (AUS) |  | GIRET Maylis (NCL) |  | WS | Qualification |  | 4 - 0 | 11:2 11:2 11:3 11:3 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2753,15 +2495,8 @@
               "side_b": [
                 "LULU Anolyn (VAN)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LULU Anolyn (VAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | JEE Minhyung (AUS) |  | LULU Anolyn (VAN) |  | WS | Qualification |  | 4 - 0 | 11:2 11:6 11:2 11:1 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2806,15 +2541,8 @@
               "side_b": [
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LAM Jocelyn (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | JEE Minhyung (AUS) |  | LAM Jocelyn (NZL) |  | WS | Qualification |  | 4 - 0 | 11:5 11:5 11:2 11:4 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2869,15 +2597,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | PSIHOGIOS Constantina (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 4 - 2 | 11:8 4:11 11:7 11:8 6:11 11:8 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2928,15 +2649,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LI Chunli (NZL)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LI Chunli (NZL) |  | JEE Minhyung (AUS) |  | WS | Position Draw | 2 | 1 - 4 | 12:10 10:12 7:11 7:11 4:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "排位赛",
@@ -2989,15 +2703,8 @@
               "side_b": [
                 "HIRANO Miu (JPN)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "HIRANO Miu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | JEE Minhyung (AUS) |  | HIRANO Miu (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 4:11 8:11 | HIRANO Miu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3037,7 +2744,7 @@
                 "6:11",
                 "8:11"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)",
@@ -3046,17 +2753,14 @@
               ],
               "side_a": [
                 "BERGSTROM Linda (SWE)",
-                "JEE Minhyung (AUS)"
+                "KALLBERG Christina (SWE)"
               ],
               "side_b": [
-                "KALLBERG Christina (SWE)",
+                "JEE Minhyung (AUS)",
                 "GHORPADE Yashaswini (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | JEE Minhyung (AUS) | GHORPADE Yashaswini (IND) | WD | Main Draw | R32 | 2 - 3 | 11:13 11:9 11:7 6:11 8:11 | JEE Minhyung | GHORPADE Yashaswini | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3086,24 +2790,23 @@
                 "4:11",
                 "8:11"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / LI Yu-Jhun",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
-                "GHORPADE Yashaswini (IND)"
+                "GHORPADE Yashaswini (IND)",
+                "CHENG I-Ching (TPE)",
+                "LI Yu-Jhun (TPE)"
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "CHENG I-Ching (TPE)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "CHENG I-Ching (TPE)",
                 "LI Yu-Jhun (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | JEE Minhyung (AUS) | GHORPADE Yashaswini (IND) | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | WD | Main Draw | R16 | 0 - 3 | 7:11 4:11 8:11 | CHENG I-Ching | LI Yu-Jhun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3145,7 +2848,7 @@
                 "11:4",
                 "11:2"
               ],
-              "winner": "HUANG Youzheng",
+              "winner": "HUANG Youzheng / SHI Xunyao",
               "all_players_in_row": [
                 "HUANG Youzheng (CHN)",
                 "SHI Xunyao (CHN)",
@@ -3154,17 +2857,14 @@
               ],
               "side_a": [
                 "HUANG Youzheng (CHN)",
-                "BAE Hwan (AUS)"
+                "SHI Xunyao (CHN)"
               ],
               "side_b": [
-                "SHI Xunyao (CHN)",
+                "BAE Hwan (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | HUANG Youzheng (CHN) | SHI Xunyao (CHN) | BAE Hwan (AUS) | JEE Minhyung (AUS) | XD | Qualification | QR8 | 3 - 0 | 11:4 11:4 11:2 | HUANG Youzheng | SHI Xunyao | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -3210,15 +2910,8 @@
               "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | JEE Minhyung (AUS) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | R32 | 1 - 3 | 11:8 9:11 6:11 7:11 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3253,7 +2946,7 @@
                 "8:11",
                 "11:13"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / JEE Minhyung",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)",
@@ -3262,17 +2955,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "LIU Yangzi (AUS)"
+                "CHITALE Diya (IND)"
               ],
               "side_b": [
-                "CHITALE Diya (IND)",
+                "LIU Yangzi (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | AKULA Sreeja (IND) | CHITALE Diya (IND) | LIU Yangzi (AUS) | JEE Minhyung (AUS) | WD | Main Draw | R16 | 1 - 3 | 12:10 6:11 8:11 11:13 | LIU Yangzi | JEE Minhyung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3302,7 +2992,7 @@
                 "7:11",
                 "11:13"
               ],
-              "winner": "ZHU Chengzhu",
+              "winner": "ZHU Chengzhu / NG Wing Lam",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "JEE Minhyung (AUS)",
@@ -3311,17 +3001,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "ZHU Chengzhu (HKG)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "ZHU Chengzhu (HKG)",
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Muscat 2025 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | WD | Main Draw | QuarterFinal | 0 - 3 | 10:12 7:11 11:13 | ZHU Chengzhu | NG Wing Lam | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3363,7 +3050,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "MATSUSHIMA Sora",
+              "winner": "MATSUSHIMA Sora / HARIMOTO Miwa",
               "all_players_in_row": [
                 "BAE Hwan (AUS)",
                 "JEE Minhyung (AUS)",
@@ -3372,17 +3059,14 @@
               ],
               "side_a": [
                 "BAE Hwan (AUS)",
-                "MATSUSHIMA Sora (JPN)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "MATSUSHIMA Sora (JPN)",
                 "HARIMOTO Miwa (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | BAE Hwan (AUS) | JEE Minhyung (AUS) | MATSUSHIMA Sora (JPN) | HARIMOTO Miwa (JPN) | XD | Qualification | QR8 | 0 - 3 | 11:13 6:11 7:11 | MATSUSHIMA Sora | HARIMOTO Miwa | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -3422,7 +3106,7 @@
                 "11:8",
                 "6:11"
               ],
-              "winner": "ABDULWAHHAB Mohammed",
+              "winner": "ABDULWAHHAB Mohammed / MOHAMED Aia",
               "all_players_in_row": [
                 "BAE Hwan (AUS)",
                 "JEE Minhyung (AUS)",
@@ -3431,17 +3115,14 @@
               ],
               "side_a": [
                 "BAE Hwan (AUS)",
-                "ABDULWAHHAB Mohammed (QAT)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "ABDULWAHHAB Mohammed (QAT)",
                 "MOHAMED Aia (QAT)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | BAE Hwan (AUS) | JEE Minhyung (AUS) | ABDULWAHHAB Mohammed (QAT) | MOHAMED Aia (QAT) | XD | Main Draw | R16 | 2 - 3 | 6:11 11:8 7:11 11:8 6:11 | ABDULWAHHAB Mohammed | MOHAMED Aia | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3487,15 +3168,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "HE Zhuojia (CHN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | HE Zhuojia (CHN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 1 | 11:5 6:11 11:8 11:7 | HE Zhuojia |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3553,15 +3227,8 @@
               "side_b": [
                 "GEAR Lisa (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GEAR Lisa (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | JEE Minhyung (AUS) |  | GEAR Lisa (NZL) |  | WT | Main Draw | Final | 3 - 0 | 11:2 11:1 11:7 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -3591,7 +3258,7 @@
                 "12:10",
                 "11:5"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / JEE Minhyung",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "JEE Minhyung (AUS)",
@@ -3600,17 +3267,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "CHONG Josephine (NZL)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "CHONG Josephine (NZL)",
                 "MORIYAMA PICARD Ayumi (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | CHONG Josephine (NZL) | MORIYAMA PICARD Ayumi (NZL) | WD | Main Draw | SemiFinal | 3 - 0 | 11:3 12:10 11:5 | LIU Yangzi | JEE Minhyung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3651,15 +3315,8 @@
               "side_b": [
                 "GEAR Lisa (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GEAR Lisa (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | JEE Minhyung (AUS) |  | GEAR Lisa (NZL) |  | WS | Qualification |  | 3 - 0 | 11:2 11:2 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3699,15 +3356,8 @@
               "side_b": [
                 "GIRET Maylis (NCL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GIRET Maylis (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | JEE Minhyung (AUS) |  | GIRET Maylis (NCL) |  | WS | Qualification |  | 3 - 0 | 11:3 11:0 11:5 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3747,15 +3397,8 @@
               "side_b": [
                 "WOOD Jacqui (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "WOOD Jacqui (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | JEE Minhyung (AUS) |  | WOOD Jacqui (NZL) |  | WS | Qualification |  | 3 - 0 | 11:2 11:4 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3789,7 +3432,7 @@
                 "11:7",
                 "6:11"
               ],
-              "winner": "LUU Finn",
+              "winner": "LUU Finn / JEE Minhyung",
               "all_players_in_row": [
                 "CHOI Timothy (NZL)",
                 "MORIYAMA PICARD Ayumi (NZL)",
@@ -3798,17 +3441,14 @@
               ],
               "side_a": [
                 "CHOI Timothy (NZL)",
-                "LUU Finn (AUS)"
+                "MORIYAMA PICARD Ayumi (NZL)"
               ],
               "side_b": [
-                "MORIYAMA PICARD Ayumi (NZL)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | CHOI Timothy (NZL) | MORIYAMA PICARD Ayumi (NZL) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | QuarterFinal | 1 - 3 | 6:11 6:11 11:7 6:11 | LUU Finn | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3838,7 +3478,7 @@
                 "8:11",
                 "14:16"
               ],
-              "winner": "LUU Finn",
+              "winner": "LUU Finn / JEE Minhyung",
               "all_players_in_row": [
                 "BAE Hwan (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -3847,17 +3487,14 @@
               ],
               "side_a": [
                 "BAE Hwan (AUS)",
-                "LUU Finn (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | BAE Hwan (AUS) | PSIHOGIOS Constantina (AUS) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | SemiFinal | 0 - 3 | 5:11 8:11 14:16 | LUU Finn | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3913,15 +3550,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | PSIHOGIOS Constantina (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 2 - 4 | 3:11 11:5 11:13 10:12 11:9 3:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3951,7 +3581,7 @@
                 "11:9",
                 "11:5"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / JEE Minhyung",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "JEE Minhyung (AUS)",
@@ -3960,17 +3590,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "PSIHOGIOS Constantina (AUS)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "PSIHOGIOS Constantina (AUS)",
                 "TAPPER Melissa (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | TAPPER Melissa (AUS) | WD | Main Draw | Final | 3 - 0 | 11:3 11:9 11:5 | LIU Yangzi | JEE Minhyung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4000,7 +3627,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / LIU Yangzi",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "LIU Yangzi (AUS)",
@@ -4009,17 +3636,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "LUU Finn (AUS)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | Final | 3 - 0 | 11:7 11:5 11:8 | LUM Nicholas | LIU Yangzi | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4080,15 +3704,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 3 - 4 | 11:1 11:7 11:5 12:14 10:12 3:11 9:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4130,7 +3747,7 @@
                 "2:11",
                 "7:11"
               ],
-              "winner": "DOO Hoi Kem",
+              "winner": "DOO Hoi Kem / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "HURSEY Anna (WAL)",
@@ -4139,17 +3756,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "DOO Hoi Kem (HKG)"
+                "HURSEY Anna (WAL)"
               ],
               "side_b": [
-                "HURSEY Anna (WAL)",
+                "DOO Hoi Kem (HKG)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | JEE Minhyung (AUS) | HURSEY Anna (WAL) | DOO Hoi Kem (HKG) | LIU Yangzi (AUS) | WD | Main Draw | R32 | 0 - 3 | 8:11 2:11 7:11 | DOO Hoi Kem | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4190,15 +3804,8 @@
               "side_b": [
                 "CHEN Xingtong (CHN)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "CHEN Xingtong (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | China Smash 2024 | JEE Minhyung (AUS) |  | CHEN Xingtong (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 5:11 3:11 | CHEN Xingtong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4256,15 +3863,8 @@
               "side_b": [
                 "MITTELHAM Nina (GER)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "MITTELHAM Nina (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | JEE Minhyung (AUS) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | R64 | 0 - 4 | 7:11 9:11 7:11 8:11 | MITTELHAM Nina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4304,7 +3904,7 @@
                 "11:4",
                 "11:3"
               ],
-              "winner": "IONESCU Ovidiu",
+              "winner": "IONESCU Ovidiu / SZOCS Bernadette",
               "all_players_in_row": [
                 "IONESCU Ovidiu (ROU)",
                 "SZOCS Bernadette (ROU)",
@@ -4313,17 +3913,14 @@
               ],
               "side_a": [
                 "IONESCU Ovidiu (ROU)",
-                "JEE Minhyung (AUS)"
+                "SZOCS Bernadette (ROU)"
               ],
               "side_b": [
-                "SZOCS Bernadette (ROU)",
+                "JEE Minhyung (AUS)",
                 "LUM Nicholas (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | IONESCU Ovidiu (ROU) | SZOCS Bernadette (ROU) | JEE Minhyung (AUS) | LUM Nicholas (AUS) | XD | Main Draw | R16 | 4 - 1 | 11:5 6:11 14:12 11:4 11:3 | IONESCU Ovidiu | SZOCS Bernadette | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4364,15 +3961,8 @@
               "side_b": [
                 "CHENG I-Ching (TPE)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "CHENG I-Ching (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | JEE Minhyung (AUS) |  | CHENG I-Ching (TPE) |  | WT | Main Draw | R16 | 0 - 3 | 5:11 7:11 4:11 | CHENG I-Ching |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -4430,15 +4020,8 @@
               "side_b": [
                 "LI Carolyn (FIJ)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LI Carolyn (FIJ)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF-Oceania Cup Noumea 2024 | JEE Minhyung (AUS) |  | LI Carolyn (FIJ) |  | WS | Qualification |  | 4 - 0 | 11:3 11:2 11:0 11:6 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4483,15 +4066,8 @@
               "side_b": [
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LAM Jocelyn (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF-Oceania Cup Noumea 2024 | JEE Minhyung (AUS) |  | LAM Jocelyn (NZL) |  | WS | Qualification |  | 4 - 0 | 11:7 11:2 11:5 11:5 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4536,15 +4112,8 @@
               "side_b": [
                 "GIRET Maylis (NCL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GIRET Maylis (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF-Oceania Cup Noumea 2024 | JEE Minhyung (AUS) |  | GIRET Maylis (NCL) |  | WS | Qualification |  | 4 - 0 | 11:3 11:4 11:1 11:8 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4589,15 +4158,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "TOMMY Priscilla (VAN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF-Oceania Cup Noumea 2024 | TOMMY Priscilla (VAN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 0 - 4 | 6:11 5:11 3:11 6:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4658,15 +4220,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF-Oceania Cup Noumea 2024 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 4 - 3 | 12:10 7:11 11:8 11:2 7:11 9:11 11:9 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4729,15 +4284,8 @@
               "side_b": [
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Saudi Smash 2024 | JEE Minhyung (AUS) |  | JOO Cheonhui (KOR) |  | WS | Main Draw | R64 | 2 - 3 | 4:11 11:4 9:11 11:9 6:11 | JOO Cheonhui |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4790,15 +4338,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "GHORPADE Yashaswini (IND)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Feeder Havirov 2024 | GHORPADE Yashaswini (IND) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 0 | 11:5 11:9 11:7 | GHORPADE Yashaswini |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4861,15 +4402,8 @@
               "side_b": [
                 "POTA Georgina (HUN)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "POTA Georgina (HUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Singapore Smash 2024 | JEE Minhyung (AUS) |  | POTA Georgina (HUN) |  | WS | Main Draw | R64 | 2 - 3 | 6:11 13:11 6:11 11:9 10:12 | POTA Georgina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4932,15 +4466,8 @@
               "side_b": [
                 "WANEGUI Julie (NCL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "WANEGUI Julie (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Cup Hamilton 2023 | JEE Minhyung (AUS) |  | WANEGUI Julie (NCL) |  | WS | Qualification |  | 4 - 0 | 11:3 11:3 11:1 11:4 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4985,15 +4512,8 @@
               "side_b": [
                 "YEE Grace Rosi (FIJ)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "YEE Grace Rosi (FIJ)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Cup Hamilton 2023 | JEE Minhyung (AUS) |  | YEE Grace Rosi (FIJ) |  | WS | Qualification |  | 4 - 0 | 11:8 11:3 11:4 11:3 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5038,15 +4558,8 @@
               "side_b": [
                 "YANG Joanna (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "YANG Joanna (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Cup Hamilton 2023 | JEE Minhyung (AUS) |  | YANG Joanna (NZL) |  | WS | Qualification |  | 4 - 0 | 11:9 11:7 11:8 11:5 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5091,15 +4604,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LAM Jocelyn (NZL)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF-Oceania Cup Hamilton 2023 | LAM Jocelyn (NZL) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 0 - 4 | 2:11 4:11 3:11 4:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5145,15 +4651,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF-Oceania Cup Hamilton 2023 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 4 - 0 | 11:7 11:7 11:5 11:4 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5206,15 +4705,8 @@
               "side_b": [
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Champions Frankfurt 2023 | JEE Minhyung (AUS) |  | JOO Cheonhui (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 7:11 4:11 6:11 | JOO Cheonhui |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5266,7 +4758,7 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / HURSEY Anna",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)",
@@ -5275,17 +4767,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "JEE Minhyung (AUS)"
+                "CHITALE Diya (IND)"
               ],
               "side_b": [
-                "CHITALE Diya (IND)",
+                "JEE Minhyung (AUS)",
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Muscat 2023 | AKULA Sreeja (IND) | CHITALE Diya (IND) | JEE Minhyung (AUS) | HURSEY Anna (WAL) | WD | Main Draw | R16 | 2 - 3 | 9:11 11:3 11:9 7:11 6:11 | JEE Minhyung | HURSEY Anna | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5331,15 +4820,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "ZHU Chengzhu (HKG)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Muscat 2023 | ZHU Chengzhu (HKG) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 1 | 9:11 11:4 11:7 11:8 | ZHU Chengzhu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5374,24 +4856,23 @@
                 "13:15",
                 "8:11"
               ],
-              "winner": "CHEN Szu-Yu",
+              "winner": "CHEN Szu-Yu / HUANG Yi-Hua",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
-                "HURSEY Anna (WAL)"
+                "HURSEY Anna (WAL)",
+                "CHEN Szu-Yu (TPE)",
+                "HUANG Yi-Hua (TPE)"
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "CHEN Szu-Yu (TPE)"
+                "HURSEY Anna (WAL)"
               ],
               "side_b": [
-                "HURSEY Anna (WAL)",
+                "CHEN Szu-Yu (TPE)",
                 "HUANG Yi-Hua (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Muscat 2023 | JEE Minhyung (AUS) | HURSEY Anna (WAL) | CHEN Szu-Yu (TPE) | HUANG Yi-Hua (TPE) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:9 10:12 13:15 8:11 | CHEN Szu-Yu | HUANG Yi-Hua | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5444,15 +4925,8 @@
               "side_b": [
                 "GEAR Lisa (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "GEAR Lisa (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | JEE Minhyung (AUS) |  | GEAR Lisa (NZL) |  | WT | Qualification |  | 3 - 0 | 11:8 11:6 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5492,15 +4966,8 @@
               "side_b": [
                 "TEHAHETUA Kelley (PYF)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "TEHAHETUA Kelley (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | JEE Minhyung (AUS) |  | TEHAHETUA Kelley (PYF) |  | WS | Qualification |  | 3 - 0 | 11:9 11:3 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5540,15 +5007,8 @@
               "side_b": [
                 "PAUL Anais (NCL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "PAUL Anais (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | JEE Minhyung (AUS) |  | PAUL Anais (NCL) |  | WS | Qualification |  | 3 - 0 | 11:4 11:2 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5582,7 +5042,7 @@
                 "11:4",
                 "11:1"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)",
@@ -5591,17 +5051,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "WU Vicky (FIJ)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "WU Vicky (FIJ)",
                 "YEE Grace Rosi (FIJ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | LUM Nicholas (AUS) | JEE Minhyung (AUS) | WU Vicky (FIJ) | YEE Grace Rosi (FIJ) | XD | Main Draw | R16 | 3 - 1 | 6:11 11:6 11:4 11:1 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5631,7 +5088,7 @@
                 "11:6",
                 "11:4"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)",
@@ -5640,17 +5097,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "WANG Roger (NZL)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "WANG Roger (NZL)",
                 "YANG Joanna (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | LUM Nicholas (AUS) | JEE Minhyung (AUS) | WANG Roger (NZL) | YANG Joanna (NZL) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:6 11:4 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5690,7 +5144,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / LIU Yangzi",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)",
@@ -5699,17 +5153,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "SAREEN Aditya (AUS)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "SAREEN Aditya (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | LUM Nicholas (AUS) | JEE Minhyung (AUS) | SAREEN Aditya (AUS) | LIU Yangzi (AUS) | XD | Main Draw | SemiFinal | 2 - 3 | 11:6 11:5 6:11 9:11 7:11 | SAREEN Aditya | LIU Yangzi | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5739,7 +5190,7 @@
                 "11:4",
                 "11:4"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LAY Jian Fang",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LAY Jian Fang (AUS)",
@@ -5748,17 +5199,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "PAUL Anais (NCL)"
+                "LAY Jian Fang (AUS)"
               ],
               "side_b": [
-                "LAY Jian Fang (AUS)",
+                "PAUL Anais (NCL)",
                 "WANEGUI Julie (NCL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | JEE Minhyung (AUS) | LAY Jian Fang (AUS) | PAUL Anais (NCL) | WANEGUI Julie (NCL) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:4 11:4 | JEE Minhyung | LAY Jian Fang | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5793,26 +5241,23 @@
                 "8:11",
                 "11:6"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LAY Jian Fang",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LAY Jian Fang (AUS)",
-                "LEE Sarah (NZL)",
+                "HER-LEE Sarah (NZL)",
                 "LAM Jocelyn (NZL)"
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "HER-LEE Sarah (NZL)"
+                "LAY Jian Fang (AUS)"
               ],
               "side_b": [
-                "LAY Jian Fang (AUS)",
+                "HER-LEE Sarah (NZL)",
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | JEE Minhyung (AUS) | LAY Jian Fang (AUS) | HER-LEE Sarah (NZL) | LAM Jocelyn (NZL) | WD | Main Draw | SemiFinal | 3 - 1 | 11:2 11:9 8:11 11:6 | JEE Minhyung | LAY Jian Fang | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5858,15 +5303,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "WEBB Abbey (NZL)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | WEBB Abbey (NZL) |  | JEE Minhyung (AUS) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 4:11 2:11 1:11 7:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5912,15 +5350,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "BROMLEY Michelle (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | BROMLEY Michelle (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 0 - 4 | 3:11 2:11 5:11 4:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5950,7 +5381,7 @@
                 "11:8",
                 "11:4"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LAY Jian Fang",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LAY Jian Fang (AUS)",
@@ -5959,17 +5390,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "LIU Yangzi (AUS)"
+                "LAY Jian Fang (AUS)"
               ],
               "side_b": [
-                "LAY Jian Fang (AUS)",
+                "LIU Yangzi (AUS)",
                 "TAPPER Melissa (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | JEE Minhyung (AUS) | LAY Jian Fang (AUS) | LIU Yangzi (AUS) | TAPPER Melissa (AUS) | WD | Main Draw | Final | 3 - 0 | 13:11 11:8 11:4 | JEE Minhyung | LAY Jian Fang | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6015,15 +5443,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF-Oceania Championships Townsville 2023 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 4 - 0 | 11:8 11:6 12:10 11:6 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6065,25 +5486,23 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "MISCHEK Karoline (AUT)",
+                "HO Tin-Tin (ENG)",
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)"
               ],
               "side_a": [
                 "MISCHEK Karoline (AUT)",
-                "JEE Minhyung (AUS)"
+                "HO Tin-Tin (ENG)"
               ],
               "side_b": [
-                "HO Tin-Tin (ENG)",
+                "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | MISCHEK Karoline (AUT) | HO Tin-Tin (ENG) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Qualification | QR16 | 0 - 3 | 5:11 7:11 8:11 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -6118,7 +5537,7 @@
                 "11:13",
                 "5:11"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "AKULA Sreeja (IND)",
                 "CHITALE Diya (IND)",
@@ -6127,17 +5546,14 @@
               ],
               "side_a": [
                 "AKULA Sreeja (IND)",
-                "JEE Minhyung (AUS)"
+                "CHITALE Diya (IND)"
               ],
               "side_b": [
-                "CHITALE Diya (IND)",
+                "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | AKULA Sreeja (IND) | CHITALE Diya (IND) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Qualification | QR8 | 1 - 3 | 15:17 11:9 11:13 5:11 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -6188,15 +5604,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "SASAO Asuka (JPN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | SASAO Asuka (JPN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 2 | 11:5 9:11 11:5 8:11 11:5 | SASAO Asuka |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6226,7 +5635,7 @@
                 "11:3",
                 "11:9"
               ],
-              "winner": "KIHARA Miyuu",
+              "winner": "KIHARA Miyuu / NAGASAKI Miyu",
               "all_players_in_row": [
                 "KIHARA Miyuu (JPN)",
                 "NAGASAKI Miyu (JPN)",
@@ -6235,17 +5644,14 @@
               ],
               "side_a": [
                 "KIHARA Miyuu (JPN)",
-                "JEE Minhyung (AUS)"
+                "NAGASAKI Miyu (JPN)"
               ],
               "side_b": [
-                "NAGASAKI Miyu (JPN)",
+                "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | KIHARA Miyuu (JPN) | NAGASAKI Miyu (JPN) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Main Draw | R16 | 3 - 0 | 11:7 11:3 11:9 | KIHARA Miyuu | NAGASAKI Miyu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6292,7 +5698,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "CHEW Clarence",
+              "winner": "CHEW Clarence / ZENG Jian",
               "all_players_in_row": [
                 "CHEW Clarence (SGP)",
                 "ZENG Jian (SGP)",
@@ -6301,17 +5707,14 @@
               ],
               "side_a": [
                 "CHEW Clarence (SGP)",
-                "LUM Nicholas (AUS)"
+                "ZENG Jian (SGP)"
               ],
               "side_b": [
-                "ZENG Jian (SGP)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Singapore Smash 2023 | CHEW Clarence (SGP) | ZENG Jian (SGP) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | R32 | 3 - 1 | 6:11 11:6 11:3 11:6 | CHEW Clarence | ZENG Jian | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -6352,15 +5755,8 @@
               "side_b": [
                 "JOO Cheonhui (KOR)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "JOO Cheonhui (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Singapore Smash 2023 | JEE Minhyung (AUS) |  | JOO Cheonhui (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 10:12 5:11 5:11 | JOO Cheonhui |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6390,7 +5786,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "VARADY Barbora",
+              "winner": "VARADY Barbora / MATELOVA Hana",
               "all_players_in_row": [
                 "VARADY Barbora (SVK)",
                 "MATELOVA Hana (CZE)",
@@ -6399,17 +5795,14 @@
               ],
               "side_a": [
                 "VARADY Barbora (SVK)",
-                "JEE Minhyung (AUS)"
+                "MATELOVA Hana (CZE)"
               ],
               "side_b": [
-                "MATELOVA Hana (CZE)",
+                "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Singapore Smash 2023 | VARADY Barbora (SVK) | MATELOVA Hana (CZE) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Main Draw | R32 | 3 - 0 | 11:4 11:8 11:7 | VARADY Barbora | MATELOVA Hana | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6456,7 +5849,7 @@
                 "6:11",
                 "7:11"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Zion",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -6465,17 +5858,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "CHOI Hyojoo (KOR)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | R16 | 1 - 3 | 9:11 11:4 6:11 7:11 | CHOI Hyojoo | LEE Zion | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6516,15 +5906,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "HARIMOTO Miwa (JPN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | HARIMOTO Miwa (JPN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R64 | 3 - 0 | 11:7 11:6 11:7 | HARIMOTO Miwa |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6582,15 +5965,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LEE Ho Ching (HKG)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | LEE Ho Ching (HKG) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:8 6:11 11:5 | LEE Ho Ching |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6653,15 +6029,8 @@
               "side_b": [
                 "AGARI Tammi (PNG)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "AGARI Tammi (PNG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Oceania Cup Port Moresby 2022 | JEE Minhyung (AUS) |  | AGARI Tammi (PNG) |  | WS | Qualification |  | 4 - 0 | 11:3 11:4 11:2 11:3 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6706,15 +6075,8 @@
               "side_b": [
                 "PAUL Anais (NCL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "PAUL Anais (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Oceania Cup Port Moresby 2022 | JEE Minhyung (AUS) |  | PAUL Anais (NCL) |  | WS | Qualification |  | 4 - 0 | 11:3 11:2 11:2 11:4 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6759,15 +6121,8 @@
               "side_b": [
                 "LI Carolyn (FIJ)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LI Carolyn (FIJ)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Oceania Cup Port Moresby 2022 | JEE Minhyung (AUS) |  | LI Carolyn (FIJ) |  | WS | Qualification |  | 4 - 0 | 11:3 11:4 11:2 11:1 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6812,15 +6167,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "YEE Grace Rosi (FIJ)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF-Oceania Cup Port Moresby 2022 | YEE Grace Rosi (FIJ) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 0 - 4 | 6:11 1:11 1:11 8:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6881,15 +6229,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF-Oceania Cup Port Moresby 2022 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 3 - 4 | 9:11 14:12 7:11 11:9 3:11 11:7 9:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6941,7 +6282,7 @@
                 "11:8",
                 "12:14"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -6950,17 +6291,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "DRAGOMAN Andreea (ROU)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 2 - 3 | 8:11 9:11 13:11 11:8 12:14 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7006,15 +6344,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "AKULA Sreeja (IND)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | AKULA Sreeja (IND) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 5:11 11:9 9:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7060,15 +6391,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "SAWETTABUT Suthasini (THA)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | SAWETTABUT Suthasini (THA) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R16 | 3 - 1 | 14:16 11:9 16:14 11:4 | SAWETTABUT Suthasini |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7121,15 +6445,8 @@
               "side_b": [
                 "TITANA Touea (FIJ)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "TITANA Touea (FIJ)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | JEE Minhyung (AUS) |  | TITANA Touea (FIJ) |  | WT | Qualification |  | 3 - 0 | 11:1 11:2 11:3 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -7169,15 +6486,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "SIFI Connie (SOL)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | SIFI Connie (SOL) |  | JEE Minhyung (AUS) |  | WT | Qualification |  | 0 - 3 | 1:11 3:11 3:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -7217,15 +6527,8 @@
               "side_b": [
                 "HUANG Cecilia (NZL)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "HUANG Cecilia (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | JEE Minhyung (AUS) |  | HUANG Cecilia (NZL) |  | WT | Qualification |  | 3 - 0 | 11:6 11:5 11:5 | JEE Minhyung |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -7265,15 +6568,8 @@
               "side_b": [
                 "VI Eseta (TGA)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "VI Eseta (TGA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | JEE Minhyung (AUS) |  | VI Eseta (TGA) |  | WS | Qualification |  | 3 - 0 | 11:5 11:2 11:3 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7313,15 +6609,8 @@
               "side_b": [
                 "YEE Grace Rosi (FIJ)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "YEE Grace Rosi (FIJ)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | JEE Minhyung (AUS) |  | YEE Grace Rosi (FIJ) |  | WS | Qualification |  | 3 - 0 | 11:1 11:1 11:5 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7361,15 +6650,8 @@
               "side_b": [
                 "TEHAHETUA Kelley (PYF)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "TEHAHETUA Kelley (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | JEE Minhyung (AUS) |  | TEHAHETUA Kelley (PYF) |  | WS | Qualification |  | 3 - 0 | 11:1 11:5 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7398,7 +6680,7 @@
                 "4:11",
                 "5:11"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "LULU Ham (VAN)",
                 "SANTHY Liopa (VAN)",
@@ -7407,17 +6689,14 @@
               ],
               "side_a": [
                 "LULU Ham (VAN)",
-                "LUM Nicholas (AUS)"
+                "SANTHY Liopa (VAN)"
               ],
               "side_b": [
-                "SANTHY Liopa (VAN)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LULU Ham (VAN) | SANTHY Liopa (VAN) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | R16 | 0 - 3 | 3:11 4:11 5:11 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7447,7 +6726,7 @@
                 "4:11",
                 "3:11"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "CARNET Bydhir (PYF)",
                 "WONG Heimoe (PYF)",
@@ -7456,17 +6735,14 @@
               ],
               "side_a": [
                 "CARNET Bydhir (PYF)",
-                "LUM Nicholas (AUS)"
+                "WONG Heimoe (PYF)"
               ],
               "side_b": [
-                "WONG Heimoe (PYF)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | CARNET Bydhir (PYF) | WONG Heimoe (PYF) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | QuarterFinal | 0 - 3 | 2:11 4:11 3:11 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7496,7 +6772,7 @@
                 "4:11",
                 "8:11"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "DIXON Xavier (AUS)",
                 "TAPPER Melissa (AUS)",
@@ -7505,17 +6781,14 @@
               ],
               "side_a": [
                 "DIXON Xavier (AUS)",
-                "LUM Nicholas (AUS)"
+                "TAPPER Melissa (AUS)"
               ],
               "side_b": [
-                "TAPPER Melissa (AUS)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | DIXON Xavier (AUS) | TAPPER Melissa (AUS) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | SemiFinal | 0 - 3 | 10:12 4:11 8:11 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7545,7 +6818,7 @@
                 "3:11",
                 "5:11"
               ],
-              "winner": "LAY Jian Fang",
+              "winner": "LAY Jian Fang / JEE Minhyung",
               "all_players_in_row": [
                 "WONG Heimoe (PYF)",
                 "TEHAHETUA Kelley (PYF)",
@@ -7554,17 +6827,14 @@
               ],
               "side_a": [
                 "WONG Heimoe (PYF)",
-                "LAY Jian Fang (AUS)"
+                "TEHAHETUA Kelley (PYF)"
               ],
               "side_b": [
-                "TEHAHETUA Kelley (PYF)",
+                "LAY Jian Fang (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | WONG Heimoe (PYF) | TEHAHETUA Kelley (PYF) | LAY Jian Fang (AUS) | JEE Minhyung (AUS) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 3:11 5:11 | LAY Jian Fang | JEE Minhyung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7594,7 +6864,7 @@
                 "3:11",
                 "6:11"
               ],
-              "winner": "LAY Jian Fang",
+              "winner": "LAY Jian Fang / JEE Minhyung",
               "all_players_in_row": [
                 "YANG Joanna (NZL)",
                 "HUANG Cecilia (NZL)",
@@ -7603,17 +6873,14 @@
               ],
               "side_a": [
                 "YANG Joanna (NZL)",
-                "LAY Jian Fang (AUS)"
+                "HUANG Cecilia (NZL)"
               ],
               "side_b": [
-                "HUANG Cecilia (NZL)",
+                "LAY Jian Fang (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | YANG Joanna (NZL) | HUANG Cecilia (NZL) | LAY Jian Fang (AUS) | JEE Minhyung (AUS) | WD | Main Draw | SemiFinal | 0 - 3 | 6:11 3:11 6:11 | LAY Jian Fang | JEE Minhyung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7659,15 +6926,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "HUANG Cecilia (NZL)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | HUANG Cecilia (NZL) |  | JEE Minhyung (AUS) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 10:12 2:11 2:11 5:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7718,15 +6978,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LAY Jian Fang (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LAY Jian Fang (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 1 - 4 | 12:10 8:11 6:11 3:11 4:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7766,7 +7019,7 @@
                 "7:11",
                 "3:11"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "LUU Finn (AUS)",
                 "LIU Yangzi (AUS)",
@@ -7775,17 +7028,14 @@
               ],
               "side_a": [
                 "LUU Finn (AUS)",
-                "LUM Nicholas (AUS)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LUU Finn (AUS) | LIU Yangzi (AUS) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | Final | 2 - 3 | 11:9 7:11 12:10 7:11 3:11 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7825,7 +7075,7 @@
                 "5:11",
                 "11:8"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / FENG Chunyi",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "FENG Chunyi (AUS)",
@@ -7834,17 +7084,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "LAY Jian Fang (AUS)"
+                "FENG Chunyi (AUS)"
               ],
               "side_b": [
-                "FENG Chunyi (AUS)",
+                "LAY Jian Fang (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) | FENG Chunyi (AUS) | LAY Jian Fang (AUS) | JEE Minhyung (AUS) | WD | Main Draw | Final | 3 - 2 | 11:8 14:12 8:11 5:11 11:8 | LIU Yangzi | FENG Chunyi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7905,15 +7152,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Oceania Championships Melbourne 2022 | LIU Yangzi (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | Final | 4 - 3 | 9:11 15:13 12:14 11:7 11:7 6:11 11:6 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7971,15 +7211,8 @@
               "side_b": [
                 "BATRA Manika (IND)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "BATRA Manika (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | JEE Minhyung (AUS) |  | BATRA Manika (IND) |  | WS | Main Draw | R16 | 0 - 4 | 4:11 8:11 6:11 10:12 | BATRA Manika |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8014,25 +7247,23 @@
                 "11:3",
                 "14:12"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LAY Jian Fang",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LAY Jian Fang (AUS)",
+                "HO Tin-Tin (ENG)",
                 "TSAPTSINOS Maria (ENG)"
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "HO Tin-Tin (ENG)"
+                "LAY Jian Fang (AUS)"
               ],
               "side_b": [
-                "LAY Jian Fang (AUS)",
+                "HO Tin-Tin (ENG)",
                 "TSAPTSINOS Maria (ENG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | JEE Minhyung (AUS) | LAY Jian Fang (AUS) | HO Tin-Tin (ENG) | TSAPTSINOS Maria (ENG) | WD | Main Draw | R16 | 3 - 1 | 5:11 11:8 11:3 14:12 | JEE Minhyung | LAY Jian Fang | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8062,7 +7293,7 @@
                 "5:11",
                 "6:11"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LAY Jian Fang",
               "all_players_in_row": [
                 "BELLO Fatimo (NGR)",
                 "EDEM Offiong (NGR)",
@@ -8071,17 +7302,14 @@
               ],
               "side_a": [
                 "BELLO Fatimo (NGR)",
-                "JEE Minhyung (AUS)"
+                "EDEM Offiong (NGR)"
               ],
               "side_b": [
-                "EDEM Offiong (NGR)",
+                "JEE Minhyung (AUS)",
                 "LAY Jian Fang (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | BELLO Fatimo (NGR) | EDEM Offiong (NGR) | JEE Minhyung (AUS) | LAY Jian Fang (AUS) | WD | Main Draw | QuarterFinal | 0 - 3 | 5:11 5:11 6:11 | JEE Minhyung | LAY Jian Fang | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8111,7 +7339,7 @@
                 "11:9",
                 "11:3"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LAY Jian Fang",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LAY Jian Fang (AUS)",
@@ -8120,17 +7348,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "WONG Xin Ru (SGP)"
+                "LAY Jian Fang (AUS)"
               ],
               "side_b": [
-                "LAY Jian Fang (AUS)",
+                "WONG Xin Ru (SGP)",
                 "ZHOU Jingyi (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | JEE Minhyung (AUS) | LAY Jian Fang (AUS) | WONG Xin Ru (SGP) | ZHOU Jingyi (SGP) | WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:9 11:3 | JEE Minhyung | LAY Jian Fang | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8160,7 +7385,7 @@
                 "11:8",
                 "11:8"
               ],
-              "winner": "FENG Tianwei",
+              "winner": "FENG Tianwei / ZENG Jian",
               "all_players_in_row": [
                 "FENG Tianwei (SGP)",
                 "ZENG Jian (SGP)",
@@ -8169,17 +7394,14 @@
               ],
               "side_a": [
                 "FENG Tianwei (SGP)",
-                "JEE Minhyung (AUS)"
+                "ZENG Jian (SGP)"
               ],
               "side_b": [
-                "ZENG Jian (SGP)",
+                "JEE Minhyung (AUS)",
                 "LAY Jian Fang (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | FENG Tianwei (SGP) | ZENG Jian (SGP) | JEE Minhyung (AUS) | LAY Jian Fang (AUS) | WD | Main Draw | Final | 3 - 0 | 11:1 11:8 11:8 | FENG Tianwei | ZENG Jian | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8209,7 +7431,7 @@
                 "3:11",
                 "5:11"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "ABREFA Derek (GHA)",
                 "KWABI Cynthia (GHA)",
@@ -8218,17 +7440,14 @@
               ],
               "side_a": [
                 "ABREFA Derek (GHA)",
-                "LUM Nicholas (AUS)"
+                "KWABI Cynthia (GHA)"
               ],
               "side_b": [
-                "KWABI Cynthia (GHA)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | ABREFA Derek (GHA) | KWABI Cynthia (GHA) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | R16 | 0 - 3 | 4:11 3:11 5:11 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -8258,7 +7477,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)",
@@ -8267,17 +7486,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "JARVIS Tom (ENG)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "JARVIS Tom (ENG)",
                 "BARDSLEY Charlotte (ENG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | LUM Nicholas (AUS) | JEE Minhyung (AUS) | JARVIS Tom (ENG) | BARDSLEY Charlotte (ENG) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:7 11:9 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -8317,7 +7533,7 @@
                 "12:14",
                 "11:7"
               ],
-              "winner": "ACHANTA Sharath",
+              "winner": "ACHANTA Sharath / AKULA Sreeja",
               "all_players_in_row": [
                 "ACHANTA Sharath (IND)",
                 "AKULA Sreeja (IND)",
@@ -8326,17 +7542,14 @@
               ],
               "side_a": [
                 "ACHANTA Sharath (IND)",
-                "LUM Nicholas (AUS)"
+                "AKULA Sreeja (IND)"
               ],
               "side_b": [
-                "AKULA Sreeja (IND)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Commonwealth Games Birmingham 2022 | ACHANTA Sharath (IND) | AKULA Sreeja (IND) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | SemiFinal | 3 - 2 | 11:9 11:8 9:11 12:14 11:7 | ACHANTA Sharath | AKULA Sreeja | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -8388,7 +7601,7 @@
                 "3:11",
                 "13:15"
               ],
-              "winner": "CHASSELIN Pauline",
+              "winner": "CHASSELIN Pauline / PAVADE Prithika",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "JEE Minhyung (AUS)",
@@ -8397,17 +7610,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "CHASSELIN Pauline (FRA)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "CHASSELIN Pauline (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | CHASSELIN Pauline (FRA) | PAVADE Prithika (FRA) | WD | Qualification | QR16 | 2 - 3 | 12:10 5:11 11:2 3:11 13:15 | CHASSELIN Pauline | PAVADE Prithika | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -8453,15 +7663,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LI Yu-Jhun (TPE)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Doha 2022 | LI Yu-Jhun (TPE) |  | JEE Minhyung (AUS) |  | WS | Qualification | QR64 | 3 - 1 | 11:8 11:7 8:11 11:5 | LI Yu-Jhun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -8508,7 +7711,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / JEE Minhyung",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)",
@@ -8517,17 +7720,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "LUU Finn (AUS)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "LUU Finn (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LUM Nicholas (AUS) | JEE Minhyung (AUS) | LUU Finn (AUS) | LIU Yangzi (AUS) | XD | Main Draw | R16 | 3 - 1 | 11:5 6:11 11:7 11:5 | LUM Nicholas | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -8578,15 +7778,8 @@
               "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | JEE Minhyung (AUS) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 4 - 1 | 9:11 11:7 11:4 12:10 11:2 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8616,7 +7809,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -8625,17 +7818,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "LABOSOVA Ema (SVK)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "LABOSOVA Ema (SVK)",
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | LABOSOVA Ema (SVK) | KUKULKOVA Tatiana (SVK) | WD | Main Draw | R16 | 3 - 0 | 13:11 11:9 11:6 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8686,15 +7876,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "LABOSOVA Ema (SVK)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LABOSOVA Ema (SVK) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R32 | 1 - 4 | 15:13 9:11 4:11 4:11 0:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8734,7 +7917,7 @@
                 "13:11",
                 "16:14"
               ],
-              "winner": "XU Yingbin",
+              "winner": "XU Yingbin / QIAN Tianyi",
               "all_players_in_row": [
                 "XU Yingbin (CHN)",
                 "QIAN Tianyi (CHN)",
@@ -8743,17 +7926,14 @@
               ],
               "side_a": [
                 "XU Yingbin (CHN)",
-                "LUM Nicholas (AUS)"
+                "QIAN Tianyi (CHN)"
               ],
               "side_b": [
-                "QIAN Tianyi (CHN)",
+                "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | XU Yingbin (CHN) | QIAN Tianyi (CHN) | LUM Nicholas (AUS) | JEE Minhyung (AUS) | XD | Main Draw | QuarterFinal | 3 - 2 | 11:5 8:11 9:11 13:11 16:14 | XU Yingbin | QIAN Tianyi | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -8783,7 +7963,7 @@
                 "11:5",
                 "11:5"
               ],
-              "winner": "LIU Weishan",
+              "winner": "LIU Weishan / QI Fei",
               "all_players_in_row": [
                 "LIU Weishan (CHN)",
                 "QI Fei (CHN)",
@@ -8792,17 +7972,14 @@
               ],
               "side_a": [
                 "LIU Weishan (CHN)",
-                "JEE Minhyung (AUS)"
+                "QI Fei (CHN)"
               ],
               "side_b": [
-                "QI Fei (CHN)",
+                "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | LIU Weishan (CHN) | QI Fei (CHN) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:5 11:5 | LIU Weishan | QI Fei | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8863,15 +8040,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "MORI Sakura (JPN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Feeder Doha 2022 | MORI Sakura (JPN) |  | JEE Minhyung (AUS) |  | WS | Main Draw | R16 | 4 - 3 | 7:11 7:11 11:4 8:11 11:5 11:7 11:4 | MORI Sakura |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8924,15 +8094,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "ZHU Sibing (CHN)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | ZHU Sibing (CHN) |  | JEE Minhyung (AUS) |  | WS | Qualification | QR64 | 0 - 3 | 11:13 9:11 7:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -8978,15 +8141,8 @@
               "side_b": [
                 "TODOROVIC Andrea (SRB)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "TODOROVIC Andrea (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | JEE Minhyung (AUS) |  | TODOROVIC Andrea (SRB) |  | WS | Qualification | QR32 | 3 - 1 | 9:11 12:10 11:9 12:10 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -9037,15 +8193,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "HUANG Yu-Jie (TPE)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | HUANG Yu-Jie (TPE) |  | JEE Minhyung (AUS) |  | WS | Qualification | QR16 | 2 - 3 | 8:11 11:6 12:14 11:1 6:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -9096,15 +8245,8 @@
               "side_b": [
                 "VIVARELLI Debora (ITA)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "VIVARELLI Debora (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | JEE Minhyung (AUS) |  | VIVARELLI Debora (ITA) |  | WS | Main Draw | R32 | 2 - 3 | 11:3 12:10 4:11 9:11 6:11 | VIVARELLI Debora |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -9162,15 +8304,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "BARBOSA Ariel (LUX)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | BARBOSA Ariel (LUX) |  | JEE Minhyung (AUS) |  | WS | Qualification | QR64 | 0 - 3 | 5:11 5:11 3:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -9211,15 +8346,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "WAN Yuan (GER)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | WAN Yuan (GER) |  | JEE Minhyung (AUS) |  | WS | Qualification | QR32 | 0 - 3 | 8:11 11:13 10:12 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -9249,7 +8377,7 @@
                 "6:11",
                 "4:11"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "PETEK Petra (CRO)",
@@ -9258,17 +8386,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "JEE Minhyung (AUS)"
+                "PETEK Petra (CRO)"
               ],
               "side_b": [
-                "PETEK Petra (CRO)",
+                "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEGER Mateja (CRO) | PETEK Petra (CRO) | JEE Minhyung (AUS) | LIU Yangzi (AUS) | WD | Qualification | QR8 | 0 - 3 | 3:11 6:11 4:11 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -9314,15 +8439,8 @@
               "side_b": [
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "WINTER Sabine (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEE Minhyung (AUS) |  | WINTER Sabine (GER) |  | WS | Qualification | QR16 | 1 - 3 | 8:11 11:9 4:11 7:11 | WINTER Sabine |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -9352,7 +8470,7 @@
                 "11:7",
                 "14:12"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -9361,17 +8479,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "NAGYVARADI Mercedes (HUN)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "NAGYVARADI Mercedes (HUN)",
                 "BALINT Bernadett (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | NAGYVARADI Mercedes (HUN) | BALINT Bernadett (HUN) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:7 14:12 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -9406,7 +8521,7 @@
                 "11:3",
                 "8:11"
               ],
-              "winner": "KHANIN Aleksandr",
+              "winner": "KHANIN Aleksandr / BARAVOK Katsiaryna",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "JEE Minhyung (AUS)",
@@ -9415,17 +8530,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "KHANIN Aleksandr (AIN)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "KHANIN Aleksandr (AIN)",
                 "BARAVOK Katsiaryna (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | LUM Nicholas (AUS) | JEE Minhyung (AUS) | KHANIN Aleksandr (AIN) | BARAVOK Katsiaryna (AIN) | XD | Main Draw | R16 | 1 - 3 | 5:11 9:11 11:3 8:11 | KHANIN Aleksandr | BARAVOK Katsiaryna | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -9465,7 +8577,7 @@
                 "11:7",
                 "11:7"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -9474,17 +8586,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "NOSKOVA Yana (AIN)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "NOSKOVA Yana (AIN)",
                 "VOROBEVA Olga (AIN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | NOSKOVA Yana (AIN) | VOROBEVA Olga (AIN) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:5 8:11 7:11 11:7 11:7 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -9519,7 +8628,7 @@
                 "5:11",
                 "6:11"
               ],
-              "winner": "LIU Weishan",
+              "winner": "LIU Weishan / WANG Yidi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -9528,17 +8637,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "LIU Weishan (CHN)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "LIU Weishan (CHN)",
                 "WANG Yidi (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Novo Mesto 2021 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | LIU Weishan (CHN) | WANG Yidi (CHN) | WD | Main Draw | SemiFinal | 1 - 3 | 6:11 11:9 5:11 6:11 | LIU Weishan | WANG Yidi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",

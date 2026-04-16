@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Constantina PSIHOGIOS",
-  "english_name": "Constantina PSIHOGIOS",
+  "player_name": "PSIHOGIOS Constantina",
+  "english_name": "PSIHOGIOS Constantina",
   "country": "AUS",
   "country_code": "AUS",
   "continent": "",
@@ -70,15 +70,8 @@
               "side_b": [
                 "LAI Chloe (SGP)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "LAI Chloe (SGP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Youth Smash 2026 Presented by Resorts World Sentosa | PSIHOGIOS Constantina (AUS) |  | LAI Chloe (SGP) |  | U19WS | Qualification |  | 2 - 4 | 3:7 5:7 7:4 7:3 6:7 6:7 | LAI Chloe |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -133,15 +126,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "MATSUSHIMA Miku (JPN)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Youth Smash 2026 Presented by Resorts World Sentosa | MATSUSHIMA Miku (JPN) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 4 - 2 | 4:7 7:4 4:7 7:3 7:5 7:4 | MATSUSHIMA Miku |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -201,15 +187,8 @@
               "side_b": [
                 "HOCHART Leana (FRA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "HOCHART Leana (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Youth Smash 2026 Presented by Resorts World Sentosa | PSIHOGIOS Constantina (AUS) |  | HOCHART Leana (FRA) |  | U19WS | Qualification |  | 3 - 4 | 7:3 3:7 5:7 7:5 6:7 7:1 0:7 | HOCHART Leana |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -261,15 +240,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "ALHODABY Mariam (EGY)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | ALHODABY Mariam (EGY) |  | PSIHOGIOS Constantina (AUS) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 10:12 11:13 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -304,7 +276,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "CHITALE Diya",
+              "winner": "CHITALE Diya / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -313,17 +285,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "JEE Minhyung (AUS)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "JEE Minhyung (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | CHITALE Diya (IND) | GHORPADE Yashaswini (IND) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R32 | 3 - 1 | 6:11 11:5 11:6 11:8 | CHITALE Diya | GHORPADE Yashaswini | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -364,15 +333,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "CHEN Xingtong (CHN)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | CHEN Xingtong (CHN) |  | PSIHOGIOS Constantina (AUS) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:8 11:7 | CHEN Xingtong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -419,7 +381,7 @@
                 "2:11",
                 "11:7"
               ],
-              "winner": "GHOSH Swastika",
+              "winner": "GHOSH Swastika / THAKKAR Manav",
               "all_players_in_row": [
                 "GHOSH Swastika (IND)",
                 "THAKKAR Manav (IND)",
@@ -428,17 +390,14 @@
               ],
               "side_a": [
                 "GHOSH Swastika (IND)",
-                "PSIHOGIOS Constantina (AUS)"
+                "THAKKAR Manav (IND)"
               ],
               "side_b": [
-                "THAKKAR Manav (IND)",
+                "PSIHOGIOS Constantina (AUS)",
                 "BAE Hwan (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | GHOSH Swastika (IND) | THAKKAR Manav (IND) | PSIHOGIOS Constantina (AUS) | BAE Hwan (AUS) | XT | Qualification |  | 2 - 1 | 11:6 2:11 11:7 | GHOSH Swastika | THAKKAR Manav | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -467,7 +426,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LIU Yangzi",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "BATRA Manika (IND)",
@@ -476,17 +435,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "PSIHOGIOS Constantina (AUS)"
+                "BATRA Manika (IND)"
               ],
               "side_b": [
-                "BATRA Manika (IND)",
+                "PSIHOGIOS Constantina (AUS)",
                 "LIU Yangzi (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | CHITALE Diya (IND) | BATRA Manika (IND) | PSIHOGIOS Constantina (AUS) | LIU Yangzi (AUS) | XT | Qualification |  | 1 - 2 | 11:8 7:11 8:11 | PSIHOGIOS Constantina | LIU Yangzi | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -543,15 +499,8 @@
               "side_b": [
                 "ELBADAWY Yara (EGY)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "ELBADAWY Yara (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | PSIHOGIOS Constantina (AUS) |  | ELBADAWY Yara (EGY) |  | U19WT | Main Draw | R16 | 3 - 1 | 7:11 11:9 11:7 11:6 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -592,15 +541,8 @@
               "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "GODA Hana (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | PSIHOGIOS Constantina (AUS) |  | GODA Hana (EGY) |  | U19WT | Main Draw | R16 | 0 - 3 | 7:11 7:11 10:12 | GODA Hana |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -640,7 +582,7 @@
                 "7:11",
                 "9:11"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "CHOI Timothy (NZL)",
                 "CRUZ Kheith (PHI)",
@@ -649,17 +591,14 @@
               ],
               "side_a": [
                 "CHOI Timothy (NZL)",
-                "SAREEN Aditya (AUS)"
+                "CRUZ Kheith (PHI)"
               ],
               "side_b": [
-                "CRUZ Kheith (PHI)",
+                "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | CHOI Timothy (NZL) | CRUZ Kheith (PHI) | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | U19XD | Main Draw | R32 | 2 - 3 | 13:11 5:11 11:2 7:11 9:11 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -699,7 +638,7 @@
                 "2:11",
                 "11:2"
               ],
-              "winner": "COTON Flavien",
+              "winner": "COTON Flavien / HOCHART Leana",
               "all_players_in_row": [
                 "COTON Flavien (FRA)",
                 "HOCHART Leana (FRA)",
@@ -708,17 +647,14 @@
               ],
               "side_a": [
                 "COTON Flavien (FRA)",
-                "SAREEN Aditya (AUS)"
+                "HOCHART Leana (FRA)"
               ],
               "side_b": [
-                "HOCHART Leana (FRA)",
+                "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | COTON Flavien (FRA) | HOCHART Leana (FRA) | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | U19XD | Main Draw | R16 | 3 - 2 | 4:11 11:3 11:6 2:11 11:2 | COTON Flavien | HOCHART Leana | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -753,7 +689,7 @@
                 "9:11",
                 "12:10"
               ],
-              "winner": "ZONG Geman",
+              "winner": "ZONG Geman / QIN Yuxuan",
               "all_players_in_row": [
                 "ZONG Geman (CHN)",
                 "QIN Yuxuan (CHN)",
@@ -762,17 +698,14 @@
               ],
               "side_a": [
                 "ZONG Geman (CHN)",
-                "SU Tsz Tung (HKG)"
+                "QIN Yuxuan (CHN)"
               ],
               "side_b": [
-                "QIN Yuxuan (CHN)",
+                "SU Tsz Tung (HKG)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | ZONG Geman (CHN) | QIN Yuxuan (CHN) | SU Tsz Tung (HKG) | PSIHOGIOS Constantina (AUS) | U19WD | Main Draw | R16 | 3 - 1 | 11:6 11:2 9:11 12:10 | ZONG Geman | QIN Yuxuan | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -823,15 +756,8 @@
               "side_b": [
                 "PUJOL Elise (FRA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "PUJOL Elise (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | PSIHOGIOS Constantina (AUS) |  | PUJOL Elise (FRA) |  | U19WS | Main Draw | R32 | 4 - 1 | 11:8 10:12 11:8 11:8 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -882,15 +808,8 @@
               "side_b": [
                 "YEH Yi-Tian (TPE)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "YEH Yi-Tian (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | PSIHOGIOS Constantina (AUS) |  | YEH Yi-Tian (TPE) |  | U19WS | Main Draw | R16 | 1 - 4 | 11:9 5:11 9:11 7:11 6:11 | YEH Yi-Tian |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -942,7 +861,7 @@
                 "11:7",
                 "11:7"
               ],
-              "winner": "KIM Gaon",
+              "winner": "KIM Gaon / YOO Yerin",
               "all_players_in_row": [
                 "KIM Gaon (KOR)",
                 "YOO Yerin (KOR)",
@@ -951,17 +870,14 @@
               ],
               "side_a": [
                 "KIM Gaon (KOR)",
-                "LUM Nicholas (AUS)"
+                "YOO Yerin (KOR)"
               ],
               "side_b": [
-                "YOO Yerin (KOR)",
+                "LUM Nicholas (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | KIM Gaon (KOR) | YOO Yerin (KOR) | LUM Nicholas (AUS) | PSIHOGIOS Constantina (AUS) | XD | Main Draw | R16 | 3 - 2 | 9:11 11:8 10:12 11:7 11:7 | KIM Gaon | YOO Yerin | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -996,7 +912,7 @@
                 "11:13",
                 "6:11"
               ],
-              "winner": "AKASHEVA Zauresh",
+              "winner": "AKASHEVA Zauresh / MIRKADIROVA Sarvinoz",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "DAVIDOV Elinor (ISR)",
@@ -1005,17 +921,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "AKASHEVA Zauresh (KAZ)"
+                "DAVIDOV Elinor (ISR)"
               ],
               "side_b": [
-                "DAVIDOV Elinor (ISR)",
+                "AKASHEVA Zauresh (KAZ)",
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | PSIHOGIOS Constantina (AUS) | DAVIDOV Elinor (ISR) | AKASHEVA Zauresh (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | WD | Main Draw | R16 | 1 - 3 | 11:7 8:11 11:13 6:11 | AKASHEVA Zauresh | MIRKADIROVA Sarvinoz | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1056,15 +969,8 @@
               "side_b": [
                 "KLEE Sophia (GER)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "KLEE Sophia (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | PSIHOGIOS Constantina (AUS) |  | KLEE Sophia (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:9 11:3 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1105,15 +1011,8 @@
               "side_b": [
                 "JEGER Mateja (CRO)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEGER Mateja (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | PSIHOGIOS Constantina (AUS) |  | JEGER Mateja (CRO) |  | WS | Main Draw | R16 | 0 - 3 | 4:11 6:11 9:11 | JEGER Mateja |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1166,15 +1065,8 @@
               "side_b": [
                 "DUR Julia (AUT)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "DUR Julia (AUT)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | DUR Julia (AUT) |  | U17WS | Qualification |  | 3 - 0 | 12:10 11:7 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -1214,15 +1106,8 @@
               "side_b": [
                 "WSZOLEK Weronika (POL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "WSZOLEK Weronika (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | WSZOLEK Weronika (POL) |  | U17WS | Qualification |  | 3 - 0 | 11:6 11:8 11:9 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -1262,15 +1147,8 @@
               "side_b": [
                 "PRYSHCHEPA Veronika (UKR)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "PRYSHCHEPA Veronika (UKR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | PRYSHCHEPA Veronika (UKR) |  | U17WS | Main Draw | R32 | 3 - 0 | 11:6 11:5 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -1311,15 +1189,8 @@
               "side_b": [
                 "ZHAO Lisa (FRA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "ZHAO Lisa (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | ZHAO Lisa (FRA) |  | U17WS | Main Draw | R16 | 3 - 0 | 11:7 11:5 11:2 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -1360,15 +1231,8 @@
               "side_b": [
                 "DUR Julia (AUT)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "DUR Julia (AUT)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | DUR Julia (AUT) |  | U19WS | Qualification |  | 3 - 0 | 12:10 11:9 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -1413,15 +1277,8 @@
               "side_b": [
                 "PETKOVA Anita (BUL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "PETKOVA Anita (BUL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | PETKOVA Anita (BUL) |  | U19WS | Qualification |  | 3 - 1 | 11:5 10:12 11:4 11:9 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -1461,15 +1318,8 @@
               "side_b": [
                 "GIMENO Irina (ESP)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "GIMENO Irina (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | GIMENO Irina (ESP) |  | U17WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:6 12:10 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -1510,15 +1360,8 @@
               "side_b": [
                 "JEONG Yein (KOR)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEONG Yein (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PSIHOGIOS Constantina (AUS) |  | JEONG Yein (KOR) |  | U17WS | Main Draw | SemiFinal | 0 - 3 | 7:11 8:11 5:11 | JEONG Yein |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -1559,15 +1402,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "NIKOLOVA Nina (BUL)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | NIKOLOVA Nina (BUL) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | R16 | 0 - 3 | 6:11 4:11 6:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -1618,15 +1454,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "MOSCOSO Camila (ESP)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | MOSCOSO Camila (ESP) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | QuarterFinal | 2 - 3 | 11:7 8:11 8:11 14:12 6:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -1667,15 +1496,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "PUKALO Tetiana (UKR)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | PUKALO Tetiana (UKR) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | SemiFinal | 0 - 3 | 8:11 6:11 5:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -1726,15 +1548,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "KOVALOVA Daria (UKR)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Senec 2025 | KOVALOVA Daria (UKR) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | Final | 2 - 3 | 11:7 12:10 7:11 12:14 8:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -1787,15 +1602,8 @@
               "side_b": [
                 "MESSE Maelys Flavie (FRA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "MESSE Maelys Flavie (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | MESSE Maelys Flavie (FRA) |  | U17WS | Qualification |  | 3 - 0 | 11:4 12:10 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -1835,15 +1643,8 @@
               "side_b": [
                 "CARRASCO Teresa (ESP)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "CARRASCO Teresa (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | CARRASCO Teresa (ESP) |  | U17WS | Qualification |  | 3 - 0 | 11:4 12:10 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -1888,15 +1689,8 @@
               "side_b": [
                 "SANS Martina (ESP)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SANS Martina (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | SANS Martina (ESP) |  | U17WS | Main Draw | R32 | 3 - 1 | 11:4 11:7 7:11 11:3 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -1937,15 +1731,8 @@
               "side_b": [
                 "SHYPSHA Renata (ESP)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SHYPSHA Renata (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | SHYPSHA Renata (ESP) |  | U17WS | Main Draw | R16 | 3 - 0 | 11:4 11:7 13:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -1996,15 +1783,8 @@
               "side_b": [
                 "SILCOCK Hannah (JEY)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SILCOCK Hannah (JEY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | SILCOCK Hannah (JEY) |  | U19WS | Qualification |  | 3 - 2 | 11:9 3:11 6:11 11:6 13:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -2054,15 +1834,8 @@
               "side_b": [
                 "SCIBRANIOVA Magdalena (CZE)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SCIBRANIOVA Magdalena (CZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | SCIBRANIOVA Magdalena (CZE) |  | U19WS | Qualification |  | 3 - 2 | 11:4 10:12 10:12 11:7 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -2102,15 +1875,8 @@
               "side_b": [
                 "MISKIC Franka (CRO)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "MISKIC Franka (CRO)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | MISKIC Franka (CRO) |  | U17WS | Main Draw | QuarterFinal | 3 - 0 | 12:10 11:7 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2156,15 +1922,8 @@
               "side_b": [
                 "BENJEGARD Siri (SWE)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "BENJEGARD Siri (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | BENJEGARD Siri (SWE) |  | U17WS | Main Draw | SemiFinal | 3 - 1 | 11:2 11:5 8:11 11:9 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2215,15 +1974,8 @@
               "side_b": [
                 "BERZOSA Maria (ESP)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "BERZOSA Maria (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | PSIHOGIOS Constantina (AUS) |  | BERZOSA Maria (ESP) |  | U17WS | Main Draw | Final | 2 - 3 | 6:11 7:11 12:10 11:7 5:11 | BERZOSA Maria |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2264,15 +2016,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "SANS Martina (ESP)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | SANS Martina (ESP) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | R16 | 0 - 3 | 4:11 6:11 0:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -2318,15 +2063,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "POLAKOVA Veronika (CZE)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | POLAKOVA Veronika (CZE) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | QuarterFinal | 1 - 3 | 11:6 11:13 9:11 7:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -2377,15 +2115,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "JEONG Yein (KOR)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | JEONG Yein (KOR) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | SemiFinal | 2 - 3 | 11:7 6:11 11:8 6:11 10:12 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -2436,15 +2167,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "TOKIC Sara (SLO)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Lignano 2025 | TOKIC Sara (SLO) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | Final | 3 - 2 | 3:11 9:11 11:7 11:7 11:4 | TOKIC Sara |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -2497,15 +2221,8 @@
               "side_b": [
                 "HAO Moshi (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "HAO Moshi (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | HAO Moshi (AUS) |  | U17WS | Qualification |  | 3 - 0 | 11:3 11:5 11:3 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -2545,15 +2262,8 @@
               "side_b": [
                 "FIKRIYAH Nabila (INA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "FIKRIYAH Nabila (INA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | FIKRIYAH Nabila (INA) |  | U17WS | Qualification |  | 3 - 0 | 11:5 11:3 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -2598,15 +2308,8 @@
               "side_b": [
                 "LAM Tiffany (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "LAM Tiffany (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | LAM Tiffany (AUS) |  | U17WS | Main Draw | R16 | 3 - 1 | 11:9 11:5 7:11 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2641,7 +2344,7 @@
                 "13:11",
                 "2:11"
               ],
-              "winner": "LAI Yong Han",
+              "winner": "LAI Yong Han / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "CHAM Stanley (AUS)",
                 "LAM Tiffany (AUS)",
@@ -2650,17 +2353,14 @@
               ],
               "side_a": [
                 "CHAM Stanley (AUS)",
-                "LAI Yong Han (MAS)"
+                "LAM Tiffany (AUS)"
               ],
               "side_b": [
-                "LAM Tiffany (AUS)",
+                "LAI Yong Han (MAS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | CHAM Stanley (AUS) | LAM Tiffany (AUS) | LAI Yong Han (MAS) | PSIHOGIOS Constantina (AUS) | U19XD | Main Draw | R16 | 1 - 3 | 8:11 5:11 13:11 2:11 | LAI Yong Han | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -2690,25 +2390,23 @@
                 "6:11",
                 "6:11"
               ],
-              "winner": "LAI Yong Han",
+              "winner": "LAI Yong Han / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "VONGSA Anane (LAO)",
+                "CHEN Chia-I (TPE)",
                 "LAI Yong Han (MAS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
               "side_a": [
                 "VONGSA Anane (LAO)",
-                "LAI Yong Han (MAS)"
+                "CHEN Chia-I (TPE)"
               ],
               "side_b": [
-                "CHEN Chia-I (TPE)",
+                "LAI Yong Han (MAS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | VONGSA Anane (LAO) | CHEN Chia-I (TPE) | LAI Yong Han (MAS) | PSIHOGIOS Constantina (AUS) | U19XD | Main Draw | QuarterFinal | 0 - 3 | 6:11 6:11 6:11 | LAI Yong Han | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -2748,7 +2446,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "LAI Yong Han",
+              "winner": "LAI Yong Han / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "LAI Yong Han (MAS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -2757,17 +2455,14 @@
               ],
               "side_a": [
                 "LAI Yong Han (MAS)",
-                "CHENG Clarence (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "CHENG Clarence (AUS)",
                 "LE Nguyen (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | LAI Yong Han (MAS) | PSIHOGIOS Constantina (AUS) | CHENG Clarence (AUS) | LE Nguyen (AUS) | U19XD | Main Draw | SemiFinal | 3 - 2 | 11:9 9:11 7:11 11:7 11:4 | LAI Yong Han | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -2813,15 +2508,8 @@
               "side_b": [
                 "SOOD Tushti (IND)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SOOD Tushti (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | SOOD Tushti (IND) |  | U17WS | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:7 11:6 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2862,15 +2550,8 @@
               "side_b": [
                 "GOEL Prisha (IND)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "GOEL Prisha (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | GOEL Prisha (IND) |  | U17WS | Main Draw | SemiFinal | 3 - 0 | 11:3 11:3 11:9 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2916,15 +2597,8 @@
               "side_b": [
                 "VARGHESE Jennifer (IND)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "VARGHESE Jennifer (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | VARGHESE Jennifer (IND) |  | U17WS | Main Draw | Final | 1 - 3 | 5:11 6:11 15:13 5:11 | VARGHESE Jennifer |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -2965,15 +2639,8 @@
               "side_b": [
                 "HARVES Elena (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "HARVES Elena (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | HARVES Elena (NZL) |  | U19WS | Qualification |  | 3 - 0 | 11:1 11:7 11:1 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3013,15 +2680,8 @@
               "side_b": [
                 "FIKRIYAH Nabila (INA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "FIKRIYAH Nabila (INA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | FIKRIYAH Nabila (INA) |  | U19WS | Qualification |  | 3 - 0 | 11:3 13:11 11:6 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3055,7 +2715,7 @@
                 "11:7",
                 "1:11"
               ],
-              "winner": "LAI Yong Han",
+              "winner": "LAI Yong Han / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "MAINI Sudhanshu (IND)",
                 "VARGHESE Jennifer (IND)",
@@ -3064,17 +2724,14 @@
               ],
               "side_a": [
                 "MAINI Sudhanshu (IND)",
-                "LAI Yong Han (MAS)"
+                "VARGHESE Jennifer (IND)"
               ],
               "side_b": [
-                "VARGHESE Jennifer (IND)",
+                "LAI Yong Han (MAS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | MAINI Sudhanshu (IND) | VARGHESE Jennifer (IND) | LAI Yong Han (MAS) | PSIHOGIOS Constantina (AUS) | U19XD | Main Draw | Final | 1 - 3 | 7:11 3:11 11:7 1:11 | LAI Yong Han | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -3125,15 +2782,8 @@
               "side_b": [
                 "LE Nguyen (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "LE Nguyen (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | LE Nguyen (AUS) |  | U19WS | Main Draw | QuarterFinal | 3 - 2 | 8:11 11:5 11:5 8:11 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3184,15 +2834,8 @@
               "side_b": [
                 "CHEN Chia-I (TPE)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "CHEN Chia-I (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Perth 2025 | PSIHOGIOS Constantina (AUS) |  | CHEN Chia-I (TPE) |  | U19WS | Main Draw | SemiFinal | 2 - 3 | 6:11 11:8 11:8 10:12 9:11 | CHEN Chia-I |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3250,15 +2893,8 @@
               "side_b": [
                 "XIA Qinle (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "XIA Qinle (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Youth Smash 2025 | PSIHOGIOS Constantina (AUS) |  | XIA Qinle (AUS) |  | U19WS | Qualification |  | 4 - 0 | 7:3 7:3 7:2 7:6 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3313,15 +2949,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "HEO Yerim (KOR)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Youth Smash 2025 | HEO Yerim (KOR) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 4 - 2 | 2:7 1:7 7:2 7:5 7:3 7:6 | HEO Yerim |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3366,15 +2995,8 @@
               "side_b": [
                 "HU Yi (CHN)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "HU Yi (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Youth Smash 2025 | PSIHOGIOS Constantina (AUS) |  | HU Yi (CHN) |  | U19WS | Qualification |  | 0 - 4 | 4:7 0:7 6:7 0:7 | HU Yi |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3426,15 +3048,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "CHEN Yi (CHN)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | CHEN Yi (CHN) |  | PSIHOGIOS Constantina (AUS) |  | WS | Main Draw | R64 | 3 - 0 | 11:3 11:5 11:4 | CHEN Yi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3464,7 +3079,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "ZONG Geman",
+              "winner": "ZONG Geman / QIN Yuxuan",
               "all_players_in_row": [
                 "WU Jiamuwa (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -3473,17 +3088,14 @@
               ],
               "side_a": [
                 "WU Jiamuwa (AUS)",
-                "ZONG Geman (CHN)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "ZONG Geman (CHN)",
                 "QIN Yuxuan (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | WU Jiamuwa (AUS) | PSIHOGIOS Constantina (AUS) | ZONG Geman (CHN) | QIN Yuxuan (CHN) | WD | Main Draw | R32 | 0 - 3 | 7:11 9:11 6:11 | ZONG Geman | QIN Yuxuan | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3546,15 +3158,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "BUASUWAN Natthanicha (THA)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | BUASUWAN Natthanicha (THA) |  | PSIHOGIOS Constantina (AUS) |  | U17WS | Qualification |  | 2 - 3 | 6:11 11:6 6:11 11:7 2:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -3599,15 +3204,8 @@
               "side_b": [
                 "DEESIN Chayawadee (THA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "DEESIN Chayawadee (THA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | PSIHOGIOS Constantina (AUS) |  | DEESIN Chayawadee (THA) |  | U17WS | Qualification |  | 3 - 1 | 11:3 7:11 11:7 11:8 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -3647,15 +3245,8 @@
               "side_b": [
                 "CABARDO Laurynne (SWE)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "CABARDO Laurynne (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | PSIHOGIOS Constantina (AUS) |  | CABARDO Laurynne (SWE) |  | U17WS | Main Draw | R16 | 3 - 0 | 11:4 11:9 11:6 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -3685,7 +3276,7 @@
                 "10:12",
                 "8:11"
               ],
-              "winner": "KONGSAKSRISAKUL Ekkapop",
+              "winner": "KONGSAKSRISAKUL Ekkapop / WONGLAKHON Phatsaraphon",
               "all_players_in_row": [
                 "YOSHIDA Soh (JPN)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -3694,17 +3285,14 @@
               ],
               "side_a": [
                 "YOSHIDA Soh (JPN)",
-                "KONGSAKSRISAKUL Ekkapop (THA)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "KONGSAKSRISAKUL Ekkapop (THA)",
                 "WONGLAKHON Phatsaraphon (THA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | YOSHIDA Soh (JPN) | PSIHOGIOS Constantina (AUS) | KONGSAKSRISAKUL Ekkapop (THA) | WONGLAKHON Phatsaraphon (THA) | U19XD | Main Draw | R16 | 0 - 3 | 7:11 10:12 8:11 | KONGSAKSRISAKUL Ekkapop | WONGLAKHON Phatsaraphon | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -3750,15 +3338,8 @@
               "side_b": [
                 "LU Han Jui (TPE)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "LU Han Jui (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | PSIHOGIOS Constantina (AUS) |  | LU Han Jui (TPE) |  | U17WS | Main Draw | QuarterFinal | 3 - 1 | 11:9 2:11 11:8 11:8 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -3799,15 +3380,8 @@
               "side_b": [
                 "VIJITVIRIYAGUL Kulapassr (THA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "VIJITVIRIYAGUL Kulapassr (THA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | PSIHOGIOS Constantina (AUS) |  | VIJITVIRIYAGUL Kulapassr (THA) |  | U17WS | Main Draw | SemiFinal | 0 - 3 | 9:11 7:11 6:11 | VIJITVIRIYAGUL Kulapassr |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -3848,15 +3422,8 @@
               "side_b": [
                 "CORDOVA Ghianne (PHI)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "CORDOVA Ghianne (PHI)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | PSIHOGIOS Constantina (AUS) |  | CORDOVA Ghianne (PHI) |  | U19WS | Qualification |  | 3 - 0 | 11:3 11:6 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3901,15 +3468,8 @@
               "side_b": [
                 "KALRA Kashvi (IND)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "KALRA Kashvi (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | PSIHOGIOS Constantina (AUS) |  | KALRA Kashvi (IND) |  | U19WS | Qualification |  | 1 - 3 | 15:13 6:11 5:11 11:13 | KALRA Kashvi |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -3959,15 +3519,8 @@
               "side_b": [
                 "TAYAPITAK Wirakarn (THA)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "TAYAPITAK Wirakarn (THA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender Bangkok II 2025 | PSIHOGIOS Constantina (AUS) |  | TAYAPITAK Wirakarn (THA) |  | U19WS | Main Draw | R16 | 2 - 3 | 8:11 9:11 11:5 12:10 8:11 | TAYAPITAK Wirakarn |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -4025,15 +3578,8 @@
               "side_b": [
                 "YU ZHENG Cheah (MAS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "YU ZHENG Cheah (MAS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Youth Smash - Sweden 2025 | PSIHOGIOS Constantina (AUS) |  | YU ZHENG Cheah (MAS) |  | U19WS | Qualification |  | 4 - 0 | 7:3 7:2 7:2 7:3 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4083,15 +3629,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "GODA Hana (EGY)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Youth Smash - Sweden 2025 | GODA Hana (EGY) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 4 - 1 | 7:3 7:6 7:3 4:7 7:4 | GODA Hana |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4136,15 +3675,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "YEH Yi-Tian (TPE)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Youth Smash - Sweden 2025 | YEH Yi-Tian (TPE) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 4 - 0 | 7:6 7:4 7:2 7:2 | YEH Yi-Tian |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4201,15 +3733,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | TAKAHASHI Bruna (BRA) |  | PSIHOGIOS Constantina (AUS) |  | WS | Main Draw | R64 | 3 - 1 | 10:12 11:1 11:4 11:6 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4244,7 +3769,7 @@
                 "8:11",
                 "11:5"
               ],
-              "winner": "PARANANG Orawan",
+              "winner": "PARANANG Orawan / SAWETTABUT Suthasini",
               "all_players_in_row": [
                 "PARANANG Orawan (THA)",
                 "SAWETTABUT Suthasini (THA)",
@@ -4253,17 +3778,14 @@
               ],
               "side_a": [
                 "PARANANG Orawan (THA)",
-                "JEE Minhyung (AUS)"
+                "SAWETTABUT Suthasini (THA)"
               ],
               "side_b": [
-                "SAWETTABUT Suthasini (THA)",
+                "JEE Minhyung (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | PARANANG Orawan (THA) | SAWETTABUT Suthasini (THA) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R32 | 3 - 1 | 11:6 11:8 8:11 11:5 | PARANANG Orawan | SAWETTABUT Suthasini | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4316,15 +3838,8 @@
               "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "PESOTSKA Margaryta (UKR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | PSIHOGIOS Constantina (AUS) |  | PESOTSKA Margaryta (UKR) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 4:11 7:11 | PESOTSKA Margaryta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4354,7 +3869,7 @@
                 "11:7",
                 "11:2"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / BERGSTROM Linda",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "BERGSTROM Linda (SWE)",
@@ -4363,17 +3878,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "JEE Minhyung (AUS)"
+                "BERGSTROM Linda (SWE)"
               ],
               "side_b": [
-                "BERGSTROM Linda (SWE)",
+                "JEE Minhyung (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | KALLBERG Christina (SWE) | BERGSTROM Linda (SWE) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R32 | 3 - 0 | 11:9 11:7 11:2 | KALLBERG Christina | BERGSTROM Linda | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4426,15 +3938,8 @@
               "side_b": [
                 "TEHAHETUA Keala (PYF)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "TEHAHETUA Keala (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | TEHAHETUA Keala (PYF) |  | U19WT | Qualification |  | 3 - 0 | 11:5 11:2 11:2 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -4463,7 +3968,7 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LE Nguyen",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "LE Nguyen (AUS)",
@@ -4472,17 +3977,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "TEHAHETUA Kelley (PYF)"
+                "LE Nguyen (AUS)"
               ],
               "side_b": [
-                "LE Nguyen (AUS)",
+                "TEHAHETUA Kelley (PYF)",
                 "TEHAHETUA Keala (PYF)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | LE Nguyen (AUS) | TEHAHETUA Kelley (PYF) | TEHAHETUA Keala (PYF) | U19WT | Qualification |  | 3 - 0 | 11:5 11:6 11:6 | PSIHOGIOS Constantina | LE Nguyen | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -4527,15 +4029,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "LAM Jocelyn (NZL)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | LAM Jocelyn (NZL) |  | PSIHOGIOS Constantina (AUS) |  | U19WT | Qualification |  | 1 - 3 | 11:7 3:11 4:11 5:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -4564,7 +4059,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LE Nguyen",
               "all_players_in_row": [
                 "HSIA Tracey (NZL)",
                 "HAN Anzhuo (NZL)",
@@ -4573,17 +4068,14 @@
               ],
               "side_a": [
                 "HSIA Tracey (NZL)",
-                "PSIHOGIOS Constantina (AUS)"
+                "HAN Anzhuo (NZL)"
               ],
               "side_b": [
-                "HAN Anzhuo (NZL)",
+                "PSIHOGIOS Constantina (AUS)",
                 "LE Nguyen (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | HSIA Tracey (NZL) | HAN Anzhuo (NZL) | PSIHOGIOS Constantina (AUS) | LE Nguyen (AUS) | U19WT | Qualification |  | 0 - 3 | 4:11 7:11 4:11 | PSIHOGIOS Constantina | LE Nguyen | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -4623,15 +4115,8 @@
               "side_b": [
                 "SAYEGH Clara (PYF)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SAYEGH Clara (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | SAYEGH Clara (PYF) |  | U19WS | Qualification |  | 3 - 0 | 11:1 11:5 11:3 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4671,15 +4156,8 @@
               "side_b": [
                 "HSIA Tracey (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "HSIA Tracey (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | HSIA Tracey (NZL) |  | U19WS | Qualification |  | 3 - 0 | 11:1 11:6 11:4 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4708,7 +4186,7 @@
                 "11:1",
                 "11:3"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -4717,17 +4195,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "ZHOU Cheng (FIJ)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "ZHOU Cheng (FIJ)",
                 "NOTTE Uzzaniah Grace (NRU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | ZHOU Cheng (FIJ) | NOTTE Uzzaniah Grace (NRU) | U19XD | Main Draw | R16 | 3 - 0 | 11:1 11:1 11:3 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4757,7 +4232,7 @@
                 "11:6",
                 "11:4"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -4766,17 +4241,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "JIANG Oscar (NZL)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "JIANG Oscar (NZL)",
                 "SU Yiqi (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | JIANG Oscar (NZL) | SU Yiqi (NZL) | U19XD | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:6 11:4 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4806,7 +4278,7 @@
                 "12:10",
                 "11:4"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -4815,17 +4287,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "NIE Chulong (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "NIE Chulong (AUS)",
                 "CHENG Chloe (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | NIE Chulong (AUS) | CHENG Chloe (AUS) | U19XD | Main Draw | SemiFinal | 3 - 0 | 11:9 12:10 11:4 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4860,7 +4329,7 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -4869,17 +4338,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "BAE Won (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "BAE Won (AUS)",
                 "LE Nguyen (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | BAE Won (AUS) | LE Nguyen (AUS) | U19XD | Main Draw | Final | 3 - 1 | 11:9 9:11 11:5 11:6 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -4909,7 +4375,7 @@
                 "11:4",
                 "11:2"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LE Nguyen",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "LE Nguyen (AUS)",
@@ -4918,17 +4384,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "SAYEGH Clara (PYF)"
+                "LE Nguyen (AUS)"
               ],
               "side_b": [
-                "LE Nguyen (AUS)",
+                "SAYEGH Clara (PYF)",
                 "TERE Temehau (PYF)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | LE Nguyen (AUS) | SAYEGH Clara (PYF) | TERE Temehau (PYF) | U19WD | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:4 11:2 | PSIHOGIOS Constantina | LE Nguyen | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -4958,7 +4421,7 @@
                 "11:5",
                 "11:4"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LE Nguyen",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "LE Nguyen (AUS)",
@@ -4967,17 +4430,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "HAN Anzhuo (NZL)"
+                "LE Nguyen (AUS)"
               ],
               "side_b": [
-                "LE Nguyen (AUS)",
+                "HAN Anzhuo (NZL)",
                 "HSIA Tracey (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | LE Nguyen (AUS) | HAN Anzhuo (NZL) | HSIA Tracey (NZL) | U19WD | Main Draw | SemiFinal | 3 - 0 | 11:2 11:5 11:4 | PSIHOGIOS Constantina | LE Nguyen | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -5007,7 +4467,7 @@
                 "11:2",
                 "11:7"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LE Nguyen",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "LE Nguyen (AUS)",
@@ -5016,17 +4476,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "GOH Hanna (AUS)"
+                "LE Nguyen (AUS)"
               ],
               "side_b": [
-                "LE Nguyen (AUS)",
+                "GOH Hanna (AUS)",
                 "CHENG Chloe (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | LE Nguyen (AUS) | GOH Hanna (AUS) | CHENG Chloe (AUS) | U19WD | Main Draw | Final | 3 - 0 | 11:2 11:2 11:7 | PSIHOGIOS Constantina | LE Nguyen | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -5072,15 +4529,8 @@
               "side_b": [
                 "HAN Anzhuo (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "HAN Anzhuo (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | HAN Anzhuo (NZL) |  | U19WS | Main Draw | QuarterFinal | 4 - 0 | 11:3 11:7 11:6 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5126,15 +4576,8 @@
               "side_b": [
                 "GOH Hanna (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "GOH Hanna (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | GOH Hanna (AUS) |  | U19WS | Main Draw | SemiFinal | 4 - 0 | 11:3 11:3 11:5 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5190,15 +4633,8 @@
               "side_b": [
                 "LE Nguyen (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "LE Nguyen (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Youth Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | LE Nguyen (AUS) |  | U19WS | Main Draw | Final | 4 - 2 | 10:12 11:6 11:5 6:11 13:11 11:4 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5251,15 +4687,8 @@
               "side_b": [
                 "MOUSSON Kahealani (PYF)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "MOUSSON Kahealani (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | MOUSSON Kahealani (PYF) |  | WT | Qualification |  | 3 - 0 | 11:1 11:3 11:1 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5288,7 +4717,7 @@
                 "11:2",
                 "11:2"
               ],
-              "winner": "WU Jiamuwa",
+              "winner": "WU Jiamuwa / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "WU Jiamuwa (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -5297,17 +4726,14 @@
               ],
               "side_a": [
                 "WU Jiamuwa (AUS)",
-                "TERE Temehau (PYF)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "TERE Temehau (PYF)",
                 "SAYEGH Clara (PYF)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | WU Jiamuwa (AUS) | PSIHOGIOS Constantina (AUS) | TERE Temehau (PYF) | SAYEGH Clara (PYF) | WT | Qualification |  | 3 - 0 | 11:6 11:2 11:2 | WU Jiamuwa | PSIHOGIOS Constantina | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5347,15 +4773,8 @@
               "side_b": [
                 "BATES Casonya (COK)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "BATES Casonya (COK)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | BATES Casonya (COK) |  | WT | Qualification |  | 3 - 0 | 11:2 11:2 11:1 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5384,7 +4803,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / WU Jiamuwa",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "WU Jiamuwa (AUS)",
@@ -5393,17 +4812,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "GOLLOP Jodie (COK)"
+                "WU Jiamuwa (AUS)"
               ],
               "side_b": [
-                "WU Jiamuwa (AUS)",
+                "GOLLOP Jodie (COK)",
                 "BATES Casonya (COK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | WU Jiamuwa (AUS) | GOLLOP Jodie (COK) | BATES Casonya (COK) | WT | Qualification |  | 3 - 0 | 11:4 11:8 11:7 | PSIHOGIOS Constantina | WU Jiamuwa | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5437,7 +4853,7 @@
                 "9:11",
                 "11:2"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / WU Jiamuwa",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "WU Jiamuwa (AUS)",
@@ -5446,17 +4862,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "YI Yelena (NZL)"
+                "WU Jiamuwa (AUS)"
               ],
               "side_b": [
-                "WU Jiamuwa (AUS)",
+                "YI Yelena (NZL)",
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | WU Jiamuwa (AUS) | YI Yelena (NZL) | LAM Jocelyn (NZL) | WT | Qualification |  | 3 - 1 | 11:8 11:8 9:11 11:2 | PSIHOGIOS Constantina | WU Jiamuwa | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5496,15 +4909,8 @@
               "side_b": [
                 "DAGAGIO Bryana (NRU)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "DAGAGIO Bryana (NRU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | DAGAGIO Bryana (NRU) |  | WS | Qualification |  | 3 - 0 | 11:1 11:3 11:3 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5544,15 +4950,8 @@
               "side_b": [
                 "MOUSSON Kahealani (PYF)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "MOUSSON Kahealani (PYF)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | MOUSSON Kahealani (PYF) |  | WS | Qualification |  | 3 - 0 | 11:3 11:3 11:1 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -5581,7 +4980,7 @@
                 "11:3",
                 "11:1"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -5590,17 +4989,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "TAURAKI Peter (COK)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "TAURAKI Peter (COK)",
                 "GOLLOP Jodie (COK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | TAURAKI Peter (COK) | GOLLOP Jodie (COK) | XD | Main Draw | R16 | 3 - 0 | 11:1 11:3 11:1 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5635,7 +5031,7 @@
                 "11:13",
                 "11:9"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -5644,17 +5040,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "CHOI Timothy (NZL)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "CHOI Timothy (NZL)",
                 "YI Yelena (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | CHOI Timothy (NZL) | YI Yelena (NZL) | XD | Main Draw | QuarterFinal | 3 - 1 | 11:7 15:13 11:13 11:9 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5684,7 +5077,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -5693,17 +5086,14 @@
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "LUU Finn (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | SemiFinal | 3 - 0 | 12:10 11:9 11:8 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5733,7 +5123,7 @@
                 "11:5",
                 "11:8"
               ],
-              "winner": "LUM Nicholas",
+              "winner": "LUM Nicholas / LIU Yangzi",
               "all_players_in_row": [
                 "LUM Nicholas (AUS)",
                 "LIU Yangzi (AUS)",
@@ -5742,17 +5132,14 @@
               ],
               "side_a": [
                 "LUM Nicholas (AUS)",
-                "SAREEN Aditya (AUS)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | LUM Nicholas (AUS) | LIU Yangzi (AUS) | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | XD | Main Draw | Final | 3 - 0 | 11:5 11:5 11:8 | LUM Nicholas | LIU Yangzi | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5782,7 +5169,7 @@
                 "11:5",
                 "11:7"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / WU Jiamuwa",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "WU Jiamuwa (AUS)",
@@ -5791,17 +5178,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "MAUAHITI Vanille (PYF)"
+                "WU Jiamuwa (AUS)"
               ],
               "side_b": [
-                "WU Jiamuwa (AUS)",
+                "MAUAHITI Vanille (PYF)",
                 "MOUSSON Kahealani (PYF)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | WU Jiamuwa (AUS) | MAUAHITI Vanille (PYF) | MOUSSON Kahealani (PYF) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:5 11:7 | PSIHOGIOS Constantina | WU Jiamuwa | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5831,7 +5215,7 @@
                 "11:3",
                 "11:8"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / WU Jiamuwa",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "WU Jiamuwa (AUS)",
@@ -5840,17 +5224,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "CHONG Josephine (NZL)"
+                "WU Jiamuwa (AUS)"
               ],
               "side_b": [
-                "WU Jiamuwa (AUS)",
+                "CHONG Josephine (NZL)",
                 "MORIYAMA PICARD Ayumi (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) | WU Jiamuwa (AUS) | CHONG Josephine (NZL) | MORIYAMA PICARD Ayumi (NZL) | WD | Main Draw | SemiFinal | 3 - 0 | 11:4 11:3 11:8 | PSIHOGIOS Constantina | WU Jiamuwa | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5885,7 +5266,7 @@
                 "11:7",
                 "11:6"
               ],
-              "winner": "JEE Minhyung",
+              "winner": "JEE Minhyung / LIU Yangzi",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -5894,17 +5275,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "PSIHOGIOS Constantina (AUS)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "PSIHOGIOS Constantina (AUS)",
                 "WU Jiamuwa (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | PSIHOGIOS Constantina (AUS) | WU Jiamuwa (AUS) | WD | Main Draw | Final | 3 - 1 | 8:11 11:8 11:7 11:6 | JEE Minhyung | LIU Yangzi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5950,15 +5328,8 @@
               "side_b": [
                 "CHONG Josephine (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "CHONG Josephine (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | CHONG Josephine (NZL) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:9 11:5 11:8 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6009,15 +5380,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Championships Christchurch 2025 | PSIHOGIOS Constantina (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 1 - 4 | 4:11 7:11 9:11 11:7 6:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6085,15 +5449,8 @@
               "side_b": [
                 "SUH Hyo Won (KOR)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SUH Hyo Won (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | PSIHOGIOS Constantina (AUS) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R128 | 2 - 4 | 11:9 11:5 9:11 5:11 10:12 4:11 | SUH Hyo Won |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6123,7 +5480,7 @@
                 "11:4",
                 "11:5"
               ],
-              "winner": "ABDELAZIZ Youssef",
+              "winner": "ABDELAZIZ Youssef / ALHODABY Mariam",
               "all_players_in_row": [
                 "ABDELAZIZ Youssef (EGY)",
                 "ALHODABY Mariam (EGY)",
@@ -6132,17 +5489,14 @@
               ],
               "side_a": [
                 "ABDELAZIZ Youssef (EGY)",
-                "BAE Hwan (AUS)"
+                "ALHODABY Mariam (EGY)"
               ],
               "side_b": [
-                "ALHODABY Mariam (EGY)",
+                "BAE Hwan (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ABDELAZIZ Youssef (EGY) | ALHODABY Mariam (EGY) | BAE Hwan (AUS) | PSIHOGIOS Constantina (AUS) | XD | Main Draw | R64 | 3 - 0 | 11:8 11:4 11:5 | ABDELAZIZ Youssef | ALHODABY Mariam | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -6182,7 +5536,7 @@
                 "5:11",
                 "14:12"
               ],
-              "winner": "MORET Rachel",
+              "winner": "MORET Rachel / MONFARDINI Gaia",
               "all_players_in_row": [
                 "MORET Rachel (SUI)",
                 "MONFARDINI Gaia (ITA)",
@@ -6191,17 +5545,14 @@
               ],
               "side_a": [
                 "MORET Rachel (SUI)",
-                "WU Jiamuwa (AUS)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "WU Jiamuwa (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MORET Rachel (SUI) | MONFARDINI Gaia (ITA) | WU Jiamuwa (AUS) | PSIHOGIOS Constantina (AUS) | WD | Main Draw | R64 | 3 - 2 | 11:7 10:12 15:13 5:11 14:12 | MORET Rachel | MONFARDINI Gaia | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6259,15 +5610,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "AKULA Sreeja (IND)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | AKULA Sreeja (IND) |  | PSIHOGIOS Constantina (AUS) |  | WS | Qualification |  | 3 - 1 | 11:9 11:4 11:8 6:11 | AKULA Sreeja |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6312,15 +5656,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "SZOCS Bernadette (ROU)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SZOCS Bernadette (ROU) |  | PSIHOGIOS Constantina (AUS) |  | WS | Qualification |  | 4 - 0 | 11:6 11:1 12:10 11:3 | SZOCS Bernadette |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6377,15 +5714,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LIU Yangzi (AUS) |  | PSIHOGIOS Constantina (AUS) |  | WS | Qualification |  | 4 - 0 | 11:9 11:4 11:6 12:10 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6430,15 +5760,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "LI Carolyn (FIJ)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LI Carolyn (FIJ) |  | PSIHOGIOS Constantina (AUS) |  | WS | Qualification |  | 0 - 4 | 3:11 1:11 2:11 3:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6498,15 +5821,8 @@
               "side_b": [
                 "LI Chunli (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "LI Chunli (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | PSIHOGIOS Constantina (AUS) |  | LI Chunli (NZL) |  | WS | Qualification |  | 4 - 3 | 11:7 4:11 5:11 12:10 12:10 9:11 11:9 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6551,15 +5867,8 @@
               "side_b": [
                 "GIRET Maylis (NCL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "GIRET Maylis (NCL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | PSIHOGIOS Constantina (AUS) |  | GIRET Maylis (NCL) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:1 11:1 11:8 11:2 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6615,15 +5924,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | PSIHOGIOS Constantina (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 4 - 2 | 11:8 4:11 11:7 11:8 6:11 11:8 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6674,15 +5976,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Oceania Cup Melbourne 2025 | LIU Yangzi (AUS) |  | PSIHOGIOS Constantina (AUS) |  | WS | Main Draw | Final | 4 - 1 | 8:11 11:3 11:9 12:10 11:4 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6755,15 +6050,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "YAO Ruixuan (CHN)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Youth Smash 2025 | YAO Ruixuan (CHN) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 4 - 3 | 4:7 7:4 7:2 4:7 3:7 7:3 7:2 | YAO Ruixuan |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6813,15 +6101,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "POLAKOVA Veronika (CZE)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Youth Smash 2025 | POLAKOVA Veronika (CZE) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 1 - 4 | 5:7 6:7 6:7 7:5 5:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6876,15 +6157,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "PARK Gahyeon (KOR)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Youth Smash 2025 | PARK Gahyeon (KOR) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 2 - 4 | 5:7 6:7 7:5 7:4 3:7 5:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6934,15 +6208,8 @@
               "side_b": [
                 "QIN Yuxuan (CHN)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "QIN Yuxuan (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Youth Smash 2025 | PSIHOGIOS Constantina (AUS) |  | QIN Yuxuan (CHN) |  | U19WS | Main Draw | R16 | 1 - 4 | 7:6 4:7 5:7 1:7 2:7 | QIN Yuxuan |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7000,15 +6267,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "HURSEY Anna (WAL)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | HURSEY Anna (WAL) |  | PSIHOGIOS Constantina (AUS) |  | WS | Qualification | QR64 | 3 - 1 | 11:5 11:9 7:11 11:4 | HURSEY Anna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -7055,7 +6315,7 @@
                 "11:7",
                 "0:0"
               ],
-              "winner": "VARTIKAR Pritha",
+              "winner": "VARTIKAR Pritha / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "VARTIKAR Pritha (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -7064,17 +6324,14 @@
               ],
               "side_a": [
                 "VARTIKAR Pritha (IND)",
-                "PSIHOGIOS Constantina (AUS)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "PSIHOGIOS Constantina (AUS)",
                 "LAY Jian Fang (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | VARTIKAR Pritha (IND) | GHORPADE Yashaswini (IND) | PSIHOGIOS Constantina (AUS) | LAY Jian Fang (AUS) | XT | Qualification |  | 2 - 0 | 11:8 11:7 0:0 | VARTIKAR Pritha | GHORPADE Yashaswini | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -7114,15 +6371,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "GHORPADE Yashaswini (IND)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | GHORPADE Yashaswini (IND) |  | PSIHOGIOS Constantina (AUS) |  | XT | Qualification |  | 1 - 2 | 11:13 12:10 6:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -7151,7 +6401,7 @@
                 "15:13",
                 "9:11"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LAY Jian Fang",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "KE Tiffany (USA)",
@@ -7160,17 +6410,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "PSIHOGIOS Constantina (AUS)"
+                "KE Tiffany (USA)"
               ],
               "side_b": [
-                "KE Tiffany (USA)",
+                "PSIHOGIOS Constantina (AUS)",
                 "LAY Jian Fang (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MOYLAND Sally (USA) | KE Tiffany (USA) | PSIHOGIOS Constantina (AUS) | LAY Jian Fang (AUS) | XT | Qualification |  | 1 - 2 | 11:13 15:13 9:11 | PSIHOGIOS Constantina | LAY Jian Fang | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -7210,15 +6457,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "KE Tiffany (USA)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | KE Tiffany (USA) |  | PSIHOGIOS Constantina (AUS) |  | XT | Qualification |  | 2 - 1 | 11:9 8:11 11:6 | KE Tiffany |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -7275,15 +6515,8 @@
               "side_b": [
                 "UESAWA Anne (JPN)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "UESAWA Anne (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | PSIHOGIOS Constantina (AUS) |  | UESAWA Anne (JPN) |  | U19WT | Main Draw | R16 | 1 - 3 | 11:13 5:11 11:7 6:11 | UESAWA Anne |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -7323,25 +6556,23 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "SAREEN Aditya",
+              "winner": "SAREEN Aditya / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
+                "HUNG Jing-Kai (TPE)",
                 "CHENG Pusyuan (TPE)"
               ],
               "side_a": [
                 "SAREEN Aditya (AUS)",
-                "HUNG Jing-Kai (TPE)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "HUNG Jing-Kai (TPE)",
                 "CHENG Pusyuan (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | HUNG Jing-Kai (TPE) | CHENG Pusyuan (TPE) | U19XD | Main Draw | R32 | 3 - 2 | 9:11 11:8 6:11 11:4 11:9 | SAREEN Aditya | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -7376,7 +6607,7 @@
                 "11:2",
                 "11:6"
               ],
-              "winner": "BERTELSMEIER Andre",
+              "winner": "BERTELSMEIER Andre / GRIESEL Mia",
               "all_players_in_row": [
                 "BERTELSMEIER Andre (GER)",
                 "GRIESEL Mia (GER)",
@@ -7385,17 +6616,14 @@
               ],
               "side_a": [
                 "BERTELSMEIER Andre (GER)",
-                "SAREEN Aditya (AUS)"
+                "GRIESEL Mia (GER)"
               ],
               "side_b": [
-                "GRIESEL Mia (GER)",
+                "SAREEN Aditya (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | BERTELSMEIER Andre (GER) | GRIESEL Mia (GER) | SAREEN Aditya (AUS) | PSIHOGIOS Constantina (AUS) | U19XD | Main Draw | R16 | 3 - 1 | 12:10 13:15 11:2 11:6 | BERTELSMEIER Andre | GRIESEL Mia | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -7425,7 +6653,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "BOGDANOWICZ Natalia",
+              "winner": "BOGDANOWICZ Natalia / ARLIA Nicole",
               "all_players_in_row": [
                 "BOGDANOWICZ Natalia (POL)",
                 "ARLIA Nicole (ITA)",
@@ -7434,17 +6662,14 @@
               ],
               "side_a": [
                 "BOGDANOWICZ Natalia (POL)",
-                "BUDDHADASA Sanaya (AUS)"
+                "ARLIA Nicole (ITA)"
               ],
               "side_b": [
-                "ARLIA Nicole (ITA)",
+                "BUDDHADASA Sanaya (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | BOGDANOWICZ Natalia (POL) | ARLIA Nicole (ITA) | BUDDHADASA Sanaya (AUS) | PSIHOGIOS Constantina (AUS) | U19WD | Main Draw | R16 | 3 - 0 | 11:7 11:6 11:8 | BOGDANOWICZ Natalia | ARLIA Nicole | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7495,15 +6720,8 @@
               "side_b": [
                 "SER Lin Qian (SGP)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "SER Lin Qian (SGP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | PSIHOGIOS Constantina (AUS) |  | SER Lin Qian (SGP) |  | U19WS | Main Draw | R32 | 1 - 4 | 7:11 3:11 8:11 11:9 5:11 | SER Lin Qian |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7545,26 +6763,23 @@
                 "11:7",
                 "11:3"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / TAPPER Melissa",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "TAPPER Melissa (AUS)",
-                "BEUMELBURG Lydia (NZL)",
+                "MERCER-BEUMELBURG Lydia (NZL)",
                 "WOOD Jacqui (NZL)"
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "MERCER-BEUMELBURG Lydia (NZL)"
+                "TAPPER Melissa (AUS)"
               ],
               "side_b": [
-                "TAPPER Melissa (AUS)",
+                "MERCER-BEUMELBURG Lydia (NZL)",
                 "WOOD Jacqui (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | PSIHOGIOS Constantina (AUS) | TAPPER Melissa (AUS) | MERCER-BEUMELBURG Lydia (NZL) | WOOD Jacqui (NZL) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:1 11:7 11:3 | PSIHOGIOS Constantina | TAPPER Melissa | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7594,7 +6809,7 @@
                 "11:3",
                 "11:4"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / TAPPER Melissa",
               "all_players_in_row": [
                 "PSIHOGIOS Constantina (AUS)",
                 "TAPPER Melissa (AUS)",
@@ -7603,17 +6818,14 @@
               ],
               "side_a": [
                 "PSIHOGIOS Constantina (AUS)",
-                "GEAR Lisa (NZL)"
+                "TAPPER Melissa (AUS)"
               ],
               "side_b": [
-                "TAPPER Melissa (AUS)",
+                "GEAR Lisa (NZL)",
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | PSIHOGIOS Constantina (AUS) | TAPPER Melissa (AUS) | GEAR Lisa (NZL) | LAM Jocelyn (NZL) | WD | Main Draw | SemiFinal | 3 - 0 | 13:11 11:3 11:4 | PSIHOGIOS Constantina | TAPPER Melissa | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7654,15 +6866,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "LIU Yangzi (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | LIU Yangzi (AUS) |  | PSIHOGIOS Constantina (AUS) |  | WS | Qualification |  | 3 - 0 | 11:7 11:7 11:4 | LIU Yangzi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7702,15 +6907,8 @@
               "side_b": [
                 "MORIYAMA PICARD Ayumi (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "MORIYAMA PICARD Ayumi (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | PSIHOGIOS Constantina (AUS) |  | MORIYAMA PICARD Ayumi (NZL) |  | WS | Qualification |  | 3 - 0 | 11:4 11:5 11:9 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -7739,26 +6937,23 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "BAE Hwan",
+              "winner": "BAE Hwan / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "CHEN Jack (NZL)",
-                "BEUMELBURG Lydia (NZL)",
+                "MERCER-BEUMELBURG Lydia (NZL)",
                 "BAE Hwan (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
               "side_a": [
                 "CHEN Jack (NZL)",
-                "BAE Hwan (AUS)"
+                "MERCER-BEUMELBURG Lydia (NZL)"
               ],
               "side_b": [
-                "MERCER-BEUMELBURG Lydia (NZL)",
+                "BAE Hwan (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | CHEN Jack (NZL) | MERCER-BEUMELBURG Lydia (NZL) | BAE Hwan (AUS) | PSIHOGIOS Constantina (AUS) | XD | Main Draw | R16 | 0 - 3 | 6:11 7:11 6:11 | BAE Hwan | PSIHOGIOS Constantina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7788,7 +6983,7 @@
                 "9:11",
                 "2:11"
               ],
-              "winner": "BAE Hwan",
+              "winner": "BAE Hwan / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "DEY Jeremy (NCL)",
                 "GIRET Maylis (NCL)",
@@ -7797,17 +6992,14 @@
               ],
               "side_a": [
                 "DEY Jeremy (NCL)",
-                "BAE Hwan (AUS)"
+                "GIRET Maylis (NCL)"
               ],
               "side_b": [
-                "GIRET Maylis (NCL)",
+                "BAE Hwan (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | DEY Jeremy (NCL) | GIRET Maylis (NCL) | BAE Hwan (AUS) | PSIHOGIOS Constantina (AUS) | XD | Main Draw | QuarterFinal | 0 - 3 | 4:11 9:11 2:11 | BAE Hwan | PSIHOGIOS Constantina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7837,7 +7029,7 @@
                 "8:11",
                 "14:16"
               ],
-              "winner": "LUU Finn",
+              "winner": "LUU Finn / JEE Minhyung",
               "all_players_in_row": [
                 "BAE Hwan (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -7846,17 +7038,14 @@
               ],
               "side_a": [
                 "BAE Hwan (AUS)",
-                "LUU Finn (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "LUU Finn (AUS)",
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | BAE Hwan (AUS) | PSIHOGIOS Constantina (AUS) | LUU Finn (AUS) | JEE Minhyung (AUS) | XD | Main Draw | SemiFinal | 0 - 3 | 5:11 8:11 14:16 | LUU Finn | JEE Minhyung | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -7907,15 +7096,8 @@
               "side_b": [
                 "LAM Jocelyn (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "LAM Jocelyn (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | PSIHOGIOS Constantina (AUS) |  | LAM Jocelyn (NZL) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 11:13 13:11 11:3 11:9 12:10 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7971,15 +7153,8 @@
               "side_b": [
                 "JEE Minhyung (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "JEE Minhyung (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | PSIHOGIOS Constantina (AUS) |  | JEE Minhyung (AUS) |  | WS | Main Draw | SemiFinal | 2 - 4 | 3:11 11:5 11:13 10:12 11:9 3:11 | JEE Minhyung |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8009,7 +7184,7 @@
                 "11:9",
                 "11:5"
               ],
-              "winner": "LIU Yangzi",
+              "winner": "LIU Yangzi / JEE Minhyung",
               "all_players_in_row": [
                 "LIU Yangzi (AUS)",
                 "JEE Minhyung (AUS)",
@@ -8018,17 +7193,14 @@
               ],
               "side_a": [
                 "LIU Yangzi (AUS)",
-                "PSIHOGIOS Constantina (AUS)"
+                "JEE Minhyung (AUS)"
               ],
               "side_b": [
-                "JEE Minhyung (AUS)",
+                "PSIHOGIOS Constantina (AUS)",
                 "TAPPER Melissa (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Championships Auckland 2024 | LIU Yangzi (AUS) | JEE Minhyung (AUS) | PSIHOGIOS Constantina (AUS) | TAPPER Melissa (AUS) | WD | Main Draw | Final | 3 - 0 | 11:3 11:9 11:5 | LIU Yangzi | JEE Minhyung | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8081,15 +7253,8 @@
               "side_b": [
                 "PADAMADAN Angelina (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "PADAMADAN Angelina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | PSIHOGIOS Constantina (AUS) |  | PADAMADAN Angelina (AUS) |  | U17WS | Qualification |  | 3 - 0 | 11:9 11:7 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -8134,15 +7299,8 @@
               "side_b": [
                 "CHENG Chloe (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "CHENG Chloe (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | PSIHOGIOS Constantina (AUS) |  | CHENG Chloe (AUS) |  | U17WS | Qualification |  | 3 - 1 | 11:3 11:9 7:11 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "资格赛"
@@ -8171,7 +7329,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "HUANG Zhongye",
+              "winner": "HUANG Zhongye / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "HUANG Zhongye (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -8180,17 +7338,14 @@
               ],
               "side_a": [
                 "HUANG Zhongye (AUS)",
-                "WIN Sidney (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "WIN Sidney (AUS)",
                 "NAKADA Umi (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | HUANG Zhongye (AUS) | PSIHOGIOS Constantina (AUS) | WIN Sidney (AUS) | NAKADA Umi (JPN) | U19XD | Main Draw | R16 | 3 - 0 | 11:8 11:4 11:9 | HUANG Zhongye | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -8220,7 +7375,7 @@
                 "12:10",
                 "11:8"
               ],
-              "winner": "HUANG Zhongye",
+              "winner": "HUANG Zhongye / PSIHOGIOS Constantina",
               "all_players_in_row": [
                 "HUANG Zhongye (AUS)",
                 "PSIHOGIOS Constantina (AUS)",
@@ -8229,17 +7384,14 @@
               ],
               "side_a": [
                 "HUANG Zhongye (AUS)",
-                "LIU Stephen (AUS)"
+                "PSIHOGIOS Constantina (AUS)"
               ],
               "side_b": [
-                "PSIHOGIOS Constantina (AUS)",
+                "LIU Stephen (AUS)",
                 "KAGAWA Sakurako (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | HUANG Zhongye (AUS) | PSIHOGIOS Constantina (AUS) | LIU Stephen (AUS) | KAGAWA Sakurako (JPN) | U19XD | Main Draw | QuarterFinal | 3 - 0 | 11:6 12:10 11:8 | HUANG Zhongye | PSIHOGIOS Constantina | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -8279,7 +7431,7 @@
                 "11:8",
                 "11:9"
               ],
-              "winner": "ZHANG Peter",
+              "winner": "ZHANG Peter / SAKUMA Yui",
               "all_players_in_row": [
                 "ZHANG Peter (AUS)",
                 "SAKUMA Yui (JPN)",
@@ -8288,17 +7440,14 @@
               ],
               "side_a": [
                 "ZHANG Peter (AUS)",
-                "HUANG Zhongye (AUS)"
+                "SAKUMA Yui (JPN)"
               ],
               "side_b": [
-                "SAKUMA Yui (JPN)",
+                "HUANG Zhongye (AUS)",
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | ZHANG Peter (AUS) | SAKUMA Yui (JPN) | HUANG Zhongye (AUS) | PSIHOGIOS Constantina (AUS) | U19XD | Main Draw | SemiFinal | 3 - 2 | 6:11 11:9 7:11 11:8 11:9 | ZHANG Peter | SAKUMA Yui | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -8339,15 +7488,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "HO Esme (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | HO Esme (AUS) |  | PSIHOGIOS Constantina (AUS) |  | U17WS | Main Draw | QuarterFinal | 0 - 3 | 1:11 4:11 3:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -8398,15 +7540,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "KAGAWA Sakurako (JPN)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | KAGAWA Sakurako (JPN) |  | PSIHOGIOS Constantina (AUS) |  | U17WS | Main Draw | SemiFinal | 2 - 3 | 12:10 11:8 7:11 8:11 11:13 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -8452,15 +7587,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "LE Nguyen (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | LE Nguyen (AUS) |  | PSIHOGIOS Constantina (AUS) |  | U17WS | Main Draw | Final | 3 - 1 | 5:11 13:11 11:9 11:7 | LE Nguyen |  | ",
               "sub_event_zh": "U17女子单打",
               "stage_zh": "正赛",
@@ -8501,15 +7629,8 @@
               "side_b": [
                 "CHENG Chloe (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "CHENG Chloe (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | PSIHOGIOS Constantina (AUS) |  | CHENG Chloe (AUS) |  | U19WS | Qualification |  | 3 - 0 | 11:7 11:9 11:7 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -8549,15 +7670,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "CHIANG Janelle (SGP)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | CHIANG Janelle (SGP) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 0 - 3 | 7:11 8:11 6:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -8597,15 +7711,8 @@
               "side_b": [
                 "GOH Hanna (AUS)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "GOH Hanna (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | PSIHOGIOS Constantina (AUS) |  | GOH Hanna (AUS) |  | U19WS | Qualification |  | 3 - 0 | 11:6 11:5 11:6 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -8650,15 +7757,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "BUDDHADASA Sanaya (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Youth Contender Darwin 2024 | BUDDHADASA Sanaya (AUS) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | SemiFinal | 3 - 1 | 6:11 11:7 11:6 11:6 | BUDDHADASA Sanaya |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8711,15 +7811,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "YI Yelena (NZL)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Youth Championships Melbourne 2024 | YI Yelena (NZL) |  | PSIHOGIOS Constantina (AUS) |  | U19WT | Main Draw | Final | 0 - 3 | 4:11 4:11 3:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -8760,15 +7853,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "BUDDHADASA Sanaya (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Youth Championships Melbourne 2024 | BUDDHADASA Sanaya (AUS) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 0 - 3 | 2:11 8:11 12:14 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -8808,15 +7894,8 @@
               "side_b": [
                 "YI Yelena (NZL)"
               ],
-              "teammates": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "opponents": [
-                "YI Yelena (NZL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Oceania Youth Championships Melbourne 2024 | PSIHOGIOS Constantina (AUS) |  | YI Yelena (NZL) |  | U19WS | Qualification |  | 3 - 0 | 12:10 11:7 11:5 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -8856,15 +7935,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "MORIYAMA PICARD Ayumi (NZL)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Youth Championships Melbourne 2024 | MORIYAMA PICARD Ayumi (NZL) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Qualification |  | 0 - 3 | 4:11 4:11 6:11 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -8909,15 +7981,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "GOH Hanna (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Youth Championships Melbourne 2024 | GOH Hanna (AUS) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | SemiFinal | 0 - 4 | 8:11 5:11 6:11 10:12 | PSIHOGIOS Constantina |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -8973,15 +8038,8 @@
               "side_b": [
                 "PSIHOGIOS Constantina (AUS)"
               ],
-              "teammates": [
-                "BUDDHADASA Sanaya (AUS)"
-              ],
-              "opponents": [
-                "PSIHOGIOS Constantina (AUS)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Oceania Youth Championships Melbourne 2024 | BUDDHADASA Sanaya (AUS) |  | PSIHOGIOS Constantina (AUS) |  | U19WS | Main Draw | Final | 4 - 2 | 11:8 11:8 9:11 7:11 11:6 11:9 | BUDDHADASA Sanaya |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",

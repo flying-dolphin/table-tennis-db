@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Dina MESHREF",
-  "english_name": "Dina MESHREF",
+  "player_name": "MESHREF Dina",
+  "english_name": "MESHREF Dina",
   "country": "EGY",
   "country_code": "EGY",
   "continent": "",
@@ -55,15 +55,8 @@
               "side_b": [
                 "LI Yu-Jhun (TPE)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "LI Yu-Jhun (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | MESHREF Dina (EGY) |  | LI Yu-Jhun (TPE) |  | WS | Qualification |  | 0 - 3 | 14:16 10:12 4:11 | LI Yu-Jhun |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -103,15 +96,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SUN Yingsha (CHN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | SUN Yingsha (CHN) |  | MESHREF Dina (EGY) |  | WS | Qualification |  | 3 - 0 | 11:6 11:4 11:7 | SUN Yingsha |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -168,15 +154,8 @@
               "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "GODA Hana (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | MESHREF Dina (EGY) |  | GODA Hana (EGY) |  | WS | Main Draw | R64 | 1 - 3 | 9:11 7:11 11:9 12:14 | GODA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -211,7 +190,7 @@
                 "5:11",
                 "8:11"
               ],
-              "winner": "ZENG Jian",
+              "winner": "ZENG Jian / SER Lin Qian",
               "all_players_in_row": [
                 "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)",
@@ -220,17 +199,14 @@
               ],
               "side_a": [
                 "GODA Hana (EGY)",
-                "ZENG Jian (SGP)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "ZENG Jian (SGP)",
                 "SER Lin Qian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | GODA Hana (EGY) | MESHREF Dina (EGY) | ZENG Jian (SGP) | SER Lin Qian (SGP) | WD | Main Draw | R32 | 1 - 3 | 11:6 5:11 5:11 8:11 | ZENG Jian | SER Lin Qian | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -283,15 +259,8 @@
               "side_b": [
                 "PATEL Danisha (RSA)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "PATEL Danisha (RSA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Africa Cup Benghazi 2026 | MESHREF Dina (EGY) |  | PATEL Danisha (RSA) |  | WS | Qualification |  | 3 - 0 | 11:5 11:4 11:2 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -331,15 +300,8 @@
               "side_b": [
                 "MORICE Jade (ALG)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "MORICE Jade (ALG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Africa Cup Benghazi 2026 | MESHREF Dina (EGY) |  | MORICE Jade (ALG) |  | WS | Qualification |  | 3 - 0 | 12:10 12:10 11:6 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -379,15 +341,8 @@
               "side_b": [
                 "GHOUNIM Malak (MAR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "GHOUNIM Malak (MAR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Africa Cup Benghazi 2026 | MESHREF Dina (EGY) |  | GHOUNIM Malak (MAR) |  | WS | Qualification |  | 3 - 0 | 11:1 11:2 11:4 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -432,15 +387,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SAIDI Ela (TUN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Africa Cup Benghazi 2026 | SAIDI Ela (TUN) |  | MESHREF Dina (EGY) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 9:11 6:11 8:11 7:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -496,15 +444,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "MORICE Tania (ALG)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Africa Cup Benghazi 2026 | MORICE Tania (ALG) |  | MESHREF Dina (EGY) |  | WS | Main Draw | SemiFinal | 2 - 4 | 7:11 9:11 13:11 11:8 7:11 6:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -550,15 +491,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "GODA Hana (EGY)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Africa Cup Benghazi 2026 | GODA Hana (EGY) |  | MESHREF Dina (EGY) |  | WS | Main Draw | Final | 4 - 0 | 12:10 11:3 11:7 11:9 | GODA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -610,7 +544,7 @@
                 "11:9",
                 "8:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / HURSEY Anna",
               "all_players_in_row": [
                 "MESHREF Dina (EGY)",
                 "HELMY Yousra (EGY)",
@@ -619,17 +553,14 @@
               ],
               "side_a": [
                 "MESHREF Dina (EGY)",
-                "MITTELHAM Nina (GER)"
+                "HELMY Yousra (EGY)"
               ],
               "side_b": [
-                "HELMY Yousra (EGY)",
+                "MITTELHAM Nina (GER)",
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | MESHREF Dina (EGY) | HELMY Yousra (EGY) | MITTELHAM Nina (GER) | HURSEY Anna (WAL) | WD | Qualification | QR8 | 2 - 3 | 9:11 11:7 3:11 11:9 8:11 | MITTELHAM Nina | HURSEY Anna | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "资格赛",
@@ -680,15 +611,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "ZONG Geman (CHN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Contender Muscat 2026 | ZONG Geman (CHN) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 11:4 4:11 11:13 11:9 | ZONG Geman |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -730,7 +654,7 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "SHI Xunyao",
+              "winner": "SHI Xunyao / WANG Xiaotong",
               "all_players_in_row": [
                 "SHI Xunyao (CHN)",
                 "WANG Xiaotong (CHN)",
@@ -739,17 +663,14 @@
               ],
               "side_a": [
                 "SHI Xunyao (CHN)",
-                "BERGAND Filippa (SWE)"
+                "WANG Xiaotong (CHN)"
               ],
               "side_b": [
-                "WANG Xiaotong (CHN)",
+                "BERGAND Filippa (SWE)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | SHI Xunyao (CHN) | WANG Xiaotong (CHN) | BERGAND Filippa (SWE) | MESHREF Dina (EGY) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:6 11:9 | SHI Xunyao | WANG Xiaotong | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -790,15 +711,8 @@
               "side_b": [
                 "RYU Hanna (KOR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "RYU Hanna (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Doha 2026 | MESHREF Dina (EGY) |  | RYU Hanna (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 9:11 3:11 9:11 | RYU Hanna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -845,7 +759,7 @@
                 "11:4",
                 "11:5"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)",
@@ -854,17 +768,14 @@
               ],
               "side_a": [
                 "GODA Hana (EGY)",
-                "ZOGHLAMI Maram (TUN)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "ZOGHLAMI Maram (TUN)",
                 "SUISSI Balkis (TUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | GODA Hana (EGY) | MESHREF Dina (EGY) | ZOGHLAMI Maram (TUN) | SUISSI Balkis (TUN) | WD | Main Draw | R16 | 3 - 0 | 11:6 11:4 11:5 | GODA Hana | MESHREF Dina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -915,15 +826,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "ALBINO Isabel (ANG)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | ALBINO Isabel (ANG) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 1 - 4 | 5:11 6:11 11:9 3:11 6:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -953,7 +857,7 @@
                 "11:3",
                 "11:6"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)",
@@ -962,17 +866,14 @@
               ],
               "side_a": [
                 "GODA Hana (EGY)",
-                "OJOMU Ajoke (NGR)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "OJOMU Ajoke (NGR)",
                 "RABIU Aishat (NGR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | GODA Hana (EGY) | MESHREF Dina (EGY) | OJOMU Ajoke (NGR) | RABIU Aishat (NGR) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:3 11:6 | GODA Hana | MESHREF Dina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1018,15 +919,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "ZOGHLAMI Maram (TUN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | ZOGHLAMI Maram (TUN) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R16 | 0 - 4 | 4:11 3:11 7:11 5:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1056,7 +950,7 @@
                 "11:5",
                 "11:2"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)",
@@ -1065,17 +959,14 @@
               ],
               "side_a": [
                 "GODA Hana (EGY)",
-                "HAJ SALAH Abir (TUN)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "HAJ SALAH Abir (TUN)",
                 "GARCI Fadwa (TUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | GODA Hana (EGY) | MESHREF Dina (EGY) | HAJ SALAH Abir (TUN) | GARCI Fadwa (TUN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:8 11:5 11:2 | GODA Hana | MESHREF Dina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1121,15 +1012,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "BADAWY Farida (EGY)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | BADAWY Farida (EGY) |  | MESHREF Dina (EGY) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 11:13 5:11 9:11 5:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1175,15 +1059,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "ALHODABY Marwa (EGY)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | ALHODABY Marwa (EGY) |  | MESHREF Dina (EGY) |  | WS | Main Draw | SemiFinal | 0 - 4 | 5:11 3:11 6:11 3:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1218,7 +1095,7 @@
                 "9:11",
                 "11:4"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)",
@@ -1227,17 +1104,14 @@
               ],
               "side_a": [
                 "GODA Hana (EGY)",
-                "ALHODABY Mariam (EGY)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "ALHODABY Mariam (EGY)",
                 "ALHODABY Marwa (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | GODA Hana (EGY) | MESHREF Dina (EGY) | ALHODABY Mariam (EGY) | ALHODABY Marwa (EGY) | WD | Main Draw | Final | 3 - 1 | 11:9 11:8 9:11 11:4 | GODA Hana | MESHREF Dina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1283,15 +1157,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "GODA Hana (EGY)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | GODA Hana (EGY) |  | MESHREF Dina (EGY) |  | WS | Main Draw | Final | 4 - 0 | 11:8 11:5 11:8 11:5 | GODA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1332,15 +1199,8 @@
               "side_b": [
                 "BORTEYE Joanita (GHA)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "BORTEYE Joanita (GHA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | MESHREF Dina (EGY) |  | BORTEYE Joanita (GHA) |  | WT | Qualification |  | 3 - 0 | 11:3 11:3 11:8 | MESHREF Dina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1380,15 +1240,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "MORICE Jade (ALG)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | MORICE Jade (ALG) |  | MESHREF Dina (EGY) |  | WT | Main Draw | SemiFinal | 0 - 3 | 5:11 4:11 4:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1429,15 +1282,8 @@
               "side_b": [
                 "NANGONZI Judith (UGA)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "NANGONZI Judith (UGA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF-Africa Championships Tunis 2025 | MESHREF Dina (EGY) |  | NANGONZI Judith (UGA) |  | WT | Main Draw | Final | 3 - 0 | 11:4 11:3 11:4 | MESHREF Dina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1490,15 +1336,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SASTRE Eugenia (ESP)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SASTRE Eugenia (ESP) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 8:11 8:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1549,15 +1388,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "YOO Siwoo (KOR)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | YOO Siwoo (KOR) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R16 | 2 - 3 | 10:12 11:6 11:6 7:11 5:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1608,15 +1440,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SAFAEI Shima (IRI)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia II 2025 | SAFAEI Shima (IRI) |  | MESHREF Dina (EGY) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 12:10 12:10 5:11 9:11 11:8 | SAFAEI Shima |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1669,15 +1494,8 @@
               "side_b": [
                 "HANSSON Matilda (SWE)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "HANSSON Matilda (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | MESHREF Dina (EGY) |  | HANSSON Matilda (SWE) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 12:10 11:7 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1723,15 +1541,8 @@
               "side_b": [
                 "SER Lin Qian (SGP)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "SER Lin Qian (SGP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | MESHREF Dina (EGY) |  | SER Lin Qian (SGP) |  | WS | Main Draw | R16 | 3 - 1 | 11:3 11:8 7:11 13:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1772,15 +1583,8 @@
               "side_b": [
                 "ABRAAMIAN Elizabet (AIN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "ABRAAMIAN Elizabet (AIN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Istabul 2025 | MESHREF Dina (EGY) |  | ABRAAMIAN Elizabet (AIN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 8:11 9:11 11:13 | ABRAAMIAN Elizabet |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1843,15 +1647,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "CHENG I-Ching (TPE)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CHENG I-Ching (TPE) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R64 | 3 - 2 | 17:15 4:11 8:11 11:7 11:4 | CHENG I-Ching |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1881,7 +1678,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "CHITALE Diya",
+              "winner": "CHITALE Diya / GHORPADE Yashaswini",
               "all_players_in_row": [
                 "CHITALE Diya (IND)",
                 "GHORPADE Yashaswini (IND)",
@@ -1890,17 +1687,14 @@
               ],
               "side_a": [
                 "CHITALE Diya (IND)",
-                "GODA Hana (EGY)"
+                "GHORPADE Yashaswini (IND)"
               ],
               "side_b": [
-                "GHORPADE Yashaswini (IND)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CHITALE Diya (IND) | GHORPADE Yashaswini (IND) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:5 | CHITALE Diya | GHORPADE Yashaswini | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1953,15 +1747,8 @@
               "side_b": [
                 "EMMANUEL Joy (NGR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "EMMANUEL Joy (NGR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | MESHREF Dina (EGY) |  | EMMANUEL Joy (NGR) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:4 11:5 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1991,7 +1778,7 @@
                 "5:11",
                 "5:11"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "OKAFOR Chinenye (NGR)",
                 "SEZUO Aziza (NGR)",
@@ -2000,17 +1787,14 @@
               ],
               "side_a": [
                 "OKAFOR Chinenye (NGR)",
-                "GODA Hana (EGY)"
+                "SEZUO Aziza (NGR)"
               ],
               "side_b": [
-                "SEZUO Aziza (NGR)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | OKAFOR Chinenye (NGR) | SEZUO Aziza (NGR) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | R16 | 0 - 3 | 4:11 5:11 5:11 | GODA Hana | MESHREF Dina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2045,7 +1829,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "PICCOLIN Giorgia (ITA)",
                 "VIVARELLI Debora (ITA)",
@@ -2054,17 +1838,14 @@
               ],
               "side_a": [
                 "PICCOLIN Giorgia (ITA)",
-                "GODA Hana (EGY)"
+                "VIVARELLI Debora (ITA)"
               ],
               "side_b": [
-                "VIVARELLI Debora (ITA)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | PICCOLIN Giorgia (ITA) | VIVARELLI Debora (ITA) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | QuarterFinal | 1 - 3 | 6:11 9:11 11:8 9:11 | GODA Hana | MESHREF Dina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2115,15 +1896,8 @@
               "side_b": [
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "MONFARDINI Gaia (ITA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | MESHREF Dina (EGY) |  | MONFARDINI Gaia (ITA) |  | WS | Main Draw | R16 | 3 - 2 | 11:5 9:11 4:11 12:10 12:10 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2153,7 +1927,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "GODA Hana",
+              "winner": "GODA Hana / MESHREF Dina",
               "all_players_in_row": [
                 "YU Fu (POR)",
                 "SHAO Jieni (POR)",
@@ -2162,17 +1936,14 @@
               ],
               "side_a": [
                 "YU Fu (POR)",
-                "GODA Hana (EGY)"
+                "SHAO Jieni (POR)"
               ],
               "side_b": [
-                "SHAO Jieni (POR)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | YU Fu (POR) | SHAO Jieni (POR) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | SemiFinal | 0 - 3 | 9:11 7:11 4:11 | GODA Hana | MESHREF Dina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2213,15 +1984,8 @@
               "side_b": [
                 "YEH Yi-Tian (TPE)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "YEH Yi-Tian (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | MESHREF Dina (EGY) |  | YEH Yi-Tian (TPE) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 8:11 4:11 6:11 | YEH Yi-Tian |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2261,7 +2025,7 @@
                 "9:11",
                 "11:6"
               ],
-              "winner": "KIM Nayeong",
+              "winner": "KIM Nayeong / RYU Hanna",
               "all_players_in_row": [
                 "KIM Nayeong (KOR)",
                 "RYU Hanna (KOR)",
@@ -2270,17 +2034,14 @@
               ],
               "side_a": [
                 "KIM Nayeong (KOR)",
-                "GODA Hana (EGY)"
+                "RYU Hanna (KOR)"
               ],
               "side_b": [
-                "RYU Hanna (KOR)",
+                "GODA Hana (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Contender Lagos 2025 | KIM Nayeong (KOR) | RYU Hanna (KOR) | GODA Hana (EGY) | MESHREF Dina (EGY) | WD | Main Draw | Final | 3 - 2 | 8:11 11:4 11:7 9:11 11:6 | KIM Nayeong | RYU Hanna | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2333,15 +2094,8 @@
               "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | MESHREF Dina (EGY) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 3:11 5:11 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2376,7 +2130,7 @@
                 "5:11",
                 "11:4"
               ],
-              "winner": "WINTER Sabine",
+              "winner": "WINTER Sabine / WAN Yuan",
               "all_players_in_row": [
                 "WINTER Sabine (GER)",
                 "WAN Yuan (GER)",
@@ -2385,17 +2139,14 @@
               ],
               "side_a": [
                 "WINTER Sabine (GER)",
-                "MESHREF Dina (EGY)"
+                "WAN Yuan (GER)"
               ],
               "side_b": [
-                "WAN Yuan (GER)",
+                "MESHREF Dina (EGY)",
                 "GODA Hana (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | WINTER Sabine (GER) | WAN Yuan (GER) | MESHREF Dina (EGY) | GODA Hana (EGY) | WD | Main Draw | R32 | 3 - 1 | 11:6 11:1 5:11 11:4 | WINTER Sabine | WAN Yuan | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2453,15 +2204,8 @@
               "side_b": [
                 "MATELOVA Hana (CZE)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "MATELOVA Hana (CZE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MESHREF Dina (EGY) |  | MATELOVA Hana (CZE) |  | WS | Main Draw | R128 | 0 - 4 | 7:11 3:11 3:11 7:11 | MATELOVA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2519,15 +2263,8 @@
               "side_b": [
                 "DE NUTTE Sarah (LUX)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "DE NUTTE Sarah (LUX)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | MESHREF Dina (EGY) |  | DE NUTTE Sarah (LUX) |  | WS | Main Draw | R32 | 3 - 1 | 11:7 12:10 3:11 11:9 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2562,7 +2299,7 @@
                 "11:9",
                 "9:11"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ZENG Jian",
               "all_players_in_row": [
                 "VIVARELLI Debora (ITA)",
                 "MONFARDINI Gaia (ITA)",
@@ -2571,17 +2308,14 @@
               ],
               "side_a": [
                 "VIVARELLI Debora (ITA)",
-                "MESHREF Dina (EGY)"
+                "MONFARDINI Gaia (ITA)"
               ],
               "side_b": [
-                "MONFARDINI Gaia (ITA)",
+                "MESHREF Dina (EGY)",
                 "ZENG Jian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | VIVARELLI Debora (ITA) | MONFARDINI Gaia (ITA) | MESHREF Dina (EGY) | ZENG Jian (SGP) | WD | Main Draw | R16 | 1 - 3 | 7:11 7:11 11:9 9:11 | MESHREF Dina | ZENG Jian | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2611,7 +2345,7 @@
                 "11:9",
                 "11:2"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ZENG Jian",
               "all_players_in_row": [
                 "MESHREF Dina (EGY)",
                 "ZENG Jian (SGP)",
@@ -2620,17 +2354,14 @@
               ],
               "side_a": [
                 "MESHREF Dina (EGY)",
-                "COK Isa (FRA)"
+                "ZENG Jian (SGP)"
               ],
               "side_b": [
-                "ZENG Jian (SGP)",
+                "COK Isa (FRA)",
                 "TOFANT Ana (SLO)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | MESHREF Dina (EGY) | ZENG Jian (SGP) | COK Isa (FRA) | TOFANT Ana (SLO) | WD | Main Draw | QuarterFinal | 3 - 0 | 13:11 11:9 11:2 | MESHREF Dina | ZENG Jian | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2671,15 +2402,8 @@
               "side_b": [
                 "WIELGOS Zuzanna (POL)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "WIELGOS Zuzanna (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | MESHREF Dina (EGY) |  | WIELGOS Zuzanna (POL) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 7:11 6:11 | WIELGOS Zuzanna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2719,7 +2443,7 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ZENG Jian",
               "all_players_in_row": [
                 "MESHREF Dina (EGY)",
                 "ZENG Jian (SGP)",
@@ -2728,17 +2452,14 @@
               ],
               "side_a": [
                 "MESHREF Dina (EGY)",
-                "CRISTOBAL Ainhoa (ESP)"
+                "ZENG Jian (SGP)"
               ],
               "side_b": [
-                "ZENG Jian (SGP)",
+                "CRISTOBAL Ainhoa (ESP)",
                 "SASTRE Eugenia (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | MESHREF Dina (EGY) | ZENG Jian (SGP) | CRISTOBAL Ainhoa (ESP) | SASTRE Eugenia (ESP) | WD | Main Draw | SemiFinal | 3 - 2 | 11:9 9:11 9:11 11:6 11:9 | MESHREF Dina | ZENG Jian | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2773,7 +2494,7 @@
                 "13:11",
                 "10:12"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ZENG Jian",
               "all_players_in_row": [
                 "ROY Krittwika (IND)",
                 "WANI Sayali (IND)",
@@ -2782,17 +2503,14 @@
               ],
               "side_a": [
                 "ROY Krittwika (IND)",
-                "MESHREF Dina (EGY)"
+                "WANI Sayali (IND)"
               ],
               "side_b": [
-                "WANI Sayali (IND)",
+                "MESHREF Dina (EGY)",
                 "ZENG Jian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Manchester 2025 | ROY Krittwika (IND) | WANI Sayali (IND) | MESHREF Dina (EGY) | ZENG Jian (SGP) | WD | Main Draw | Final | 1 - 3 | 5:11 8:11 13:11 10:12 | MESHREF Dina | ZENG Jian | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2850,15 +2568,8 @@
               "side_b": [
                 "ZHU Chengzhu (HKG)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "ZHU Chengzhu (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | MESHREF Dina (EGY) |  | ZHU Chengzhu (HKG) |  | WS | Qualification |  | 3 - 1 | 11:9 11:9 11:5 6:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2903,15 +2614,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "KUAI Man (CHN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | KUAI Man (CHN) |  | MESHREF Dina (EGY) |  | WS | Qualification |  | 3 - 1 | 6:11 11:9 11:6 11:8 | KUAI Man |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2968,15 +2672,8 @@
               "side_b": [
                 "KIM Nayeong (KOR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "KIM Nayeong (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Chongqing 2025 | MESHREF Dina (EGY) |  | KIM Nayeong (KOR) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 11:8 7:11 7:11 | KIM Nayeong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3029,15 +2726,8 @@
               "side_b": [
                 "ZOGHLAMI Maram (TUN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "ZOGHLAMI Maram (TUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF African Cup Tunis 2025 | MESHREF Dina (EGY) |  | ZOGHLAMI Maram (TUN) |  | WS | Qualification |  | 3 - 0 | 11:3 11:7 11:4 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3077,15 +2767,8 @@
               "side_b": [
                 "DEJENE Yordanos (ETH)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "DEJENE Yordanos (ETH)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF African Cup Tunis 2025 | MESHREF Dina (EGY) |  | DEJENE Yordanos (ETH) |  | WS | Qualification |  | 3 - 0 | 11:2 11:5 11:4 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -3130,15 +2813,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "FASHOLA Aminat (NGR)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF African Cup Tunis 2025 | FASHOLA Aminat (NGR) |  | MESHREF Dina (EGY) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 6:11 4:11 7:11 7:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3194,15 +2870,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "ALHODABY Mariam (EGY)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF African Cup Tunis 2025 | ALHODABY Mariam (EGY) |  | MESHREF Dina (EGY) |  | WS | Main Draw | SemiFinal | 2 - 4 | 6:11 11:7 5:11 2:11 13:11 5:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3258,15 +2927,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "GODA Hana (EGY)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF African Cup Tunis 2025 | GODA Hana (EGY) |  | MESHREF Dina (EGY) |  | WS | Main Draw | Final | 4 - 2 | 9:11 5:11 11:9 11:6 11:6 12:10 | GODA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3319,15 +2981,8 @@
               "side_b": [
                 "WANG Manyu (CHN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "WANG Manyu (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | MESHREF Dina (EGY) |  | WANG Manyu (CHN) |  | WS | Main Draw | R64 | 0 - 3 | 8:11 7:11 9:11 | WANG Manyu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3385,15 +3040,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "CHEN Yi (CHN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Doha 2025 | CHEN Yi (CHN) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 3 - 1 | 11:3 11:6 6:11 11:6 | CHEN Yi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3461,15 +3109,8 @@
               "side_b": [
                 "CHOI Haeeun (KOR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "CHOI Haeeun (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | MESHREF Dina (EGY) |  | CHOI Haeeun (KOR) |  | WS | Main Draw | R32 | 3 - 2 | 9:11 9:11 11:8 11:8 13:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3520,15 +3161,8 @@
               "side_b": [
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "DRAGOMAN Andreea (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | MESHREF Dina (EGY) |  | DRAGOMAN Andreea (ROU) |  | WS | Main Draw | R16 | 3 - 2 | 11:3 6:11 11:7 5:11 11:6 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3579,15 +3213,8 @@
               "side_b": [
                 "FAN Shuhan (CHN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "FAN Shuhan (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | WTT Feeder Vila Nova de Gaia 2024 | MESHREF Dina (EGY) |  | FAN Shuhan (CHN) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 11:6 13:11 4:11 8:11 7:11 | FAN Shuhan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3640,15 +3267,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "CHEN Xingtong (CHN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Champions Frankfurt 2024 | CHEN Xingtong (CHN) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:6 11:3 | CHEN Xingtong |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3701,15 +3321,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "ODO Satsuki (JPN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Champions Montpellier 2024 | ODO Satsuki (JPN) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:5 11:6 | ODO Satsuki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3772,15 +3385,8 @@
               "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "XIAO Maria (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | MESHREF Dina (EGY) |  | XIAO Maria (ESP) |  | WS | Main Draw | R64 | 4 - 1 | 11:5 11:4 11:6 9:11 11:8 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3826,15 +3432,8 @@
               "side_b": [
                 "HAYATA Hina (JPN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "HAYATA Hina (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | MESHREF Dina (EGY) |  | HAYATA Hina (JPN) |  | WS | Main Draw | R32 | 0 - 4 | 13:15 10:12 3:11 9:11 | HAYATA Hina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3869,7 +3468,7 @@
                 "11:4",
                 "11:3"
               ],
-              "winner": "WANG Chuqin",
+              "winner": "WANG Chuqin / SUN Yingsha",
               "all_players_in_row": [
                 "WANG Chuqin (CHN)",
                 "SUN Yingsha (CHN)",
@@ -3878,17 +3477,14 @@
               ],
               "side_a": [
                 "WANG Chuqin (CHN)",
-                "ASSAR Omar (EGY)"
+                "SUN Yingsha (CHN)"
               ],
               "side_b": [
-                "SUN Yingsha (CHN)",
+                "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | WANG Chuqin (CHN) | SUN Yingsha (CHN) | ASSAR Omar (EGY) | MESHREF Dina (EGY) | XD | Main Draw | R16 | 4 - 0 | 11:7 11:8 11:4 11:3 | WANG Chuqin | SUN Yingsha | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3934,15 +3530,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SUN Yingsha (CHN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | Olympic Games Paris 2024 | SUN Yingsha (CHN) |  | MESHREF Dina (EGY) |  | WT | Main Draw | R16 | 3 - 1 | 11:5 11:4 8:11 11:7 | SUN Yingsha |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -4000,15 +3589,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "KALLBERG Christina (SWE)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | WTT Contender Tunis 2024 | KALLBERG Christina (SWE) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:6 7:11 11:6 | KALLBERG Christina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4071,15 +3653,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "CHEN Szu-Yu (TPE)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | CHEN Szu-Yu (TPE) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 11:5 9:11 8:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4125,15 +3700,8 @@
               "side_b": [
                 "SHAN Xiaona (GER)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "SHAN Xiaona (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Zagreb 2022 | MESHREF Dina (EGY) |  | SHAN Xiaona (GER) |  | WS | Main Draw | R16 | 1 - 3 | 7:11 11:8 9:11 8:11 | SHAN Xiaona |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4186,15 +3754,8 @@
               "side_b": [
                 "ADOM-AMANKWAA Eva (GHA)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "ADOM-AMANKWAA Eva (GHA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Africa Cup Lagos 2022 | MESHREF Dina (EGY) |  | ADOM-AMANKWAA Eva (GHA) |  | WS | Qualification |  | 3 - 0 | 11:5 11:2 11:6 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4239,15 +3800,8 @@
               "side_b": [
                 "BELLO Fatimo (NGR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "BELLO Fatimo (NGR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Africa Cup Lagos 2022 | MESHREF Dina (EGY) |  | BELLO Fatimo (NGR) |  | WS | Qualification |  | 3 - 1 | 11:3 11:9 8:11 11:6 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -4292,15 +3846,8 @@
               "side_b": [
                 "KESSACI Katia (ALG)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "KESSACI Katia (ALG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Africa Cup Lagos 2022 | MESHREF Dina (EGY) |  | KESSACI Katia (ALG) |  | WS | Main Draw | R16 | 4 - 0 | 11:7 11:6 11:3 11:7 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4346,15 +3893,8 @@
               "side_b": [
                 "GARCI Fadwa (TUN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "GARCI Fadwa (TUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Africa Cup Lagos 2022 | MESHREF Dina (EGY) |  | GARCI Fadwa (TUN) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:3 11:5 11:8 11:6 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4415,15 +3955,8 @@
               "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "GODA Hana (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF-Africa Cup Lagos 2022 | MESHREF Dina (EGY) |  | GODA Hana (EGY) |  | WS | Main Draw | SemiFinal | 3 - 4 | 11:7 2:11 12:14 11:5 13:15 16:14 9:11 | GODA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4469,15 +4002,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "ALHODABY Mariam (EGY)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF-Africa Cup Lagos 2022 | ALHODABY Mariam (EGY) |  | MESHREF Dina (EGY) |  | WS | Position Draw | 2 | 1 - 3 | 6:11 11:5 8:11 5:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "排位赛",
@@ -4530,15 +4056,8 @@
               "side_b": [
                 "HARIMOTO Miwa (JPN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "HARIMOTO Miwa (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | MESHREF Dina (EGY) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 7:11 10:12 2:11 | HARIMOTO Miwa |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4591,15 +4110,8 @@
               "side_b": [
                 "LEE Ho Ching (HKG)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "LEE Ho Ching (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | MESHREF Dina (EGY) |  | LEE Ho Ching (HKG) |  | WS | Main Draw | R64 | 0 - 3 | 0:11 6:11 7:11 | LEE Ho Ching |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4639,7 +4151,7 @@
                 "13:15",
                 "8:11"
               ],
-              "winner": "LEE Ho Ching",
+              "winner": "LEE Ho Ching / DOO Hoi Kem",
               "all_players_in_row": [
                 "HELMY Yousra (EGY)",
                 "MESHREF Dina (EGY)",
@@ -4648,17 +4160,14 @@
               ],
               "side_a": [
                 "HELMY Yousra (EGY)",
-                "LEE Ho Ching (HKG)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "LEE Ho Ching (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | HELMY Yousra (EGY) | MESHREF Dina (EGY) | LEE Ho Ching (HKG) | DOO Hoi Kem (HKG) | WD | Main Draw | R32 | 2 - 3 | 12:10 1:11 11:8 13:15 8:11 | LEE Ho Ching | DOO Hoi Kem | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4688,7 +4197,7 @@
                 "3:11",
                 "10:12"
               ],
-              "winner": "WANG Chuqin",
+              "winner": "WANG Chuqin / SUN Yingsha",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -4697,17 +4206,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "WANG Chuqin (CHN)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "WANG Chuqin (CHN)",
                 "SUN Yingsha (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Singapore Smash 2022 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | WANG Chuqin (CHN) | SUN Yingsha (CHN) | XD | Main Draw | R16 | 0 - 3 | 4:11 3:11 10:12 | WANG Chuqin | SUN Yingsha | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4770,15 +4276,8 @@
               "side_b": [
                 "GRIESEL Mia (GER)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "GRIESEL Mia (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | MESHREF Dina (EGY) |  | GRIESEL Mia (GER) |  | WS | Main Draw | R32 | 4 - 1 | 11:5 7:11 12:10 11:3 12:10 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4834,15 +4333,8 @@
               "side_b": [
                 "WAN Yuan (GER)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "WAN Yuan (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Feeder Dusseldorf II 2022 | MESHREF Dina (EGY) |  | WAN Yuan (GER) |  | WS | Main Draw | R16 | 2 - 4 | 11:9 8:11 8:11 9:11 11:6 13:15 | WAN Yuan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4915,15 +4407,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "JEGER Mateja (CRO)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | JEGER Mateja (CRO) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R128 | 2 - 4 | 4:11 10:12 11:9 11:9 3:11 5:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4974,15 +4459,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SAWETTABUT Jinnipa (THA)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SAWETTABUT Jinnipa (THA) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R64 | 1 - 4 | 7:11 8:11 7:11 11:0 9:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5022,7 +4500,7 @@
                 "9:11",
                 "4:11"
               ],
-              "winner": "ACHANTA Sharath",
+              "winner": "ACHANTA Sharath / KAMATH Archana",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -5031,17 +4509,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "ACHANTA Sharath (IND)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "ACHANTA Sharath (IND)",
                 "KAMATH Archana (IND)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | ACHANTA Sharath (IND) | KAMATH Archana (IND) | XD | Main Draw | R32 | 2 - 3 | 11:9 11:2 5:11 9:11 4:11 | ACHANTA Sharath | KAMATH Archana | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5092,15 +4567,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "HAYATA Hina (JPN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | HAYATA Hina (JPN) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 4 - 1 | 11:6 4:11 11:9 11:7 11:2 | HAYATA Hina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5153,15 +4621,8 @@
               "side_b": [
                 "SELVAKUMAR Selena (IND)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "SELVAKUMAR Selena (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MESHREF Dina (EGY) |  | SELVAKUMAR Selena (IND) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:3 11:4 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5202,15 +4663,8 @@
               "side_b": [
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "PAVADE Prithika (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Contender Tunis 2021 | MESHREF Dina (EGY) |  | PAVADE Prithika (FRA) |  | WS | Main Draw | R16 | 0 - 3 | 10:12 10:12 4:11 | PAVADE Prithika |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5263,15 +4717,8 @@
               "side_b": [
                 "CHOI Hyojoo (KOR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "CHOI Hyojoo (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Star Contender Doha II 2021 | MESHREF Dina (EGY) |  | CHOI Hyojoo (KOR) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 7:11 10:12 | CHOI Hyojoo |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5324,15 +4771,8 @@
               "side_b": [
                 "BOBGA BOGHUMA KAHLIH (CMR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "BOBGA BOGHUMA KAHLIH (CMR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | MESHREF Dina (EGY) |  | BOBGA BOGHUMA KAHLIH (CMR) |  | WT | Qualification |  | 3 - 0 | 11:1 11:2 11:7 | MESHREF Dina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5372,15 +4812,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "JALIM Nandeshwaree (MRI)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | JALIM Nandeshwaree (MRI) |  | MESHREF Dina (EGY) |  | WT | Qualification |  | 0 - 3 | 5:11 5:11 3:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5420,15 +4853,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "GARCI Fadwa (TUN)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | GARCI Fadwa (TUN) |  | MESHREF Dina (EGY) |  | WT | Main Draw | SemiFinal | 0 - 3 | 9:11 10:12 4:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -5458,7 +4884,7 @@
                 "11:2",
                 "11:5"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -5467,17 +4893,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "DJITOUO SAHA FOTSO Alex (CMR)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "DJITOUO SAHA FOTSO Alex (CMR)",
                 "DJIKE TCHUINKAM Marianne Hillary (CMR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | DJITOUO SAHA FOTSO Alex (CMR) | DJIKE TCHUINKAM Marianne Hillary (CMR) | XD | Main Draw | R32 | 3 - 0 | 11:3 11:2 11:5 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5507,7 +4930,7 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -5516,17 +4939,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "KALLEL Iheb (TUN)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "KALLEL Iheb (TUN)",
                 "ZOGHLAMI Maram (TUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | KALLEL Iheb (TUN) | ZOGHLAMI Maram (TUN) | XD | Main Draw | R16 | 3 - 0 | 11:8 11:5 11:6 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5572,15 +4992,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "AKPAN Cecilia (NGR)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | AKPAN Cecilia (NGR) |  | MESHREF Dina (EGY) |  | WT | Main Draw | Final | 1 - 3 | 2:11 6:11 11:6 6:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -5615,7 +5028,7 @@
                 "11:7",
                 "14:12"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -5624,17 +5037,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "MATI Taiwo (NGR)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "MATI Taiwo (NGR)",
                 "AKPAN Cecilia (NGR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | MATI Taiwo (NGR) | AKPAN Cecilia (NGR) | XD | Main Draw | QuarterFinal | 4 - 0 | 11:0 11:5 11:7 14:12 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5669,7 +5079,7 @@
                 "11:2",
                 "12:10"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -5678,17 +5088,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "KHEROUF Sami (ALG)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "KHEROUF Sami (ALG)",
                 "LOGHRAIBI Lynda (ALG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | KHEROUF Sami (ALG) | LOGHRAIBI Lynda (ALG) | XD | Main Draw | SemiFinal | 4 - 0 | 11:3 11:1 11:2 12:10 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5734,15 +5141,8 @@
               "side_b": [
                 "HOSENALLY Ashfani (MRI)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "HOSENALLY Ashfani (MRI)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | MESHREF Dina (EGY) |  | HOSENALLY Ashfani (MRI) |  | WS | Main Draw | R32 | 4 - 0 | 11:1 11:5 11:4 11:6 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5777,7 +5177,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -5786,17 +5186,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "ASSAR Khalid (EGY)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "ASSAR Khalid (EGY)",
                 "HELMY Yousra (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | ASSAR Khalid (EGY) | HELMY Yousra (EGY) | XD | Main Draw | Final | 4 - 0 | 11:6 11:7 11:7 11:8 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5842,15 +5239,8 @@
               "side_b": [
                 "ODUSANYA Abosede (NGR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "ODUSANYA Abosede (NGR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | MESHREF Dina (EGY) |  | ODUSANYA Abosede (NGR) |  | WS | Main Draw | R16 | 4 - 0 | 11:6 11:4 11:1 11:8 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5896,15 +5286,8 @@
               "side_b": [
                 "ZOGHLAMI Maram (TUN)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "ZOGHLAMI Maram (TUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | MESHREF Dina (EGY) |  | ZOGHLAMI Maram (TUN) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:7 11:6 11:5 11:4 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5960,15 +5343,8 @@
               "side_b": [
                 "GODA Hana (EGY)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "GODA Hana (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF African Championships Yaounde 2021 | MESHREF Dina (EGY) |  | GODA Hana (EGY) |  | WS | Main Draw | SemiFinal | 2 - 4 | 10:12 11:8 11:7 8:11 10:12 9:11 | GODA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6036,15 +5412,8 @@
               "side_b": [
                 "PARTYKA Natalia (POL)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "PARTYKA Natalia (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | MESHREF Dina (EGY) |  | PARTYKA Natalia (POL) |  | WS | Main Draw | R64 | 4 - 2 | 15:13 10:12 11:9 11:4 7:11 13:11 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6105,15 +5474,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "EERLAND Britt (NED)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | EERLAND Britt (NED) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 4 - 3 | 9:11 3:11 7:11 11:6 11:5 11:8 11:7 | EERLAND Britt |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6164,15 +5526,8 @@
               "side_b": [
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "SZOCS Bernadette (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | MESHREF Dina (EGY) |  | SZOCS Bernadette (ROU) |  | WT | Main Draw | R16 | 2 - 3 | 12:10 11:9 6:11 7:11 7:11 | SZOCS Bernadette |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -6212,7 +5567,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "LEE Sang Su",
+              "winner": "LEE Sang Su / JEON Jihee",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -6221,17 +5576,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "LEE Sang Su (KOR)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "LEE Sang Su (KOR)",
                 "JEON Jihee (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | LEE Sang Su (KOR) | JEON Jihee (KOR) | XD | Main Draw | R16 | 1 - 4 | 11:9 3:11 5:11 7:11 8:11 | LEE Sang Su | JEON Jihee | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -6273,7 +5625,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "MESHREF Dina",
+              "winner": "MESHREF Dina / ASSAR Omar",
               "all_players_in_row": [
                 "LAVROVA Anastassiya (KAZ)",
                 "KURMANGALIYEV Alan (KAZ)",
@@ -6282,17 +5634,14 @@
               ],
               "side_a": [
                 "LAVROVA Anastassiya (KAZ)",
-                "MESHREF Dina (EGY)"
+                "KURMANGALIYEV Alan (KAZ)"
               ],
               "side_b": [
-                "KURMANGALIYEV Alan (KAZ)",
+                "MESHREF Dina (EGY)",
                 "ASSAR Omar (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | LAVROVA Anastassiya (KAZ) | KURMANGALIYEV Alan (KAZ) | MESHREF Dina (EGY) | ASSAR Omar (EGY) | XD | Qualification | QR32 | 0 - 3 | 7:11 8:11 6:11 | MESHREF Dina | ASSAR Omar | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -6332,7 +5681,7 @@
                 "11:6",
                 "11:8"
               ],
-              "winner": "TAKAHASHI Bruna",
+              "winner": "TAKAHASHI Bruna / ISHIY Vitor",
               "all_players_in_row": [
                 "TAKAHASHI Bruna (BRA)",
                 "ISHIY Vitor (BRA)",
@@ -6341,17 +5690,14 @@
               ],
               "side_a": [
                 "TAKAHASHI Bruna (BRA)",
-                "MESHREF Dina (EGY)"
+                "ISHIY Vitor (BRA)"
               ],
               "side_b": [
-                "ISHIY Vitor (BRA)",
+                "MESHREF Dina (EGY)",
                 "ASSAR Omar (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | TAKAHASHI Bruna (BRA) | ISHIY Vitor (BRA) | MESHREF Dina (EGY) | ASSAR Omar (EGY) | XD | Qualification | QR16 | 3 - 2 | 11:7 8:11 10:12 11:6 11:8 | TAKAHASHI Bruna | ISHIY Vitor | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -6397,15 +5743,8 @@
               "side_b": [
                 "CHEN Szu-Yu (TPE)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "CHEN Szu-Yu (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | MESHREF Dina (EGY) |  | CHEN Szu-Yu (TPE) |  | WS | Main Draw | R32 | 1 - 3 | 19:17 4:11 9:11 9:11 | CHEN Szu-Yu |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6446,15 +5785,8 @@
               "side_b": [
                 "CHOI Hyojoo (KOR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "CHOI Hyojoo (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | MESHREF Dina (EGY) |  | CHOI Hyojoo (KOR) |  | WS | Main Draw | R64 | 3 - 0 | 11:6 11:8 11:8 | MESHREF Dina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6496,7 +5828,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -6505,17 +5837,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "CHEW Clarence (SGP)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "CHEW Clarence (SGP)",
                 "ZENG Jian (SGP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | CHEW Clarence (SGP) | ZENG Jian (SGP) | XD | Qualification | QR32 | 3 - 0 | 12:10 11:9 11:9 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -6545,7 +5874,7 @@
                 "7:11",
                 "8:11"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "TAKAHASHI Bruna (BRA)",
                 "ISHIY Vitor (BRA)",
@@ -6554,17 +5883,14 @@
               ],
               "side_a": [
                 "TAKAHASHI Bruna (BRA)",
-                "ASSAR Omar (EGY)"
+                "ISHIY Vitor (BRA)"
               ],
               "side_b": [
-                "ISHIY Vitor (BRA)",
+                "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | TAKAHASHI Bruna (BRA) | ISHIY Vitor (BRA) | ASSAR Omar (EGY) | MESHREF Dina (EGY) | XD | Qualification | QR16 | 0 - 3 | 8:11 7:11 8:11 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -6610,15 +5936,8 @@
               "side_b": [
                 "SUH Hyo Won (KOR)"
               ],
-              "teammates": [
-                "MESHREF Dina (EGY)"
-              ],
-              "opponents": [
-                "SUH Hyo Won (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | MESHREF Dina (EGY) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R32 | 1 - 3 | 10:12 11:8 5:11 5:11 | SUH Hyo Won |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6648,24 +5967,23 @@
                 "11:5",
                 "11:6"
               ],
-              "winner": "LIN Yun-Ju",
+              "winner": "LIN Yun-Ju / CHENG I-Ching",
               "all_players_in_row": [
+                "LIN Yun-Ju (TPE)",
+                "CHENG I-Ching (TPE)",
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)"
               ],
               "side_a": [
                 "LIN Yun-Ju (TPE)",
-                "ASSAR Omar (EGY)"
+                "CHENG I-Ching (TPE)"
               ],
               "side_b": [
-                "CHENG I-Ching (TPE)",
+                "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | LIN Yun-Ju (TPE) | CHENG I-Ching (TPE) | ASSAR Omar (EGY) | MESHREF Dina (EGY) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:7 11:5 11:6 | LIN Yun-Ju | CHENG I-Ching | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -6705,7 +6023,7 @@
                 "9:11",
                 "15:13"
               ],
-              "winner": "ASSAR Omar",
+              "winner": "ASSAR Omar / MESHREF Dina",
               "all_players_in_row": [
                 "ASSAR Omar (EGY)",
                 "MESHREF Dina (EGY)",
@@ -6714,17 +6032,14 @@
               ],
               "side_a": [
                 "ASSAR Omar (EGY)",
-                "PERGEL Szandra (HUN)"
+                "MESHREF Dina (EGY)"
               ],
               "side_b": [
-                "MESHREF Dina (EGY)",
+                "PERGEL Szandra (HUN)",
                 "SZUDI Adam (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | ASSAR Omar (EGY) | MESHREF Dina (EGY) | PERGEL Szandra (HUN) | SZUDI Adam (HUN) | XD | Main Draw | R16 | 3 - 2 | 11:7 11:9 7:11 9:11 15:13 | ASSAR Omar | MESHREF Dina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -6792,15 +6107,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SUH Hyo Won (KOR)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | SUH Hyo Won (KOR) |  | MESHREF Dina (EGY) |  | WS | Qualification |  | 4 - 1 | 5:11 11:3 11:6 13:11 13:11 | SUH Hyo Won |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -6860,15 +6168,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SZOCS Bernadette (ROU)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2020 | Dishang 2020 ITTF Women’s World Cup Weihai 2020 | SZOCS Bernadette (ROU) |  | MESHREF Dina (EGY) |  | WS | Qualification |  | 4 - 3 | 8:11 11:5 11:8 10:12 11:6 10:12 11:5 | SZOCS Bernadette |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"

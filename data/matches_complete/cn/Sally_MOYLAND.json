@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Sally MOYLAND",
-  "english_name": "Sally MOYLAND",
+  "player_name": "MOYLAND Sally",
+  "english_name": "MOYLAND Sally",
   "country": "USA",
   "country_code": "USA",
   "continent": "",
@@ -54,7 +54,7 @@
                 "11:4",
                 "4:11"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "CAO Andrew (USA)",
                 "YEOH Irene (USA)",
@@ -63,17 +63,14 @@
               ],
               "side_a": [
                 "CAO Andrew (USA)",
-                "TRAN Daniel (USA)"
+                "YEOH Irene (USA)"
               ],
               "side_b": [
-                "YEOH Irene (USA)",
+                "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | CAO Andrew (USA) | YEOH Irene (USA) | TRAN Daniel (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | QuarterFinal | 2 - 3 | 11:4 8:11 5:11 11:4 4:11 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -113,7 +110,7 @@
                 "11:6",
                 "5:11"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "BOTHA Bosman (USA)",
                 "WU Ying Syuan (TPE)",
@@ -122,17 +119,14 @@
               ],
               "side_a": [
                 "BOTHA Bosman (USA)",
-                "TRAN Daniel (USA)"
+                "WU Ying Syuan (TPE)"
               ],
               "side_b": [
-                "WU Ying Syuan (TPE)",
+                "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | BOTHA Bosman (USA) | WU Ying Syuan (TPE) | TRAN Daniel (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | SemiFinal | 2 - 3 | 11:7 7:11 4:11 11:6 5:11 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -173,15 +167,8 @@
               "side_b": [
                 "HE Angel (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "HE Angel (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | MOYLAND Sally (USA) |  | HE Angel (USA) |  | U19WS | Qualification |  | 3 - 0 | 11:1 11:3 11:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -221,15 +208,8 @@
               "side_b": [
                 "YU Abigail (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "YU Abigail (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | MOYLAND Sally (USA) |  | YU Abigail (USA) |  | U19WS | Qualification |  | 3 - 0 | 11:3 11:5 11:5 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -258,7 +238,7 @@
                 "11:5",
                 "11:5"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)",
@@ -267,17 +247,14 @@
               ],
               "side_a": [
                 "TRAN Daniel (USA)",
-                "RIOS Enrique (PUR)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "RIOS Enrique (PUR)",
                 "DAVILA Valentina (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | TRAN Daniel (USA) | MOYLAND Sally (USA) | RIOS Enrique (PUR) | DAVILA Valentina (PUR) | U19XD | Main Draw | Final | 3 - 0 | 11:6 11:5 11:5 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -318,15 +295,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "JIAO Emma (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | JIAO Emma (USA) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | QuarterFinal | 0 - 3 | 2:11 7:11 4:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -367,15 +337,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "CHEN Hildy (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | CHEN Hildy (USA) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | SemiFinal | 0 - 3 | 7:11 8:11 5:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -426,15 +389,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "WU Ying Syuan (TPE)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | WTT Youth Contender Houston 2026 Presented by Satellite Chemical | WU Ying Syuan (TPE) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | Final | 3 - 2 | 5:11 11:8 8:11 11:9 11:8 | WU Ying Syuan |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -497,15 +453,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "SU Tsz Tung (HKG)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Youth Smash 2026 Presented by Resorts World Sentosa | SU Tsz Tung (HKG) |  | MOYLAND Sally (USA) |  | U19WS | Qualification |  | 4 - 1 | 7:4 7:6 4:7 7:6 7:6 | SU Tsz Tung |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -550,15 +499,8 @@
               "side_b": [
                 "LEE Haelin (KOR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "LEE Haelin (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Youth Smash 2026 Presented by Resorts World Sentosa | MOYLAND Sally (USA) |  | LEE Haelin (KOR) |  | U19WS | Qualification |  | 4 - 0 | 7:0 7:0 7:5 7:2 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -613,15 +555,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "DAS Syndrela (IND)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Youth Smash 2026 Presented by Resorts World Sentosa | DAS Syndrela (IND) |  | MOYLAND Sally (USA) |  | U19WS | Qualification |  | 2 - 4 | 7:3 6:7 7:5 5:7 2:7 4:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -666,15 +601,8 @@
               "side_b": [
                 "ZHU Qihui (CHN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ZHU Qihui (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Youth Smash 2026 Presented by Resorts World Sentosa | MOYLAND Sally (USA) |  | ZHU Qihui (CHN) |  | U19WS | Main Draw | R16 | 0 - 4 | 5:7 5:7 6:7 4:7 | ZHU Qihui |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -727,15 +655,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "HUANG Yu-Jie (TPE)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | HUANG Yu-Jie (TPE) |  | MOYLAND Sally (USA) |  | WS | Qualification | QR64 | 0 - 3 | 7:11 6:11 8:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -781,15 +702,8 @@
               "side_b": [
                 "GHORPADE Yashaswini (IND)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "GHORPADE Yashaswini (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | MOYLAND Sally (USA) |  | GHORPADE Yashaswini (IND) |  | WS | Qualification | QR32 | 3 - 1 | 11:6 3:11 11:8 14:12 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -830,15 +744,8 @@
               "side_b": [
                 "LAI Chloe (SGP)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "LAI Chloe (SGP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | MOYLAND Sally (USA) |  | LAI Chloe (SGP) |  | WS | Qualification | QR16 | 3 - 0 | 11:5 11:6 11:4 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -884,15 +791,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "WINTER Sabine (GER)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | WINTER Sabine (GER) |  | MOYLAND Sally (USA) |  | WS | Main Draw | R64 | 3 - 1 | 9:11 11:4 11:8 13:11 | WINTER Sabine |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -934,26 +834,23 @@
                 "11:3",
                 "11:8"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / MOYLAND Sally",
               "all_players_in_row": [
                 "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)",
-                "VIGNEAULT Laurent (CAN)",
+                "JUTRAS-VIGNEAULT Laurent (CAN)",
                 "HUANG Olivia (CAN)"
               ],
               "side_a": [
                 "LIANG Jishan (USA)",
-                "JUTRAS-VIGNEAULT Laurent (CAN)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "JUTRAS-VIGNEAULT Laurent (CAN)",
                 "HUANG Olivia (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | LIANG Jishan (USA) | MOYLAND Sally (USA) | JUTRAS-VIGNEAULT Laurent (CAN) | HUANG Olivia (CAN) | XD | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:3 11:8 | LIANG Jishan | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -993,7 +890,7 @@
                 "7:11",
                 "11:7"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / MOYLAND Sally",
               "all_players_in_row": [
                 "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)",
@@ -1002,17 +899,14 @@
               ],
               "side_a": [
                 "LIANG Jishan (USA)",
-                "PENDSE Tanish (USA)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "PENDSE Tanish (USA)",
                 "CHEN Hildy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | LIANG Jishan (USA) | MOYLAND Sally (USA) | PENDSE Tanish (USA) | CHEN Hildy (USA) | XD | Main Draw | SemiFinal | 3 - 2 | 11:8 9:11 11:7 7:11 11:7 | LIANG Jishan | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1052,7 +946,7 @@
                 "8:11",
                 "6:11"
               ],
-              "winner": "LY Edward",
+              "winner": "LY Edward / ZHANG Mo",
               "all_players_in_row": [
                 "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)",
@@ -1061,17 +955,14 @@
               ],
               "side_a": [
                 "LIANG Jishan (USA)",
-                "LY Edward (CAN)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "LY Edward (CAN)",
                 "ZHANG Mo (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | LIANG Jishan (USA) | MOYLAND Sally (USA) | LY Edward (CAN) | ZHANG Mo (CAN) | XD | Main Draw | Final | 2 - 3 | 11:8 5:11 15:13 8:11 6:11 | LY Edward | ZHANG Mo | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1117,15 +1008,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "HUANG Olivia (CAN)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | HUANG Olivia (CAN) |  | MOYLAND Sally (USA) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 10:12 8:11 2:11 6:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1176,15 +1060,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "YEOH Irene (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | YEOH Irene (USA) |  | MOYLAND Sally (USA) |  | WS | Main Draw | SemiFinal | 1 - 4 | 9:11 6:11 11:9 2:11 5:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1235,15 +1112,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "REYES LAI Jessica (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | REYES LAI Jessica (USA) |  | MOYLAND Sally (USA) |  | WS | Main Draw | Final | 1 - 4 | 4:11 11:5 12:14 6:11 6:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1301,15 +1171,8 @@
               "side_b": [
                 "WANG Ke (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "WANG Ke (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | MOYLAND Sally (USA) |  | WANG Ke (USA) |  | WS | Qualification | QR16 | 3 - 1 | 11:7 8:11 11:6 11:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1350,15 +1213,8 @@
               "side_b": [
                 "YEOH Irene (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "YEOH Irene (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | MOYLAND Sally (USA) |  | YEOH Irene (USA) |  | WS | Qualification | QR8 | 3 - 0 | 11:9 11:4 11:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -1409,15 +1265,8 @@
               "side_b": [
                 "ORTEGA Daniela (CHI)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ORTEGA Daniela (CHI)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | MOYLAND Sally (USA) |  | ORTEGA Daniela (CHI) |  | WS | Main Draw | R16 | 4 - 1 | 11:13 11:5 11:8 13:11 11:4 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1463,15 +1312,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF-Americas Cup San Francisco 2026 | TAKAHASHI Bruna (BRA) |  | MOYLAND Sally (USA) |  | WS | Main Draw | QuarterFinal | 4 - 0 | 11:1 11:6 14:12 11:9 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1518,7 +1360,7 @@
                 "11:3",
                 "11:5"
               ],
-              "winner": "KALLBERG Christina",
+              "winner": "KALLBERG Christina / KARLSSON Kristian",
               "all_players_in_row": [
                 "KALLBERG Christina (SWE)",
                 "KARLSSON Kristian (SWE)",
@@ -1527,17 +1369,14 @@
               ],
               "side_a": [
                 "KALLBERG Christina (SWE)",
-                "MOYLAND Sally (USA)"
+                "KARLSSON Kristian (SWE)"
               ],
               "side_b": [
-                "KARLSSON Kristian (SWE)",
+                "MOYLAND Sally (USA)",
                 "LIANG Jishan (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | KALLBERG Christina (SWE) | KARLSSON Kristian (SWE) | MOYLAND Sally (USA) | LIANG Jishan (USA) | XT | Qualification |  | 3 - 0 | 12:10 11:3 11:5 | KALLBERG Christina | KARLSSON Kristian | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -1577,15 +1416,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "LEE Eunhye (KOR)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) |  | MOYLAND Sally (USA) |  | XT | Qualification |  | 3 - 0 | 11:8 11:1 11:9 | LEE Eunhye |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -1626,7 +1458,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "LEI Balazs",
+              "winner": "LEI Balazs / POLAKOVA Veronika",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)",
@@ -1635,17 +1467,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "LEI Balazs (HUN)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "LEI Balazs (HUN)",
                 "POLAKOVA Veronika (CZE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | NARESH Nandan (USA) | MOYLAND Sally (USA) | LEI Balazs (HUN) | POLAKOVA Veronika (CZE) | U19XD | Main Draw | R32 | 0 - 3 | 10:12 9:11 8:11 | LEI Balazs | POLAKOVA Veronika | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -1675,7 +1504,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "GRIESEL Mia",
+              "winner": "GRIESEL Mia / HURSEY Anna",
               "all_players_in_row": [
                 "GRIESEL Mia (GER)",
                 "HURSEY Anna (WAL)",
@@ -1684,17 +1513,14 @@
               ],
               "side_a": [
                 "GRIESEL Mia (GER)",
-                "MOYLAND Sally (USA)"
+                "HURSEY Anna (WAL)"
               ],
               "side_b": [
-                "HURSEY Anna (WAL)",
+                "MOYLAND Sally (USA)",
                 "CRUZ Kheith (PHI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | GRIESEL Mia (GER) | HURSEY Anna (WAL) | MOYLAND Sally (USA) | CRUZ Kheith (PHI) | U19WD | Main Draw | R16 | 3 - 0 | 11:8 11:7 11:4 | GRIESEL Mia | HURSEY Anna | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -1745,15 +1571,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "KOTECHA Taneesha (IND)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Youth Championships Cluj-Napoca 2025 | KOTECHA Taneesha (IND) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | R32 | 4 - 1 | 11:6 8:11 13:11 11:9 11:6 | KOTECHA Taneesha |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -1800,7 +1619,7 @@
                 "11:7",
                 "11:9"
               ],
-              "winner": "LUU Finn",
+              "winner": "LUU Finn / MOYLAND Sally",
               "all_players_in_row": [
                 "LUU Finn (AUS)",
                 "MOYLAND Sally (USA)",
@@ -1809,17 +1628,14 @@
               ],
               "side_a": [
                 "LUU Finn (AUS)",
-                "KOLASA Szymon (POL)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "KOLASA Szymon (POL)",
                 "WEGRZYN Anna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | LUU Finn (AUS) | MOYLAND Sally (USA) | KOLASA Szymon (POL) | WEGRZYN Anna (POL) | XD | Main Draw | R16 | 3 - 1 | 8:11 11:7 11:7 11:9 | LUU Finn | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -1849,7 +1665,7 @@
                 "3:11",
                 "7:11"
               ],
-              "winner": "CRUZ Kheith",
+              "winner": "CRUZ Kheith / MOYLAND Sally",
               "all_players_in_row": [
                 "POLAKOVA Veronika (CZE)",
                 "KODET Hanka (CZE)",
@@ -1858,17 +1674,14 @@
               ],
               "side_a": [
                 "POLAKOVA Veronika (CZE)",
-                "CRUZ Kheith (PHI)"
+                "KODET Hanka (CZE)"
               ],
               "side_b": [
-                "KODET Hanka (CZE)",
+                "CRUZ Kheith (PHI)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | POLAKOVA Veronika (CZE) | KODET Hanka (CZE) | CRUZ Kheith (PHI) | MOYLAND Sally (USA) | WD | Main Draw | R16 | 0 - 3 | 4:11 3:11 7:11 | CRUZ Kheith | MOYLAND Sally | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1919,15 +1732,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "CARNOVALE Miriam (ITA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | CARNOVALE Miriam (ITA) |  | MOYLAND Sally (USA) |  | WS | Main Draw | R32 | 2 - 3 | 11:9 5:11 7:11 11:5 6:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1957,7 +1763,7 @@
                 "8:11",
                 "5:11"
               ],
-              "winner": "ZELINKA Jakub",
+              "winner": "ZELINKA Jakub / BURGOS Brianna",
               "all_players_in_row": [
                 "LUU Finn (AUS)",
                 "MOYLAND Sally (USA)",
@@ -1966,17 +1772,14 @@
               ],
               "side_a": [
                 "LUU Finn (AUS)",
-                "ZELINKA Jakub (SVK)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "ZELINKA Jakub (SVK)",
                 "BURGOS Brianna (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | LUU Finn (AUS) | MOYLAND Sally (USA) | ZELINKA Jakub (SVK) | BURGOS Brianna (PUR) | XD | Main Draw | QuarterFinal | 0 - 3 | 8:11 8:11 5:11 | ZELINKA Jakub | BURGOS Brianna | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2011,7 +1814,7 @@
                 "14:12",
                 "11:9"
               ],
-              "winner": "CRUZ Kheith",
+              "winner": "CRUZ Kheith / MOYLAND Sally",
               "all_players_in_row": [
                 "CRUZ Kheith (PHI)",
                 "MOYLAND Sally (USA)",
@@ -2020,17 +1823,14 @@
               ],
               "side_a": [
                 "CRUZ Kheith (PHI)",
-                "AKASHEVA Zauresh (KAZ)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "AKASHEVA Zauresh (KAZ)",
                 "MIRKADIROVA Sarvinoz (KAZ)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | CRUZ Kheith (PHI) | MOYLAND Sally (USA) | AKASHEVA Zauresh (KAZ) | MIRKADIROVA Sarvinoz (KAZ) | WD | Main Draw | QuarterFinal | 3 - 1 | 4:11 11:4 14:12 11:9 | CRUZ Kheith | MOYLAND Sally | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2076,15 +1876,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "KIM Seongjin (KOR)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | KIM Seongjin (KOR) |  | MOYLAND Sally (USA) |  | WS | Main Draw | R16 | 3 - 1 | 2:11 11:8 11:6 15:13 | KIM Seongjin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2119,7 +1912,7 @@
                 "11:8",
                 "13:11"
               ],
-              "winner": "CRUZ Kheith",
+              "winner": "CRUZ Kheith / MOYLAND Sally",
               "all_players_in_row": [
                 "CRUZ Kheith (PHI)",
                 "MOYLAND Sally (USA)",
@@ -2128,17 +1921,14 @@
               ],
               "side_a": [
                 "CRUZ Kheith (PHI)",
-                "WEGRZYN Anna (POL)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "WEGRZYN Anna (POL)",
                 "WEGRZYN Katarzyna (POL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | CRUZ Kheith (PHI) | MOYLAND Sally (USA) | WEGRZYN Anna (POL) | WEGRZYN Katarzyna (POL) | WD | Main Draw | SemiFinal | 3 - 1 | 8:11 11:4 11:8 13:11 | CRUZ Kheith | MOYLAND Sally | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2173,7 +1963,7 @@
                 "6:11",
                 "11:9"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / YOKOI Sakura",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "YOKOI Sakura (JPN)",
@@ -2182,17 +1972,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "CRUZ Kheith (PHI)"
+                "YOKOI Sakura (JPN)"
               ],
               "side_b": [
-                "YOKOI Sakura (JPN)",
+                "CRUZ Kheith (PHI)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Gdansk 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | CRUZ Kheith (PHI) | MOYLAND Sally (USA) | WD | Main Draw | Final | 3 - 1 | 12:10 11:4 6:11 11:9 | SATO Hitomi | YOKOI Sakura | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2234,7 +2021,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "NARESH Nandan",
+              "winner": "NARESH Nandan / MOYLAND Sally",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)",
@@ -2243,17 +2030,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "SANCHI Francisco (ARG)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "SANCHI Francisco (ARG)",
                 "CODINA Ana (ARG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | NARESH Nandan (USA) | MOYLAND Sally (USA) | SANCHI Francisco (ARG) | CODINA Ana (ARG) | XD | Main Draw | R16 | 3 - 0 | 11:4 11:7 11:5 | NARESH Nandan | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2299,15 +2083,8 @@
               "side_b": [
                 "MUNOZ Monica (MEX)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "MUNOZ Monica (MEX)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | MOYLAND Sally (USA) |  | MUNOZ Monica (MEX) |  | WS | Main Draw | R32 | 4 - 0 | 11:8 11:6 11:5 11:6 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2347,7 +2124,7 @@
                 "8:11",
                 "8:11"
               ],
-              "winner": "MORENO Steven",
+              "winner": "MORENO Steven / BURGOS Brianna",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)",
@@ -2356,17 +2133,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "MORENO Steven (PUR)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "MORENO Steven (PUR)",
                 "BURGOS Brianna (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | NARESH Nandan (USA) | MOYLAND Sally (USA) | MORENO Steven (PUR) | BURGOS Brianna (PUR) | XD | Main Draw | QuarterFinal | 2 - 3 | 6:11 11:9 14:12 8:11 8:11 | MORENO Steven | BURGOS Brianna | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2406,7 +2180,7 @@
                 "13:15",
                 "11:4"
               ],
-              "winner": "ORTEGA Daniela",
+              "winner": "ORTEGA Daniela / VEGA Paulina",
               "all_players_in_row": [
                 "ORTEGA Daniela (CHI)",
                 "VEGA Paulina (CHI)",
@@ -2415,17 +2189,14 @@
               ],
               "side_a": [
                 "ORTEGA Daniela (CHI)",
-                "MOYLAND Sally (USA)"
+                "VEGA Paulina (CHI)"
               ],
               "side_b": [
-                "VEGA Paulina (CHI)",
+                "MOYLAND Sally (USA)",
                 "REYES LAI Jessica (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ORTEGA Daniela (CHI) | VEGA Paulina (CHI) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:5 7:11 11:9 13:15 11:4 | ORTEGA Daniela | VEGA Paulina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2476,15 +2247,8 @@
               "side_b": [
                 "CODINA Ana (ARG)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CODINA Ana (ARG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | MOYLAND Sally (USA) |  | CODINA Ana (ARG) |  | WS | Main Draw | R16 | 4 - 1 | 11:6 11:6 11:13 11:5 11:3 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2535,15 +2299,8 @@
               "side_b": [
                 "ZHANG Mo (CAN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ZHANG Mo (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | MOYLAND Sally (USA) |  | ZHANG Mo (CAN) |  | WS | Main Draw | QuarterFinal | 1 - 4 | 7:11 14:12 6:11 7:11 4:11 | ZHANG Mo |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2589,15 +2346,8 @@
               "side_b": [
                 "ARGUELLES Camila (ARG)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ARGUELLES Camila (ARG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | MOYLAND Sally (USA) |  | ARGUELLES Camila (ARG) |  | WT | Qualification |  | 3 - 1 | 11:13 13:11 11:9 11:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -2637,15 +2387,8 @@
               "side_b": [
                 "CHAN Natalie (CAN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CHAN Natalie (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | MOYLAND Sally (USA) |  | CHAN Natalie (CAN) |  | WT | Qualification |  | 3 - 0 | 11:4 11:7 11:9 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -2690,15 +2433,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "VEGA Paulina (CHI)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | VEGA Paulina (CHI) |  | MOYLAND Sally (USA) |  | WT | Main Draw | SemiFinal | 1 - 3 | 6:11 13:11 3:11 9:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -2744,15 +2480,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "DIAZ Adriana (PUR)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | DIAZ Adriana (PUR) |  | MOYLAND Sally (USA) |  | WT | Main Draw | Final | 3 - 1 | 8:11 14:12 11:5 12:10 | DIAZ Adriana |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -2810,15 +2539,8 @@
               "side_b": [
                 "CHOI Hyojoo (KOR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CHOI Hyojoo (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | MOYLAND Sally (USA) |  | CHOI Hyojoo (KOR) |  | WS | Qualification | QR64 | 1 - 3 | 3:11 11:3 6:11 9:11 | CHOI Hyojoo |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -2853,7 +2575,7 @@
                 "11:2",
                 "11:6"
               ],
-              "winner": "YUAN Licen",
+              "winner": "YUAN Licen / WANG Yidi",
               "all_players_in_row": [
                 "YUAN Licen (CHN)",
                 "WANG Yidi (CHN)",
@@ -2862,17 +2584,14 @@
               ],
               "side_a": [
                 "YUAN Licen (CHN)",
-                "NARESH Nandan (USA)"
+                "WANG Yidi (CHN)"
               ],
               "side_b": [
-                "WANG Yidi (CHN)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | YUAN Licen (CHN) | WANG Yidi (CHN) | NARESH Nandan (USA) | MOYLAND Sally (USA) | XD | Main Draw | R32 | 3 - 1 | 11:5 10:12 11:2 11:6 | YUAN Licen | WANG Yidi | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2930,15 +2649,8 @@
               "side_b": [
                 "ZAVALETA Lucia (CRC)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ZAVALETA Lucia (CRC)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MOYLAND Sally (USA) |  | ZAVALETA Lucia (CRC) |  | U19WT | Qualification |  | 3 - 1 | 11:7 11:6 8:11 11:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -2978,15 +2690,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "MARCIAL Alma (ARG)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MARCIAL Alma (ARG) |  | MOYLAND Sally (USA) |  | U19WT | Qualification |  | 0 - 3 | 4:11 4:11 3:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "资格赛"
@@ -3026,15 +2731,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "MENDOZA SALAZAR Karla Joana (PER)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MENDOZA SALAZAR Karla Joana (PER) |  | MOYLAND Sally (USA) |  | U19WT | Main Draw | QuarterFinal | 0 - 3 | 8:11 3:11 5:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -3075,15 +2773,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "LIU Emily (CAN)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | LIU Emily (CAN) |  | MOYLAND Sally (USA) |  | U19WT | Main Draw | SemiFinal | 0 - 3 | 5:11 3:11 4:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -3129,15 +2820,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "XU Jessie (CAN)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | XU Jessie (CAN) |  | MOYLAND Sally (USA) |  | U19WT | Main Draw | SemiFinal | 1 - 3 | 2:11 11:7 8:11 7:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子团体",
               "stage_zh": "正赛",
@@ -3167,7 +2851,7 @@
                 "11:4",
                 "11:5"
               ],
-              "winner": "MOYLAND Sally",
+              "winner": "MOYLAND Sally / CHEN Hildy",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "CHEN Hildy (USA)",
@@ -3176,17 +2860,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "ESTRELLA Arianna (DOM)"
+                "CHEN Hildy (USA)"
               ],
               "side_b": [
-                "CHEN Hildy (USA)",
+                "ESTRELLA Arianna (DOM)",
                 "SOSA Dafne (DOM)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MOYLAND Sally (USA) | CHEN Hildy (USA) | ESTRELLA Arianna (DOM) | SOSA Dafne (DOM) | U19WD | Main Draw | R16 | 3 - 0 | 11:5 11:4 11:5 | MOYLAND Sally | CHEN Hildy | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -3221,7 +2902,7 @@
                 "10:12",
                 "11:8"
               ],
-              "winner": "MOYLAND Sally",
+              "winner": "MOYLAND Sally / CHEN Hildy",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "CHEN Hildy (USA)",
@@ -3230,17 +2911,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "CHAN Natalie (CAN)"
+                "CHEN Hildy (USA)"
               ],
               "side_b": [
-                "CHEN Hildy (USA)",
+                "CHAN Natalie (CAN)",
                 "XU Jessie (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MOYLAND Sally (USA) | CHEN Hildy (USA) | CHAN Natalie (CAN) | XU Jessie (CAN) | U19WD | Main Draw | QuarterFinal | 3 - 1 | 11:7 11:3 10:12 11:8 | MOYLAND Sally | CHEN Hildy | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -3270,7 +2948,7 @@
                 "8:11",
                 "5:11"
               ],
-              "winner": "MOYLAND Sally",
+              "winner": "MOYLAND Sally / CHEN Hildy",
               "all_players_in_row": [
                 "HATAKEYAMA Julia (BRA)",
                 "SHIRAY Karina (BRA)",
@@ -3279,17 +2957,14 @@
               ],
               "side_a": [
                 "HATAKEYAMA Julia (BRA)",
-                "MOYLAND Sally (USA)"
+                "SHIRAY Karina (BRA)"
               ],
               "side_b": [
-                "SHIRAY Karina (BRA)",
+                "MOYLAND Sally (USA)",
                 "CHEN Hildy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | HATAKEYAMA Julia (BRA) | SHIRAY Karina (BRA) | MOYLAND Sally (USA) | CHEN Hildy (USA) | U19WD | Main Draw | SemiFinal | 0 - 3 | 5:11 8:11 5:11 | MOYLAND Sally | CHEN Hildy | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -3324,7 +2999,7 @@
                 "4:11",
                 "3:11"
               ],
-              "winner": "NARESH Nandan",
+              "winner": "NARESH Nandan / MOYLAND Sally",
               "all_players_in_row": [
                 "MONGE ARROYO Rainer Mateo (CRC)",
                 "ARAYA Maria (CRC)",
@@ -3333,17 +3008,14 @@
               ],
               "side_a": [
                 "MONGE ARROYO Rainer Mateo (CRC)",
-                "NARESH Nandan (USA)"
+                "ARAYA Maria (CRC)"
               ],
               "side_b": [
-                "ARAYA Maria (CRC)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MONGE ARROYO Rainer Mateo (CRC) | ARAYA Maria (CRC) | NARESH Nandan (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | R16 | 1 - 3 | 6:11 11:9 4:11 3:11 | NARESH Nandan | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -3373,7 +3045,7 @@
                 "1:11",
                 "8:11"
               ],
-              "winner": "NARESH Nandan",
+              "winner": "NARESH Nandan / MOYLAND Sally",
               "all_players_in_row": [
                 "LY Kenny (CAN)",
                 "CHAN Natalie (CAN)",
@@ -3382,17 +3054,14 @@
               ],
               "side_a": [
                 "LY Kenny (CAN)",
-                "NARESH Nandan (USA)"
+                "CHAN Natalie (CAN)"
               ],
               "side_b": [
-                "CHAN Natalie (CAN)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | LY Kenny (CAN) | CHAN Natalie (CAN) | NARESH Nandan (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | QuarterFinal | 0 - 3 | 9:11 1:11 8:11 | NARESH Nandan | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -3427,7 +3096,7 @@
                 "11:7",
                 "10:12"
               ],
-              "winner": "NARESH Nandan",
+              "winner": "NARESH Nandan / MOYLAND Sally",
               "all_players_in_row": [
                 "RIOS Enrique (PUR)",
                 "MELENDEZ Kristal (PUR)",
@@ -3436,17 +3105,14 @@
               ],
               "side_a": [
                 "RIOS Enrique (PUR)",
-                "NARESH Nandan (USA)"
+                "MELENDEZ Kristal (PUR)"
               ],
               "side_b": [
-                "MELENDEZ Kristal (PUR)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | RIOS Enrique (PUR) | MELENDEZ Kristal (PUR) | NARESH Nandan (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | SemiFinal | 1 - 3 | 8:11 5:11 11:7 10:12 | NARESH Nandan | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -3492,15 +3158,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "MENDOZA SALAZAR Karla Joana (PER)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MENDOZA SALAZAR Karla Joana (PER) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | R16 | 0 - 4 | 3:11 4:11 5:11 5:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3546,15 +3205,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "HATAKEYAMA Julia (BRA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | HATAKEYAMA Julia (BRA) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | QuarterFinal | 0 - 4 | 6:11 5:11 10:12 6:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3600,15 +3252,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "KASHYAP Stuti (ANT)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | KASHYAP Stuti (ANT) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | SemiFinal | 0 - 4 | 7:11 6:11 8:11 11:13 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3643,7 +3288,7 @@
                 "11:9",
                 "12:10"
               ],
-              "winner": "MORENO Steven",
+              "winner": "MORENO Steven / LEON Edmarie",
               "all_players_in_row": [
                 "MORENO Steven (PUR)",
                 "LEON Edmarie (PUR)",
@@ -3652,17 +3297,14 @@
               ],
               "side_a": [
                 "MORENO Steven (PUR)",
-                "NARESH Nandan (USA)"
+                "LEON Edmarie (PUR)"
               ],
               "side_b": [
-                "LEON Edmarie (PUR)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MORENO Steven (PUR) | LEON Edmarie (PUR) | NARESH Nandan (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | Final | 3 - 1 | 11:7 10:12 11:9 12:10 | MORENO Steven | LEON Edmarie | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -3697,7 +3339,7 @@
                 "11:7",
                 "6:11"
               ],
-              "winner": "LEON Edmarie",
+              "winner": "LEON Edmarie / MELENDEZ Kristal",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "CHEN Hildy (USA)",
@@ -3706,17 +3348,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "LEON Edmarie (PUR)"
+                "CHEN Hildy (USA)"
               ],
               "side_b": [
-                "CHEN Hildy (USA)",
+                "LEON Edmarie (PUR)",
                 "MELENDEZ Kristal (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MOYLAND Sally (USA) | CHEN Hildy (USA) | LEON Edmarie (PUR) | MELENDEZ Kristal (PUR) | U19WD | Main Draw | Final | 1 - 3 | 4:11 8:11 11:7 6:11 | LEON Edmarie | MELENDEZ Kristal | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -3762,15 +3401,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "MELENDEZ Kristal (PUR)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Pan American Youth Championships Rosario 2025 | MELENDEZ Kristal (PUR) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | Final | 0 - 4 | 8:11 3:11 8:11 2:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -3823,15 +3455,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "GHOSH Swastika (IND)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | GHOSH Swastika (IND) |  | MOYLAND Sally (USA) |  | WS | Qualification | QR64 | 3 - 0 | 11:6 11:8 11:9 | GHOSH Swastika |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -3883,7 +3508,7 @@
                 "13:11",
                 "9:11"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / MOYLAND Sally",
               "all_players_in_row": [
                 "PICARD Vincent (FRA)",
                 "PICARD Claire (FRA)",
@@ -3892,17 +3517,14 @@
               ],
               "side_a": [
                 "PICARD Vincent (FRA)",
-                "LIANG Jishan (USA)"
+                "PICARD Claire (FRA)"
               ],
               "side_b": [
-                "PICARD Claire (FRA)",
+                "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | PICARD Vincent (FRA) | PICARD Claire (FRA) | LIANG Jishan (USA) | MOYLAND Sally (USA) | XD | Main Draw | R16 | 2 - 3 | 5:11 6:11 11:9 13:11 9:11 | LIANG Jishan | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -3943,15 +3565,8 @@
               "side_b": [
                 "DIAZ Fabiola (PUR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "DIAZ Fabiola (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | MOYLAND Sally (USA) |  | DIAZ Fabiola (PUR) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:6 11:4 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3991,7 +3606,7 @@
                 "11:7",
                 "8:11"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / MOYLAND Sally",
               "all_players_in_row": [
                 "SAKAI Yuhi (JPN)",
                 "ASO Reina (JPN)",
@@ -4000,17 +3615,14 @@
               ],
               "side_a": [
                 "SAKAI Yuhi (JPN)",
-                "LIANG Jishan (USA)"
+                "ASO Reina (JPN)"
               ],
               "side_b": [
-                "ASO Reina (JPN)",
+                "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SAKAI Yuhi (JPN) | ASO Reina (JPN) | LIANG Jishan (USA) | MOYLAND Sally (USA) | XD | Main Draw | QuarterFinal | 2 - 3 | 5:11 8:11 11:7 11:7 8:11 | LIANG Jishan | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4045,7 +3657,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "MOYLAND Sally",
+              "winner": "MOYLAND Sally / WANG Amy",
               "all_players_in_row": [
                 "AKASHEVA Zauresh (KAZ)",
                 "TOFANT Ana (SLO)",
@@ -4054,17 +3666,14 @@
               ],
               "side_a": [
                 "AKASHEVA Zauresh (KAZ)",
-                "MOYLAND Sally (USA)"
+                "TOFANT Ana (SLO)"
               ],
               "side_b": [
-                "TOFANT Ana (SLO)",
+                "MOYLAND Sally (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | AKASHEVA Zauresh (KAZ) | TOFANT Ana (SLO) | MOYLAND Sally (USA) | WANG Amy (USA) | WD | Main Draw | QuarterFinal | 1 - 3 | 11:6 5:11 9:11 9:11 | MOYLAND Sally | WANG Amy | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4115,15 +3724,8 @@
               "side_b": [
                 "TSAI Yun-En (TPE)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "TSAI Yun-En (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | MOYLAND Sally (USA) |  | TSAI Yun-En (TPE) |  | WS | Main Draw | R16 | 3 - 2 | 7:11 11:4 5:11 11:5 11:9 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4158,7 +3760,7 @@
                 "9:11",
                 "11:4"
               ],
-              "winner": "SATO Hitomi",
+              "winner": "SATO Hitomi / SHIBATA Saki",
               "all_players_in_row": [
                 "SATO Hitomi (JPN)",
                 "SHIBATA Saki (JPN)",
@@ -4167,17 +3769,14 @@
               ],
               "side_a": [
                 "SATO Hitomi (JPN)",
-                "MOYLAND Sally (USA)"
+                "SHIBATA Saki (JPN)"
               ],
               "side_b": [
-                "SHIBATA Saki (JPN)",
+                "MOYLAND Sally (USA)",
                 "WANG Amy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | MOYLAND Sally (USA) | WANG Amy (USA) | WD | Main Draw | SemiFinal | 3 - 1 | 11:8 11:8 9:11 11:4 | SATO Hitomi | SHIBATA Saki | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4228,15 +3827,8 @@
               "side_b": [
                 "ASO Reina (JPN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ASO Reina (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | MOYLAND Sally (USA) |  | ASO Reina (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 9:11 11:9 13:11 4:11 11:3 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4266,7 +3858,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "LIANG Jishan",
+              "winner": "LIANG Jishan / MOYLAND Sally",
               "all_players_in_row": [
                 "NIE Chulong (AUS)",
                 "SCHREINER Franziska (GER)",
@@ -4275,17 +3867,14 @@
               ],
               "side_a": [
                 "NIE Chulong (AUS)",
-                "LIANG Jishan (USA)"
+                "SCHREINER Franziska (GER)"
               ],
               "side_b": [
-                "SCHREINER Franziska (GER)",
+                "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | NIE Chulong (AUS) | SCHREINER Franziska (GER) | LIANG Jishan (USA) | MOYLAND Sally (USA) | XD | Main Draw | SemiFinal | 0 - 3 | 10:12 9:11 6:11 | LIANG Jishan | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4331,15 +3920,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | SHIBATA Saki (JPN) |  | MOYLAND Sally (USA) |  | WS | Main Draw | SemiFinal | 3 - 1 | 6:11 11:2 11:7 11:8 | SHIBATA Saki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4379,7 +3961,7 @@
                 "11:7",
                 "11:7"
               ],
-              "winner": "KIM Woojin",
+              "winner": "KIM Woojin / YANG Ha Eun",
               "all_players_in_row": [
                 "KIM Woojin (KOR)",
                 "YANG Ha Eun (KOR)",
@@ -4388,17 +3970,14 @@
               ],
               "side_a": [
                 "KIM Woojin (KOR)",
-                "LIANG Jishan (USA)"
+                "YANG Ha Eun (KOR)"
               ],
               "side_b": [
-                "YANG Ha Eun (KOR)",
+                "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane II 2025 | KIM Woojin (KOR) | YANG Ha Eun (KOR) | LIANG Jishan (USA) | MOYLAND Sally (USA) | XD | Main Draw | Final | 3 - 2 | 6:11 7:11 12:10 11:7 11:7 | KIM Woojin | YANG Ha Eun | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4440,7 +4019,7 @@
                 "11:5",
                 "14:12"
               ],
-              "winner": "KIM Woojin",
+              "winner": "KIM Woojin / YANG Ha Eun",
               "all_players_in_row": [
                 "KIM Woojin (KOR)",
                 "YANG Ha Eun (KOR)",
@@ -4449,17 +4028,14 @@
               ],
               "side_a": [
                 "KIM Woojin (KOR)",
-                "LIANG Jishan (USA)"
+                "YANG Ha Eun (KOR)"
               ],
               "side_b": [
-                "YANG Ha Eun (KOR)",
+                "LIANG Jishan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | KIM Woojin (KOR) | YANG Ha Eun (KOR) | LIANG Jishan (USA) | MOYLAND Sally (USA) | XD | Main Draw | R16 | 3 - 0 | 11:9 11:5 14:12 | KIM Woojin | YANG Ha Eun | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4499,7 +4075,7 @@
                 "11:8",
                 "9:11"
               ],
-              "winner": "LEE Dahye",
+              "winner": "LEE Dahye / CHOI Yeseo",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "REYES LAI Jessica (USA)",
@@ -4508,17 +4084,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "LEE Dahye (KOR)"
+                "REYES LAI Jessica (USA)"
               ],
               "side_b": [
-                "REYES LAI Jessica (USA)",
+                "LEE Dahye (KOR)",
                 "CHOI Yeseo (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | LEE Dahye (KOR) | CHOI Yeseo (KOR) | WD | Main Draw | R16 | 2 - 3 | 11:9 10:12 10:12 11:8 9:11 | LEE Dahye | CHOI Yeseo | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4559,15 +4132,8 @@
               "side_b": [
                 "CHEN Lichen (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CHEN Lichen (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | MOYLAND Sally (USA) |  | CHEN Lichen (USA) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:3 11:2 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4618,15 +4184,8 @@
               "side_b": [
                 "SHIBATA Saki (JPN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "SHIBATA Saki (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Feeder Spokane 2025 | MOYLAND Sally (USA) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | R16 | 2 - 3 | 11:7 7:11 11:7 6:11 8:11 | SHIBATA Saki |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4678,7 +4237,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "NARESH Nandan",
+              "winner": "NARESH Nandan / MOYLAND Sally",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)",
@@ -4687,17 +4246,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "PITCHFORD Liam (ENG)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "PITCHFORD Liam (ENG)",
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | NARESH Nandan (USA) | MOYLAND Sally (USA) | PITCHFORD Liam (ENG) | HURSEY Anna (WAL) | XD | Main Draw | R32 | 3 - 2 | 7:11 5:11 11:8 11:4 11:7 | NARESH Nandan | MOYLAND Sally | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4743,15 +4299,8 @@
               "side_b": [
                 "SHAO Jieni (POR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "SHAO Jieni (POR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | MOYLAND Sally (USA) |  | SHAO Jieni (POR) |  | WS | Main Draw | R64 | 1 - 3 | 9:11 13:11 5:11 9:11 | SHAO Jieni |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4781,7 +4330,7 @@
                 "11:13",
                 "8:11"
               ],
-              "winner": "MATSUSHIMA Sora",
+              "winner": "MATSUSHIMA Sora / HARIMOTO Miwa",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)",
@@ -4790,17 +4339,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "MATSUSHIMA Sora (JPN)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "MATSUSHIMA Sora (JPN)",
                 "HARIMOTO Miwa (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | United States Smash 2025 | NARESH Nandan (USA) | MOYLAND Sally (USA) | MATSUSHIMA Sora (JPN) | HARIMOTO Miwa (JPN) | XD | Main Draw | R16 | 0 - 3 | 2:11 11:13 8:11 | MATSUSHIMA Sora | HARIMOTO Miwa | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -4830,7 +4376,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "JOO Cheonhui",
+              "winner": "JOO Cheonhui / KIHARA Miyuu",
               "all_players_in_row": [
                 "JOO Cheonhui (KOR)",
                 "KIHARA Miyuu (JPN)",
@@ -4839,17 +4385,14 @@
               ],
               "side_a": [
                 "JOO Cheonhui (KOR)",
-                "MOYLAND Sally (USA)"
+                "KIHARA Miyuu (JPN)"
               ],
               "side_b": [
-                "KIHARA Miyuu (JPN)",
+                "MOYLAND Sally (USA)",
                 "REYES LAI Jessica (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | WD | Main Draw | R32 | 3 - 0 | 11:8 11:7 11:4 | JOO Cheonhui | KIHARA Miyuu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4902,15 +4445,8 @@
               "side_b": [
                 "ASPATHI Satya (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ASPATHI Satya (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | MOYLAND Sally (USA) |  | ASPATHI Satya (USA) |  | U19WS | Qualification |  | 3 - 0 | 11:7 11:6 11:3 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4950,15 +4486,8 @@
               "side_b": [
                 "CRUZ ROSARIO Danelys (PUR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CRUZ ROSARIO Danelys (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | MOYLAND Sally (USA) |  | CRUZ ROSARIO Danelys (PUR) |  | U19WS | Qualification |  | 3 - 0 | 11:6 11:4 11:9 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -4998,15 +4527,8 @@
               "side_b": [
                 "MELENDEZ Kristal (PUR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "MELENDEZ Kristal (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | MOYLAND Sally (USA) |  | MELENDEZ Kristal (PUR) |  | U19WS | Main Draw | R16 | 3 - 0 | 13:11 11:5 11:6 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5047,15 +4569,8 @@
               "side_b": [
                 "YU Abigail (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "YU Abigail (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | MOYLAND Sally (USA) |  | YU Abigail (USA) |  | U19WS | Main Draw | QuarterFinal | 3 - 0 | 11:2 11:6 11:9 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5101,15 +4616,8 @@
               "side_b": [
                 "TAKEYA Misuzu (JPN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "TAKEYA Misuzu (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender New York 2025 | MOYLAND Sally (USA) |  | TAKEYA Misuzu (JPN) |  | U19WS | Main Draw | SemiFinal | 1 - 3 | 11:4 5:11 7:11 9:11 | TAKEYA Misuzu |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5161,7 +4669,7 @@
                 "7:11",
                 "14:16"
               ],
-              "winner": "BURGOS Nicolas",
+              "winner": "BURGOS Nicolas / VEGA Paulina",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)",
@@ -5170,17 +4678,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "BURGOS Nicolas (CHI)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "BURGOS Nicolas (CHI)",
                 "VEGA Paulina (CHI)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | NARESH Nandan (USA) | MOYLAND Sally (USA) | BURGOS Nicolas (CHI) | VEGA Paulina (CHI) | XD | Main Draw | R64 | 2 - 3 | 11:4 11:9 3:11 7:11 14:16 | BURGOS Nicolas | VEGA Paulina | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -5210,7 +4715,7 @@
                 "10:12",
                 "6:11"
               ],
-              "winner": "YUAN Jia Nan",
+              "winner": "YUAN Jia Nan / PAVADE Prithika",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "REYES LAI Jessica (USA)",
@@ -5219,17 +4724,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "YUAN Jia Nan (FRA)"
+                "REYES LAI Jessica (USA)"
               ],
               "side_b": [
-                "REYES LAI Jessica (USA)",
+                "YUAN Jia Nan (FRA)",
                 "PAVADE Prithika (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | YUAN Jia Nan (FRA) | PAVADE Prithika (FRA) | WD | Main Draw | R64 | 0 - 3 | 7:11 10:12 6:11 | YUAN Jia Nan | PAVADE Prithika | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5280,15 +4782,8 @@
               "side_b": [
                 "OJOMU Ajoke (NGR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "OJOMU Ajoke (NGR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MOYLAND Sally (USA) |  | OJOMU Ajoke (NGR) |  | WS | Main Draw | R128 | 4 - 1 | 11:2 11:7 16:18 11:4 11:5 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5344,15 +4839,8 @@
               "side_b": [
                 "TAKAHASHI Bruna (BRA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "TAKAHASHI Bruna (BRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MOYLAND Sally (USA) |  | TAKAHASHI Bruna (BRA) |  | WS | Main Draw | R64 | 2 - 4 | 3:11 11:9 12:14 11:9 11:13 5:11 | TAKAHASHI Bruna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5394,7 +4882,7 @@
                 "8:11",
                 "9:11"
               ],
-              "winner": "NARESH Nandan",
+              "winner": "NARESH Nandan / MOYLAND Sally",
               "all_players_in_row": [
                 "DE LA TORRE Oliver (MEX)",
                 "KASHYAP Stuti (ANT)",
@@ -5403,17 +4891,14 @@
               ],
               "side_a": [
                 "DE LA TORRE Oliver (MEX)",
-                "NARESH Nandan (USA)"
+                "KASHYAP Stuti (ANT)"
               ],
               "side_b": [
-                "KASHYAP Stuti (ANT)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco II 2025 | DE LA TORRE Oliver (MEX) | KASHYAP Stuti (ANT) | NARESH Nandan (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | QuarterFinal | 0 - 3 | 3:11 8:11 9:11 | NARESH Nandan | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -5453,7 +4938,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / NAKADA Umi",
               "all_players_in_row": [
                 "TRAN Daniel (USA)",
                 "NAKADA Umi (JPN)",
@@ -5462,17 +4947,14 @@
               ],
               "side_a": [
                 "TRAN Daniel (USA)",
-                "NARESH Nandan (USA)"
+                "NAKADA Umi (JPN)"
               ],
               "side_b": [
-                "NAKADA Umi (JPN)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco II 2025 | TRAN Daniel (USA) | NAKADA Umi (JPN) | NARESH Nandan (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | SemiFinal | 3 - 2 | 7:11 11:6 7:11 11:9 11:6 | TRAN Daniel | NAKADA Umi | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -5513,15 +4995,8 @@
               "side_b": [
                 "ZHANG Amy (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ZHANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco II 2025 | MOYLAND Sally (USA) |  | ZHANG Amy (USA) |  | U19WS | Qualification |  | 3 - 0 | 11:4 11:6 11:4 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -5561,15 +5036,8 @@
               "side_b": [
                 "NAKADA Umi (JPN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "NAKADA Umi (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco II 2025 | MOYLAND Sally (USA) |  | NAKADA Umi (JPN) |  | U19WS | Qualification |  | 3 - 0 | 13:11 11:2 12:10 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -5609,15 +5077,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "XU Isabella (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco II 2025 | XU Isabella (USA) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | QuarterFinal | 0 - 3 | 7:11 9:11 6:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5658,15 +5119,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "YEOH Irene (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco II 2025 | YEOH Irene (USA) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | SemiFinal | 0 - 3 | 1:11 9:11 4:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5712,15 +5166,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "MENDE Rin (JPN)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco II 2025 | MENDE Rin (JPN) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | Final | 3 - 1 | 11:4 11:9 8:11 11:6 | MENDE Rin |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -5773,15 +5220,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "IDESAWA Kyoka (JPN)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Feeder Cappadocia 2025 | IDESAWA Kyoka (JPN) |  | MOYLAND Sally (USA) |  | WS | Main Draw | R64 | 3 - 0 | 11:5 12:10 11:8 | IDESAWA Kyoka |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5834,15 +5274,8 @@
               "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | MOYLAND Sally (USA) |  | LUPULESKU Izabela (SRB) |  | WS | Qualification | QR64 | 3 - 0 | 11:9 12:10 11:5 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5888,15 +5321,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "CHITALE Diya (IND)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | CHITALE Diya (IND) |  | MOYLAND Sally (USA) |  | WS | Qualification | QR32 | 1 - 3 | 9:11 11:8 6:11 10:12 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5937,15 +5363,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "RAKOVAC Lea (CRO)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Singapore Smash 2025 | RAKOVAC Lea (CRO) |  | MOYLAND Sally (USA) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 9:11 7:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛",
@@ -5996,15 +5415,8 @@
               "side_b": [
                 "CHIEN Tung-Chuan (TPE)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CHIEN Tung-Chuan (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Singapore Smash 2025 | MOYLAND Sally (USA) |  | CHIEN Tung-Chuan (TPE) |  | WS | Main Draw | R64 | 2 - 3 | 7:11 11:8 7:11 11:8 4:11 | CHIEN Tung-Chuan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6046,7 +5458,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "LUO Alex",
+              "winner": "LUO Alex / MOYLAND Sally",
               "all_players_in_row": [
                 "LUO Alex (USA)",
                 "MOYLAND Sally (USA)",
@@ -6055,17 +5467,14 @@
               ],
               "side_a": [
                 "LUO Alex (USA)",
-                "SHAH Yashraj (USA)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "SHAH Yashraj (USA)",
                 "LIN Julia (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | LUO Alex (USA) | MOYLAND Sally (USA) | SHAH Yashraj (USA) | LIN Julia (CAN) | U19XD | Main Draw | R16 | 3 - 0 | 11:9 11:4 11:9 | LUO Alex | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -6095,7 +5504,7 @@
                 "11:6",
                 "11:7"
               ],
-              "winner": "LUO Alex",
+              "winner": "LUO Alex / MOYLAND Sally",
               "all_players_in_row": [
                 "LUO Alex (USA)",
                 "MOYLAND Sally (USA)",
@@ -6104,17 +5513,14 @@
               ],
               "side_a": [
                 "LUO Alex (USA)",
-                "HE Xianyao (USA)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "HE Xianyao (USA)",
                 "YU Mandy (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | LUO Alex (USA) | MOYLAND Sally (USA) | HE Xianyao (USA) | YU Mandy (USA) | U19XD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:6 11:7 | LUO Alex | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -6154,7 +5560,7 @@
                 "11:6",
                 "13:15"
               ],
-              "winner": "LUO Alex",
+              "winner": "LUO Alex / MOYLAND Sally",
               "all_players_in_row": [
                 "BOTHA Bosman (USA)",
                 "CRUZ Kheith (PHI)",
@@ -6163,17 +5569,14 @@
               ],
               "side_a": [
                 "BOTHA Bosman (USA)",
-                "LUO Alex (USA)"
+                "CRUZ Kheith (PHI)"
               ],
               "side_b": [
-                "CRUZ Kheith (PHI)",
+                "LUO Alex (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | BOTHA Bosman (USA) | CRUZ Kheith (PHI) | LUO Alex (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | SemiFinal | 2 - 3 | 11:7 11:13 5:11 11:6 13:15 | LUO Alex | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -6214,15 +5617,8 @@
               "side_b": [
                 "CHEN Michelle (CAM)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CHEN Michelle (CAM)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | MOYLAND Sally (USA) |  | CHEN Michelle (CAM) |  | U19WS | Qualification |  | 3 - 0 | 11:2 11:7 11:9 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6262,15 +5658,8 @@
               "side_b": [
                 "CHAN Natalie (CAN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CHAN Natalie (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | MOYLAND Sally (USA) |  | CHAN Natalie (CAN) |  | U19WS | Qualification |  | 3 - 0 | 11:9 11:2 11:4 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "资格赛"
@@ -6299,7 +5688,7 @@
                 "11:8",
                 "11:2"
               ],
-              "winner": "LUO Alex",
+              "winner": "LUO Alex / MOYLAND Sally",
               "all_players_in_row": [
                 "LUO Alex (USA)",
                 "MOYLAND Sally (USA)",
@@ -6308,17 +5697,14 @@
               ],
               "side_a": [
                 "LUO Alex (USA)",
-                "TRAN Daniel (USA)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "TRAN Daniel (USA)",
                 "LIU Amber (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | LUO Alex (USA) | MOYLAND Sally (USA) | TRAN Daniel (USA) | LIU Amber (USA) | U19XD | Main Draw | Final | 3 - 0 | 11:9 11:8 11:2 | LUO Alex | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -6359,15 +5745,8 @@
               "side_b": [
                 "YU Mandy (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "YU Mandy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | MOYLAND Sally (USA) |  | YU Mandy (USA) |  | U19WS | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:8 11:5 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6413,15 +5792,8 @@
               "side_b": [
                 "GOODWIN Kayla (USA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "GOODWIN Kayla (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | MOYLAND Sally (USA) |  | GOODWIN Kayla (USA) |  | U19WS | Main Draw | SemiFinal | 3 - 1 | 11:2 5:11 11:5 11:5 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6467,15 +5839,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "PIYADASA Tashiya (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Youth Contender San Francisco 2025 | PIYADASA Tashiya (USA) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | Final | 1 - 3 | 14:12 7:11 4:11 7:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -6522,7 +5887,7 @@
                 "15:13",
                 "9:11"
               ],
-              "winner": "PSIHOGIOS Constantina",
+              "winner": "PSIHOGIOS Constantina / LAY Jian Fang",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "KE Tiffany (USA)",
@@ -6531,17 +5896,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "PSIHOGIOS Constantina (AUS)"
+                "KE Tiffany (USA)"
               ],
               "side_b": [
-                "KE Tiffany (USA)",
+                "PSIHOGIOS Constantina (AUS)",
                 "LAY Jian Fang (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MOYLAND Sally (USA) | KE Tiffany (USA) | PSIHOGIOS Constantina (AUS) | LAY Jian Fang (AUS) | XT | Qualification |  | 1 - 2 | 11:13 15:13 9:11 | PSIHOGIOS Constantina | LAY Jian Fang | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6570,7 +5932,7 @@
                 "13:11",
                 "12:10"
               ],
-              "winner": "MOYLAND Sally",
+              "winner": "MOYLAND Sally / LIANG Jishan",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "LIANG Jishan (USA)",
@@ -6579,17 +5941,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "LAY Jian Fang (AUS)"
+                "LIANG Jishan (USA)"
               ],
               "side_b": [
-                "LIANG Jishan (USA)",
+                "LAY Jian Fang (AUS)",
                 "LUU Finn (AUS)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MOYLAND Sally (USA) | LIANG Jishan (USA) | LAY Jian Fang (AUS) | LUU Finn (AUS) | XT | Qualification |  | 3 - 0 | 11:6 13:11 12:10 | MOYLAND Sally | LIANG Jishan | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6629,15 +5988,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "GHORPADE Yashaswini (IND)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | GHORPADE Yashaswini (IND) |  | MOYLAND Sally (USA) |  | XT | Qualification |  | 1 - 2 | 9:11 8:11 11:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6666,7 +6018,7 @@
                 "5:11",
                 "0:0"
               ],
-              "winner": "NG Wing Lam",
+              "winner": "NG Wing Lam / DOO Hoi Kem",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "REYES LAI Jessica (USA)",
@@ -6675,17 +6027,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "NG Wing Lam (HKG)"
+                "REYES LAI Jessica (USA)"
               ],
               "side_b": [
-                "REYES LAI Jessica (USA)",
+                "NG Wing Lam (HKG)",
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | NG Wing Lam (HKG) | DOO Hoi Kem (HKG) | XT | Qualification |  | 0 - 2 | 3:11 5:11 0:0 | NG Wing Lam | DOO Hoi Kem | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6725,15 +6074,8 @@
               "side_b": [
                 "NG Wing Lam (HKG)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "NG Wing Lam (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MOYLAND Sally (USA) |  | NG Wing Lam (HKG) |  | XT | Qualification |  | 2 - 1 | 11:9 9:11 11:8 | MOYLAND Sally |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6773,15 +6115,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "SUH Hyo Won (KOR)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | SUH Hyo Won (KOR) |  | MOYLAND Sally (USA) |  | XT | Qualification |  | 3 - 0 | 11:3 11:4 11:7 | SUH Hyo Won |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6810,7 +6145,7 @@
                 "7:11",
                 "10:12"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / IONESCU Ovidiu",
               "all_players_in_row": [
                 "MOYLAND Sally (USA)",
                 "ZHANG Xiangjing (USA)",
@@ -6819,17 +6154,14 @@
               ],
               "side_a": [
                 "MOYLAND Sally (USA)",
-                "SZOCS Bernadette (ROU)"
+                "ZHANG Xiangjing (USA)"
               ],
               "side_b": [
-                "ZHANG Xiangjing (USA)",
+                "SZOCS Bernadette (ROU)",
                 "IONESCU Ovidiu (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MOYLAND Sally (USA) | ZHANG Xiangjing (USA) | SZOCS Bernadette (ROU) | IONESCU Ovidiu (ROU) | XT | Qualification |  | 0 - 3 | 5:11 7:11 10:12 | SZOCS Bernadette | IONESCU Ovidiu | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6858,7 +6190,7 @@
                 "2:11",
                 "11:9"
               ],
-              "winner": "AKAE Kaho",
+              "winner": "AKAE Kaho / TANAKA Yuta",
               "all_players_in_row": [
                 "AKAE Kaho (JPN)",
                 "TANAKA Yuta (JPN)",
@@ -6867,17 +6199,14 @@
               ],
               "side_a": [
                 "AKAE Kaho (JPN)",
-                "MOYLAND Sally (USA)"
+                "TANAKA Yuta (JPN)"
               ],
               "side_b": [
-                "TANAKA Yuta (JPN)",
+                "MOYLAND Sally (USA)",
                 "NARESH Nandan (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | AKAE Kaho (JPN) | TANAKA Yuta (JPN) | MOYLAND Sally (USA) | NARESH Nandan (USA) | XT | Qualification |  | 2 - 1 | 11:9 2:11 11:9 | AKAE Kaho | TANAKA Yuta | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6906,7 +6235,7 @@
                 "9:11",
                 "11:7"
               ],
-              "winner": "LUTZ Camille",
+              "winner": "LUTZ Camille / DORR Esteban",
               "all_players_in_row": [
                 "LUTZ Camille (FRA)",
                 "DORR Esteban (FRA)",
@@ -6915,17 +6244,14 @@
               ],
               "side_a": [
                 "LUTZ Camille (FRA)",
-                "MOYLAND Sally (USA)"
+                "DORR Esteban (FRA)"
               ],
               "side_b": [
-                "DORR Esteban (FRA)",
+                "MOYLAND Sally (USA)",
                 "NARESH Nandan (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | LUTZ Camille (FRA) | DORR Esteban (FRA) | MOYLAND Sally (USA) | NARESH Nandan (USA) | XT | Qualification |  | 2 - 1 | 11:9 9:11 11:7 | LUTZ Camille | DORR Esteban | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -6954,7 +6280,7 @@
                 "11:13",
                 "11:9"
               ],
-              "winner": "LUTZ Camille",
+              "winner": "LUTZ Camille / ZARIF Audrey",
               "all_players_in_row": [
                 "LUTZ Camille (FRA)",
                 "ZARIF Audrey (FRA)",
@@ -6963,17 +6289,14 @@
               ],
               "side_a": [
                 "LUTZ Camille (FRA)",
-                "MOYLAND Sally (USA)"
+                "ZARIF Audrey (FRA)"
               ],
               "side_b": [
-                "ZARIF Audrey (FRA)",
+                "MOYLAND Sally (USA)",
                 "REYES LAI Jessica (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | LUTZ Camille (FRA) | ZARIF Audrey (FRA) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | XT | Qualification |  | 2 - 1 | 11:9 11:13 11:9 | LUTZ Camille | ZARIF Audrey | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -7024,7 +6347,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "NARESH Nandan",
+              "winner": "NARESH Nandan / MOYLAND Sally",
               "all_players_in_row": [
                 "COTON Flavien (FRA)",
                 "LUTZ Charlotte (FRA)",
@@ -7033,17 +6356,14 @@
               ],
               "side_a": [
                 "COTON Flavien (FRA)",
-                "NARESH Nandan (USA)"
+                "LUTZ Charlotte (FRA)"
               ],
               "side_b": [
-                "LUTZ Charlotte (FRA)",
+                "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | COTON Flavien (FRA) | LUTZ Charlotte (FRA) | NARESH Nandan (USA) | MOYLAND Sally (USA) | U19XD | Main Draw | R32 | 2 - 3 | 11:3 6:11 11:9 9:11 6:11 | NARESH Nandan | MOYLAND Sally | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -7078,7 +6398,7 @@
                 "9:11",
                 "7:11"
               ],
-              "winner": "ESSID Wassim",
+              "winner": "ESSID Wassim / GODA Hana",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "MOYLAND Sally (USA)",
@@ -7087,17 +6407,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "ESSID Wassim (TUN)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "ESSID Wassim (TUN)",
                 "GODA Hana (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | NARESH Nandan (USA) | MOYLAND Sally (USA) | ESSID Wassim (TUN) | GODA Hana (EGY) | U19XD | Main Draw | R16 | 1 - 3 | 13:11 8:11 9:11 7:11 | ESSID Wassim | GODA Hana | ",
               "sub_event_zh": "U19混合双打",
               "stage_zh": "正赛",
@@ -7137,25 +6454,23 @@
                 "9:11",
                 "11:13"
               ],
-              "winner": "CHENG Pusyuan",
+              "winner": "CHENG Pusyuan / YEH Yi-Tian",
               "all_players_in_row": [
                 "WONG Hoi Tung (HKG)",
                 "MOYLAND Sally (USA)",
-                "CHENG Pusyuan (TPE)"
+                "CHENG Pusyuan (TPE)",
+                "YEH Yi-Tian (TPE)"
               ],
               "side_a": [
                 "WONG Hoi Tung (HKG)",
-                "CHENG Pusyuan (TPE)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "CHENG Pusyuan (TPE)",
                 "YEH Yi-Tian (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | WONG Hoi Tung (HKG) | MOYLAND Sally (USA) | CHENG Pusyuan (TPE) | YEH Yi-Tian (TPE) | U19WD | Main Draw | R16 | 2 - 3 | 11:7 6:11 11:9 9:11 11:13 | CHENG Pusyuan | YEH Yi-Tian | ",
               "sub_event_zh": "U19女子双打",
               "stage_zh": "正赛",
@@ -7211,15 +6526,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "HOCHART Leana (FRA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | HOCHART Leana (FRA) |  | MOYLAND Sally (USA) |  | U19WS | Main Draw | R32 | 2 - 4 | 6:11 5:11 11:6 2:11 11:7 4:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7265,15 +6573,8 @@
               "side_b": [
                 "TAKAMORI Mao (JPN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "TAKAMORI Mao (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2024 | ITTF World Youth Championships Helsingborg 2024 | MOYLAND Sally (USA) |  | TAKAMORI Mao (JPN) |  | U19WS | Main Draw | R16 | 0 - 4 | 8:11 8:11 8:11 5:11 | TAKAMORI Mao |  | ",
               "sub_event_zh": "U19女子单打",
               "stage_zh": "正赛",
@@ -7331,15 +6632,8 @@
               "side_b": [
                 "FU Ching Nam (CAN)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "FU Ching Nam (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | MOYLAND Sally (USA) |  | FU Ching Nam (CAN) |  | U15WT | Qualification |  | 3 - 0 | 11:3 11:5 11:4 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子团体",
               "stage_zh": "资格赛"
@@ -7379,15 +6673,8 @@
               "side_b": [
                 "KANO Sofia (BRA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "KANO Sofia (BRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | MOYLAND Sally (USA) |  | KANO Sofia (BRA) |  | U15WT | Qualification |  | 3 - 0 | 11:7 11:4 11:7 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子团体",
               "stage_zh": "资格赛"
@@ -7427,15 +6714,8 @@
               "side_b": [
                 "CUX Jenny (GUA)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "CUX Jenny (GUA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | MOYLAND Sally (USA) |  | CUX Jenny (GUA) |  | U15WT | Main Draw | SemiFinal | 3 - 0 | 11:8 11:8 13:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子团体",
               "stage_zh": "正赛",
@@ -7481,15 +6761,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "LIU Crystal (CAN)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | LIU Crystal (CAN) |  | MOYLAND Sally (USA) |  | U15WT | Main Draw | Final | 1 - 3 | 3:11 11:8 8:11 4:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子团体",
               "stage_zh": "正赛",
@@ -7530,15 +6803,8 @@
               "side_b": [
                 "ESTRELLA Arianna (DOM)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ESTRELLA Arianna (DOM)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | MOYLAND Sally (USA) |  | ESTRELLA Arianna (DOM) |  | U15WS | Qualification |  | 3 - 0 | 11:6 11:3 11:3 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "资格赛"
@@ -7583,15 +6849,8 @@
               "side_b": [
                 "ARELLANO Angelica (ECU)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "ARELLANO Angelica (ECU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | MOYLAND Sally (USA) |  | ARELLANO Angelica (ECU) |  | U15WS | Qualification |  | 3 - 1 | 11:5 8:11 11:4 11:9 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "资格赛"
@@ -7620,7 +6879,7 @@
                 "0:0",
                 "0:0"
               ],
-              "winner": "JALLI Sarah",
+              "winner": "JALLI Sarah / MOYLAND Sally",
               "all_players_in_row": [
                 "KANO Sofia (BRA)",
                 "MIYABARA Sabrina (BRA)",
@@ -7629,17 +6888,14 @@
               ],
               "side_a": [
                 "KANO Sofia (BRA)",
-                "JALLI Sarah (USA)"
+                "MIYABARA Sabrina (BRA)"
               ],
               "side_b": [
-                "MIYABARA Sabrina (BRA)",
+                "JALLI Sarah (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | KANO Sofia (BRA) | MIYABARA Sabrina (BRA) | JALLI Sarah (USA) | MOYLAND Sally (USA) | U15WD | Main Draw | R32 | 0 - 3 | 0:0 0:0 0:0 | JALLI Sarah | MOYLAND Sally | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -7679,7 +6935,7 @@
                 "11:9",
                 "6:11"
               ],
-              "winner": "JALLI Sarah",
+              "winner": "JALLI Sarah / MOYLAND Sally",
               "all_players_in_row": [
                 "ISAZA Ana (COL)",
                 "RUIZ SALAZAR Mariana (COL)",
@@ -7688,17 +6944,14 @@
               ],
               "side_a": [
                 "ISAZA Ana (COL)",
-                "JALLI Sarah (USA)"
+                "RUIZ SALAZAR Mariana (COL)"
               ],
               "side_b": [
-                "RUIZ SALAZAR Mariana (COL)",
+                "JALLI Sarah (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | ISAZA Ana (COL) | RUIZ SALAZAR Mariana (COL) | JALLI Sarah (USA) | MOYLAND Sally (USA) | U15WD | Main Draw | R16 | 2 - 3 | 3:11 8:11 11:7 11:9 6:11 | JALLI Sarah | MOYLAND Sally | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -7733,7 +6986,7 @@
                 "11:4",
                 "11:9"
               ],
-              "winner": "JALLI Sarah",
+              "winner": "JALLI Sarah / MOYLAND Sally",
               "all_players_in_row": [
                 "JALLI Sarah (USA)",
                 "MOYLAND Sally (USA)",
@@ -7742,17 +6995,14 @@
               ],
               "side_a": [
                 "JALLI Sarah (USA)",
-                "MELENDEZ Kristal (PUR)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "MELENDEZ Kristal (PUR)",
                 "LEON Edmarie (PUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | JALLI Sarah (USA) | MOYLAND Sally (USA) | MELENDEZ Kristal (PUR) | LEON Edmarie (PUR) | U15WD | Main Draw | QuarterFinal | 3 - 1 | 12:14 11:5 11:4 11:9 | JALLI Sarah | MOYLAND Sally | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -7793,15 +7043,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "FIGUEROA MUNOZ Ximena (MEX)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | FIGUEROA MUNOZ Ximena (MEX) |  | MOYLAND Sally (USA) |  | U15WS | Main Draw | R32 | 0 - 3 | 7:11 7:11 6:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",
@@ -7831,7 +7074,7 @@
                 "11:9",
                 "11:3"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)",
@@ -7840,17 +7083,14 @@
               ],
               "side_a": [
                 "TRAN Daniel (USA)",
-                "BEDOYA Sebastian (COL)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "BEDOYA Sebastian (COL)",
                 "RUIZ SALAZAR Mariana (COL)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | TRAN Daniel (USA) | MOYLAND Sally (USA) | BEDOYA Sebastian (COL) | RUIZ SALAZAR Mariana (COL) | U15XD | Main Draw | R32 | 3 - 0 | 11:3 11:9 11:3 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U15混合双打",
               "stage_zh": "正赛",
@@ -7880,7 +7120,7 @@
                 "11:4",
                 "11:4"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)",
@@ -7889,17 +7129,14 @@
               ],
               "side_a": [
                 "TRAN Daniel (USA)",
-                "VILLAVICENCIO Boris (ECU)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "VILLAVICENCIO Boris (ECU)",
                 "ANCHUNDIA Keimy (ECU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | TRAN Daniel (USA) | MOYLAND Sally (USA) | VILLAVICENCIO Boris (ECU) | ANCHUNDIA Keimy (ECU) | U15XD | Main Draw | R16 | 3 - 0 | 11:7 11:4 11:4 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U15混合双打",
               "stage_zh": "正赛",
@@ -7934,7 +7171,7 @@
                 "2:11",
                 "9:11"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "CARRILLO TURCIOS Luis Angel (GUA)",
                 "RUIZ Katerine (GUA)",
@@ -7943,17 +7180,14 @@
               ],
               "side_a": [
                 "CARRILLO TURCIOS Luis Angel (GUA)",
-                "TRAN Daniel (USA)"
+                "RUIZ Katerine (GUA)"
               ],
               "side_b": [
-                "RUIZ Katerine (GUA)",
+                "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | CARRILLO TURCIOS Luis Angel (GUA) | RUIZ Katerine (GUA) | TRAN Daniel (USA) | MOYLAND Sally (USA) | U15XD | Main Draw | QuarterFinal | 1 - 3 | 11:9 8:11 2:11 9:11 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U15混合双打",
               "stage_zh": "正赛",
@@ -7994,15 +7228,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "BORJA Maria (ECU)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | BORJA Maria (ECU) |  | MOYLAND Sally (USA) |  | U15WS | Main Draw | R16 | 0 - 3 | 4:11 3:11 5:11 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",
@@ -8032,7 +7259,7 @@
                 "6:11",
                 "3:11"
               ],
-              "winner": "JALLI Sarah",
+              "winner": "JALLI Sarah / MOYLAND Sally",
               "all_players_in_row": [
                 "LINARES Daniela (GUA)",
                 "RUIZ Katerine (GUA)",
@@ -8041,17 +7268,14 @@
               ],
               "side_a": [
                 "LINARES Daniela (GUA)",
-                "JALLI Sarah (USA)"
+                "RUIZ Katerine (GUA)"
               ],
               "side_b": [
-                "RUIZ Katerine (GUA)",
+                "JALLI Sarah (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | LINARES Daniela (GUA) | RUIZ Katerine (GUA) | JALLI Sarah (USA) | MOYLAND Sally (USA) | U15WD | Main Draw | SemiFinal | 0 - 3 | 4:11 6:11 3:11 | JALLI Sarah | MOYLAND Sally | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",
@@ -8092,15 +7316,8 @@
               "side_b": [
                 "MELENDEZ Kristal (PUR)"
               ],
-              "teammates": [
-                "MOYLAND Sally (USA)"
-              ],
-              "opponents": [
-                "MELENDEZ Kristal (PUR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | MOYLAND Sally (USA) |  | MELENDEZ Kristal (PUR) |  | U15WS | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:7 11:5 | MOYLAND Sally |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",
@@ -8140,7 +7357,7 @@
                 "11:4",
                 "11:5"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)",
@@ -8149,17 +7366,14 @@
               ],
               "side_a": [
                 "TRAN Daniel (USA)",
-                "YE Zelin (CAN)"
+                "MOYLAND Sally (USA)"
               ],
               "side_b": [
-                "MOYLAND Sally (USA)",
+                "YE Zelin (CAN)",
                 "LIU Crystal (CAN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | TRAN Daniel (USA) | MOYLAND Sally (USA) | YE Zelin (CAN) | LIU Crystal (CAN) | U15XD | Main Draw | SemiFinal | 3 - 2 | 12:14 11:4 9:11 11:4 11:5 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U15混合双打",
               "stage_zh": "正赛",
@@ -8210,15 +7424,8 @@
               "side_b": [
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [
-                "TAN Emily (USA)"
-              ],
-              "opponents": [
-                "MOYLAND Sally (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | TAN Emily (USA) |  | MOYLAND Sally (USA) |  | U15WS | Main Draw | SemiFinal | 3 - 2 | 11:7 11:8 5:11 6:11 11:9 | TAN Emily |  | ",
               "sub_event_zh": "U15女子单打",
               "stage_zh": "正赛",
@@ -8248,7 +7455,7 @@
                 "3:11",
                 "8:11"
               ],
-              "winner": "TRAN Daniel",
+              "winner": "TRAN Daniel / MOYLAND Sally",
               "all_players_in_row": [
                 "NARESH Nandan (USA)",
                 "JALLI Sarah (USA)",
@@ -8257,17 +7464,14 @@
               ],
               "side_a": [
                 "NARESH Nandan (USA)",
-                "TRAN Daniel (USA)"
+                "JALLI Sarah (USA)"
               ],
               "side_b": [
-                "JALLI Sarah (USA)",
+                "TRAN Daniel (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | NARESH Nandan (USA) | JALLI Sarah (USA) | TRAN Daniel (USA) | MOYLAND Sally (USA) | U15XD | Main Draw | Final | 0 - 3 | 8:11 3:11 8:11 | TRAN Daniel | MOYLAND Sally | ",
               "sub_event_zh": "U15混合双打",
               "stage_zh": "正赛",
@@ -8297,7 +7501,7 @@
                 "9:11",
                 "8:11"
               ],
-              "winner": "JALLI Sarah",
+              "winner": "JALLI Sarah / MOYLAND Sally",
               "all_players_in_row": [
                 "CAI Demi (CAN)",
                 "FU Ching Nam (CAN)",
@@ -8306,17 +7510,14 @@
               ],
               "side_a": [
                 "CAI Demi (CAN)",
-                "JALLI Sarah (USA)"
+                "FU Ching Nam (CAN)"
               ],
               "side_b": [
-                "FU Ching Nam (CAN)",
+                "JALLI Sarah (USA)",
                 "MOYLAND Sally (USA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | ITTF Pan American Youth Championships Santo Domingo 2021 | CAI Demi (CAN) | FU Ching Nam (CAN) | JALLI Sarah (USA) | MOYLAND Sally (USA) | U15WD | Main Draw | Final | 0 - 3 | 9:11 9:11 8:11 | JALLI Sarah | MOYLAND Sally | ",
               "sub_event_zh": "U15女子双打",
               "stage_zh": "正赛",

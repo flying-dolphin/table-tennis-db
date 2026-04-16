@@ -1,8 +1,8 @@
 {
   "schema_version": "match.v2",
   "player_id": null,
-  "player_name": "Elizabeta SAMARA",
-  "english_name": "Elizabeta SAMARA",
+  "player_name": "SAMARA Elizabeta",
+  "english_name": "SAMARA Elizabeta",
   "country": "ROU",
   "country_code": "ROU",
   "continent": "",
@@ -55,15 +55,8 @@
               "side_b": [
                 "ZHANG Mo (CAN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "ZHANG Mo (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | SAMARA Elizabeta (ROU) |  | ZHANG Mo (CAN) |  | WS | Qualification |  | 0 - 3 | 9:11 4:11 10:12 | ZHANG Mo |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -103,15 +96,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "ITO Mima (JPN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ITTF Men's & Women's World Cup Macao 2026 Presented by Galaxy Entertainment Group | ITO Mima (JPN) |  | SAMARA Elizabeta (ROU) |  | WS | Qualification |  | 3 - 0 | 11:7 11:5 11:2 | ITO Mima |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -163,15 +149,8 @@
               "side_b": [
                 "KUAI Man (CHN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "KUAI Man (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Champions Chongqing 2026 Presented by AITO | SAMARA Elizabeta (ROU) |  | KUAI Man (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 5:11 6:11 | KUAI Man |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -229,15 +208,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "LOY Ming Ying (SGP)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | LOY Ming Ying (SGP) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 1 - 3 | 8:11 11:9 8:11 7:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -272,7 +244,7 @@
                 "10:12",
                 "3:11"
               ],
-              "winner": "DIACONU Adina",
+              "winner": "DIACONU Adina / XIAO Maria",
               "all_players_in_row": [
                 "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -281,17 +253,14 @@
               ],
               "side_a": [
                 "SZOCS Bernadette (ROU)",
-                "DIACONU Adina (ROU)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "DIACONU Adina (ROU)",
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | DIACONU Adina (ROU) | XIAO Maria (ESP) | WD | Main Draw | R16 | 1 - 3 | 3:11 11:9 10:12 3:11 | DIACONU Adina | XIAO Maria | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -337,15 +306,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SUN Yingsha (CHN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | SUN Yingsha (CHN) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 9:11 11:8 11:5 | SUN Yingsha |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -398,15 +360,8 @@
               "side_b": [
                 "WAN Yuan (GER)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "WAN Yuan (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | SAMARA Elizabeta (ROU) |  | WAN Yuan (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:8 11:7 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -457,15 +412,8 @@
               "side_b": [
                 "PENG Yu-Han (TPE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "PENG Yu-Han (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Star Contender Chennai 2026 | SAMARA Elizabeta (ROU) |  | PENG Yu-Han (TPE) |  | WS | Main Draw | R16 | 2 - 3 | 11:8 12:10 6:11 7:11 7:11 | PENG Yu-Han |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -528,15 +476,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "XIAO Maria (ESP)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | XIAO Maria (ESP) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 3 - 2 | 8:11 11:7 24:22 9:11 11:6 | XIAO Maria |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -589,15 +530,8 @@
               "side_b": [
                 "KUAI Man (CHN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "KUAI Man (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2026 | WTT Champions Doha 2026 | SAMARA Elizabeta (ROU) |  | KUAI Man (CHN) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 5:11 8:11 | KUAI Man |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -655,15 +589,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "WINTER Sabine (GER)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | WINTER Sabine (GER) |  | SAMARA Elizabeta (ROU) |  | XT | Qualification |  | 2 - 1 | 11:5 11:8 8:11 | WINTER Sabine |  | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -692,7 +619,7 @@
                 "11:6",
                 "11:9"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)",
@@ -701,17 +628,14 @@
               ],
               "side_a": [
                 "MITTELHAM Nina (GER)",
-                "SZOCS Bernadette (ROU)"
+                "WINTER Sabine (GER)"
               ],
               "side_b": [
-                "WINTER Sabine (GER)",
+                "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | MITTELHAM Nina (GER) | WINTER Sabine (GER) | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | XT | Qualification |  | 2 - 1 | 12:14 11:6 11:9 | MITTELHAM Nina | WINTER Sabine | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -735,7 +659,7 @@
                 "11:4",
                 "0:0"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / SAMARA Elizabeta",
               "all_players_in_row": [
                 "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -744,17 +668,14 @@
               ],
               "side_a": [
                 "SZOCS Bernadette (ROU)",
-                "STRASSBURGER Victoria (BRA)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "STRASSBURGER Victoria (BRA)",
                 "SHIRAY Karina (BRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | STRASSBURGER Victoria (BRA) | SHIRAY Karina (BRA) | XT | Qualification |  | 1 - 0 | 11:4 0:0 | SZOCS Bernadette | SAMARA Elizabeta | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -783,7 +704,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "SZOCS Bernadette",
+              "winner": "SZOCS Bernadette / SAMARA Elizabeta",
               "all_players_in_row": [
                 "YUAN Jia Nan (FRA)",
                 "PAVADE Prithika (FRA)",
@@ -792,17 +713,14 @@
               ],
               "side_a": [
                 "YUAN Jia Nan (FRA)",
-                "SZOCS Bernadette (ROU)"
+                "PAVADE Prithika (FRA)"
               ],
               "side_b": [
-                "PAVADE Prithika (FRA)",
+                "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | YUAN Jia Nan (FRA) | PAVADE Prithika (FRA) | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | XT | Qualification |  | 0 - 3 | 7:11 9:11 9:11 | SZOCS Bernadette | SAMARA Elizabeta | ",
               "sub_event_zh": "混合团队",
               "stage_zh": "资格赛"
@@ -848,7 +766,7 @@
                 "13:11",
                 "17:15"
               ],
-              "winner": "ABRAAMIAN Elizabet",
+              "winner": "ABRAAMIAN Elizabet / VORONINA Vlada",
               "all_players_in_row": [
                 "ABRAAMIAN Elizabet (AIN)",
                 "VORONINA Vlada (AIN)",
@@ -857,17 +775,14 @@
               ],
               "side_a": [
                 "ABRAAMIAN Elizabet (AIN)",
-                "SZOCS Bernadette (ROU)"
+                "VORONINA Vlada (AIN)"
               ],
               "side_b": [
-                "VORONINA Vlada (AIN)",
+                "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | ABRAAMIAN Elizabet (AIN) | VORONINA Vlada (AIN) | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:8 11:13 13:11 17:15 | ABRAAMIAN Elizabet | VORONINA Vlada | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -908,15 +823,8 @@
               "side_b": [
                 "HURSEY Anna (WAL)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HURSEY Anna (WAL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Star Contender Muscat 2025 | SAMARA Elizabeta (ROU) |  | HURSEY Anna (WAL) |  | WS | Main Draw | R32 | 0 - 3 | 9:11 3:11 7:11 | HURSEY Anna |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -969,15 +877,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "JEE Minhyung (AUS)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | JEE Minhyung (AUS) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 0 - 3 | 3:11 4:11 13:15 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1028,15 +929,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "ODO Satsuki (JPN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | ODO Satsuki (JPN) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 2 - 3 | 11:7 11:13 11:9 13:15 3:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1082,15 +976,8 @@
               "side_b": [
                 "SHIN Yubin (KOR)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "SHIN Yubin (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Frankfurt 2025 | SAMARA Elizabeta (ROU) |  | SHIN Yubin (KOR) |  | WS | Main Draw | QuarterFinal | 0 - 4 | 9:11 4:11 5:11 4:11 | SHIN Yubin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1153,15 +1040,8 @@
               "side_b": [
                 "ITO Mima (JPN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "ITO Mima (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | SAMARA Elizabeta (ROU) |  | ITO Mima (JPN) |  | WS | Main Draw | R32 | 3 - 2 | 11:9 5:11 3:11 11:9 11:9 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1202,15 +1082,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "DOO Hoi Kem (HKG)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Montpellier 2025 | DOO Hoi Kem (HKG) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 3 - 0 | 11:2 13:11 13:11 | DOO Hoi Kem |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1263,15 +1136,8 @@
               "side_b": [
                 "KELLY Danielle (WAL)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "KELLY Danielle (WAL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SAMARA Elizabeta (ROU) |  | KELLY Danielle (WAL) |  | WT | Qualification |  | 3 - 0 | 11:5 11:6 11:7 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -1321,15 +1187,8 @@
               "side_b": [
                 "LUPULESKU Izabela (SRB)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SAMARA Elizabeta (ROU) |  | LUPULESKU Izabela (SRB) |  | WT | MAIN | 16 | 2 - 3 | 13:11 8:11 11:5 11:13 5:11 | LUPULESKU Izabela |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1375,15 +1234,8 @@
               "side_b": [
                 "KUKULKOVA Tatiana (SVK)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "KUKULKOVA Tatiana (SVK)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SAMARA Elizabeta (ROU) |  | KUKULKOVA Tatiana (SVK) |  | WT | MAIN | 8 | 3 - 1 | 11:2 11:9 10:12 11:9 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1429,15 +1281,8 @@
               "side_b": [
                 "EERLAND Britt (NED)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "EERLAND Britt (NED)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SAMARA Elizabeta (ROU) |  | EERLAND Britt (NED) |  | WT | MAIN | 4 | 3 - 1 | 11:13 11:4 11:9 11:0 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1483,15 +1328,8 @@
               "side_b": [
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "WINTER Sabine (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | European Team Championships Zadar 2025 | SAMARA Elizabeta (ROU) |  | WINTER Sabine (GER) |  | WT | MAIN | 2 | 1 - 3 | 5:11 8:11 11:8 7:11 | WINTER Sabine |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -1554,15 +1392,8 @@
               "side_b": [
                 "YEH Yi-Tian (TPE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "YEH Yi-Tian (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | China Smash 2025 | SAMARA Elizabeta (ROU) |  | YEH Yi-Tian (TPE) |  | WS | Main Draw | R64 | 2 - 3 | 7:11 11:2 5:11 12:10 9:11 | YEH Yi-Tian |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1597,7 +1428,7 @@
                 "9:11",
                 "9:11"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / SZOCS Bernadette",
               "all_players_in_row": [
                 "PAVADE Prithika (FRA)",
                 "DIAZ Adriana (PUR)",
@@ -1606,17 +1437,14 @@
               ],
               "side_a": [
                 "PAVADE Prithika (FRA)",
-                "SAMARA Elizabeta (ROU)"
+                "DIAZ Adriana (PUR)"
               ],
               "side_b": [
-                "DIAZ Adriana (PUR)",
+                "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | PAVADE Prithika (FRA) | DIAZ Adriana (PUR) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | WD | Main Draw | R16 | 1 - 3 | 11:7 6:11 9:11 9:11 | SAMARA Elizabeta | SZOCS Bernadette | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1646,7 +1474,7 @@
                 "11:4",
                 "11:7"
               ],
-              "winner": "CHEN Xingtong",
+              "winner": "CHEN Xingtong / QIAN Tianyi",
               "all_players_in_row": [
                 "CHEN Xingtong (CHN)",
                 "QIAN Tianyi (CHN)",
@@ -1655,17 +1483,14 @@
               ],
               "side_a": [
                 "CHEN Xingtong (CHN)",
-                "SAMARA Elizabeta (ROU)"
+                "QIAN Tianyi (CHN)"
               ],
               "side_b": [
-                "QIAN Tianyi (CHN)",
+                "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | China Smash 2025 | CHEN Xingtong (CHN) | QIAN Tianyi (CHN) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | WD | Main Draw | QuarterFinal | 3 - 0 | 11:5 11:4 11:7 | CHEN Xingtong | QIAN Tianyi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1718,15 +1543,8 @@
               "side_b": [
                 "HARIMOTO Miwa (JPN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HARIMOTO Miwa (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Macao 2025 | SAMARA Elizabeta (ROU) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 1:11 3:11 2:11 | HARIMOTO Miwa |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1784,15 +1602,8 @@
               "side_b": [
                 "HARIMOTO Miwa (JPN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HARIMOTO Miwa (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | SAMARA Elizabeta (ROU) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | R64 | 1 - 3 | 5:11 9:11 11:8 8:11 | HARIMOTO Miwa |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1822,24 +1633,23 @@
                 "11:8",
                 "11:9"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / CHIEN Tung-Chuan",
               "all_players_in_row": [
+                "CHENG I-Ching (TPE)",
+                "CHIEN Tung-Chuan (TPE)",
                 "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
               "side_a": [
                 "CHENG I-Ching (TPE)",
-                "SAMARA Elizabeta (ROU)"
+                "CHIEN Tung-Chuan (TPE)"
               ],
               "side_b": [
-                "CHIEN Tung-Chuan (TPE)",
+                "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CHENG I-Ching (TPE) | CHIEN Tung-Chuan (TPE) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | WD | Main Draw | R16 | 3 - 0 | 13:11 11:8 11:9 | CHENG I-Ching | CHIEN Tung-Chuan | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -1897,15 +1707,8 @@
               "side_b": [
                 "ZHANG Mo (CAN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "ZHANG Mo (CAN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Yokohama 2025 | SAMARA Elizabeta (ROU) |  | ZHANG Mo (CAN) |  | WS | Main Draw | R32 | 1 - 3 | 8:11 6:11 11:8 2:11 | ZHANG Mo |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -1968,15 +1771,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "CHENG I-Ching (TPE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | CHENG I-Ching (TPE) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 3 - 2 | 9:11 11:9 11:9 11:13 11:3 | CHENG I-Ching |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2006,7 +1802,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / SZOCS Bernadette",
               "all_players_in_row": [
                 "JOO Cheonhui (KOR)",
                 "KIHARA Miyuu (JPN)",
@@ -2015,17 +1811,14 @@
               ],
               "side_a": [
                 "JOO Cheonhui (KOR)",
-                "SAMARA Elizabeta (ROU)"
+                "KIHARA Miyuu (JPN)"
               ],
               "side_b": [
-                "KIHARA Miyuu (JPN)",
+                "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | WD | Main Draw | R16 | 0 - 3 | 9:11 6:11 9:11 | SAMARA Elizabeta | SZOCS Bernadette | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2060,24 +1853,23 @@
                 "8:11",
                 "11:3"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / LI Yu-Jhun",
               "all_players_in_row": [
+                "CHENG I-Ching (TPE)",
+                "LI Yu-Jhun (TPE)",
                 "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
               "side_a": [
                 "CHENG I-Ching (TPE)",
-                "SAMARA Elizabeta (ROU)"
+                "LI Yu-Jhun (TPE)"
               ],
               "side_b": [
-                "LI Yu-Jhun (TPE)",
+                "SAMARA Elizabeta (ROU)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | United States Smash 2025 | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | SAMARA Elizabeta (ROU) | SZOCS Bernadette (ROU) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:7 13:11 8:11 11:3 | CHENG I-Ching | LI Yu-Jhun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2119,7 +1911,7 @@
                 "11:9",
                 "11:8"
               ],
-              "winner": "QIAN Tianyi",
+              "winner": "QIAN Tianyi / SHI Xunyao",
               "all_players_in_row": [
                 "QIAN Tianyi (CHN)",
                 "SHI Xunyao (CHN)",
@@ -2128,17 +1920,14 @@
               ],
               "side_a": [
                 "QIAN Tianyi (CHN)",
-                "SZOCS Bernadette (ROU)"
+                "SHI Xunyao (CHN)"
               ],
               "side_b": [
-                "SHI Xunyao (CHN)",
+                "SZOCS Bernadette (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | QIAN Tianyi (CHN) | SHI Xunyao (CHN) | SZOCS Bernadette (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:9 11:8 | QIAN Tianyi | SHI Xunyao | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2179,15 +1968,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "KIM Seoyun (KOR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | KIM Seoyun (KOR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 6:11 5:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2228,15 +2010,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "PAVADE Prithika (FRA)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | PAVADE Prithika (FRA) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 3 - 0 | 11:4 11:7 11:8 | PAVADE Prithika |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2288,7 +2063,7 @@
                 "11:7",
                 "12:10"
               ],
-              "winner": "JEGER Mateja",
+              "winner": "JEGER Mateja / RAKOVAC Lea",
               "all_players_in_row": [
                 "JEGER Mateja (CRO)",
                 "RAKOVAC Lea (CRO)",
@@ -2297,17 +2072,14 @@
               ],
               "side_a": [
                 "JEGER Mateja (CRO)",
-                "SAMARA Elizabeta (ROU)"
+                "RAKOVAC Lea (CRO)"
               ],
               "side_b": [
-                "RAKOVAC Lea (CRO)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R64 | 3 - 2 | 5:11 9:11 11:8 11:7 12:10 | JEGER Mateja | RAKOVAC Lea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -2347,7 +2119,7 @@
                 "11:4",
                 "11:8"
               ],
-              "winner": "IONESCU Ovidiu",
+              "winner": "IONESCU Ovidiu / SAMARA Elizabeta",
               "all_players_in_row": [
                 "IONESCU Ovidiu (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -2356,17 +2128,14 @@
               ],
               "side_a": [
                 "IONESCU Ovidiu (ROU)",
-                "CASTRO Rogelio (MEX)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "CASTRO Rogelio (MEX)",
                 "COSSIO Arantxa (MEX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | IONESCU Ovidiu (ROU) | SAMARA Elizabeta (ROU) | CASTRO Rogelio (MEX) | COSSIO Arantxa (MEX) | XD | Main Draw | R64 | 3 - 2 | 3:11 11:7 8:11 11:4 11:8 | IONESCU Ovidiu | SAMARA Elizabeta | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2412,15 +2181,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "VIVARELLI Debora (ITA)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | VIVARELLI Debora (ITA) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R128 | 0 - 4 | 4:11 3:11 8:11 2:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2455,7 +2217,7 @@
                 "5:11",
                 "11:9"
               ],
-              "winner": "IONESCU Ovidiu",
+              "winner": "IONESCU Ovidiu / SAMARA Elizabeta",
               "all_players_in_row": [
                 "IONESCU Ovidiu (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -2464,17 +2226,14 @@
               ],
               "side_a": [
                 "IONESCU Ovidiu (ROU)",
-                "GUNDUZ Ibrahim (TUR)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "GUNDUZ Ibrahim (TUR)",
                 "ALTINKAYA Sibel (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | IONESCU Ovidiu (ROU) | SAMARA Elizabeta (ROU) | GUNDUZ Ibrahim (TUR) | ALTINKAYA Sibel (TUR) | XD | Main Draw | R32 | 3 - 1 | 11:5 11:6 5:11 11:9 | IONESCU Ovidiu | SAMARA Elizabeta | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2520,15 +2279,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "LUPULESKU Izabela (SRB)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | LUPULESKU Izabela (SRB) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 4 - 0 | 11:5 11:0 11:0 11:0 | LUPULESKU Izabela |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2558,7 +2310,7 @@
                 "0:11",
                 "0:11"
               ],
-              "winner": "WANG Chuqin",
+              "winner": "WANG Chuqin / SUN Yingsha",
               "all_players_in_row": [
                 "IONESCU Ovidiu (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -2567,17 +2319,14 @@
               ],
               "side_a": [
                 "IONESCU Ovidiu (ROU)",
-                "WANG Chuqin (CHN)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "WANG Chuqin (CHN)",
                 "SUN Yingsha (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | IONESCU Ovidiu (ROU) | SAMARA Elizabeta (ROU) | WANG Chuqin (CHN) | SUN Yingsha (CHN) | XD | Main Draw | R16 | 0 - 3 | 0:11 0:11 0:11 | WANG Chuqin | SUN Yingsha | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -2635,15 +2384,8 @@
               "side_b": [
                 "WANG Amy (USA)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "WANG Amy (USA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SAMARA Elizabeta (ROU) |  | WANG Amy (USA) |  | WS | Qualification |  | 4 - 0 | 12:10 11:9 11:5 11:6 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2688,15 +2430,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHIN Yubin (KOR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2025 | ITTF Men's and Women's World Cup Macao 2025 | SHIN Yubin (KOR) |  | SAMARA Elizabeta (ROU) |  | WS | Qualification |  | 4 - 0 | 11:4 11:3 11:5 11:9 | SHIN Yubin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "资格赛"
@@ -2758,15 +2493,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "LEE Eunhye (KOR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | LEE Eunhye (KOR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 2 - 3 | 11:7 5:11 6:11 11:6 7:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2807,15 +2535,8 @@
               "side_b": [
                 "SHIN Yubin (KOR)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "SHIN Yubin (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Incheon 2025 | SAMARA Elizabeta (ROU) |  | SHIN Yubin (KOR) |  | WS | Main Draw | R16 | 0 - 3 | 4:11 5:11 3:11 | SHIN Yubin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2878,15 +2599,8 @@
               "side_b": [
                 "XIAO Maria (ESP)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "XIAO Maria (ESP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | WTT Champions Chongqing 2025 | SAMARA Elizabeta (ROU) |  | XIAO Maria (ESP) |  | WS | Main Draw | R32 | 2 - 3 | 6:11 11:8 11:7 11:13 4:11 | XIAO Maria |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2944,15 +2658,8 @@
               "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | SAMARA Elizabeta (ROU) |  | BERGSTROM Linda (SWE) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:13 12:10 11:2 11:8 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -2993,15 +2700,8 @@
               "side_b": [
                 "POTA Georgina (HUN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "POTA Georgina (HUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | SAMARA Elizabeta (ROU) |  | POTA Georgina (HUN) |  | WS | Main Draw | R16 | 3 - 0 | 11:7 11:5 11:6 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3047,15 +2747,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHAN Xiaona (GER)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | SHAN Xiaona (GER) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | SemiFinal | 1 - 3 | 11:9 10:12 8:11 3:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3106,15 +2799,8 @@
               "side_b": [
                 "HAN Ying (GER)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HAN Ying (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2025 | Europe Top-16 Cup Montreux 2025 | SAMARA Elizabeta (ROU) |  | HAN Ying (GER) |  | WS | Main Draw | Final | 2 - 3 | 6:11 9:11 11:9 11:8 4:11 | HAN Ying |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3192,15 +2878,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "BLASKOVA Zdena (CZE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | BLASKOVA Zdena (CZE) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 0 - 4 | 4:11 8:11 7:11 7:11 0:0 0:0 0:0 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3261,15 +2940,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "MALOBABIC Ivana (CRO)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | MALOBABIC Ivana (CRO) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 0 - 4 | 3:11 6:11 2:11 8:11 0:0 0:0 0:0 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3330,15 +3002,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "HAN Ying (GER)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | HAN Ying (GER) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | QuarterFinal | 2 - 4 | 11:8 11:1 1:11 10:12 7:11 8:11 0:0 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3399,15 +3064,8 @@
               "side_b": [
                 "YANG Xiaoxin (MON)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "YANG Xiaoxin (MON)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SAMARA Elizabeta (ROU) |  | YANG Xiaoxin (MON) |  | WS | Main Draw | SemiFinal | 0 - 4 | 9:11 5:11 9:11 5:11 0:0 0:0 0:0 | YANG Xiaoxin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3468,15 +3126,8 @@
               "side_b": [
                 "BAJOR Natalia (POL)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "BAJOR Natalia (POL)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SAMARA Elizabeta (ROU) |  | BAJOR Natalia (POL) |  | WS | Position Draw | 2 | 4 - 3 | 11:9 4:11 13:11 11:7 9:11 9:11 11:7 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "排位赛",
@@ -3506,7 +3157,7 @@
                 "11:8",
                 "11:4"
               ],
-              "winner": "DIACONU Adina",
+              "winner": "DIACONU Adina / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DIACONU Adina (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -3515,17 +3166,14 @@
               ],
               "side_a": [
                 "DIACONU Adina (ROU)",
-                "BALINT Bernadett (HUN)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "BALINT Bernadett (HUN)",
                 "NAGYVARADI Mercedes (HUN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | DIACONU Adina (ROU) | SAMARA Elizabeta (ROU) | BALINT Bernadett (HUN) | NAGYVARADI Mercedes (HUN) | WT | Main Draw | QuarterFinal | 3 - 0 | 11:6 11:8 11:4 | DIACONU Adina | SAMARA Elizabeta | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -3566,15 +3214,8 @@
               "side_b": [
                 "NAGYVARADI Mercedes (HUN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "NAGYVARADI Mercedes (HUN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SAMARA Elizabeta (ROU) |  | NAGYVARADI Mercedes (HUN) |  | WT | Main Draw | QuarterFinal | 3 - 0 | 11:8 11:7 11:5 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -3614,7 +3255,7 @@
                 "4:11",
                 "9:11"
               ],
-              "winner": "PAVADE Prithika",
+              "winner": "PAVADE Prithika / LUTZ Camille",
               "all_players_in_row": [
                 "DIACONU Adina (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -3623,17 +3264,14 @@
               ],
               "side_a": [
                 "DIACONU Adina (ROU)",
-                "PAVADE Prithika (FRA)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "PAVADE Prithika (FRA)",
                 "LUTZ Camille (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | DIACONU Adina (ROU) | SAMARA Elizabeta (ROU) | PAVADE Prithika (FRA) | LUTZ Camille (FRA) | WT | Main Draw | SemiFinal | 2 - 3 | 9:11 11:8 11:9 4:11 9:11 | PAVADE Prithika | LUTZ Camille | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -3674,15 +3312,8 @@
               "side_b": [
                 "LUTZ Camille (FRA)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "LUTZ Camille (FRA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | European Games Krakow-Malopolska 2023 | SAMARA Elizabeta (ROU) |  | LUTZ Camille (FRA) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:6 11:8 11:5 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -3750,15 +3381,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "HUANG Yu-Wen (TPE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | HUANG Yu-Wen (TPE) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R128 | 2 - 4 | 9:11 6:11 11:9 6:11 11:9 2:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3788,7 +3412,7 @@
                 "4:11",
                 "3:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "KALAM Musfiquh (RSA)",
                 "EDWARDS Lailaa (RSA)",
@@ -3797,17 +3421,14 @@
               ],
               "side_a": [
                 "KALAM Musfiquh (RSA)",
-                "DRAGOMAN Andreea (ROU)"
+                "EDWARDS Lailaa (RSA)"
               ],
               "side_b": [
-                "EDWARDS Lailaa (RSA)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | KALAM Musfiquh (RSA) | EDWARDS Lailaa (RSA) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R64 | 0 - 3 | 2:11 4:11 3:11 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3863,15 +3484,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "PAVADE Prithika (FRA)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | PAVADE Prithika (FRA) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 2 - 4 | 8:11 11:5 11:4 7:11 12:14 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -3911,7 +3525,7 @@
                 "11:7",
                 "9:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "KUMAHARA Luca (BRA)",
                 "TAKAHASHI Bruna (BRA)",
@@ -3920,17 +3534,14 @@
               ],
               "side_a": [
                 "KUMAHARA Luca (BRA)",
-                "DRAGOMAN Andreea (ROU)"
+                "TAKAHASHI Bruna (BRA)"
               ],
               "side_b": [
-                "TAKAHASHI Bruna (BRA)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | KUMAHARA Luca (BRA) | TAKAHASHI Bruna (BRA) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R32 | 2 - 3 | 6:11 6:11 11:8 11:7 9:11 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -3960,7 +3571,7 @@
                 "11:1",
                 "11:8"
               ],
-              "winner": "CHEN Meng",
+              "winner": "CHEN Meng / WANG Yidi",
               "all_players_in_row": [
                 "CHEN Meng (CHN)",
                 "WANG Yidi (CHN)",
@@ -3969,17 +3580,14 @@
               ],
               "side_a": [
                 "CHEN Meng (CHN)",
-                "DRAGOMAN Andreea (ROU)"
+                "WANG Yidi (CHN)"
               ],
               "side_b": [
-                "WANG Yidi (CHN)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | CHEN Meng (CHN) | WANG Yidi (CHN) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 3 - 0 | 11:7 11:1 11:8 | CHEN Meng | WANG Yidi | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4025,15 +3633,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SUN Yingsha (CHN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | ITTF World Table Tennis Championships Finals Durban 2023 | SUN Yingsha (CHN) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 4 - 0 | 11:8 12:10 11:8 11:5 | SUN Yingsha |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4085,7 +3686,7 @@
                 "11:9",
                 "11:9"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -4094,17 +3695,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "WU Yangchen (CHN)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "WU Yangchen (CHN)",
                 "QI Fei (CHN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WU Yangchen (CHN) | QI Fei (CHN) | WD | Main Draw | R16 | 3 - 2 | 6:11 12:10 7:11 11:9 11:9 | SAMARA Elizabeta | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4155,15 +3753,8 @@
               "side_b": [
                 "YANG Ha Eun (KOR)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "YANG Ha Eun (KOR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | SAMARA Elizabeta (ROU) |  | YANG Ha Eun (KOR) |  | WS | Main Draw | R64 | 3 - 2 | 8:11 8:11 11:8 11:6 11:7 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4193,7 +3784,7 @@
                 "11:6",
                 "11:6"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -4202,17 +3793,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "DE NUTTE Sarah (LUX)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | WD | Main Draw | QuarterFinal | 3 - 0 | 12:10 11:6 11:6 | SAMARA Elizabeta | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4258,15 +3846,8 @@
               "side_b": [
                 "CHENG I-Ching (TPE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "CHENG I-Ching (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | SAMARA Elizabeta (ROU) |  | CHENG I-Ching (TPE) |  | WS | Main Draw | R32 | 1 - 3 | 3:11 7:11 11:9 5:11 | CHENG I-Ching |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4301,7 +3882,7 @@
                 "8:11",
                 "11:8"
               ],
-              "winner": "CHEN Xingtong",
+              "winner": "CHEN Xingtong / KUAI Man",
               "all_players_in_row": [
                 "CHEN Xingtong (CHN)",
                 "KUAI Man (CHN)",
@@ -4310,17 +3891,14 @@
               ],
               "side_a": [
                 "CHEN Xingtong (CHN)",
-                "SAMARA Elizabeta (ROU)"
+                "KUAI Man (CHN)"
               ],
               "side_b": [
-                "KUAI Man (CHN)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Bangkok 2023 | CHEN Xingtong (CHN) | KUAI Man (CHN) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | SemiFinal | 3 - 1 | 11:5 11:6 8:11 11:8 | CHEN Xingtong | KUAI Man | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4378,15 +3956,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "ITO Mima (JPN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Champions Macao 2023 | ITO Mima (JPN) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 3 - 1 | 7:11 11:8 11:4 11:6 | ITO Mima |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4444,15 +4015,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "YANG Xiaoxin (MON)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Champions Xinxiang 2023 | YANG Xiaoxin (MON) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 3 - 1 | 11:3 5:11 11:4 11:6 | YANG Xiaoxin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4515,15 +4079,8 @@
               "side_b": [
                 "PESOTSKA Margaryta (UKR)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "PESOTSKA Margaryta (UKR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Singapore Smash 2023 | SAMARA Elizabeta (ROU) |  | PESOTSKA Margaryta (UKR) |  | WS | Main Draw | R64 | 3 - 2 | 10:12 8:11 12:10 13:11 11:7 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4553,24 +4110,23 @@
                 "10:12",
                 "12:14"
               ],
-              "winner": "CHENG I-Ching",
+              "winner": "CHENG I-Ching / LI Yu-Jhun",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
-                "SAMARA Elizabeta (ROU)"
+                "SAMARA Elizabeta (ROU)",
+                "CHENG I-Ching (TPE)",
+                "LI Yu-Jhun (TPE)"
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "CHENG I-Ching (TPE)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "CHENG I-Ching (TPE)",
                 "LI Yu-Jhun (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Singapore Smash 2023 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | CHENG I-Ching (TPE) | LI Yu-Jhun (TPE) | WD | Main Draw | R32 | 0 - 3 | 5:11 10:12 12:14 | CHENG I-Ching | LI Yu-Jhun | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -4621,15 +4177,8 @@
               "side_b": [
                 "CHEN Meng (CHN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "CHEN Meng (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Singapore Smash 2023 | SAMARA Elizabeta (ROU) |  | CHEN Meng (CHN) |  | WS | Main Draw | R32 | 3 - 2 | 6:11 11:6 2:11 11:6 11:8 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4670,15 +4219,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "POLCANOVA Sofia (AUT)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | Singapore Smash 2023 | POLCANOVA Sofia (AUT) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 3 - 0 | 11:5 11:8 11:5 | POLCANOVA Sofia |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4736,15 +4278,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHAO Jieni (POR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | SHAO Jieni (POR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 1 - 3 | 6:11 11:8 7:11 5:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4795,15 +4330,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHIN Yubin (KOR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | SHIN Yubin (KOR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 2 - 3 | 11:7 6:11 8:11 11:8 9:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4849,15 +4377,8 @@
               "side_b": [
                 "CHENG I-Ching (TPE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "CHENG I-Ching (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Star Contender Goa 2023 | SAMARA Elizabeta (ROU) |  | CHENG I-Ching (TPE) |  | WS | Main Draw | R16 | 1 - 3 | 4:11 11:5 9:11 9:11 | CHENG I-Ching |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4915,15 +4436,8 @@
               "side_b": [
                 "POLCANOVA Sofia (AUT)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "POLCANOVA Sofia (AUT)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | Europe Top-16 Cup Montreux 2023 | SAMARA Elizabeta (ROU) |  | POLCANOVA Sofia (AUT) |  | WS | Main Draw | R16 | 0 - 4 | 4:11 12:14 3:11 6:11 | POLCANOVA Sofia |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -4986,15 +4500,8 @@
               "side_b": [
                 "MESHREF Dina (EGY)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "MESHREF Dina (EGY)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | SAMARA Elizabeta (ROU) |  | MESHREF Dina (EGY) |  | WS | Main Draw | R32 | 3 - 2 | 3:11 6:11 11:4 11:5 11:9 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5045,15 +4552,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHAO Jieni (POR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2023 | WTT Contender Amman 2023 | SHAO Jieni (POR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 3 - 2 | 11:8 5:11 8:11 11:5 15:13 | SHAO Jieni |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5116,15 +4616,8 @@
               "side_b": [
                 "NI Xia Lian (LUX)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "NI Xia Lian (LUX)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | SAMARA Elizabeta (ROU) |  | NI Xia Lian (LUX) |  | WS | Main Draw | R32 | 3 - 2 | 11:4 11:6 7:11 5:11 11:9 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5154,7 +4647,7 @@
                 "5:11",
                 "4:11"
               ],
-              "winner": "CHOI Hyojoo",
+              "winner": "CHOI Hyojoo / LEE Zion",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -5163,17 +4656,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "CHOI Hyojoo (KOR)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "CHOI Hyojoo (KOR)",
                 "LEE Zion (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | CHOI Hyojoo (KOR) | LEE Zion (KOR) | WD | Main Draw | R16 | 0 - 3 | 10:12 5:11 4:11 | CHOI Hyojoo | LEE Zion | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5224,15 +4714,8 @@
               "side_b": [
                 "LIU Weishan (CHN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "LIU Weishan (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2023 | WTT Contender Doha 2023 | SAMARA Elizabeta (ROU) |  | LIU Weishan (CHN) |  | WS | Main Draw | R16 | 2 - 3 | 3:11 11:7 6:11 11:6 6:11 | LIU Weishan |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5289,7 +4772,7 @@
                 "11:8",
                 "12:14"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "JEE Minhyung (AUS)",
                 "LIU Yangzi (AUS)",
@@ -5298,17 +4781,14 @@
               ],
               "side_a": [
                 "JEE Minhyung (AUS)",
-                "DRAGOMAN Andreea (ROU)"
+                "LIU Yangzi (AUS)"
               ],
               "side_b": [
-                "LIU Yangzi (AUS)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | JEE Minhyung (AUS) | LIU Yangzi (AUS) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 2 - 3 | 8:11 9:11 13:11 11:8 12:14 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5354,15 +4834,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "WINTER Sabine (GER)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | WINTER Sabine (GER) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 1 - 3 | 9:11 9:11 12:10 7:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5402,7 +4875,7 @@
                 "11:6",
                 "8:11"
               ],
-              "winner": "BERGSTROM Linda",
+              "winner": "BERGSTROM Linda / KALLBERG Christina",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -5411,17 +4884,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "BERGSTROM Linda (SWE)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "BERGSTROM Linda (SWE)",
                 "KALLBERG Christina (SWE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | BERGSTROM Linda (SWE) | KALLBERG Christina (SWE) | WD | Main Draw | QuarterFinal | 2 - 3 | 10:12 9:11 11:6 11:6 8:11 | BERGSTROM Linda | KALLBERG Christina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -5472,15 +4942,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "KAUFMANN Annett (GER)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | KAUFMANN Annett (GER) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 2 - 3 | 5:11 11:9 6:11 13:11 7:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5521,15 +4984,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "ALTINKAYA Sibel (TUR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | ALTINKAYA Sibel (TUR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 9:11 7:11 10:12 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5575,15 +5031,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHIN Yubin (KOR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Nova Gorica 2022 | SHIN Yubin (KOR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | SemiFinal | 4 - 0 | 11:8 11:4 11:5 12:10 | SHIN Yubin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -5646,15 +5095,8 @@
               "side_b": [
                 "BERGSTROM Linda (SWE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "BERGSTROM Linda (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SAMARA Elizabeta (ROU) |  | BERGSTROM Linda (SWE) |  | WT | Qualification |  | 2 - 3 | 8:11 8:11 11:6 16:14 9:11 | BERGSTROM Linda |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5704,15 +5146,8 @@
               "side_b": [
                 "HANSSON Matilda (SWE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HANSSON Matilda (SWE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SAMARA Elizabeta (ROU) |  | HANSSON Matilda (SWE) |  | WT | Qualification |  | 3 - 2 | 11:3 7:11 10:12 11:8 11:8 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5762,15 +5197,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "CHEN Szu-Yu (TPE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | CHEN Szu-Yu (TPE) |  | SAMARA Elizabeta (ROU) |  | WT | Qualification |  | 3 - 2 | 11:2 11:5 11:13 8:11 11:6 | CHEN Szu-Yu |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5820,15 +5248,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHAO Jieni (POR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SHAO Jieni (POR) |  | SAMARA Elizabeta (ROU) |  | WT | Qualification |  | 3 - 2 | 11:13 11:6 11:4 9:11 13:11 | SHAO Jieni |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5873,15 +5294,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "YU Fu (POR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | YU Fu (POR) |  | SAMARA Elizabeta (ROU) |  | WT | Qualification |  | 3 - 1 | 10:12 11:4 11:7 11:7 | YU Fu |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "资格赛"
@@ -5926,15 +5340,8 @@
               "side_b": [
                 "DOO Hoi Kem (HKG)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "DOO Hoi Kem (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SAMARA Elizabeta (ROU) |  | DOO Hoi Kem (HKG) |  | WT | Main Draw | R16 | 1 - 3 | 9:11 7:11 11:8 6:11 | DOO Hoi Kem |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -5985,15 +5392,8 @@
               "side_b": [
                 "ZHU Chengzhu (HKG)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "ZHU Chengzhu (HKG)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | ITTF World Team Championships Finals Chengdu 2022 | SAMARA Elizabeta (ROU) |  | ZHU Chengzhu (HKG) |  | WT | Main Draw | R16 | 2 - 3 | 11:6 11:13 11:4 7:11 9:11 | ZHU Chengzhu |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -6056,15 +5456,8 @@
               "side_b": [
                 "SEN Prapti (IND)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "SEN Prapti (IND)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | SAMARA Elizabeta (ROU) |  | SEN Prapti (IND) |  | WS | Main Draw | R32 | 3 - 2 | 11:5 5:11 13:15 13:11 11:7 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6115,15 +5508,8 @@
               "side_b": [
                 "HUANG Yi-Hua (TPE)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HUANG Yi-Hua (TPE)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | SAMARA Elizabeta (ROU) |  | HUANG Yi-Hua (TPE) |  | WS | Main Draw | R16 | 3 - 2 | 6:11 11:9 11:9 8:11 11:9 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6169,15 +5555,8 @@
               "side_b": [
                 "QIAN Tianyi (CHN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "QIAN Tianyi (CHN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | WTT Contender Muscat II 2022 | SAMARA Elizabeta (ROU) |  | QIAN Tianyi (CHN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 6:11 12:14 11:5 1:11 | QIAN Tianyi |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6219,7 +5598,7 @@
                 "11:8",
                 "11:7"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -6228,17 +5607,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "GUISNEL Oceane (FRA)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "GUISNEL Oceane (FRA)",
                 "LUTZ Charlotte (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | GUISNEL Oceane (FRA) | LUTZ Charlotte (FRA) | WD | Main Draw | R32 | 3 - 0 | 11:7 11:8 11:7 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6268,7 +5644,7 @@
                 "11:7",
                 "11:5"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -6277,17 +5653,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "PUCHOVANOVA Nikoleta (SVK)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "PUCHOVANOVA Nikoleta (SVK)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | PUCHOVANOVA Nikoleta (SVK) | YILMAZ Ozge (TUR) | WD | Main Draw | R16 | 3 - 0 | 11:9 11:7 11:5 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6317,7 +5690,7 @@
                 "11:7",
                 "11:4"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -6326,17 +5699,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "MATELOVA Hana (CZE)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "MATELOVA Hana (CZE)",
                 "VARADY Barbora (SVK)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | MATELOVA Hana (CZE) | VARADY Barbora (SVK) | WD | Main Draw | QuarterFinal | 3 - 0 | 12:10 11:7 11:4 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6371,7 +5741,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "DRAGOMAN Andreea",
+              "winner": "DRAGOMAN Andreea / SAMARA Elizabeta",
               "all_players_in_row": [
                 "DE NUTTE Sarah (LUX)",
                 "NI Xia Lian (LUX)",
@@ -6380,17 +5750,14 @@
               ],
               "side_a": [
                 "DE NUTTE Sarah (LUX)",
-                "DRAGOMAN Andreea (ROU)"
+                "NI Xia Lian (LUX)"
               ],
               "side_b": [
-                "NI Xia Lian (LUX)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | DE NUTTE Sarah (LUX) | NI Xia Lian (LUX) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | SemiFinal | 1 - 3 | 11:6 6:11 9:11 6:11 | DRAGOMAN Andreea | SAMARA Elizabeta | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6420,7 +5787,7 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "POLCANOVA Sofia",
+              "winner": "POLCANOVA Sofia / SZOCS Bernadette",
               "all_players_in_row": [
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)",
@@ -6429,17 +5796,14 @@
               ],
               "side_a": [
                 "DRAGOMAN Andreea (ROU)",
-                "POLCANOVA Sofia (AUT)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "POLCANOVA Sofia (AUT)",
                 "SZOCS Bernadette (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | POLCANOVA Sofia (AUT) | SZOCS Bernadette (ROU) | WD | Main Draw | Final | 0 - 3 | 16:18 6:11 9:11 | POLCANOVA Sofia | SZOCS Bernadette | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6485,15 +5849,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "MEN Shuohan (NED)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | MEN Shuohan (NED) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 0 - 4 | 2:11 7:11 4:11 7:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6554,15 +5911,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "MADARASZ Dora (HUN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | MADARASZ Dora (HUN) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 3 - 4 | 8:11 11:6 5:11 19:17 11:7 11:13 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6608,15 +5958,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "SHAN Xiaona (GER)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | SHAN Xiaona (GER) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 4 - 0 | 11:7 11:5 11:9 11:9 | SHAN Xiaona |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6646,7 +5989,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "HABESOHN Daniel",
+              "winner": "HABESOHN Daniel / SAMARA Elizabeta",
               "all_players_in_row": [
                 "HABESOHN Daniel (AUT)",
                 "SAMARA Elizabeta (ROU)",
@@ -6655,17 +5998,14 @@
               ],
               "side_a": [
                 "HABESOHN Daniel (AUT)",
-                "YIGENLER Abdullah (TUR)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "YIGENLER Abdullah (TUR)",
                 "YILMAZ Ozge (TUR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | HABESOHN Daniel (AUT) | SAMARA Elizabeta (ROU) | YIGENLER Abdullah (TUR) | YILMAZ Ozge (TUR) | XD | Main Draw | R32 | 3 - 0 | 11:8 11:7 11:8 | HABESOHN Daniel | SAMARA Elizabeta | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -6695,7 +6035,7 @@
                 "11:9",
                 "11:6"
               ],
-              "winner": "LEBESSON Emmanuel",
+              "winner": "LEBESSON Emmanuel / YUAN Jia Nan",
               "all_players_in_row": [
                 "LEBESSON Emmanuel (FRA)",
                 "YUAN Jia Nan (FRA)",
@@ -6704,17 +6044,14 @@
               ],
               "side_a": [
                 "LEBESSON Emmanuel (FRA)",
-                "HABESOHN Daniel (AUT)"
+                "YUAN Jia Nan (FRA)"
               ],
               "side_b": [
-                "YUAN Jia Nan (FRA)",
+                "HABESOHN Daniel (AUT)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | European Championships Munich 2022 | LEBESSON Emmanuel (FRA) | YUAN Jia Nan (FRA) | HABESOHN Daniel (AUT) | SAMARA Elizabeta (ROU) | XD | Main Draw | R16 | 3 - 0 | 11:8 11:9 11:6 | LEBESSON Emmanuel | YUAN Jia Nan | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -6744,7 +6081,7 @@
                 "11:7",
                 "11:8"
               ],
-              "winner": "HABESOHN Daniel",
+              "winner": "HABESOHN Daniel / SAMARA Elizabeta",
               "all_players_in_row": [
                 "HABESOHN Daniel (AUT)",
                 "SAMARA Elizabeta (ROU)",
@@ -6753,17 +6090,14 @@
               ],
               "side_a": [
                 "HABESOHN Daniel (AUT)",
-                "PRYSHCHEPA Ievgen (UKR)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "PRYSHCHEPA Ievgen (UKR)",
                 "BILENKO Tetyana (UKR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | European Championships Munich 2022 | HABESOHN Daniel (AUT) | SAMARA Elizabeta (ROU) | PRYSHCHEPA Ievgen (UKR) | BILENKO Tetyana (UKR) | XD | Qualification | QR32 | 3 - 0 | 11:4 11:7 11:8 | HABESOHN Daniel | SAMARA Elizabeta | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -6816,15 +6150,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "DOO Hoi Kem (HKG)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Champions Budapest 2022 | DOO Hoi Kem (HKG) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:3 | DOO Hoi Kem |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6871,24 +6198,23 @@
                 "11:4",
                 "12:10"
               ],
-              "winner": "LI Yu-Jhun",
+              "winner": "LI Yu-Jhun / CHENG I-Ching",
               "all_players_in_row": [
+                "LI Yu-Jhun (TPE)",
+                "CHENG I-Ching (TPE)",
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
                 "LI Yu-Jhun (TPE)",
-                "DRAGOMAN Andreea (ROU)"
+                "CHENG I-Ching (TPE)"
               ],
               "side_b": [
-                "CHENG I-Ching (TPE)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | LI Yu-Jhun (TPE) | CHENG I-Ching (TPE) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 3 - 1 | 11:7 8:11 11:4 12:10 | LI Yu-Jhun | CHENG I-Ching | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -6929,15 +6255,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "EERLAND Britt (NED)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | EERLAND Britt (NED) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 0 - 3 | 4:11 8:11 6:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -6988,15 +6307,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "JEON Jihee (KOR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Star Contender Doha 2022 | JEON Jihee (KOR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 3 - 2 | 6:11 11:5 11:9 4:11 11:8 | JEON Jihee |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7049,15 +6361,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "MADARASZ Dora (HUN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | Singapore Smash 2022 | MADARASZ Dora (HUN) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 3 - 0 | 11:8 11:7 11:8 | MADARASZ Dora |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7109,24 +6414,23 @@
                 "9:11",
                 "11:9"
               ],
-              "winner": "LI Yu-Jhun",
+              "winner": "LI Yu-Jhun / CHEN Szu-Yu",
               "all_players_in_row": [
+                "LI Yu-Jhun (TPE)",
+                "CHEN Szu-Yu (TPE)",
                 "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
               "side_a": [
                 "LI Yu-Jhun (TPE)",
-                "DRAGOMAN Andreea (ROU)"
+                "CHEN Szu-Yu (TPE)"
               ],
               "side_b": [
-                "CHEN Szu-Yu (TPE)",
+                "DRAGOMAN Andreea (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | LI Yu-Jhun (TPE) | CHEN Szu-Yu (TPE) | DRAGOMAN Andreea (ROU) | SAMARA Elizabeta (ROU) | WD | Main Draw | R16 | 3 - 2 | 11:4 11:8 4:11 9:11 11:9 | LI Yu-Jhun | CHEN Szu-Yu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7177,15 +6481,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "LIU Hsing-Yin (TPE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | LIU Hsing-Yin (TPE) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 2 - 3 | 11:9 9:11 10:12 11:8 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7231,15 +6528,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "CHEN Yi (CHN)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | CHEN Yi (CHN) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 1 - 3 | 9:11 11:9 6:11 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7285,15 +6575,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "YANG Xiaoxin (MON)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2022 | WTT Contender Muscat 2022 | YANG Xiaoxin (MON) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | QuarterFinal | 3 - 1 | 11:5 6:11 11:8 11:8 | YANG Xiaoxin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7366,15 +6649,8 @@
               "side_b": [
                 "HAN Ying (GER)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HAN Ying (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | SAMARA Elizabeta (ROU) |  | HAN Ying (GER) |  | WS | Main Draw | QuarterFinal | 3 - 4 | 11:9 9:11 12:10 10:12 11:9 4:11 8:11 | HAN Ying |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7425,15 +6701,8 @@
               "side_b": [
                 "YU Fu (POR)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "YU Fu (POR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2022 | Europe Top-16 Cup Montreux 2022 | SAMARA Elizabeta (ROU) |  | YU Fu (POR) |  | WS | Main Draw | R16 | 4 - 1 | 11:13 12:10 11:9 11:8 11:5 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7496,15 +6765,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "WEGRZYN Anna (POL)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | WEGRZYN Anna (POL) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R128 | 0 - 4 | 6:11 9:11 4:11 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7550,15 +6812,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "LIU Hsing-Yin (TPE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | LIU Hsing-Yin (TPE) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 4 - 0 | 11:7 11:8 11:9 11:6 | LIU Hsing-Yin |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7588,7 +6843,7 @@
                 "11:9",
                 "11:4"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -7597,17 +6852,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "ABDELAZIZ Farah (EGY)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "ABDELAZIZ Farah (EGY)",
                 "HELMY Yousra (EGY)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | ABDELAZIZ Farah (EGY) | HELMY Yousra (EGY) | WD | Main Draw | R32 | 3 - 0 | 11:9 11:9 11:4 | SAMARA Elizabeta | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7647,7 +6899,7 @@
                 "11:5",
                 "7:11"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DRAGOMAN Andreea",
               "all_players_in_row": [
                 "NOSKOVA Yana (AIN)",
                 "VOROBEVA Olga (AIN)",
@@ -7656,17 +6908,14 @@
               ],
               "side_a": [
                 "NOSKOVA Yana (AIN)",
-                "SAMARA Elizabeta (ROU)"
+                "VOROBEVA Olga (AIN)"
               ],
               "side_b": [
-                "VOROBEVA Olga (AIN)",
+                "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | NOSKOVA Yana (AIN) | VOROBEVA Olga (AIN) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R16 | 2 - 3 | 11:5 7:11 7:11 11:5 7:11 | SAMARA Elizabeta | DRAGOMAN Andreea | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7696,7 +6945,7 @@
                 "8:11",
                 "1:11"
               ],
-              "winner": "ITO Mima",
+              "winner": "ITO Mima / HAYATA Hina",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DRAGOMAN Andreea (ROU)",
@@ -7705,17 +6954,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "ITO Mima (JPN)"
+                "DRAGOMAN Andreea (ROU)"
               ],
               "side_b": [
-                "DRAGOMAN Andreea (ROU)",
+                "ITO Mima (JPN)",
                 "HAYATA Hina (JPN)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | World Table Tennis Championships Finals Houston 2021 | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | ITO Mima (JPN) | HAYATA Hina (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 8:11 8:11 1:11 | ITO Mima | HAYATA Hina | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -7778,15 +7024,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "MATELOVA Hana (CZE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Europe Top-16 Cup Thessaloniki 2021 | MATELOVA Hana (CZE) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 4 - 1 | 11:8 11:8 11:6 12:14 11:8 | MATELOVA Hana |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7849,15 +7088,8 @@
               "side_b": [
                 "SAWETTABUT Suthasini (THA)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "SAWETTABUT Suthasini (THA)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | SAMARA Elizabeta (ROU) |  | SAWETTABUT Suthasini (THA) |  | WS | Main Draw | R32 | 1 - 4 | 7:11 6:11 11:4 8:11 2:11 | SAWETTABUT Suthasini |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -7897,7 +7129,7 @@
                 "11:6",
                 "11:13"
               ],
-              "winner": "DODEAN Daniela",
+              "winner": "DODEAN Daniela / SAMARA Elizabeta",
               "all_players_in_row": [
                 "SOO Wai Yam (HKG)",
                 "LEE Ho Ching (HKG)",
@@ -7906,17 +7138,14 @@
               ],
               "side_a": [
                 "SOO Wai Yam (HKG)",
-                "DODEAN Daniela (ROU)"
+                "LEE Ho Ching (HKG)"
               ],
               "side_b": [
-                "LEE Ho Ching (HKG)",
+                "DODEAN Daniela (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | SOO Wai Yam (HKG) | LEE Ho Ching (HKG) | DODEAN Daniela (ROU) | SAMARA Elizabeta (ROU) | WT | Main Draw | QuarterFinal | 2 - 3 | 5:11 11:5 7:11 11:6 11:13 | DODEAN Daniela | SAMARA Elizabeta | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -7957,15 +7186,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "LEE Ho Ching (HKG)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | LEE Ho Ching (HKG) |  | SAMARA Elizabeta (ROU) |  | WT | Main Draw | QuarterFinal | 3 - 0 | 11:9 11:8 12:10 | LEE Ho Ching |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -7995,7 +7217,7 @@
                 "11:13",
                 "6:11"
               ],
-              "winner": "DODEAN Daniela",
+              "winner": "DODEAN Daniela / SAMARA Elizabeta",
               "all_players_in_row": [
                 "HELMY Yousra (EGY)",
                 "ABDELAZIZ Farah (EGY)",
@@ -8004,17 +7226,14 @@
               ],
               "side_a": [
                 "HELMY Yousra (EGY)",
-                "DODEAN Daniela (ROU)"
+                "ABDELAZIZ Farah (EGY)"
               ],
               "side_b": [
-                "ABDELAZIZ Farah (EGY)",
+                "DODEAN Daniela (ROU)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | HELMY Yousra (EGY) | ABDELAZIZ Farah (EGY) | DODEAN Daniela (ROU) | SAMARA Elizabeta (ROU) | WT | Main Draw | R16 | 0 - 3 | 8:11 11:13 6:11 | DODEAN Daniela | SAMARA Elizabeta | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -8060,15 +7279,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "ABDELAZIZ Farah (EGY)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | Olympic Games Tokyo 2020 | ABDELAZIZ Farah (EGY) |  | SAMARA Elizabeta (ROU) |  | WT | Main Draw | R16 | 1 - 3 | 4:11 11:9 9:11 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子团体",
               "stage_zh": "正赛",
@@ -8115,7 +7327,7 @@
                 "11:6",
                 "11:3"
               ],
-              "winner": "SAMARA Elizabeta",
+              "winner": "SAMARA Elizabeta / DODEAN Daniela",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DODEAN Daniela (ROU)",
@@ -8124,17 +7336,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "LAURENTI Jamila (ITA)"
+                "DODEAN Daniela (ROU)"
               ],
               "side_b": [
-                "DODEAN Daniela (ROU)",
+                "LAURENTI Jamila (ITA)",
                 "MONFARDINI Gaia (ITA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SAMARA Elizabeta (ROU) | DODEAN Daniela (ROU) | LAURENTI Jamila (ITA) | MONFARDINI Gaia (ITA) | WD | Main Draw | R32 | 3 - 1 | 10:12 15:13 11:6 11:3 | SAMARA Elizabeta | DODEAN Daniela | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8169,7 +7378,7 @@
                 "7:11",
                 "6:11"
               ],
-              "winner": "MITTELHAM Nina",
+              "winner": "MITTELHAM Nina / WINTER Sabine",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DODEAN Daniela (ROU)",
@@ -8178,17 +7387,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "MITTELHAM Nina (GER)"
+                "DODEAN Daniela (ROU)"
               ],
               "side_b": [
-                "DODEAN Daniela (ROU)",
+                "MITTELHAM Nina (GER)",
                 "WINTER Sabine (GER)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SAMARA Elizabeta (ROU) | DODEAN Daniela (ROU) | MITTELHAM Nina (GER) | WINTER Sabine (GER) | WD | Main Draw | R16 | 1 - 3 | 7:11 11:7 7:11 6:11 | MITTELHAM Nina | WINTER Sabine | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8244,15 +7450,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "ARAPOVIC Hana (CRO)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | ARAPOVIC Hana (CRO) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R64 | 2 - 4 | 11:6 4:11 11:8 8:11 8:11 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8308,15 +7507,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "PAVADE Prithika (FRA)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | PAVADE Prithika (FRA) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R32 | 2 - 4 | 10:12 11:9 8:11 12:14 11:8 6:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8372,15 +7564,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "KALLBERG Christina (SWE)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | KALLBERG Christina (SWE) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | R16 | 2 - 4 | 2:11 6:11 11:6 11:7 4:11 8:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8436,15 +7621,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "WINTER Sabine (GER)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | WINTER Sabine (GER) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | QuarterFinal | 2 - 4 | 11:7 7:11 11:13 11:8 7:11 4:11 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8500,15 +7678,8 @@
               "side_b": [
                 "SOLJA Petrissa (GER)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "SOLJA Petrissa (GER)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | SAMARA Elizabeta (ROU) |  | SOLJA Petrissa (GER) |  | WS | Main Draw | SemiFinal | 2 - 4 | 4:11 12:14 11:9 11:7 8:11 6:11 | SOLJA Petrissa |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8538,7 +7709,7 @@
                 "6:11",
                 "4:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / SAMARA Elizabeta",
               "all_players_in_row": [
                 "STANOJKOVSKI Kristijan (MKD)",
                 "MLADENOVA Biljana (MKD)",
@@ -8547,17 +7718,14 @@
               ],
               "side_a": [
                 "STANOJKOVSKI Kristijan (MKD)",
-                "GARDOS Robert (AUT)"
+                "MLADENOVA Biljana (MKD)"
               ],
               "side_b": [
-                "MLADENOVA Biljana (MKD)",
+                "GARDOS Robert (AUT)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | STANOJKOVSKI Kristijan (MKD) | MLADENOVA Biljana (MKD) | GARDOS Robert (AUT) | SAMARA Elizabeta (ROU) | XD | Qualification | QR32 | 0 - 3 | 6:11 6:11 4:11 | GARDOS Robert | SAMARA Elizabeta | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "资格赛",
@@ -8587,7 +7755,7 @@
                 "7:11",
                 "4:11"
               ],
-              "winner": "GARDOS Robert",
+              "winner": "GARDOS Robert / SAMARA Elizabeta",
               "all_players_in_row": [
                 "JEVTOVIC Marko (SRB)",
                 "SURJAN Sabina (SRB)",
@@ -8596,17 +7764,14 @@
               ],
               "side_a": [
                 "JEVTOVIC Marko (SRB)",
-                "GARDOS Robert (AUT)"
+                "SURJAN Sabina (SRB)"
               ],
               "side_b": [
-                "SURJAN Sabina (SRB)",
+                "GARDOS Robert (AUT)",
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | JEVTOVIC Marko (SRB) | SURJAN Sabina (SRB) | GARDOS Robert (AUT) | SAMARA Elizabeta (ROU) | XD | Main Draw | R32 | 0 - 3 | 5:11 7:11 4:11 | GARDOS Robert | SAMARA Elizabeta | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -8641,7 +7806,7 @@
                 "9:11",
                 "6:11"
               ],
-              "winner": "LEBESSON Emmanuel",
+              "winner": "LEBESSON Emmanuel / YUAN Jia Nan",
               "all_players_in_row": [
                 "GARDOS Robert (AUT)",
                 "SAMARA Elizabeta (ROU)",
@@ -8650,17 +7815,14 @@
               ],
               "side_a": [
                 "GARDOS Robert (AUT)",
-                "LEBESSON Emmanuel (FRA)"
+                "SAMARA Elizabeta (ROU)"
               ],
               "side_b": [
-                "SAMARA Elizabeta (ROU)",
+                "LEBESSON Emmanuel (FRA)",
                 "YUAN Jia Nan (FRA)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | LIEBHERR ITTF European Championships Warsaw 2021 | GARDOS Robert (AUT) | SAMARA Elizabeta (ROU) | LEBESSON Emmanuel (FRA) | YUAN Jia Nan (FRA) | XD | Main Draw | R16 | 1 - 3 | 11:9 8:11 9:11 6:11 | LEBESSON Emmanuel | YUAN Jia Nan | ",
               "sub_event_zh": "混合双打",
               "stage_zh": "正赛",
@@ -8713,15 +7875,8 @@
               "side_b": [
                 "HAPONOVA Hanna (UKR)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HAPONOVA Hanna (UKR)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | SAMARA Elizabeta (ROU) |  | HAPONOVA Hanna (UKR) |  | WS | Main Draw | R32 | 3 - 0 | 11:9 11:8 11:3 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8756,24 +7911,23 @@
                 "6:11",
                 "9:11"
               ],
-              "winner": "CHEN Szu-Yu",
+              "winner": "CHEN Szu-Yu / CHENG Hsien-Tzu",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
-                "DODEAN Daniela (ROU)"
+                "DODEAN Daniela (ROU)",
+                "CHEN Szu-Yu (TPE)",
+                "CHENG Hsien-Tzu (TPE)"
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "CHEN Szu-Yu (TPE)"
+                "DODEAN Daniela (ROU)"
               ],
               "side_b": [
-                "DODEAN Daniela (ROU)",
+                "CHEN Szu-Yu (TPE)",
                 "CHENG Hsien-Tzu (TPE)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | SAMARA Elizabeta (ROU) | DODEAN Daniela (ROU) | CHEN Szu-Yu (TPE) | CHENG Hsien-Tzu (TPE) | WD | Main Draw | R16 | 1 - 3 | 11:7 7:11 6:11 9:11 | CHEN Szu-Yu | CHENG Hsien-Tzu | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -8814,15 +7968,8 @@
               "side_b": [
                 "ISHIKAWA Kasumi (JPN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "ISHIKAWA Kasumi (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | SAMARA Elizabeta (ROU) |  | ISHIKAWA Kasumi (JPN) |  | WS | Main Draw | R16 | 3 - 0 | 13:11 11:9 12:10 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8873,15 +8020,8 @@
               "side_b": [
                 "SAMARA Elizabeta (ROU)"
               ],
-              "teammates": [
-                "KIM Hayeong (KOR)"
-              ],
-              "opponents": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "win",
+              "perspective": "side_b",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | KIM Hayeong (KOR) |  | SAMARA Elizabeta (ROU) |  | WS | Main Draw | QuarterFinal | 2 - 3 | 13:15 11:7 11:6 8:11 12:14 | SAMARA Elizabeta |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8927,15 +8067,8 @@
               "side_b": [
                 "FENG Tianwei (SGP)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "FENG Tianwei (SGP)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Star Contender Doha 2021 | SAMARA Elizabeta (ROU) |  | FENG Tianwei (SGP) |  | WS | Main Draw | SemiFinal | 0 - 4 | 8:11 4:11 3:11 5:11 | FENG Tianwei |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
@@ -8982,7 +8115,7 @@
                 "11:7",
                 "7:11"
               ],
-              "winner": "YANG Ha Eun",
+              "winner": "YANG Ha Eun / JEON Jihee",
               "all_players_in_row": [
                 "SAMARA Elizabeta (ROU)",
                 "DODEAN Daniela (ROU)",
@@ -8991,17 +8124,14 @@
               ],
               "side_a": [
                 "SAMARA Elizabeta (ROU)",
-                "YANG Ha Eun (KOR)"
+                "DODEAN Daniela (ROU)"
               ],
               "side_b": [
-                "DODEAN Daniela (ROU)",
+                "YANG Ha Eun (KOR)",
                 "JEON Jihee (KOR)"
               ],
-              "teammates": [],
-              "opponents": [],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | SAMARA Elizabeta (ROU) | DODEAN Daniela (ROU) | YANG Ha Eun (KOR) | JEON Jihee (KOR) | WD | Main Draw | R16 | 1 - 3 | 8:11 4:11 11:7 7:11 | YANG Ha Eun | JEON Jihee | ",
               "sub_event_zh": "女子双打",
               "stage_zh": "正赛",
@@ -9052,15 +8182,8 @@
               "side_b": [
                 "HAYATA Hina (JPN)"
               ],
-              "teammates": [
-                "SAMARA Elizabeta (ROU)"
-              ],
-              "opponents": [
-                "HAYATA Hina (JPN)"
-              ],
-              "result_for_player": "unknown",
-              "result": "unknown",
-              "perspective": "unknown",
+              "result_for_player": "loss",
+              "perspective": "side_a",
               "raw_row_text": "2021 | WTT Middle East HubWTT Contender Doha 2021 | SAMARA Elizabeta (ROU) |  | HAYATA Hina (JPN) |  | WS | Main Draw | R32 | 2 - 3 | 11:8 8:11 10:12 11:5 9:11 | HAYATA Hina |  | ",
               "sub_event_zh": "女子单打",
               "stage_zh": "正赛",
