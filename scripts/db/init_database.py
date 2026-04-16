@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
+import config
+
 # Windows 编码兼容
 if sys.platform == 'win32':
     import io
@@ -98,10 +100,8 @@ def verify_tables(db_path: str):
 
 
 if __name__ == '__main__':
-    # 获取项目根目录
-    project_root = Path(__file__).parent.parent.parent
-    db_path = project_root / "scripts" / "db" / "ittf.db"
-    schema_path = project_root / "scripts" / "db" / "schema.sql"
+    db_path = Path(config.DB_PATH)
+    schema_path = Path(config.SCHEMA_PATH)
 
     print("=" * 70)
     print("Initialize ITTF Database")

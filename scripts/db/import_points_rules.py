@@ -8,6 +8,8 @@ import sqlite3
 import sys
 from pathlib import Path
 
+import config
+
 # Windows 编码兼容
 if sys.platform == 'win32':
     import io
@@ -187,8 +189,7 @@ def verify_points_rules(db_path: str):
 
 
 if __name__ == '__main__':
-    project_root = Path(__file__).parent.parent.parent
-    db_path = project_root / "scripts" / "db" / "ittf.db"
+    db_path = Path(config.DB_PATH)
 
     print("=" * 70)
     print("Import Points Rules")

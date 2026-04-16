@@ -11,6 +11,8 @@ import json
 import re
 from pathlib import Path
 
+import config
+
 # Windows 编码兼容
 if sys.platform == 'win32':
     import io
@@ -162,9 +164,8 @@ def verify_players(db_path: str):
 
 
 if __name__ == '__main__':
-    project_root = Path(__file__).parent.parent.parent
-    db_path = project_root / "scripts" / "db" / "ittf.db"
-    player_profiles_dir = project_root / "data" / "player_profiles" / "cn"
+    db_path = Path(config.DB_PATH)
+    player_profiles_dir = config.PROJECT_ROOT / "data" / "player_profiles" / "cn"
 
     print("=" * 70)
     print("Import Players")

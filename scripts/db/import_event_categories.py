@@ -8,6 +8,8 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
+import config
+
 def load_mapping(mapping_file):
     """Load event category mapping from JSON file"""
     with open(mapping_file, 'r', encoding='utf-8') as f:
@@ -110,8 +112,8 @@ def escape_sql(s):
     return s.replace("'", "''")
 
 def main():
-    mapping_file = Path("data/event_category_mapping.json")
-    output_file = Path("scripts/db/import_event_categories_data.sql")
+    mapping_file = config.PROJECT_ROOT / "data" / "event_category_mapping.json"
+    output_file = Path(config.DB_PATH).parent / "import_event_categories_data.sql"
 
     if not mapping_file.exists():
         print(f"Error: {mapping_file} not found")

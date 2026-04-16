@@ -8,6 +8,8 @@ import sqlite3
 import sys
 from pathlib import Path
 
+import config
+
 # Windows 编码兼容
 if sys.platform == 'win32':
     import io
@@ -160,9 +162,8 @@ def verify_dictionaries(db_path: str):
 
 
 if __name__ == '__main__':
-    project_root = Path(__file__).parent.parent.parent
-    db_path = project_root / "scripts" / "db" / "ittf.db"
-    event_type_file = project_root / "data" / "event_type.txt"
+    db_path = Path(config.DB_PATH)
+    event_type_file = config.PROJECT_ROOT / "data" / "event_type.txt"
 
     print("=" * 70)
     print("Import Dictionaries")
