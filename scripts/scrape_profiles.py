@@ -85,6 +85,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--db-path", default="web/db/ittf_rankings.sqlite")
     parser.add_argument("--output", default=None)
     parser.add_argument("--checkpoint", default="data/player_profiles/checkpoint_scrape_profiles.json", help="Scrape checkpoint file path")
+    parser.add_argument("--player-id", type=str, default=None, help="Player ID (player_id_raw)")
+    parser.add_argument("--player-name", type=str, default=None, help="Player name (URL encoded)")
     parser.add_argument("--force", action="store_true", help="Force rescrape (ignore checkpoint)")
     parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing orig/cn files")
     return parser
@@ -742,6 +744,10 @@ def run(args: argparse.Namespace) -> int:
         max_player_gap_sec=10.0,
     )
 
+    player_id_arg = getattr(args, "player_id", None)
+    player_name_arg = getattr(args, "player_name", None)
+    direct_player_mode = bool(player_id_arg and player_name_arg)
+
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
@@ -766,56 +772,84 @@ def run(args: argparse.Namespace) -> int:
             return 6
 
         try:
-            open_page_with_verification(page, target_url, delay_cfg, f"open ranking page: {args.category}")
+            if direct_player_mode:
+                profile_url = f"{BASE_URL}/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw={player_id_arg}&vw_profiles___Name_raw={urllib.parse.quote(player_name_arg)}"
+                player_info = {
+                    "player_id": player_id_arg,
+                    "name": player_name_arg,
+                    "english_name": player_name_arg,
+                    "profile_url": profile_url,
+                }
+                logger.info("Direct player mode: scraping %s (id=%s)", player_name_arg, player_id_arg)
+                profile_data, scraped_now = scrape_player_profile(
+                    page,
+                    profile_url,
+                    player_info,
+                    delay_cfg,
+                    profile_orig_dir,
+                    avatar_dir,
+                    db_path,
+                    checkpoint=checkpoint,
+                    category=args.category,
+                    force=bool(args.force),
+                )
+                if profile_data is None:
+                    logger.error("Profile scrape failed: %s", player_name_arg)
+                    close_browser_page(via_cdp, browser, page)
+                    return 4
+                rankings = [player_info]
+                week, update_date = "", ""
+            else:
+                open_page_with_verification(page, target_url, delay_cfg, f"open ranking page: {args.category}")
 
-            table_count = page.locator("table").count()
-            if table_count == 0:
-                logger.error("No table found on ranking page: %s", target_url)
-                close_browser_page(via_cdp, browser, page)
-                return 3
+                table_count = page.locator("table").count()
+                if table_count == 0:
+                    logger.error("No table found on ranking page: %s", target_url)
+                    close_browser_page(via_cdp, browser, page)
+                    return 3
 
-            html = page.content()
-            snapshot_path = snapshot_dir / f"{args.category}.html"
-            snapshot_path.write_text(html, encoding="utf-8", newline="")
-            logger.info("Saved ranking snapshot: %s", snapshot_path)
+                html = page.content()
+                snapshot_path = snapshot_dir / f"{args.category}.html"
+                snapshot_path.write_text(html, encoding="utf-8", newline="")
+                logger.info("Saved ranking snapshot: %s", snapshot_path)
 
-            rankings = parse_ranking_rows(page, args.top, None, translate_names=False)
-            if not rankings:
-                logger.error("Parsed 0 ranking rows from page: %s", target_url)
-                close_browser_page(via_cdp, browser, page)
-                return 5
+                rankings = parse_ranking_rows(page, args.top, None, translate_names=False)
+                if not rankings:
+                    logger.error("Parsed 0 ranking rows from page: %s", target_url)
+                    close_browser_page(via_cdp, browser, page)
+                    return 5
 
-            # Scrape player profiles (always enabled)
-            logger.info("Starting profile scraping for %d players...", len(rankings))
-            for idx, player in enumerate(rankings):
-                if player.get("profile_url"):
-                    logger.info("[%d/%d] Scraping profile: %s", idx + 1, len(rankings), player.get("english_name", player.get("name")))
-                    profile_data, scraped_now = scrape_player_profile(
-                        page,
-                        player.get("profile_url"),
-                        player,
-                        delay_cfg,
-                        profile_orig_dir,
-                        avatar_dir,
-                        db_path,
-                        checkpoint=checkpoint,
-                        category=args.category,
-                        force=bool(args.force),
-                    )
-                    if profile_data is None:
-                        logger.error("Profile scrape failed: %s", player.get("english_name", player.get("name")))
-                        close_browser_page(via_cdp, browser, page)
-                        return 4
-                    # Delay between players to avoid rate limiting
-                    if scraped_now and idx < len(rankings) - 1:
-                        human_sleep(delay_cfg.min_player_gap_sec, delay_cfg.max_player_gap_sec, "between player profiles")
+                # Scrape player profiles (always enabled)
+                logger.info("Starting profile scraping for %d players...", len(rankings))
+                for idx, player in enumerate(rankings):
+                    if player.get("profile_url"):
+                        logger.info("[%d/%d] Scraping profile: %s", idx + 1, len(rankings), player.get("english_name", player.get("name")))
+                        profile_data, scraped_now = scrape_player_profile(
+                            page,
+                            player.get("profile_url"),
+                            player,
+                            delay_cfg,
+                            profile_orig_dir,
+                            avatar_dir,
+                            db_path,
+                            checkpoint=checkpoint,
+                            category=args.category,
+                            force=bool(args.force),
+                        )
+                        if profile_data is None:
+                            logger.error("Profile scrape failed: %s", player.get("english_name", player.get("name")))
+                            close_browser_page(via_cdp, browser, page)
+                            return 4
+                        # Delay between players to avoid rate limiting
+                        if scraped_now and idx < len(rankings) - 1:
+                            human_sleep(delay_cfg.min_player_gap_sec, delay_cfg.max_player_gap_sec, "between player profiles")
 
-            week, update_date = extract_update_meta(page, args.category)
-            payload = build_output(rankings, args.category, week, update_date)
+                week, update_date = extract_update_meta(page, args.category)
             
-            # Save original ranking
-            save_json(output_path, payload)
-            logger.info("Saved ranking JSON: %s", output_path)
+            if not direct_player_mode:
+                payload = build_output(rankings, args.category, week, update_date)
+                save_json(output_path, payload)
+                logger.info("Saved ranking JSON: %s", output_path)
         except RiskControlTriggered as exc:
             logger.error("Risk control triggered: %s", exc)
             close_browser_page(via_cdp, browser, page)
