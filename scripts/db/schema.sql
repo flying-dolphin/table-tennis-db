@@ -22,6 +22,36 @@ CREATE TABLE IF NOT EXISTS sub_event_types (
     name_zh             TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS event_categories (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    category_id         TEXT NOT NULL UNIQUE,   -- 唯一标识，如 "WTT_GRAND_SMASH"
+    category_name       TEXT NOT NULL,
+    category_name_zh    TEXT,
+    json_code           TEXT,                   -- ranking JSON 中的缩写，如 "GS"
+    points_tier         TEXT,                   -- Premium / High / Medium / Low / None
+    points_eligible     INTEGER DEFAULT 0,
+    filtering_only      INTEGER DEFAULT 0,
+    applicable_formats  TEXT,                   -- JSON 数组
+    ittf_rule_name      TEXT,
+    notes               TEXT,
+    sort_order          INTEGER DEFAULT 0
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_categories_json_code ON event_categories(json_code);
+
+CREATE TABLE IF NOT EXISTS event_type_mapping (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_type      TEXT NOT NULL,
+    event_kind      TEXT,
+    event_kind_aliases TEXT,
+    category_id     INTEGER NOT NULL,
+    priority        INTEGER DEFAULT 0,
+    is_active       INTEGER NOT NULL DEFAULT 1,
+    FOREIGN KEY (category_id) REFERENCES event_categories(id) ON DELETE RESTRICT
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_type_mapping_lookup ON event_type_mapping(event_type, event_kind, is_active, priority);
+
 CREATE TABLE IF NOT EXISTS points_rules (
     rule_id             INTEGER PRIMARY KEY AUTOINCREMENT,
     event_category      TEXT NOT NULL,
@@ -82,26 +112,31 @@ CREATE INDEX IF NOT EXISTS idx_players_country ON players(country_code);
 CREATE INDEX IF NOT EXISTS idx_players_slug ON players(slug);
 
 CREATE TABLE IF NOT EXISTS events (
-    event_id        INTEGER PRIMARY KEY,
-    year            INTEGER NOT NULL,
-    name            TEXT NOT NULL,
-    name_zh         TEXT,
-    event_type_id   INTEGER,
-    event_type_name TEXT,
-    event_kind      TEXT,
-    event_kind_zh   TEXT,
-    total_matches   INTEGER DEFAULT 0,
-    start_date      TEXT,
-    end_date        TEXT,
-    location        TEXT,
-    href            TEXT,
-    scraped_at      TEXT,
-    FOREIGN KEY (event_type_id) REFERENCES event_types(event_type_id)
+    event_id            INTEGER PRIMARY KEY,
+    year                INTEGER NOT NULL,
+    name                TEXT NOT NULL,
+    name_zh             TEXT,
+    event_type_id       INTEGER,
+    event_type_name     TEXT,                  -- 原始 event_type
+    event_kind          TEXT,                  -- 原始 event_kind
+    event_kind_zh       TEXT,
+    event_category_id   INTEGER,               -- -> event_categories.id
+    category_code       TEXT,                  -- 冗余：event_categories.category_id
+    category_name_zh    TEXT,                  -- 冗余：中文分类名
+    total_matches       INTEGER DEFAULT 0,
+    start_date          TEXT,
+    end_date            TEXT,
+    location            TEXT,
+    href                TEXT,
+    scraped_at          TEXT,
+    FOREIGN KEY (event_type_id) REFERENCES event_types(event_type_id),
+    FOREIGN KEY (event_category_id) REFERENCES event_categories(id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_events_year ON events(year);
 CREATE INDEX IF NOT EXISTS idx_events_type ON events(event_type_id);
 CREATE INDEX IF NOT EXISTS idx_events_date ON events(start_date);
+CREATE INDEX IF NOT EXISTS idx_events_category ON events(event_category_id);
 
 CREATE TABLE IF NOT EXISTS sub_events (
     sub_event_id        INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -207,24 +242,29 @@ CREATE INDEX IF NOT EXISTS idx_points_breakdown_snapshot ON points_breakdown(sna
 -- ============================================================================
 
 CREATE TABLE IF NOT EXISTS events_calendar (
-    calendar_id     INTEGER PRIMARY KEY AUTOINCREMENT,
-    year            INTEGER NOT NULL,
-    name            TEXT NOT NULL,
-    name_zh         TEXT,
-    date_range      TEXT,
-    date_range_zh   TEXT,
-    start_date      TEXT,
-    end_date        TEXT,
-    location        TEXT,
-    location_zh     TEXT,
-    status          TEXT,
-    href            TEXT,
-    event_id        INTEGER,
+    calendar_id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    year                INTEGER NOT NULL,
+    name                TEXT NOT NULL,
+    name_zh             TEXT,
+    event_type          TEXT,                  -- 原始 event_type
+    event_kind          TEXT,                  -- 原始 event_kind
+    event_category_id   INTEGER,               -- -> event_categories.id
+    date_range          TEXT,
+    date_range_zh       TEXT,
+    start_date          TEXT,
+    end_date            TEXT,
+    location            TEXT,
+    location_zh         TEXT,
+    status              TEXT,
+    href                TEXT,
+    event_id            INTEGER,
+    FOREIGN KEY (event_category_id) REFERENCES event_categories(id),
     FOREIGN KEY (event_id) REFERENCES events(event_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_calendar_year ON events_calendar(year);
 CREATE INDEX IF NOT EXISTS idx_calendar_date ON events_calendar(start_date);
+CREATE INDEX IF NOT EXISTS idx_calendar_category ON events_calendar(event_category_id);
 
 CREATE TABLE IF NOT EXISTS unmatched_records (
     record_id       INTEGER PRIMARY KEY AUTOINCREMENT,
