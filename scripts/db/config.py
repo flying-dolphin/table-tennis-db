@@ -16,8 +16,9 @@ except ImportError as e:
     ) from e
 
 # Load .env from the directory where this file resides
-_db_dir = Path(__file__).parent.parent.parent
-_dotenv_path = _db_dir /  ".env"
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+_db_dir = PROJECT_ROOT / "data/db"
+_dotenv_path = PROJECT_ROOT /  ".env"
 
 if _dotenv_path.exists():
     load_dotenv(dotenv_path=str(_dotenv_path), override=True)
@@ -27,4 +28,3 @@ DB_PATH = os.getenv("DB_PATH", str(_db_dir / "ittf.db"))
 SCHEMA_PATH = os.getenv("SCHEMA_PATH", str(_db_dir / "schema.sql"))
 
 # Project root for deriving other paths
-PROJECT_ROOT = _db_dir.parent.parent
