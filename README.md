@@ -20,9 +20,9 @@ ittf_rankings/
 ├── data/                 # 抓取结果、快照、头像、profile json、比赛数据
 ├── docs/                 # 规则文档与翻译
 ├── scripts/              # Python 抓取与处理脚本
-├── web/                  # 前端与 sqlite 数据库
-│   └── db/
-│       └── ittf_rankings.sqlite
+├── web/                  # Next.js 前端
+├── data/db/              # SQLite 数据库与导入生成文件
+│   └── ittf.db
 └── README.md
 ```
 
@@ -68,7 +68,7 @@ playwright install chromium
 
 ## 文档
 
-- [数据库设计](docs/design/DATABASE_DESIGN.md) — 表结构、关系、数据来源
+- [数据库设计](docs/design/database.md) — 表结构、关系、数据来源
 - [数据库使用与维护](docs/DATABASE_MAINTENANCE.md) — 部署、查询、更新、备份
 - [ITTF 排名规则](data/point_rules/ITTF-Ranking-Regulations-20260127.md) — 官方积分规则
 
