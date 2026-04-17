@@ -1,0 +1,4044 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "RAKOVAC Lea",
+  "english_name": "RAKOVAC Lea",
+  "country": "CRO",
+  "country_code": "CRO",
+  "continent": "",
+  "rank": 66,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-15T04:16:03.078648+00:00",
+      "events": [
+        {
+          "event_name": "WTT Feeder Otocec 2026 Presented by I Feel Slovenia",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3268",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2026_1_WTT_Feeder_Otocec_2026_Presented_by_I_Feel_Slovenia.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 16,
+                  "opponent": 18
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "16:18",
+                "11:7"
+              ],
+              "winner": "HO Tin-Tin",
+              "all_players_in_row": [
+                "HO Tin-Tin (ENG)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "HO Tin-Tin (ENG)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | HO Tin-Tin (ENG) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 1 | 11:9 11:7 16:18 11:7 | HO Tin-Tin |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2026_2_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:8",
+                "11:13",
+                "6:11"
+              ],
+              "winner": "CHIEN Tung-Chuan",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | RAKOVAC Lea (CRO) |  | CHIEN Tung-Chuan (TPE) |  | WS | Main Draw | R64 | 1 - 3 | 7:11 11:8 11:13 6:11 | CHIEN Tung-Chuan |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "ETTU Europe Top 16 Cup Montreux 2026",
+          "event_type": "Continental",
+          "event_year": "2026",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3390",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2026_3_ETTU_Europe_Top_16_Cup_Montreux_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:6",
+                "11:5",
+                "11:6"
+              ],
+              "winner": "KAUFMANN Annett",
+              "all_players_in_row": [
+                "KAUFMANN Annett (GER)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "KAUFMANN Annett (GER)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | ETTU Europe Top 16 Cup Montreux 2026 | KAUFMANN Annett (GER) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR8 | 3 - 1 | 9:11 11:6 11:5 11:6 | KAUFMANN Annett |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-15T04:16:03.078648+00:00",
+      "events": [
+        {
+          "event_name": "ITTF Mixed Team World Cup Chengdu 2025",
+          "event_type": "ITTF World Cup",
+          "event_year": "2025",
+          "match_count": 12,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3263",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_4_ITTF_Mixed_Team_World_Cup_Chengdu_2025.json",
+          "matches": [
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "13:15",
+                "6:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "BATRA Manika (IND)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "BATRA Manika (IND)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BATRA Manika (IND) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 1 - 2 | 11:8 13:15 6:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:9",
+                "11:8"
+              ],
+              "winner": "GHORPADE Yashaswini / CHITALE Diya",
+              "all_players_in_row": [
+                "GHORPADE Yashaswini (IND)",
+                "CHITALE Diya (IND)",
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_a": [
+                "GHORPADE Yashaswini (IND)",
+                "CHITALE Diya (IND)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | GHORPADE Yashaswini (IND) | CHITALE Diya (IND) | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | XT | Qualification |  | 3 - 0 | 11:9 11:9 11:8 | GHORPADE Yashaswini | CHITALE Diya | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "12:10",
+                "13:11"
+              ],
+              "winner": "LIU Yangzi",
+              "all_players_in_row": [
+                "LIU Yangzi (AUS)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "LIU Yangzi (AUS)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LIU Yangzi (AUS) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 2 - 1 | 11:13 12:10 13:11 | LIU Yangzi |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | HARIMOTO Miwa (JPN) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 3 - 0 | 11:2 11:8 11:7 | HARIMOTO Miwa |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 0,
+                  "opponent": 0
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "0:0"
+              ],
+              "winner": "HARIMOTO Miwa / ODO Satsuki",
+              "all_players_in_row": [
+                "HARIMOTO Miwa (JPN)",
+                "ODO Satsuki (JPN)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "HARIMOTO Miwa (JPN)",
+                "ODO Satsuki (JPN)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | HARIMOTO Miwa (JPN) | ODO Satsuki (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | XT | Qualification |  | 1 - 0 | 11:8 0:0 | HARIMOTO Miwa | ODO Satsuki | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "3:11",
+                "6:11"
+              ],
+              "winner": "LUTZ Charlotte",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "LUTZ Charlotte (FRA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "LUTZ Charlotte (FRA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | RAKOVAC Lea (CRO) |  | LUTZ Charlotte (FRA) |  | XT | Qualification |  | 0 - 3 | 11:13 3:11 6:11 | LUTZ Charlotte |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 0
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "9:11",
+                "0:0"
+              ],
+              "winner": "",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)",
+                "LUTZ Charlotte (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_b": [
+                "LUTZ Charlotte (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | LUTZ Charlotte (FRA) | PAVADE Prithika (FRA) | XT | Qualification |  | 1 - 1 | 11:9 9:11 0:0 |  |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "9:11",
+                "7:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "BERGSTROM Linda (SWE)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BERGSTROM Linda (SWE) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 0 - 3 | 9:11 9:11 7:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:6",
+                "11:6"
+              ],
+              "winner": "ZHU Chengzhu",
+              "all_players_in_row": [
+                "ZHU Chengzhu (HKG)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "ZHU Chengzhu (HKG)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | ZHU Chengzhu (HKG) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 2 - 1 | 8:11 11:6 11:6 | ZHU Chengzhu |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:8",
+                "11:9"
+              ],
+              "winner": "ZHU Chengzhu / NG Wing Lam",
+              "all_players_in_row": [
+                "ZHU Chengzhu (HKG)",
+                "NG Wing Lam (HKG)",
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_a": [
+                "ZHU Chengzhu (HKG)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | ZHU Chengzhu (HKG) | NG Wing Lam (HKG) | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | XT | Qualification |  | 2 - 1 | 8:11 11:8 11:9 | ZHU Chengzhu | NG Wing Lam | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "8:11",
+                "11:8"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "LEE Eunhye (KOR)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "LEE Eunhye (KOR)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | LEE Eunhye (KOR) |  | RAKOVAC Lea (CRO) |  | XT | Qualification |  | 1 - 2 | 9:11 8:11 11:8 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:3",
+                "11:6"
+              ],
+              "winner": "KIM Nayeong / CHOI Hyojoo",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "CHOI Hyojoo (KOR)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | KIM Nayeong (KOR) | CHOI Hyojoo (KOR) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | XT | Qualification |  | 3 - 0 | 11:8 11:3 11:6 | KIM Nayeong | CHOI Hyojoo | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Vila Nova de Gaia 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3066",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_5_WTT_Feeder_Vila_Nova_de_Gaia_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "10:12",
+                "11:3",
+                "6:11",
+                "11:9"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "LEAL Julia (POR)",
+                "SANTA Mariana (POR)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "LEAL Julia (POR)",
+                "SANTA Mariana (POR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | LEAL Julia (POR) | SANTA Mariana (POR) | WD | Main Draw | R16 | 3 - 2 | 11:9 10:12 11:3 6:11 11:9 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "11:7",
+                "9:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "LYNE Karen (MAS)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "LYNE Karen (MAS)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | LYNE Karen (MAS) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 1 - 3 | 7:11 9:11 11:7 9:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 18,
+                  "opponent": 16
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "10:12",
+                "18:16",
+                "11:7"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "MONFARDINI Gaia (ITA)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "MONFARDINI Gaia (ITA)",
+                "ARLIA Nicole (ITA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | MONFARDINI Gaia (ITA) | ARLIA Nicole (ITA) | WD | Main Draw | QuarterFinal | 3 - 1 | 12:10 10:12 18:16 11:7 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "7:11",
+                "11:6",
+                "11:8"
+              ],
+              "winner": "TEE Ai Xin",
+              "all_players_in_row": [
+                "TEE Ai Xin (MAS)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "TEE Ai Xin (MAS)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | TEE Ai Xin (MAS) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R16 | 3 - 1 | 11:7 7:11 11:6 11:8 | TEE Ai Xin |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:1",
+                "11:8"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "BAJOR Natalia (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "BAJOR Natalia (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | BAJOR Natalia (POL) | WIELGOS Zuzanna (POL) | WD | Main Draw | SemiFinal | 3 - 0 | 11:9 11:1 11:8 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "4:11",
+                "14:12"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "LYNE Karen (MAS)",
+                "TEE Ai Xin (MAS)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "LYNE Karen (MAS)",
+                "TEE Ai Xin (MAS)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Vila Nova de Gaia 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | LYNE Karen (MAS) | TEE Ai Xin (MAS) | WD | Main Draw | Final | 3 - 1 | 11:8 11:9 4:11 14:12 | JEGER Mateja | RAKOVAC Lea | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender London 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3110",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_6_WTT_Star_Contender_London_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:7",
+                "12:10",
+                "5:11",
+                "5:11"
+              ],
+              "winner": "YANG Yiyun",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "YANG Yiyun (CHN)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "YANG Yiyun (CHN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Star Contender London 2025 | RAKOVAC Lea (CRO) |  | YANG Yiyun (CHN) |  | WS | Main Draw | R64 | 2 - 3 | 6:11 11:7 12:10 5:11 5:11 | YANG Yiyun |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "European Team Championships Zadar 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3385",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_7_European_Team_Championships_Zadar_2025.json",
+          "matches": [
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:7",
+                "11:6",
+                "11:6"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "HO Tin-Tin (ENG)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "HO Tin-Tin (ENG)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | HO Tin-Tin (ENG) |  | WT | Qualification |  | 3 - 1 | 8:11 11:7 11:6 11:6 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "8:11",
+                "10:12"
+              ],
+              "winner": "MONFARDINI Gaia",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | MONFARDINI Gaia (ITA) |  | WT | Qualification |  | 0 - 3 | 8:11 8:11 10:12 | MONFARDINI Gaia |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "12:10",
+                "8:11",
+                "11:7"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | European Team Championships Zadar 2025 | RAKOVAC Lea (CRO) |  | PICCOLIN Giorgia (ITA) |  | WT | Qualification |  | 3 - 1 | 11:8 12:10 8:11 11:7 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WT",
+              "stage": "MAIN",
+              "round": "16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "2:11",
+                "11:8",
+                "11:7",
+                "8:11",
+                "11:9"
+              ],
+              "winner": "KUKULKOVA Tatiana",
+              "all_players_in_row": [
+                "KUKULKOVA Tatiana (SVK)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "KUKULKOVA Tatiana (SVK)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | European Team Championships Zadar 2025 | KUKULKOVA Tatiana (SVK) |  | RAKOVAC Lea (CRO) |  | WT | MAIN | 16 | 3 - 2 | 2:11 11:8 11:7 8:11 11:9 | KUKULKOVA Tatiana |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "China Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3098",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_8_China_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "6:11",
+                "5:11"
+              ],
+              "winner": "ZHU Sibing",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "ZHU Sibing (CHN)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "ZHU Sibing (CHN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | China Smash 2025 | RAKOVAC Lea (CRO) |  | ZHU Sibing (CHN) |  | WS | Qualification | QR64 | 0 - 3 | 7:11 6:11 5:11 | ZHU Sibing |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "11:7",
+                "11:3",
+                "11:9"
+              ],
+              "winner": "KAUFMANN Annett / LIU Yangzi",
+              "all_players_in_row": [
+                "KAUFMANN Annett (GER)",
+                "LIU Yangzi (AUS)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "KAUFMANN Annett (GER)",
+                "LIU Yangzi (AUS)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | China Smash 2025 | KAUFMANN Annett (GER) | LIU Yangzi (AUS) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R32 | 3 - 1 | 10:12 11:7 11:3 11:9 | KAUFMANN Annett | LIU Yangzi | "
+            }
+          ]
+        },
+        {
+          "event_name": "Europe Smash - Sweden 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3128",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_9_Europe_Smash_-_Sweden_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "8:11",
+                "9:11"
+              ],
+              "winner": "LEE Eunhye",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "LEE Eunhye (KOR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "LEE Eunhye (KOR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | RAKOVAC Lea (CRO) |  | LEE Eunhye (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 5:11 8:11 9:11 | LEE Eunhye |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "4:11",
+                "4:11",
+                "11:7",
+                "7:11"
+              ],
+              "winner": "BERGAND Filippa / BAASAN Nomin",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "BERGAND Filippa (SWE)",
+                "BAASAN Nomin (SWE)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "BERGAND Filippa (SWE)",
+                "BAASAN Nomin (SWE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | BERGAND Filippa (SWE) | BAASAN Nomin (SWE) | WD | Main Draw | R32 | 2 - 3 | 11:7 4:11 4:11 11:7 7:11 | BERGAND Filippa | BAASAN Nomin | "
+            }
+          ]
+        },
+        {
+          "event_name": "United States Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3082",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_10_United_States_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "5:11",
+                "5:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "BURGOS Brianna (PUR)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "BURGOS Brianna (PUR)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | United States Smash 2025 | BURGOS Brianna (PUR) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR32 | 0 - 3 | 11:13 5:11 5:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:9",
+                "12:10",
+                "11:8"
+              ],
+              "winner": "DRAGOMAN Andreea",
+              "all_players_in_row": [
+                "DRAGOMAN Andreea (ROU)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | United States Smash 2025 | DRAGOMAN Andreea (ROU) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR16 | 3 - 1 | 8:11 11:9 12:10 11:8 | DRAGOMAN Andreea |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3092",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_11_WTT_Contender_Zagreb_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "12:10"
+              ],
+              "winner": "SHAN Xiaona",
+              "all_players_in_row": [
+                "SHAN Xiaona (GER)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "SHAN Xiaona (GER)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Contender Zagreb 2025 | SHAN Xiaona (GER) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:9 12:10 | SHAN Xiaona |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3091",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_12_WTT_Star_Contender_Ljubljana_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:13",
+                "5:11",
+                "11:8",
+                "11:5"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "STRAZAR Katarina (SLO)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "STRAZAR Katarina (SLO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | RAKOVAC Lea (CRO) |  | STRAZAR Katarina (SLO) |  | WS | Qualification | QR64 | 3 - 2 | 11:6 11:13 5:11 11:8 11:5 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "YANG Ha Eun",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "YANG Ha Eun (KOR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "YANG Ha Eun (KOR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | RAKOVAC Lea (CRO) |  | YANG Ha Eun (KOR) |  | WS | Qualification | QR32 | 0 - 3 | 6:11 6:11 9:11 | YANG Ha Eun |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:5",
+                "11:5",
+                "12:10"
+              ],
+              "winner": "LEE Hoi Man / KONG Tsz Lam",
+              "all_players_in_row": [
+                "LEE Hoi Man (HKG)",
+                "KONG Tsz Lam (HKG)",
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_a": [
+                "LEE Hoi Man (HKG)",
+                "KONG Tsz Lam (HKG)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | LEE Hoi Man (HKG) | KONG Tsz Lam (HKG) | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | WD | Qualification | QR8 | 3 - 1 | 7:11 11:5 11:5 12:10 | LEE Hoi Man | KONG Tsz Lam | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "5:11",
+                "11:9",
+                "8:11"
+              ],
+              "winner": "CHEN Yi / HAN Feier",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)",
+                "CHEN Yi (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_b": [
+                "CHEN Yi (CHN)",
+                "HAN Feier (CHN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Star Contender Ljubljana 2025 | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | CHEN Yi (CHN) | HAN Feier (CHN) | WD | Main Draw | R16 | 1 - 3 | 9:11 5:11 11:9 8:11 | CHEN Yi | HAN Feier | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Contender Skopje 2025",
+          "event_type": "WTT Contender Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3090",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_13_WTT_Contender_Skopje_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "5:11",
+                "11:5",
+                "11:5"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "RODRIGUEZ Alondra (PUR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "RODRIGUEZ Alondra (PUR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) |  | RODRIGUEZ Alondra (PUR) |  | WS | Qualification |  | 3 - 1 | 11:5 5:11 11:5 11:5 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:6",
+                "10:12",
+                "11:6",
+                "11:5"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "COSIC Dora (CRO)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "COSIC Dora (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) |  | COSIC Dora (CRO) |  | WS | Qualification |  | 3 - 2 | 9:11 11:6 10:12 11:6 11:5 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "8:11",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "ZAHARIA Elena (ROU)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "ZAHARIA Elena (ROU)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) |  | ZAHARIA Elena (ROU) |  | WS | Qualification | QR16 | 3 - 1 | 11:5 8:11 11:7 11:6 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:6",
+                "11:9"
+              ],
+              "winner": "ODO Satsuki",
+              "all_players_in_row": [
+                "ODO Satsuki (JPN)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "ODO Satsuki (JPN)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | ODO Satsuki (JPN) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:6 11:9 | ODO Satsuki |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "10:12",
+                "5:11"
+              ],
+              "winner": "YOO Yerin / CHOI Nahyun",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)",
+                "YOO Yerin (KOR)",
+                "CHOI Nahyun (KOR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)",
+                "JEGER Mateja (CRO)"
+              ],
+              "side_b": [
+                "YOO Yerin (KOR)",
+                "CHOI Nahyun (KOR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Contender Skopje 2025 | RAKOVAC Lea (CRO) | JEGER Mateja (CRO) | YOO Yerin (KOR) | CHOI Nahyun (KOR) | WD | Main Draw | R16 | 0 - 3 | 7:11 10:12 5:11 | YOO Yerin | CHOI Nahyun | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Prishtina 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3058",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_14_WTT_Feeder_Prishtina_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:3",
+                "11:7"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "RAD Elvira (ESP)",
+                "RIERA Jana (ESP)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "RAD Elvira (ESP)",
+                "RIERA Jana (ESP)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | RAD Elvira (ESP) | RIERA Jana (ESP) | WD | Main Draw | R16 | 3 - 0 | 11:7 11:3 11:7 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "6:11",
+                "9:11"
+              ],
+              "winner": "LUTZ Camille",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "LUTZ Camille (FRA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "LUTZ Camille (FRA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | RAKOVAC Lea (CRO) |  | LUTZ Camille (FRA) |  | WS | Main Draw | R32 | 0 - 3 | 8:11 6:11 9:11 | LUTZ Camille |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:9",
+                "11:7",
+                "11:3"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "LUTZ Camille (FRA)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "LUTZ Camille (FRA)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | LUTZ Camille (FRA) | ZARIF Audrey (FRA) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:9 11:7 11:3 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "SATO Hitomi / YOKOI Sakura",
+              "all_players_in_row": [
+                "SATO Hitomi (JPN)",
+                "YOKOI Sakura (JPN)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "SATO Hitomi (JPN)",
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Prishtina 2025 | SATO Hitomi (JPN) | YOKOI Sakura (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 3 - 0 | 12:10 11:7 11:6 | SATO Hitomi | YOKOI Sakura | "
+            }
+          ]
+        },
+        {
+          "event_name": "ITTF World Table Tennis Championships Finals Doha 2025",
+          "event_type": "ITTF WTTC",
+          "event_year": "2025",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3108",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_15_ITTF_World_Table_Tennis_Championships_Finals_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "9:11",
+                "11:8",
+                "11:7",
+                "12:10"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "SAMARA Elizabeta (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "SAMARA Elizabeta (ROU)",
+                "DRAGOMAN Andreea (ROU)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | SAMARA Elizabeta (ROU) | DRAGOMAN Andreea (ROU) | WD | Main Draw | R64 | 3 - 2 | 5:11 9:11 11:8 11:7 12:10 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R128",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "11:1",
+                "11:2",
+                "11:9"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "GIRET Maylis (NCL)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "GIRET Maylis (NCL)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | RAKOVAC Lea (CRO) |  | GIRET Maylis (NCL) |  | WS | Main Draw | R128 | 4 - 0 | 11:1 11:1 11:2 11:9 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:7",
+                "10:12",
+                "11:5",
+                "6:11",
+                "7:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "HIRANO Miu (JPN)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "HIRANO Miu (JPN)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | HIRANO Miu (JPN) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R64 | 2 - 4 | 8:11 11:7 10:12 11:5 6:11 7:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "11:9",
+                "13:11",
+                "8:11",
+                "8:11"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "TAN Zhao Yun (SGP)",
+                "ZHANG Wanling (SGP)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "TAN Zhao Yun (SGP)",
+                "ZHANG Wanling (SGP)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | TAN Zhao Yun (SGP) | ZHANG Wanling (SGP) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R32 | 2 - 3 | 6:11 11:9 13:11 8:11 8:11 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "4-2",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "11:9",
+                "7:11",
+                "11:4",
+                "11:7",
+                "11:6"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "SUH Hyo Won (KOR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "SUH Hyo Won (KOR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | RAKOVAC Lea (CRO) |  | SUH Hyo Won (KOR) |  | WS | Main Draw | R32 | 4 - 2 | 3:11 11:9 7:11 11:4 11:7 11:6 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 0
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:9",
+                "11:0"
+              ],
+              "winner": "ODO Satsuki / YOKOI Sakura",
+              "all_players_in_row": [
+                "ODO Satsuki (JPN)",
+                "YOKOI Sakura (JPN)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "ODO Satsuki (JPN)",
+                "YOKOI Sakura (JPN)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ODO Satsuki (JPN) | YOKOI Sakura (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R16 | 3 - 0 | 12:10 11:9 11:0 | ODO Satsuki | YOKOI Sakura | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "9:11",
+                "7:11",
+                "5:11"
+              ],
+              "winner": "ODO Satsuki",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "ODO Satsuki (JPN)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "ODO Satsuki (JPN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | RAKOVAC Lea (CRO) |  | ODO Satsuki (JPN) |  | WS | Main Draw | R16 | 0 - 4 | 3:11 9:11 7:11 5:11 | ODO Satsuki |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3025",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_16_WTT_Feeder_Otocec_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 15,
+                  "opponent": 17
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "15:17"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "KIM Seoyun (KOR)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "KIM Seoyun (KOR)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | KIM Seoyun (KOR) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R64 | 0 - 3 | 7:11 7:11 15:17 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:6",
+                "4:11",
+                "10:12",
+                "10:12"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "TAKAHASHI Giulia (BRA)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | TAKAHASHI Giulia (BRA) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 2 - 3 | 11:7 11:6 4:11 10:12 10:12 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "7:11",
+                "12:10",
+                "1:11",
+                "11:7"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "ARAPOVIC Hana (CRO)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "ARAPOVIC Hana (CRO)",
+                "MALOBABIC Ivana (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | ARAPOVIC Hana (CRO) | MALOBABIC Ivana (CRO) | WD | Main Draw | R16 | 3 - 2 | 11:4 7:11 12:10 1:11 11:7 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "10:12"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "CHOI Haeeun (KOR)",
+                "KIM Hana (KOR)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "CHOI Haeeun (KOR)",
+                "KIM Hana (KOR)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | CHOI Haeeun (KOR) | KIM Hana (KOR) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 7:11 10:12 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:8",
+                "11:5"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "SCHREINER Franziska (GER)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | RAKOVAC Lea (CRO) |  | SCHREINER Franziska (GER) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:8 11:5 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "7:11",
+                "6:11",
+                "11:7",
+                "10:12"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "AKAE Kaho (JPN)",
+                "TAKEYA Misuzu (JPN)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "AKAE Kaho (JPN)",
+                "TAKEYA Misuzu (JPN)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | AKAE Kaho (JPN) | TAKEYA Misuzu (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 2 - 3 | 11:7 7:11 6:11 11:7 10:12 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:8",
+                "13:15",
+                "2:11",
+                "11:9"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "SHIBATA Saki (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | RAKOVAC Lea (CRO) |  | SHIBATA Saki (JPN) |  | WS | Main Draw | QuarterFinal | 3 - 2 | 11:9 11:8 13:15 2:11 11:9 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:9",
+                "7:11",
+                "9:11",
+                "8:11"
+              ],
+              "winner": "CHOI Hyojoo",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "CHOI Hyojoo (KOR)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "CHOI Hyojoo (KOR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | RAKOVAC Lea (CRO) |  | CHOI Hyojoo (KOR) |  | WS | Main Draw | SemiFinal | 2 - 3 | 11:9 11:9 7:11 9:11 8:11 | CHOI Hyojoo |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "5:11",
+                "11:13",
+                "11:9"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "CHOI Hyojoo (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "CHOI Hyojoo (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | CHOI Hyojoo (KOR) | LEE Daeun (KOR) | WD | Main Draw | Final | 3 - 2 | 11:9 11:7 5:11 11:13 11:9 | JEGER Mateja | RAKOVAC Lea | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Otocec 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3024",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_17_WTT_Feeder_Otocec_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "5:11",
+                "11:2",
+                "11:6",
+                "13:11"
+              ],
+              "winner": "LI YING Im",
+              "all_players_in_row": [
+                "LI YING Im (MAS)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "LI YING Im (MAS)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | LI YING Im (MAS) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 2 | 6:11 5:11 11:2 11:6 13:11 | LI YING Im |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "11:8",
+                "11:5",
+                "11:3"
+              ],
+              "winner": "SATO Hitomi / SHIBATA Saki",
+              "all_players_in_row": [
+                "SATO Hitomi (JPN)",
+                "SHIBATA Saki (JPN)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "SATO Hitomi (JPN)",
+                "SHIBATA Saki (JPN)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Otocec 2025 | SATO Hitomi (JPN) | SHIBATA Saki (JPN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R16 | 3 - 2 | 7:11 7:11 11:8 11:5 11:3 | SATO Hitomi | SHIBATA Saki | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3020",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_18_WTT_Feeder_Dusseldorf_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "9:11",
+                "5:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | JEGER Mateja (CRO) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R64 | 0 - 3 | 10:12 9:11 5:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:3",
+                "6:11",
+                "11:4"
+              ],
+              "winner": "CHEN Yi",
+              "all_players_in_row": [
+                "CHEN Yi (CHN)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "CHEN Yi (CHN)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | CHEN Yi (CHN) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 1 | 11:4 11:3 6:11 11:4 | CHEN Yi |  | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "6:11",
+                "11:7",
+                "11:9"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "KLEE Sophia (GER)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "KLEE Sophia (GER)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | KLEE Sophia (GER) | SCHREINER Franziska (GER) | WD | Main Draw | R16 | 3 - 1 | 11:9 6:11 11:7 11:9 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "11:7",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "CHOI Haeeun (KOR)",
+                "YOO Siwoo (KOR)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "CHOI Haeeun (KOR)",
+                "YOO Siwoo (KOR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | CHOI Haeeun (KOR) | YOO Siwoo (KOR) | WD | Main Draw | QuarterFinal | 3 - 1 | 8:11 11:7 11:8 11:7 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 17,
+                  "opponent": 15
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "12:10",
+                "11:9",
+                "8:11",
+                "17:15"
+              ],
+              "winner": "WAN Yuan / WINTER Sabine",
+              "all_players_in_row": [
+                "WAN Yuan (GER)",
+                "WINTER Sabine (GER)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "WAN Yuan (GER)",
+                "WINTER Sabine (GER)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Dusseldorf 2025 | WAN Yuan (GER) | WINTER Sabine (GER) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | SemiFinal | 3 - 2 | 6:11 12:10 11:9 8:11 17:15 | WAN Yuan | WINTER Sabine | "
+            }
+          ]
+        },
+        {
+          "event_name": "Singapore Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3085",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2025_19_Singapore_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "8:11",
+                "13:11",
+                "7:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "TODOROVIC Andrea (SRB)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "TODOROVIC Andrea (SRB)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | Singapore Smash 2025 | TODOROVIC Andrea (SRB) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR64 | 1 - 3 | 3:11 8:11 13:11 7:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "9:11",
+                "8:11"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "MATELOVA Hana (CZE)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "MATELOVA Hana (CZE)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | Singapore Smash 2025 | MATELOVA Hana (CZE) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR32 | 0 - 3 | 9:11 9:11 8:11 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "9:11",
+                "7:11"
+              ],
+              "winner": "MOYLAND Sally",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "MOYLAND Sally (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | Singapore Smash 2025 | RAKOVAC Lea (CRO) |  | MOYLAND Sally (USA) |  | WS | Qualification | QR16 | 0 - 3 | 5:11 9:11 7:11 | MOYLAND Sally |  | "
+            }
+          ]
+        }
+      ]
+    },
+    "2024": {
+      "captured_at": "2026-04-15T04:16:03.078648+00:00",
+      "events": [
+        {
+          "event_name": "WTT Contender Muscat 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2997",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2024_20_WTT_Contender_Muscat_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:6"
+              ],
+              "winner": "KIM Nayeong",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Contender Muscat 2024 | KIM Nayeong (KOR) |  | RAKOVAC Lea (CRO) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:4 11:6 | KIM Nayeong |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "European Championships Linz 2024",
+          "event_type": "Continental",
+          "event_year": "2024",
+          "match_count": 5,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3101",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2024_21_European_Championships_Linz_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:9",
+                "4:11",
+                "11:5"
+              ],
+              "winner": "JEGER Mateja / RAKOVAC Lea",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "BALINT Bernadett (HUN)",
+                "HARTBRICH Leonie (HUN)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "BALINT Bernadett (HUN)",
+                "HARTBRICH Leonie (HUN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | European Championships Linz 2024 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | BALINT Bernadett (HUN) | HARTBRICH Leonie (HUN) | WD | Main Draw | R32 | 3 - 1 | 11:4 11:9 4:11 11:5 | JEGER Mateja | RAKOVAC Lea | "
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "POTA Georgina / DE NUTTE Sarah",
+              "all_players_in_row": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)",
+                "POTA Georgina (HUN)",
+                "DE NUTTE Sarah (LUX)"
+              ],
+              "side_a": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "POTA Georgina (HUN)",
+                "DE NUTTE Sarah (LUX)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | European Championships Linz 2024 | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | POTA Georgina (HUN) | DE NUTTE Sarah (LUX) | WD | Main Draw | R16 | 0 - 3 | 11:13 9:11 9:11 | POTA Georgina | DE NUTTE Sarah | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "13:15",
+                "11:6",
+                "11:4",
+                "11:5"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "BEZEG Reka (SRB)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "BEZEG Reka (SRB)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | European Championships Linz 2024 | RAKOVAC Lea (CRO) |  | BEZEG Reka (SRB) |  | WS | Qualification |  | 3 - 1 | 13:15 11:6 11:4 11:5 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:4",
+                "7:11",
+                "12:10"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "TOLIOU Aikaterini (GRE)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "TOLIOU Aikaterini (GRE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | European Championships Linz 2024 | RAKOVAC Lea (CRO) |  | TOLIOU Aikaterini (GRE) |  | WS | Qualification |  | 3 - 1 | 11:4 11:4 7:11 12:10 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "5:11",
+                "12:14",
+                "6:11",
+                "11:13"
+              ],
+              "winner": "LUPULESKU Izabela",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "LUPULESKU Izabela (SRB)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | European Championships Linz 2024 | RAKOVAC Lea (CRO) |  | LUPULESKU Izabela (SRB) |  | WS | Main Draw | R64 | 1 - 4 | 11:8 5:11 12:14 6:11 11:13 | LUPULESKU Izabela |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Feeder Olomouc 2024",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2884",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2024_22_WTT_Feeder_Olomouc_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:6",
+                "11:2"
+              ],
+              "winner": "YANG Yiyun / ZHU Sibing",
+              "all_players_in_row": [
+                "YANG Yiyun (CHN)",
+                "ZHU Sibing (CHN)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "YANG Yiyun (CHN)",
+                "ZHU Sibing (CHN)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | YANG Yiyun (CHN) | ZHU Sibing (CHN) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Main Draw | R16 | 3 - 0 | 11:8 11:6 11:2 | YANG Yiyun | ZHU Sibing | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "11:8"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "MISCHEK Karoline (AUT)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "MISCHEK Karoline (AUT)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | RAKOVAC Lea (CRO) |  | MISCHEK Karoline (AUT) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:5 11:8 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "QIN Yuxuan",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "QIN Yuxuan (CHN)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "QIN Yuxuan (CHN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Feeder Olomouc 2024 | RAKOVAC Lea (CRO) |  | QIN Yuxuan (CHN) |  | WS | Main Draw | R16 | 0 - 3 | 9:11 9:11 4:11 | QIN Yuxuan |  | "
+            }
+          ]
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=113944&vw_matches___player_a_id[value][]=113944&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=113944&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=113944&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=113944&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2870",
+          "raw_capture_file": "data\\raw_event_payloads\\RAKOVAC_Lea\\2024_23_WTT_Star_Contender_Ljubljana_2024.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "AUEAWIRIYAYOTHIN Wanwisa / SAWETTABUT Jinnipa",
+              "all_players_in_row": [
+                "AUEAWIRIYAYOTHIN Wanwisa (THA)",
+                "SAWETTABUT Jinnipa (THA)",
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "AUEAWIRIYAYOTHIN Wanwisa (THA)",
+                "SAWETTABUT Jinnipa (THA)"
+              ],
+              "side_b": [
+                "JEGER Mateja (CRO)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | AUEAWIRIYAYOTHIN Wanwisa (THA) | SAWETTABUT Jinnipa (THA) | JEGER Mateja (CRO) | RAKOVAC Lea (CRO) | WD | Qualification | QR16 | 3 - 0 | 13:11 11:7 11:7 | AUEAWIRIYAYOTHIN Wanwisa | SAWETTABUT Jinnipa | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "16:14"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | RAKOVAC Lea (CRO) |  | REYES LAI Jessica (USA) |  | WS | Qualification | QR64 | 3 - 0 | 11:5 11:8 16:14 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "7:11",
+                "11:6",
+                "11:7"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "VIVARELLI Debora (ITA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "VIVARELLI Debora (ITA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | RAKOVAC Lea (CRO) |  | VIVARELLI Debora (ITA) |  | WS | Qualification | QR32 | 3 - 1 | 11:9 7:11 11:6 11:7 | RAKOVAC Lea |  | "
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "6:11",
+                "11:7"
+              ],
+              "winner": "ZARIF Audrey",
+              "all_players_in_row": [
+                "ZARIF Audrey (FRA)",
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_a": [
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | ZARIF Audrey (FRA) |  | RAKOVAC Lea (CRO) |  | WS | Qualification | QR16 | 3 - 1 | 11:8 11:9 6:11 11:7 | ZARIF Audrey |  | "
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-15T04:16:03.078121+00:00",
+  "updated_at": "2026-04-15T04:22:53.634308+00:00",
+  "captured_at": "2026-04-15T04:16:03.078648+00:00"
+}
