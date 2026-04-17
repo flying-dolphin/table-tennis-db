@@ -4,218 +4,12 @@
     "event_name": "WTT Contender Taiyuan 2023",
     "event_type": "WTT Contender Series",
     "year": "2023",
+    "start_date": "2023-11-07",
+    "end_date": "2023-11-12",
     "href": "/index.php/player-matches/list/31?resetfilters=1&abc=135049&vw_matches___player_a_id[value][]=135049&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135049&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135049&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135049&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2794"
   },
   "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=135049&vw_matches___player_a_id[value][]=135049&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=135049&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=135049&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=135049&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2794",
-  "captured_at": "2026-04-08T15:15:21.886617+00:00",
-  "captured_json_responses": [
-    {
-      "url": "https://results.ittf.link/manifest.json",
-      "status": 200,
-      "json": {
-        "id": "link.ittf.results",
-        "short_name": "TT Results & Stats",
-        "name": "TT Results & Stats",
-        "description": "Install TT Results & Stats PWA App for an app-like experience.\nEnjoy the following features:\n ✨ [H2H]\n ⚡️ [Profiles]\n 🌟 [Rankings]\n on the go!",
-        "categories": [
-          "sports"
-        ],
-        "start_url": "index.php?utm_source=pwa",
-        "scope": "https://results.ittf.link",
-        "orientation": "any",
-        "display": "standalone",
-        "display_override": [
-          "standalone"
-        ],
-        "theme_color": "#f0f0f0",
-        "background_color": "#000000",
-        "screenshots": [
-          {
-            "src": "images/iconset/richerui-desktop.png",
-            "sizes": "1920x1080",
-            "type": "image/png",
-            "form_factor": "wide"
-          },
-          {
-            "src": "images/iconset/richerui-mobile.png",
-            "sizes": "360x640",
-            "type": "image/png",
-            "form_factor": "narrow"
-          }
-        ],
-        "icons": [
-          {
-            "src": "https://results.ittf.link/images/iconset/android-icon-36x36.png",
-            "sizes": "36x36",
-            "type": "image/png"
-          },
-          {
-            "src": "https://results.ittf.link/images/iconset/android-icon-48x48.png",
-            "sizes": "48x48",
-            "type": "image/png"
-          },
-          {
-            "src": "https://results.ittf.link/images/iconset/android-icon-72x72.png",
-            "sizes": "72x72",
-            "type": "image/png"
-          },
-          {
-            "src": "https://results.ittf.link/images/iconset/android-icon-96x96.png",
-            "sizes": "96x96",
-            "type": "image/png"
-          },
-          {
-            "src": "https://results.ittf.link/images/iconset/android-icon-144x144.png",
-            "sizes": "144x144",
-            "type": "image/png"
-          },
-          {
-            "src": "https://results.ittf.link/images/iconset/android-icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-          },
-          {
-            "src": "https://results.ittf.link/images/iconset/app-icon-512x512.png#joomlaImage://local-images/iconset/app-icon-512x512.png?width=512&height=512",
-            "sizes": "512x512",
-            "type": "image/png"
-          }
-        ],
-        "gcm_sender_id": "482941778795"
-      }
-    },
-    {
-      "url": "https://results.ittf.link/index.php?option=com_jrealtimeanalytics&format=json",
-      "status": 200,
-      "json": {
-        "storing": [
-          {
-            "corefile": "Server stats",
-            "status": false,
-            "details": "An error occurred for database query on server stats: Duplicate entry 'b0776e794a86505e76fe980a18eee3ce-2026-04-08-https://results.i...' for key 'PRIMARY'"
-          }
-        ],
-        "configparams": {
-          "daemonrefresh": "2",
-          "realtimerefresh": "2",
-          "maxlifetime_session": "30",
-          "daemontimeout": "5",
-          "guestprefix": "Visitor",
-          "cpanelstats_period_interval": "day",
-          "geolocation_mode": "ip",
-          "devicedectection_mode": "useragent",
-          "devicedectection_mode_width_phones": "640",
-          "devicedectection_mode_width_tablets": "1024",
-          "heatmap_status": "1",
-          "heatmap_max_valid_width": "350",
-          "heatmap_max_valid_height": "50",
-          "heatmap_css_selectors_exclusion": "",
-          "heatmap_timeout": "200",
-          "stats_calendar_type": "date",
-          "track_query_string": "1",
-          "registration_email": "dmessinisgr@gmail.com",
-          "default_period_interval": "day",
-          "details_stats": "1",
-          "geolocation_stats": "1",
-          "os_stats": "1",
-          "browser_stats": "1",
-          "device_stats": "1",
-          "landing_stats": "1",
-          "leaveoff_stats": "1",
-          "visitsbypage_stats": "1",
-          "visitsbyuser_stats": "1",
-          "visitsbyip_stats": "1",
-          "referral_stats": "1",
-          "searchkeys_stats": "1",
-          "xtd_singleuser_stats": "1",
-          "show_usergroup": "0",
-          "show_referral": "1",
-          "show_email_address": "0",
-          "auto_execute_sitespeed": "0",
-          "ipaddress": "",
-          "ipv6address": "",
-          "iprange_start": "",
-          "iprange_end": "",
-          "ipv6range_start": "",
-          "ipv6range_end": "",
-          "ip_multiple": "",
-          "ipv6_multiple": "",
-          "iprange_multiple": "",
-          "ipv6range_multiple": "",
-          "daemon_exclusions": [
-            "0"
-          ],
-          "groups_exclusions": [
-            "6",
-            "7",
-            "3",
-            "4",
-            "5",
-            "8",
-            "16"
-          ],
-          "countrycode_exclusions": [
-            "0"
-          ],
-          "useragents_exclusions": "googlebot,bingbot,acontbot,baiduspider,slurp,google,duckduckbot,yandexbot,Sogou,facebookexternalhit,ia_archiver",
-          "useragent_empty_exclude": "1",
-          "daily_stats": "0",
-          "realtime_stats": "0",
-          "visualmap_stats": "0",
-          "visitors_counter": "0",
-          "visitors_counter_position": "0",
-          "visitors_counter_bypage": "0",
-          "module_default_period_interval": "day",
-          "module_start_date": "",
-          "module_end_date": "",
-          "gdpr_integration": "0",
-          "gcenabled": "1",
-          "probability": "30",
-          "gc_serverstats_enabled": "1",
-          "gc_serverstats_period": "1",
-          "caching": "1",
-          "cache_lifetime": "15",
-          "offset_type": "joomla",
-          "anonymize_ipaddress": "0",
-          "gdpr_ip_pseudonymisation": "0",
-          "direct_track_extensions": [
-            "0"
-          ],
-          "shared_session_support": "1",
-          "geolocation_php_func": "file",
-          "use_gd_ttf_font": "1",
-          "cloudflare_ip_masking": "0",
-          "server_ip_override": "",
-          "backend_host_info": "0",
-          "backend_geolocation_service": "geoiplookup",
-          "stats_geolocation_service": "geoplugin",
-          "report_mailfrom": "",
-          "report_fromname": "",
-          "report_byemail": "0",
-          "report_addresses": "",
-          "report_format": "emailxls",
-          "report_frequency": "7",
-          "overview_report_type": "0",
-          "report_script_jquery_onload_event": "0",
-          "includejquery": "1",
-          "noconflict": "1",
-          "scripts_loading": "defer",
-          "start_application_event": "afterdispatch",
-          "enable_debug": "0",
-          "analytics_api": "data",
-          "ga_property_id": "365601462",
-          "ga_domain": "",
-          "wm_domain": "",
-          "ga_api_key": "",
-          "ga_client_id": "",
-          "ga_client_secret": "",
-          "pagespeed_insights_analysis": "1",
-          "pagespeed_api_key": "",
-          "pagespeed_http_transport": "curl",
-          "pagespeed_analysis_strategy": "desktop"
-        }
-      }
-    }
-  ],
+  "captured_at": "2026-04-17T10:45:59.932018+00:00",
   "parsed_matches": [
     {
       "sub_event": "WS",
@@ -223,19 +17,38 @@
       "round": "R32",
       "match_score": "3-0",
       "games": [
+        {
+          "player": 11,
+          "opponent": 7
+        },
+        {
+          "player": 11,
+          "opponent": 8
+        },
+        {
+          "player": 11,
+          "opponent": 3
+        }
+      ],
+      "games_display": [
         "11:7",
         "11:8",
         "11:3"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | KUAI Man (CHN) | QIN Yuxuan (CHN) | WS | Main Draw | R32 | 3 - 0 | 11:7 11:8 11:3 | KUAI Man"
+      "winner": "KUAI Man",
+      "all_players_in_row": [
+        "KUAI Man (CHN)",
+        "QIN Yuxuan (CHN)"
+      ],
+      "side_a": [
+        "KUAI Man (CHN)"
+      ],
+      "side_b": [
+        "QIN Yuxuan (CHN)"
+      ],
+      "result_for_player": "win",
+      "perspective": "side_a",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | KUAI Man (CHN) |  | QIN Yuxuan (CHN) |  | WS | Main Draw | R32 | 3 - 0 | 11:7 11:8 11:3 | KUAI Man |  | "
     },
     {
       "sub_event": "WS",
@@ -243,147 +56,332 @@
       "round": "R16",
       "match_score": "3-2",
       "games": [
+        {
+          "player": 11,
+          "opponent": 5
+        },
+        {
+          "player": 11,
+          "opponent": 13
+        },
+        {
+          "player": 5,
+          "opponent": 11
+        },
+        {
+          "player": 11,
+          "opponent": 3
+        },
+        {
+          "player": 11,
+          "opponent": 4
+        }
+      ],
+      "games_display": [
         "11:5",
         "11:13",
         "5:11",
         "11:3",
         "11:4"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | KUAI Man (CHN) | JEON Jihee (KOR) | WS | Main Draw | R16 | 3 - 2 | 11:5 11:13 5:11 11:3 11:4 | KUAI Man"
+      "winner": "KUAI Man",
+      "all_players_in_row": [
+        "KUAI Man (CHN)",
+        "JEON Jihee (KOR)"
+      ],
+      "side_a": [
+        "KUAI Man (CHN)"
+      ],
+      "side_b": [
+        "JEON Jihee (KOR)"
+      ],
+      "result_for_player": "win",
+      "perspective": "side_a",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | KUAI Man (CHN) |  | JEON Jihee (KOR) |  | WS | Main Draw | R16 | 3 - 2 | 11:5 11:13 5:11 11:3 11:4 | KUAI Man |  | "
     },
     {
       "sub_event": "XD",
       "stage": "Main Draw",
-      "round": "",
+      "round": "QuarterFinal",
       "match_score": "2-3",
       "games": [
+        {
+          "player": 11,
+          "opponent": 3
+        },
+        {
+          "player": 13,
+          "opponent": 11
+        },
+        {
+          "player": 10,
+          "opponent": 12
+        },
+        {
+          "player": 8,
+          "opponent": 11
+        },
+        {
+          "player": 8,
+          "opponent": 11
+        }
+      ],
+      "games_display": [
         "11:3",
         "13:11",
         "10:12",
         "8:11",
         "8:11"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | HO Kwan Kit (HKG) | LEE Ho Ching (HKG) | LIN Shidong (CHN) | KUAI Man (CHN) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:3 13:11 10:12 8:11 8:11 | LIN Shidong | KUAI Man"
+      "winner": "LIN Shidong / KUAI Man",
+      "all_players_in_row": [
+        "HO Kwan Kit (HKG)",
+        "LEE Ho Ching (HKG)",
+        "LIN Shidong (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "side_a": [
+        "HO Kwan Kit (HKG)",
+        "LEE Ho Ching (HKG)"
+      ],
+      "side_b": [
+        "LIN Shidong (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "result_for_player": "win",
+      "perspective": "side_b",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | HO Kwan Kit (HKG) | LEE Ho Ching (HKG) | LIN Shidong (CHN) | KUAI Man (CHN) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:3 13:11 10:12 8:11 8:11 | LIN Shidong | KUAI Man | "
     },
     {
       "sub_event": "XD",
       "stage": "Main Draw",
-      "round": "",
+      "round": "SemiFinal",
       "match_score": "1-3",
       "games": [
+        {
+          "player": 8,
+          "opponent": 11
+        },
+        {
+          "player": 12,
+          "opponent": 10
+        },
+        {
+          "player": 7,
+          "opponent": 11
+        },
+        {
+          "player": 8,
+          "opponent": 11
+        }
+      ],
+      "games_display": [
         "8:11",
         "12:10",
         "7:11",
         "8:11"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | LIN Gaoyuan (CHN) | WANG Manyu (CHN) | LIN Shidong (CHN) | KUAI Man (CHN) | XD | Main Draw | SemiFinal | 1 - 3 | 8:11 12:10 7:11 8:11 | LIN Shidong | KUAI Man"
+      "winner": "LIN Shidong / KUAI Man",
+      "all_players_in_row": [
+        "LIN Gaoyuan (CHN)",
+        "WANG Manyu (CHN)",
+        "LIN Shidong (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "side_a": [
+        "LIN Gaoyuan (CHN)",
+        "WANG Manyu (CHN)"
+      ],
+      "side_b": [
+        "LIN Shidong (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "result_for_player": "win",
+      "perspective": "side_b",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | LIN Gaoyuan (CHN) | WANG Manyu (CHN) | LIN Shidong (CHN) | KUAI Man (CHN) | XD | Main Draw | SemiFinal | 1 - 3 | 8:11 12:10 7:11 8:11 | LIN Shidong | KUAI Man | "
     },
     {
       "sub_event": "WS",
       "stage": "Main Draw",
-      "round": "",
+      "round": "QuarterFinal",
       "match_score": "1-3",
       "games": [
+        {
+          "player": 6,
+          "opponent": 11
+        },
+        {
+          "player": 11,
+          "opponent": 9
+        },
+        {
+          "player": 7,
+          "opponent": 11
+        },
+        {
+          "player": 3,
+          "opponent": 11
+        }
+      ],
+      "games_display": [
         "6:11",
         "11:9",
         "7:11",
         "3:11"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | KUAI Man (CHN) | WANG Yidi (CHN) | WS | Main Draw | QuarterFinal | 1 - 3 | 6:11 11:9 7:11 3:11 | WANG Yidi"
+      "winner": "WANG Yidi",
+      "all_players_in_row": [
+        "KUAI Man (CHN)",
+        "WANG Yidi (CHN)"
+      ],
+      "side_a": [
+        "KUAI Man (CHN)"
+      ],
+      "side_b": [
+        "WANG Yidi (CHN)"
+      ],
+      "result_for_player": "loss",
+      "perspective": "side_a",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | KUAI Man (CHN) |  | WANG Yidi (CHN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 6:11 11:9 7:11 3:11 | WANG Yidi |  | "
     },
     {
       "sub_event": "WD",
       "stage": "Main Draw",
-      "round": "",
+      "round": "SemiFinal",
       "match_score": "3-0",
       "games": [
+        {
+          "player": 11,
+          "opponent": 1
+        },
+        {
+          "player": 11,
+          "opponent": 7
+        },
+        {
+          "player": 11,
+          "opponent": 7
+        }
+      ],
+      "games_display": [
         "11:1",
         "11:7",
         "11:7"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | WANG Yidi (CHN) | KUAI Man (CHN) | KIM Hayeong (KOR) | LEE Eunhye (KOR) | WD | Main Draw | SemiFinal | 3 - 0 | 11:1 11:7 11:7 | WANG Yidi | KUAI Man"
+      "winner": "WANG Yidi / KUAI Man",
+      "all_players_in_row": [
+        "WANG Yidi (CHN)",
+        "KUAI Man (CHN)",
+        "KIM Hayeong (KOR)",
+        "LEE Eunhye (KOR)"
+      ],
+      "side_a": [
+        "WANG Yidi (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "side_b": [
+        "KIM Hayeong (KOR)",
+        "LEE Eunhye (KOR)"
+      ],
+      "result_for_player": "win",
+      "perspective": "side_a",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | WANG Yidi (CHN) | KUAI Man (CHN) | KIM Hayeong (KOR) | LEE Eunhye (KOR) | WD | Main Draw | SemiFinal | 3 - 0 | 11:1 11:7 11:7 | WANG Yidi | KUAI Man | "
     },
     {
       "sub_event": "XD",
       "stage": "Main Draw",
-      "round": "",
+      "round": "Final",
       "match_score": "1-3",
       "games": [
+        {
+          "player": 4,
+          "opponent": 11
+        },
+        {
+          "player": 11,
+          "opponent": 5
+        },
+        {
+          "player": 9,
+          "opponent": 11
+        },
+        {
+          "player": 10,
+          "opponent": 12
+        }
+      ],
+      "games_display": [
         "4:11",
         "11:5",
         "9:11",
         "10:12"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | WANG Chuqin (CHN) | SUN Yingsha (CHN) | LIN Shidong (CHN) | KUAI Man (CHN) | XD | Main Draw | Final | 1 - 3 | 4:11 11:5 9:11 10:12 | LIN Shidong | KUAI Man"
+      "winner": "LIN Shidong / KUAI Man",
+      "all_players_in_row": [
+        "WANG Chuqin (CHN)",
+        "SUN Yingsha (CHN)",
+        "LIN Shidong (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "side_a": [
+        "WANG Chuqin (CHN)",
+        "SUN Yingsha (CHN)"
+      ],
+      "side_b": [
+        "LIN Shidong (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "result_for_player": "win",
+      "perspective": "side_b",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | WANG Chuqin (CHN) | SUN Yingsha (CHN) | LIN Shidong (CHN) | KUAI Man (CHN) | XD | Main Draw | Final | 1 - 3 | 4:11 11:5 9:11 10:12 | LIN Shidong | KUAI Man | "
     },
     {
       "sub_event": "WD",
       "stage": "Main Draw",
-      "round": "",
+      "round": "Final",
       "match_score": "1-3",
       "games": [
+        {
+          "player": 9,
+          "opponent": 11
+        },
+        {
+          "player": 11,
+          "opponent": 6
+        },
+        {
+          "player": 8,
+          "opponent": 11
+        },
+        {
+          "player": 7,
+          "opponent": 11
+        }
+      ],
+      "games_display": [
         "9:11",
         "11:6",
         "8:11",
         "7:11"
       ],
-      "winner": "",
-      "all_players_in_row": [],
-      "side_a": [],
-      "side_b": [],
-      "teammates": [],
-      "opponents": [],
-      "result_for_player": "unknown",
-      "perspective": "unknown",
-      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | WANG Yidi (CHN) | KUAI Man (CHN) | CHEN Xingtong (CHN) | QIAN Tianyi (CHN) | WD | Main Draw | Final | 1 - 3 | 9:11 11:6 8:11 7:11 | CHEN Xingtong | QIAN Tianyi"
+      "winner": "CHEN Xingtong / QIAN Tianyi",
+      "all_players_in_row": [
+        "WANG Yidi (CHN)",
+        "KUAI Man (CHN)",
+        "CHEN Xingtong (CHN)",
+        "QIAN Tianyi (CHN)"
+      ],
+      "side_a": [
+        "WANG Yidi (CHN)",
+        "KUAI Man (CHN)"
+      ],
+      "side_b": [
+        "CHEN Xingtong (CHN)",
+        "QIAN Tianyi (CHN)"
+      ],
+      "result_for_player": "loss",
+      "perspective": "side_a",
+      "raw_row_text": "2023 | WTT Contender Taiyuan 2023 | WANG Yidi (CHN) | KUAI Man (CHN) | CHEN Xingtong (CHN) | QIAN Tianyi (CHN) | WD | Main Draw | Final | 1 - 3 | 9:11 11:6 8:11 7:11 | CHEN Xingtong | QIAN Tianyi | "
     }
   ]
 }
