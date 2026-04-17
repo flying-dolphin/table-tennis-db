@@ -33,23 +33,25 @@
   - `web/app/api/rankings/route.ts`
   - `web/app/api/players/[slug]/route.ts`
 - SQLite 基础接入已做过一轮：
-  - `web/db/schema.sql`
-  - `web/scripts/sync-to-db.ts`
+  - `scripts/db/schema.sql`
+  - `scripts/db/import*.py`
 - Python 正式入库链路已存在一套：
   - `scripts/db/import_players.py`
-  - `scripts/db/import_rankings.py`
-  - `scripts/db/import_events.py`
-  - `scripts/db/import_matches.py`
-  - `scripts/db/import_event_categories.py`
+- `scripts/db/import_rankings.py`
+- `scripts/db/import_events.py`
+- `scripts/db/import_events_calendar.py`
+- `scripts/db/import_matches.py`
+- `scripts/db/import_event_categories.py`
   - `scripts/db/import_points_rules.py`
 
 ### 1.2 当前主要问题
 
 - 首页和列表仍使用 mock 数据
 - 数据层仍大量直接读 JSON：`web/lib/data.ts`
-- `web/db/schema.sql` 与 `docs/design/database.md` 不一致
-- `web/scripts/sync-to-db.ts` 是早期 demo 脚本，与正式入库链路重复且冲突
-- Python 入库脚本仍有部分逻辑依赖旧 `event_types` 设计，未完全切到 `event_categories`
+- `scripts/db/schema.sql` 与 `docs/design/database.md` 仍需进一步对齐和验证
+- `web/scripts/sync-to-db.ts` 已被确认应删除，不再进入正式链路
+- Python 入库脚本仍有部分逻辑需要继续从旧结构切到 `event_categories`
+- `events_calendar` 仍需正式导入脚本支撑首页和赛事链路
 - 尚未建立 `/api/v1` 新接口体系
 - 尚未实现：
   - `/rankings`
@@ -146,12 +148,12 @@ Task 1（数据层）
 
 **目标**
 
-- 对比 `web/db/schema.sql` 与 `docs/design/database.md`
+- 对比 `scripts/db/schema.sql` 与 `docs/design/database.md`
 - 明确旧表保留/废弃/迁移策略
 
 **涉及文件**
 
-- `web/db/schema.sql`
+- `scripts/db/schema.sql`
 - `docs/design/database.md`
 - `docs/design/backend.md`
 
@@ -160,7 +162,7 @@ Task 1（数据层）
 - 一份差异清单
 - 一份第一批必须落地的表和字段清单
 
-## 4.2 重写 `web/db/schema.sql`
+## 4.2 重写 `scripts/db/schema.sql`
 
 **目标**
 
@@ -196,15 +198,16 @@ Task 1（数据层）
 **目标**
 
 - 以 `scripts/db/import*.py` 作为唯一正式入库链路
-- 评估并废弃 `web/scripts/sync-to-db.ts`
+- 删除 `web/scripts/sync-to-db.ts`
 - 将 Python 入库脚本升级到最新 schema 和赛事分类体系
 
 **涉及文件**
 
-- `web/scripts/sync-to-db.ts`
+- `scripts/db/schema.sql`
 - `scripts/db/import_players.py`
 - `scripts/db/import_rankings.py`
 - `scripts/db/import_events.py`
+- `scripts/db/import_events_calendar.py`
 - `scripts/db/import_matches.py`
 - `scripts/db/import_event_categories.py`
 - `scripts/db/import_points_rules.py`
@@ -216,7 +219,10 @@ Task 1（数据层）
 **要求**
 
 - `sync-to-db.ts` 不再作为正式入库方案
+- `import_event_categories.py` 的 `sort_order` 必须按 `data/event_category_mapping.json` 的顺序从 1 开始写入
 - 盘点 Python 入库脚本与最新 schema 的差异
+- 增加 `import_events_calendar.py`，正式导入 `events_calendar`
+- `import_matches.py` 不再依赖 `tmp/event_mapping.json`，改为基于数据库内 `events` 表关联 `event_id`
 - 优先改造 `import_events.py`，从旧 `event_types` 切到新 `event_categories + event_type_mapping`
 - 明确统一入库顺序：
   1. init schema
@@ -224,14 +230,15 @@ Task 1（数据层）
   3. import players
   4. import rankings
   5. import events
-  6. import matches
-  7. import points rules
+  6. import events calendar
+  7. import matches
 - web 前端和 `/api/v1` 只读 SQLite，不再维护独立 web 侧入库脚本
+- `import_points_rules.py` 保留为后续实现任务，本批不要求导入 `points_rules_by_category`
 
 **完成标准**
 
 - Python 入库链路可写入新 schema
-- `sync-to-db.ts` 被删除，或至少明确标记 deprecated 并从开发链路中移除
+- `sync-to-db.ts` 已删除并从开发链路中移除
 
 ## 4.4 迁移现有 `player_profiles` 数据
 
@@ -253,7 +260,7 @@ Task 1（数据层）
 **涉及文件**
 
 - `web/lib/data.ts`
-- `web/db/client.ts`
+- `web/lib/server/db.ts`
 - 可新增：
   - `web/lib/server/home.ts`
   - `web/lib/server/rankings.ts`
@@ -755,7 +762,7 @@ Task 1（数据层）
 
 - 新 schema 可执行
 - Python 正式入库链路可写入新 schema
-- `sync-to-db.ts` 被移出正式链路
+- `sync-to-db.ts` 已删除
 - 页面查询不再依赖直接读 JSON
 
 ## Task 2 验收

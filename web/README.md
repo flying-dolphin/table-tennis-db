@@ -5,37 +5,19 @@
 ## 架构概览
 
 - `app/`：Next.js App Router 页面和 API
-- `lib/`：JSON 数据读取、聚合、slug/格式化工具
-- `db/schema.sql`：SQLite 表结构
-- `scripts/migrate.ts`：初始化数据库
-- `scripts/seed.ts`：从 `../data` 导入榜单和比赛 JSON
+- `lib/`：数据访问、工具与服务端查询层
+- `scripts/migrate.ts`：按 `scripts/db/schema.sql` 初始化数据库
+- `scripts/seed.ts`：已废弃，正式入库请使用 `scripts/db/import*.py`
 
 ## 页面规划
 
 - `/`：女子单打 TOP 50 榜单，带移动端卡片式展示
 - `/players/[slug]`：球员详情页，展示基础统计和近期赛事
-- `/api/rankings`：榜单 JSON API
-- `/api/players/[slug]`：球员详情 JSON API
+- `/api/v1/*`：V1 正式 API
 
 ## 数据模型
 
-### 1. ranking_snapshots
-保存某一周的排名快照元信息。
-
-### 2. players
-保存球员基础档案，可复用到多期排名和多项赛事。
-
-### 3. rankings
-关联某个快照中的球员排名、积分、涨跌变化。
-
-### 4. player_match_sources
-记录导入来源文件和原始 JSON，方便追溯。
-
-### 5. events
-保存球员参加的赛事。
-
-### 6. matches
-保存单场比赛数据，支持后续做胜率、阶段分布、对手分析等统计。
+当前请以 `docs/design/database.md` 为准，不以本 README 中的旧表说明为准。
 
 ## 快速开始
 
@@ -43,14 +25,10 @@
 cd ittf_rankings/web
 npm install
 npm run db:migrate
-npm run db:seed
 npm run dev
 ```
 
-默认会读取上一级 `data/` 目录里的：
-
-- `women_singles_top50.json`
-- `matches_complete/*.json`
+数据库正式初始化与导入请使用 `scripts/db/*.py`。
 
 ## 适合后续扩展的方向
 
