@@ -20,3 +20,7 @@ tmp/
 .agents
 .agent
 .codex
+data/db
+data/**/checkpoint*.json
+data/raw_event_payloads/
+skills-lock.json
