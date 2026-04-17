@@ -5,7 +5,7 @@ import RankingTable from "@/components/home/RankingTable";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-soft">
+    <main className="min-h-screen bg-page-background">
       {/* Hero Section */}
       <Hero />
       

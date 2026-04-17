@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
 
 @import "tailwindcss";
 @config "../tailwind.config.ts";
@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply bg-soft text-dark font-body;
+    @apply bg-page-background text-text-primary font-body;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -28,15 +28,15 @@
   }
   
   .pill-nav-container {
-    @apply fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark/95 backdrop-blur-lg px-6 py-3 rounded-full flex items-center gap-1 shadow-2xl z-50 transition-all duration-300;
+    @apply fixed bottom-8 left-1/2 -translate-x-1/2 bg-white/70 backdrop-blur-xl px-6 py-2.5 rounded-full flex items-center gap-1 shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-50 transition-all duration-300 border border-white/50;
   }
 
   .nav-item {
-    @apply flex flex-col items-center justify-center p-2 rounded-full transition-all duration-200 text-white/50 hover:text-mint hover:bg-white/5;
+    @apply flex flex-col items-center justify-center p-2 rounded-full transition-all duration-200 text-text-tertiary hover:text-brand-deep hover:bg-brand-mist/50;
   }
 
   .nav-item.active {
-    @apply text-mint bg-white/10;
+    @apply text-brand-deep bg-brand-soft/80 shadow-inner;
   }
 
   .section-container {
@@ -44,7 +44,7 @@
   }
 
   .hero-gradient-overlay {
-    @apply absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-soft;
+    @apply absolute inset-0 bg-gradient-to-b from-brand-deep/30 via-page-background/50 to-page-background;
   }
 
   .rank-pill {

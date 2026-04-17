@@ -1,65 +1,76 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { MOCK_RANKINGS } from "@/lib/mock";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export default function RankingTable() {
   return (
     <section className="mt-8 mb-12">
-      <div className="px-8 flex justify-between items-end mb-6">
-        <h2 className="text-xl font-bold">ITTF TOP 5</h2>
-        <button className="text-sm font-medium text-dark/40 hover:text-dark transition-colors">
-          Show Weekly Change
+      <div className="px-6 flex justify-between items-end mb-4 pr-8">
+        <h2 className="text-[22px] font-black text-text-primary tracking-tight">世界排名 <span className="text-brand-deep/80 font-bold ml-1 text-lg">Top 5</span></h2>
+        <button className="text-[11px] font-bold text-text-tertiary hover:text-brand-deep transition-all uppercase tracking-widest">
+          See All
         </button>
       </div>
 
-      <div className="px-8 space-y-4">
-        {MOCK_RANKINGS.map((player) => (
-          <div 
-            key={player.rank}
-            className="flex items-center bg-white p-4 rounded-[32px] shadow-sm border border-dark/5 hover:border-mint/30 transition-all duration-300 group"
-          >
-            {/* Rank Pill */}
-            <div className="w-12 h-12 rounded-2xl bg-soft flex items-center justify-center font-bold text-dark group-hover:bg-dark group-hover:text-white transition-colors">
-              #{player.rank}
-            </div>
-
-            {/* Avatar & Name */}
-            <div className="ml-4 flex-1 flex items-center gap-4">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden bg-soft grayscale group-hover:grayscale-0 transition-all">
-                <Image
-                  src={player.avatar}
-                  alt={player.name}
-                  fill
-                  className="object-cover"
-                />
+      <div className="px-6 space-y-3 pb-32">
+        {MOCK_RANKINGS.map((player, idx) => {
+          const changeValue = [0, 1, -1, 0, 2][idx]; // Mock trends
+          return (
+            <div 
+              key={player.rank}
+              className="flex items-center bg-white p-3.5 rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-border-subtle/50 hover:border-brand-soft/50 transition-all duration-300"
+            >
+              {/* Rank Number */}
+              <div className="w-10 shrink-0 text-center">
+                <span className="text-[22px] font-black text-text-tertiary italic pr-1">{player.rank}</span>
               </div>
-              <div>
-                <h3 className="text-base font-bold text-dark leading-tight">
+
+              {/* Avatar (Initials gradient instead of broken image) */}
+              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-brand-primary to-brand-deep flex items-center justify-center shrink-0 shadow-inner">
+                <span className="text-white font-bold text-sm tracking-widest leading-none drop-shadow-sm">
+                  {player.name_zh.slice(0, 1)}
+                </span>
+              </div>
+
+              {/* Player Info (Single Line) */}
+              <div className="ml-4 flex-1 flex items-center gap-2.5 overflow-hidden">
+                <h3 className="text-[15px] font-bold text-text-primary leading-tight truncate">
                   {player.name_zh}
                 </h3>
-                <p className="text-xs font-medium text-dark/30 uppercase tracking-wider">
-                  {player.name}
-                </p>
+                <span className="shrink-0 text-[10px] font-bold text-brand-deep/80 bg-brand-soft/30 border border-brand-soft/20 px-1.5 py-0.5 rounded uppercase tracking-wider">
+                  {player.country}
+                </span>
+                {changeValue !== 0 ? (
+                  <span className={cn(
+                    "shrink-0 text-[10px] font-bold flex items-center",
+                    changeValue > 0 ? "text-[#34C759]" : "text-[#FF3B30]"
+                  )}>
+                    {changeValue > 0 ? "↑" : "↓"}{Math.abs(changeValue)}
+                  </span>
+                ) : (
+                  <span className="shrink-0 text-[10px] font-medium text-text-tertiary">-</span>
+                )}
               </div>
-            </div>
 
-            {/* Points & Country */}
-            <div className="text-right">
-              <p className="text-sm font-bold text-dark">
-                {player.points.toLocaleString()} <span className="text-[10px] text-dark/30">pts</span>
-              </p>
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-soft">
-                <span className="text-[10px] font-bold text-dark/60">{player.country}</span>
+              {/* Points */}
+              <div className="text-right shrink-0 pr-2 flex items-baseline gap-1">
+                <span className="text-lg font-black text-text-primary tracking-tight">
+                  {player.points.toLocaleString()}
+                </span>
+                <span className="text-[11px] font-bold text-text-tertiary">
+                  分
+                </span>
               </div>
             </div>
-          </div>
-        ))}
-        
-        <button className="w-full py-6 rounded-[32px] border-2 border-dashed border-dark/10 text-dark/30 font-bold hover:border-dark/20 hover:text-dark/40 transition-all">
-          View Top 100 Ranking
-        </button>
+          );
+        })}
       </div>
     </section>
   );
