@@ -20,6 +20,7 @@ from typing import Any
 from lib.anti_bot import DelayConfig, RiskControlTriggered
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import save_json
+from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import open_page_with_verification
 
 logging.basicConfig(
@@ -292,6 +293,8 @@ def _parse_rrow_row(row: Any) -> dict[str, Any] | None:
     if not name:
         return None
 
+    name = normalize_player_name(name)
+
     location, location_loc = _first_existing_text(
         row,
         [
@@ -364,6 +367,8 @@ def _parse_fabrik_row(row: Any) -> dict[str, Any] | None:
     name, _ = cell_text(["td.fab_rank_ws___Name", "td:nth-of-type(5)"])
     if not name:
         return None
+
+    name = normalize_player_name(name)
 
     location, _ = cell_text(["td.fab_rank_ws___Country", "td:nth-of-type(7)"])
     points_text, _ = cell_text(["td.fab_rank_ws___Points", "td:nth-of-type(4)"])

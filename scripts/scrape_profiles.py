@@ -24,6 +24,7 @@ from lib.anti_bot import DelayConfig, RiskControlTriggered, human_sleep
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import save_json, sanitize_filename
 from lib.checkpoint import CheckpointStore
+from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import open_page_with_verification
 from lib.page_ops import click_next_page_if_any, guarded_goto
 from lib.dict_translator import DictTranslator
@@ -165,7 +166,7 @@ def parse_ranking_rows(page: Any, top_n: int, translator: DictTranslator | None 
 
             change = parse_int(cell_texts[2] if len(cell_texts) > 2 else "0")
             points = parse_int(cell_texts[3] if len(cell_texts) > 3 else "0")
-            english_name = normalize_space(cell_texts[4] if len(cell_texts) > 4 else "")
+            english_name = normalize_player_name(normalize_space(cell_texts[4] if len(cell_texts) > 4 else ""))
             country_code = ""
             try:
                 flag_img = cells.nth(5).locator("img").first

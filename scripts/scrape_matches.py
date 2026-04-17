@@ -31,6 +31,7 @@ from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.browser_session import ensure_logged_in
 from lib.capture import sanitize_filename, save_json
 from lib.checkpoint import CheckpointStore, utc_now_iso
+from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import click_next_page_if_any, guarded_goto
 
@@ -157,7 +158,7 @@ def _is_same_person(left: str, right: str) -> bool:
 
 
 def _extract_players_from_segment(segment: str) -> list[str]:
-    return [match.group(0).strip() for match in PLAYER_NAME_RE.finditer(segment or "")]
+    return [normalize_player_name(match.group(0).strip()) for match in PLAYER_NAME_RE.finditer(segment or "")]
 
 
 def _parse_row_participants(row_text: str) -> tuple[str, list[str], list[str], list[str], str]:
@@ -186,7 +187,7 @@ def _parse_row_participants(row_text: str) -> tuple[str, list[str], list[str], l
 
     all_players = side_a + side_b
     winner_tokens = [t for t in tokens[_COL_WINNER:] if t]
-    winner = " / ".join(winner_tokens)
+    winner = " / ".join(normalize_player_name(t) for t in winner_tokens)
     return sub_event, side_a, side_b, all_players, winner
 
 # UA 与 sec-ch-ua 版本绑定为配对结构，避免版本不一致被检测
@@ -1629,7 +1630,7 @@ def run(args: argparse.Namespace) -> int:
                 }]
 
         for i, player in enumerate(players, start=1):
-            player_name = _player_name_from_entry(player)
+            player_name = normalize_player_name(_player_name_from_entry(player))
             country_code = (player.get("country_code") or "").strip()
             player_id = player.get("player_id")
             rank = player.get("rank", i)
@@ -1794,8 +1795,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--headless", action="store_true", help="Run headless (not recommended for login flow)")
     parser.add_argument("--slow-mo", type=int, default=100)
 
-    parser.add_argument("--min-delay", type=float, default=5.0)
-    parser.add_argument("--max-delay", type=float, default=10.0)
+    parser.add_argument("--min-delay", type=float, default=3.0)
+    parser.add_argument("--max-delay", type=float, default=6.0)
     parser.add_argument("--min-player-gap", type=float, default=5.0)
     parser.add_argument("--max-player-gap", type=float, default=10.0)
 

@@ -20,6 +20,7 @@ from typing import Any
 from lib.anti_bot import DelayConfig, RiskControlTriggered
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import save_json
+from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import open_page_with_verification
 
 logging.basicConfig(
@@ -155,6 +156,8 @@ def _parse_player_row(row: Any) -> dict[str, str] | None:
     )
     if not name:
         return None
+
+    name = normalize_player_name(name)
 
     assoc = _first_text(
         row,
