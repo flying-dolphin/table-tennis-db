@@ -1,8 +1,104 @@
 # 数据库设计方案
 
-版本：v1.0
-日期：2026-04-16
+版本：v1.1
+日期：2026-04-17
 数据库：SQLite
+
+---
+
+## 0. 当前数据库现状
+
+本章记录截至 2026-04-17 数据库的实际结构与数据情况，作为 Task 1（schema 对齐）的迁移起点。
+
+### 0.1 实际表清单
+
+| 表名 | 行数 | 来源 | 说明 |
+|------|------|------|------|
+| `players` | 0 | `sync-to-db.ts` 建表 | 旧版简易结构，仅含 rank/name/english_name/country/points/change/slug，已废弃 |
+| `ranking_snapshots` | 1 | `schema.sql` | 仅 1 条快照（女子单打 2026年第15周） |
+| `rankings` | 0 | `schema.sql` | 无数据 |
+| `player_match_sources` | 0 | `schema.sql` | 无数据 |
+| `events` | 0 | `schema.sql` | 以 player 为中心的旧版结构，非赛事主表 |
+| `matches` | 0 | `schema.sql` | 以 player 为中心的旧版结构 |
+| `player_profiles` | 101 | Python 脚本建表 | **唯一有实质数据的表**，存储球员档案 |
+
+### 0.2 `players` 表（旧版，已废弃）
+
+由 `sync-to-db.ts` 创建，结构极简，无 country_code、无 player_external_id、无中文名独立字段。与目标 schema 差距过大，应整表替换。
+
+```sql
+CREATE TABLE players (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    rank INTEGER,
+    name TEXT,
+    english_name TEXT,
+    country TEXT,
+    points INTEGER,
+    change TEXT,
+    slug TEXT UNIQUE
+);
+```
+
+### 0.3 `player_profiles` 表（schema.sql 外建表）
+
+由 Python 脚本（非 `schema.sql`）创建，**不在 `schema.sql` 中定义**，但是当前唯一有实质数据的表（101 条球员档案）。
+
+```sql
+CREATE TABLE player_profiles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    player_id TEXT UNIQUE NOT NULL,
+    player_external_id TEXT,
+    name TEXT NOT NULL,
+    english_name TEXT,
+    country TEXT,
+    country_code TEXT,
+    gender TEXT,
+    birth_year INTEGER,
+    age INTEGER,
+    playing_hand TEXT,
+    grip TEXT,
+    current_rank INTEGER,
+    ranking_week TEXT,
+    career_best_rank INTEGER,
+    career_best_week TEXT,
+    career_stats JSON,
+    current_year_stats JSON,
+    recent_matches JSON,
+    avatar_url TEXT,
+    avatar_file_path TEXT,
+    profile_data JSON,
+    profile_url TEXT,
+    json_file_path TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 0.4 `schema.sql` 中定义但数据为空的表
+
+`ranking_snapshots`、`rankings`、`player_match_sources`、`events`、`matches` 均在 `web/db/schema.sql` 中定义，但除 `ranking_snapshots` 有 1 行外，其余均无数据。这些表的结构以 player 为中心（events/matches 都有 `player_id` 外键），与目标设计中以赛事为中心的结构不同。
+
+### 0.5 与目标 schema 的主要差距
+
+| 维度 | 现状 | 目标 |
+|------|------|------|
+| 表数量 | 7 表（含 sqlite_sequence） | 14+ 表 |
+| 球员表 | 两套冗余（players + player_profiles） | 统一为 1 个 `players` 表 |
+| 赛事模型 | 以 player 为中心，无独立赛事主表 | 独立 `events` 赛事主表 + `sub_events` |
+| 比赛模型 | 以 player 为中心 | 独立 `matches` 表，双方球员为外键 |
+| 赛事分类 | 无 | `event_categories` + `event_type_mapping` |
+| 排名条目 | `rankings` 表 | 改名为 `ranking_entries` |
+| 积分明细 | 无 | `points_breakdown` |
+| 赛事日历 | 无 | `events_calendar` |
+| 积分规则 | 无 | `points_rules` |
+| 数据对账 | 无 | `unmatched_records` + `ingestion_runs` |
+
+### 0.6 迁移注意事项
+
+- `player_profiles` 的 101 条数据是可用的球员主档来源，迁移时应将其合并到新 `players` 表
+- 旧 `players` 表无数据，可直接删除
+- `ranking_snapshots` 仅 1 条且数据为中文格式（如"2026年第15周"），需评估是否保留
+- `events` 和 `matches` 旧表结构与目标完全不同，不做数据迁移，直接重建
 
 ---
 
@@ -111,6 +207,7 @@ CREATE TABLE event_categories (
     category_name       TEXT NOT NULL,          -- 英文名称
     category_name_zh    TEXT,                   -- 中文名称（与词典同步）
     json_code           TEXT,                   -- ranking JSON 中的缩写，如 "GS"
+    sort_order          INTEGER,               -- 排序序号，1-3 为三大赛，1-7 为七大赛
     points_tier         TEXT,                   -- Premium / High / Medium / Low / None
     points_eligible     INTEGER NOT NULL DEFAULT 1,
     filtering_only      INTEGER NOT NULL DEFAULT 0,
