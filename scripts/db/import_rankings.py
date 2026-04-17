@@ -179,7 +179,7 @@ def import_rankings(db_path: str, rankings_dir: str) -> dict:
                     cursor.execute("""
                         INSERT INTO points_breakdown
                         (snapshot_id, player_id, event_name, event_name_zh,
-                         event_type_code, event_type_code_zh,
+                         event_type_code, category_name_zh,
                          position, position_zh, points, expires_on)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """, (

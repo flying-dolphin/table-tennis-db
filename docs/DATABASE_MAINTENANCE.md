@@ -19,7 +19,7 @@
 
 ```bash
 python scripts/db/init_database.py
-python scripts/db/import_dictionaries.py
+python scripts/db/import_sub_event_type.py 
 python scripts/db/import_event_categories.py
 python scripts/db/import_players.py
 python scripts/db/import_rankings.py
@@ -32,7 +32,7 @@ python scripts/db/import_sub_events.py
 注意：
 
 - 暂时不要执行 `python scripts/db/import_points_rules.py`
-- 该脚本当前为占位状态，`points_rules_by_category` 导入放在后续实现计划
+- 该脚本当前为占位状态，`points_rules` 导入放在后续实现计划
 
 ---
 

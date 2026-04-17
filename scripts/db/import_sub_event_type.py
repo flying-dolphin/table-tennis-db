@@ -24,7 +24,7 @@ def load_sub_events_from_file(file_path: str) -> list:
             line = line.strip()
             if not line:
                 continue
-            parts = line.split(':')
+            parts = line.replace('\t', ':').split(':')
             if len(parts) >= 3:
                 code = parts[0].strip()
                 name = parts[1].strip()

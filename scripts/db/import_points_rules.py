@@ -131,38 +131,10 @@ EVENT_CATEGORY_ZH = {
 
 
 def import_points_rules(db_path: str) -> bool:
-    """导入积分规则"""
-    try:
-        conn = sqlite3.connect(db_path)
-        cursor = conn.cursor()
-
-        effective_date = "2026-01-27"
-        inserted = 0
-
-        for event_category, sub_event_category, draw_qualifier, stage_type, position, points in WOMENS_SINGLES_RULES:
-            event_category_zh = EVENT_CATEGORY_ZH.get(event_category, "")
-
-            try:
-                cursor.execute("""
-                    INSERT INTO points_rules
-                    (event_category, event_category_zh, sub_event_category, draw_qualifier,
-                     stage_type, position, points, effective_date)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                """, (event_category, event_category_zh, sub_event_category, draw_qualifier,
-                      stage_type, position, points, effective_date))
-                inserted += 1
-            except sqlite3.IntegrityError:
-                print(f"  [SKIP] {event_category} | {stage_type} | {position}")
-
-        conn.commit()
-        conn.close()
-
-        print(f"Inserted points_rules: {inserted} records")
-        return True
-
-    except Exception as e:
-        print(f"[ERROR] Failed to import points_rules: {e}")
-        return False
+    print("[TODO] import_points_rules.py currently remains a placeholder.")
+    print("       Target table is points_rules (row-based model).")
+    print("       Skip execution until full import logic is implemented.")
+    return True
 
 
 def verify_points_rules(db_path: str):
@@ -174,14 +146,8 @@ def verify_points_rules(db_path: str):
         cursor.execute("SELECT COUNT(*) FROM points_rules;")
         count = cursor.fetchone()[0]
 
-        cursor.execute("SELECT DISTINCT event_category FROM points_rules ORDER BY event_category;")
-        categories = cursor.fetchall()
-
         print(f"\nVerification:")
         print(f"  Total points_rules: {count}")
-        print(f"  Event categories: {len(categories)}")
-        for cat in categories:
-            print(f"    - {cat[0]}")
 
         conn.close()
     except Exception as e:
@@ -202,12 +168,11 @@ if __name__ == '__main__':
         print(f"[ERROR] Database file not found: {db_path}")
         sys.exit(1)
 
-    print("Importing points_rules (women's singles sample)...")
+    print("Importing points_rules ...")
     success = import_points_rules(str(db_path))
 
     verify_points_rules(str(db_path))
 
-    print("\nNOTE: This is a sample import for women's singles.")
-    print("      Complete rules for all categories can be added from ITTF regulations.")
+    print("\nNOTE: This script is currently a placeholder and does not import points yet.")
 
     sys.exit(0 if success else 1)

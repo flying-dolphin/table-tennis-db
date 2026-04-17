@@ -38,7 +38,7 @@ def generate_insert_sql(mapping_data):
     lines.append(") VALUES")
 
     values = []
-    for i, event in enumerate(mapping_data['events']):
+    for i, event in enumerate(mapping_data['events'], start=1):
         applicable_formats = json.dumps(event.get('applicable_formats', []))
         ittf_rule = event.get('ittf_rule_name')
         json_code = f"'{event['json_code']}'" if event.get('json_code') else 'NULL'
@@ -54,7 +54,7 @@ def generate_insert_sql(mapping_data):
             f"{1 if event['filtering_only'] else 0}, "
             f"{rule_sql}, "
             f"'{applicable_formats}', "
-            f"{i})"
+                f"{i})"
         )
         values.append(value_str)
 
@@ -138,7 +138,7 @@ def import_to_sqlite(db_path, mapping_data):
 
         categories = []
         mapping_keys = []
-        for i, event in enumerate(mapping_data['events']):
+        for i, event in enumerate(mapping_data['events'], start=1):
             applicable_formats = json.dumps(event.get('applicable_formats', []))
             categories.append((
                 event['category_id'],

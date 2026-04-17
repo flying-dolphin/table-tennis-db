@@ -6,7 +6,7 @@
 
 关键逻辑：
 1. 从 side_a/side_b 提取球员名和国家（fallback 到 raw_row_text）
-2. 通过 event_mapping.json 匹配 event_id
+2. 通过数据库中的 events 表匹配 event_id
 3. 通过 player name + country_code 匹配 player_id
 4. 去重：同一场比赛在两个球员文件中各出现一次
 """
@@ -16,7 +16,6 @@ import sys
 import json
 import re
 from pathlib import Path
-from collections import defaultdict
 
 if sys.platform == 'win32':
     import io
@@ -83,6 +82,45 @@ def parse_raw_row_text(raw_text: str):
     }
 
 
+def build_event_index(cursor):
+    """构建赛事索引，基于数据库中的 events 表匹配 event_id。"""
+    cursor.execute("SELECT event_id, name, year FROM events")
+
+    by_name_year = {}
+    by_name = {}
+    for event_id, name, year in cursor.fetchall():
+        norm_name = normalize_event_name(name or "")
+        if not norm_name:
+            continue
+
+        if year is not None:
+            by_name_year[(norm_name, int(year))] = event_id
+        by_name.setdefault(norm_name, set()).add(event_id)
+
+    return {
+        "by_name_year": by_name_year,
+        "by_name": by_name,
+    }
+
+
+def resolve_event_id(event_index: dict, event_name: str, event_year: int | None):
+    """优先用 赛事名 + 年份 匹配，不命中时退化到唯一赛事名。"""
+    norm_event = normalize_event_name(event_name)
+    if not norm_event:
+        return None
+
+    if event_year is not None:
+        event_id = event_index["by_name_year"].get((norm_event, event_year))
+        if event_id is not None:
+            return event_id
+
+    candidates = sorted(event_index["by_name"].get(norm_event, set()))
+    if len(candidates) == 1:
+        return candidates[0]
+
+    return None
+
+
 def make_dedup_key(event_name: str, sub_event: str, stage: str, round_: str,
                    a_name: str, a_country: str, b_name: str, b_country: str) -> str:
     """生成去重键：将两方按字母排序确保同一场比赛只入库一次"""
@@ -97,7 +135,7 @@ def make_dedup_key(event_name: str, sub_event: str, stage: str, round_: str,
 # 导入逻辑
 # ============================================================================
 
-def import_matches(db_path: str, matches_dir: str, event_mapping_path: str) -> dict:
+def import_matches(db_path: str, matches_dir: str) -> dict:
     result = {
         'total_in_files': 0,
         'inserted': 0,
@@ -118,10 +156,8 @@ def import_matches(db_path: str, matches_dir: str, event_mapping_path: str) -> d
         player_index[(normalize_name_key(name), country_code)] = player_id
     print(f"Player index: {len(player_index)} entries")
 
-    # 加载 event mapping
-    with open(event_mapping_path, 'r', encoding='utf-8') as f:
-        event_mapping = json.load(f)
-    print(f"Event mapping: {len(event_mapping)} entries")
+    event_index = build_event_index(cursor)
+    print(f"Event index:  {len(event_index['by_name_year'])} name+year entries")
 
     # 去重集合
     seen_keys = set()
@@ -156,9 +192,7 @@ def import_matches(db_path: str, matches_dir: str, event_mapping_path: str) -> d
                         event_year = None
 
                 # 匹配 event_id
-                norm_event = normalize_event_name(event_name)
-                event_info = event_mapping.get(norm_event, {})
-                event_id = event_info.get('event_id')
+                event_id = resolve_event_id(event_index, event_name, event_year)
                 if event_id is None:
                     result['unmatched_events'].add(event_name)
 
@@ -342,21 +376,19 @@ def verify_matches(db_path: str):
 
 if __name__ == '__main__':
     matches_dir = PROJECT_ROOT / "data" / "matches_complete" / "cn"
-    event_mapping_path = PROJECT_ROOT / "tmp" / "event_mapping.json"
 
     print("=" * 70)
     print("Import Matches")
     print("=" * 70)
     print(f"Database:      {DB_PATH}")
     print(f"Matches dir:   {matches_dir}")
-    print(f"Event mapping: {event_mapping_path}")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
         print(f"[ERROR] Database not found: {DB_PATH}")
         sys.exit(1)
 
-    result = import_matches(str(DB_PATH), str(matches_dir), str(event_mapping_path))
+    result = import_matches(str(DB_PATH), str(matches_dir))
 
     print(f"\n{'='*70}")
     print("Results:")

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 导入赛事数据：events
-从 data/events_list/cn/*.json 导入，同时匹配 event_types 表。
+从 data/events_list/cn/*.json 导入，同时匹配 event_categories / event_type_mapping。
 """
 
 import sqlite3
@@ -23,10 +23,33 @@ except ImportError:
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
 
-def build_event_type_index(cursor) -> dict:
-    """从 DB 构建 event_type_name → event_type_id 索引"""
-    cursor.execute("SELECT event_type_id, name FROM event_types")
-    return {row[1]: row[0] for row in cursor.fetchall()}
+def resolve_event_category(cursor, event_type: str, event_kind: str | None):
+    """根据 event_type + event_kind 匹配标准赛事分类。"""
+    cursor.execute("""
+        SELECT
+            c.id,
+            c.category_id,
+            c.category_name_zh
+        FROM event_type_mapping m
+        JOIN event_categories c ON m.category_id = c.id
+        WHERE m.event_type = ?
+          AND ((m.event_kind = ?) OR (m.event_kind IS NULL AND ? IS NULL))
+          AND m.is_active = 1
+        ORDER BY m.priority DESC, m.id ASC
+        LIMIT 1
+    """, (event_type, event_kind, event_kind))
+    row = cursor.fetchone()
+    if row:
+        return {
+            'event_category_id': row[0],
+            'category_code': row[1],
+            'category_name_zh': row[2],
+        }
+    return {
+        'event_category_id': None,
+        'category_code': None,
+        'category_name_zh': None,
+    }
 
 
 def import_events(db_path: str, events_dir: str) -> dict:
@@ -34,8 +57,6 @@ def import_events(db_path: str, events_dir: str) -> dict:
 
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
-
-    event_type_index = build_event_type_index(cursor)
 
     events_path = Path(events_dir)
     json_files = sorted(events_path.glob("*.json"))
@@ -58,9 +79,9 @@ def import_events(db_path: str, events_dir: str) -> dict:
                 result['skipped'] += 1
                 continue
 
-            # 匹配 event_type_id
             event_type_name = event.get('event_type', '')
-            event_type_id = event_type_index.get(event_type_name)
+            event_kind = event.get('event_kind')
+            category_info = resolve_event_category(cursor, event_type_name, event_kind)
 
             # 解析 matches 数量
             matches_str = event.get('matches', '0')
@@ -73,23 +94,27 @@ def import_events(db_path: str, events_dir: str) -> dict:
                 cursor.execute("""
                     INSERT OR REPLACE INTO events (
                         event_id, year, name, name_zh,
-                        event_type_id, event_type_name,
+                        event_type_name,
                         event_kind, event_kind_zh,
-                        total_matches, start_date, end_date,
+                        event_category_id, category_code, category_name_zh,
+                        total_matches, start_date, end_date, location,
                         href, scraped_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     event_id,
                     int(event.get('year', 0)),
                     name,
                     event.get('name_zh'),
-                    event_type_id,
                     event_type_name,
-                    event.get('event_kind'),
+                    event_kind,
                     event.get('event_kind_zh'),
+                    category_info['event_category_id'],
+                    category_info['category_code'],
+                    category_info['category_name_zh'],
                     total_matches,
                     event.get('start_date'),
                     event.get('end_date'),
+                    event.get('location'),
                     event.get('href'),
                     data.get('scraped_at'),
                 ))
@@ -109,7 +134,7 @@ def verify_events(db_path: str):
     cursor.execute("SELECT COUNT(*) FROM events")
     total = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM events WHERE event_type_id IS NOT NULL")
+    cursor.execute("SELECT COUNT(*) FROM events WHERE event_category_id IS NOT NULL")
     typed = cursor.fetchone()[0]
 
     cursor.execute("SELECT COUNT(*) FROM events WHERE name_zh IS NOT NULL")
@@ -121,10 +146,9 @@ def verify_events(db_path: str):
     min_year, max_year = cursor.fetchone()
 
     cursor.execute("""
-        SELECT et.name, COUNT(*) as cnt
+        SELECT e.category_name_zh, COUNT(*) as cnt
         FROM events e
-        LEFT JOIN event_types et ON e.event_type_id = et.event_type_id
-        GROUP BY et.name
+        GROUP BY e.category_name_zh
         ORDER BY cnt DESC
         LIMIT 10
     """)
