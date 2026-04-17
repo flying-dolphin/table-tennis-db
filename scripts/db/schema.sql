@@ -6,15 +6,6 @@
 -- 字典表
 -- ============================================================================
 
-CREATE TABLE IF NOT EXISTS event_types (
-    event_type_id   INTEGER PRIMARY KEY AUTOINCREMENT,
-    name            TEXT NOT NULL UNIQUE,
-    name_zh         TEXT,
-    code            TEXT,
-    is_selected     INTEGER DEFAULT 0,
-    sort_order      INTEGER DEFAULT 0
-);
-
 CREATE TABLE IF NOT EXISTS sub_event_types (
     sub_event_type_id   INTEGER PRIMARY KEY AUTOINCREMENT,
     code                TEXT NOT NULL UNIQUE,
@@ -29,21 +20,20 @@ CREATE TABLE IF NOT EXISTS event_categories (
     category_name_zh    TEXT,
     json_code           TEXT,                   -- ranking JSON 中的缩写，如 "GS"
     points_tier         TEXT,                   -- Premium / High / Medium / Low / None
-    points_eligible     INTEGER DEFAULT 0,
+    points_eligible     INTEGER DEFAULT 1,
     filtering_only      INTEGER DEFAULT 0,
     applicable_formats  TEXT,                   -- JSON 数组
     ittf_rule_name      TEXT,
-    notes               TEXT,
     sort_order          INTEGER DEFAULT 0
 );
 
 CREATE INDEX IF NOT EXISTS idx_event_categories_json_code ON event_categories(json_code);
+CREATE INDEX IF NOT EXISTS idx_event_categories_points_eligible ON event_categories(points_eligible);
 
 CREATE TABLE IF NOT EXISTS event_type_mapping (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     event_type      TEXT NOT NULL,
     event_kind      TEXT,
-    event_kind_aliases TEXT,
     category_id     INTEGER NOT NULL,
     priority        INTEGER DEFAULT 0,
     is_active       INTEGER NOT NULL DEFAULT 1,
@@ -54,16 +44,30 @@ CREATE INDEX IF NOT EXISTS idx_event_type_mapping_lookup ON event_type_mapping(e
 
 CREATE TABLE IF NOT EXISTS points_rules (
     rule_id             INTEGER PRIMARY KEY AUTOINCREMENT,
-    event_category      TEXT NOT NULL,
-    event_category_zh   TEXT,
-    sub_event_category  TEXT NOT NULL,
-    draw_qualifier      TEXT,
-    stage_type          TEXT NOT NULL,
-    position            TEXT NOT NULL,
-    points              INTEGER NOT NULL,
-    effective_date      TEXT NOT NULL,
-    UNIQUE(event_category, sub_event_category, draw_qualifier, stage_type, position, effective_date)
+    category_id         INTEGER NOT NULL,      -- -> event_categories.id
+    sub_event_category  TEXT NOT NULL,         -- 子分类，如 "Q48" / "Q64" / "Singles"
+    draw_qualifier      TEXT,                  -- 签表类型，如 "Main Draw" / "Qualification"
+    stage_type          TEXT NOT NULL,         -- 阶段类型，如 "Main Draw" / "Qualification"
+    position            TEXT NOT NULL,         -- 名次，如 "W" / "F" / "SF" / "QF" / "R16"
+    points              INTEGER NOT NULL,      -- 积分值
+    effective_date      TEXT NOT NULL,         -- 生效日期，如 "2026-01-27"
+    FOREIGN KEY (category_id) REFERENCES event_categories(id) ON DELETE RESTRICT
 );
+
+-- SQLite 中 UNIQUE 约束对 NULL 不去重；draw_qualifier 允许为空时需要用表达式索引保证唯一性。
+CREATE UNIQUE INDEX IF NOT EXISTS uq_points_rules_rule
+ON points_rules (
+    category_id,
+    sub_event_category,
+    IFNULL(draw_qualifier, ''),
+    stage_type,
+    position,
+    effective_date
+);
+
+CREATE INDEX IF NOT EXISTS idx_points_rules_category ON points_rules(category_id);
+CREATE INDEX IF NOT EXISTS idx_points_rules_lookup
+ON points_rules(category_id, sub_event_category, stage_type, position, effective_date);
 
 -- ============================================================================
 -- 核心实体表
@@ -116,7 +120,6 @@ CREATE TABLE IF NOT EXISTS events (
     year                INTEGER NOT NULL,
     name                TEXT NOT NULL,
     name_zh             TEXT,
-    event_type_id       INTEGER,
     event_type_name     TEXT,                  -- 原始 event_type
     event_kind          TEXT,                  -- 原始 event_kind
     event_kind_zh       TEXT,
@@ -129,12 +132,10 @@ CREATE TABLE IF NOT EXISTS events (
     location            TEXT,
     href                TEXT,
     scraped_at          TEXT,
-    FOREIGN KEY (event_type_id) REFERENCES event_types(event_type_id),
     FOREIGN KEY (event_category_id) REFERENCES event_categories(id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_events_year ON events(year);
-CREATE INDEX IF NOT EXISTS idx_events_type ON events(event_type_id);
 CREATE INDEX IF NOT EXISTS idx_events_date ON events(start_date);
 CREATE INDEX IF NOT EXISTS idx_events_category ON events(event_category_id);
 
@@ -225,7 +226,7 @@ CREATE TABLE IF NOT EXISTS points_breakdown (
     event_name      TEXT NOT NULL,
     event_name_zh   TEXT,
     event_type_code TEXT,
-    event_type_code_zh TEXT,
+    category_name_zh TEXT,
     position        TEXT,
     position_zh     TEXT,
     points          INTEGER NOT NULL,

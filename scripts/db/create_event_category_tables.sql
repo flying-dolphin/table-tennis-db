@@ -45,33 +45,26 @@ CREATE TABLE IF NOT EXISTS event_type_mapping (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 COMMENT='event_type/event_kind与标准分类的映射';
 
--- 3. Points Rules by Category (按分类的积分规则表)
--- 存储每个分类在不同格式（单打、双打等）下的积分规则
-CREATE TABLE IF NOT EXISTS points_rules_by_category (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    category_id INT NOT NULL COMMENT '赛事分类ID',
-    format_type VARCHAR(50) NOT NULL COMMENT '比赛格式，如 Singles, Doubles, Mixed Doubles, Teams',
-    w_points INT COMMENT '冠军积分',
-    f_points INT COMMENT '亚军积分',
-    sf_points INT COMMENT '四强积分',
-    qf_points INT COMMENT '八强积分',
-    r16_points INT COMMENT '16强积分',
-    r32_points INT COMMENT '32强积分',
-    r64_points INT COMMENT '64强积分',
-    r128_points INT COMMENT '128强积分',
-    qual_points INT COMMENT '资格赛积分',
-    qual_4th_points INT COMMENT '资格赛小组第4积分',
-    qual_3rd_points INT COMMENT '资格赛小组第3积分',
-    qual_2nd_points INT COMMENT '资格赛小组第2积分',
-    qual_1st_points INT COMMENT '资格赛小组第1积分',
+-- 3. Points Rules (积分规则表，行式存储)
+-- 每个赛事分类 + 子分类 + 阶段 + 名次对应一条积分记录
+CREATE TABLE IF NOT EXISTS points_rules (
+    rule_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_id INT NOT NULL COMMENT '赛事分类ID（FK -> event_categories.id）',
+    sub_event_category VARCHAR(50) NOT NULL COMMENT '子分类，如 Q48/Q64/Singles',
+    draw_qualifier VARCHAR(50) NULL COMMENT '签表类型，如 Main Draw / Qualification',
+    stage_type VARCHAR(50) NOT NULL COMMENT '阶段类型，如 Main Draw / Qualification',
+    position VARCHAR(20) NOT NULL COMMENT '名次，如 W/F/SF/QF/R16/QUAL/R1',
+    points INT NOT NULL COMMENT '积分值',
+    effective_date DATE NOT NULL COMMENT '生效日期',
     notes TEXT COMMENT '备注',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES event_categories(id) ON DELETE CASCADE,
-    UNIQUE KEY uk_category_format (category_id, format_type),
-    INDEX idx_category_id (category_id)
+    FOREIGN KEY (category_id) REFERENCES event_categories(id) ON DELETE RESTRICT,
+    UNIQUE KEY uk_points_rule (category_id, sub_event_category, draw_qualifier, stage_type, position, effective_date),
+    INDEX idx_points_rules_category (category_id),
+    INDEX idx_points_rules_lookup (category_id, sub_event_category, stage_type, position, effective_date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-COMMENT='按分类和格式的积分规则表';
+COMMENT='积分规则（行式存储）';
 
 -- ============================================================================
 -- Views for easier querying

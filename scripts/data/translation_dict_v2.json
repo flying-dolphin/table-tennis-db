@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-17T13:39:27.695905",
-    "total_entries": 1261
+    "updated_at": "2026-04-17T18:00:16.974803",
+    "total_entries": 1289
   },
   "entries": {
     "ma long": {
@@ -242,19 +242,6 @@
     "ito mima": {
       "original": "Ito Mima",
       "translated": "伊藤美诚",
-      "categories": [
-        "players"
-      ],
-      "source": "dict",
-      "review_status": "pending",
-      "validators": {
-        "players": "player_name"
-      },
-      "updated_at": "2026-04-10T18:30:00"
-    },
-    "harimoto kasumi": {
-      "original": "Harimoto Kasumi",
-      "translated": "石川佳纯",
       "categories": [
         "players"
       ],
@@ -16407,6 +16394,383 @@
         "players": "none"
       },
       "updated_at": "2026-04-17T13:39:27.695905"
+    },
+    "jey": {
+      "original": "JEY",
+      "translated": "泽西岛",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "kgz": {
+      "original": "KGZ",
+      "translated": "吉尔吉斯斯坦",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "ksa": {
+      "original": "KSA",
+      "translated": "沙特阿拉伯",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "kuw": {
+      "original": "KUW",
+      "translated": "科威特",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "lat": {
+      "original": "LAT",
+      "translated": "拉脱维亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "lbn": {
+      "original": "LBN",
+      "translated": "黎巴嫩",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "ltu": {
+      "original": "LTU",
+      "translated": "立陶宛",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "mda": {
+      "original": "MDA",
+      "translated": "摩尔多瓦",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "mdv": {
+      "original": "MDV",
+      "translated": "马尔代夫",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "mlt": {
+      "original": "MLT",
+      "translated": "马耳他",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "mya": {
+      "original": "MYA",
+      "translated": "缅甸",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "nru": {
+      "original": "NRU",
+      "translated": "瑙鲁",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "pak": {
+      "original": "PAK",
+      "translated": "巴基斯坦",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "png": {
+      "original": "PNG",
+      "translated": "巴布亚新几内亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "prk": {
+      "original": "PRK",
+      "translated": "朝鲜",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "pyf": {
+      "original": "PYF",
+      "translated": "法属波利尼西亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "ref": {
+      "original": "REF",
+      "translated": "难民代表团",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "rwa": {
+      "original": "RWA",
+      "translated": "卢旺达",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "sco": {
+      "original": "SCO",
+      "translated": "苏格兰",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "smr": {
+      "original": "SMR",
+      "translated": "圣马力诺",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "sol": {
+      "original": "SOL",
+      "translated": "所罗门群岛",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "sri": {
+      "original": "SRI",
+      "translated": "斯里兰卡",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "tga": {
+      "original": "TGA",
+      "translated": "汤加",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "tkm": {
+      "original": "TKM",
+      "translated": "土库曼斯坦",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "tog": {
+      "original": "TOG",
+      "translated": "多哥",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "tto": {
+      "original": "TTO",
+      "translated": "特立尼达和多巴哥",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "uru": {
+      "original": "URU",
+      "translated": "乌拉圭",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "van": {
+      "original": "VAN",
+      "translated": "瓦努阿图",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "syr": {
+      "original": "SYR",
+      "translated": "叙利亚",
+      "categories": [
+        "locations"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "locations": "location"
+      },
+      "updated_at": "2026-04-17T18:00:16.974803"
     }
   }
 }

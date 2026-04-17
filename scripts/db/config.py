@@ -25,6 +25,6 @@ if _dotenv_path.exists():
 
 
 DB_PATH = os.getenv("DB_PATH", str(_db_dir / "ittf.db"))
-SCHEMA_PATH = os.getenv("SCHEMA_PATH", str(_db_dir / "schema.sql"))
+SCHEMA_PATH = os.getenv("SCHEMA_PATH", str(PROJECT_ROOT / "scripts" / "db" / "schema.sql"))
 
 # Project root for deriving other paths

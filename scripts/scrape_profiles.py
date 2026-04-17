@@ -82,7 +82,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--snapshot-dir", default="data/ranking_snapshots")
     parser.add_argument("--profile-dir", default="data/player_profiles")
     parser.add_argument("--avatar-dir", default="data/player_avatars")
-    parser.add_argument("--db-path", default="web/db/ittf_rankings.sqlite")
+    parser.add_argument("--db-path", default="data/db/ittf.db")
     parser.add_argument("--output", default=None)
     parser.add_argument("--checkpoint", default="data/player_profiles/checkpoint_scrape_profiles.json", help="Scrape checkpoint file path")
     parser.add_argument("--player-id", type=str, default=None, help="Player ID (player_id_raw)")
