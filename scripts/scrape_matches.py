@@ -61,6 +61,33 @@ STAGE_TOKENS = {
 }
 
 
+def fetch_player_country_from_itff_profile(page: Any, player_id: str, player_name: str, delay_cfg: DelayConfig) -> tuple[str, str]:
+    """Fetch country and country_code from ITTF profile page autocomplete input.
+
+    The ITTF profile page has an autocomplete input with value like "CHEN Meng (CHN)"
+    which contains the player's country code.
+
+    Returns:
+        tuple of (country, country_code), both may be empty strings if not found.
+    """
+    profile_url = f"{BASE_URL}/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw={player_id}"
+    country = ""
+    country_code = ""
+    try:
+        guarded_goto(page, profile_url, delay_cfg, f"open profile: {player_name}")
+        page.wait_for_load_state("networkidle", timeout=10000)
+
+        autocomplete_input = page.locator("input.vw_profiles___player_idvalue-auto-complete")
+        if autocomplete_input.count() > 0:
+            value = (autocomplete_input.first.get_attribute("value") or "").strip()
+            match = re.search(r'\(([A-Z]{3})\)$', value)
+            if match:
+                country_code = match.group(1)
+    except Exception as exc:
+        logger.warning("Failed to fetch country from profile page for %s (%s): %s", player_name, player_id, exc)
+    return country, country_code
+
+
 def _ck_player_base(checkpoint: CheckpointStore, player_id: Any, player_name: str, from_date_str: str) -> str:
     # Prefix to avoid collisions with other uses of CheckpointStore.
     return "matches|" + checkpoint.key(player_id, player_name, from_date_str)
@@ -1391,6 +1418,7 @@ def run(args: argparse.Namespace) -> int:
     # 解析指定 player 参数（如果有的话）
     target_player_name = getattr(args, 'player_name', None)
     target_country_code = getattr(args, 'player_country', None)
+    target_player_id = getattr(args, 'player_id', None)
     try:
         from patchright.sync_api import sync_playwright
     except ImportError:
@@ -1506,12 +1534,20 @@ def run(args: argparse.Namespace) -> int:
                     target_player_name,
                     target_country_code or "any",
                 )
+                country_to_use = target_country_code or ""
+                country_name_to_use = ""
+                if target_player_id:
+                    country_name_to_use, country_to_use = fetch_player_country_from_itff_profile(
+                        page, target_player_id, target_player_name, delay_cfg
+                    )
+                    if country_to_use:
+                        logger.info("Fetched country from profile page: %s (%s)", country_name_to_use, country_to_use)
                 players = [{
                     "english_name": target_player_name,
-                    "country_code": target_country_code or "",
-                    "player_id": None,
+                    "country_code": country_to_use,
+                    "player_id": target_player_id,
                     "rank": 0,
-                    "country": "",
+                    "country": country_name_to_use,
                     "continent": "",
                 }]
 
@@ -1690,6 +1726,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing orig outputs")
     parser.add_argument("--player-name", type=str, default=None, help="Scrape only a specific player by English name (case-insensitive)")
     parser.add_argument("--player-country", type=str, default=None, help="Country code for the specific player (optional, used with --player-name)")
+    parser.add_argument("--player-id", type=str, default=None, help="Player ID (player_id_raw) for the specific player (optional, used with --player-name to fetch country info)")
     return parser
 
 
