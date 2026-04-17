@@ -31,17 +31,19 @@ PLAYER_WITH_COUNTRY_RE = re.compile(
 )
 SCORE_RE = re.compile(r"^\s*(\d+)\s*-\s*(\d+)\s*$")
 WORD_RE = re.compile(r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)?")
-STAGE_TOKENS = {
-    "main draw",
-    "qualification",
-    "qualifying",
-    "group",
-    "final",
-}
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_BASE_DIR = PROJECT_ROOT / "data" / "matches_complete"
 DEFAULT_DICT_PATH = PROJECT_ROOT / "scripts" / "data" / "translation_dict_v2.json"
+
+# raw_row_text 的列结构固定为：
+# [0] year | [1] event_name
+# [2] player_a | [3] player_a_partner (singles: empty)
+# [4] player_b | [5] player_b_partner (singles: empty)
+# [6] sub_event | [7] stage | [8] round | [9] score | [10] games | [11] winner | ...
+_COL_SUB_EVENT = 6
+_COL_STAGE = 7
+_COL_ROUND = 8
+_COL_WINNER = 11
 
 
 def normalize_words(text: str) -> tuple[str, ...]:
@@ -64,65 +66,96 @@ def is_same_person(left: str, right: str) -> bool:
     return bool(words) and words == normalize_words(right_clean)
 
 
-def is_sub_event_token(token: str) -> bool:
-    token = (token or "").strip()
-    return bool(re.fullmatch(r"[A-Z0-9]{2,8}", token))
-
-
-def is_stage_token(token: str) -> bool:
-    return (token or "").strip().lower() in STAGE_TOKENS
-
-
 def extract_players(segment: str) -> list[str]:
     return [match.group(0).strip() for match in PLAYER_WITH_COUNTRY_RE.finditer(segment or "")]
 
 
+def _extract_round_from_text(text: str) -> str:
+    """从任意文本中提取 round 信息（正则回退）。
+
+    支持的格式：
+    - R1, R2, R16, R32, R64, R128, R256
+    - QF, SF, F (Quarter/Semi/Final)
+    - QuarterFinal, SemiFinal, Final
+    - Round of 8/16/32/64/128
+    - Rd 1, Rd 2 (缩写形式)
+    - Group A, Group B (分组)
+    - Preliminary, Prelim
+    - Repechage
+    """
+    if not text:
+        return ""
+
+    patterns = [
+        # 精确匹配数字 round (R1-R256)
+        r"\b(R\d{1,3})\b",
+        # 简写和全名 round
+        r"\b(QF|SF|F|QuarterFinal|SemiFinal|Final)\b",
+        # "Round of X" 格式
+        r"\b(Round\s+of\s+\d+)\b",
+        # 缩写形式 (Rd 1, Rd 2)
+        r"\b(Rd\s+\d+)\b",
+        # 分组 (Group A, Group B 等)
+        r"\b(Group\s+[A-Z])\b",
+        # 预选和复活赛
+        r"\b(Preliminary|Prelim|Repechage)\b",
+    ]
+
+    for pattern in patterns:
+        m = re.search(pattern, text, re.IGNORECASE)
+        if m:
+            result = m.group(1).strip()
+            # 规范化格式：R1 (不是 r1)，Group A (不是 group a)
+            if result.lower().startswith("r") and result[1:].replace(" ", "").isdigit():
+                result = result.upper()
+            return result
+
+    return ""
+
+
 def parse_raw_row_text(raw_row_text: str) -> dict[str, Any]:
+    """从 raw_row_text 按固定列位置解析比赛信息。
+
+    列结构固定（单打和双打均相同，单打的搭档列为空字符串占位）：
+      [0] year | [1] event_name
+      [2] player_a  | [3] player_a_partner
+      [4] player_b  | [5] player_b_partner
+      [6] sub_event | [7] stage | [8] round | [9] score | [10] games | [11] winner | ...
+    """
     tokens = [segment.strip() for segment in (raw_row_text or "").split("|")]
-    sub_event_idx = -1
-    for idx in range(2, len(tokens) - 1):
-        if is_sub_event_token(tokens[idx]) and is_stage_token(tokens[idx + 1]):
-            sub_event_idx = idx
-            break
 
-    if sub_event_idx == -1:
-        all_players: list[str] = []
-        seen: set[str] = set()
-        for player in extract_players(raw_row_text):
-            if player not in seen:
-                seen.add(player)
-                all_players.append(player)
-        return {
-            "sub_event": "",
-            "side_a": all_players[:1],
-            "side_b": all_players[1:],
-            "all_players_in_row": all_players,
-            "winner": "",
-        }
+    sub_event = tokens[_COL_SUB_EVENT] if len(tokens) > _COL_SUB_EVENT else ""
+    stage = tokens[_COL_STAGE] if len(tokens) > _COL_STAGE else ""
 
-    participant_tokens = tokens[2:sub_event_idx]
-    side_a: list[str] = []
-    side_b: list[str] = []
+    # round：从固定位置提取，排除与 stage 重复的值
+    round_val = ""
+    if len(tokens) > _COL_ROUND:
+        candidate = tokens[_COL_ROUND]
+        if candidate and candidate.lower() != stage.lower():
+            round_val = candidate
 
-    if len(participant_tokens) >= 4:
-        for token in participant_tokens[:2]:
-            side_a.extend(extract_players(token))
-        for token in participant_tokens[2:4]:
-            side_b.extend(extract_players(token))
-    elif len(participant_tokens) >= 2:
-        side_a.extend(extract_players(participant_tokens[0]))
-        side_b.extend(extract_players(participant_tokens[1]))
-    elif participant_tokens:
-        side_a.extend(extract_players(participant_tokens[0]))
-        for token in participant_tokens[1:]:
-            side_b.extend(extract_players(token))
+    # 如果固定位置为空，从整个文本中正则搜索
+    if not round_val:
+        round_val = _extract_round_from_text(raw_row_text)
+
+    # 提取球员：单打 tokens[2], tokens[4]；双打 tokens[2]+tokens[3], tokens[4]+tokens[5]
+    side_a = extract_players(tokens[2]) if len(tokens) > 2 else []
+    if len(tokens) > 3 and tokens[3]:
+        side_a.extend(extract_players(tokens[3]))
+
+    side_b = extract_players(tokens[4]) if len(tokens) > 4 else []
+    if len(tokens) > 5 and tokens[5]:
+        side_b.extend(extract_players(tokens[5]))
 
     all_players = side_a + side_b
-    winner_tokens = [token for token in tokens[sub_event_idx + 5:] if token]
+
+    # winner 在固定位置 tokens[11] 起
+    winner_tokens = [t for t in tokens[_COL_WINNER:] if t]
     winner = " / ".join(winner_tokens)
 
     return {
-        "sub_event": tokens[sub_event_idx],
+        "sub_event": sub_event,
+        "round": round_val,
         "side_a": side_a,
         "side_b": side_b,
         "all_players_in_row": all_players,
@@ -202,6 +235,11 @@ def repair_match(match: dict[str, Any], player_name: str) -> tuple[dict[str, Any
     if new_sub_event and match.get("sub_event", "") != new_sub_event:
         match["sub_event"] = new_sub_event
         changes.append("sub_event")
+
+    new_round = parsed.get("round", "")
+    if match.get("round", "") != new_round:
+        match["round"] = new_round
+        changes.append("round")
 
     if "teammates" in match:
         del match["teammates"]

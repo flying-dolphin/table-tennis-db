@@ -52,13 +52,15 @@ GAME_RE = re.compile(r"(\d+):(\d+)")
 PLAYER_NAME_RE = re.compile(
     r"([A-Z][A-Za-z]*(?:[-'\s][A-Za-z]+)*)\s*\(([A-Z]{3})\)"
 )
-STAGE_TOKENS = {
-    "main draw",
-    "qualification",
-    "qualifying",
-    "group",
-    "final",
-}
+# raw_row_text 的列结构固定为：
+# [0] year | [1] event_name
+# [2] player_a  | [3] player_a_partner (singles: empty)
+# [4] player_b  | [5] player_b_partner (singles: empty)
+# [6] sub_event | [7] stage | [8] round | [9] score | [10] games | [11] winner | ...
+_COL_SUB_EVENT = 6
+_COL_STAGE = 7
+_COL_ROUND = 8
+_COL_WINNER = 11
 
 
 def fetch_player_country_from_itff_profile(page: Any, player_id: str, player_name: str, delay_cfg: DelayConfig) -> tuple[str, str]:
@@ -137,13 +139,21 @@ def _ck_event(ck_player: str, event: dict[str, Any]) -> str:
     return f"{ck_player}|event:{h}"
 
 
-def _is_sub_event_token(token: str) -> bool:
-    token = (token or "").strip()
-    return bool(re.fullmatch(r"[A-Z0-9]{2,8}", token))
+def _strip_country(player_with_country: str) -> str:
+    match = PLAYER_NAME_RE.search(player_with_country or "")
+    if match:
+        return match.group(1).strip()
+    return (player_with_country or "").strip()
 
 
-def _is_stage_token(token: str) -> bool:
-    return (token or "").strip().lower() in STAGE_TOKENS
+def _is_same_person(left: str, right: str) -> bool:
+    left_clean = _strip_country(left)
+    right_clean = _strip_country(right)
+    if left_clean.lower() == right_clean.lower():
+        return True
+    left_words = tuple(sorted(re.findall(r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)?", left_clean.lower())))
+    right_words = tuple(sorted(re.findall(r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)?", right_clean.lower())))
+    return bool(left_words) and left_words == right_words
 
 
 def _extract_players_from_segment(segment: str) -> list[str]:
@@ -151,46 +161,31 @@ def _extract_players_from_segment(segment: str) -> list[str]:
 
 
 def _parse_row_participants(row_text: str) -> tuple[str, list[str], list[str], list[str], str]:
+    """从 row_text 按固定列位置提取参与者信息。
+
+    列结构固定（单打和双打均相同，单打的搭档列为空字符串占位）：
+      [2] player_a  | [3] player_a_partner
+      [4] player_b  | [5] player_b_partner
+      [6] sub_event | [11] winner | ...
+    """
     tokens = [segment.strip() for segment in row_text.split("|")]
-    sub_event_idx = -1
-    for idx in range(2, len(tokens) - 1):
-        token = tokens[idx]
-        next_token = tokens[idx + 1] if idx + 1 < len(tokens) else ""
-        if _is_sub_event_token(token) and _is_stage_token(next_token):
-            sub_event_idx = idx
-            break
 
-    if sub_event_idx == -1:
-        all_players: list[str] = []
-        seen: set[str] = set()
-        for player in _extract_players_from_segment(row_text):
-            if player not in seen:
-                seen.add(player)
-                all_players.append(player)
-        side_a = all_players[:1]
-        side_b = all_players[1:]
-        return "", side_a, side_b, all_players, ""
-
-    sub_event = tokens[sub_event_idx]
-    participant_tokens = tokens[2:sub_event_idx]
+    sub_event = tokens[_COL_SUB_EVENT] if len(tokens) > _COL_SUB_EVENT else ""
 
     side_a: list[str] = []
+    if len(tokens) > 2:
+        side_a.extend(_extract_players_from_segment(tokens[2]))
+    if len(tokens) > 3 and tokens[3]:
+        side_a.extend(_extract_players_from_segment(tokens[3]))
+
     side_b: list[str] = []
-    if len(participant_tokens) >= 4:
-        for token in participant_tokens[:2]:
-            side_a.extend(_extract_players_from_segment(token))
-        for token in participant_tokens[2:4]:
-            side_b.extend(_extract_players_from_segment(token))
-    elif len(participant_tokens) >= 2:
-        side_a.extend(_extract_players_from_segment(participant_tokens[0]))
-        side_b.extend(_extract_players_from_segment(participant_tokens[1]))
-    elif participant_tokens:
-        side_a.extend(_extract_players_from_segment(participant_tokens[0]))
-        for token in participant_tokens[1:]:
-            side_b.extend(_extract_players_from_segment(token))
+    if len(tokens) > 4:
+        side_b.extend(_extract_players_from_segment(tokens[4]))
+    if len(tokens) > 5 and tokens[5]:
+        side_b.extend(_extract_players_from_segment(tokens[5]))
 
     all_players = side_a + side_b
-    winner_tokens = [token for token in tokens[sub_event_idx + 5:] if token]
+    winner_tokens = [t for t in tokens[_COL_WINNER:] if t]
     winner = " / ".join(winner_tokens)
     return sub_event, side_a, side_b, all_players, winner
 
@@ -389,6 +384,69 @@ def _wait_for_result_area(page: Any, timeout_sec: float = 20.0) -> bool:
 
 
 
+def _collect_event_row_signatures(page: Any) -> list[str]:
+    """Collect lightweight signatures for event table rows on current page."""
+    tables = _query_selector_all_with_retry(page, "table", retries=2)
+    signatures: list[str] = []
+    for table in tables:
+        rows = _query_selector_all_with_retry(table, "tbody tr", retries=1)
+        if not rows:
+            rows = _query_selector_all_with_retry(table, "tr", retries=1)
+        for row in rows:
+            cells = _query_selector_all_with_retry(row, "td", retries=1)
+            if len(cells) < 2:
+                continue
+            first_text = (cells[0].inner_text() or "").strip()
+            if not first_text.isdigit():
+                continue
+            link = cells[0].query_selector("a")
+            href = (link.get_attribute("href") or "").strip() if link else ""
+            event_name = (cells[1].inner_text() or "").strip() if len(cells) > 1 else ""
+            start_date = (cells[4].inner_text() or "").strip() if len(cells) > 4 else ""
+            end_date = (cells[5].inner_text() or "").strip() if len(cells) > 5 else ""
+            signatures.append(f"{first_text}|{event_name}|{start_date}|{end_date}|{href}")
+    return signatures
+
+
+def _wait_for_event_table_stable(
+    page: Any,
+    timeout_sec: float = 15.0,
+    stable_rounds: int = 3,
+    poll_sec: float = 0.35,
+    previous_fingerprint: str = "",
+    require_change: bool = False,
+) -> tuple[bool, str, int]:
+    """Wait until event table rows are stable; optionally require page content changed."""
+    deadline = time.time() + timeout_sec
+    last_fp = ""
+    stable_count = 0
+    changed_seen = not require_change
+    rows_count = 0
+
+    while time.time() < deadline:
+        signatures = _collect_event_row_signatures(page)
+        rows_count = len(signatures)
+        current_fp = "|".join(signatures[:120])
+
+        if current_fp and previous_fingerprint and current_fp != previous_fingerprint:
+            changed_seen = True
+        elif current_fp and not previous_fingerprint:
+            changed_seen = True
+
+        if current_fp and current_fp == last_fp:
+            stable_count += 1
+        else:
+            stable_count = 1 if current_fp else 0
+            last_fp = current_fp
+
+        if current_fp and stable_count >= stable_rounds and changed_seen:
+            return True, current_fp, rows_count
+
+        time.sleep(poll_sec)
+
+    return False, last_fp, rows_count
+
+
 def parse_event_rows(page: Any) -> list[dict[str, Any]]:
     tables = _query_selector_all_with_retry(page, "table", retries=4)
     events: list[dict[str, Any]] = []
@@ -516,8 +574,25 @@ def collect_events_with_pagination(
     """
     all_events: list[dict[str, Any]] = []
     visited_snapshots: set[str] = set()
+    previous_page_fp = ""
 
     for page_num in range(max_pages):
+        stable_ok, current_page_fp, detected_rows = _wait_for_event_table_stable(
+            page,
+            timeout_sec=15.0,
+            stable_rounds=3,
+            previous_fingerprint=previous_page_fp,
+            require_change=bool(previous_page_fp),
+        )
+        if not stable_ok:
+            logger.warning(
+                "Event table did not stabilize on page %s (rows=%s, require_change=%s), stop pagination to avoid mixed data",
+                page_num + 1,
+                detected_rows,
+                bool(previous_page_fp),
+            )
+            break
+
         events = parse_event_rows(page)
         logger.info(
             "Page %s: parse_event_rows returned %s events (href-bearing rows only)",
@@ -553,6 +628,7 @@ def collect_events_with_pagination(
         if snapshot in visited_snapshots:
             break
         visited_snapshots.add(snapshot)
+        previous_page_fp = current_page_fp
 
         if not click_next_page_if_any(page):
             break
@@ -698,41 +774,41 @@ def parse_match_from_row(
                 sub_event = token
                 break
 
-    stage = stage_text
-    if not stage:
-        for s in ["Main Draw", "Qualification", "Qualifying", "Group", "Final"]:
-            if s.lower() in row_text.lower():
-                stage = s
-                break
+    stage = stage_text or cell_text(_COL_STAGE)
 
     if not round_text:
-        round_m = re.search(
-            r"\b(R\d{1,2}|QF|SF|F|QuarterFinal|SemiFinal|Final|R32|R64|R128|Round of \d+)\b",
-            row_text,
-            flags=re.IGNORECASE,
-        )
-        if round_m:
-            round_text = round_m.group(1)
+        # 从 raw_row_text 中提取 round（支持更多格式）
+        # 注：仅当原始数据中确实包含 round 信息时才提取，不推断 stage 值
+        patterns = [
+            r"\b(R\d{1,3})\b",                      # R1, R16, R32, R64, R128, R256
+            r"\b(QF|SF|F|QuarterFinal|SemiFinal|Final)\b",  # 简写和全名
+            r"\b(Round\s+of\s+\d+)\b",              # "Round of 32/64" 格式
+            r"\b(Rd\s+\d+)\b",                      # "Rd 1", "Rd 2" 缩写
+            r"\b(Group\s+[A-Z])\b",                 # "Group A", "Group B"
+            r"\b(Preliminary|Prelim|Repechage)\b",  # 预选和复活赛
+        ]
+        for pattern in patterns:
+            round_m = re.search(pattern, row_text, flags=re.IGNORECASE)
+            if round_m:
+                round_text = round_m.group(1)
+                # 规范化格式
+                if round_text.lower().startswith("r") and round_text[1:].replace(" ", "").isdigit():
+                    round_text = round_text.upper()
+                break
 
     perspective = "unknown"
-    opponents: list[str] = []
-    teammates: list[str] = []
     result_for_player = "unknown"
 
     if side_a or side_b:
-        in_a = any(player_name.lower() == n.lower() for n in side_a)
-        in_b = any(player_name.lower() == n.lower() for n in side_b)
+        in_a = any(_is_same_person(player_name, n) for n in side_a)
+        in_b = any(_is_same_person(player_name, n) for n in side_b)
 
         if in_a:
             perspective = "side_a"
-            opponents = side_b
-            teammates = [n for n in side_a if n.lower() != player_name.lower()]
             if score_a is not None and score_b is not None:
                 result_for_player = "win" if score_a > score_b else "loss"
         elif in_b:
             perspective = "side_b"
-            opponents = side_a
-            teammates = [n for n in side_b if n.lower() != player_name.lower()]
             if score_a is not None and score_b is not None:
                 result_for_player = "win" if score_b > score_a else "loss"
 
@@ -747,8 +823,6 @@ def parse_match_from_row(
         "all_players_in_row": all_players if all_players else all_names,
         "side_a": side_a,
         "side_b": side_b,
-        "teammates": teammates,
-        "opponents": opponents,
         "result_for_player": result_for_player,
         "perspective": perspective,
         "raw_row_text": row_text,
@@ -1102,6 +1176,9 @@ def scrape_player(
 
     if not _wait_for_result_area(page, timeout_sec=20.0):
         raise RuntimeError("Result page did not stabilize after clicking Go")
+    stable_ok, _, detected_rows = _wait_for_event_table_stable(page, timeout_sec=18.0, stable_rounds=3)
+    if not stable_ok:
+        raise RuntimeError(f"Event rows not stable after clicking Go (rows={detected_rows})")
 
     risk = detect_risk(page)
     if risk:
@@ -1718,9 +1795,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--slow-mo", type=int, default=100)
 
     parser.add_argument("--min-delay", type=float, default=5.0)
-    parser.add_argument("--max-delay", type=float, default=18.0)
-    parser.add_argument("--min-player-gap", type=float, default=20.0)
-    parser.add_argument("--max-player-gap", type=float, default=45.0)
+    parser.add_argument("--max-delay", type=float, default=10.0)
+    parser.add_argument("--min-player-gap", type=float, default=5.0)
+    parser.add_argument("--max-player-gap", type=float, default=10.0)
 
     parser.add_argument("--force", action="store_true", help="Ignore checkpoint completed marks")
     parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing orig outputs")

@@ -46,7 +46,7 @@ def main() -> None:
     - data/player_profiles/orig/           # 原始运动员档案
     - data/player_profiles/cn/             # 中文运动员档案
     - data/player_avatars/                 # 运动员头像
-    - web/db/ittf_rankings.sqlite          # SQLite 数据库
+    - data/db/ittf.db                      # SQLite 数据库
 """
 
     args = parser.parse_args()

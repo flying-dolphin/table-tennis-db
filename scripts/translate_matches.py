@@ -203,13 +203,17 @@ def load_missing(path: Path) -> dict[str, set[str]]:
 
 
 def save_missing(path: Path, missing: dict[str, set[str]]) -> None:
-    """Write missing translations to file, sorted by field then value."""
+    """Write missing translations to file, sorted by field then value. Only writes if there are missing entries."""
     lines: list[str] = []
     for field in FIELD_CATEGORY:
         for value in sorted(missing.get(field, set())):
             lines.append(f"{field}: {value}")
+    if not lines:
+        if path.exists():
+            path.unlink()
+        return
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8", newline="")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="")
     logger.info("Missing translations written to %s (%d entries)", path, len(lines))
 
 
