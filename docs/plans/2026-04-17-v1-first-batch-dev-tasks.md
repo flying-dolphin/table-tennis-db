@@ -233,7 +233,7 @@ Task 1（数据层）
   6. import events calendar
   7. import matches
 - web 前端和 `/api/v1` 只读 SQLite，不再维护独立 web 侧入库脚本
-- `import_points_rules.py` 保留为后续实现任务，本批不要求导入 `points_rules_by_category`
+- `import_points_rules.py` 保留为后续实现任务，本批不要求导入 `points_rules`
 
 **完成标准**
 
