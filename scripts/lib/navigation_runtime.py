@@ -65,6 +65,18 @@ def prompt_manual_verification(message_lines: list[str], prompt: str) -> None:
     input(prompt)
 
 
+def page_requires_login(page: Any) -> bool:
+    """Detect the ITTF login wall marker shown before authenticated content."""
+    try:
+        marker = page.locator(
+            "xpath=//center/h1[a[@href='/index.php/user-registration'] and "
+            "contains(normalize-space(.), 'Click') and contains(normalize-space(.), 'to register.')]"
+        )
+        return marker.count() > 0
+    except Exception:
+        return False
+
+
 def open_page_with_verification(
     page: Any,
     url: str,
@@ -107,11 +119,9 @@ def verify_cdp_session_or_prompt(
     page: Any,
     url: str,
     delay_cfg: DelayConfig,
-    *,
-    login_selector: str = "input[name='username']",
 ) -> None:
     open_page_with_verification(page, url, delay_cfg, "verify CDP session", sleep_first=False)
-    if page.locator(login_selector).count() == 0:
+    if not page_requires_login(page):
         return
 
     prompt_manual_verification(
@@ -123,5 +133,5 @@ def verify_cdp_session_or_prompt(
         ],
         "Press ENTER after login is completed...",
     )
-    if page.locator(login_selector).count() > 0:
+    if page_requires_login(page):
         raise RuntimeError("Login not completed. Aborting.")
