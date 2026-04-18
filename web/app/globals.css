@@ -12,7 +12,9 @@
   }
 
   body {
-    @apply text-text-primary font-body;
+    @apply text-text-primary font-body min-h-screen;
+    background: linear-gradient(180deg, #eef2f7 0%, #dde5ed 100%);
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

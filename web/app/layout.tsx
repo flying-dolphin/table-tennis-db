@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN">
-      <body className="pb-24 bg-page-background text-text-primary min-h-screen antialiased font-body">
+      <body className="pb-24 text-text-primary min-h-screen antialiased font-body">
         {children}
         <BottomNav />
       </body>

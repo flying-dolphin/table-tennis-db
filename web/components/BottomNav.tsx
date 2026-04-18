@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { Home, Trophy, User } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -22,13 +23,13 @@ const PingPongIcon = ({ size = 24, strokeWidth = 2, className, ...props }: any) 
 );
 
 export default function BottomNav() {
-  const [activeTab, setActiveTab] = React.useState("home");
+  const pathname = usePathname();
 
   const navItems = [
-    { id: "home", label: "首页", icon: Home },
-    { id: "ranking", label: "排名", icon: Trophy },
-    { id: "events", label: "赛事", icon: PingPongIcon },
-    { id: "profile", label: "我的", icon: User },
+    { id: "home", label: "首页", href: "/", icon: Home },
+    { id: "ranking", label: "排名", href: "/rankings", icon: Trophy },
+    { id: "events", label: "赛事", href: "/events", icon: PingPongIcon },
+    { id: "profile", label: "我的", href: "/auth", icon: User },
   ];
 
   return (
@@ -36,19 +37,24 @@ export default function BottomNav() {
       <nav className="w-full bg-white/80 backdrop-blur-2xl py-2 px-6 flex items-center justify-around pointer-events-auto border-t border-white/60 shadow-[0_-10px_40px_rgba(0,0,0,0.03)]">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = activeTab === item.id;
+          const isActive =
+            item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`);
 
           return (
-            <button
+            <a
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              href={item.href}
               className={cn(
-                "p-2.5 rounded-2xl transition-all duration-300",
+                "p-2.5 rounded-2xl transition-all duration-300 flex items-center justify-center",
                 isActive ? "bg-blue-50 text-blue-800" : "text-slate-400 hover:bg-slate-50"
               )}
             >
-              <Icon size={24} strokeWidth={isActive ? 2 : 1.5} />
-            </button>
+              {item.id === "profile" ? (
+                <span className="w-6 h-6 rounded-full bg-gradient-to-br from-slate-300 to-slate-500 border border-white/70" />
+              ) : (
+                <Icon size={24} strokeWidth={isActive ? 2 : 1.5} />
+              )}
+            </a>
           );
         })}
       </nav>
