@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply bg-page-background text-text-primary font-body;
+    @apply text-text-primary font-body;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
