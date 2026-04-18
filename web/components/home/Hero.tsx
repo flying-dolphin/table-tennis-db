@@ -10,11 +10,11 @@ export default function Hero() {
           src="/images/hero.jpg"
           alt="Athlete Hero"
           fill
-          className="object-cover opacity-70"
+          className="object-cover opacity-90"
           priority
         />
-        {/* Strong top-to-bottom dark gradient strictly for text legibility, maintaining dark contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A232C]/90 via-black/20 to-transparent" />
+        {/* Softer gradient for better image visibility while maintaining text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A232C]/80 via-black/10 to-transparent" />
       </div>
 
       {/* Content */}
@@ -26,12 +26,15 @@ export default function Hero() {
           乒乓球<br />
           <span className="text-brand-soft">职业数据查询</span>
         </h1>
-        
+
         {/* Profile Circle Mockup */}
-        <div className="absolute top-8 right-8 w-12 h-12 rounded-full border-2 border-white/20 overflow-hidden bg-white/10 backdrop-blur-sm shadow-sm">
-          <div className="w-full h-full flex items-center justify-center text-white font-bold">
-            TT
-          </div>
+        <div className="absolute top-6 right-6 w-12 h-12 rounded-full border border-white/30 overflow-hidden bg-white/10 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-105">
+          <Image
+            src="/images/logo.png"
+            alt="ITTF Logo"
+            fill
+            className="object-contain scale-190"
+          />
         </div>
       </div>
     </section>
