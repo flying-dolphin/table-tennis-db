@@ -99,7 +99,7 @@ def import_events(db_path: str, events_dir: str) -> dict:
                         event_category_id, category_code, category_name_zh,
                         total_matches, start_date, end_date, location,
                         href, scraped_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     event_id,
                     int(event.get('year', 0)),
