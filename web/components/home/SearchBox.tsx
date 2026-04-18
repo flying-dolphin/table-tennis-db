@@ -4,7 +4,7 @@ import { Search } from "lucide-react";
 export default function SearchBox() {
   return (
     <div className="relative -mt-6 px-6 z-20">
-      <div className="flex items-center bg-white/95 rounded-[20px] h-14 px-5 gap-3 shadow-[0_20px_50px_-10px_rgba(40,65,105,0.12),inset_0_1px_4px_rgba(255,255,255,1)] border-[1.5px] border-white focus-within:shadow-[0_30px_60px_-15px_rgba(40,65,105,0.15)] transition-all duration-300">
+      <div className="flex items-center bg-white rounded-2xl h-14 px-5 gap-3 shadow-md border border-slate-100 focus-within:shadow-lg transition-all duration-300">
         <Search className="text-brand-strong" size={22} />
         <input
           type="text"

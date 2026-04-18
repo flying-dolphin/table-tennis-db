@@ -10,9 +10,9 @@ function cn(...inputs: ClassValue[]) {
 }
 
 const PingPongIcon = ({ size = 24, strokeWidth = 2, className, ...props }: any) => (
-  <svg 
-    width={size} height={size} viewBox="0 0 24 24" fill="none" 
-    stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" 
+  <svg
+    width={size} height={size} viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round"
     className={className} {...props}
   >
     <circle cx="9" cy="9" r="6" />
@@ -37,20 +37,17 @@ export default function BottomNav() {
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;
-          
+
           return (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
               className={cn(
-                "relative flex flex-col items-center justify-center transition-all duration-300 h-14 min-w-[4.5rem] px-2 rounded-2xl",
-                isActive ? "bg-[#123E7A] text-white shadow-md shadow-[#123E7A]/30 scale-105" : "text-[#1E2A3D] hover:bg-black/5"
+                "p-2.5 rounded-2xl transition-all duration-300",
+                isActive ? "bg-blue-50 text-blue-800" : "text-slate-400 hover:bg-slate-50"
               )}
             >
-              <Icon size={20} strokeWidth={isActive ? 2.5 : 2} className="mb-1" />
-              <span className="text-[11px] font-bold tracking-wide">
-                {item.label}
-              </span>
+              <Icon size={24} strokeWidth={isActive ? 2 : 1.5} />
             </button>
           );
         })}

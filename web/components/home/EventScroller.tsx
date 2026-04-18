@@ -98,15 +98,15 @@ export default function EventScroller() {
     <>
       <div className={cn("flex items-center justify-between bg-[#1A232C] text-white", isModal ? "px-6 py-5" : "px-4 py-3")}>
         <div className="text-left">
-          <h2 className={cn("font-bold tracking-widest leading-none", isModal ? "text-[14px]" : "text-[12px]")}>2026赛事日历</h2>
+          <h2 className={cn("font-semibold tracking-wide leading-none", isModal ? "text-[14px]" : "text-[12px]")}>2026赛事日历</h2>
         </div>
         <div className="text-right">
-           <p className={cn("font-black tracking-widest", isModal ? "text-[14px]" : "text-[12px]")}>{month.name} <span className="opacity-70 font-normal">| {month.nameZh}</span></p>
+           <p className={cn("font-bold tracking-wide", isModal ? "text-[14px]" : "text-[12px]")}>{month.name} <span className="opacity-70 font-normal">| {month.nameZh}</span></p>
         </div>
       </div>
       <div className={cn("grid grid-cols-7 text-center border-b border-white/40", isModal ? "pt-3 pb-2.5 bg-white/20" : "pt-2 pb-1.5 bg-white/10")}>
         {['一', '二', '三', '四', '五', '六', '日'].map(d => (
-          <span key={d} className={cn("font-bold text-text-tertiary", isModal ? "text-[11px]" : "text-[9px]")}>{d}</span>
+          <span key={d} className={cn("font-medium text-text-tertiary", isModal ? "text-[11px]" : "text-[9px]")}>{d}</span>
         ))}
       </div>
       <div className={cn("flex flex-col bg-transparent", isModal ? "p-2.5 gap-1" : "p-1.5 gap-0.5")}>
@@ -114,8 +114,8 @@ export default function EventScroller() {
           <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "pt-6 pb-1.5 min-h-[64px]" : "pt-4 pb-1 min-h-[46px]")}>
             <div className="grid grid-cols-7 absolute top-1 inset-x-0 px-1">
                 {row.days.map((d: any, j: number) => (
-                  <div key={j} className={cn(
-                    "text-center font-black", 
+                <div key={j} className={cn(
+                    "text-center font-semibold", 
                     isModal ? "text-[12px]" : "text-[10px]",
                     d.out ? "text-border-strong opacity-40" : "text-text-primary",
                     d.num === 1 && d.out === false && month.id === 4 ? cn("text-brand-deep bg-brand-soft/50 rounded-full flex items-center justify-center mx-auto", isModal ? "w-6 h-6 -mt-0.5" : "w-5 h-5 -mt-0.5") : ""
@@ -132,7 +132,7 @@ export default function EventScroller() {
                       key={eIdx}
                       style={{ gridColumnStart: ev.startCol, gridColumnEnd: `span ${ev.span}` }}
                       className={cn(
-                        "font-bold truncate flex items-center shadow-sm", 
+                        "font-medium truncate flex items-center shadow-sm", 
                         isModal ? "rounded-[6px] px-1.5 py-1 text-[9px]" : "rounded-[4px] px-1 py-0.5 text-[8px]",
                         ev.color
                       )}
@@ -160,7 +160,7 @@ export default function EventScroller() {
       >
         {expandedMonthId && (
           <div 
-            className="w-full max-w-[420px] shadow-[0_40px_100px_-20px_rgba(40,65,105,0.25),inset_0_1px_4px_rgba(255,255,255,1)] border-[1.5px] border-white backdrop-blur-3xl rounded-[28px] overflow-hidden bg-gradient-to-br from-white/90 to-white/50 animate-in zoom-in-95 duration-300 transform-gpu"
+            className="w-full max-w-[420px] shadow-xl shadow-slate-200/50 border border-white/50 backdrop-blur-md rounded-[40px] overflow-hidden bg-white/60 animate-in zoom-in-95 duration-300 transform-gpu"
             onClick={(e) => e.stopPropagation()}
           >
             {renderCardContent(MONTH_DATA.find(m => m.id === expandedMonthId), true)}
@@ -168,10 +168,10 @@ export default function EventScroller() {
         )}
       </div>
 
-      <section className="mt-6 relative z-10">
+      <section className="mt-4 mb-4 relative z-10 w-full">
         <div 
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-4 px-6 pb-6 pt-2 snap-x snap-mandatory scrollbar-hide shrink-0 items-center"
+          className="flex overflow-x-auto gap-4 py-4 px-6 snap-x snap-mandatory shrink-0 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
           {MONTH_DATA.map((month) => {
             const isActive = month.id === activeMonthId;
@@ -190,10 +190,13 @@ export default function EventScroller() {
                 }}
                 className={cn(
                   "month-card-wrapper snap-center shrink-0 w-[78vw] max-w-[280px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer transform origin-center",
-                  isActive ? "scale-100 opacity-100 shadow-[0_20px_50px_-10px_rgba(40,65,105,0.12)]" : "scale-[0.88] opacity-60 shadow-[0_8px_20px_rgba(40,65,105,0.06)]"
+                  isActive ? "scale-100 opacity-100" : "scale-[0.88] opacity-60"
                 )}
               >
-                <div className="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-2xl rounded-[24px] overflow-hidden shadow-[inset_0_1px_4px_rgba(255,255,255,1)] border-[1.5px] border-white pointer-events-none">
+                <div className={cn(
+                  "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 pointer-events-none overflow-hidden pb-0.5 transition-shadow duration-500",
+                  isActive ? "shadow-lg shadow-slate-300/40" : "shadow-sm"
+                )}>
                   {renderCardContent(month, false)}
                 </div>
               </div>
