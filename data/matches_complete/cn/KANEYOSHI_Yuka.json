@@ -1,0 +1,2649 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "KANEYOSHI Yuka",
+  "english_name": "KANEYOSHI Yuka",
+  "country": "JPN",
+  "country_code": "JPN",
+  "continent": "",
+  "rank": 68,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-15T05:19:03.526577+00:00",
+      "events": [
+        {
+          "event_name": "WTT Contender Tunis 2026",
+          "event_type": "WTT Contender Series",
+          "event_year": "2026",
+          "match_count": 8,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=210921&vw_matches___player_a_id[value][]=210921&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=210921&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=210921&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=210921&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3236",
+          "raw_capture_file": "data\\raw_event_payloads\\KANEYOSHI_Yuka\\2026_1_WTT_Contender_Tunis_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:3",
+                "11:6"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "NEUMANN Josephina (GER)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "NEUMANN Josephina (GER)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | KANEYOSHI Yuka (JPN) |  | NEUMANN Josephina (GER) |  | WS | Qualification |  | 3 - 0 | 11:4 11:3 11:6 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "NEUMANN Josephina (德国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:8",
+                "11:3"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "TAILAKOVA Mariia (AIN)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "TAILAKOVA Mariia (AIN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | KANEYOSHI Yuka (JPN) |  | TAILAKOVA Mariia (AIN) |  | WS | Qualification |  | 3 - 0 | 11:6 11:8 11:3 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "TAILAKOVA Mariia (中立个人运动员)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 15,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "15:13",
+                "11:7",
+                "11:5"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "SHCHERBATYKH Valeriia (AIN)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "SHCHERBATYKH Valeriia (AIN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | KANEYOSHI Yuka (JPN) |  | SHCHERBATYKH Valeriia (AIN) |  | WS | Qualification | QR16 | 3 - 0 | 15:13 11:7 11:5 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛16强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "SHCHERBATYKH Valeriia (中立个人运动员)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:8",
+                "7:11",
+                "11:8"
+              ],
+              "winner": "GHORPADE Yashaswini",
+              "all_players_in_row": [
+                "GHORPADE Yashaswini (IND)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "GHORPADE Yashaswini (IND)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | GHORPADE Yashaswini (IND) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | R32 | 3 - 1 | 11:8 11:8 7:11 11:8 | GHORPADE Yashaswini |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "戈尔帕德·亚沙斯维尼 (印度)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "11:4",
+                "8:11",
+                "11:4"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)",
+                "GUO ZHENG Nina (FRA)",
+                "HOCHART Leana (FRA)"
+              ],
+              "side_a": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "GUO ZHENG Nina (FRA)",
+                "HOCHART Leana (FRA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | GUO ZHENG Nina (FRA) | HOCHART Leana (FRA) | WD | Main Draw | R16 | 3 - 1 | 13:11 11:4 8:11 11:4 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "GUO ZHENG Nina (法国)",
+                "HOCHART Leana (法国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "9:11",
+                "11:6",
+                "11:6"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)",
+                "TSAI Yun-En (TPE)",
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "side_a": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "TSAI Yun-En (TPE)",
+                "CHIEN Tung-Chuan (TPE)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | TSAI Yun-En (TPE) | CHIEN Tung-Chuan (TPE) | WD | Main Draw | QuarterFinal | 3 - 1 | 11:8 9:11 11:6 11:6 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "TSAI Yun-En (中国台北)",
+                "简彤娟 (中国台北)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)",
+                "DAS Syndrela (IND)",
+                "MUKHERJEE Sutirtha (IND)"
+              ],
+              "side_a": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "DAS Syndrela (IND)",
+                "MUKHERJEE Sutirtha (IND)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | DAS Syndrela (IND) | MUKHERJEE Sutirtha (IND) | WD | Main Draw | SemiFinal | 3 - 0 | 11:7 11:7 11:8 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "DAS Syndrela (印度)",
+                "穆克吉·苏蒂尔塔 (印度)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "9:11",
+                "11:13",
+                "11:5"
+              ],
+              "winner": "ABRAAMIAN Elizabet / PANFILOVA Maria",
+              "all_players_in_row": [
+                "ABRAAMIAN Elizabet (AIN)",
+                "PANFILOVA Maria (AIN)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "ABRAAMIAN Elizabet (AIN)",
+                "PANFILOVA Maria (AIN)"
+              ],
+              "side_b": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Contender Tunis 2026 | ABRAAMIAN Elizabet (AIN) | PANFILOVA Maria (AIN) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | Final | 3 - 2 | 11:8 11:7 9:11 11:13 11:5 | ABRAAMIAN Elizabet | PANFILOVA Maria | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "阿布拉米扬·伊丽莎白 (中立个人运动员)",
+                "PANFILOVA Maria (中立个人运动员)"
+              ],
+              "side_b_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ]
+            }
+          ],
+          "event_name_zh": "2026年WTT挑战赛突尼斯站",
+          "event_type_zh": "WTT挑战赛系列"
+        },
+        {
+          "event_name": "WTT Feeder Varazdin 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 13,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=210921&vw_matches___player_a_id[value][]=210921&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=210921&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=210921&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=210921&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3356",
+          "raw_capture_file": "data\\raw_event_payloads\\KANEYOSHI_Yuka\\2026_2_WTT_Feeder_Varazdin_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "11:4"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "BARAVOK Katsiaryna (AIN)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "BARAVOK Katsiaryna (AIN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | BARAVOK Katsiaryna (AIN) |  | WS | Qualification |  | 3 - 0 | 11:5 11:8 11:4 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "BARAVOK Katsiaryna (中立个人运动员)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "11:3"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "MIASHCHANSKAYA Ulyana (AIN)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "MIASHCHANSKAYA Ulyana (AIN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | MIASHCHANSKAYA Ulyana (AIN) |  | WS | Qualification |  | 3 - 0 | 11:5 11:8 11:3 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "MIASHCHANSKAYA Ulyana (中立个人运动员)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "10:12",
+                "6:11"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "COSIC Dora (CRO)",
+                "PAPADIMITRIOU Malamatenia (GRE)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "COSIC Dora (CRO)",
+                "PAPADIMITRIOU Malamatenia (GRE)"
+              ],
+              "side_b": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | COSIC Dora (CRO) | PAPADIMITRIOU Malamatenia (GRE) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Qualification | QR8 | 0 - 3 | 7:11 10:12 6:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛8强",
+              "side_a_zh": [
+                "COSIC Dora (克罗地亚)",
+                "PAPADIMITRIOU Malamatenia (希腊)"
+              ],
+              "side_b_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:6",
+                "11:1"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | WIELGOS Zuzanna (POL) |  | WS | Main Draw | R64 | 3 - 0 | 11:7 11:6 11:1 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "WIELGOS Zuzanna (波兰)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "1:11",
+                "2:11",
+                "8:11"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "CRISTOBAL Ainhoa (ESP)",
+                "RAD Elvira (ESP)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "CRISTOBAL Ainhoa (ESP)",
+                "RAD Elvira (ESP)"
+              ],
+              "side_b": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | CRISTOBAL Ainhoa (ESP) | RAD Elvira (ESP) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | R16 | 0 - 3 | 1:11 2:11 8:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "CRISTOBAL Ainhoa (西班牙)",
+                "RAD Elvira (西班牙)"
+              ],
+              "side_b_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:5",
+                "11:6"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "PICCOLIN Giorgia (ITA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | PICCOLIN Giorgia (ITA) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:5 11:6 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "皮科林·乔吉娅 (意大利)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "13:11",
+                "12:10",
+                "6:11",
+                "7:11"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "BRZYSKA Anna (POL)",
+                "WIELGOS Zuzanna (POL)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "BRZYSKA Anna (POL)",
+                "WIELGOS Zuzanna (POL)"
+              ],
+              "side_b": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | BRZYSKA Anna (POL) | WIELGOS Zuzanna (POL) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | QuarterFinal | 2 - 3 | 3:11 13:11 12:10 6:11 7:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "BRZYSKA Anna (波兰)",
+                "WIELGOS Zuzanna (波兰)"
+              ],
+              "side_b_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "3:11",
+                "11:7",
+                "3:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "LEE Daeun (KOR)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | LEE Daeun (KOR) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | R16 | 1 - 3 | 7:11 3:11 11:7 3:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "LEE Daeun (韩国)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "7:11",
+                "11:9",
+                "9:11"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "MITTELHAM Nina (GER)",
+                "SCHREINER Franziska (GER)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "MITTELHAM Nina (GER)",
+                "SCHREINER Franziska (GER)"
+              ],
+              "side_b": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MITTELHAM Nina (GER) | SCHREINER Franziska (GER) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | SemiFinal | 1 - 3 | 7:11 7:11 11:9 9:11 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "尼娜·米特哈姆 (德国)",
+                "SCHREINER Franziska (德国)"
+              ],
+              "side_b_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "2:11",
+                "7:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "MEI-ROSU Bianca (ROU)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "MEI-ROSU Bianca (ROU)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | MEI-ROSU Bianca (ROU) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 4:11 2:11 7:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "MEI-ROSU Bianca (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:7",
+                "13:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "XIAO Maria (ESP)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "XIAO Maria (ESP)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | XIAO Maria (ESP) |  | WS | Main Draw | SemiFinal | 3 - 0 | 12:10 11:7 13:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "肖瑶茜 (西班牙)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "9:11",
+                "11:6",
+                "11:5",
+                "11:8"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)",
+                "KUKULKOVA Tatiana (SVK)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_a": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "KUKULKOVA Tatiana (SVK)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | KUKULKOVA Tatiana (SVK) | ZARIF Audrey (FRA) | WD | Main Draw | Final | 3 - 2 | 6:11 9:11 11:6 11:5 11:8 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "塔蒂亚娜·库库尔科娃 (斯洛伐克)",
+                "ZARIF Audrey (法国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "MITTELHAM Nina (GER)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "MITTELHAM Nina (GER)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Varazdin 2026 | KANEYOSHI Yuka (JPN) |  | MITTELHAM Nina (GER) |  | WS | Main Draw | Final | 3 - 0 | 11:7 11:9 11:6 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "尼娜·米特哈姆 (德国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2026年WTT支线赛瓦拉日丁站",
+          "event_type_zh": "WTT支线赛系列"
+        },
+        {
+          "event_name": "WTT Feeder Otocec 2026 Presented by I Feel Slovenia",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=210921&vw_matches___player_a_id[value][]=210921&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=210921&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=210921&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=210921&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3268",
+          "raw_capture_file": "data\\raw_event_payloads\\KANEYOSHI_Yuka\\2026_3_WTT_Feeder_Otocec_2026_Presented_by_I_Feel_Slovenia.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "3:11",
+                "5:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "NOVAK Tjasa (SLO)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "NOVAK Tjasa (SLO)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | NOVAK Tjasa (SLO) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | R64 | 0 - 3 | 6:11 3:11 5:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "NOVAK Tjasa (斯洛文尼亚)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:9",
+                "11:9"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)",
+                "MALOBABIC Ivana (CRO)",
+                "PAVLOVIC Andrea (CRO)"
+              ],
+              "side_a": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "MALOBABIC Ivana (CRO)",
+                "PAVLOVIC Andrea (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | MALOBABIC Ivana (CRO) | PAVLOVIC Andrea (CRO) | WD | Main Draw | R16 | 3 - 0 | 11:5 11:9 11:9 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "MALOBABIC Ivana (克罗地亚)",
+                "PAVLOVIC Andrea (克罗地亚)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 18,
+                  "opponent": 16
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "18:16",
+                "11:9",
+                "11:4"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "LEE Zion (KOR)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "LEE Zion (KOR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KANEYOSHI Yuka (JPN) |  | LEE Zion (KOR) |  | WS | Main Draw | R32 | 3 - 0 | 18:16 11:9 11:4 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "李 Zion (韩国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "4:11",
+                "10:12"
+              ],
+              "winner": "TAKEYA Misuzu / KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "WIELGOS Zuzanna (POL)",
+                "MONFARDINI Gaia (ITA)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "WIELGOS Zuzanna (POL)",
+                "MONFARDINI Gaia (ITA)"
+              ],
+              "side_b": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | WIELGOS Zuzanna (POL) | MONFARDINI Gaia (ITA) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | QuarterFinal | 0 - 3 | 7:11 4:11 10:12 | TAKEYA Misuzu | KANEYOSHI Yuka | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "WIELGOS Zuzanna (波兰)",
+                "蒙法尔迪尼·盖亚 (意大利)"
+              ],
+              "side_b_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:6",
+                "11:9"
+              ],
+              "winner": "WONGLAKHON Phatsaraphon",
+              "all_players_in_row": [
+                "WONGLAKHON Phatsaraphon (THA)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "WONGLAKHON Phatsaraphon (THA)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | WONGLAKHON Phatsaraphon (THA) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | R16 | 3 - 0 | 11:8 11:6 11:9 | WONGLAKHON Phatsaraphon |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "WONGLAKHON Phatsaraphon (泰国)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "13:11",
+                "11:9"
+              ],
+              "winner": "KIM Seongjin / LEE Daeun",
+              "all_players_in_row": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)",
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "KIM Seongjin (KOR)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_b": [
+                "TAKEYA Misuzu (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Otocec 2026 Presented by I Feel Slovenia | KIM Seongjin (KOR) | LEE Daeun (KOR) | TAKEYA Misuzu (JPN) | KANEYOSHI Yuka (JPN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:5 13:11 11:9 | KIM Seongjin | LEE Daeun | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "金成珍 (韩国)",
+                "LEE Daeun (韩国)"
+              ],
+              "side_b_zh": [
+                "竹谷美涼 (日本)",
+                "金吉优香 (日本)"
+              ]
+            }
+          ],
+          "event_name_zh": "2026年WTT支线赛奥托切克站",
+          "event_type_zh": "WTT支线赛系列"
+        },
+        {
+          "event_name": "WTT Feeder Dusseldorf 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 9,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=210921&vw_matches___player_a_id[value][]=210921&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=210921&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=210921&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=210921&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3267",
+          "raw_capture_file": "data\\raw_event_payloads\\KANEYOSHI_Yuka\\2026_4_WTT_Feeder_Dusseldorf_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:6",
+                "11:8"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "MORSCH Lorena (GER)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "MORSCH Lorena (GER)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | KANEYOSHI Yuka (JPN) |  | MORSCH Lorena (GER) |  | WS | Qualification |  | 3 - 0 | 11:7 11:6 11:8 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "MORSCH Lorena (德国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:5",
+                "11:3"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "WONG Jasmin (ENG)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "WONG Jasmin (ENG)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | KANEYOSHI Yuka (JPN) |  | WONG Jasmin (ENG) |  | WS | Qualification |  | 3 - 0 | 11:3 11:5 11:3 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "WONG Jasmin (英格兰)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:2",
+                "11:5"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "KELLY Danielle (WAL)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "KELLY Danielle (WAL)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | KANEYOSHI Yuka (JPN) |  | KELLY Danielle (WAL) |  | WS | Qualification |  | 3 - 0 | 11:2 11:2 11:5 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "KELLY Danielle (威尔士)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 1
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:1",
+                "11:6",
+                "11:4"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "WILTSCHKOVA Dominika (SVK)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "WILTSCHKOVA Dominika (SVK)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | KANEYOSHI Yuka (JPN) |  | WILTSCHKOVA Dominika (SVK) |  | WS | Main Draw | R64 | 3 - 0 | 11:1 11:6 11:4 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "WILTSCHKOVA Dominika (斯洛伐克)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:9",
+                "11:6"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "KAUFMANN Annett (GER)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "KAUFMANN Annett (GER)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | KANEYOSHI Yuka (JPN) |  | KAUFMANN Annett (GER) |  | WS | Main Draw | R32 | 3 - 0 | 11:8 11:9 11:6 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "考夫曼·安妮特 (德国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "5:11",
+                "10:12"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "SURJAN Sabina (SRB)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "SURJAN Sabina (SRB)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | SURJAN Sabina (SRB) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | R16 | 0 - 3 | 3:11 5:11 10:12 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "SURJAN Sabina (塞尔维亚)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "5:11",
+                "8:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "PESOTSKA Margaryta (UKR)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "PESOTSKA Margaryta (UKR)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | PESOTSKA Margaryta (UKR) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | QuarterFinal | 0 - 3 | 5:11 5:11 8:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "玛尔加丽塔·佩索茨卡 (乌克兰)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "12:10",
+                "8:11",
+                "10:12"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "YEH Yi-Tian (TPE)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "YEH Yi-Tian (TPE)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | YEH Yi-Tian (TPE) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | SemiFinal | 1 - 3 | 5:11 12:10 8:11 10:12 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "叶伊恬 (中国台北)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "3:11",
+                "2:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "HURSEY Anna (WAL)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "HURSEY Anna (WAL)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Dusseldorf 2026 | HURSEY Anna (WAL) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | Final | 0 - 3 | 3:11 3:11 2:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "安娜·赫尔西 (威尔士)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            }
+          ],
+          "event_name_zh": "2026年WTT支线赛杜塞尔多夫站",
+          "event_type_zh": "WTT支线赛系列"
+        },
+        {
+          "event_name": "WTT Feeder Cappadocia 2026",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2026",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=210921&vw_matches___player_a_id[value][]=210921&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=210921&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=210921&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=210921&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3266",
+          "raw_capture_file": "data\\raw_event_payloads\\KANEYOSHI_Yuka\\2026_5_WTT_Feeder_Cappadocia_2026.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "8:11",
+                "5:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "SLAUTINA Arina (AIN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "SLAUTINA Arina (AIN)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | SLAUTINA Arina (AIN) |  | KANEYOSHI Yuka (JPN) |  | WS | Qualification |  | 0 - 3 | 3:11 8:11 5:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "SLAUTINA Arina (中立个人运动员)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "3:11",
+                "3:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "YILMAZ Ozge (TUR)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "YILMAZ Ozge (TUR)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | YILMAZ Ozge (TUR) |  | KANEYOSHI Yuka (JPN) |  | WS | Qualification |  | 0 - 3 | 4:11 3:11 3:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "尤尔马兹·奥尔盖 (土耳其)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:6",
+                "5:11",
+                "11:5"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "VOROBEVA Olga (AIN)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "VOROBEVA Olga (AIN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | KANEYOSHI Yuka (JPN) |  | VOROBEVA Olga (AIN) |  | WS | Qualification |  | 3 - 1 | 11:4 11:6 5:11 11:5 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "VOROBEVA Olga (中立个人运动员)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:7",
+                "11:3"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "SINGEORZAN Ioana (ROU)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | KANEYOSHI Yuka (JPN) |  | SINGEORZAN Ioana (ROU) |  | WS | Main Draw | R32 | 3 - 0 | 11:6 11:7 11:3 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "SINGEORZAN Ioana (罗马尼亚)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:2",
+                "11:9"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "HARAC Ece (TUR)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "HARAC Ece (TUR)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | KANEYOSHI Yuka (JPN) |  | HARAC Ece (TUR) |  | WS | Main Draw | R16 | 3 - 0 | 11:3 11:2 11:9 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "HARAC Ece (土耳其)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "5:11",
+                "6:11",
+                "12:14"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "VORONINA Vlada (AIN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "VORONINA Vlada (AIN)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | VORONINA Vlada (AIN) |  | KANEYOSHI Yuka (JPN) |  | WS | Main Draw | QuarterFinal | 1 - 3 | 11:8 5:11 6:11 12:14 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "VORONINA Vlada (中立个人运动员)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "4:11",
+                "11:7",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "SAKUMA Yui",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "SAKUMA Yui (JPN)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "SAKUMA Yui (JPN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | WTT Feeder Cappadocia 2026 | KANEYOSHI Yuka (JPN) |  | SAKUMA Yui (JPN) |  | WS | Main Draw | SemiFinal | 2 - 3 | 11:4 4:11 11:7 9:11 9:11 | SAKUMA Yui |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "SAKUMA Yui (日本)"
+              ]
+            }
+          ],
+          "event_name_zh": "2026年WTT支线赛卡帕多西亚站",
+          "event_type_zh": "WTT支线赛系列"
+        }
+      ]
+    },
+    "2024": {
+      "captured_at": "2026-04-15T05:19:03.526577+00:00",
+      "events": [
+        {
+          "event_name": "WTT Youth Contender Bangkok 2024",
+          "event_type": "WTT Youth Contender Series",
+          "event_year": "2024",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=210921&vw_matches___player_a_id[value][]=210921&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=210921&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=210921&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=210921&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2833",
+          "raw_capture_file": "data\\raw_event_payloads\\KANEYOSHI_Yuka\\2024_6_WTT_Youth_Contender_Bangkok_2024.json",
+          "matches": [
+            {
+              "sub_event": "U19WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "3:11",
+                "5:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "BUDDHADASA Sanaya (AUS)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "BUDDHADASA Sanaya (AUS)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Youth Contender Bangkok 2024 | BUDDHADASA Sanaya (AUS) |  | KANEYOSHI Yuka (JPN) |  | U19WS | Qualification |  | 0 - 3 | 7:11 3:11 5:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "BUDDHADASA Sanaya (澳大利亚)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "U19WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:2"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "CHATCHAIUDOMSUK Warachaya (THA)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "CHATCHAIUDOMSUK Warachaya (THA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Youth Contender Bangkok 2024 | KANEYOSHI Yuka (JPN) |  | CHATCHAIUDOMSUK Warachaya (THA) |  | U19WS | Qualification |  | 3 - 0 | 11:6 11:4 11:2 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "CHATCHAIUDOMSUK Warachaya (泰国)"
+              ]
+            },
+            {
+              "sub_event": "U19WS",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 1,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "7:11",
+                "1:11",
+                "4:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "LIM Jing Shuen (MAS)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "LIM Jing Shuen (MAS)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Youth Contender Bangkok 2024 | LIM Jing Shuen (MAS) |  | KANEYOSHI Yuka (JPN) |  | U19WS | Qualification |  | 1 - 3 | 11:6 7:11 1:11 4:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "林静萱 (马来西亚)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "U19WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "12:10",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KIM Minseo (KOR)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "KIM Minseo (KOR)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Youth Contender Bangkok 2024 | KIM Minseo (KOR) |  | KANEYOSHI Yuka (JPN) |  | U19WS | Main Draw | R16 | 1 - 3 | 9:11 12:10 6:11 6:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "KIM Minseo (韩国)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "U19WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "KANEYOSHI Yuka (JPN)",
+                "LOW Yu Xuan (MAS)"
+              ],
+              "side_a": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_b": [
+                "LOW Yu Xuan (MAS)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Youth Contender Bangkok 2024 | KANEYOSHI Yuka (JPN) |  | LOW Yu Xuan (MAS) |  | U19WS | Main Draw | QuarterFinal | 3 - 0 | 11:3 11:7 11:4 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "金吉优香 (日本)"
+              ],
+              "side_b_zh": [
+                "LOW Yu Xuan (马来西亚)"
+              ]
+            },
+            {
+              "sub_event": "U19WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "9:11",
+                "8:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "YAMAGISHI Yuina (JPN)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "YAMAGISHI Yuina (JPN)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Youth Contender Bangkok 2024 | YAMAGISHI Yuina (JPN) |  | KANEYOSHI Yuka (JPN) |  | U19WS | Main Draw | SemiFinal | 0 - 3 | 6:11 9:11 8:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "YAMAGISHI Yuina (日本)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            },
+            {
+              "sub_event": "U19WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "KANEYOSHI Yuka",
+              "all_players_in_row": [
+                "CHOI Seoyeon (KOR)",
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "side_a": [
+                "CHOI Seoyeon (KOR)"
+              ],
+              "side_b": [
+                "KANEYOSHI Yuka (JPN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Youth Contender Bangkok 2024 | CHOI Seoyeon (KOR) |  | KANEYOSHI Yuka (JPN) |  | U19WS | Main Draw | Final | 0 - 3 | 9:11 7:11 7:11 | KANEYOSHI Yuka |  | ",
+              "sub_event_zh": "U19女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "CHOI Seoyeon (韩国)"
+              ],
+              "side_b_zh": [
+                "金吉优香 (日本)"
+              ]
+            }
+          ],
+          "event_name_zh": "2024年WTT青少年挑战赛曼谷站",
+          "event_type_zh": "WTT青少年挑战赛系列"
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-15T05:19:03.526047+00:00",
+  "updated_at": "2026-04-15T14:00:45.544662+00:00",
+  "captured_at": "2026-04-15T14:00:45.544662+00:00",
+  "player_name_zh": "金吉优香",
+  "country_zh": "日本"
+}

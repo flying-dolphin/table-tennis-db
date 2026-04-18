@@ -1,0 +1,3652 @@
+{
+  "schema_version": "match.v2",
+  "player_id": null,
+  "player_name": "REYES LAI Jessica",
+  "english_name": "REYES LAI Jessica",
+  "country": "USA",
+  "country_code": "USA",
+  "continent": "",
+  "rank": 93,
+  "from_date": "2020-09-01",
+  "years": {
+    "2026": {
+      "captured_at": "2026-04-15T10:39:02.051402+00:00",
+      "events": [
+        {
+          "event_name": "Singapore Smash 2026 Presented by Resorts World Sentosa",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2026",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3234",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2026_1_Singapore_Smash_2026_Presented_by_Resorts_World_Sentosa.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "9:11",
+                "4:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "SHAHSAVARI Neda (IRI)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "SHAHSAVARI Neda (IRI)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | SHAHSAVARI Neda (IRI) |  | REYES LAI Jessica (USA) |  | WS | Qualification | QR64 | 0 - 3 | 7:11 9:11 4:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛64强",
+              "side_a_zh": [
+                "SHAHSAVARI Neda (伊朗)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:5",
+                "9:11",
+                "11:9"
+              ],
+              "winner": "WAN Yuan",
+              "all_players_in_row": [
+                "WAN Yuan (GER)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "WAN Yuan (GER)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | Singapore Smash 2026 Presented by Resorts World Sentosa | WAN Yuan (GER) |  | REYES LAI Jessica (USA) |  | WS | Qualification | QR32 | 3 - 1 | 11:7 11:5 9:11 11:9 | WAN Yuan |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛32强",
+              "side_a_zh": [
+                "WAN Yuan (德国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2026年新加坡大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "ITTF-Americas North American Championships San Francisco 2026",
+          "event_type": "Regional",
+          "event_year": "2026",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3470",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2026_2_ITTF-Americas_North_American_Championships_San_Francisco_2026.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:8",
+                "11:7"
+              ],
+              "winner": "REYES LAI Jessica / WANG Amy",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "WANG Amy (USA)",
+                "NIE Jiayi (CAN)",
+                "HUANG Olivia (CAN)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [
+                "NIE Jiayi (CAN)",
+                "HUANG Olivia (CAN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | REYES LAI Jessica (USA) | WANG Amy (USA) | NIE Jiayi (CAN) | HUANG Olivia (CAN) | WD | Main Draw | SemiFinal | 3 - 0 | 11:4 11:8 11:7 | REYES LAI Jessica | WANG Amy | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)",
+                "王艾米 (美国)"
+              ],
+              "side_b_zh": [
+                "NIE Jiayi (加拿大)",
+                "HUANG Olivia (加拿大)"
+              ]
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "4:11",
+                "6:11",
+                "11:5"
+              ],
+              "winner": "LI Andy / WANG Ke",
+              "all_players_in_row": [
+                "LI Andy (USA)",
+                "WANG Ke (USA)",
+                "NARESH Nandan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "LI Andy (USA)",
+                "WANG Ke (USA)"
+              ],
+              "side_b": [
+                "NARESH Nandan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | LI Andy (USA) | WANG Ke (USA) | NARESH Nandan (USA) | REYES LAI Jessica (USA) | XD | Main Draw | QuarterFinal | 3 - 2 | 11:8 11:7 4:11 6:11 11:5 | LI Andy | WANG Ke | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "LI Andy (美国)",
+                "WANG Ke (美国)"
+              ],
+              "side_b_zh": [
+                "NARESH Nandan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "12:10",
+                "11:8"
+              ],
+              "winner": "REYES LAI Jessica / WANG Amy",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "WANG Amy (USA)",
+                "YEOH Irene (USA)",
+                "WANG Ke (USA)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)",
+                "WANG Amy (USA)"
+              ],
+              "side_b": [
+                "YEOH Irene (USA)",
+                "WANG Ke (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | REYES LAI Jessica (USA) | WANG Amy (USA) | YEOH Irene (USA) | WANG Ke (USA) | WD | Main Draw | Final | 3 - 0 | 11:4 12:10 11:8 | REYES LAI Jessica | WANG Amy | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)",
+                "王艾米 (美国)"
+              ],
+              "side_b_zh": [
+                "YEOH Irene (美国)",
+                "WANG Ke (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-4",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "11:8",
+                "7:11",
+                "5:11",
+                "8:11",
+                "11:8",
+                "2:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "ASPATHI Satya (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ASPATHI Satya (USA)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | ASPATHI Satya (USA) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | QuarterFinal | 3 - 4 | 12:10 11:8 7:11 5:11 8:11 11:8 2:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "ASPATHI Satya (美国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-4",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "11:8",
+                "8:11",
+                "11:9",
+                "11:9",
+                "6:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "WANG Ke (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "WANG Ke (USA)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | WANG Ke (USA) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | SemiFinal | 3 - 4 | 4:11 7:11 11:8 8:11 11:9 11:9 6:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "WANG Ke (美国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "11:5",
+                "12:14",
+                "6:11",
+                "6:11"
+              ],
+              "winner": "MOYLAND Sally",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "MOYLAND Sally (USA)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "MOYLAND Sally (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2026 | ITTF-Americas North American Championships San Francisco 2026 | REYES LAI Jessica (USA) |  | MOYLAND Sally (USA) |  | WS | Main Draw | Final | 1 - 4 | 4:11 11:5 12:14 6:11 6:11 | MOYLAND Sally |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "莫伊兰德·萨莉 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2026年旧金山国际乒联美洲北美锦标赛",
+          "event_type_zh": "地区赛事"
+        }
+      ]
+    },
+    "2025": {
+      "captured_at": "2026-04-15T10:39:02.051402+00:00",
+      "events": [
+        {
+          "event_name": "ITTF Mixed Team World Cup Chengdu 2025",
+          "event_type": "ITTF World Cup",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3263",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_3_ITTF_Mixed_Team_World_Cup_Chengdu_2025.json",
+          "matches": [
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "9:11",
+                "11:6"
+              ],
+              "winner": "TSAI Yun-En",
+              "all_players_in_row": [
+                "TSAI Yun-En (TPE)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "TSAI Yun-En (TPE)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | TSAI Yun-En (TPE) |  | REYES LAI Jessica (USA) |  | XT | Qualification |  | 2 - 1 | 11:8 9:11 11:6 | TSAI Yun-En |  | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "TSAI Yun-En (中国台北)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "BERGSTROM Linda",
+              "all_players_in_row": [
+                "BERGSTROM Linda (SWE)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "BERGSTROM Linda (SWE)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Mixed Team World Cup Chengdu 2025 | BERGSTROM Linda (SWE) |  | REYES LAI Jessica (USA) |  | XT | Qualification |  | 3 - 0 | 11:2 11:7 11:8 | BERGSTROM Linda |  | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "琳达·贝格斯特罗姆 (瑞典)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年成都国际乒联混合团体世界杯",
+          "event_type_zh": "国际乒联世界杯"
+        },
+        {
+          "event_name": "ITTF Pan American Championships Rock Hill 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 11,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3162",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_4_ITTF_Pan_American_Championships_Rock_Hill_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:7",
+                "11:7"
+              ],
+              "winner": "LIANG Jishan / REYES LAI Jessica",
+              "all_players_in_row": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)",
+                "GOMEZ Gustavo (CHI)",
+                "ORTEGA Daniela (CHI)"
+              ],
+              "side_a": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "GOMEZ Gustavo (CHI)",
+                "ORTEGA Daniela (CHI)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | LIANG Jishan (USA) | REYES LAI Jessica (USA) | GOMEZ Gustavo (CHI) | ORTEGA Daniela (CHI) | XD | Main Draw | R16 | 3 - 0 | 11:9 11:7 11:7 | LIANG Jishan | REYES LAI Jessica | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "LIANG Jishan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "GOMEZ Gustavo (智利)",
+                "ORTEGA Daniela (智利)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "7:11",
+                "3:11",
+                "8:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "RIOS Valentina (CHI)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "RIOS Valentina (CHI)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | RIOS Valentina (CHI) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R32 | 0 - 4 | 4:11 7:11 3:11 8:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "RIOS Valentina (智利)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "8:11",
+                "12:14",
+                "11:6",
+                "8:11"
+              ],
+              "winner": "LIANG Jishan / REYES LAI Jessica",
+              "all_players_in_row": [
+                "NARANJO Angel (PUR)",
+                "DIAZ Adriana (PUR)",
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "NARANJO Angel (PUR)",
+                "DIAZ Adriana (PUR)"
+              ],
+              "side_b": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | NARANJO Angel (PUR) | DIAZ Adriana (PUR) | LIANG Jishan (USA) | REYES LAI Jessica (USA) | XD | Main Draw | QuarterFinal | 2 - 3 | 11:6 8:11 12:14 11:6 8:11 | LIANG Jishan | REYES LAI Jessica | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "NARANJO Angel (波多黎各)",
+                "阿德里亚娜·迪亚兹 (波多黎各)"
+              ],
+              "side_b_zh": [
+                "LIANG Jishan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 13,
+                  "opponent": 15
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "7:11",
+                "11:9",
+                "13:15",
+                "11:4"
+              ],
+              "winner": "ORTEGA Daniela / VEGA Paulina",
+              "all_players_in_row": [
+                "ORTEGA Daniela (CHI)",
+                "VEGA Paulina (CHI)",
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ORTEGA Daniela (CHI)",
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ORTEGA Daniela (CHI) | VEGA Paulina (CHI) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | WD | Main Draw | QuarterFinal | 3 - 2 | 11:5 7:11 11:9 13:15 11:4 | ORTEGA Daniela | VEGA Paulina | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "ORTEGA Daniela (智利)",
+                "VEGA Paulina (智利)"
+              ],
+              "side_b_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "11:6",
+                "12:10",
+                "11:13",
+                "8:11",
+                "8:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "BURGOS Brianna (PUR)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "BURGOS Brianna (PUR)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | BURGOS Brianna (PUR) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R16 | 2 - 4 | 5:11 11:6 12:10 11:13 8:11 8:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "BURGOS Brianna (波多黎各)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:7",
+                "11:6",
+                "10:12",
+                "11:5"
+              ],
+              "winner": "CALDERANO Hugo / TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "CALDERANO Hugo (BRA)",
+                "TAKAHASHI Bruna (BRA)",
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "CALDERANO Hugo (BRA)",
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | CALDERANO Hugo (BRA) | TAKAHASHI Bruna (BRA) | LIANG Jishan (USA) | REYES LAI Jessica (USA) | XD | Main Draw | SemiFinal | 3 - 2 | 9:11 11:7 11:6 10:12 11:5 | CALDERANO Hugo | TAKAHASHI Bruna | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "CALDERANO Hugo (巴西)",
+                "高桥布鲁娜 (巴西)"
+              ],
+              "side_b_zh": [
+                "LIANG Jishan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "4-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:4",
+                "11:6",
+                "11:13",
+                "12:10"
+              ],
+              "winner": "TAKAHASHI Bruna",
+              "all_players_in_row": [
+                "TAKAHASHI Bruna (BRA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "TAKAHASHI Bruna (BRA)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | TAKAHASHI Bruna (BRA) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | QuarterFinal | 4 - 1 | 11:6 11:4 11:6 11:13 12:10 | TAKAHASHI Bruna |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "高桥布鲁娜 (巴西)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "11:6",
+                "11:2"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "PAROLA Valentina (ARG)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "PAROLA Valentina (ARG)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | REYES LAI Jessica (USA) |  | PAROLA Valentina (ARG) |  | WT | Qualification |  | 3 - 0 | 11:2 11:6 11:2 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "PAROLA Valentina (阿根廷)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:5",
+                "11:5"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "NIE Jiayi (CAN)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "NIE Jiayi (CAN)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | REYES LAI Jessica (USA) |  | NIE Jiayi (CAN) |  | WT | Qualification |  | 3 - 0 | 11:5 11:5 11:5 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "NIE Jiayi (加拿大)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "9:11",
+                "6:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "ZENG Zhiying (CHI)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ZENG Zhiying (CHI)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | ZENG Zhiying (CHI) |  | REYES LAI Jessica (USA) |  | WT | Main Draw | SemiFinal | 0 - 3 | 6:11 9:11 6:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "ZENG Zhiying (智利)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "Final",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "11:5",
+                "9:11",
+                "5:11",
+                "11:5"
+              ],
+              "winner": "BURGOS Brianna",
+              "all_players_in_row": [
+                "BURGOS Brianna (PUR)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "BURGOS Brianna (PUR)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Championships Rock Hill 2025 | BURGOS Brianna (PUR) |  | REYES LAI Jessica (USA) |  | WT | Main Draw | Final | 3 - 2 | 11:4 11:5 9:11 5:11 11:5 | BURGOS Brianna |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "正赛",
+              "round_zh": "决赛",
+              "side_a_zh": [
+                "BURGOS Brianna (波多黎各)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年罗克希尔国际乒联泛美锦标赛",
+          "event_type_zh": "洲际赛"
+        },
+        {
+          "event_name": "China Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3098",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_5_China_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "7:11",
+                "9:11",
+                "11:13"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "YOO Yerin (KOR)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "YOO Yerin (KOR)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | China Smash 2025 | YOO Yerin (KOR) |  | REYES LAI Jessica (USA) |  | WS | Qualification | QR64 | 1 - 3 | 12:10 7:11 9:11 11:13 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛64强",
+              "side_a_zh": [
+                "刘睿潾 (韩国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "8:11",
+                "7:11"
+              ],
+              "winner": "NG Wing Lam",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "NG Wing Lam (HKG)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "NG Wing Lam (HKG)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | China Smash 2025 | REYES LAI Jessica (USA) |  | NG Wing Lam (HKG) |  | WS | Qualification | QR32 | 0 - 3 | 10:12 8:11 7:11 | NG Wing Lam |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛32强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "吴咏琳 (中国香港)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年中国大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "Europe Smash - Sweden 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3128",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_6_Europe_Smash_-_Sweden_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:8",
+                "5:11",
+                "11:2"
+              ],
+              "winner": "CHITALE Diya",
+              "all_players_in_row": [
+                "CHITALE Diya (IND)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "CHITALE Diya (IND)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | Europe Smash - Sweden 2025 | CHITALE Diya (IND) |  | REYES LAI Jessica (USA) |  | WS | Qualification | QR64 | 3 - 1 | 11:7 11:8 5:11 11:2 | CHITALE Diya |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛64强",
+              "side_a_zh": [
+                "奇塔莱·迪娅 (印度)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年瑞典欧洲大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "WTT Feeder Spokane 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3177",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_7_WTT_Feeder_Spokane_2025.json",
+          "matches": [
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "10:12",
+                "10:12",
+                "11:8",
+                "9:11"
+              ],
+              "winner": "LEE Dahye / CHOI Yeseo",
+              "all_players_in_row": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)",
+                "LEE Dahye (KOR)",
+                "CHOI Yeseo (KOR)"
+              ],
+              "side_a": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "LEE Dahye (KOR)",
+                "CHOI Yeseo (KOR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Spokane 2025 | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | LEE Dahye (KOR) | CHOI Yeseo (KOR) | WD | Main Draw | R16 | 2 - 3 | 11:9 10:12 10:12 11:8 9:11 | LEE Dahye | CHOI Yeseo | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "LEE Dahye (韩国)",
+                "CHOI Yeseo (韩国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "7:11",
+                "7:11"
+              ],
+              "winner": "TSAI Yun-En",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "TSAI Yun-En (TPE)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "TSAI Yun-En (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Spokane 2025 | REYES LAI Jessica (USA) |  | TSAI Yun-En (TPE) |  | WS | Main Draw | R32 | 0 - 3 | 6:11 7:11 7:11 | TSAI Yun-En |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "TSAI Yun-En (中国台北)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年WTT支线赛斯波坎站",
+          "event_type_zh": "WTT支线赛系列"
+        },
+        {
+          "event_name": "United States Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3082",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_8_United_States_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "9:11",
+                "11:9",
+                "9:11",
+                "11:13"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "BERGAND Filippa (SWE)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "BERGAND Filippa (SWE)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | United States Smash 2025 | BERGAND Filippa (SWE) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R64 | 2 - 3 | 11:9 9:11 11:9 9:11 11:13 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "BERGAND Filippa (瑞典)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "11:7",
+                "11:4"
+              ],
+              "winner": "JOO Cheonhui / KIHARA Miyuu",
+              "all_players_in_row": [
+                "JOO Cheonhui (KOR)",
+                "KIHARA Miyuu (JPN)",
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "JOO Cheonhui (KOR)",
+                "KIHARA Miyuu (JPN)"
+              ],
+              "side_b": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | United States Smash 2025 | JOO Cheonhui (KOR) | KIHARA Miyuu (JPN) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | WD | Main Draw | R32 | 3 - 0 | 11:8 11:7 11:4 | JOO Cheonhui | KIHARA Miyuu | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "朱芊曦 (韩国)",
+                "木原美悠 (日本)"
+              ],
+              "side_b_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "3:11",
+                "6:11"
+              ],
+              "winner": "HARIMOTO Miwa",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "HARIMOTO Miwa (JPN)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | United States Smash 2025 | REYES LAI Jessica (USA) |  | HARIMOTO Miwa (JPN) |  | WS | Main Draw | R32 | 0 - 3 | 5:11 3:11 6:11 | HARIMOTO Miwa |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "张本美和 (日本)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年美国大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        },
+        {
+          "event_name": "ITTF World Table Tennis Championships Finals Doha 2025",
+          "event_type": "ITTF WTTC",
+          "event_year": "2025",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3108",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_9_ITTF_World_Table_Tennis_Championships_Finals_Doha_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R128",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:13",
+                "7:11",
+                "11:13",
+                "2:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "COSSIO Arantxa (MEX)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "COSSIO Arantxa (MEX)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | COSSIO Arantxa (MEX) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R128 | 0 - 4 | 11:13 7:11 11:13 2:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "128强",
+              "side_a_zh": [
+                "COSSIO Arantxa (墨西哥)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "10:12",
+                "6:11"
+              ],
+              "winner": "YUAN Jia Nan / PAVADE Prithika",
+              "all_players_in_row": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)",
+                "YUAN Jia Nan (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "side_a": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "YUAN Jia Nan (FRA)",
+                "PAVADE Prithika (FRA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | YUAN Jia Nan (FRA) | PAVADE Prithika (FRA) | WD | Main Draw | R64 | 0 - 3 | 7:11 10:12 6:11 | YUAN Jia Nan | PAVADE Prithika | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "袁嘉楠 (法国)",
+                "帕瓦德·普里蒂卡 (法国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:6",
+                "11:4",
+                "11:3"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF World Table Tennis Championships Finals Doha 2025 | ZHANG Mo (CAN) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R64 | 4 - 0 | 11:5 11:6 11:4 11:3 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "张墨 (加拿大)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年多哈国际乒联世界乒乓球锦标赛总决赛",
+          "event_type_zh": "国际乒联世界乒乓球锦标赛"
+        },
+        {
+          "event_name": "WTT Feeder Havirov 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3069",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_10_WTT_Feeder_Havirov_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "4:11",
+                "9:11",
+                "8:11"
+              ],
+              "winner": "LEE Daeun",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "LEE Daeun (KOR)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "LEE Daeun (KOR)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Havirov 2025 | REYES LAI Jessica (USA) |  | LEE Daeun (KOR) |  | WS | Main Draw | R64 | 0 - 3 | 4:11 9:11 8:11 | LEE Daeun |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "LEE Daeun (韩国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年WTT支线赛哈弗日罗夫站",
+          "event_type_zh": "WTT支线赛系列"
+        },
+        {
+          "event_name": "WTT Feeder Otocec II 2025",
+          "event_type": "WTT Feeder Series",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3025",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_11_WTT_Feeder_Otocec_II_2025.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:9",
+                "11:7"
+              ],
+              "winner": "CHO Seungmin / CHOI Haeeun",
+              "all_players_in_row": [
+                "CHO Seungmin (KOR)",
+                "CHOI Haeeun (KOR)",
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "CHO Seungmin (KOR)",
+                "CHOI Haeeun (KOR)"
+              ],
+              "side_b": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | CHO Seungmin (KOR) | CHOI Haeeun (KOR) | LIANG Jishan (USA) | REYES LAI Jessica (USA) | XD | Qualification | QR16 | 3 - 0 | 11:7 11:9 11:7 | CHO Seungmin | CHOI Haeeun | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛16强",
+              "side_a_zh": [
+                "CHO Seungmin (韩国)",
+                "CHOI Haeeun (韩国)"
+              ],
+              "side_b_zh": [
+                "LIANG Jishan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "7:11",
+                "9:11",
+                "9:11"
+              ],
+              "winner": "DE NUTTE Sarah",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "DE NUTTE Sarah (LUX)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "DE NUTTE Sarah (LUX)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | WTT Feeder Otocec II 2025 | REYES LAI Jessica (USA) |  | DE NUTTE Sarah (LUX) |  | WS | Main Draw | R64 | 1 - 3 | 11:5 7:11 9:11 9:11 | DE NUTTE Sarah |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "莎拉·德努特 (卢森堡)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年WTT支线赛奥托切克站II",
+          "event_type_zh": "WTT支线赛系列"
+        },
+        {
+          "event_name": "ITTF Pan American Cup San Francisco 2025",
+          "event_type": "Continental",
+          "event_year": "2025",
+          "match_count": 2,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3117",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_12_ITTF_Pan_American_Cup_San_Francisco_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "1-4",
+              "games": [
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "12:10",
+                "9:11",
+                "4:11",
+                "3:11",
+                "3:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "CUX Jenny (GUA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "CUX Jenny (GUA)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | CUX Jenny (GUA) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R32 | 1 - 4 | 12:10 9:11 4:11 3:11 3:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "CUX Jenny (危地马拉)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 1
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "12:10",
+                "11:7",
+                "11:1"
+              ],
+              "winner": "ZHANG Mo",
+              "all_players_in_row": [
+                "ZHANG Mo (CAN)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ZHANG Mo (CAN)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2025 | ITTF Pan American Cup San Francisco 2025 | ZHANG Mo (CAN) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R16 | 4 - 0 | 11:6 12:10 11:7 11:1 | ZHANG Mo |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "张墨 (加拿大)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年旧金山国际乒联泛美杯",
+          "event_type_zh": "洲际赛"
+        },
+        {
+          "event_name": "Singapore Smash 2025",
+          "event_type": "WTT Grand Smash",
+          "event_year": "2025",
+          "match_count": 1,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=3085",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2025_13_Singapore_Smash_2025.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:9",
+                "9:11",
+                "5:11",
+                "10:12"
+              ],
+              "winner": "WEGRZYN Katarzyna",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "WEGRZYN Katarzyna (POL)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "WEGRZYN Katarzyna (POL)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2025 | Singapore Smash 2025 | REYES LAI Jessica (USA) |  | WEGRZYN Katarzyna (POL) |  | WS | Qualification | QR64 | 2 - 3 | 11:9 11:9 9:11 5:11 10:12 | WEGRZYN Katarzyna |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛64强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "WEGRZYN Katarzyna (波兰)"
+              ]
+            }
+          ],
+          "event_name_zh": "2025年新加坡大满贯赛",
+          "event_type_zh": "WTT大满贯"
+        }
+      ]
+    },
+    "2024": {
+      "captured_at": "2026-04-15T10:39:02.051402+00:00",
+      "events": [
+        {
+          "event_name": "ITTF Mixed Team World Cup Chengdu 2024",
+          "event_type": "ITTF World Cup",
+          "event_year": "2024",
+          "match_count": 6,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2979",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2024_14_ITTF_Mixed_Team_World_Cup_Chengdu_2024.json",
+          "matches": [
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:2",
+                "11:3"
+              ],
+              "winner": "SUN Yingsha",
+              "all_players_in_row": [
+                "SUN Yingsha (CHN)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "SUN Yingsha (CHN)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | SUN Yingsha (CHN) |  | REYES LAI Jessica (USA) |  | XT | Qualification |  | 3 - 0 | 11:6 11:2 11:3 | SUN Yingsha |  | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "孙颖莎 (中国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-2",
+              "games": [
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 0,
+                  "opponent": 0
+                }
+              ],
+              "games_display": [
+                "3:11",
+                "5:11",
+                "0:0"
+              ],
+              "winner": "NG Wing Lam / DOO Hoi Kem",
+              "all_players_in_row": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)",
+                "NG Wing Lam (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "side_a": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "NG Wing Lam (HKG)",
+                "DOO Hoi Kem (HKG)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | NG Wing Lam (HKG) | DOO Hoi Kem (HKG) | XT | Qualification |  | 0 - 2 | 3:11 5:11 0:0 | NG Wing Lam | DOO Hoi Kem | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "吴咏琳 (中国香港)",
+                "杜凯琹 (中国香港)"
+              ]
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "10:12",
+                "9:11",
+                "10:12"
+              ],
+              "winner": "WAN Yuan",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "WAN Yuan (GER)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "WAN Yuan (GER)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | REYES LAI Jessica (USA) |  | WAN Yuan (GER) |  | XT | Qualification |  | 0 - 3 | 10:12 9:11 10:12 | WAN Yuan |  | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "WAN Yuan (德国)"
+              ]
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 12,
+                  "opponent": 10
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "12:10",
+                "11:5"
+              ],
+              "winner": "KIM Nayeong / CHO Daeseong",
+              "all_players_in_row": [
+                "KIM Nayeong (KOR)",
+                "CHO Daeseong (KOR)",
+                "REYES LAI Jessica (USA)",
+                "LIANG Jishan (USA)"
+              ],
+              "side_a": [
+                "KIM Nayeong (KOR)",
+                "CHO Daeseong (KOR)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)",
+                "LIANG Jishan (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | KIM Nayeong (KOR) | CHO Daeseong (KOR) | REYES LAI Jessica (USA) | LIANG Jishan (USA) | XT | Qualification |  | 3 - 0 | 11:6 12:10 11:5 | KIM Nayeong | CHO Daeseong | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "金娜英 (韩国)",
+                "CHO Daeseong (韩国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)",
+                "LIANG Jishan (美国)"
+              ]
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 17,
+                  "opponent": 15
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "9:11",
+                "17:15"
+              ],
+              "winner": "ZARIF Audrey",
+              "all_players_in_row": [
+                "ZARIF Audrey (FRA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | ZARIF Audrey (FRA) |  | REYES LAI Jessica (USA) |  | XT | Qualification |  | 2 - 1 | 11:5 9:11 17:15 | ZARIF Audrey |  | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "ZARIF Audrey (法国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "XT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "2-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:13",
+                "11:9"
+              ],
+              "winner": "LUTZ Camille / ZARIF Audrey",
+              "all_players_in_row": [
+                "LUTZ Camille (FRA)",
+                "ZARIF Audrey (FRA)",
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "LUTZ Camille (FRA)",
+                "ZARIF Audrey (FRA)"
+              ],
+              "side_b": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Mixed Team World Cup Chengdu 2024 | LUTZ Camille (FRA) | ZARIF Audrey (FRA) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | XT | Qualification |  | 2 - 1 | 11:9 11:13 11:9 | LUTZ Camille | ZARIF Audrey | ",
+              "sub_event_zh": "混合团队",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "卢茨·卡米尔 (法国)",
+                "ZARIF Audrey (法国)"
+              ],
+              "side_b_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2024年成都国际乒联混合团体世界杯",
+          "event_type_zh": "国际乒联世界杯"
+        },
+        {
+          "event_name": "ITTF Pan American Championships San Salvador 2024",
+          "event_type": "Continental",
+          "event_year": "2024",
+          "match_count": 7,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2996",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2024_15_ITTF_Pan_American_Championships_San_Salvador_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R64",
+              "match_score": "4-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:3",
+                "11:4",
+                "11:8",
+                "11:3"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "ARELLANO Angelica (ECU)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "ARELLANO Angelica (ECU)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | REYES LAI Jessica (USA) |  | ARELLANO Angelica (ECU) |  | WS | Main Draw | R64 | 4 - 0 | 11:3 11:4 11:8 11:3 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "六十四强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "ARELLANO Angelica (厄瓜多尔)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "5:11",
+                "8:11",
+                "11:8",
+                "7:11"
+              ],
+              "winner": "MOYLAND Sally / REYES LAI Jessica",
+              "all_players_in_row": [
+                "BRITO Eva (DOM)",
+                "ORTIZ Yasiris (DOM)",
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "BRITO Eva (DOM)",
+                "ORTIZ Yasiris (DOM)"
+              ],
+              "side_b": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | BRITO Eva (DOM) | ORTIZ Yasiris (DOM) | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | WD | Main Draw | R16 | 2 - 3 | 11:5 5:11 8:11 11:8 7:11 | MOYLAND Sally | REYES LAI Jessica | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "BRITO Eva (多米尼加共和国)",
+                "ORTIZ Yasiris (多米尼加共和国)"
+              ],
+              "side_b_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R32",
+              "match_score": "0-4",
+              "games": [
+                {
+                  "player": 6,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "6:11",
+                "8:11",
+                "8:11",
+                "8:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "ORTIZ Yasiris (DOM)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ORTIZ Yasiris (DOM)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | ORTIZ Yasiris (DOM) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R32 | 0 - 4 | 6:11 8:11 8:11 8:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "32强",
+              "side_a_zh": [
+                "ORTIZ Yasiris (多米尼加共和国)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 6,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:7",
+                "11:7",
+                "8:11",
+                "4:11",
+                "6:11"
+              ],
+              "winner": "VEGA Paulina / ORTEGA Daniela",
+              "all_players_in_row": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)",
+                "VEGA Paulina (CHI)",
+                "ORTEGA Daniela (CHI)"
+              ],
+              "side_a": [
+                "MOYLAND Sally (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "VEGA Paulina (CHI)",
+                "ORTEGA Daniela (CHI)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | MOYLAND Sally (USA) | REYES LAI Jessica (USA) | VEGA Paulina (CHI) | ORTEGA Daniela (CHI) | WD | Main Draw | QuarterFinal | 2 - 3 | 11:7 11:7 8:11 4:11 6:11 | VEGA Paulina | ORTEGA Daniela | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "莫伊兰德·萨莉 (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "VEGA Paulina (智利)",
+                "ORTEGA Daniela (智利)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "R16",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "8:11",
+                "13:11",
+                "9:11",
+                "11:9",
+                "2:11",
+                "3:11"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "BARCENAS Clio (MEX)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "BARCENAS Clio (MEX)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | BARCENAS Clio (MEX) |  | REYES LAI Jessica (USA) |  | WS | Main Draw | R16 | 2 - 4 | 8:11 13:11 9:11 11:9 2:11 3:11 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "16强",
+              "side_a_zh": [
+                "BARCENAS Clio (墨西哥)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Main Draw",
+              "round": "QuarterFinal",
+              "match_score": "2-4",
+              "games": [
+                {
+                  "player": 13,
+                  "opponent": 11
+                },
+                {
+                  "player": 3,
+                  "opponent": 11
+                },
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "13:11",
+                "3:11",
+                "7:11",
+                "4:11",
+                "11:8",
+                "8:11"
+              ],
+              "winner": "TAKAHASHI Giulia",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "TAKAHASHI Giulia (BRA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | REYES LAI Jessica (USA) |  | TAKAHASHI Giulia (BRA) |  | WS | Main Draw | QuarterFinal | 2 - 4 | 13:11 3:11 7:11 4:11 11:8 8:11 | TAKAHASHI Giulia |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "正赛",
+              "round_zh": "四分之一决赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "TAKAHASHI Giulia (巴西)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Main Draw",
+              "round": "SemiFinal",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 14,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "14:12",
+                "11:8"
+              ],
+              "winner": "ZENG Zhiying",
+              "all_players_in_row": [
+                "ZENG Zhiying (CHI)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ZENG Zhiying (CHI)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF Pan American Championships San Salvador 2024 | ZENG Zhiying (CHI) |  | REYES LAI Jessica (USA) |  | WT | Main Draw | SemiFinal | 3 - 0 | 11:9 14:12 11:8 | ZENG Zhiying |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "正赛",
+              "round_zh": "半决赛",
+              "side_a_zh": [
+                "ZENG Zhiying (智利)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2024年圣萨尔瓦多国际乒联泛美锦标赛",
+          "event_type_zh": "洲际赛"
+        },
+        {
+          "event_name": "WTT Star Contender Ljubljana 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 3,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2870",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2024_16_WTT_Star_Contender_Ljubljana_2024.json",
+          "matches": [
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                }
+              ],
+              "games_display": [
+                "11:4",
+                "8:11",
+                "11:5",
+                "11:6"
+              ],
+              "winner": "IONESCU Eduard / SAMARA Elizabeta",
+              "all_players_in_row": [
+                "IONESCU Eduard (ROU)",
+                "SAMARA Elizabeta (ROU)",
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "IONESCU Eduard (ROU)",
+                "SAMARA Elizabeta (ROU)"
+              ],
+              "side_b": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | IONESCU Eduard (ROU) | SAMARA Elizabeta (ROU) | LIANG Jishan (USA) | REYES LAI Jessica (USA) | XD | Qualification | QR16 | 3 - 1 | 11:4 8:11 11:5 11:6 | IONESCU Eduard | SAMARA Elizabeta | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛16强",
+              "side_a_zh": [
+                "IONESCU Eduard (罗马尼亚)",
+                "萨马拉·伊莉莎贝塔 (罗马尼亚)"
+              ],
+              "side_b_zh": [
+                "LIANG Jishan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 12,
+                  "opponent": 14
+                },
+                {
+                  "player": 11,
+                  "opponent": 13
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "11:8",
+                "12:14",
+                "11:13",
+                "9:11"
+              ],
+              "winner": "HUANG Yi-Hua / WANG Yi-Ju",
+              "all_players_in_row": [
+                "KE Tiffany (USA)",
+                "REYES LAI Jessica (USA)",
+                "HUANG Yi-Hua (TPE)",
+                "WANG Yi-Ju (TPE)"
+              ],
+              "side_a": [
+                "KE Tiffany (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "HUANG Yi-Hua (TPE)",
+                "WANG Yi-Ju (TPE)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | KE Tiffany (USA) | REYES LAI Jessica (USA) | HUANG Yi-Hua (TPE) | WANG Yi-Ju (TPE) | WD | Qualification | QR16 | 1 - 3 | 11:8 12:14 11:13 9:11 | HUANG Yi-Hua | WANG Yi-Ju | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛16强",
+              "side_a_zh": [
+                "KE Tiffany (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "黄怡桦 (中国台北)",
+                "WANG Yi-Ju (中国台北)"
+              ]
+            },
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                }
+              ],
+              "games_display": [
+                "11:5",
+                "11:8",
+                "16:14"
+              ],
+              "winner": "RAKOVAC Lea",
+              "all_players_in_row": [
+                "RAKOVAC Lea (CRO)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "RAKOVAC Lea (CRO)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Star Contender Ljubljana 2024 | RAKOVAC Lea (CRO) |  | REYES LAI Jessica (USA) |  | WS | Qualification | QR64 | 3 - 0 | 11:5 11:8 16:14 | RAKOVAC Lea |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛64强",
+              "side_a_zh": [
+                "拉科瓦茨·莱娅 (克罗地亚)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2024年WTT球星挑战赛卢布尔雅那站",
+          "event_type_zh": "WTT挑战赛系列"
+        },
+        {
+          "event_name": "WTT Contender Zagreb 2024",
+          "event_type": "WTT Contender Series",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2869",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2024_17_WTT_Contender_Zagreb_2024.json",
+          "matches": [
+            {
+              "sub_event": "WS",
+              "stage": "Qualification",
+              "round": "QR64",
+              "match_score": "1-3",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "2:11",
+                "11:9",
+                "10:12"
+              ],
+              "winner": "LEE Ho Ching",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "LEE Ho Ching (HKG)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "LEE Ho Ching (HKG)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | REYES LAI Jessica (USA) |  | LEE Ho Ching (HKG) |  | WS | Qualification | QR64 | 1 - 3 | 9:11 2:11 11:9 10:12 | LEE Ho Ching |  | ",
+              "sub_event_zh": "女子单打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛64强",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "李皓晴 (中国香港)"
+              ]
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-1",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                },
+                {
+                  "player": 16,
+                  "opponent": 14
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:4",
+                "16:14",
+                "11:2"
+              ],
+              "winner": "LIANG Jishan / REYES LAI Jessica",
+              "all_players_in_row": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)",
+                "BENKO Leon (CRO)",
+                "COSIC Dora (CRO)"
+              ],
+              "side_a": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "BENKO Leon (CRO)",
+                "COSIC Dora (CRO)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | LIANG Jishan (USA) | REYES LAI Jessica (USA) | BENKO Leon (CRO) | COSIC Dora (CRO) | XD | Qualification | QR16 | 3 - 1 | 7:11 11:4 16:14 11:2 | LIANG Jishan | REYES LAI Jessica | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛16强",
+              "side_a_zh": [
+                "LIANG Jishan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "BENKO Leon (克罗地亚)",
+                "COSIC Dora (克罗地亚)"
+              ]
+            },
+            {
+              "sub_event": "WD",
+              "stage": "Qualification",
+              "round": "QR16",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 9
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                },
+                {
+                  "player": 11,
+                  "opponent": 4
+                }
+              ],
+              "games_display": [
+                "11:9",
+                "11:3",
+                "11:4"
+              ],
+              "winner": "YOKOI Sakura / ODO Satsuki",
+              "all_players_in_row": [
+                "YOKOI Sakura (JPN)",
+                "ODO Satsuki (JPN)",
+                "REYES LAI Jessica (USA)",
+                "KE Tiffany (USA)"
+              ],
+              "side_a": [
+                "YOKOI Sakura (JPN)",
+                "ODO Satsuki (JPN)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)",
+                "KE Tiffany (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | YOKOI Sakura (JPN) | ODO Satsuki (JPN) | REYES LAI Jessica (USA) | KE Tiffany (USA) | WD | Qualification | QR16 | 3 - 0 | 11:9 11:3 11:4 | YOKOI Sakura | ODO Satsuki | ",
+              "sub_event_zh": "女子双打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛16强",
+              "side_a_zh": [
+                "横井咲樱 (日本)",
+                "大藤沙月 (日本)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)",
+                "KE Tiffany (美国)"
+              ]
+            },
+            {
+              "sub_event": "XD",
+              "stage": "Qualification",
+              "round": "QR8",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 11,
+                  "opponent": 9
+                }
+              ],
+              "games_display": [
+                "9:11",
+                "11:8",
+                "9:11",
+                "11:2",
+                "11:9"
+              ],
+              "winner": "LIMONOV Anton / YAREMCHUK Solomiya",
+              "all_players_in_row": [
+                "LIMONOV Anton (UKR)",
+                "YAREMCHUK Solomiya (UKR)",
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "LIMONOV Anton (UKR)",
+                "YAREMCHUK Solomiya (UKR)"
+              ],
+              "side_b": [
+                "LIANG Jishan (USA)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | WTT Contender Zagreb 2024 | LIMONOV Anton (UKR) | YAREMCHUK Solomiya (UKR) | LIANG Jishan (USA) | REYES LAI Jessica (USA) | XD | Qualification | QR8 | 3 - 2 | 9:11 11:8 9:11 11:2 11:9 | LIMONOV Anton | YAREMCHUK Solomiya | ",
+              "sub_event_zh": "混合双打",
+              "stage_zh": "资格赛",
+              "round_zh": "资格赛8强",
+              "side_a_zh": [
+                "LIMONOV Anton (乌克兰)",
+                "YAREMCHUK Solomiya (乌克兰)"
+              ],
+              "side_b_zh": [
+                "LIANG Jishan (美国)",
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            }
+          ],
+          "event_name_zh": "2024年WTT挑战赛萨格勒布站",
+          "event_type_zh": "WTT挑战赛系列"
+        },
+        {
+          "event_name": "ITTF World Team Table Tennis Championships Finals Busan 2024",
+          "event_type": "ITTF WTTC",
+          "event_year": "2024",
+          "match_count": 4,
+          "detail_url": "https://results.ittf.link/index.php/player-matches/list/31?resetfilters=1&abc=208510&vw_matches___player_a_id[value][]=208510&vw_matches___player_a_id[join][]=OR&vw_matches___player_b_id[value][]=208510&vw_matches___player_b_id[join][]=OR&vw_matches___player_b_id[grouped_to_previous][]=1&vw_matches___player_x_id[value][]=208510&vw_matches___player_x_id[join][]=OR&vw_matches___player_x_id[grouped_to_previous][]=1&vw_matches___player_y_id[value][]=208510&vw_matches___player_y_id[join][]=OR&vw_matches___player_y_id[grouped_to_previous][]=1&vw_matches___tournament_id_raw[value][]=2751",
+          "raw_capture_file": "data\\raw_event_payloads\\REYES_LAI_Jessica\\2024_18_ITTF_World_Team_Table_Tennis_Championships_Finals_Busan_2024.json",
+          "matches": [
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 2
+                },
+                {
+                  "player": 8,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 5
+                },
+                {
+                  "player": 10,
+                  "opponent": 12
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "11:2",
+                "8:11",
+                "11:5",
+                "10:12",
+                "11:8"
+              ],
+              "winner": "ORTEGA Daniela",
+              "all_players_in_row": [
+                "ORTEGA Daniela (CHI)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "ORTEGA Daniela (CHI)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | ORTEGA Daniela (CHI) |  | REYES LAI Jessica (USA) |  | WT | Qualification |  | 3 - 2 | 11:2 8:11 11:5 10:12 11:8 | ORTEGA Daniela |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "ORTEGA Daniela (智利)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-2",
+              "games": [
+                {
+                  "player": 7,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 9,
+                  "opponent": 11
+                },
+                {
+                  "player": 11,
+                  "opponent": 7
+                },
+                {
+                  "player": 11,
+                  "opponent": 8
+                }
+              ],
+              "games_display": [
+                "7:11",
+                "11:6",
+                "9:11",
+                "11:7",
+                "11:8"
+              ],
+              "winner": "VEGA Paulina",
+              "all_players_in_row": [
+                "VEGA Paulina (CHI)",
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_a": [
+                "VEGA Paulina (CHI)"
+              ],
+              "side_b": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_b",
+              "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | VEGA Paulina (CHI) |  | REYES LAI Jessica (USA) |  | WT | Qualification |  | 3 - 2 | 7:11 11:6 9:11 11:7 11:8 | VEGA Paulina |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "VEGA Paulina (智利)"
+              ],
+              "side_b_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "0-3",
+              "games": [
+                {
+                  "player": 5,
+                  "opponent": 11
+                },
+                {
+                  "player": 2,
+                  "opponent": 11
+                },
+                {
+                  "player": 4,
+                  "opponent": 11
+                }
+              ],
+              "games_display": [
+                "5:11",
+                "2:11",
+                "4:11"
+              ],
+              "winner": "SAWETTABUT Suthasini",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "SAWETTABUT Suthasini (THA)"
+              ],
+              "result_for_player": "loss",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | REYES LAI Jessica (USA) |  | SAWETTABUT Suthasini (THA) |  | WT | Qualification |  | 0 - 3 | 5:11 2:11 4:11 | SAWETTABUT Suthasini |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "素塔西尼·萨维塔布特 (泰国)"
+              ]
+            },
+            {
+              "sub_event": "WT",
+              "stage": "Qualification",
+              "round": "",
+              "match_score": "3-0",
+              "games": [
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 6
+                },
+                {
+                  "player": 11,
+                  "opponent": 3
+                }
+              ],
+              "games_display": [
+                "11:6",
+                "11:6",
+                "11:3"
+              ],
+              "winner": "REYES LAI Jessica",
+              "all_players_in_row": [
+                "REYES LAI Jessica (USA)",
+                "LOGHRAIBI Lynda (ALG)"
+              ],
+              "side_a": [
+                "REYES LAI Jessica (USA)"
+              ],
+              "side_b": [
+                "LOGHRAIBI Lynda (ALG)"
+              ],
+              "result_for_player": "win",
+              "perspective": "side_a",
+              "raw_row_text": "2024 | ITTF World Team Table Tennis Championships Finals Busan 2024 | REYES LAI Jessica (USA) |  | LOGHRAIBI Lynda (ALG) |  | WT | Qualification |  | 3 - 0 | 11:6 11:6 11:3 | REYES LAI Jessica |  | ",
+              "sub_event_zh": "女子团体",
+              "stage_zh": "资格赛",
+              "side_a_zh": [
+                "雷耶斯·莱·杰西卡 (美国)"
+              ],
+              "side_b_zh": [
+                "洛格拉伊比·琳达 (阿尔及利亚)"
+              ]
+            }
+          ],
+          "event_name_zh": "2024年釜山国际乒联世界乒乓球团体锦标赛总决赛",
+          "event_type_zh": "国际乒联世界乒乓球锦标赛"
+        }
+      ]
+    }
+  },
+  "created_at": "2026-04-15T10:39:02.050862+00:00",
+  "updated_at": "2026-04-15T14:17:20.378602+00:00",
+  "captured_at": "2026-04-15T14:17:20.378602+00:00",
+  "player_name_zh": "雷耶斯·莱·杰西卡",
+  "country_zh": "美国"
+}
