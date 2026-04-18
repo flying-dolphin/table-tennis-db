@@ -16,6 +16,8 @@ export function getHomeCalendar(year?: number) {
           ec.name_zh AS nameZh,
           ec.date_range AS dateRange,
           ec.date_range_zh AS dateRangeZh,
+          ec.start_date AS startDate,
+          ec.end_date AS endDate,
           ec.location,
           ec.location_zh AS locationZh,
           ec.status,
@@ -28,6 +30,7 @@ export function getHomeCalendar(year?: number) {
         LEFT JOIN event_categories cat ON cat.id = ec.event_category_id
         WHERE ec.year = ?
           AND (cat.filtering_only IS NULL OR cat.filtering_only = 0)
+          AND cat.sort_order BETWEEN 1 AND 14
         ORDER BY COALESCE(ec.start_date, ''), ec.date_range, ec.name
       `,
     )

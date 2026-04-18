@@ -15,6 +15,8 @@ type CalendarEvent = {
   nameZh: string | null;
   dateRange: string | null;
   dateRangeZh: string | null;
+  startDate: string | null;
+  endDate: string | null;
   location: string | null;
   locationZh: string | null;
   status: string | null;
@@ -36,7 +38,7 @@ type CalendarResponse = {
 
 type DayCell = { num: number; out?: boolean };
 type EventChip = { name: string; startCol: number; span: number; color: string };
-type WeekRow = { days: DayCell[]; eventLayers: EventChip[][] };
+type WeekRow = { days: DayCell[]; eventLayers: EventChip[][]; hiddenEventCount: number };
 type MonthCard = {
   id: string;
   year: number;
@@ -75,20 +77,45 @@ const EVENT_COLORS = [
 
 type EventRange = {
   event: CalendarEvent;
+  startYear: number;
   startMonth: number;
   startDay: number;
+  endYear: number;
   endMonth: number;
   endDay: number;
 };
 
+function parseDateString(value: string | null): Date | null {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return date;
+}
+
 function parseDateRange(event: CalendarEvent): EventRange | null {
+  const startDate = parseDateString(event.startDate);
+  const endDate = parseDateString(event.endDate);
+  if (startDate && endDate) {
+    return {
+      event,
+      startYear: startDate.getFullYear(),
+      startMonth: startDate.getMonth() + 1,
+      startDay: startDate.getDate(),
+      endYear: endDate.getFullYear(),
+      endMonth: endDate.getMonth() + 1,
+      endDay: endDate.getDate(),
+    };
+  }
+
   const zh = event.dateRangeZh ?? "";
   const zhMatch = zh.match(/(\d{2})-(\d{1,2})至(\d{2})-(\d{1,2})/);
   if (zhMatch) {
     return {
       event,
+      startYear: event.year,
       startMonth: Number(zhMatch[1]),
       startDay: Number(zhMatch[2]),
+      endYear: event.year,
       endMonth: Number(zhMatch[3]),
       endDay: Number(zhMatch[4]),
     };
@@ -100,8 +127,10 @@ function parseDateRange(event: CalendarEvent): EventRange | null {
   if (enRange) {
     return {
       event,
+      startYear: event.year,
       startMonth: MONTH_INDEX_MAP[enRange[2]],
       startDay: Number(enRange[1]),
+      endYear: event.year,
       endMonth: MONTH_INDEX_MAP[enRange[4]],
       endDay: Number(enRange[3]),
     };
@@ -111,8 +140,10 @@ function parseDateRange(event: CalendarEvent): EventRange | null {
     const month = MONTH_INDEX_MAP[enCompact[3]];
     return {
       event,
+      startYear: event.year,
       startMonth: month,
       startDay: Number(enCompact[1]),
+      endYear: event.year,
       endMonth: month,
       endDay: Number(enCompact[2]),
     };
@@ -121,8 +152,10 @@ function parseDateRange(event: CalendarEvent): EventRange | null {
     const month = MONTH_INDEX_MAP[enSingle[1]];
     return {
       event,
+      startYear: event.year,
       startMonth: month,
       startDay: 1,
+      endYear: event.year,
       endMonth: month,
       endDay: 1,
     };
@@ -178,13 +211,16 @@ function buildMonthWeeks(year: number, month: number, events: EventRange[]): Wee
     const range = ranges[row];
     const chips: EventChip[] = [];
     for (const ev of events) {
-      const spansCurrentMonth = ev.startMonth <= month && ev.endMonth >= month;
+      const currentMonthKey = year * 12 + month;
+      const eventStartKey = ev.startYear * 12 + ev.startMonth;
+      const eventEndKey = ev.endYear * 12 + ev.endMonth;
+      const spansCurrentMonth = eventStartKey <= currentMonthKey && eventEndKey >= currentMonthKey;
       if (!spansCurrentMonth) continue;
 
       let eventStart = 1;
       let eventEnd = dim;
-      if (ev.startMonth === month) eventStart = ev.startDay;
-      if (ev.endMonth === month) eventEnd = ev.endDay;
+      if (ev.startYear === year && ev.startMonth === month) eventStart = ev.startDay;
+      if (ev.endYear === year && ev.endMonth === month) eventEnd = ev.endDay;
 
       const start = Math.max(range.start, eventStart);
       const end = Math.min(range.end, eventEnd);
@@ -223,7 +259,9 @@ function buildMonthWeeks(year: number, month: number, events: EventRange[]): Wee
       if (!placed) layers.push([chip]);
     }
 
-    weeks.push({ days, eventLayers: layers.slice(0, 2) });
+    const visibleLayers = layers.slice(0, 2);
+    const hiddenEventCount = layers.slice(2).reduce((count, layer) => count + layer.length, 0);
+    weeks.push({ days, eventLayers: visibleLayers, hiddenEventCount });
   }
 
   return weeks;
@@ -234,15 +272,23 @@ function buildMonthCards(events: CalendarEvent[]) {
   const monthMap = new Map<string, { year: number; month: number; events: EventRange[] }>();
 
   for (const item of parsed) {
-    const key = `${item.event.year}-${item.startMonth}`;
-    if (!monthMap.has(key)) {
-      monthMap.set(key, {
-        year: item.event.year,
-        month: item.startMonth,
-        events: [],
-      });
+    const minMonthKey = item.event.year * 12 + 1;
+    const maxMonthKey = item.event.year * 12 + 12;
+    const startKey = Math.max(minMonthKey, item.startYear * 12 + item.startMonth);
+    const endKey = Math.min(maxMonthKey, item.endYear * 12 + item.endMonth);
+
+    for (let monthKey = startKey; monthKey <= endKey; monthKey += 1) {
+      const month = monthKey - item.event.year * 12;
+      const key = `${item.event.year}-${month}`;
+      if (!monthMap.has(key)) {
+        monthMap.set(key, {
+          year: item.event.year,
+          month,
+          events: [],
+        });
+      }
+      monthMap.get(key)!.events.push(item);
     }
-    monthMap.get(key)!.events.push(item);
   }
 
   return Array.from(monthMap.entries())
@@ -358,16 +404,24 @@ export default function EventScroller() {
                       key={eIdx}
                       style={{ gridColumnStart: ev.startCol, gridColumnEnd: `span ${ev.span}` }}
                       className={cn(
-                        "font-medium truncate flex items-center shadow-sm",
-                        isModal ? "rounded-[6px] px-1.5 py-1 text-[9px]" : "rounded-[4px] px-1 py-0.5 text-[8px]",
+                        "font-medium flex items-center shadow-sm overflow-hidden",
+                        isModal
+                          ? "rounded-[6px] px-1.5 py-1 text-[9px] leading-tight whitespace-normal break-words min-h-[24px]"
+                          : "rounded-[4px] px-1 py-0.5 text-[8px] whitespace-nowrap text-ellipsis",
                         ev.color,
                       )}
+                      title={ev.name}
                     >
                       {ev.name}
                     </div>
                   ))}
                 </div>
               ))}
+              {row.hiddenEventCount > 0 && (
+                <div className={cn("text-right font-medium text-text-tertiary", isModal ? "text-[10px] pr-1" : "text-[9px] pr-0.5")}>
+                  +{row.hiddenEventCount}
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -377,25 +431,22 @@ export default function EventScroller() {
 
   return (
     <>
-      <div
-        className={cn(
-          "fixed inset-0 bg-page-background/60 backdrop-blur-md transition-all duration-300 flex items-center justify-center px-6",
-          expandedMonth ? "opacity-100 pointer-events-auto z-60" : "opacity-0 pointer-events-none -z-10",
-        )}
-        onClick={() => setExpandedMonthId(null)}
-      >
-        {expandedMonth && (
+      {expandedMonth && (
+        <div
+          className="fixed inset-0 z-60 bg-page-background/60 backdrop-blur-md transition-all duration-300 flex items-center justify-center px-6 opacity-100 pointer-events-auto"
+          onClick={() => setExpandedMonthId(null)}
+        >
           <button
             type="button"
-            className="w-full max-w-[420px] shadow-xl shadow-slate-200/50 border border-white/50 backdrop-blur-md rounded-[40px] overflow-hidden bg-white/60 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
+            className="w-full max-w-[420px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 backdrop-blur-md rounded-[40px] overflow-hidden bg-white/60 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
             onClick={() => setExpandedMonthId(null)}
           >
             {renderCardContent(expandedMonth, true)}
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
-      <section className="mt-4 mb-4 relative z-10 w-full">
+      <section className="mt-1 mb-1 relative z-10 w-full">
         <div
           ref={scrollContainerRef}
           className="flex overflow-x-auto gap-4 py-4 px-6 snap-x snap-mandatory shrink-0 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
@@ -428,13 +479,14 @@ export default function EventScroller() {
                   }}
                   className={cn(
                     "month-card-wrapper snap-center shrink-0 w-[78vw] max-w-[280px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer transform origin-center",
+                    "outline-none select-none [ -webkit-tap-highlight-color:transparent ] transform-gpu",
                     isActive ? "scale-100 opacity-100" : "scale-[0.88] opacity-60",
                   )}
                 >
                   <div
                     className={cn(
-                      "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 overflow-hidden pb-0.5 transition-shadow duration-500",
-                      isActive ? "shadow-lg shadow-slate-300/40" : "shadow-sm",
+                      "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 overflow-hidden pb-0.5 transition-shadow duration-500 transform-gpu [backface-visibility:hidden]",
+                      isActive ? "shadow-[0_10px_25px_-5px_rgba(107,151,203,0.3)]" : "shadow-sm",
                     )}
                   >
                     {renderCardContent(month, false)}
@@ -448,4 +500,3 @@ export default function EventScroller() {
     </>
   );
 }
-
