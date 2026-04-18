@@ -72,8 +72,8 @@ export default function RankingTable() {
 
   return (
     <section className="mt-2 mb-4 px-4">
-      <div className="bg-white/60 backdrop-blur-md rounded-[40px] p-4 shadow-xl shadow-slate-200/50 border border-white/50 relative overflow-hidden">
-        <div className="flex justify-between items-end mb-4 px-1 relative z-10">
+      <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-4 shadow-xl shadow-slate-200/50 border border-white/50 relative overflow-hidden">
+        <div className="flex justify-between items-end mb-2.5 px-1 relative z-10">
           <h2 className="text-[18px] font-bold text-slate-700 tracking-tight">
             世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-[14px]">Top 20</span>
           </h2>
@@ -109,7 +109,7 @@ export default function RankingTable() {
                   <Link
                     key={player.playerId}
                     href={`/players/${player.slug}`}
-                    className="flex items-center bg-white/80 p-3 border border-white shadow-sm rounded-[28px] relative overflow-hidden mb-2.5 transition-colors hover:bg-white"
+                    className="flex items-center bg-white/80 p-2 border border-white shadow-sm rounded-[24px] relative overflow-hidden mb-1.5 transition-colors hover:bg-white"
                   >
                     <div className="w-10 shrink-0 text-center mr-1">
                       <span className="text-[22px] font-bold text-blue-600 pr-1 leading-none">{player.rank}</span>
@@ -146,7 +146,7 @@ export default function RankingTable() {
                 <Link
                   key={player.playerId}
                   href={`/players/${player.slug}`}
-                  className="flex items-center p-2.5 border-b border-white/40 last:border-0 hover:bg-white/30 transition-colors rounded-xl"
+                  className="flex items-center py-2 px-1 border-b border-white/40 last:border-0 hover:bg-white/30 transition-colors rounded-xl"
                 >
                   <div className="w-9 shrink-0 text-center mr-1">
                     <span className="text-[16px] font-medium text-slate-400 pr-0.5">{player.rank}</span>
