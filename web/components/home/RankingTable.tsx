@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { MOCK_RANKINGS } from "@/lib/mock";
 import { clsx, type ClassValue } from "clsx";
@@ -14,8 +15,8 @@ export default function RankingTable() {
     <section className="mt-8 mb-12">
       <div className="px-6 flex justify-between items-end mb-4 pr-8">
         <h2 className="text-[22px] font-black text-text-primary tracking-tight">世界排名 <span className="text-brand-deep/80 font-bold ml-1 text-lg">Top 5</span></h2>
-        <button className="text-[11px] font-bold text-text-tertiary hover:text-brand-deep transition-all uppercase tracking-widest">
-          See All
+        <button className="flex items-center text-[12px] font-bold text-text-tertiary hover:text-brand-deep transition-all">
+          查看全部 <ChevronRight size={14} className="ml-0.5" />
         </button>
       </div>
 
@@ -25,7 +26,7 @@ export default function RankingTable() {
           return (
             <div 
               key={player.rank}
-              className="flex items-center bg-white p-3.5 rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-border-subtle/50 hover:border-brand-soft/50 transition-all duration-300"
+              className="flex items-center bg-white/95 p-3.5 rounded-[24px] shadow-[0_16px_40px_-8px_rgba(14,38,74,0.18)] hover:bg-white hover:shadow-[0_24px_50px_-10px_rgba(14,38,74,0.25)] transition-all duration-300 relative overflow-hidden group border border-transparent"
             >
               {/* Rank Number */}
               <div className="w-10 shrink-0 text-center">

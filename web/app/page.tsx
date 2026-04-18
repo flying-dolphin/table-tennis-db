@@ -5,7 +5,7 @@ import RankingTable from "@/components/home/RankingTable";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-page-background">
+    <main className="min-h-screen bg-gradient-to-b from-[#E2ECF6] via-[#E9F1F8] to-[#EDF3F9] relative overflow-hidden">
       {/* Hero Section */}
       <Hero />
       

@@ -69,82 +69,138 @@ const MONTH_DATA = [
 
 export default function EventScroller() {
   const [activeMonthId, setActiveMonthId] = useState(4);
+  const [expandedMonthId, setExpandedMonthId] = useState<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  return (
-    <section className="mt-6 relative z-10">
-      <div className="flex overflow-x-auto gap-4 px-6 pb-6 pt-2 snap-x snap-mandatory scrollbar-hide shrink-0 items-center">
-        {MONTH_DATA.map((month) => {
-          const isActive = month.id === activeMonthId;
-          return (
-            <div
-              key={month.id}
-              onClick={() => setActiveMonthId(month.id)}
-              className={cn(
-                "snap-center shrink-0 w-[85vw] max-w-[320px] transition-all duration-500 ease-out cursor-pointer transform origin-center",
-                isActive ? "scale-100 opacity-100 shadow-[0_12px_40px_rgba(0,0,0,0.08)]" : "scale-[0.88] opacity-60 shadow-sm"
-              )}
-            >
-              <div className="bg-white rounded-[24px] overflow-hidden border border-border-subtle/50 pointer-events-none">
-                {/* Header */}
-                <div className={cn("px-4 py-3 flex items-center justify-between transition-colors duration-500", isActive ? "bg-[#1A232C] text-white" : "bg-surface-secondary text-text-primary")}>
-                  <div className="text-left">
-                    <h2 className="text-[12px] font-bold tracking-widest leading-none">2026赛事日历</h2>
-                  </div>
-                  <div className="text-right">
-                     <p className="text-[12px] font-black tracking-widest">{month.name} <span className="opacity-70 font-normal">| {month.nameZh}</span></p>
-                  </div>
-                </div>
-                
-                {/* Days of week */}
-                <div className="grid grid-cols-7 text-center pt-2 pb-1.5 bg-surface-primary border-b border-border-subtle">
-                  {['一', '二', '三', '四', '五', '六', '日'].map(d => (
-                    <span key={d} className="text-[9px] font-bold text-text-tertiary">{d}</span>
-                  ))}
-                </div>
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-                {/* Grid Body */}
-                <div className="p-1.5 flex flex-col gap-0.5 bg-white">
-                  {month.weeks.map((row, i) => (
-                    <div key={i} className="relative pt-4 pb-1 min-h-[46px] border-b border-border-subtle/20 last:border-0 rounded-md">
-                      {/* Day Numbers Layer */}
-                      <div className="grid grid-cols-7 absolute top-0.5 inset-x-0 px-0.5">
-                          {row.days.map((d, j) => (
-                            <div key={j} className={cn(
-                              "text-center text-[10px] font-black", 
-                              d.out ? "text-border-strong opacity-40" : "text-text-primary"
-                            )}>
-                              {d.num}
-                            </div>
-                          ))}
-                      </div>
-                      
-                      {/* Events Layer */}
-                      <div className="relative z-10 px-0.5">
-                        {row.eventLayers.map((layer, lIdx) => (
-                          <div key={lIdx} className="grid grid-cols-7 gap-x-1 mb-0.5 relative">
-                            {layer.map((ev, eIdx) => (
-                              <div 
-                                key={eIdx}
-                                style={{ gridColumnStart: ev.startCol, gridColumnEnd: `span ${ev.span}` }}
-                                className={cn(
-                                  "rounded-[4px] px-1 py-0.5 text-[8px] font-bold truncate flex items-center shadow-[0_1px_2px_rgba(0,0,0,0.03)]", 
-                                  ev.color
-                                )}
-                              >
-                                {ev.name}
-                              </div>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+            const id = Number((entry.target as HTMLElement).dataset.monthId);
+            if (id) setActiveMonthId(id);
+          }
+        });
+      },
+      { root: container, threshold: [0.6, 0.7, 0.8, 0.9, 1.0] }
+    );
+
+    const items = container.querySelectorAll('.month-card-wrapper');
+    items.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const renderCardContent = (month: any, isModal: boolean = false) => (
+    <>
+      <div className={cn("flex items-center justify-between bg-[#1A232C] text-white", isModal ? "px-6 py-5" : "px-4 py-3")}>
+        <div className="text-left">
+          <h2 className={cn("font-bold tracking-widest leading-none", isModal ? "text-[14px]" : "text-[12px]")}>2026赛事日历</h2>
+        </div>
+        <div className="text-right">
+           <p className={cn("font-black tracking-widest", isModal ? "text-[14px]" : "text-[12px]")}>{month.name} <span className="opacity-70 font-normal">| {month.nameZh}</span></p>
+        </div>
+      </div>
+      <div className={cn("grid grid-cols-7 text-center border-b border-border-subtle", isModal ? "pt-3 pb-2.5 bg-surface-secondary" : "pt-2 pb-1.5 bg-[#F8FBFF]")}>
+        {['一', '二', '三', '四', '五', '六', '日'].map(d => (
+          <span key={d} className={cn("font-bold text-text-tertiary", isModal ? "text-[11px]" : "text-[9px]")}>{d}</span>
+        ))}
+      </div>
+      <div className={cn("flex flex-col bg-white", isModal ? "p-2.5 gap-1" : "p-1.5 gap-0.5")}>
+        {month.weeks.map((row: any, i: number) => (
+          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "pt-6 pb-1.5 min-h-[64px]" : "pt-4 pb-1 min-h-[46px]")}>
+            <div className="grid grid-cols-7 absolute top-1 inset-x-0 px-1">
+                {row.days.map((d: any, j: number) => (
+                  <div key={j} className={cn(
+                    "text-center font-black", 
+                    isModal ? "text-[12px]" : "text-[10px]",
+                    d.out ? "text-border-strong opacity-40" : "text-text-primary",
+                    d.num === 1 && d.out === false && month.id === 4 ? cn("text-brand-deep bg-brand-soft/50 rounded-full flex items-center justify-center mx-auto", isModal ? "w-6 h-6 -mt-0.5" : "w-5 h-5 -mt-0.5") : ""
+                  )}>
+                    {d.num}
+                  </div>
+                ))}
+            </div>
+            <div className="relative z-10 px-0.5">
+              {row.eventLayers.map((layer: any, lIdx: number) => (
+                <div key={lIdx} className={cn("grid grid-cols-7 relative", isModal ? "gap-x-1 mb-1" : "gap-x-1 mb-0.5")}>
+                  {layer.map((ev: any, eIdx: number) => (
+                    <div 
+                      key={eIdx}
+                      style={{ gridColumnStart: ev.startCol, gridColumnEnd: `span ${ev.span}` }}
+                      className={cn(
+                        "font-bold truncate flex items-center shadow-sm", 
+                        isModal ? "rounded-[6px] px-1.5 py-1 text-[9px]" : "rounded-[4px] px-1 py-0.5 text-[8px]",
+                        ev.color
+                      )}
+                    >
+                      {ev.name}
                     </div>
                   ))}
                 </div>
-              </div>
+              ))}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-    </section>
+    </>
+  );
+
+  return (
+    <>
+      <div 
+        className={cn(
+          "fixed inset-0 bg-page-background/90 backdrop-blur-md z-40 transition-all duration-300 flex items-center justify-center px-6",
+          expandedMonthId ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setExpandedMonthId(null)}
+      >
+        {expandedMonthId && (
+          <div 
+            className="w-full max-w-[420px] shadow-[0_40px_100px_-20px_rgba(14,38,74,0.38)] rounded-[28px] overflow-hidden bg-white animate-in zoom-in-95 duration-300 transform-gpu"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {renderCardContent(MONTH_DATA.find(m => m.id === expandedMonthId), true)}
+          </div>
+        )}
+      </div>
+
+      <section className="mt-6 relative z-10">
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto gap-4 px-6 pb-6 pt-2 snap-x snap-mandatory scrollbar-hide shrink-0 items-center"
+        >
+          {MONTH_DATA.map((month) => {
+            const isActive = month.id === activeMonthId;
+
+            return (
+              <div
+                key={month.id}
+                data-month-id={month.id}
+                onClick={() => {
+                  if (isActive) {
+                    setExpandedMonthId(month.id);
+                  } else {
+                    const el = scrollContainerRef.current?.querySelector(`[data-month-id="${month.id}"]`);
+                    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                  }
+                }}
+                className={cn(
+                  "month-card-wrapper snap-center shrink-0 w-[78vw] max-w-[280px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer transform origin-center",
+                  isActive ? "scale-100 opacity-100 shadow-[0_20px_50px_-10px_rgba(14,38,74,0.22)]" : "scale-[0.88] opacity-60 shadow-[0_8px_20px_rgba(14,38,74,0.1)]"
+                )}
+              >
+                <div className="bg-white/95 rounded-[24px] overflow-hidden pointer-events-none border border-transparent">
+                  {renderCardContent(month, false)}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 }
