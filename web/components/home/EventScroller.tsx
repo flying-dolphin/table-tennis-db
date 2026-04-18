@@ -104,12 +104,12 @@ export default function EventScroller() {
            <p className={cn("font-black tracking-widest", isModal ? "text-[14px]" : "text-[12px]")}>{month.name} <span className="opacity-70 font-normal">| {month.nameZh}</span></p>
         </div>
       </div>
-      <div className={cn("grid grid-cols-7 text-center border-b border-border-subtle", isModal ? "pt-3 pb-2.5 bg-surface-secondary" : "pt-2 pb-1.5 bg-[#F8FBFF]")}>
+      <div className={cn("grid grid-cols-7 text-center border-b border-white/40", isModal ? "pt-3 pb-2.5 bg-white/20" : "pt-2 pb-1.5 bg-white/10")}>
         {['一', '二', '三', '四', '五', '六', '日'].map(d => (
           <span key={d} className={cn("font-bold text-text-tertiary", isModal ? "text-[11px]" : "text-[9px]")}>{d}</span>
         ))}
       </div>
-      <div className={cn("flex flex-col bg-white", isModal ? "p-2.5 gap-1" : "p-1.5 gap-0.5")}>
+      <div className={cn("flex flex-col bg-transparent", isModal ? "p-2.5 gap-1" : "p-1.5 gap-0.5")}>
         {month.weeks.map((row: any, i: number) => (
           <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "pt-6 pb-1.5 min-h-[64px]" : "pt-4 pb-1 min-h-[46px]")}>
             <div className="grid grid-cols-7 absolute top-1 inset-x-0 px-1">
@@ -160,7 +160,7 @@ export default function EventScroller() {
       >
         {expandedMonthId && (
           <div 
-            className="w-full max-w-[420px] shadow-[0_40px_100px_-20px_rgba(14,38,74,0.38)] rounded-[28px] overflow-hidden bg-white animate-in zoom-in-95 duration-300 transform-gpu"
+            className="w-full max-w-[420px] shadow-[0_40px_100px_-20px_rgba(40,65,105,0.25),inset_0_1px_4px_rgba(255,255,255,1)] border-[1.5px] border-white backdrop-blur-3xl rounded-[28px] overflow-hidden bg-gradient-to-br from-white/90 to-white/50 animate-in zoom-in-95 duration-300 transform-gpu"
             onClick={(e) => e.stopPropagation()}
           >
             {renderCardContent(MONTH_DATA.find(m => m.id === expandedMonthId), true)}
@@ -190,10 +190,10 @@ export default function EventScroller() {
                 }}
                 className={cn(
                   "month-card-wrapper snap-center shrink-0 w-[78vw] max-w-[280px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer transform origin-center",
-                  isActive ? "scale-100 opacity-100 shadow-[0_20px_50px_-10px_rgba(14,38,74,0.22)]" : "scale-[0.88] opacity-60 shadow-[0_8px_20px_rgba(14,38,74,0.1)]"
+                  isActive ? "scale-100 opacity-100 shadow-[0_20px_50px_-10px_rgba(40,65,105,0.12)]" : "scale-[0.88] opacity-60 shadow-[0_8px_20px_rgba(40,65,105,0.06)]"
                 )}
               >
-                <div className="bg-white/95 rounded-[24px] overflow-hidden pointer-events-none border border-transparent">
+                <div className="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-2xl rounded-[24px] overflow-hidden shadow-[inset_0_1px_4px_rgba(255,255,255,1)] border-[1.5px] border-white pointer-events-none">
                   {renderCardContent(month, false)}
                 </div>
               </div>

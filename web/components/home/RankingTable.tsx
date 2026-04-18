@@ -26,7 +26,7 @@ export default function RankingTable() {
           return (
             <div 
               key={player.rank}
-              className="flex items-center bg-white/95 p-3.5 rounded-[24px] shadow-[0_16px_40px_-8px_rgba(14,38,74,0.18)] hover:bg-white hover:shadow-[0_24px_50px_-10px_rgba(14,38,74,0.25)] transition-all duration-300 relative overflow-hidden group border border-transparent"
+              className="flex items-center bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-2xl p-3.5 rounded-[24px] shadow-[0_20px_50px_-10px_rgba(40,65,105,0.12),inset_0_1px_4px_rgba(255,255,255,1)] border-[1.5px] border-white hover:bg-gradient-to-br hover:from-white hover:to-white/60 hover:shadow-[0_30px_60px_-15px_rgba(40,65,105,0.15)] transition-all duration-300 relative overflow-hidden group"
             >
               {/* Rank Number */}
               <div className="w-10 shrink-0 text-center">
