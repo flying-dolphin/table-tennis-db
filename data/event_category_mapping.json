@@ -3,7 +3,7 @@
     "version": "1.0",
     "description": "Unified mapping between event_type_kind, ITTF regulations, and JSON category codes",
     "created_at": "2026-04-16",
-    "last_updated": "2026-04-16",
+    "last_updated": "2026-04-19",
     "notes": "category_name_zh values are synchronized with translation_dict_v2.json"
   },
   "events": [
@@ -18,7 +18,13 @@
       "points_tier": "Premium",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles", "Teams"]
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles",
+        "Teams"
+      ],
+      "priority": 10
     },
     {
       "category_id": "ITTF_WTTC",
@@ -26,183 +32,37 @@
       "category_name_zh": "国际乒联世界乒乓球锦标赛",
       "event_type": "ITTF WTTC",
       "event_kind": "--",
-      "event_kind_aliases": ["WTTC Finals"],
+      "event_kind_aliases": [
+        "WTTC Finals"
+      ],
       "ittf_rule_name": "ITTF World Table Tennis Championships Finals",
       "json_code": "WTTC",
       "points_tier": "Premium",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"],
-      "notes": "event_kind '--'(2015-2019旧命名)和'WTTC Finals'(2021+新命名)均指同一赛事。数据源中团体世锦赛(World Team TTC)也归在此event_type下，需通过name字段区分。"
-    },
-    {
-      "category_id": "ITTF_WORLD_CUP",
-      "category_name": "ITTF World Cup",
-      "category_name_zh": "国际乒联世界杯",
-      "event_type": "ITTF World Cup",
-      "event_kind": "--",
-      "ittf_rule_name": "ITTF World Cup",
-      "json_code": "WC",
-      "points_tier": "Premium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles"]
-    },
-    {
-      "category_id": "CONTINENTAL_GAMES",
-      "category_name": "Continental Games",
-      "category_name_zh": "洲际运动会",
-      "event_type": "Continental Games",
-      "event_kind": "--",
-      "ittf_rule_name": "Continental Games",
-      "json_code": "CT",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "CONTINENTAL_CHAMPS",
-      "category_name": "Continental Championships",
-      "category_name_zh": "洲际锦标赛",
-      "event_type": "Continental",
-      "event_kind": "Senior Championships",
-      "ittf_rule_name": "Continental Championships",
-      "json_code": "CC",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "CONTINENTAL_CUP",
-      "category_name": "Continental Cup",
-      "category_name_zh": "洲际杯",
-      "event_type": "Continental",
-      "event_kind": "Senior Cup",
-      "ittf_rule_name": "Continental Cups",
-      "json_code": "CCUP",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles"]
-    },
-    {
-      "category_id": "WTT_FINALS",
-      "category_name": "WTT Finals",
-      "category_name_zh": "WTT总决赛",
-      "event_type": "WTT Finals",
-      "event_kind": "--",
-      "ittf_rule_name": "WTT Finals",
-      "json_code": "CF",
-      "points_tier": "Premium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "WTT_GRAND_SMASH",
-      "category_name": "WTT Grand Smash",
-      "category_name_zh": "WTT大满贯",
-      "event_type": "WTT Grand Smash",
-      "event_kind": "--",
-      "ittf_rule_name": "WTT Grand Smash",
-      "json_code": "GS",
-      "points_tier": "Premium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "WTT_CHAMPIONS",
-      "category_name": "WTT Champions",
-      "category_name_zh": "WTT冠军赛",
-      "event_type": "WTT Champions",
-      "event_kind": "--",
-      "ittf_rule_name": "WTT Champions",
-      "json_code": "CHAMP",
-      "points_tier": "High",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "WTT_STAR_CONTENDER",
-      "category_name": "WTT Star Contender",
-      "category_name_zh": "WTT球星挑战赛",
-      "event_type": "WTT Contender Series",
-      "event_kind": "WTT Star Contender",
-      "ittf_rule_name": "WTT Star Contender",
-      "json_code": "SCT",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "WTT_CONTENDER",
-      "category_name": "WTT Contender",
-      "category_name_zh": "WTT挑战赛",
-      "event_type": "WTT Contender Series",
-      "event_kind": "WTT Contender",
-      "ittf_rule_name": "WTT Contender",
-      "json_code": "CS",
-      "points_tier": "Medium",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "WTT_FEEDER",
-      "category_name": "WTT Feeder",
-      "category_name_zh": "WTT支线赛",
-      "event_type": "WTT Feeder Series",
-      "event_kind": "--",
-      "ittf_rule_name": "WTT Feeder",
-      "json_code": "FEED",
-      "points_tier": "Low",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
-    },
-    {
-      "category_id": "OLYMPIC_QUALIFICATION",
-      "category_name": "Olympic Qualification",
-      "category_name_zh": "奥运资格赛",
-      "event_type": "Olympic Qualification",
-      "event_kind": "--",
-      "ittf_rule_name": null,
-      "json_code": null,
-      "points_tier": "None",
-      "points_eligible": false,
-      "filtering_only": true,
-      "applicable_formats": []
-    },
-    {
-      "category_id": "MULTI_SPORT_GAMES",
-      "category_name": "Multi-Sport Games",
-      "category_name_zh": "综合运动会",
-      "event_type": "Multi sport events",
-      "event_kind": "--",
-      "ittf_rule_name": "Multi-Sport Games",
-      "json_code": "MULTI",
-      "points_tier": "Low",
-      "points_eligible": true,
-      "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "notes": "event_kind '--'(2015-2019旧命名)和'WTTC Finals'(2021+新命名)均指同一赛事。数据源中团体世锦赛(World Team TTC)也归在此event_type下，需通过name字段区分。",
+      "priority": 10
     },
     {
       "category_id": "ITTF_WORLD_TEAM_CHAMPS",
       "category_name": "ITTF World Team Table Tennis Championships",
       "category_name_zh": "国际乒联世界乒乓球团体锦标赛",
-      "event_type": "ITTF WJTTC",
+      "event_type": "ITTF WTTC",
       "event_kind": "--",
       "ittf_rule_name": "ITTF World Team Table Tennis Championships",
       "json_code": null,
       "points_tier": "Premium",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Teams"]
+      "applicable_formats": [
+        "Teams"
+      ],
+      "priority": 10
     },
     {
       "category_id": "ITTF_MIXED_TEAM_WORLD_CUP",
@@ -215,7 +75,217 @@
       "points_tier": "Premium",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Teams"]
+      "applicable_formats": [
+        "Teams"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "ITTF_WORLD_CUP",
+      "category_name": "ITTF World Cup",
+      "category_name_zh": "国际乒联世界杯",
+      "event_type": "ITTF World Cup",
+      "event_kind": "--",
+      "ittf_rule_name": "ITTF World Cup",
+      "json_code": "WC",
+      "points_tier": "Premium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "CONTINENTAL_GAMES",
+      "category_name": "Continental Games",
+      "category_name_zh": "洲际运动会",
+      "event_type": "Continental Games",
+      "event_kind": "--",
+      "ittf_rule_name": "Continental Games",
+      "json_code": "CT",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "CONTINENTAL_CHAMPS",
+      "category_name": "Continental Championships",
+      "category_name_zh": "洲际锦标赛",
+      "event_type": "Continental",
+      "event_kind": "Senior Championships",
+      "ittf_rule_name": "Continental Championships",
+      "json_code": "CC",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "CONTINENTAL_CUP",
+      "category_name": "Continental Cup",
+      "category_name_zh": "洲际杯",
+      "event_type": "Continental",
+      "event_kind": "Senior Cup",
+      "ittf_rule_name": "Continental Cups",
+      "json_code": "CCUP",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "WTT_FINALS",
+      "category_name": "WTT Finals",
+      "category_name_zh": "WTT总决赛",
+      "event_type": "WTT Finals",
+      "event_kind": "--",
+      "ittf_rule_name": "WTT Finals",
+      "json_code": "CF",
+      "points_tier": "Premium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "WTT_GRAND_SMASH",
+      "category_name": "WTT Grand Smash",
+      "category_name_zh": "WTT大满贯",
+      "event_type": "WTT Grand Smash",
+      "event_kind": "--",
+      "ittf_rule_name": "WTT Grand Smash",
+      "json_code": "GS",
+      "points_tier": "Premium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "WTT_CHAMPIONS",
+      "category_name": "WTT Champions",
+      "category_name_zh": "WTT冠军赛",
+      "event_type": "WTT Champions",
+      "event_kind": "--",
+      "ittf_rule_name": "WTT Champions",
+      "json_code": "CHAMP",
+      "points_tier": "High",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "WTT_STAR_CONTENDER",
+      "category_name": "WTT Star Contender",
+      "category_name_zh": "WTT球星挑战赛",
+      "event_type": "WTT Contender Series",
+      "event_kind": "WTT Star Contender",
+      "ittf_rule_name": "WTT Star Contender",
+      "json_code": "SCT",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "WTT_CONTENDER",
+      "category_name": "WTT Contender",
+      "category_name_zh": "WTT挑战赛",
+      "event_type": "WTT Contender Series",
+      "event_kind": "WTT Contender",
+      "ittf_rule_name": "WTT Contender",
+      "json_code": "CS",
+      "points_tier": "Medium",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "WTT_FEEDER",
+      "category_name": "WTT Feeder",
+      "category_name_zh": "WTT支线赛",
+      "event_type": "WTT Feeder Series",
+      "event_kind": "--",
+      "ittf_rule_name": "WTT Feeder",
+      "json_code": "FEED",
+      "points_tier": "Low",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 10
+    },
+    {
+      "category_id": "OLYMPIC_QUALIFICATION",
+      "category_name": "Olympic Qualification",
+      "category_name_zh": "奥运资格赛",
+      "event_type": "Olympic Qualification",
+      "event_kind": "--",
+      "ittf_rule_name": null,
+      "json_code": null,
+      "points_tier": "None",
+      "points_eligible": false,
+      "filtering_only": true,
+      "applicable_formats": [],
+      "priority": 0
+    },
+    {
+      "category_id": "MULTI_SPORT_GAMES",
+      "category_name": "Multi-Sport Games",
+      "category_name_zh": "综合运动会",
+      "event_type": "Multi sport events",
+      "event_kind": "--",
+      "ittf_rule_name": "Multi-Sport Games",
+      "json_code": "MULTI",
+      "points_tier": "Low",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_GRAND_SMASH",
@@ -228,7 +298,10 @@
       "points_tier": "Low",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles"]
+      "applicable_formats": [
+        "Singles"
+      ],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_STAR_CONTENDER",
@@ -241,7 +314,10 @@
       "points_tier": "Low",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles"]
+      "applicable_formats": [
+        "Singles"
+      ],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_CONTENDER",
@@ -254,7 +330,10 @@
       "points_tier": "Low",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles"]
+      "applicable_formats": [
+        "Singles"
+      ],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_WORLD_CHAMPS",
@@ -267,7 +346,12 @@
       "points_tier": "Low",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 0
     },
     {
       "category_id": "REGIONAL_CHAMPS",
@@ -280,7 +364,10 @@
       "points_tier": "Low",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles"]
+      "applicable_formats": [
+        "Singles"
+      ],
+      "priority": 0
     },
     {
       "category_id": "REGIONAL_CUP",
@@ -293,7 +380,8 @@
       "points_tier": "Low",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "U21_CONTINENTAL_CHAMPS",
@@ -306,7 +394,12 @@
       "points_tier": "Low",
       "points_eligible": true,
       "filtering_only": false,
-      "applicable_formats": ["Singles", "Doubles", "Mixed Doubles"]
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_CONTINENTAL_CHAMPS",
@@ -319,7 +412,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_CONTINENTAL_CUP",
@@ -332,7 +426,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "REGIONAL_YOUTH_CHAMPS",
@@ -345,7 +440,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_CHALLENGE",
@@ -358,7 +454,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_CHALLENGE_SERIES",
@@ -371,7 +468,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_CHALLENGE_PLUS",
@@ -384,7 +482,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT",
@@ -397,7 +496,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_FINALS",
@@ -410,7 +510,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_PREMIUM",
@@ -423,7 +524,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_GOLDEN",
@@ -436,7 +538,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "ITTF_WORLD_CADET_CHALLENGE",
@@ -449,7 +552,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "T2_DIAMOND",
@@ -462,7 +566,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_OLYMPIC_GAMES",
@@ -475,7 +580,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "YOUTH_OLYMPIC_GAMES_QUALIFICATION",
@@ -488,7 +594,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "WORLD_TOUR_PRO_TOUR",
@@ -501,7 +608,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "WORLD_TOUR_CHALLENGE_SERIES",
@@ -514,7 +622,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "WORLD_TOUR_FINALS",
@@ -527,7 +636,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "WORLD_TOUR_GRAND_FINALS",
@@ -540,7 +650,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "WORLD_TOUR_MAJOR_SERIES",
@@ -553,7 +664,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "WORLD_TOUR_PLATINUM",
@@ -566,7 +678,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "WORLD_TOUR_SUPER_SERIES",
@@ -579,7 +692,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     },
     {
       "category_id": "OTHER_EVENTS",
@@ -592,7 +706,8 @@
       "points_tier": "None",
       "points_eligible": false,
       "filtering_only": true,
-      "applicable_formats": []
+      "applicable_formats": [],
+      "priority": 0
     }
   ]
 }

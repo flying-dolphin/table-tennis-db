@@ -54,7 +54,7 @@ def generate_insert_sql(mapping_data):
             f"{1 if event['filtering_only'] else 0}, "
             f"{rule_sql}, "
             f"'{applicable_formats}', "
-                f"{i})"
+            f"{i})"
         )
         values.append(value_str)
 
@@ -77,8 +77,10 @@ def generate_mapping_sql(mapping_data):
     """Generate SQL statements for refreshing event_type_mapping"""
 
     lines = []
-    lines.append("\n-- Generated INSERT statements for event_type_mapping")
+    lines.append("\n-- Generated SQL for event_type_mapping")
     lines.append(f"-- Generated at: {datetime.now().isoformat()}")
+    lines.append("")
+    lines.append("DELETE FROM event_type_mapping;")
     lines.append("")
 
     mappings = []
@@ -86,24 +88,19 @@ def generate_mapping_sql(mapping_data):
         kinds = [event['event_kind']]
         kinds += event.get('event_kind_aliases', [])
         for kind in kinds:
-            delete_sql = (
-                "DELETE FROM event_type_mapping "
-                f"WHERE event_type = '{escape_sql(event['event_type'])}' "
-                f"AND event_kind = '{escape_sql(kind)}';"
-            )
+            priority = event.get('priority', 0)
             insert_sql = (
                 "INSERT INTO event_type_mapping (event_type, event_kind, category_id, priority)\n"
                 "SELECT "
                 f"'{escape_sql(event['event_type'])}', "
                 f"'{escape_sql(kind)}', "
-                "id, 10\n"
+                f"id, {priority}\n"
                 "FROM event_categories\n"
                 f"WHERE category_id = '{event['category_id']}';"
             )
-            mappings.append(delete_sql)
             mappings.append(insert_sql)
 
-    lines.append("-- Refresh event_type/event_kind to category mappings")
+    lines.append("-- Insert event_type_mapping from event_categories")
     lines.extend(mappings)
     lines.append("")
 
@@ -118,6 +115,10 @@ def import_to_sqlite(db_path, mapping_data):
         cursor = conn.cursor()
         cursor.execute("PRAGMA foreign_keys = ON;")
 
+        # 1. 清空 event_type_mapping（可以安全清空，没有其他表引用它）
+        cursor.execute("DELETE FROM event_type_mapping")
+
+        # 2. 使用 UPSERT 更新/插入 event_categories（保留现有id，避免外键约束问题）
         category_sql = """
             INSERT INTO event_categories (
                 category_id, category_name, category_name_zh, json_code,
@@ -137,7 +138,6 @@ def import_to_sqlite(db_path, mapping_data):
         """
 
         categories = []
-        mapping_keys = []
         for i, event in enumerate(mapping_data['events'], start=1):
             applicable_formats = json.dumps(event.get('applicable_formats', []))
             categories.append((
@@ -152,17 +152,10 @@ def import_to_sqlite(db_path, mapping_data):
                 applicable_formats,
                 i,
             ))
-            kinds = [event['event_kind'], *event.get('event_kind_aliases', [])]
-            for kind in kinds:
-                mapping_keys.append((event['event_type'], kind))
 
         cursor.executemany(category_sql, categories)
 
-        cursor.executemany(
-            "DELETE FROM event_type_mapping WHERE event_type = ? AND event_kind = ?",
-            mapping_keys,
-        )
-
+        # 3. 重新插入 event_type_mapping
         mapping_rows = []
         for event in mapping_data['events']:
             cursor.execute(
@@ -176,7 +169,8 @@ def import_to_sqlite(db_path, mapping_data):
             category_pk = category_row[0]
             kinds = [event['event_kind'], *event.get('event_kind_aliases', [])]
             for kind in kinds:
-                mapping_rows.append((event['event_type'], kind, category_pk, 10))
+                priority = event.get('priority', 0)
+                mapping_rows.append((event['event_type'], kind, category_pk, priority))
 
         cursor.executemany(
             """
