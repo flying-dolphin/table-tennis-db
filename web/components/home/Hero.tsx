@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-[160px] overflow-hidden rounded-b-[40px] bg-[#1A232C] shadow-lg">
+    <section className="relative w-full h-[160px] overflow-hidden bg-[rgb(var(--hero-anchor))] shadow-lg">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -14,7 +14,7 @@ export default function Hero() {
           priority
         />
         {/* Softer gradient for better image visibility while maintaining text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A232C]/80 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--hero-anchor))/0.8] via-black/10 to-transparent" />
       </div>
 
       {/* Content */}
