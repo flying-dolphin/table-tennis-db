@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPlayerDetail } from '@/lib/data';
 import { changeLabel, changeTone, formatPoints } from '@/lib/utils';
+import { PlayerAvatar } from "@/components/PlayerAvatar";
 
 export default async function PlayerDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -20,7 +21,17 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ s
   return (
     <main className="page-shell detail-shell">
       <Link href="/" className="back-link">← 返回榜单</Link>
-      <section className="hero-card detail-hero">
+      <section className="hero-card detail-hero flex items-center gap-6">
+        <PlayerAvatar 
+          player={{
+            playerId: ranking.player_id || '',
+            name: ranking.english_name || ranking.name,
+            nameZh: ranking.name,
+            avatarFile: (ranking as any).avatarFile
+          }} 
+          size="lg" 
+          className="ring-4 ring-white/30 shadow-2xl"
+        />
         <div>
           <span className="eyebrow">球员名片</span>
           <h1>{ranking.name}</h1>

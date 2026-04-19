@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -20,6 +21,7 @@ type HomeRankingPlayer = {
   nameZh: string | null;
   country: string | null;
   countryCode: string;
+  avatarFile: string | null;
 };
 
 type RankingsResponse = {
@@ -48,7 +50,7 @@ export default function RankingTable() {
     let canceled = false;
     async function load() {
       try {
-        const response = await fetch("/api/v1/home/rankings?limit=20", { cache: "no-store" });
+        const response = await fetch("/api/v1/home/rankings?limit=10", { cache: "no-store" });
         const payload = (await response.json()) as RankingsResponse;
         if (!canceled && payload.code === 0) {
           setPlayers(payload.data.players);
@@ -76,7 +78,7 @@ export default function RankingTable() {
       <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-4 shadow-xl shadow-slate-200/50 border border-white/50 relative overflow-hidden">
         <div className="flex justify-between items-end mb-2.5 px-1 relative z-10">
           <h2 className="text-[18px] font-bold text-slate-700 tracking-tight">
-            世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-[14px]">Top 20</span>
+            世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-[14px]">Top 10</span>
           </h2>
           <a
             href="/rankings"
@@ -116,11 +118,7 @@ export default function RankingTable() {
                       <span className="text-[22px] font-bold text-blue-600 pr-1 leading-none">{player.rank}</span>
                     </div>
 
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-deep flex items-center justify-center shrink-0 shadow-sm border border-white relative z-10">
-                      <span className="text-white font-medium text-lg tracking-widest leading-none drop-shadow-sm">
-                        {displayName(player).slice(0, 1)}
-                      </span>
-                    </div>
+                    <PlayerAvatar player={player} size="md" />
 
                     <div className="ml-2.5 flex-1 flex flex-col justify-center overflow-hidden">
                       <div className="flex items-center gap-1.5">
@@ -153,11 +151,7 @@ export default function RankingTable() {
                     <span className="text-[16px] font-medium text-slate-400 pr-0.5">{player.rank}</span>
                   </div>
 
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#8CA8C7] to-[#607D9E] flex items-center justify-center shrink-0 shadow-inner border border-white">
-                    <span className="text-white/90 font-medium text-xs tracking-widest leading-none drop-shadow-sm">
-                      {displayName(player).slice(0, 1)}
-                    </span>
-                  </div>
+                  <PlayerAvatar player={player} size="sm" />
 
                   <div className="ml-2.5 flex-1 flex items-center gap-1.5 overflow-hidden">
                     <h3 className="text-[14px] font-semibold text-slate-700 leading-tight truncate">
