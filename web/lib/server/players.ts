@@ -25,7 +25,7 @@ export function getPlayerBySlug(slug: string) {
           p.slug,
           p.country,
           p.country_code AS countryCode,
-          p.avatar_file AS avatarFile,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
           p.avatar_url AS avatarUrl,
           rs.ranking_date AS rankingDate,
           rs.ranking_week AS rankingWeek,
@@ -91,6 +91,7 @@ export function getPlayerDetail(slug: string) {
           m.event_name_zh AS eventNameZh,
           m.event_year AS eventYear,
           m.sub_event_type_code AS subEventTypeCode,
+          sety.name_zh AS subEventNameZh,
           m.stage,
           m.round,
           m.round_zh AS roundZh,
@@ -105,6 +106,7 @@ export function getPlayerDetail(slug: string) {
           e.start_date AS startDate
         FROM matches m
         LEFT JOIN events e ON e.event_id = m.event_id
+        LEFT JOIN sub_event_types sety ON sety.code = m.sub_event_type_code
         WHERE m.player_a_id = ? OR m.player_b_id = ?
         ORDER BY COALESCE(e.start_date, '') DESC, COALESCE(m.event_year, 0) DESC, m.match_id DESC
       `,
@@ -116,6 +118,7 @@ export function getPlayerDetail(slug: string) {
       eventNameZh: string | null;
       eventYear: number | null;
       subEventTypeCode: string | null;
+      subEventNameZh: string | null;
       stage: string | null;
       round: string | null;
       roundZh: string | null;
@@ -155,6 +158,7 @@ export function getPlayerDetail(slug: string) {
       eventNameZh: string | null;
       date: string | null;
       subEventTypeCode: string | null;
+      subEventNameZh: string | null;
       result: string | null;
       weight: number;
       isChampion: boolean;
@@ -174,7 +178,8 @@ export function getPlayerDetail(slug: string) {
         eventNameZh: row.eventNameZh,
         date: row.startDate ?? row.eventYear?.toString() ?? null,
         subEventTypeCode: row.subEventTypeCode,
-        result: row.roundZh ?? row.round,
+        subEventNameZh: row.subEventNameZh,
+        result: isChampion ? '冠军' : row.roundZh ?? row.round,
         weight,
         isChampion,
       });
