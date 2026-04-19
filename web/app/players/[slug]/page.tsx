@@ -60,6 +60,16 @@ function formatPercent(value: number | null | undefined) {
   return `${Number(value).toFixed(Number.isInteger(value) ? 0 : 1)}%`;
 }
 
+function displayBio(player: Player) {
+  const parts: string[] = [];
+  if (player.birthYear) {
+    parts.push(`${player.birthYear}${player.age ? ` (${player.age}岁)` : ''}`);
+  } else if (player.age) {
+    parts.push(`${player.age} 岁`);
+  }
+  return parts.join(' ') || '-';
+}
+
 function rankChangeLabel(value: number | null) {
   if (value == null || value === 0) return '排名保持';
   return value > 0 ? `上升 ${value}` : `下降 ${Math.abs(value)}`;
@@ -67,6 +77,13 @@ function rankChangeLabel(value: number | null) {
 
 function subEventLabel(event: EventRecord) {
   return event.subEventNameZh || subEventNames[event.subEventTypeCode ?? ''] || event.subEventTypeCode || '项目待补';
+}
+
+function genderLabel(value: string | null) {
+  if (!value) return '待补';
+  if (value.toLowerCase() === 'female') return '女';
+  if (value.toLowerCase() === 'male') return '男';
+  return value;
 }
 
 function SectionHeader({ title, hint }: { title: string; hint?: string }) {
@@ -119,20 +136,32 @@ function PlayerHero({ player }: { player: Player }) {
           <div className="min-w-0 flex-1 pb-1">
             <h1 className="mt-1 truncate text-[32px] font-black leading-none tracking-tight">{displayPlayerName(player)}</h1>
             <p className="mt-2 truncate text-[14px] font-semibold text-white/66">{player.name}</p>
-            <div className="mt-3 flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-white/14 px-3 py-1 text-[12px] font-bold text-white/85 backdrop-blur-sm">
+            <div className="mt-3 flex flex-wrap items-center gap-1.5">
+              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
                 {player.country || player.countryCode}
               </span>
-              <span className="rounded-full bg-white/14 px-3 py-1 text-[12px] font-bold text-white/85 backdrop-blur-sm">
-                {rankChangeLabel(rankChange)}
-              </span>
+              {player.styleZh && (
+                <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
+                  {player.styleZh}
+                </span>
+              )}
+              {player.careerBestRank && (
+                <span className="rounded-full bg-brand-primary/40 px-2.5 py-0.5 text-[11px] font-bold text-white backdrop-blur-sm">
+                  生涯最高 #{player.careerBestRank}
+                </span>
+              )}
             </div>
           </div>
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-2.5">
           <div className="rounded-[24px] border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
-            <p className="text-[11px] font-bold text-white/55">当前排名</p>
+            <p className="flex items-center gap-1.5 text-[11px] font-bold text-white/55">
+              当前排名
+              <span className={`text-[10px] ${rankChange > 0 ? 'text-state-success' : rankChange < 0 ? 'text-state-danger' : 'text-white/40'}`}>
+                {rankChange > 0 ? '↑' : rankChange < 0 ? '↓' : '•'} {rankChange !== 0 ? Math.abs(rankChange) : ''}
+              </span>
+            </p>
             <strong className="mt-1 block text-[30px] leading-none">#{player.rank ?? '-'}</strong>
           </div>
           <div className="rounded-[24px] border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
@@ -145,33 +174,147 @@ function PlayerHero({ player }: { player: Player }) {
   );
 }
 
-function CoreStats({ player, stats }: { player: Player; stats: PlayerStats }) {
-  const items = [
-    { label: '排名', value: player.rank ? `#${player.rank}` : '-', icon: Trophy },
-    { label: '积分', value: formatNumber(player.points), icon: Medal },
-    { label: '胜率', value: formatPercent(stats.winRate), icon: Target },
-    { label: '外战胜率', value: formatPercent(stats.foreignWinRate), icon: Target },
-    { label: '内战胜率', value: formatPercent(stats.domesticWinRate), icon: Target },
-    { label: '三大赛冠军', value: formatNumber(stats.threeTitles), icon: Trophy },
-    { label: '七大赛冠军', value: formatNumber(stats.sevenTitles), icon: Trophy },
-    { label: '赛事总数', value: formatNumber(stats.eventsTotal), icon: CalendarDays },
-    { label: '七大赛决赛', value: formatNumber(stats.sevenFinals), icon: Medal },
-  ];
+function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStats }) {
+  const yearWinRate = player.yearMatches ? (player.yearWins ?? 0) / player.yearMatches * 100 : null;
 
   return (
     <section className="px-5 pt-5">
-      <SectionHeader title="核心统计" hint="与排名、对比和搜索结果保持同一口径" />
-      <div className="grid grid-cols-3 gap-2.5">
-        {items.map((item) => {
-          const Icon = item.icon;
-          return (
-            <article key={item.label} className="rounded-[22px] border border-white/60 bg-white/65 p-3 shadow-sm backdrop-blur-md">
-              <Icon size={15} className="mb-2 text-brand-strong" strokeWidth={2} />
-              <p className="text-[11px] font-bold text-text-tertiary">{item.label}</p>
-              <strong className="mt-1 block text-[18px] leading-none text-text-primary">{item.value}</strong>
-            </article>
-          );
-        })}
+      <SectionHeader title="职业看板" hint="全维度数据与年度对照" />
+
+      <div className="bento-grid">
+        {/* Bio Info - Basic Attributes */}
+        <div className="bento-span-6 bento-card bento-card-hover flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div>
+              <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">性别</p>
+              <p className="text-[14px] font-black text-text-primary">{player.gender === 'Female' ? '女' : player.gender === 'Male' ? '男' : '待补'}</p>
+            </div>
+            <div className="h-6 w-px bg-border-subtle" />
+            <div>
+              <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">出生 & 年龄</p>
+              <p className="text-[14px] font-black text-text-primary">{displayBio(player)}</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">打球风格</p>
+            <p className="text-[14px] font-black text-brand-strong">{player.styleZh || '待补'}</p>
+          </div>
+        </div>
+
+        {/* Core Ranks */}
+        <div className="bento-span-2 bento-card bento-card-hover">
+          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">当前排名</p>
+          <p className="mt-1 text-[22px] font-black text-brand-strong">#{player.rank ?? '-'}</p>
+          <div className="mt-1 h-1 w-8 rounded-full bg-brand-strong/20" />
+        </div>
+        <div className="bento-span-2 bento-card bento-card-hover">
+          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">生涯最高</p>
+          <p className="mt-1 text-[22px] font-black text-text-primary">#{player.careerBestRank ?? '-'}</p>
+          <div className="mt-1 h-1 w-8 rounded-full bg-text-tertiary/20" />
+        </div>
+        <div className="bento-span-2 bento-card bento-card-hover">
+          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">当前积分</p>
+          <p className="mt-1 text-[20px] font-black text-text-primary whitespace-nowrap">{formatNumber(player.points)}</p>
+        </div>
+
+        {/* Win Rate Comparison */}
+        <div className="bento-span-4 bento-card bento-card-hover relative overflow-hidden">
+          <div className="relative z-10 flex h-full flex-col justify-between">
+            <div>
+              <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">生涯总胜率</p>
+              <p className="text-[28px] font-black text-text-primary leading-none mt-1">{formatPercent(stats.winRate)}</p>
+            </div>
+            <div className="mt-3">
+              <div className="mb-1.5 flex items-center justify-between text-[11px] font-bold">
+                <span className="text-brand-strong">2026 年度胜率</span>
+                <span className="text-text-primary">{formatPercent(yearWinRate)}</span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-brand-mist overflow-hidden">
+                <div
+                  className="h-full bg-brand-strong rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: `${yearWinRate ?? 0}%` }}
+                />
+              </div>
+            </div>
+          </div>
+          <Target className="absolute -bottom-2 -right-2 h-16 w-16 text-brand-mist/30" />
+        </div>
+
+        {/* Activity */}
+        <div className="bento-span-2 bento-card bento-card-hover">
+          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">赛事总数</p>
+          <p className="text-[24px] font-black text-text-primary mt-0.5">{stats.eventsTotal}</p>
+          <div className="mt-2 text-[11px] font-bold text-brand-strong bg-brand-soft/50 px-2 py-0.5 rounded-md inline-block">
+            今年 {player.yearEvents ?? 0}
+          </div>
+        </div>
+
+        {/* Sub Win Rates */}
+        <div className="bento-span-3 bento-card bento-card-hover flex items-center justify-between">
+          <div>
+            <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">外战胜率</p>
+            <p className="text-[19px] font-black text-state-success mt-0.5">{formatPercent(stats.foreignWinRate)}</p>
+          </div>
+          <div className="h-9 w-9 rounded-xl bg-state-success/10 flex items-center justify-center">
+            <Target size={16} className="text-state-success" />
+          </div>
+        </div>
+        <div className="bento-span-3 bento-card bento-card-hover flex items-center justify-between">
+          <div>
+            <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">内战胜率</p>
+            <p className="text-[19px] font-black text-text-primary mt-0.5">{formatPercent(stats.domesticWinRate)}</p>
+          </div>
+          <div className="h-9 w-9 rounded-xl bg-brand-mist flex items-center justify-center">
+            <Target size={16} className="text-brand-strong" />
+          </div>
+        </div>
+
+        {/* Honor Wall - 3 Majors */}
+        <div className="bento-span-3 bento-card honor-diamond bento-card-hover">
+          <div className="flex items-center gap-1.5">
+            <Trophy size={14} className="text-brand-strong" />
+            <p className="text-[11px] font-black text-brand-strong uppercase tracking-wider">三大赛记录</p>
+          </div>
+          <div className="mt-3.5 grid grid-cols-2 gap-2">
+            <div>
+              <p className="text-[9px] font-bold text-text-tertiary uppercase">单打冠军</p>
+              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.singleThreeTitles}</p>
+            </div>
+            <div>
+              <p className="text-[9px] font-bold text-text-tertiary uppercase">总冠军</p>
+              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.allThreeTitles}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Honor Wall - 7 Majors */}
+        <div className="bento-span-3 bento-card honor-silver bento-card-hover">
+          <div className="flex items-center gap-1.5">
+            <Medal size={14} className="text-text-secondary" />
+            <p className="text-[11px] font-black text-text-secondary uppercase tracking-wider">七大赛记录</p>
+          </div>
+          <div className="mt-3.5 grid grid-cols-2 gap-2">
+            <div>
+              <p className="text-[9px] font-bold text-text-tertiary uppercase">单打冠军</p>
+              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.singleSevenTitles}</p>
+            </div>
+            <div>
+              <p className="text-[9px] font-bold text-text-tertiary uppercase">总冠军</p>
+              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.allSevenTitles}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* 7 Major Finals */}
+        <div className="bento-span-6 bento-card bento-card-hover flex items-center justify-between border-dashed bg-white/30">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-state-warning/20">
+              <Target size={18} className="text-state-warning" />
+            </div>
+            <p className="text-[14px] font-bold text-text-secondary">七大赛单打决赛次数</p>
+          </div>
+          <p className="text-[24px] font-black text-text-primary">{stats.sevenFinals}</p>
+        </div>
       </div>
     </section>
   );
@@ -318,9 +461,9 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ s
   if (!detail) notFound();
 
   return (
-    <main className="mx-auto min-h-screen max-w-lg overflow-hidden">
+    <main className="mx-auto min-h-screen max-w-lg overflow-hidden pb-12">
       <PlayerHero player={detail.player} />
-      <CoreStats player={detail.player} stats={detail.stats} />
+      <PlayerStatsBento player={detail.player} stats={detail.stats} />
       <RecentMatches matches={detail.recentMatches} />
       <EventRecords events={detail.events} />
       <TopOpponents opponents={detail.topOpponents} />

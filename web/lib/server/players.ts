@@ -25,6 +25,16 @@ export function getPlayerBySlug(slug: string) {
           p.slug,
           p.country,
           p.country_code AS countryCode,
+          p.gender,
+          p.birth_year AS birthYear,
+          p.age,
+          p.style_zh AS styleZh,
+          p.career_best_rank AS careerBestRank,
+          p.career_matches AS careerMatches,
+          p.career_wins AS careerWins,
+          p.year_events AS yearEvents,
+          p.year_matches AS yearMatches,
+          p.year_wins AS yearWins,
           REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
           p.avatar_url AS avatarUrl,
           rs.ranking_date AS rankingDate,
@@ -48,6 +58,16 @@ export function getPlayerBySlug(slug: string) {
         slug: string;
         country: string | null;
         countryCode: string;
+        gender: string | null;
+        birthYear: number | null;
+        age: number | null;
+        styleZh: string | null;
+        careerBestRank: number | null;
+        careerMatches: number | null;
+        careerWins: number | null;
+        yearEvents: number | null;
+        yearMatches: number | null;
+        yearWins: number | null;
         avatarFile: string | null;
         avatarUrl: string | null;
         rankingDate: string | null;
@@ -78,6 +98,10 @@ export function getPlayerDetail(slug: string) {
     eventsTotal: 0,
     threeTitles: 0,
     sevenTitles: 0,
+    singleThreeTitles: 0,
+    singleSevenTitles: 0,
+    allThreeTitles: 0,
+    allSevenTitles: 0,
     sevenFinals: 0,
   };
 

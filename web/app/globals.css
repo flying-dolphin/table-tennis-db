@@ -82,4 +82,36 @@
   .rank-pill {
     @apply inline-flex items-center justify-center px-4 py-1 rounded-full bg-soft font-bold text-sm;
   }
+
+  /* Bento Grid Helpers */
+  .bento-grid {
+    @apply grid grid-cols-6 gap-2.5;
+  }
+
+  .bento-card {
+    @apply rounded-[22px] border border-white/60 bg-white/75 p-3.5 shadow-sm backdrop-blur-md transition-all duration-200;
+  }
+
+  .bento-card-hover {
+    @apply hover:bg-white/90 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .bento-span-1 { @apply col-span-1; }
+  .bento-span-2 { @apply col-span-2; }
+  .bento-span-3 { @apply col-span-3; }
+  .bento-span-4 { @apply col-span-4; }
+  .bento-span-6 { @apply col-span-6; }
+
+  /* Special Tokens */
+  .honor-diamond {
+    @apply border-brand-primary/40 bg-gradient-to-br from-brand-soft to-white/90;
+  }
+
+  .honor-gold {
+    @apply border-state-warning/30 bg-gradient-to-br from-state-warning/10 to-white/90;
+  }
+
+  .honor-silver {
+    @apply border-text-tertiary/20 bg-gradient-to-br from-page-background to-white/90;
+  }
 }
