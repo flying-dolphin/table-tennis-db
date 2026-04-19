@@ -817,9 +817,9 @@ UPDATE events_calendar SET
     event_category_id = (SELECT id FROM event_categories WHERE category_id = 'YOUTH_STAR_CONTENDER')
 WHERE year = 2026 AND name = 'WTT Youth Star Contender Gangneung 2026' AND href LIKE '%3329%';
 UPDATE events_calendar SET 
-    event_type = 'Multi sport events', 
+    event_type = 'Continental Games', 
     event_kind = '--', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'MULTI_SPORT_GAMES')
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'CONTINENTAL_GAMES')
 WHERE year = 2026 AND name = 'Asian Games Aichi-Nagoya 2026';
 UPDATE events_calendar SET 
     event_type = 'WTT Youth Contender Series', 
