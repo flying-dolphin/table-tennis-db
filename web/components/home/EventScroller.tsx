@@ -603,7 +603,7 @@ export default function EventScroller() {
                         "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 overflow-hidden pb-0.5 transform-gpu [backface-visibility:hidden]",
                         "transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] origin-center",
                         isActive
-                          ? "scale-[1.05] opacity-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)]"
+                          ? "scale-[1.05] opacity-100 shadow-[0_8px_18px_-12px_rgba(30,42,61,0.18)]"
                           : "scale-[0.80] opacity-45 shadow-none",
                       )}
                     >
