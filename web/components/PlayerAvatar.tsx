@@ -24,9 +24,25 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
 
   const displayName = player.nameZh?.trim() || player.name;
   
-  // Use avatarFile if available, otherwise construct from name/id
+  // Construct paths
   const filename = player.avatarFile || `player_${player.playerId}_${player.name.replace(/ /g, "_")}.png`;
-  const avatarPath = `/images/avatars/${filename}`;
+  const croppedPath = `/images/crops/${filename}`;
+  const originalPath = `/images/avatars/${filename}`;
+
+  // Image source state - try cropped first
+  const [imgSrc, setImgSrc] = useState(croppedPath);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const handleImageError = () => {
+    if (retryCount === 0) {
+      // First error: fallback from crop to original
+      setImgSrc(originalPath);
+      setRetryCount(1);
+    } else {
+      // Second error: fallback to letter placeholder
+      setError(true);
+    }
+  };
 
   const sizeClasses = {
     sm: "w-9 h-9 text-xs",
@@ -49,10 +65,10 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
       <div className={cn(containerClasses, "bg-slate-50")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={avatarPath}
+          src={imgSrc}
           alt={player.name}
           className="w-full h-full object-cover"
-          onError={() => setError(true)}
+          onError={handleImageError}
         />
       </div>
     );
