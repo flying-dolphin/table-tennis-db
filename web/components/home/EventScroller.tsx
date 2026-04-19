@@ -519,7 +519,7 @@ export default function EventScroller() {
                       )}
                       title={ev.name}
                     >
-                      {ev.name}
+                      {ev.span > 1 && ev.name}
                     </div>
                   ))}
                 </div>
@@ -555,7 +555,7 @@ export default function EventScroller() {
         </div>
       )}
 
-      <section className="mt-0 mb-0 relative z-10 w-full">
+      <section className="mt-4 mb-4 relative z-10 w-full">
         <div
           ref={carouselRef}
           onWheel={handleWheel}
