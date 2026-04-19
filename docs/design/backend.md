@@ -53,8 +53,8 @@
 - 胜率：全量历史 `match` 胜率
 - 外战 / 内战：按国家判断
 - `events` 总数：按 `event` 去重统计
-- 三大赛：`event_categories.sort_order` 在 `1-3`
-- 七大赛：`event_categories.sort_order` 在 `1-7`
+- 三大赛：`event_categories.sort_order` 在 `1-5`
+- 七大赛：`event_categories.sort_order` 在 `1-9`
 - 七大赛进决赛次数：包含冠军
 - V1 暂不计算世界冠军总数
 

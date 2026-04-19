@@ -888,8 +888,8 @@ V1 默认适用于：
 ### 10.10 三大赛 / 七大赛口径
 基于 `event_categories.sort_order`：
 
-- 三大赛：`sort_order` 在 `1-3`
-- 七大赛：`sort_order` 在 `1-7`
+- 三大赛：`sort_order` 在 `1-5`
+- 七大赛：`sort_order` 在 `1-9`
 
 #### 三大赛冠军总数
 按三大赛口径统计冠军数。
@@ -1255,8 +1255,8 @@ V1 可上线的标准：
 - `event`：赛事
 - `sub event`：赛事项目
 - `match`：具体比赛
-- 三大赛：`event_categories.sort_order` 在 `1-3`
-- 七大赛：`event_categories.sort_order` 在 `1-7`
+- 三大赛：`event_categories.sort_order` 在 `1-5`
+- 七大赛：`event_categories.sort_order` 在 `1-9`
 - 外战 / 内战：按国家区分
 
 ### 14.2 示例自然语言问题

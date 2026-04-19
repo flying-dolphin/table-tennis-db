@@ -143,7 +143,7 @@ CREATE TABLE event_categories (
     category_name       TEXT NOT NULL,          -- 英文名称
     category_name_zh    TEXT,                   -- 中文名称（与词典同步）
     json_code           TEXT,                   -- ranking JSON 中的缩写，如 "GS"
-    sort_order          INTEGER,               -- 排序序号，1-3 为三大赛，1-7 为七大赛
+    sort_order          INTEGER,               -- 排序序号，1-5 为三大赛，1-9 为七大赛
     points_tier         TEXT,                   -- Premium / High / Medium / Low / None
     points_eligible     INTEGER NOT NULL DEFAULT 1,
     filtering_only      INTEGER NOT NULL DEFAULT 0,
