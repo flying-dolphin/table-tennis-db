@@ -77,7 +77,7 @@ export default function RankingTable() {
     <section className="mt-2 mb-4 px-4">
       <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-4 shadow-xl shadow-slate-200/50 border border-white/50 relative overflow-hidden">
         <div className="flex justify-between items-end mb-2.5 px-1 relative z-10">
-          <h2 className="text-[18px] font-bold text-slate-700 tracking-tight">
+          <h2 className="text-[18px] font-bold text-text-secondary tracking-tight">
             世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-[14px]">Top 10</span>
           </h2>
           <a
@@ -115,27 +115,27 @@ export default function RankingTable() {
                     className="flex items-center bg-white/80 p-2 border border-white shadow-sm rounded-[24px] relative overflow-hidden mb-1.5 transition-colors hover:bg-white"
                   >
                     <div className="w-10 shrink-0 text-center mr-1">
-                      <span className="text-[22px] font-bold text-blue-600 pr-1 leading-none">{player.rank}</span>
+                      <span className="text-[22px] font-bold text-brand-strong pr-1 leading-none">{player.rank}</span>
                     </div>
 
                     <PlayerAvatar player={player} size="md" />
 
                     <div className="ml-2.5 flex-1 flex flex-col justify-center overflow-hidden">
                       <div className="flex items-center gap-1.5">
-                        <h3 className="text-[15px] font-bold text-slate-800 leading-tight truncate">
+                        <h3 className="text-[15px] font-bold text-text-primary leading-tight truncate">
                           {displayName(player)}
                         </h3>
-                        <span className="shrink-0 text-[10px] font-medium text-slate-500 bg-slate-100 border border-slate-200 px-1 py-0.5 rounded uppercase tracking-wider">
+                        <span className="shrink-0 text-[10px] font-medium text-text-secondary bg-surface-secondary border border-border-subtle px-1 py-0.5 rounded uppercase tracking-wider">
                           {player.countryCode}
                         </span>
                       </div>
                     </div>
 
                     <div className="text-right shrink-0 pr-1 flex items-baseline gap-1">
-                      <span className="text-[16px] font-semibold text-slate-800 tracking-tight">
+                      <span className="text-[16px] font-semibold text-text-primary tracking-tight">
                         {player.points.toLocaleString()}
                       </span>
-                      <span className="text-[10px] font-medium text-slate-400">分</span>
+                      <span className="text-[10px] font-medium text-text-tertiary">分</span>
                     </div>
                   </Link>
                 );
@@ -148,23 +148,23 @@ export default function RankingTable() {
                   className="flex items-center py-2 px-1 border-b border-white/40 last:border-0 hover:bg-white/30 transition-colors rounded-xl"
                 >
                   <div className="w-9 shrink-0 text-center mr-1">
-                    <span className="text-[16px] font-medium text-slate-400 pr-0.5">{player.rank}</span>
+                    <span className="text-[16px] font-medium text-text-tertiary pr-0.5">{player.rank}</span>
                   </div>
 
                   <PlayerAvatar player={player} size="sm" />
 
                   <div className="ml-2.5 flex-1 flex items-center gap-1.5 overflow-hidden">
-                    <h3 className="text-[14px] font-semibold text-slate-700 leading-tight truncate">
+                    <h3 className="text-[14px] font-semibold text-text-secondary leading-tight truncate">
                       {displayName(player)}
                     </h3>
-                    <span className="shrink-0 text-[9px] font-medium text-slate-400 bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase tracking-wider">
+                    <span className="shrink-0 text-[9px] font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase tracking-wider">
                       {player.countryCode}
                     </span>
                     {changeValue !== 0 && (
                       <span
                         className={cn(
                           "shrink-0 text-[10px] font-medium flex items-center",
-                          changeValue > 0 ? "text-[#34C759]" : "text-[#FF3B30]",
+                          changeValue > 0 ? "text-state-success" : "text-state-danger",
                         )}
                       >
                         {changeValue > 0 ? "↑" : "↓"}
@@ -174,10 +174,10 @@ export default function RankingTable() {
                   </div>
 
                   <div className="text-right shrink-0 pr-1 flex items-baseline gap-0.5">
-                    <span className="text-[14px] font-semibold text-slate-500 tracking-tight">
+                    <span className="text-[14px] font-semibold text-text-secondary tracking-tight">
                       {player.points.toLocaleString()}
                     </span>
-                    <span className="text-[9px] font-medium text-slate-400">分</span>
+                    <span className="text-[9px] font-medium text-text-tertiary">分</span>
                   </div>
                 </Link>
               );

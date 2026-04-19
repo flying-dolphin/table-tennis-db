@@ -9,11 +9,18 @@
     --foreground: 26 26 26;
     --mint: 168 208 201;
     --dark: 26 26 26;
+    --page-gradient-from: 238 242 247;
+    --page-gradient-to: 221 229 237;
+    --hero-anchor: 26 35 44;
   }
 
   body {
     @apply text-text-primary font-body min-h-screen;
-    background: linear-gradient(180deg, #eef2f7 0%, #dde5ed 100%);
+    background: linear-gradient(
+      180deg,
+      rgb(var(--page-gradient-from)) 0%,
+      rgb(var(--page-gradient-to)) 100%
+    );
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -30,7 +37,7 @@
   }
   
   .pill-nav-container {
-    @apply fixed bottom-8 left-1/2 -translate-x-1/2 bg-white/70 backdrop-blur-xl px-6 py-2.5 rounded-full flex items-center gap-1 shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-50 transition-all duration-300 border border-white/50;
+    @apply mx-auto mb-[calc(8px+env(safe-area-inset-bottom))] w-[min(92vw,420px)] bg-white/75 backdrop-blur-xl px-4 py-2.5 rounded-full flex items-center justify-between gap-1 shadow-[0_20px_45px_rgba(30,42,61,0.16)] transition-all duration-300 border border-border-subtle;
   }
 
   .nav-item {
