@@ -35,20 +35,19 @@ def load_category_mapping():
     mapping_file = PROJECT_ROOT / "data" / "event_category_mapping.json"
     if not mapping_file.exists():
         return {}
-    
+
     with open(mapping_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
-    
+
     result = {}
     for event in data.get('events', []):
         et = event.get('event_type', '')
         ek = event.get('event_kind', '--')
         cat_id = event.get('category_id', '')
         result[(et, ek)] = cat_id
-        # 处理别名
         for alias in event.get('event_kind_aliases', []):
             result[(et, alias)] = cat_id
-    
+
     return result
 
 
@@ -87,7 +86,7 @@ def parse_date_range(date_zh: str | None, year: int):
     # 解析中文日期范围，格式如 "01-07至01-11" 或 "29 Apr – 2 May"
     # 先统一分隔符
     date_zh = date_zh.replace('–', '-').replace('—', '-')
-    
+
     # 匹配格式: MM-DD至MM-DD 或 DD Mon – DD Mon
     range_match = re.search(r'(\d+)\s*([A-Za-z]+)\s*[-至]\s*(\d+)\s*([A-Za-z]+)', date_zh, re.IGNORECASE)
     if range_match:
@@ -95,17 +94,17 @@ def parse_date_range(date_zh: str | None, year: int):
         start_month_str = range_match.group(2)
         end_day = range_match.group(3).zfill(2)
         end_month_str = range_match.group(4)
-        
+
         start_month = month_to_num(start_month_str)
         end_month = month_to_num(end_month_str)
-        
+
         if start_month and end_month:
             # 处理跨年情况
             if end_month < start_month and start_month >= 10:  # 10-12月可能跨年到次年
                 end_year = year + 1
             else:
                 end_year = year
-            
+
             start_date = f"{year}-{start_month}-{start_day}"
             end_date = f"{end_year}-{end_month}-{end_day}"
             return start_date, end_date
@@ -118,13 +117,13 @@ def parse_date_range(date_zh: str | None, year: int):
         start_day = simple_match.group(2).zfill(2)
         end_month = simple_match.group(3).zfill(2)
         end_day = simple_match.group(4).zfill(2)
-        
+
         # 判断是否跨年
         if int(end_month) < int(start_month) and int(start_month) >= 10:
             end_year = year + 1
         else:
             end_year = year
-        
+
         return f"{year}-{start_month}-{start_day}", f"{end_year}-{end_month}-{end_day}"
 
     return None, None
@@ -216,52 +215,26 @@ def build_event_lookup(cursor):
     }
 
 
-def resolve_event(calendar_event: dict, event_lookup: dict, year: int):
-    href = calendar_event.get("href")
-    event_id = extract_event_id(href)
-    if event_id is not None:
-        matched = event_lookup["by_id"].get(event_id)
-        if matched:
-            return matched
-
-    if href:
-        matched = event_lookup["by_href"].get(href)
-        if matched:
-            return matched
-
-    norm_name = normalize_event_name(calendar_event.get("name", ""))
-    if norm_name:
-        matched = event_lookup["by_name_year"].get((norm_name, year))
-        if matched:
-            return matched
-
-        candidates = event_lookup["by_name"].get(norm_name, [])
-        if len(candidates) == 1:
-            return candidates[0]
-
-    return None
-
-
 def build_calendar_lookup(cursor):
-    """构建已导入calendar记录的查找表，按 name + year 去重"""
+    """构建已导入calendar记录的查找表，按 normalize_event_name(name) + year 去重"""
     cursor.execute("""
         SELECT year, name, href, event_id
         FROM events_calendar
     """)
-    
+
     by_name_year = {}
     by_href = {}
     by_event_id = {}
-    
+
     for row in cursor.fetchall():
         year, name, href, event_id = row
         if name:
-            by_name_year[(name.lower().strip(), year)] = row
+            by_name_year[(normalize_event_name(name), year)] = row
         if href:
             by_href[href] = row
         if event_id:
             by_event_id[event_id] = row
-    
+
     return {
         "by_name_year": by_name_year,
         "by_href": by_href,
@@ -276,51 +249,61 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
     """
     if not name:
         return None, None
-    
-    # WTT events
+
+    # WTT events — Youth 必须在成年组前判断，避免被成年组拦截
     if 'WTT Champions' in name:
         return 'WTT Champions', '--'
     elif 'WTT Finals' in name:
         return 'WTT Finals', '--'
+    elif 'WTT Youth Grand Smash' in name or ('Youth Smash' in name):
+        return 'WTT Youth Grand Smash', '--'
     elif 'WTT Grand Smash' in name or (('Singapore' in name or 'China' in name or 'United States' in name) and 'Smash' in name and 'Youth' not in name):
         return 'WTT Grand Smash', '--'
-    elif 'WTT Youth Grand Smash' in name or 'Youth Smash' in name:
-        return 'WTT Youth Grand Smash', '--'
+    elif 'WTT Youth Star Contender' in name:
+        return 'WTT Youth Contender Series', 'WTT Youth Star Contender'
+    elif 'WTT Youth Contender' in name:
+        return 'WTT Youth Contender Series', 'WTT Youth Contender'
     elif 'WTT Star Contender' in name:
         return 'WTT Contender Series', 'WTT Star Contender'
     elif 'WTT Contender' in name:
         return 'WTT Contender Series', 'WTT Contender'
     elif 'WTT Feeder' in name:
         return 'WTT Feeder Series', '--'
-    elif 'WTT Youth Star Contender' in name:
-        return 'WTT Youth Contender Series', 'WTT Youth Star Contender'
-    elif 'WTT Youth Contender' in name:
-        return 'WTT Youth Contender Series', 'WTT Youth Contender'
-    
+
     # ITTF World Team Championships
     elif 'World Team Championships Finals' in name or 'WTTTC Finals' in name:
         return 'ITTF WTTC', 'WTTC Finals'
     elif 'World Team Championships' in name or 'World Team Table Tennis Championships' in name:
         return 'ITTF WTTC', '--'
-    
+
+    # ITTF World Table Tennis Championships (individual) — new naming
+    elif 'World Table Tennis Championships' in name:
+        return 'ITTF WTTC', '--'
+
+    # ITTF Mixed Team World Cup — 必须在通用 World Cup 前判断
+    elif 'Mixed Team World Cup' in name:
+        return 'ITTF Mixed Team World Cup', '--'
+
     # ITTF World Cup
     elif "ITTF Men's & Women's World Cup" in name or 'World Cup' in name:
         return 'ITTF World Cup', '--'
-    elif 'Mixed Team World Cup' in name:
-        return 'ITTF Mixed Team World Cup', '--'
-    
+
     # ITTF World Youth Championships
     elif 'World Youth Championships' in name or 'World Junior' in name:
         return 'ITTF World Youth Championships', '--'
-    
+
+    # Olympic Qualification
+    elif 'Olympic Qualification' in name or 'Olympic Qualifier' in name:
+        return 'Olympic Games', 'Qualification'
+
     # Youth Olympic Games
     elif 'Youth Olympic Games' in name:
         return 'Youth Olympic Games', '--'
-    
+
     # Olympic Games
     elif 'Olympic Games' in name:
         return 'Olympic Games', '--'
-    
+
     # Multi-sport events
     elif 'Asian Games' in name or 'Asian Para Games' in name:
         return 'Multi sport events', '--'
@@ -336,7 +319,7 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         return 'Multi sport events', '--'
     elif 'Solidarity Games' in name:
         return 'Multi sport events', '--'
-    
+
     # ITTF Para events
     elif 'World Para Championships' in name:
         return 'ITTF Para', 'World Para Championships'
@@ -346,11 +329,11 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         return 'ITTF Para', 'World Para Challenger'
     elif 'World Para Future' in name:
         return 'ITTF Para', 'World Para Future'
-    
+
     # ITTF Masters/World Masters
     elif 'World Masters' in name or 'Masters Championships' in name:
         return 'ITTF Masters', '--'
-    
+
     # ETTU / Continental events
     elif 'ETTU' in name or 'Europe ' in name:
         if 'Top 16' in name or 'Top 10' in name:
@@ -358,7 +341,7 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         elif 'U21' in name:
             return 'Continental', 'U21 Championships'
         elif 'U13' in name:
-            return 'Continental', 'U13 Championships'
+            return 'Continental', 'Youth Championships'
         elif 'European' in name and 'Youth' in name:
             return 'Continental', 'Youth Championships'
         elif 'European' in name and 'Individual' in name:
@@ -368,7 +351,7 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         elif 'Championships' in name:
             return 'Continental', 'Senior Championships'
         return 'Continental', 'Senior Championships'
-    
+
     # ITTF Regional events
     elif 'ITTF-Africa' in name:
         if 'North' in name or 'South' in name or 'East' in name or 'West' in name or 'Central' in name:
@@ -380,7 +363,7 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         elif 'Championships' in name:
             return 'Continental', 'Senior Championships'
         return 'Continental', 'Senior Championships'
-    
+
     elif 'ITTF-Americas' in name or 'ITTF-ATTU' in name or 'ITTF-Oceania' in name:
         if 'North American' in name:
             return 'Regional', 'Senior Championships'
@@ -401,49 +384,49 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         elif 'Championships' in name:
             return 'Continental', 'Senior Championships'
         return 'Continental', 'Senior Championships'
-    
+
     # Special qualifier events
     elif 'Special Event Qualifier' in name or 'Qualification' in name:
         return 'Regional', 'Senior Championships'
-    
+
     # Catch all
     return 'Continental', 'Senior Championships'
 
 
 def resolve_event_v2(calendar_event: dict, event_lookup: dict, year: int):
     """
-    改进的事件匹配逻辑：
+    事件匹配逻辑：
     1. 先通过标准化名称 + year 匹配
     2. 再通过 href 匹配
     3. 最后通过 event_id 匹配
     """
     norm_name = normalize_event_name(calendar_event.get("name", ""))
-    
+
     # 1. 先尝试按标准化名称 + year 匹配
     if norm_name:
         matched = event_lookup["by_name_year"].get((norm_name, year))
         if matched:
             return matched
         # 如果没有精确匹配，尝试模糊匹配（名称相同，年份不同）
-        candidates = [v for k, v in event_lookup["by_name_year"].items() 
+        candidates = [v for k, v in event_lookup["by_name_year"].items()
                       if k[0] == norm_name]
         if len(candidates) == 1:
             return candidates[0]
-    
+
     # 2. 通过 href 匹配
     href = calendar_event.get("href")
     if href:
         matched = event_lookup["by_href"].get(href)
         if matched:
             return matched
-    
+
     # 3. 通过 event_id 匹配（从href解析）
     event_id = extract_event_id(href)
     if event_id is not None:
         matched = event_lookup["by_id"].get(event_id)
         if matched:
             return matched
-    
+
     return None
 
 
@@ -458,36 +441,14 @@ def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
 
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
-    
+
     # 构建 events 表查找表
     event_lookup = build_event_lookup(cursor)
-    
-# 构建 category_id -> 数字 id 的映射
-cat_id_lookup = build_category_id_lookup(cursor)
 
-# 洲际赛 category_id 前缀（用于过滤：只导入亚洲的洲际赛）
-CONTINENTAL_PREFIXES = (
-    "CONTINENTAL_",
-    "U21_CONTINENTAL_",
-    "YOUTH_CONTINENTAL_",
-)
+    # 构建 category_id -> 数字 id 的映射
+    cat_id_lookup = build_category_id_lookup(cursor)
 
-
-def is_asian_continental_event(cat_id_str: str | None, event_name: str) -> bool:
-    """
-    判断是否是亚洲洲际赛。
-    如果 category_id 是洲际赛类型但名称不包含 Asian/亚洲，返回 False（过滤掉）。
-    如果 category_id 不是洲际赛类型，返回 True（不过滤）。
-    """
-    if not cat_id_str:
-        return True
-    if not cat_id_str.startswith(CONTINENTAL_PREFIXES):
-        return True
-    name_lower = event_name.lower()
-    return "asian" in name_lower or "亚洲" in event_name
-
-
-# 构建已导入 calendar 记录查找表（用于去重）
+    # 构建已导入 calendar 记录查找表（用于去重）
     calendar_lookup = build_calendar_lookup(cursor)
 
     calendar_path = Path(calendar_dir)
@@ -508,29 +469,28 @@ def is_asian_continental_event(cat_id_str: str | None, event_name: str) -> bool:
         for event in events:
             event_name = event.get("name", "")
             href = event.get("href", "")
-            
-            # 检查是否已存在（按 name + year 判断）
+
+            # 检查是否已存在（按 normalize_event_name(name) + year 判断）
             norm_name = normalize_event_name(event_name)
-            existing = calendar_lookup["by_name_year"].get((norm_name.lower(), year)) if norm_name else None
-            
+            existing = calendar_lookup["by_name_year"].get((norm_name, year)) if norm_name else None
+
             if existing:
                 result["skipped"] += 1
                 continue
-            
+
             # 尝试匹配 events 表
             matched_event = resolve_event_v2(event, event_lookup, year)
-            
+
             # 从 href 解析 event_id
             event_id_from_href = extract_event_id(href)
             matched_event_id = matched_event["event_id"] if matched_event else event_id_from_href
-            
+
             # 获取 event_type, event_kind, category_id
             if matched_event:
                 event_type = matched_event["event_type"]
                 event_kind = matched_event["event_kind"]
-                cat_id_str = matched_event["event_category_id"]  # 可能是字符串如 'WTT_CONTENDER'
-                # 转换为数字 id
-                event_category_id = cat_id_lookup.get(cat_id_str) if cat_id_str else None
+                # events.event_category_id 已是数字外键，直接使用
+                event_category_id = matched_event["event_category_id"]
                 result["matched_events"] += 1
             else:
                 # 通过名称自动分类
@@ -539,11 +499,6 @@ def is_asian_continental_event(cat_id_str: str | None, event_name: str) -> bool:
                 cat_id_str = CATEGORY_MAPPING.get((event_type or '', event_kind or '--'))
                 event_category_id = cat_id_lookup.get(cat_id_str) if cat_id_str else None
                 result["classified_by_name"] += 1
-
-            # 过滤：洲际赛只导入亚洲的
-            if not is_asian_continental_event(cat_id_str, event_name):
-                print(f"  [过滤] 跳过非亚洲洲际赛: {event_name} (category: {cat_id_str})")
-                continue
 
             # 解析 date_zh 获取 start_date 和 end_date
             start_date, end_date = parse_date_range(event.get("date_zh"), year)
@@ -593,7 +548,7 @@ def verify_events_calendar(db_path: str):
 
     cursor.execute("SELECT COUNT(*) FROM events_calendar WHERE event_category_id IS NOT NULL")
     typed_events = cursor.fetchone()[0]
-    
+
     cursor.execute("SELECT COUNT(*) FROM events_calendar WHERE start_date IS NOT NULL")
     with_dates = cursor.fetchone()[0]
 
