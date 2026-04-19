@@ -48,7 +48,7 @@ export function getHomeCalendar(year?: number) {
   };
 }
 
-export function getHomeRankings(limit = 20, category = 'women_singles') {
+export function getHomeRankings(limit = 10, category = 'women_singles') {
   const snapshot = db
     .prepare(
       `
@@ -88,7 +88,7 @@ export function getHomeRankings(limit = 20, category = 'women_singles') {
           p.name_zh AS nameZh,
           p.country,
           p.country_code AS countryCode,
-          p.avatar_file AS avatarFile,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
           p.avatar_url AS avatarUrl
         FROM ranking_entries re
         JOIN players p ON p.player_id = re.player_id
