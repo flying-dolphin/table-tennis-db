@@ -50,7 +50,7 @@ export default function BottomNav() {
               )}
             >
               <div className={cn(
-                "p-1.5 rounded-xl transition-all duration-300",
+                "p-1 rounded-xl transition-all duration-300",
                 isActive ? "bg-brand-soft/85 scale-105 shadow-inner" : "bg-transparent"
               )}>
                 <Icon size={22} strokeWidth={isActive ? 2.5 : 2} />

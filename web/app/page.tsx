@@ -8,7 +8,7 @@ export default function HomePage() {
     <main className="relative overflow-hidden">
       {/* Hero Section */}
       <Hero />
-      
+
       {/* Search Box - Overlays Hero */}
       <SearchBox />
 

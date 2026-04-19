@@ -9,7 +9,7 @@ export default function SearchBox() {
   }
 
   return (
-    <div className="relative -mt-6 px-6 z-20">
+    <div className="relative -mt-4 px-6 z-20">
       <button
         type="button"
         onClick={handleClick}

@@ -5,6 +5,7 @@
 
 @layer base {
   :root {
+    /* --background: 238 242 247; */
     --background: 244 247 246;
     --foreground: 26 26 26;
     --mint: 168 208 201;
@@ -31,19 +32,23 @@
     --event-fallback-text: 63 98 18;
   }
 
+  html,
   body {
     @apply text-text-primary font-body min-h-screen;
-    background: linear-gradient(
-      180deg,
-      rgb(var(--page-gradient-from)) 0%,
-      rgb(var(--page-gradient-to)) 100%
-    );
+    background: linear-gradient(180deg,
+        rgb(var(--page-gradient-from)) 0%,
+        rgb(var(--page-gradient-to)) 100%);
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold tracking-tight;
   }
 }
@@ -52,9 +57,10 @@
   .glass-card {
     @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
   }
-  
+
   .pill-nav-container {
-    @apply mx-auto mb-[calc(8px+env(safe-area-inset-bottom))] w-[min(92vw,420px)] bg-white/75 backdrop-blur-xl px-4 py-2.5 rounded-full flex items-center justify-between gap-1 shadow-[0_20px_45px_rgba(30,42,61,0.16)] transition-all duration-300 border border-border-subtle;
+    @apply mx-auto mb-[calc(8px+env(safe-area-inset-bottom))] w-[92vw] max-w-[420px] bg-white/75 backdrop-blur-xl px-4 py-1 rounded-full flex items-center justify-between gap-1 transition-all duration-300 border border-border-subtle;
+    box-shadow: 0 20px 45px rgba(30, 42, 61, 0.16);
   }
 
   .nav-item {

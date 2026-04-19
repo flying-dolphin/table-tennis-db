@@ -199,7 +199,7 @@ function mondayFirstWeekday(year: number, month: number) {
 function weekRanges(month: number, year: number) {
   const dim = daysInMonth(year, month);
   const firstOffset = mondayFirstWeekday(year, month);
-  const rows = Math.ceil((firstOffset + dim) / 7);
+  const rows = 6;
   const ranges: Array<{ start: number; end: number }> = [];
   for (let r = 0; r < rows; r += 1) {
     const weekStart = r * 7 - firstOffset + 1;
@@ -334,11 +334,17 @@ function buildMonthCards(events: CalendarEvent[]) {
 }
 
 export default function EventScroller() {
-  const [activeMonthId, setActiveMonthId] = useState<string>("");
+  const [activeIndex, setActiveIndex] = useState(0);
   const [expandedMonthId, setExpandedMonthId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [monthData, setMonthData] = useState<MonthCard[]>([]);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [carouselWidth, setCarouselWidth] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const activeIndexRef = useRef(0);
+  const initialTargetIndexRef = useRef(0);
+  const wheelLockRef = useRef(false);
+  const pointerStartXRef = useRef<number | null>(null);
+  const suppressClickRef = useRef(false);
 
   useEffect(() => {
     let canceled = false;
@@ -349,7 +355,14 @@ export default function EventScroller() {
         if (canceled || payload.code !== 0) return;
         const months = buildMonthCards(payload.data.events);
         setMonthData(months);
-        if (months[0]) setActiveMonthId(months[0].id);
+
+        // Find current month or fallback to first
+        const now = new Date();
+        const currentMonthId = `${now.getFullYear()}-${now.getMonth() + 1}`;
+        const targetIndex = months.findIndex((m) => m.id === currentMonthId);
+        initialTargetIndexRef.current = targetIndex >= 0 ? targetIndex : 0;
+        activeIndexRef.current = initialTargetIndexRef.current;
+        setActiveIndex(initialTargetIndexRef.current);
       } catch (error) {
         if (!canceled) {
           console.error("Failed to load calendar events:", error);
@@ -366,26 +379,86 @@ export default function EventScroller() {
   }, []);
 
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
+    const carousel = carouselRef.current;
+    if (!carousel) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-            const id = (entry.target as HTMLElement).dataset.monthId;
-            if (id) setActiveMonthId(id);
-          }
-        });
-      },
-      { root: container, threshold: [0.6, 0.7, 0.8, 0.9, 1.0] },
-    );
+    const updateWidth = () => {
+      setCarouselWidth(carousel.clientWidth);
+    };
 
-    const items = container.querySelectorAll(".month-card-wrapper");
-    items.forEach((el) => observer.observe(el));
+    updateWidth();
+    const resizeObserver = new ResizeObserver(updateWidth);
+    resizeObserver.observe(carousel);
 
-    return () => observer.disconnect();
-  }, [monthData.length]);
+    return () => resizeObserver.disconnect();
+  }, []);
+
+  const setActiveIndexSafe = React.useCallback(
+    (index: number) => {
+      const maxIndex = Math.max(0, monthData.length - 1);
+      const nextIndex = Math.min(Math.max(index, 0), maxIndex);
+      if (nextIndex === activeIndexRef.current) return;
+      activeIndexRef.current = nextIndex;
+      setActiveIndex(nextIndex);
+    },
+    [monthData.length],
+  );
+
+  const moveByStep = React.useCallback(
+    (direction: -1 | 1) => {
+      setActiveIndexSafe(activeIndexRef.current + direction);
+    },
+    [setActiveIndexSafe],
+  );
+
+  const handleWheel = React.useCallback(
+    (event: React.WheelEvent<HTMLDivElement>) => {
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      if (Math.abs(delta) < 8) return;
+
+      event.preventDefault();
+      if (wheelLockRef.current) return;
+
+      wheelLockRef.current = true;
+      moveByStep(delta > 0 ? 1 : -1);
+      window.setTimeout(() => {
+        wheelLockRef.current = false;
+      }, 520);
+    },
+    [moveByStep],
+  );
+
+  const handlePointerDown = React.useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    pointerStartXRef.current = event.clientX;
+  }, []);
+
+  const handlePointerUp = React.useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      const startX = pointerStartXRef.current;
+      pointerStartXRef.current = null;
+      if (startX === null) return;
+
+      const deltaX = startX - event.clientX;
+      if (Math.abs(deltaX) < 32) return;
+
+      suppressClickRef.current = true;
+      moveByStep(deltaX > 0 ? 1 : -1);
+    },
+    [moveByStep],
+  );
+
+  const handleCardClick = React.useCallback((monthId: string, index: number) => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false;
+      return;
+    }
+
+    setActiveIndexSafe(index);
+    setExpandedMonthId(monthId);
+  }, [setActiveIndexSafe]);
+
+  const cardWidth = carouselWidth > 0 ? Math.min(carouselWidth * 0.78, 280) : 0;
+  const trackX = cardWidth > 0 ? carouselWidth / 2 - cardWidth / 2 - activeIndex * (cardWidth + 16) : 0;
 
   const expandedMonth = useMemo(
     () => monthData.find((item) => item.id === expandedMonthId) ?? null,
@@ -394,7 +467,7 @@ export default function EventScroller() {
 
   const renderCardContent = (month: MonthCard, isModal = false) => (
     <>
-      <div className={cn("flex items-center justify-between bg-[rgb(var(--hero-anchor))] text-white", isModal ? "px-6 py-5" : "px-4 py-1.5")}>
+      <div className={cn("flex items-center justify-between bg-[rgb(var(--hero-anchor))] text-white", isModal ? "px-6 py-5" : "px-3 py-1.5")}>
         <div className="text-left">
           <h2 className={cn("font-semibold tracking-wide leading-none", isModal ? "text-[14px]" : "text-[12px]")}>
             {month.year}赛事日历
@@ -406,23 +479,23 @@ export default function EventScroller() {
           </p>
         </div>
       </div>
-      <div className={cn("grid grid-cols-7 text-center border-b border-white/40", isModal ? "pt-3 pb-2.5 bg-white/20" : "pt-1 pb-0.5 bg-white/10")}>
+      <div className={cn("grid grid-cols-7 text-center border-b border-white/40", isModal ? "px-6 pt-3 pb-2.5 bg-white/20" : "px-3 pt-1 pb-0.5 bg-white/10")}>
         {["一", "二", "三", "四", "五", "六", "日"].map((d) => (
           <span key={d} className={cn("font-medium text-text-tertiary", isModal ? "text-[11px]" : "text-[9px]")}>
             {d}
           </span>
         ))}
       </div>
-      <div className={cn("flex flex-col bg-transparent", isModal ? "p-2.5 gap-1" : "p-1 gap-0.5")}>
+      <div className={cn("flex flex-col bg-transparent", isModal ? "py-2.5 gap-1" : "h-[246px] py-0.5 gap-0")}>
         {month.weeks.map((row, i) => (
-          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "p-2 pb-1.5 min-h-[64px]" : "p-1 pb-0.5 min-h-[36px]")}>
-            <div className="grid grid-cols-7 px-1">
+          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "px-6 py-2 pb-1.5 min-h-[64px]" : "px-3 py-0.5 h-[40px]")}>
+            <div className={cn("grid grid-cols-7", isModal ? "" : "leading-none")}>
               {row.days.map((d, j) => (
                 <div
                   key={j}
                   className={cn(
                     "text-center font-semibold",
-                    isModal ? "text-[12px]" : "text-[10px]",
+                    isModal ? "text-[12px]" : "text-[8px]",
                     d.out ? "text-border-strong opacity-40" : "text-text-primary",
                   )}
                 >
@@ -430,9 +503,9 @@ export default function EventScroller() {
                 </div>
               ))}
             </div>
-            <div className="px-0.5">
+            <div>
               {row.eventLayers.map((layer, lIdx) => (
-                <div key={lIdx} className={cn("grid grid-cols-7 relative", isModal ? "gap-x-1 mb-1" : "gap-x-1 mb-0.5")}>
+                <div key={lIdx} className={cn("grid grid-cols-7 relative", isModal ? "gap-x-1 mb-1" : "gap-x-0.5 mb-0")}>
                   {layer.map((ev, eIdx) => (
                     <div
                       key={eIdx}
@@ -441,7 +514,7 @@ export default function EventScroller() {
                         "font-medium flex items-center shadow-sm overflow-hidden",
                         isModal
                           ? "rounded-[6px] px-1.5 py-1 text-[9px] leading-tight whitespace-normal break-words min-h-[24px]"
-                          : "rounded-[4px] px-1 py-0.5 text-[8px] whitespace-nowrap text-ellipsis",
+                          : "rounded-[3px] px-0.5 py-0 text-[6px] leading-[10px] whitespace-nowrap text-ellipsis min-h-[10px]",
                         ev.color,
                       )}
                       title={ev.name}
@@ -452,7 +525,7 @@ export default function EventScroller() {
                 </div>
               ))}
               {row.hiddenEventCount > 0 && (
-                <div className={cn("text-right font-medium text-text-tertiary", isModal ? "text-[10px] pr-1" : "text-[9px] pr-0.5")}>
+                <div className={cn("text-right font-medium text-text-tertiary", isModal ? "text-[10px] pr-1" : "text-[7px] pr-0.5 leading-none")}>
                   +{row.hiddenEventCount}
                 </div>
               )}
@@ -484,8 +557,14 @@ export default function EventScroller() {
 
       <section className="mt-0 mb-0 relative z-10 w-full">
         <div
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-4 py-1.5 px-6 snap-x snap-mandatory shrink-0 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          ref={carouselRef}
+          onWheel={handleWheel}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={() => {
+            pointerStartXRef.current = null;
+          }}
+          className="overflow-hidden py-1.5 touch-pan-y select-none"
         >
           {loading && (
             <div className="w-[78vw] max-w-[280px] rounded-[32px] bg-white/70 border border-white/60 p-4 text-[13px] text-text-tertiary">
@@ -499,37 +578,42 @@ export default function EventScroller() {
             </div>
           )}
 
-          {!loading &&
-            monthData.map((month) => {
-              const isActive = month.id === activeMonthId;
+          {!loading && monthData.length > 0 && (
+            <div
+              className="flex gap-4 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+              style={{
+                transform: `translateX(${trackX}px)`,
+                willChange: "transform",
+              }}
+            >
+              {monthData.map((month, index) => {
+                const isActive = index === activeIndex;
 
-              return (
-                <button
-                  key={month.id}
-                  data-month-id={month.id}
-                  type="button"
-                  onClick={() => {
-                    setExpandedMonthId(month.id);
-                    const el = scrollContainerRef.current?.querySelector(`[data-month-id="${month.id}"]`);
-                    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-                  }}
-                  className={cn(
-                    "month-card-wrapper snap-center shrink-0 w-[78vw] max-w-[280px] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer transform origin-center",
-                    "outline-none select-none [-webkit-tap-highlight-color:transparent] transform-gpu",
-                    isActive ? "scale-100 opacity-100" : "scale-[0.88] opacity-60",
-                  )}
-                >
-                  <div
-                    className={cn(
-                      "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 overflow-hidden pb-0.5 transition-shadow duration-500 transform-gpu [backface-visibility:hidden]",
-                      isActive ? "shadow-[0_10px_25px_-5px_rgba(107,151,203,0.3)]" : "shadow-sm",
-                    )}
+                return (
+                  <button
+                    key={month.id}
+                    data-month-id={month.id}
+                    data-month-index={index}
+                    type="button"
+                    onClick={() => handleCardClick(month.id, index)}
+                    className="month-card-wrapper shrink-0 w-[78vw] max-w-[280px] cursor-pointer outline-none [-webkit-tap-highlight-color:transparent] text-left"
                   >
-                    {renderCardContent(month, false)}
-                  </div>
-                </button>
-              );
-            })}
+                    <div
+                      className={cn(
+                        "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 overflow-hidden pb-0.5 transform-gpu [backface-visibility:hidden]",
+                        "transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] origin-center",
+                        isActive
+                          ? "scale-100 opacity-100 shadow-[0_10px_25px_-5px_rgba(107,151,203,0.3)]"
+                          : "scale-[0.88] opacity-60 shadow-sm",
+                      )}
+                    >
+                      {renderCardContent(month, false)}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
     </>
