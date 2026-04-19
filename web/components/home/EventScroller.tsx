@@ -457,7 +457,7 @@ export default function EventScroller() {
     setExpandedMonthId(monthId);
   }, [setActiveIndexSafe]);
 
-  const cardWidth = carouselWidth > 0 ? Math.min(carouselWidth * 0.78, 280) : 0;
+  const cardWidth = carouselWidth > 0 ? Math.min(carouselWidth * 0.72, 240) : 0;
   const trackX = cardWidth > 0 ? carouselWidth / 2 - cardWidth / 2 - activeIndex * (cardWidth + 16) : 0;
 
   const expandedMonth = useMemo(
@@ -486,9 +486,9 @@ export default function EventScroller() {
           </span>
         ))}
       </div>
-      <div className={cn("flex flex-col bg-transparent", isModal ? "py-2.5 gap-1" : "h-[246px] py-0.5 gap-0")}>
+      <div className={cn("flex flex-col bg-transparent", isModal ? "py-2.5 gap-1" : "h-[220px] py-0.5 gap-0")}>
         {month.weeks.map((row, i) => (
-          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "px-6 py-2 pb-1.5 min-h-[64px]" : "px-3 py-0.5 h-[40px]")}>
+          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "px-6 py-2 pb-1.5 min-h-[64px]" : "px-3 py-0.5 h-[36px]")}>
             <div className={cn("grid grid-cols-7", isModal ? "" : "leading-none")}>
               {row.days.map((d, j) => (
                 <div
@@ -564,7 +564,7 @@ export default function EventScroller() {
           onPointerCancel={() => {
             pointerStartXRef.current = null;
           }}
-          className="overflow-hidden py-1.5 touch-pan-y select-none"
+          className="overflow-hidden py-3 touch-pan-y select-none"
         >
           {loading && (
             <div className="w-[78vw] max-w-[280px] rounded-[32px] bg-white/70 border border-white/60 p-4 text-[13px] text-text-tertiary">
@@ -596,15 +596,15 @@ export default function EventScroller() {
                     data-month-index={index}
                     type="button"
                     onClick={() => handleCardClick(month.id, index)}
-                    className="month-card-wrapper shrink-0 w-[78vw] max-w-[280px] cursor-pointer outline-none [-webkit-tap-highlight-color:transparent] text-left"
+                    className="month-card-wrapper shrink-0 w-[72vw] max-w-[240px] cursor-pointer outline-none [-webkit-tap-highlight-color:transparent] text-left"
                   >
                     <div
                       className={cn(
                         "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 overflow-hidden pb-0.5 transform-gpu [backface-visibility:hidden]",
                         "transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] origin-center",
                         isActive
-                          ? "scale-100 opacity-100 shadow-[0_10px_25px_-5px_rgba(107,151,203,0.3)]"
-                          : "scale-[0.88] opacity-60 shadow-sm",
+                          ? "scale-[1.05] opacity-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)]"
+                          : "scale-[0.80] opacity-45 shadow-none",
                       )}
                     >
                       {renderCardContent(month, false)}
