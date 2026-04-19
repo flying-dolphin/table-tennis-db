@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-17T18:00:16.974803",
-    "total_entries": 1289
+    "updated_at": "2026-04-19T13:07:49.740966",
+    "total_entries": 1290
   },
   "entries": {
     "ma long": {
@@ -16771,6 +16771,19 @@
         "locations": "location"
       },
       "updated_at": "2026-04-17T18:00:16.974803"
+    },
+    "u21 regional championships": {
+      "original": "U21 Regional Championships",
+      "translated": "U21地区锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "event_mapping",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-19T13:07:49.740452"
     }
   }
 }
