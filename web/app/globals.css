@@ -12,6 +12,23 @@
     --page-gradient-from: 238 242 247;
     --page-gradient-to: 221 229 237;
     --hero-anchor: 26 35 44;
+    --overlay-dark: 15 23 42;
+    --event-grand-smash-bg: 254 202 202;
+    --event-grand-smash-text: 185 28 28;
+    --event-champions-bg: 233 213 255;
+    --event-champions-text: 107 33 168;
+    --event-contender-bg: 173 232 244;
+    --event-contender-text: 0 119 182;
+    --event-feeder-bg: 253 226 180;
+    --event-feeder-text: 212 143 55;
+    --event-finals-bg: 252 213 206;
+    --event-finals-text: 154 52 18;
+    --event-world-cup-bg: 167 217 210;
+    --event-world-cup-text: 44 95 88;
+    --event-olympic-bg: 252 165 165;
+    --event-olympic-text: 153 27 27;
+    --event-fallback-bg: 217 234 211;
+    --event-fallback-text: 63 98 18;
   }
 
   body {

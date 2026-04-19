@@ -67,14 +67,14 @@ const MONTH_INDEX_MAP: Record<string, number> = {
 };
 
 const EVENT_COLOR_TOKENS = {
-  grandSmashRed: "bg-[#FECACA] text-[#B91C1C]",
-  championsPurple: "bg-[#E9D5FF] text-[#6B21A8]",
-  contenderBlue: "bg-[#ADE8F4] text-[#0077B6]",
-  feederOchre: "bg-[#FDE2B4] text-[#D48F37]",
-  finalsOrangeRed: "bg-[#FCD5CE] text-[#9A3412]",
-  worldCupCyan: "bg-[#A7D9D2] text-[#2C5F58]",
-  olympicWttcRed: "bg-[#FCA5A5] text-[#991B1B]",
-  fallbackOther: "bg-[#D9EAD3] text-[#3F6212]",
+  grandSmashRed: "bg-[rgb(var(--event-grand-smash-bg))] text-[rgb(var(--event-grand-smash-text))]",
+  championsPurple: "bg-[rgb(var(--event-champions-bg))] text-[rgb(var(--event-champions-text))]",
+  contenderBlue: "bg-[rgb(var(--event-contender-bg))] text-[rgb(var(--event-contender-text))]",
+  feederOchre: "bg-[rgb(var(--event-feeder-bg))] text-[rgb(var(--event-feeder-text))]",
+  finalsOrangeRed: "bg-[rgb(var(--event-finals-bg))] text-[rgb(var(--event-finals-text))]",
+  worldCupCyan: "bg-[rgb(var(--event-world-cup-bg))] text-[rgb(var(--event-world-cup-text))]",
+  olympicWttcRed: "bg-[rgb(var(--event-olympic-bg))] text-[rgb(var(--event-olympic-text))]",
+  fallbackOther: "bg-[rgb(var(--event-fallback-bg))] text-[rgb(var(--event-fallback-text))]",
 } as const;
 
 const EVENT_CATEGORY_COLOR_MAP: Record<string, string> = {
@@ -394,7 +394,7 @@ export default function EventScroller() {
 
   const renderCardContent = (month: MonthCard, isModal = false) => (
     <>
-      <div className={cn("flex items-center justify-between bg-[#1A232C] text-white", isModal ? "px-6 py-5" : "px-4 py-1.5")}>
+      <div className={cn("flex items-center justify-between bg-[rgb(var(--hero-anchor))] text-white", isModal ? "px-6 py-5" : "px-4 py-1.5")}>
         <div className="text-left">
           <h2 className={cn("font-semibold tracking-wide leading-none", isModal ? "text-[14px]" : "text-[12px]")}>
             {month.year}赛事日历
@@ -467,7 +467,7 @@ export default function EventScroller() {
     <>
       {expandedMonth && (
         <div
-          className="fixed inset-0 z-60 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-6 opacity-100 pointer-events-auto transform-gpu"
+          className="fixed inset-0 z-60 bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-6 opacity-100 pointer-events-auto transform-gpu"
           style={{ WebkitBackdropFilter: "blur(24px)" }}
           onClick={() => setExpandedMonthId(null)}
         >

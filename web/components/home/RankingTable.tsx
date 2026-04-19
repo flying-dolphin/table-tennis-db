@@ -75,7 +75,7 @@ export default function RankingTable() {
 
   return (
     <section className="mt-2 mb-4 px-4">
-      <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-4 shadow-xl shadow-slate-200/50 border border-white/50 relative overflow-hidden">
+      <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-4 shadow-xl shadow-[0_0_0_1px_rgba(217,228,242,0.22)] border border-white/50 relative overflow-hidden">
         <div className="flex justify-between items-end mb-2.5 px-1 relative z-10">
           <h2 className="text-[18px] font-bold text-text-secondary tracking-tight">
             世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-[14px]">Top 10</span>
