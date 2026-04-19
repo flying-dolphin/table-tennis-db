@@ -66,14 +66,38 @@ const MONTH_INDEX_MAP: Record<string, number> = {
   Dec: 12,
 };
 
-const EVENT_COLORS = [
-  "bg-[#A7D9D2] text-[#2C5F58]",
-  "bg-[#ADE8F4] text-[#0077B6]",
-  "bg-[#FDE2B4] text-[#D48F37]",
-  "bg-[#FCD5CE] text-[#9A3412]",
-  "bg-[#D9EAD3] text-[#3F6212]",
-  "bg-[#E9D5FF] text-[#6B21A8]",
-];
+const EVENT_COLOR_TOKENS = {
+  grandSmashRed: "bg-[#FECACA] text-[#B91C1C]",
+  championsPurple: "bg-[#E9D5FF] text-[#6B21A8]",
+  contenderBlue: "bg-[#ADE8F4] text-[#0077B6]",
+  feederOchre: "bg-[#FDE2B4] text-[#D48F37]",
+  finalsOrangeRed: "bg-[#FCD5CE] text-[#9A3412]",
+  worldCupCyan: "bg-[#A7D9D2] text-[#2C5F58]",
+  olympicWttcRed: "bg-[#FCA5A5] text-[#991B1B]",
+  fallbackOther: "bg-[#D9EAD3] text-[#3F6212]",
+} as const;
+
+const EVENT_CATEGORY_COLOR_MAP: Record<string, string> = {
+  WTT_GRAND_SMASH: EVENT_COLOR_TOKENS.grandSmashRed,
+  WTT_CHAMPIONS: EVENT_COLOR_TOKENS.championsPurple,
+  WTT_STAR_CONTENDER: EVENT_COLOR_TOKENS.contenderBlue,
+  WTT_CONTENDER: EVENT_COLOR_TOKENS.contenderBlue,
+  WTT_FEEDER: EVENT_COLOR_TOKENS.feederOchre,
+  WTT_FINALS: EVENT_COLOR_TOKENS.finalsOrangeRed,
+  ITTF_WORLD_CUP: EVENT_COLOR_TOKENS.worldCupCyan,
+  ITTF_MIXED_TEAM_WORLD_CUP: EVENT_COLOR_TOKENS.worldCupCyan,
+  ITTF_WTTC: EVENT_COLOR_TOKENS.olympicWttcRed,
+  ITTF_WORLD_TEAM_CHAMPS: EVENT_COLOR_TOKENS.olympicWttcRed,
+  OLYMPIC_GAMES: EVENT_COLOR_TOKENS.olympicWttcRed,
+};
+
+function resolveEventChipColor(event: CalendarEvent): string {
+  const code = (event.categoryCode ?? "").trim().toUpperCase();
+  if (code && EVENT_CATEGORY_COLOR_MAP[code]) {
+    return EVENT_CATEGORY_COLOR_MAP[code];
+  }
+  return EVENT_COLOR_TOKENS.fallbackOther;
+}
 
 type EventRange = {
   event: CalendarEvent;
@@ -180,7 +204,7 @@ function weekRanges(month: number, year: number) {
   for (let r = 0; r < rows; r += 1) {
     const weekStart = r * 7 - firstOffset + 1;
     const weekEnd = weekStart + 6;
-    ranges.push({ start: Math.max(1, weekStart), end: Math.min(dim, weekEnd) });
+    ranges.push({ start: weekStart, end: weekEnd });
   }
   return { firstOffset, rows, ranges };
 }
@@ -190,6 +214,8 @@ function buildMonthWeeks(year: number, month: number, events: EventRange[]): Wee
   const prevMonth = month === 1 ? 12 : month - 1;
   const prevYear = month === 1 ? year - 1 : year;
   const prevDim = daysInMonth(prevYear, prevMonth);
+  const nextMonth = month === 12 ? 1 : month + 1;
+  const nextYear = month === 12 ? year + 1 : year;
 
   const { firstOffset, rows, ranges } = weekRanges(month, year);
   const weeks: WeekRow[] = [];
@@ -219,8 +245,12 @@ function buildMonthWeeks(year: number, month: number, events: EventRange[]): Wee
 
       let eventStart = 1;
       let eventEnd = dim;
+      const startsInPrevMonth = ev.startYear === prevYear && ev.startMonth === prevMonth;
+      const endsInNextMonth = ev.endYear === nextYear && ev.endMonth === nextMonth;
       if (ev.startYear === year && ev.startMonth === month) eventStart = ev.startDay;
+      if (startsInPrevMonth) eventStart = ev.startDay - prevDim;
       if (ev.endYear === year && ev.endMonth === month) eventEnd = ev.endDay;
+      if (endsInNextMonth) eventEnd = dim + ev.endDay;
 
       const start = Math.max(range.start, eventStart);
       const end = Math.min(range.end, eventEnd);
@@ -229,12 +259,11 @@ function buildMonthWeeks(year: number, month: number, events: EventRange[]): Wee
       const weekStart = row * 7 - firstOffset + 1;
       const startCol = start - weekStart + 1;
       const span = end - start + 1;
-      const colorIndex = ev.event.sortOrder != null ? ev.event.sortOrder % EVENT_COLORS.length : 0;
       chips.push({
         name: (ev.event.nameZh ?? ev.event.name).trim(),
         startCol,
         span,
-        color: EVENT_COLORS[colorIndex],
+        color: resolveEventChipColor(ev.event),
       });
     }
 
@@ -386,8 +415,8 @@ export default function EventScroller() {
       </div>
       <div className={cn("flex flex-col bg-transparent", isModal ? "p-2.5 gap-1" : "p-1 gap-0.5")}>
         {month.weeks.map((row, i) => (
-          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "pt-6 pb-1.5 min-h-[64px]" : "pt-3 pb-0.5 min-h-[36px]")}>
-            <div className="grid grid-cols-7 absolute top-1 inset-x-0 px-1">
+          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "p-2 pb-1.5 min-h-[64px]" : "p-1 pb-0.5 min-h-[36px]")}>
+            <div className="grid grid-cols-7 px-1">
               {row.days.map((d, j) => (
                 <div
                   key={j}
@@ -401,7 +430,7 @@ export default function EventScroller() {
                 </div>
               ))}
             </div>
-            <div className="relative z-10 px-0.5">
+            <div className="px-0.5">
               {row.eventLayers.map((layer, lIdx) => (
                 <div key={lIdx} className={cn("grid grid-cols-7 relative", isModal ? "gap-x-1 mb-1" : "gap-x-1 mb-0.5")}>
                   {layer.map((ev, eIdx) => (
@@ -497,7 +526,6 @@ export default function EventScroller() {
                     )}
                   >
                     {renderCardContent(month, false)}
-                    <div className="px-3 pb-1 text-[10px] text-text-tertiary text-left">重点赛事 {month.eventCount} 项</div>
                   </div>
                 </button>
               );
