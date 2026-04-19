@@ -384,6 +384,24 @@
       "priority": 0
     },
     {
+      "category_id": "REGIONAL_U21_CHAMPS",
+      "category_name": "Regional U21 Championships",
+      "category_name_zh": "U21地区锦标赛",
+      "event_type": "Regional",
+      "event_kind": "U21 Championships",
+      "ittf_rule_name": "U21 Regional Championships",
+      "json_code": null,
+      "points_tier": "Low",
+      "points_eligible": true,
+      "filtering_only": false,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "priority": 0
+    },
+    {
       "category_id": "U21_CONTINENTAL_CHAMPS",
       "category_name": "U21 Continental Championships",
       "category_name_zh": "U21洲际锦标赛",
