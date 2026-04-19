@@ -33,8 +33,8 @@ export default function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 pointer-events-none pb-[env(safe-area-inset-bottom)]">
-      <nav className="w-full bg-white py-2 px-6 flex items-center justify-around pointer-events-auto border-t border-slate-100 shadow-[0_-10px_40px_rgba(0,0,0,0.03)]">
+    <div className="fixed inset-x-0 bottom-0 z-50 pointer-events-none">
+      <nav className="pill-nav-container pointer-events-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive =
@@ -45,15 +45,22 @@ export default function BottomNav() {
               key={item.id}
               href={item.href}
               className={cn(
-                "p-2.5 rounded-2xl transition-all duration-300 flex items-center justify-center",
-                isActive ? "bg-blue-50 text-blue-800" : "text-slate-400 hover:bg-slate-50"
+                "flex flex-col items-center justify-center gap-1 min-w-[58px] px-1 py-1 rounded-2xl transition-all duration-300",
+                isActive ? "text-brand-deep" : "text-text-tertiary hover:text-text-secondary"
               )}
             >
-              {item.id === "profile" ? (
-                <span className="w-6 h-6 rounded-full bg-gradient-to-br from-slate-300 to-slate-500 border border-white/70" />
-              ) : (
-                <Icon size={24} strokeWidth={isActive ? 2 : 1.5} />
-              )}
+              <div className={cn(
+                "p-1.5 rounded-xl transition-all duration-300",
+                isActive ? "bg-brand-soft/85 scale-105 shadow-inner" : "bg-transparent"
+              )}>
+                <Icon size={22} strokeWidth={isActive ? 2.5 : 2} />
+              </div>
+              <span className={cn(
+                "text-[10px] font-bold tracking-tight transition-all duration-300",
+                isActive ? "text-brand-deep scale-105" : "text-text-tertiary"
+              )}>
+                {item.label}
+              </span>
             </a>
           );
         })}
