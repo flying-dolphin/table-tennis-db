@@ -120,8 +120,8 @@ export default function RankingTable() {
 
                     <PlayerAvatar player={player} size="md" />
 
-                    <div className="ml-3 flex-1 flex flex-col justify-center overflow-hidden">
-                      <div className="flex items-center gap-1.5">
+                    <div className="flex-1 flex flex-col justify-center items-center overflow-hidden px-2">
+                      <div className="flex items-center gap-1.5 max-w-full">
                         <h3 className="text-[14px] font-bold text-text-primary leading-tight truncate">
                           {displayName(player)}
                         </h3>
@@ -131,7 +131,7 @@ export default function RankingTable() {
                       </div>
                     </div>
 
-                    <div className="text-right shrink-0 pr-1 flex flex-col items-end leading-none">
+                    <div className="w-[72px] text-right shrink-0 pr-1 flex flex-col items-end leading-none">
                       <div className="flex items-baseline gap-1">
                         <span className="text-[15px] font-semibold text-text-primary tracking-tight">
                           {player.points.toLocaleString()}
@@ -166,7 +166,7 @@ export default function RankingTable() {
 
                   <PlayerAvatar player={player} size="sm" />
 
-                  <div className="ml-2 flex-1 flex items-center gap-1.5 overflow-hidden">
+                  <div className="flex-1 flex items-center justify-center gap-1.5 overflow-hidden px-2">
                     <h3 className="text-[14px] font-semibold text-text-secondary leading-tight truncate">
                       {displayName(player)}
                     </h3>
@@ -175,7 +175,7 @@ export default function RankingTable() {
                     </span>
                   </div>
 
-                  <div className="text-right shrink-0 pr-1 flex flex-col items-end leading-none">
+                  <div className="w-[72px] text-right shrink-0 pr-1 flex flex-col items-end leading-none">
                     <div className="flex items-baseline gap-0.5">
                       <span className="text-[14px] font-semibold text-text-secondary tracking-tight">
                         {player.points.toLocaleString()}
