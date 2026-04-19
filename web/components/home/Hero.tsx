@@ -20,12 +20,14 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-end p-6 pb-6">
         <p className="text-white/70 text-[10px] font-bold tracking-widest mb-1 uppercase drop-shadow-md">
-          ITTF & WTT Data Hub
+          Data from ITTF & WTT
         </p>
-        <h1 className="text-white text-2xl font-black leading-tight tracking-tight drop-shadow-md">
-          乒乓球<br />
-          <span className="text-brand-soft">职业数据查询</span>
+        <h1 className="text-white text-[30px] font-black leading-[1.05] tracking-tight drop-shadow-md font-heading">
+          豆包球谱
         </h1>
+        <p className="mt-1 text-[13px] leading-[1.25] font-medium font-body text-white/78 tracking-[0.01em] drop-shadow-sm">
+          国际赛事数据查询
+        </p>
 
         {/* Profile Circle Mockup */}
         <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/30 overflow-hidden bg-white/10 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-105">
