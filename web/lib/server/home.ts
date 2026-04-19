@@ -31,6 +31,11 @@ export function getHomeCalendar(year?: number) {
         WHERE ec.year = ?
           AND (cat.filtering_only IS NULL OR cat.filtering_only = 0)
           AND cat.sort_order BETWEEN 1 AND 14
+          AND (
+            cat.category_id NOT LIKE 'CONTINENTAL%'
+            OR ec.name LIKE '%Asian%'
+            OR ec.name_zh LIKE '%亚洲%'
+          )
         ORDER BY COALESCE(ec.start_date, ''), ec.date_range, ec.name
       `,
     )

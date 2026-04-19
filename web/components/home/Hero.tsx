@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-[180px] overflow-hidden rounded-b-[40px] bg-[#1A232C] shadow-lg">
+    <section className="relative w-full h-[160px] overflow-hidden rounded-b-[40px] bg-[#1A232C] shadow-lg">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end p-8 pb-8">
+      <div className="relative z-10 h-full flex flex-col justify-end p-6 pb-6">
         <p className="text-white/70 text-[10px] font-bold tracking-widest mb-1 uppercase drop-shadow-md">
           ITTF & WTT Data Hub
         </p>
@@ -28,7 +28,7 @@ export default function Hero() {
         </h1>
 
         {/* Profile Circle Mockup */}
-        <div className="absolute top-6 right-6 w-12 h-12 rounded-full border border-white/30 overflow-hidden bg-white/10 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-105">
+        <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/30 overflow-hidden bg-white/10 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-105">
           <Image
             src="/images/logo.png"
             alt="ITTF Logo"

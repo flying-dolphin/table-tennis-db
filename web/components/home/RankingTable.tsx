@@ -53,8 +53,9 @@ export default function RankingTable() {
         if (!canceled && payload.code === 0) {
           setPlayers(payload.data.players);
         }
-      } catch {
+      } catch (error) {
         if (!canceled) {
+          console.error("Failed to load ranking data:", error);
           setPlayers([]);
         }
       } finally {
