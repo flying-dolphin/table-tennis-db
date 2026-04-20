@@ -164,30 +164,54 @@ CREATE TABLE IF NOT EXISTS matches (
     stage_zh            TEXT,
     round               TEXT,
     round_zh            TEXT,
-    player_a_id         INTEGER,
-    player_a_name       TEXT NOT NULL,
-    player_a_country    TEXT,
-    player_b_id         INTEGER,
-    player_b_name       TEXT,
-    player_b_country    TEXT,
+    side_a_key          TEXT NOT NULL,
+    side_b_key          TEXT NOT NULL,
     match_score         TEXT,
     games               TEXT,
-    winner_id           INTEGER,
+    winner_side         TEXT,
     winner_name         TEXT NOT NULL,
     raw_row_text        TEXT NOT NULL,
     scraped_at          TEXT,
     FOREIGN KEY (event_id) REFERENCES events(event_id),
-    FOREIGN KEY (player_a_id) REFERENCES players(player_id),
-    FOREIGN KEY (player_b_id) REFERENCES players(player_id),
-    UNIQUE(event_id, sub_event_type_code, stage, round, player_a_id, player_b_id)
+    FOREIGN KEY (sub_event_type_code) REFERENCES sub_event_types(code),
+    CHECK (winner_side IN ('A', 'B') OR winner_side IS NULL),
+    UNIQUE(event_id, sub_event_type_code, stage, round, side_a_key, side_b_key)
 );
 
 CREATE INDEX IF NOT EXISTS idx_matches_event ON matches(event_id);
-CREATE INDEX IF NOT EXISTS idx_matches_player_a ON matches(player_a_id);
-CREATE INDEX IF NOT EXISTS idx_matches_player_b ON matches(player_b_id);
-CREATE INDEX IF NOT EXISTS idx_matches_winner ON matches(winner_id);
 CREATE INDEX IF NOT EXISTS idx_matches_sub_event ON matches(sub_event_type_code);
 CREATE INDEX IF NOT EXISTS idx_matches_year ON matches(event_year);
+CREATE INDEX IF NOT EXISTS idx_matches_winner_side ON matches(winner_side);
+
+CREATE TABLE IF NOT EXISTS match_sides (
+    match_side_id        INTEGER PRIMARY KEY AUTOINCREMENT,
+    match_id             INTEGER NOT NULL,
+    side_no              INTEGER NOT NULL, -- 1 / 2
+    side_key             TEXT NOT NULL,
+    is_winner            INTEGER NOT NULL DEFAULT 0, -- 0 / 1
+    FOREIGN KEY (match_id) REFERENCES matches(match_id) ON DELETE CASCADE,
+    CHECK (side_no IN (1, 2)),
+    CHECK (is_winner IN (0, 1)),
+    UNIQUE(match_id, side_no)
+);
+
+CREATE INDEX IF NOT EXISTS idx_match_sides_match ON match_sides(match_id);
+CREATE INDEX IF NOT EXISTS idx_match_sides_winner ON match_sides(is_winner);
+
+CREATE TABLE IF NOT EXISTS match_side_players (
+    match_side_player_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    match_side_id        INTEGER NOT NULL,
+    player_order         INTEGER NOT NULL, -- preserve row order for display
+    player_id            INTEGER,
+    player_name          TEXT NOT NULL,
+    player_country       TEXT,
+    FOREIGN KEY (match_side_id) REFERENCES match_sides(match_side_id) ON DELETE CASCADE,
+    FOREIGN KEY (player_id) REFERENCES players(player_id),
+    UNIQUE(match_side_id, player_order)
+);
+
+CREATE INDEX IF NOT EXISTS idx_match_side_players_side ON match_side_players(match_side_id);
+CREATE INDEX IF NOT EXISTS idx_match_side_players_player ON match_side_players(player_id);
 
 -- ============================================================================
 -- 排名数据表
