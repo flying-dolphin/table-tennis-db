@@ -5,11 +5,8 @@
 
 @layer base {
   :root {
-    /* --background: 238 242 247; */
     --background: 244 247 246;
     --foreground: 26 26 26;
-    --mint: 168 208 201;
-    --dark: 26 26 26;
     --page-gradient-from: 238 242 247;
     --page-gradient-to: 221 229 237;
     --hero-anchor: 26 35 44;
@@ -34,7 +31,7 @@
 
   html,
   body {
-    @apply text-text-primary font-body min-h-screen;
+    @apply text-text-primary font-body min-h-screen text-body;
     background: linear-gradient(180deg,
         rgb(var(--page-gradient-from)) 0%,
         rgb(var(--page-gradient-to)) 100%);
@@ -50,6 +47,23 @@
   h5,
   h6 {
     @apply font-heading font-bold tracking-tight;
+  }
+
+  /* Focus states — keyboard navigation only, not mouse clicks */
+  :focus-visible {
+    outline: 2px solid #6B97CB;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -72,7 +86,7 @@
   }
 
   .section-container {
-    @apply max-w-lg mx-auto px-4 py-6;
+    @apply max-w-lg mx-auto px-5 py-6;
   }
 
   .hero-gradient-overlay {
@@ -80,20 +94,24 @@
   }
 
   .rank-pill {
-    @apply inline-flex items-center justify-center px-4 py-1 rounded-full bg-soft font-bold text-sm;
+    @apply inline-flex items-center justify-center px-4 py-1 rounded-full bg-surface-secondary font-bold text-caption tabular-nums;
   }
 
   /* Bento Grid Helpers */
   .bento-grid {
-    @apply grid grid-cols-6 gap-2.5;
+    @apply grid grid-cols-6 gap-3;
   }
 
   .bento-card {
-    @apply rounded-[22px] border border-white/60 bg-white/75 p-3.5 shadow-sm backdrop-blur-md transition-all duration-200;
+    @apply rounded-md border border-white/60 bg-white/75 p-4 shadow-sm backdrop-blur-md transition-all duration-200;
   }
 
   .bento-card-hover {
     @apply hover:bg-white/90 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .tabular-data {
+    font-variant-numeric: tabular-nums;
   }
 
   .bento-span-1 { @apply col-span-1; }
