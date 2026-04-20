@@ -9,6 +9,8 @@ node_modules/
 web/db/*.sqlite-shm
 web/db/*.sqlite-wal
 web/demo
+web/public/images/avatars
+web/public/images/crops
 references/
 scripts/.*
 scripts/logs
@@ -21,12 +23,16 @@ tmp/
 .codex
 skills-lock.json
 
+scripts/db/*.db
 data/db
 data/raw_event_payloads
 data/checkpoints/
 data/session/
 data/**/checkpoint*.json
 data/raw_event_payloads/
+data/ranking_snapshots/
 data/player_avatars
 data/player_profiles
 data/matches_complete/
+data/locations.txt
+data/team_matches
