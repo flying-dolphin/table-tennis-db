@@ -379,7 +379,7 @@
       "json_code": "RCUP",
       "points_tier": "Low",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -429,7 +429,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -443,7 +443,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -457,7 +457,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -471,7 +471,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -485,7 +485,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -499,14 +499,14 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT",
       "category_name": "ITTF World Junior Circuit",
-      "category_name_zh": "国际乒联世界少年巡回赛",
+      "category_name_zh": "国际乒联世界青少年巡回赛",
       "event_type": "ITTF World Junior Circuit",
       "event_kind": "--",
       "ittf_rule_name": null,
@@ -520,7 +520,7 @@
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_FINALS",
       "category_name": "ITTF World Junior Circuit Finals",
-      "category_name_zh": "国际乒联世界少年巡回赛总决赛",
+      "category_name_zh": "国际乒联世界青少年巡回赛总决赛",
       "event_type": "ITTF World Junior Circuit",
       "event_kind": "Finals",
       "ittf_rule_name": null,
@@ -534,7 +534,7 @@
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_PREMIUM",
       "category_name": "ITTF World Junior Circuit Premium",
-      "category_name_zh": "国际乒联世界少年巡回赛高级",
+      "category_name_zh": "国际乒联世界青少年巡回赛高级",
       "event_type": "ITTF World Junior Circuit",
       "event_kind": "Premium",
       "ittf_rule_name": null,
@@ -548,7 +548,7 @@
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_GOLDEN",
       "category_name": "ITTF World Junior Circuit Golden",
-      "category_name_zh": "国际乒联世界少年巡回赛黄金",
+      "category_name_zh": "国际乒联世界青少年巡回赛黄金",
       "event_type": "ITTF World Junior Circuit",
       "event_kind": "Golden",
       "ittf_rule_name": null,
@@ -583,7 +583,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -597,7 +597,7 @@
       "json_code": "YOG",
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -625,7 +625,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -639,7 +639,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -653,7 +653,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -667,7 +667,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -681,7 +681,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -695,7 +695,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -709,7 +709,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     },
@@ -723,7 +723,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [],
       "priority": 0
     }
