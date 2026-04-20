@@ -429,7 +429,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -443,7 +443,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -457,7 +457,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
