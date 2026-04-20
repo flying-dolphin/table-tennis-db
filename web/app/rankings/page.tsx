@@ -87,7 +87,7 @@ export default function RankingsPage() {
             <Link href="/" className="p-1 -ml-1 text-text-secondary">
               <ChevronLeft size={24} />
             </Link>
-            <h1 className="text-[20px] font-bold text-text-primary">世界排名</h1>
+            <h1 className="text-heading-1 font-bold text-text-primary">世界排名</h1>
           </div>
           <button className="p-2 text-text-tertiary">
             <Filter size={20} />
@@ -104,7 +104,7 @@ export default function RankingsPage() {
               key={item.id}
               onClick={() => setSortBy(item.id)}
               className={cn(
-                "shrink-0 px-4 py-1.5 rounded-full text-[13px] font-medium transition-all border",
+                "shrink-0 px-4 py-1.5 rounded-full text-body font-medium transition-all border",
                 sortBy === item.id
                   ? "bg-brand-deep text-white border-brand-deep shadow-sm"
                   : "bg-white text-text-secondary border-border-subtle hover:border-brand-soft"
@@ -119,9 +119,9 @@ export default function RankingsPage() {
       {/* List */}
       <div className="px-4 mt-4">
         {loading ? (
-          <div className="flex justify-center py-20 text-text-tertiary text-[14px]">加载中...</div>
+          <div className="flex justify-center py-20 text-text-tertiary text-body">加载中...</div>
         ) : (
-          <div className="bg-white/60 backdrop-blur-md rounded-[24px] overflow-hidden border border-white/50 shadow-sm">
+          <div className="bg-white/60 backdrop-blur-md rounded-lg overflow-hidden border border-white/50 shadow-sm">
             {players.map((player) => (
               <div
                 key={player.playerId}
@@ -141,7 +141,7 @@ export default function RankingsPage() {
                 
                 <div className="w-8 shrink-0 text-center mr-1">
                   <span className={cn(
-                    "text-[15px] font-bold",
+                    "text-body-lg font-bold tabular-nums",
                     player.rank <= 3 ? "text-brand-strong" : "text-text-tertiary"
                   )}>
                     {player.rank}
@@ -152,10 +152,10 @@ export default function RankingsPage() {
                   <PlayerAvatar player={player} size="sm" />
                   <div className="ml-3 flex-1 overflow-hidden">
                     <div className="flex items-center gap-1.5">
-                      <h3 className="text-[15px] font-bold text-text-primary leading-tight truncate">
+                      <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
                         {player.nameZh || player.name}
                       </h3>
-                      <span className="shrink-0 text-[10px] font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
+                      <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
                         {player.countryCode}
                       </span>
                     </div>
@@ -164,14 +164,14 @@ export default function RankingsPage() {
 
                 <div className="text-right shrink-0 min-w-[70px]">
                   <div className="flex flex-col items-end">
-                    <span className="text-[15px] font-bold text-text-primary tabular-nums">
+                    <span className="text-body-lg font-bold text-text-primary tabular-nums">
                       {sortBy === "win_rate" 
                         ? `${(player.winRate * 100).toFixed(1)}%` 
                         : sortBy === "head_to_head_count"
                         ? player.headToHeadCount
                         : player.points.toLocaleString()}
                     </span>
-                    <span className="text-[10px] text-text-tertiary">
+                    <span className="text-micro text-text-tertiary">
                       {sortBy === "win_rate" ? "胜率" : sortBy === "head_to_head_count" ? "场次" : "积分"}
                     </span>
                   </div>
@@ -185,7 +185,7 @@ export default function RankingsPage() {
       {/* Compare Action Bar */}
       {selectedIds.length > 0 && (
         <div className="fixed bottom-[84px] inset-x-0 z-40 px-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="bg-brand-deep/95 backdrop-blur-md text-white rounded-[32px] py-2.5 px-4 shadow-[0_8px_32px_rgba(30,42,61,0.24)] flex items-center justify-between border border-white/20">
+          <div className="bg-brand-deep/95 backdrop-blur-md text-white rounded-lg py-2.5 px-4 shadow-[0_8px_32px_rgba(30,42,61,0.24)] flex items-center justify-between border border-white/20">
             <div className="flex items-center gap-3 overflow-hidden">
               <div className="flex -space-x-2 shrink-0">
                 {selectedPlayers.map((p) => (
@@ -193,10 +193,10 @@ export default function RankingsPage() {
                 ))}
               </div>
               <div className="flex flex-col overflow-hidden">
-                <span className="text-[14px] font-bold truncate leading-tight">
+                <span className="text-body font-bold truncate leading-tight">
                   {selectedIds.length === 1 ? "再选一人对比" : `${selectedPlayers[0].nameZh || selectedPlayers[0].name} vs ${selectedPlayers[1].nameZh || selectedPlayers[1].name}`}
                 </span>
-                <span className="text-[10px] text-white/60 font-medium tracking-tight">
+                <span className="text-micro text-white/60 font-medium tracking-tight">
                   {selectedIds.length === 1 ? "对比需要两名球员" : "已准备好对比数据"}
                 </span>
               </div>
@@ -205,13 +205,13 @@ export default function RankingsPage() {
             {selectedIds.length === 2 ? (
               <Link 
                 href={`/compare?player_a=${selectedPlayers[0].slug}&player_b=${selectedPlayers[1].slug}`}
-                className="bg-white text-brand-deep px-5 py-2 rounded-full text-[14px] font-bold hover:bg-brand-mist active:scale-95 transition-all shrink-0 shadow-sm"
+                className="bg-white text-brand-deep px-5 py-2 rounded-full text-body font-bold hover:bg-brand-mist active:scale-95 transition-all shrink-0 shadow-sm"
               >
                 开始对比
               </Link>
             ) : (
               <div className="w-8 h-8 rounded-full border-2 border-dashed border-white/30 flex items-center justify-center shrink-0">
-                <span className="text-[10px] font-bold text-white/40">2</span>
+                <span className="text-micro font-bold text-white/40">2</span>
               </div>
             )}
           </div>

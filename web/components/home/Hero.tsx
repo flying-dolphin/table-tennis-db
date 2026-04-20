@@ -18,14 +18,11 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end p-6 pb-6">
-        <p className="text-white/70 text-[10px] font-bold tracking-widest mb-1 uppercase drop-shadow-md">
-          Data from ITTF & WTT
-        </p>
-        <h1 className="text-white text-[30px] font-black leading-[1.05] tracking-tight drop-shadow-md font-heading">
+      <div className="relative z-10 h-full flex flex-col justify-end p-5 pb-6">
+        <h1 className="text-white text-display font-black tracking-tight drop-shadow-md font-heading">
           豆包球谱
         </h1>
-        <p className="mt-1 text-[13px] leading-[1.25] font-medium font-body text-white/78 tracking-[0.01em] drop-shadow-sm">
+        <p className="mt-1 text-body font-medium font-body text-white/78 tracking-[0.01em] drop-shadow-sm">
           国际赛事数据查询
         </p>
 

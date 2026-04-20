@@ -75,15 +75,15 @@ export default function RankingTable() {
   }, []);
 
   return (
-    <section className="mt-2 mb-4 px-5">
-      <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
+    <section className="px-5">
+      <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
         <div className="flex justify-between items-end mb-2.5 px-2 relative z-10">
-          <h2 className="text-[18px] font-bold text-text-secondary tracking-tight">
-            世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-[14px]">Top 10</span>
+          <h2 className="text-heading-2 font-bold text-text-secondary tracking-tight">
+            世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-body">Top 10</span>
           </h2>
           <a
             href="/rankings"
-            className="flex items-center text-[12px] font-medium text-text-tertiary hover:text-brand-deep transition-all pb-1"
+            className="flex items-center text-caption font-medium text-text-tertiary hover:text-brand-deep transition-all pb-1"
           >
             更多
             <ChevronRight size={14} className="ml-0.5 relative top-px" strokeWidth={1.5} />
@@ -92,13 +92,13 @@ export default function RankingTable() {
 
         <div className="flex flex-col w-full relative z-10">
           {loading && (
-            <div className="p-4 text-[13px] text-text-tertiary bg-white/60 rounded-2xl border border-white/60">
+            <div className="p-4 text-body text-text-tertiary bg-white/60 rounded-md border border-white/60">
               加载中...
             </div>
           )}
 
           {!loading && players.length === 0 && (
-            <div className="p-4 text-[13px] text-text-tertiary bg-white/60 rounded-2xl border border-white/60">
+            <div className="p-4 text-body text-text-tertiary bg-white/60 rounded-md border border-white/60">
               暂无数据
             </div>
           )}
@@ -113,22 +113,22 @@ export default function RankingTable() {
                   <Link
                     key={player.playerId}
                     href={`/players/${player.slug}`}
-                    className="flex items-center bg-white/80 px-2 py-1.5 border border-white shadow-sm rounded-[24px] relative overflow-hidden mb-1 transition-colors hover:bg-white"
+                    className="flex items-center bg-white/80 px-2 py-1.5 border border-white shadow-sm rounded-lg relative overflow-hidden mb-1 transition-colors hover:bg-white"
                   >
                     <div className="w-9 shrink-0 text-center mr-1">
-                      <span className="text-[22px] font-bold text-brand-strong pr-1 leading-none">{player.rank}</span>
+                      <span className="text-heading-1 font-bold text-brand-strong pr-1 leading-none tabular-nums">{player.rank}</span>
                     </div>
 
                     <PlayerAvatar player={player} size="md" />
 
                     <div className="flex-1 flex justify-start items-end overflow-hidden px-2">
                       <div className="flex items-end gap-2 max-w-full">
-                        <h3 className="text-[16px] font-bold text-text-primary leading-none truncate">
+                        <h3 className="text-body-lg font-bold text-text-primary leading-none truncate">
                           {displayName(player)}
                         </h3>
                         <div className="flex items-center gap-1.5 shrink-0 pb-0.5">
                           <div className={`fg fg-${player.countryCode} scale-110 origin-center`} />
-                          <span className="text-[11px] font-bold text-text-tertiary uppercase tracking-wider">
+                          <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">
                             {player.countryCode}
                           </span>
                         </div>
@@ -137,15 +137,15 @@ export default function RankingTable() {
 
                     <div className="w-[72px] text-right shrink-0 pr-1 flex flex-col items-end leading-none">
                       <div className="flex items-baseline gap-1">
-                        <span className="text-[15px] font-semibold text-text-primary tracking-tight">
+                        <span className="text-body-lg font-semibold text-text-primary tracking-tight tabular-nums">
                           {player.points.toLocaleString()}
                         </span>
-                        <span className="text-[10px] font-medium text-text-tertiary">分</span>
+                        <span className="text-micro font-medium text-text-tertiary">分</span>
                       </div>
                       {changeValue !== 0 && (
                         <span
                           className={cn(
-                            "mt-1 text-[10px] font-semibold",
+                            "mt-1 text-micro font-semibold tabular-nums",
                             changeValue > 0 ? "text-state-success" : "text-state-danger",
                           )}
                         >
@@ -162,21 +162,21 @@ export default function RankingTable() {
                 <Link
                   key={player.playerId}
                   href={`/players/${player.slug}`}
-                  className="flex items-center py-1.5 px-1 hover:bg-white/30 transition-colors rounded-xl"
+                  className="flex items-center py-1.5 px-1 hover:bg-white/30 transition-colors rounded-sm"
                 >
                   <div className="w-8 shrink-0 text-center mr-1">
-                    <span className="text-[15px] font-medium text-text-tertiary pr-0.5">{player.rank}</span>
+                    <span className="text-body-lg font-medium text-text-tertiary pr-0.5 tabular-nums">{player.rank}</span>
                   </div>
 
                   <PlayerAvatar player={player} size="sm" />
 
                   <div className="flex-1 flex items-end justify-start gap-2 overflow-hidden px-2">
-                    <h3 className="text-[15px] font-bold text-text-primary leading-none truncate overflow-visible">
+                    <h3 className="text-body-lg font-bold text-text-primary leading-none truncate overflow-visible">
                       {displayName(player)}
                     </h3>
                     <div className="flex items-center gap-1.5 shrink-0 pb-0.5">
                       <div className={`fg fg-${player.countryCode} scale-100 origin-center`} />
-                      <span className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">
+                      <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">
                         {player.countryCode}
                       </span>
                     </div>
@@ -184,15 +184,15 @@ export default function RankingTable() {
 
                   <div className="w-[72px] text-right shrink-0 pr-1 flex flex-col items-end leading-none">
                     <div className="flex items-baseline gap-0.5">
-                      <span className="text-[14px] font-semibold text-text-secondary tracking-tight">
+                      <span className="text-body font-semibold text-text-secondary tracking-tight tabular-nums">
                         {player.points.toLocaleString()}
                       </span>
-                      <span className="text-[9px] font-medium text-text-tertiary">分</span>
+                      <span className="text-micro font-medium text-text-tertiary">分</span>
                     </div>
                     {changeValue !== 0 && (
                       <span
                         className={cn(
-                          "mt-1 text-[10px] font-semibold",
+                          "mt-1 text-micro font-semibold tabular-nums",
                           changeValue > 0 ? "text-state-success" : "text-state-danger",
                         )}
                       >

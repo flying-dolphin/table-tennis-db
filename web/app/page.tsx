@@ -5,17 +5,13 @@ import RankingTable from "@/components/home/RankingTable";
 
 export default function HomePage() {
   return (
-    <main className="relative overflow-hidden">
-      {/* Hero Section */}
-      <Hero />
+    <main className="relative flex flex-col gap-6 pb-8">
+      <div className="relative">
+        <Hero />
+        <SearchBox />
+      </div>
 
-      {/* Search Box - Overlays Hero */}
-      <SearchBox />
-
-      {/* Monthly Event Scroller */}
       <EventScroller />
-
-      {/* Rankings List */}
       <RankingTable />
     </main>
   );

@@ -467,35 +467,35 @@ export default function EventScroller() {
 
   const renderCardContent = (month: MonthCard, isModal = false) => (
     <>
-      <div className={cn("flex items-center justify-between bg-[rgb(var(--hero-anchor))] text-white", isModal ? "px-6 py-5" : "px-3 py-1.5")}>
+      <div className={cn("flex items-center justify-between bg-[rgb(var(--hero-anchor))] text-white", isModal ? "px-5 py-4" : "px-3 py-1.5")}>
         <div className="text-left">
-          <h2 className={cn("font-semibold tracking-wide leading-none", isModal ? "text-[14px]" : "text-[12px]")}>
+          <h2 className={cn("font-semibold tracking-wide leading-none", isModal ? "text-body" : "text-micro")}>
             {month.year}赛事日历
           </h2>
         </div>
         <div className="text-right">
-          <p className={cn("font-bold tracking-wide", isModal ? "text-[14px]" : "text-[12px]")}>
+          <p className={cn("font-bold tracking-wide", isModal ? "text-body" : "text-micro")}>
             {month.name} <span className="opacity-70 font-normal">| {month.nameZh}</span>
           </p>
         </div>
       </div>
-      <div className={cn("grid grid-cols-7 text-center border-b border-white/40", isModal ? "px-6 pt-3 pb-2.5 bg-white/20" : "px-3 pt-1 pb-0.5 bg-white/10")}>
+      <div className={cn("grid grid-cols-7 text-center border-b border-white/40", isModal ? "px-5 pt-3 pb-2.5 bg-white/20" : "px-3 pt-1 pb-0.5 bg-white/10")}>
         {["一", "二", "三", "四", "五", "六", "日"].map((d) => (
-          <span key={d} className={cn("font-medium text-text-tertiary", isModal ? "text-[11px]" : "text-[9px]")}>
+          <span key={d} className={cn("font-medium text-text-tertiary", isModal ? "text-caption" : "text-micro")}>
             {d}
           </span>
         ))}
       </div>
       <div className={cn("flex flex-col bg-transparent", isModal ? "py-2.5 gap-1" : "h-[220px] py-0.5 gap-0")}>
         {month.weeks.map((row, i) => (
-          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0 rounded-md", isModal ? "px-6 py-2 pb-1.5 min-h-[64px]" : "px-3 py-0.5 h-[36px]")}>
+          <div key={i} className={cn("relative border-b border-border-subtle/20 last:border-0", isModal ? "px-5 py-2 pb-1.5 min-h-[64px]" : "px-3 py-0.5 h-[36px]")}>
             <div className={cn("grid grid-cols-7", isModal ? "" : "leading-none")}>
               {row.days.map((d, j) => (
                 <div
                   key={j}
                   className={cn(
                     "text-center font-semibold",
-                    isModal ? "text-[12px]" : "text-[8px]",
+                    isModal ? "text-body" : "text-[8px]",
                     d.out ? "text-border-strong opacity-40" : "text-text-primary",
                   )}
                 >
@@ -525,7 +525,7 @@ export default function EventScroller() {
                 </div>
               ))}
               {row.hiddenEventCount > 0 && (
-                <div className={cn("text-right font-medium text-text-tertiary", isModal ? "text-[10px] pr-1" : "text-[7px] pr-0.5 leading-none")}>
+                <div className={cn("text-right font-medium text-text-tertiary", isModal ? "text-micro pr-1" : "text-[7px] pr-0.5 leading-none")}>
                   +{row.hiddenEventCount}
                 </div>
               )}
@@ -540,13 +540,13 @@ export default function EventScroller() {
     <>
       {expandedMonth && (
         <div
-          className="fixed inset-0 z-60 bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-6 opacity-100 pointer-events-auto transform-gpu"
+          className="fixed inset-0 z-60 bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
           style={{ WebkitBackdropFilter: "blur(24px)" }}
           onClick={() => setExpandedMonthId(null)}
         >
           <button
             type="button"
-            className="w-full max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-white/60 backdrop-blur-2xl rounded-[40px] overflow-hidden bg-white/80 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
+            className="w-full max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-white/60 backdrop-blur-2xl rounded-lg overflow-hidden bg-white/80 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
             style={{ WebkitBackdropFilter: "blur(40px)" }}
             onClick={() => setExpandedMonthId(null)}
           >
@@ -555,7 +555,7 @@ export default function EventScroller() {
         </div>
       )}
 
-      <section className="mt-4 mb-4 relative z-10 w-full">
+      <section className="relative z-10 w-full">
         <div
           ref={carouselRef}
           onWheel={handleWheel}
@@ -567,13 +567,13 @@ export default function EventScroller() {
           className="overflow-hidden py-3 touch-pan-y select-none"
         >
           {loading && (
-            <div className="w-[78vw] max-w-[280px] rounded-[32px] bg-white/70 border border-white/60 p-4 text-[13px] text-text-tertiary">
+            <div className="w-[78vw] max-w-[280px] rounded-lg bg-white/70 border border-white/60 p-4 text-body text-text-tertiary">
               日程加载中...
             </div>
           )}
 
           {!loading && monthData.length === 0 && (
-            <div className="w-[78vw] max-w-[280px] rounded-[32px] bg-white/70 border border-white/60 p-4 text-[13px] text-text-tertiary">
+            <div className="w-[78vw] max-w-[280px] rounded-lg bg-white/70 border border-white/60 p-4 text-body text-text-tertiary">
               暂无赛事日程
             </div>
           )}
@@ -600,7 +600,7 @@ export default function EventScroller() {
                   >
                     <div
                       className={cn(
-                        "bg-white/60 backdrop-blur-md rounded-[32px] border border-white/50 overflow-hidden pb-0.5 transform-gpu [backface-visibility:hidden]",
+                        "bg-white/60 backdrop-blur-md rounded-lg border border-white/50 overflow-hidden pb-0.5 transform-gpu [backface-visibility:hidden]",
                         "transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] origin-center",
                         isActive
                           ? "scale-[1.05] opacity-100 shadow-[0_8px_18px_-12px_rgba(30,42,61,0.18)]"

@@ -59,7 +59,7 @@ export default function BottomNav() {
                 <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
               </div>
               <span className={cn(
-                "text-[10px] font-black tracking-widest transition-all duration-500 uppercase",
+                "text-micro font-black tracking-widest transition-all duration-500 uppercase",
                 isActive ? "" : "text-text-tertiary/80"
               )}>
                 {item.label}

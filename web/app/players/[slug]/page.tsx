@@ -91,8 +91,8 @@ function SectionHeader({ title, hint }: { title: string; hint?: string }) {
   return (
     <div className="mb-3 flex items-end justify-between gap-3 px-1">
       <div>
-        <h2 className="text-[18px] font-black tracking-tight text-text-primary">{title}</h2>
-        {hint ? <p className="mt-0.5 text-[12px] font-medium text-text-tertiary">{hint}</p> : null}
+        <h2 className="text-heading-2 font-black tracking-tight text-text-primary">{title}</h2>
+        {hint ? <p className="mt-0.5 text-caption font-medium text-text-tertiary">{hint}</p> : null}
       </div>
     </div>
   );
@@ -100,11 +100,11 @@ function SectionHeader({ title, hint }: { title: string; hint?: string }) {
 
 function EmptyState({ title, action = '想要' }: { title: string; action?: string }) {
   return (
-    <div className="rounded-[24px] border border-white/60 bg-white/55 p-5 text-center shadow-sm">
-      <p className="text-[14px] font-bold text-text-secondary">{title}</p>
+    <div className="rounded-lg border border-white/60 bg-white/55 p-5 text-center shadow-sm">
+      <p className="text-body font-bold text-text-secondary">{title}</p>
       <Link
         href={route('/search')}
-        className="mt-3 inline-flex items-center rounded-full border border-border-subtle bg-white/75 px-4 py-2 text-[12px] font-bold text-brand-strong shadow-sm transition-colors hover:bg-white"
+        className="mt-3 inline-flex items-center rounded-full border border-border-subtle bg-white/75 px-4 py-2 text-caption font-bold text-brand-strong shadow-sm transition-colors hover:bg-white"
       >
         {action}
         <ArrowUpRight size={13} className="ml-1" strokeWidth={2} />
@@ -137,29 +137,29 @@ function PlayerHero({ player }: { player: Player }) {
           <div className="min-w-0 flex-1 pb-1">
             <div className="flex flex-col gap-1">
               <div className="flex items-end gap-3">
-                <h1 className="truncate text-[32px] font-black leading-none tracking-tight">
+                <h1 className="truncate text-display font-black leading-none tracking-tight">
                   {displayPlayerName(player)}
                 </h1>
                 {player.countryCode && (
-                  <div className="flex items-center gap-2 rounded-lg bg-white/10 px-2.5 py-1.5 backdrop-blur-md mb-0.5">
+                  <div className="flex items-center gap-2 rounded-md bg-white/10 px-2.5 py-1.5 backdrop-blur-md mb-0.5">
                     <div className={`fg fg-${player.countryCode} scale-125 origin-center`} />
-                    <span className="text-[12px] font-bold text-white/90">{player.country || player.countryCode}</span>
+                    <span className="text-caption font-bold text-white/90">{player.country || player.countryCode}</span>
                   </div>
                 )}
               </div>
-              <p className="truncate text-[14px] font-semibold text-white/50 tracking-wide uppercase italic">
+              <p className="truncate text-body font-semibold text-white/50 tracking-wide uppercase italic">
                 {player.name}
               </p>
             </div>
             <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
+              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
                 {player.gender === 'Female' ? '女' : player.gender === 'Male' ? '男' : '待补'}
               </span>
-              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
+              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
                 {displayBio(player)}
               </span>
               {player.styleZh && (
-                <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
+                <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
                   {player.styleZh}
                 </span>
               )}
@@ -168,25 +168,25 @@ function PlayerHero({ player }: { player: Player }) {
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-2.5">
-          <div className="rounded-[24px] border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
-            <p className="flex items-center gap-1.5 text-[11px] font-bold text-white/55">
+          <div className="rounded-lg border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
+            <p className="flex items-center gap-1.5 text-micro font-bold text-white/55 uppercase tracking-widest">
               当前排名
-              <span className={`text-[10px] ${rankChange > 0 ? 'text-state-success' : rankChange < 0 ? 'text-state-danger' : 'text-white/40'}`}>
+              <span className={`text-[10px] tabular-nums ${rankChange > 0 ? 'text-state-success' : rankChange < 0 ? 'text-state-danger' : 'text-white/40'}`}>
                 {rankChange > 0 ? '↑' : rankChange < 0 ? '↓' : '•'} {rankChange !== 0 ? Math.abs(rankChange) : ''}
               </span>
             </p>
             <div className="mt-1 flex items-baseline gap-1.5 font-black">
-              <span className="text-[30px] leading-none">#{player.rank ?? '-'}</span>
+              <span className="text-data-hero leading-none tabular-nums">#{player.rank ?? '-'}</span>
               {player.careerBestRank && (
-                <span className="text-[12px] text-white/60 font-medium">
+                <span className="text-caption text-white/60 font-medium">
                   (最高{player.careerBestRank})
                 </span>
               )}
             </div>
           </div>
-          <div className="rounded-[24px] border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
-            <p className="text-[11px] font-bold text-white/55">当前积分</p>
-            <strong className="mt-1 block text-[30px] leading-none">{formatNumber(player.points)}</strong>
+          <div className="rounded-lg border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
+            <p className="text-micro font-bold text-white/55 uppercase tracking-widest">当前积分</p>
+            <strong className="mt-1 block text-data-hero leading-none tabular-nums">{formatNumber(player.points)}</strong>
           </div>
         </div>
       </div>
@@ -206,13 +206,13 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
         <div className="bento-span-4 bento-card bento-card-hover relative overflow-hidden">
           <div className="relative z-10 flex h-full flex-col justify-between">
             <div>
-              <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">生涯总胜率</p>
-              <p className="text-[28px] font-black text-text-primary leading-none mt-1">{formatPercent(stats.winRate)}</p>
+              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">生涯总胜率</p>
+              <p className="text-data-hero font-black text-text-primary leading-none mt-1 tabular-nums">{formatPercent(stats.winRate)}</p>
             </div>
             <div className="mt-3">
-              <div className="mb-1.5 flex items-center justify-between text-[11px] font-bold">
+              <div className="mb-1.5 flex items-center justify-between text-micro font-bold uppercase tracking-widest">
                 <span className="text-brand-strong">2026 年度胜率</span>
-                <span className="text-text-primary">{formatPercent(yearWinRate)}</span>
+                <span className="text-text-primary tabular-nums">{formatPercent(yearWinRate)}</span>
               </div>
               <div className="h-2 w-full rounded-full bg-brand-mist overflow-hidden">
                 <div
@@ -227,9 +227,9 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
 
         {/* Activity */}
         <div className="bento-span-2 bento-card bento-card-hover">
-          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">赛事总数</p>
-          <p className="text-[24px] font-black text-text-primary mt-0.5">{stats.eventsTotal}</p>
-          <div className="mt-2 text-[11px] font-bold text-brand-strong bg-brand-soft/50 px-2 py-0.5 rounded-md inline-block">
+          <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">赛事总数</p>
+          <p className="text-heading-1 font-black text-text-primary mt-0.5 tabular-nums">{stats.eventsTotal}</p>
+          <div className="mt-2 text-micro font-bold text-brand-strong bg-brand-soft/50 px-2 py-0.5 rounded uppercase tracking-wider inline-block">
             今年 {player.yearEvents ?? 0}
           </div>
         </div>
@@ -237,19 +237,19 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
         {/* Sub Win Rates */}
         <div className="bento-span-3 bento-card bento-card-hover flex items-center justify-between">
           <div>
-            <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">外战胜率</p>
-            <p className="text-[19px] font-black text-state-success mt-0.5">{formatPercent(stats.foreignWinRate)}</p>
+            <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">外战胜率</p>
+            <p className="text-heading-2 font-black text-state-success mt-0.5 tabular-nums">{formatPercent(stats.foreignWinRate)}</p>
           </div>
-          <div className="h-9 w-9 rounded-xl bg-state-success/10 flex items-center justify-center">
+          <div className="h-9 w-9 rounded-md bg-state-success/10 flex items-center justify-center">
             <Target size={16} className="text-state-success" />
           </div>
         </div>
         <div className="bento-span-3 bento-card bento-card-hover flex items-center justify-between">
           <div>
-            <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">内战胜率</p>
-            <p className="text-[19px] font-black text-text-primary mt-0.5">{formatPercent(stats.domesticWinRate)}</p>
+            <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">内战胜率</p>
+            <p className="text-heading-2 font-black text-text-primary mt-0.5 tabular-nums">{formatPercent(stats.domesticWinRate)}</p>
           </div>
-          <div className="h-9 w-9 rounded-xl bg-brand-mist flex items-center justify-center">
+          <div className="h-9 w-9 rounded-md bg-brand-mist flex items-center justify-center">
             <Target size={16} className="text-brand-strong" />
           </div>
         </div>
@@ -258,16 +258,16 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
         <div className="bento-span-3 bento-card honor-diamond bento-card-hover">
           <div className="flex items-center gap-1.5">
             <Trophy size={14} className="text-brand-strong" />
-            <p className="text-[11px] font-black text-brand-strong uppercase tracking-wider">三大赛记录</p>
+            <p className="text-micro font-black text-brand-strong uppercase tracking-widest">三大赛记录</p>
           </div>
           <div className="mt-3.5 grid grid-cols-2 gap-2">
             <div>
               <p className="text-[9px] font-bold text-text-tertiary uppercase">单打冠军</p>
-              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.singleThreeTitles}</p>
+              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleThreeTitles}</p>
             </div>
             <div>
               <p className="text-[9px] font-bold text-text-tertiary uppercase">总冠军</p>
-              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.allThreeTitles}</p>
+              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.allThreeTitles}</p>
             </div>
           </div>
         </div>
@@ -276,16 +276,16 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
         <div className="bento-span-3 bento-card honor-silver bento-card-hover">
           <div className="flex items-center gap-1.5">
             <Medal size={14} className="text-text-secondary" />
-            <p className="text-[11px] font-black text-text-secondary uppercase tracking-wider">七大赛记录</p>
+            <p className="text-micro font-black text-text-secondary uppercase tracking-widest">七大赛记录</p>
           </div>
           <div className="mt-3.5 grid grid-cols-2 gap-2">
             <div>
               <p className="text-[9px] font-bold text-text-tertiary uppercase">单打冠军</p>
-              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.singleSevenTitles}</p>
+              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleSevenTitles}</p>
             </div>
             <div>
               <p className="text-[9px] font-bold text-text-tertiary uppercase">总冠军</p>
-              <p className="text-[20px] font-black text-text-primary leading-none mt-1">{stats.allSevenTitles}</p>
+              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.allSevenTitles}</p>
             </div>
           </div>
         </div>
@@ -296,9 +296,9 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
             <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-state-warning/20">
               <Target size={18} className="text-state-warning" />
             </div>
-            <p className="text-[14px] font-bold text-text-secondary">七大赛单打决赛次数</p>
+            <p className="text-body font-bold text-text-secondary">七大赛单打决赛次数</p>
           </div>
-          <p className="text-[24px] font-black text-text-primary">{stats.sevenFinals}</p>
+          <p className="text-heading-1 font-black text-text-primary tabular-nums">{stats.sevenFinals}</p>
         </div>
       </div>
     </section>
@@ -317,23 +317,23 @@ function RecentMatches({ matches }: { matches: RecentMatch[] }) {
             <Link
               key={match.matchId}
               href={route(`/matches/${match.matchId}`)}
-              className="flex items-center gap-3 rounded-[26px] border border-white/70 bg-white/70 p-3 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
+              className="flex items-center gap-3 rounded-lg border border-white/70 bg-white/70 p-3 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
             >
               <div
-                className={`grid h-12 w-12 shrink-0 place-items-center rounded-full text-[13px] font-black ${match.didWin ? 'bg-state-success/12 text-state-success' : 'bg-state-danger/12 text-state-danger'
+                className={`grid h-12 w-12 shrink-0 place-items-center rounded-full text-body font-black tabular-nums ${match.didWin ? 'bg-state-success/12 text-state-success' : 'bg-state-danger/12 text-state-danger'
                   }`}
               >
                 {match.didWin ? '胜' : '负'}
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="truncate text-[14px] font-black text-text-primary">{displayEventName(match)}</h3>
-                <p className="mt-1 truncate text-[12px] font-semibold text-text-tertiary">
+                <h3 className="truncate text-body font-black text-text-primary">{displayEventName(match)}</h3>
+                <p className="mt-1 truncate text-caption font-semibold text-text-tertiary">
                   {displayDate(match.date)} · vs {match.opponentName || '对手待补'}
                   {match.opponentCountry ? ` (${match.opponentCountry})` : ''}
                 </p>
               </div>
               <div className="shrink-0 text-right">
-                <p className="text-[13px] font-black text-text-secondary">{match.matchScore || '-'}</p>
+                <p className="text-body font-black text-text-secondary tabular-nums">{match.matchScore || '-'}</p>
                 <ChevronRight size={16} className="ml-auto mt-1 text-text-tertiary" strokeWidth={2} />
               </div>
             </Link>
@@ -356,16 +356,16 @@ function EventRecords({ events }: { events: EventRecord[] }) {
             <Link
               key={event.eventId}
               href={route(`/events/${event.eventId}`)}
-              className="grid grid-cols-[1fr_auto] gap-3 rounded-[24px] border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
+              className="grid grid-cols-[1fr_auto] gap-3 rounded-lg border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
             >
               <div className="min-w-0">
-                <h3 className="truncate text-[14px] font-black text-text-primary">{displayEventName(event)}</h3>
-                <p className="mt-1 text-[12px] font-semibold text-text-tertiary">
+                <h3 className="truncate text-body font-black text-text-primary">{displayEventName(event)}</h3>
+                <p className="mt-1 text-caption font-semibold text-text-tertiary">
                   {displayDate(event.date)} · {subEventLabel(event)}
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="rounded-full bg-brand-soft/75 px-3 py-1 text-[12px] font-black text-brand-strong">
+                <span className="rounded-full bg-brand-soft/75 px-3 py-1 text-caption font-black text-brand-strong uppercase tracking-widest">
                   {event.result || '成绩待补'}
                 </span>
                 <ArrowUpRight size={15} className="text-text-tertiary" strokeWidth={2} />
@@ -389,25 +389,25 @@ function TopOpponents({ opponents }: { opponents: TopOpponent[] }) {
           {opponents.map((opponent, index) => {
             const content = (
               <>
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[rgb(var(--hero-anchor))] text-[13px] font-black text-white">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[rgb(var(--hero-anchor))] text-body font-black text-white tabular-nums">
                   {index + 1}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="truncate text-[14px] font-black text-text-primary">
+                  <h3 className="truncate text-body font-black text-text-primary">
                     {opponent.nameZh?.trim() || opponent.name}
                   </h3>
-                  <p className="mt-1 truncate text-[12px] font-semibold text-text-tertiary">
+                  <p className="mt-1 truncate text-caption font-semibold text-text-tertiary">
                     {opponent.countryCode || '国家待补'} · 最近 {displayDate(opponent.latestDate)}
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-right">
                   <div>
-                    <p className="text-[11px] font-bold text-text-tertiary">交手</p>
-                    <strong className="text-[15px] text-text-primary">{opponent.matches}</strong>
+                    <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">交手</p>
+                    <strong className="text-body-lg text-text-primary tabular-nums">{opponent.matches}</strong>
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-text-tertiary">胜率</p>
-                    <strong className="text-[15px] text-text-primary">{formatPercent(opponent.winRate)}</strong>
+                    <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">胜率</p>
+                    <strong className="text-body-lg text-text-primary tabular-nums">{formatPercent(opponent.winRate)}</strong>
                   </div>
                 </div>
               </>
@@ -417,7 +417,7 @@ function TopOpponents({ opponents }: { opponents: TopOpponent[] }) {
               return (
                 <article
                   key={`${opponent.playerId ?? 'unknown'}-${opponent.name}`}
-                  className="flex items-center gap-3 rounded-[24px] border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md"
+                  className="flex items-center gap-3 rounded-lg border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md"
                 >
                   {content}
                 </article>
@@ -428,7 +428,7 @@ function TopOpponents({ opponents }: { opponents: TopOpponent[] }) {
               <Link
                 key={opponent.slug}
                 href={route(`/players/${opponent.slug}`)}
-                className="flex items-center gap-3 rounded-[24px] border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
+                className="flex items-center gap-3 rounded-lg border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
               >
                 {content}
               </Link>
