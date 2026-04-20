@@ -40,21 +40,24 @@ def import_sub_event_types(db_path: str, txt_path: str) -> bool:
 
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
+        cursor.execute("PRAGMA foreign_keys = ON;")
+
+        # Full refresh mode: clear old dictionary data and reset AUTOINCREMENT.
+        cursor.execute("DELETE FROM sub_event_types")
+        cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'sub_event_types'")
 
         for i, (code, name, name_zh) in enumerate(sub_events_data, 1):
-            try:
-                cursor.execute("""
-                    INSERT INTO sub_event_types (code, name, name_zh)
-                    VALUES (?, ?, ?)
-                """, (code, name, name_zh))
-                print(f"  [{i:2d}] {code:5s} {name:30s} {name_zh}")
-            except sqlite3.IntegrityError:
-                print(f"  [SKIP {i:2d}] {code} (already exists)")
+            cursor.execute("""
+                INSERT INTO sub_event_types (code, name, name_zh)
+                VALUES (?, ?, ?)
+            """, (code, name, name_zh))
+            print(f"  [{i:2d}] {code:5s} {name:30s} {name_zh}")
 
         conn.commit()
         conn.close()
 
-        print(f"\nInserted sub_event_types: {len(sub_events_data)}")
+        print(f"\nFull refresh mode: True")
+        print(f"Inserted sub_event_types: {len(sub_events_data)}")
         return True
 
     except Exception as e:

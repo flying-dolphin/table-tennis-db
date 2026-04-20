@@ -1,28 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-导入比赛数据：matches
-从 data/matches_complete/cn/*.json 导入
+导入比赛数据：matches / match_sides / match_side_players
+从 data/matches_complete/cn/*.json 导入。
 
 关键逻辑：
-1. 从 side_a/side_b 提取球员名和国家（fallback 到 raw_row_text）
-2. 通过数据库中的 events 表匹配 event_id
-3. 通过 player name + country_code 匹配 player_id
-4. 去重：同一场比赛在两个球员文件中各出现一次
+1. side_a/side_b 作为完整参赛方（支持单双打/团体）。
+2. 去重按完整 side 阵容，而不是“第一人”。
+3. winner_side 以 A/B 记录，球员级信息落在 match_side_players。
 """
 
-import sqlite3
-import sys
 import json
 import re
+import sqlite3
+import sys
 from pathlib import Path
+from typing import Optional
 
-if sys.platform == 'win32':
+if sys.platform == "win32":
     import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 try:
     import config
+
     PROJECT_ROOT = config.PROJECT_ROOT
     DB_PATH = config.DB_PATH
 except ImportError:
@@ -30,125 +32,201 @@ except ImportError:
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
 
-# ============================================================================
-# 工具函数
-# ============================================================================
+PLAYER_TOKEN_RE = re.compile(r"^(.+?)\s*\((\w+)\)$")
+
 
 def normalize_event_name(name: str) -> str:
-    """规范化赛事名称（与 normalize_events.py 中一致）"""
     s = name.strip().lower()
-    s = re.sub(r'\s+presented\s+by\s+.*$', '', s)
-    s = re.sub(r'[,.]', '', s)
-    s = re.sub(r'\s+', ' ', s)
+    s = re.sub(r"\s+presented\s+by\s+.*$", "", s)
+    s = re.sub(r"[,.]", "", s)
+    s = re.sub(r"\s+", " ", s)
     return s.strip()
 
 
 def normalize_name_key(name: str) -> str:
-    """将名字转为排序后的小写单词集合"""
     parts = sorted(name.lower().split())
-    return ' '.join(parts)
+    return " ".join(parts)
 
 
 def parse_player_str(player_str: str):
-    """解析 'SUN Yingsha (CHN)' 格式，返回 (name, country_code)"""
-    m = re.match(r'^(.+?)\s*\((\w+)\)$', player_str.strip())
+    m = PLAYER_TOKEN_RE.match(player_str.strip())
     if m:
         return m.group(1).strip(), m.group(2).strip()
     return player_str.strip(), None
 
 
-def parse_raw_row_text(raw_text: str):
-    """
-    从 raw_row_text 解析对阵信息（fallback 用）
-    格式: "2026 | 赛事名 | 选手A (国家A) | 选手B (国家B) | 项目 | 阶段 | 轮次? | 比分 | 局分... | 胜者"
-    """
-    parts = [p.strip() for p in raw_text.split('|')]
-    if len(parts) < 8:
-        return None
+def parse_raw_row_players(raw_text: str):
+    parts = [p.strip() for p in raw_text.split("|")]
+    players = []
+    for part in parts:
+        parsed = parse_player_str(part)
+        if parsed[1]:
+            players.append(parsed)
+    return players
 
-    player_a_str = parts[2] if len(parts) > 2 else ''
-    player_b_str = parts[3] if len(parts) > 3 else ''
-    winner_name = parts[-1] if parts else ''
 
-    a_name, a_country = parse_player_str(player_a_str)
-    b_name, b_country = parse_player_str(player_b_str)
+def parse_raw_row_sides(raw_text: str):
+    players = parse_raw_row_players(raw_text)
+    if len(players) == 2:
+        return [players[0]], [players[1]]
+    if len(players) >= 4 and len(players) % 2 == 0:
+        half = len(players) // 2
+        return players[:half], players[half:]
+    return [], []
 
-    return {
-        'player_a_name': a_name,
-        'player_a_country': a_country,
-        'player_b_name': b_name,
-        'player_b_country': b_country,
-        'winner_name': winner_name,
-    }
+
+def parse_sides(match: dict, raw_row_text: str):
+    side_a = [parse_player_str(item) for item in (match.get("side_a") or []) if isinstance(item, str) and item.strip()]
+    side_b = [parse_player_str(item) for item in (match.get("side_b") or []) if isinstance(item, str) and item.strip()]
+
+    if side_a and side_b:
+        return side_a, side_b
+
+    raw_a, raw_b = parse_raw_row_sides(raw_row_text)
+    if not side_a:
+        side_a = raw_a
+    if not side_b:
+        side_b = raw_b
+    return side_a, side_b
+
+
+def make_side_key(side: list[tuple[str, Optional[str]]]) -> str:
+    keys = []
+    for name, country in side:
+        n = (name or "").strip().lower()
+        c = (country or "").strip().lower()
+        keys.append(f"{n}|{c}")
+    keys.sort()
+    return "||".join(keys)
+
+
+def make_dedup_key(event_name: str, sub_event: str, stage: str, round_: str, side_a_key: str, side_b_key: str) -> str:
+    pair = sorted([side_a_key, side_b_key])
+    return f"{normalize_event_name(event_name)}|{sub_event}|{stage}|{round_}|{pair[0]}|{pair[1]}"
 
 
 def build_event_index(cursor):
-    """构建赛事索引，基于数据库中的 events 表匹配 event_id。"""
     cursor.execute("SELECT event_id, name, year FROM events")
-
     by_name_year = {}
     by_name = {}
     for event_id, name, year in cursor.fetchall():
         norm_name = normalize_event_name(name or "")
         if not norm_name:
             continue
-
         if year is not None:
             by_name_year[(norm_name, int(year))] = event_id
         by_name.setdefault(norm_name, set()).add(event_id)
+    return {"by_name_year": by_name_year, "by_name": by_name}
 
-    return {
-        "by_name_year": by_name_year,
-        "by_name": by_name,
-    }
+
+def load_sub_event_codes(cursor):
+    cursor.execute("SELECT code FROM sub_event_types")
+    return {str(row[0]).strip().upper() for row in cursor.fetchall() if row and row[0]}
+
+
+def load_filtering_only_event_ids(cursor):
+    cursor.execute(
+        """
+        SELECT e.event_id
+        FROM events e
+        JOIN event_categories c ON c.id = e.event_category_id
+        WHERE c.filtering_only = 1
+        """
+    )
+    return {int(row[0]) for row in cursor.fetchall() if row and row[0] is not None}
+
+
+def ensure_sub_event_code(cursor, known_codes: set[str], code: str, auto_added_codes: set[str]):
+    normalized = (code or "").strip().upper()
+    if not normalized:
+        return ""
+    if normalized in known_codes:
+        return normalized
+
+    cursor.execute(
+        """
+        INSERT OR IGNORE INTO sub_event_types (code, name, name_zh)
+        VALUES (?, ?, ?)
+        """,
+        (normalized, normalized, normalized),
+    )
+    known_codes.add(normalized)
+    auto_added_codes.add(normalized)
+    return normalized
 
 
 def resolve_event_id(event_index: dict, event_name: str, event_year: int | None):
-    """优先用 赛事名 + 年份 匹配，不命中时退化到唯一赛事名。"""
     norm_event = normalize_event_name(event_name)
     if not norm_event:
         return None
-
     if event_year is not None:
         event_id = event_index["by_name_year"].get((norm_event, event_year))
         if event_id is not None:
             return event_id
-
     candidates = sorted(event_index["by_name"].get(norm_event, set()))
     if len(candidates) == 1:
         return candidates[0]
+    return None
+
+
+def resolve_player_id(player_index: dict, name: str, country: Optional[str]):
+    if not name:
+        return None
+    cc = country or ""
+    pid = player_index.get((name, cc))
+    if pid is None:
+        pid = player_index.get((normalize_name_key(name), cc))
+    return pid
+
+
+def infer_winner_side(match: dict, side_a: list[tuple[str, Optional[str]]], side_b: list[tuple[str, Optional[str]]]):
+    winner_name = (match.get("winner") or "").strip().lower()
+
+    if winner_name:
+        hit_a = any(name.lower() in winner_name for name, _ in side_a if name)
+        hit_b = any(name.lower() in winner_name for name, _ in side_b if name)
+        if hit_a and not hit_b:
+            return "A"
+        if hit_b and not hit_a:
+            return "B"
+
+    perspective = (match.get("perspective") or "").strip().lower()
+    result_for_player = (match.get("result_for_player") or "").strip().lower()
+    if perspective in {"side_a", "side_b"} and result_for_player in {"win", "loss", "w", "l"}:
+        did_win = result_for_player in {"win", "w"}
+        if perspective == "side_a":
+            return "A" if did_win else "B"
+        return "B" if did_win else "A"
 
     return None
 
 
-def make_dedup_key(event_name: str, sub_event: str, stage: str, round_: str,
-                   a_name: str, a_country: str, b_name: str, b_country: str) -> str:
-    """生成去重键：将两方按字母排序确保同一场比赛只入库一次"""
-    pair = sorted([
-        f"{(a_name or '').lower()}|{(a_country or '').lower()}",
-        f"{(b_name or '').lower()}|{(b_country or '').lower()}"
-    ])
-    return f"{normalize_event_name(event_name)}|{sub_event}|{stage}|{round_}|{pair[0]}|{pair[1]}"
-
-
-# ============================================================================
-# 导入逻辑
-# ============================================================================
-
 def import_matches(db_path: str, matches_dir: str) -> dict:
     result = {
-        'total_in_files': 0,
-        'inserted': 0,
-        'duplicates': 0,
-        'unmatched_events': set(),
-        'unmatched_players': set(),
-        'errors': [],
+        "full_refresh": True,
+        "total_in_files": 0,
+        "inserted": 0,
+        "duplicates": 0,
+        "skipped_no_event": 0,
+        "skipped_no_side": 0,
+        "skipped_filtering_only": 0,
+        "unresolved_winner_side": 0,
+        "unmatched_events": set(),
+        "unmatched_players": set(),
+        "auto_added_sub_event_codes": set(),
+        "errors": [],
     }
 
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
+    cursor.execute("PRAGMA foreign_keys = ON;")
 
-    # 加载 player index
+    # Full refresh mode: clear existing match data and reset AUTOINCREMENT.
+    cursor.execute("DELETE FROM match_side_players")
+    cursor.execute("DELETE FROM match_sides")
+    cursor.execute("DELETE FROM matches")
+    cursor.execute("DELETE FROM sqlite_sequence WHERE name IN ('matches', 'match_sides', 'match_side_players')")
+
     cursor.execute("SELECT player_id, name, country_code FROM players")
     player_index = {}
     for player_id, name, country_code in cursor.fetchall():
@@ -158,182 +236,167 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
 
     event_index = build_event_index(cursor)
     print(f"Event index:  {len(event_index['by_name_year'])} name+year entries")
+    known_sub_event_codes = load_sub_event_codes(cursor)
+    print(f"Sub-event codes: {len(known_sub_event_codes)}")
+    filtering_only_event_ids = load_filtering_only_event_ids(cursor)
+    print(f"Filtering-only events: {len(filtering_only_event_ids)}")
 
-    # 去重集合
     seen_keys = set()
 
     matches_path = Path(matches_dir)
     json_files = sorted(matches_path.glob("*.json"))
     print(f"Match files: {len(json_files)}\n")
 
-    batch = []
-    BATCH_SIZE = 500
+    insert_match_sql = """
+        INSERT INTO matches (
+            event_id, event_name, event_name_zh, event_year,
+            sub_event_type_code, stage, stage_zh, round, round_zh,
+            side_a_key, side_b_key,
+            match_score, games, winner_side, winner_name, raw_row_text
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """
+    insert_side_sql = """
+        INSERT INTO match_sides (
+            match_id, side_no, side_key, is_winner
+        ) VALUES (?, ?, ?, ?)
+    """
+    insert_side_player_sql = """
+        INSERT INTO match_side_players (
+            match_side_id, player_order, player_id, player_name, player_country
+        ) VALUES (?, ?, ?, ?, ?)
+    """
 
     for file_idx, json_file in enumerate(json_files, 1):
         try:
-            with open(json_file, 'r', encoding='utf-8') as f:
+            with open(json_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
         except Exception as e:
-            result['errors'].append(f"Load {json_file.name}: {e}")
+            result["errors"].append(f"Load {json_file.name}: {e}")
             continue
 
         file_count = 0
         file_inserted = 0
 
-        for year_key, year_data in data.get('years', {}).items():
-            for event in year_data.get('events', []):
-                event_name = event.get('event_name', '')
-                event_name_zh = event.get('event_name_zh')
-                event_year = event.get('event_year')
+        for year_data in (data.get("years") or {}).values():
+            for event in year_data.get("events", []):
+                event_name = event.get("event_name", "")
+                event_name_zh = event.get("event_name_zh")
+                event_year = event.get("event_year")
                 if event_year:
                     try:
                         event_year = int(event_year)
                     except (ValueError, TypeError):
                         event_year = None
 
-                # 匹配 event_id
                 event_id = resolve_event_id(event_index, event_name, event_year)
                 if event_id is None:
-                    result['unmatched_events'].add(event_name)
+                    result["unmatched_events"].add(event_name)
 
-                for match in event.get('matches', []):
-                    result['total_in_files'] += 1
+                for match in event.get("matches", []):
+                    result["total_in_files"] += 1
                     file_count += 1
 
-                    sub_event = match.get('sub_event', '')
-                    stage = match.get('stage', '')
-                    round_ = match.get('round', '')
-
-                    # 提取球员信息（优先 side_a/side_b，fallback raw_row_text）
-                    side_a = match.get('side_a', [])
-                    side_b = match.get('side_b', [])
-                    winner_name = match.get('winner', '')
-                    raw_row_text = match.get('raw_row_text', '')
-
-                    if side_a:
-                        a_name, a_country = parse_player_str(side_a[0])
-                    elif raw_row_text:
-                        parsed = parse_raw_row_text(raw_row_text)
-                        if parsed:
-                            a_name, a_country = parsed['player_a_name'], parsed['player_a_country']
-                        else:
-                            a_name, a_country = '', None
-                    else:
-                        a_name, a_country = '', None
-
-                    if side_b:
-                        b_name, b_country = parse_player_str(side_b[0])
-                    elif raw_row_text:
-                        parsed = parse_raw_row_text(raw_row_text)
-                        if parsed:
-                            b_name, b_country = parsed['player_b_name'], parsed['player_b_country']
-                        else:
-                            b_name, b_country = '', None
-                    else:
-                        b_name, b_country = '', None
-
-                    if not winner_name and raw_row_text:
-                        parsed = parse_raw_row_text(raw_row_text)
-                        if parsed:
-                            winner_name = parsed['winner_name']
-
-                    # 去重
-                    dedup_key = make_dedup_key(
-                        event_name, sub_event, stage, round_,
-                        a_name, a_country, b_name, b_country
+                    sub_event = (match.get("sub_event") or "").strip()
+                    if not sub_event:
+                        raw_sub_event = (match.get("raw_row_text") or "").strip()
+                        for token in [p.strip() for p in raw_sub_event.split("|")]:
+                            normalized_token = token.upper()
+                            if normalized_token in known_sub_event_codes:
+                                sub_event = normalized_token
+                                break
+                    if not sub_event:
+                        sub_event = "MAIN"
+                    sub_event = ensure_sub_event_code(
+                        cursor,
+                        known_sub_event_codes,
+                        sub_event,
+                        result["auto_added_sub_event_codes"],
                     )
+
+                    stage = (match.get("stage") or "").strip()
+                    round_ = (match.get("round") or "").strip()
+                    raw_row_text = (match.get("raw_row_text") or "").strip()
+
+                    side_a, side_b = parse_sides(match, raw_row_text)
+                    if not side_a or not side_b:
+                        result["skipped_no_side"] += 1
+                        continue
+
+                    side_a_key = make_side_key(side_a)
+                    side_b_key = make_side_key(side_b)
+                    dedup_key = make_dedup_key(event_name, sub_event, stage, round_, side_a_key, side_b_key)
                     if dedup_key in seen_keys:
-                        result['duplicates'] += 1
+                        result["duplicates"] += 1
                         continue
                     seen_keys.add(dedup_key)
 
-                    # 匹配 player_id
-                    player_a_id = None
-                    if a_name and a_country:
-                        player_a_id = player_index.get((a_name, a_country))
-                        if player_a_id is None:
-                            player_a_id = player_index.get((normalize_name_key(a_name), a_country))
-                        if player_a_id is None:
-                            result['unmatched_players'].add(f"{a_name} ({a_country})")
+                    if event_id is None:
+                        result["skipped_no_event"] += 1
+                        continue
+                    if event_id in filtering_only_event_ids:
+                        result["skipped_filtering_only"] += 1
+                        continue
 
-                    player_b_id = None
-                    if b_name and b_country:
-                        player_b_id = player_index.get((b_name, b_country))
-                        if player_b_id is None:
-                            player_b_id = player_index.get((normalize_name_key(b_name), b_country))
-                        if player_b_id is None:
-                            result['unmatched_players'].add(f"{b_name} ({b_country})")
+                    winner_side = infer_winner_side(match, side_a, side_b)
+                    if winner_side is None:
+                        result["unresolved_winner_side"] += 1
 
-                    # winner_id
-                    winner_id = None
-                    if winner_name:
-                        # winner 可能是 a 或 b
-                        if a_name and normalize_name_key(winner_name) == normalize_name_key(a_name):
-                            winner_id = player_a_id
-                        elif b_name and normalize_name_key(winner_name) == normalize_name_key(b_name):
-                            winner_id = player_b_id
+                    games = match.get("games", [])
+                    games_json = json.dumps(games, ensure_ascii=False) if games else None
+                    winner_name = (match.get("winner") or "").strip()
 
-                    # games → JSON 字符串
-                    games = match.get('games', [])
-                    games_json = json.dumps(games) if games else None
+                    cursor.execute(
+                        insert_match_sql,
+                        (
+                            event_id,
+                            event_name,
+                            event_name_zh,
+                            event_year,
+                            sub_event,
+                            stage,
+                            match.get("stage_zh"),
+                            round_,
+                            match.get("round_zh"),
+                            side_a_key,
+                            side_b_key,
+                            match.get("match_score", ""),
+                            games_json,
+                            winner_side,
+                            winner_name,
+                            raw_row_text,
+                        ),
+                    )
+                    match_id = cursor.lastrowid
 
-                    batch.append((
-                        event_id,
-                        event_name,
-                        event_name_zh,
-                        event_year,
-                        sub_event,
-                        stage,
-                        match.get('stage_zh'),
-                        round_,
-                        match.get('round_zh'),
-                        player_a_id,
-                        a_name,
-                        a_country,
-                        player_b_id,
-                        b_name,
-                        b_country,
-                        match.get('match_score', ''),
-                        games_json,
-                        winner_id,
-                        winner_name or '',
-                        raw_row_text,
-                    ))
+                    for side_no, side_key, side_players in (
+                        (1, side_a_key, side_a),
+                        (2, side_b_key, side_b),
+                    ):
+                        is_winner = 1 if winner_side == ("A" if side_no == 1 else "B") else 0
+                        cursor.execute(insert_side_sql, (match_id, side_no, side_key, is_winner))
+                        match_side_id = cursor.lastrowid
+
+                        for player_order, (player_name, player_country) in enumerate(side_players, 1):
+                            player_id = resolve_player_id(player_index, player_name, player_country)
+                            if player_id is None and player_name and player_country:
+                                result["unmatched_players"].add(f"{player_name} ({player_country})")
+                            cursor.execute(
+                                insert_side_player_sql,
+                                (match_side_id, player_order, player_id, player_name, player_country),
+                            )
+
                     file_inserted += 1
-
-                    # 批量插入
-                    if len(batch) >= BATCH_SIZE:
-                        _flush_batch(cursor, batch)
-                        batch.clear()
+                    result["inserted"] += 1
 
         if file_idx % 20 == 0 or file_idx == len(json_files):
-            print(f"  [{file_idx:3d}/{len(json_files)}] {json_file.name:35s} {file_count:4d} matches, {file_inserted:4d} new")
-
-    # 最后一批
-    if batch:
-        _flush_batch(cursor, batch)
-        batch.clear()
-
-    result['inserted'] = len(seen_keys) - result['duplicates']
-    result['inserted'] = len(seen_keys)
+            print(
+                f"  [{file_idx:3d}/{len(json_files)}] {json_file.name:35s} "
+                f"{file_count:4d} matches, {file_inserted:4d} new"
+            )
 
     conn.commit()
     conn.close()
     return result
-
-
-def _flush_batch(cursor, batch):
-    """批量插入 matches"""
-    cursor.executemany("""
-        INSERT OR IGNORE INTO matches (
-            event_id, event_name, event_name_zh, event_year,
-            sub_event_type_code, stage, stage_zh, round, round_zh,
-            player_a_id, player_a_name, player_a_country,
-            player_b_id, player_b_name, player_b_country,
-            match_score, games, winner_id, winner_name,
-            raw_row_text
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, batch)
 
 
 def verify_matches(db_path: str):
@@ -343,38 +406,44 @@ def verify_matches(db_path: str):
     cursor.execute("SELECT COUNT(*) FROM matches")
     total = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM matches WHERE player_a_id IS NOT NULL")
-    with_a = cursor.fetchone()[0]
+    cursor.execute("SELECT COUNT(*) FROM match_sides")
+    total_sides = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM matches WHERE player_b_id IS NOT NULL")
-    with_b = cursor.fetchone()[0]
+    cursor.execute("SELECT COUNT(*) FROM match_side_players")
+    total_side_players = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM matches WHERE event_id IS NOT NULL")
-    with_event = cursor.fetchone()[0]
+    cursor.execute("SELECT COUNT(*) FROM matches WHERE winner_side IS NOT NULL")
+    with_winner_side = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(DISTINCT event_id) FROM matches WHERE event_id IS NOT NULL")
+    cursor.execute("SELECT COUNT(*) FROM match_side_players WHERE player_id IS NOT NULL")
+    with_player_id = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(DISTINCT event_id) FROM matches")
     unique_events = cursor.fetchone()[0]
 
-    cursor.execute("""
+    cursor.execute(
+        """
         SELECT sub_event_type_code, COUNT(*) as cnt
         FROM matches GROUP BY sub_event_type_code ORDER BY cnt DESC
-    """)
+        """
+    )
     sub_event_dist = cursor.fetchall()
 
-    print(f"\nVerification:")
-    print(f"  Total matches:      {total}")
-    print(f"  With event_id:      {with_event} ({with_event*100//max(total,1)}%)")
-    print(f"  With player_a_id:   {with_a} ({with_a*100//max(total,1)}%)")
-    print(f"  With player_b_id:   {with_b} ({with_b*100//max(total,1)}%)")
-    print(f"  Unique events:      {unique_events}")
-    print(f"\n  Sub-event distribution:")
+    print("\nVerification:")
+    print(f"  Total matches:         {total}")
+    print(f"  Total sides:           {total_sides}")
+    print(f"  Total side players:    {total_side_players}")
+    print(f"  With winner_side:      {with_winner_side} ({with_winner_side*100//max(total,1)}%)")
+    print(f"  side players w/ id:    {with_player_id} ({with_player_id*100//max(total_side_players,1)}%)")
+    print(f"  Unique events:         {unique_events}")
+    print("\n  Sub-event distribution:")
     for code, cnt in sub_event_dist:
         print(f"    {code:5s}: {cnt:6d}")
 
     conn.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     matches_dir = PROJECT_ROOT / "data" / "matches_complete" / "cn"
 
     print("=" * 70)
@@ -392,29 +461,42 @@ if __name__ == '__main__':
 
     print(f"\n{'='*70}")
     print("Results:")
-    print(f"  Total in files:    {result['total_in_files']}")
-    print(f"  Unique (inserted): {result['inserted']}")
-    print(f"  Duplicates:        {result['duplicates']}")
+    print(f"  Full refresh mode:       {result['full_refresh']}")
+    print(f"  Total in files:          {result['total_in_files']}")
+    print(f"  Unique (inserted):       {result['inserted']}")
+    print(f"  Duplicates:              {result['duplicates']}")
+    print(f"  Skipped (no event_id):   {result['skipped_no_event']}")
+    print(f"  Skipped (no sides):      {result['skipped_no_side']}")
+    print(f"  Skipped (filtering_only):{result['skipped_filtering_only']}")
+    print(f"  Unresolved winner_side:  {result['unresolved_winner_side']}")
 
-    if result['unmatched_events']:
-        events_list = sorted(result['unmatched_events'])
+    if result["unmatched_events"]:
+        events_list = sorted(result["unmatched_events"])
         print(f"\n  Unmatched events ({len(events_list)}):")
         for e in events_list[:15]:
             print(f"    - {e}")
         if len(events_list) > 15:
             print(f"    ... and {len(events_list)-15} more")
 
-    if result['unmatched_players']:
-        players_list = sorted(result['unmatched_players'])
+    if result["unmatched_players"]:
+        players_list = sorted(result["unmatched_players"])
         print(f"\n  Unmatched players ({len(players_list)}):")
         for p in players_list[:20]:
             print(f"    - {p}")
         if len(players_list) > 20:
             print(f"    ... and {len(players_list)-20} more")
 
-    if result['errors']:
+    if result["errors"]:
         print(f"\n  Errors ({len(result['errors'])}):")
-        for e in result['errors'][:10]:
+        for e in result["errors"][:10]:
             print(f"    - {e}")
+
+    if result["auto_added_sub_event_codes"]:
+        auto_codes = sorted(result["auto_added_sub_event_codes"])
+        print(f"\n  [WARNING] Auto-added sub_event_types ({len(auto_codes)}):")
+        for code in auto_codes[:30]:
+            print(f"    - {code}")
+        if len(auto_codes) > 30:
+            print(f"    ... and {len(auto_codes)-30} more")
 
     verify_matches(str(DB_PATH))

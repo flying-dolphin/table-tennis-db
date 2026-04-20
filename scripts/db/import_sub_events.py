@@ -8,8 +8,9 @@
 
 关键规则：
 1. 单打：champion_player_ids 通常为单个 ID
-2. 双打/团体：尽量从 raw_row_text 解析完整冠军成员，使用逗号分隔
-3. 如果成员无法完全匹配到 players，仍写入 champion_name，并记录未匹配信息
+2. 团体赛：同一 (event_id, sub_event_type_code) 的 Final 可能包含多场子比赛，按胜场数判冠军
+3. 如果冠军胜场数平局，报错退出（不做回退）
+4. 如果成员无法完全匹配到 players，仍写入 champion_name，并记录未匹配信息
 """
 
 import re
@@ -33,9 +34,6 @@ except ImportError:
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
 
-PLAYER_TOKEN_RE = re.compile(r"^(.+?)\s*\((\w+)\)$")
-
-
 def normalize_name_key(name: str) -> str:
     parts = sorted(name.lower().split())
     return " ".join(parts)
@@ -43,32 +41,6 @@ def normalize_name_key(name: str) -> str:
 
 def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip().lower())
-
-
-def parse_player_token(token: str) -> Optional[Tuple[str, str]]:
-    match = PLAYER_TOKEN_RE.match(token.strip())
-    if not match:
-        return None
-    return match.group(1).strip(), match.group(2).strip()
-
-
-def parse_players_from_raw(raw_row_text: str) -> List[Tuple[str, str]]:
-    parts = [p.strip() for p in raw_row_text.split("|")]
-    players: List[Tuple[str, str]] = []
-    for part in parts:
-        parsed = parse_player_token(part)
-        if parsed:
-            players.append(parsed)
-    return players
-
-
-def split_sides(players: List[Tuple[str, str]]) -> Tuple[List[Tuple[str, str]], List[Tuple[str, str]]]:
-    if len(players) == 2:
-        return [players[0]], [players[1]]
-    if len(players) >= 4 and len(players) % 2 == 0:
-        half = len(players) // 2
-        return players[:half], players[half:]
-    return [], []
 
 
 def build_player_index(cursor) -> Dict[Tuple[str, str], int]:
@@ -91,15 +63,15 @@ def lookup_player_id(index: Dict[Tuple[str, str], int], name: str, country_code:
 
 
 def pick_winner_side(
+    winner_side: Optional[str],
     winner_name: str,
-    winner_id: Optional[int],
-    player_a_name: str,
-    player_a_id: Optional[int],
-    player_b_name: str,
-    player_b_id: Optional[int],
     side_a: List[Tuple[str, str]],
     side_b: List[Tuple[str, str]],
 ) -> Optional[str]:
+    normalized_winner_side = (winner_side or "").strip().upper()
+    if normalized_winner_side in {"A", "B"}:
+        return normalized_winner_side
+
     normalized_winner = normalize_text(winner_name or "")
 
     if normalized_winner:
@@ -110,115 +82,214 @@ def pick_winner_side(
         if b_hit and not a_hit:
             return "B"
 
-        if normalize_text(player_a_name) and normalize_text(player_a_name) in normalized_winner:
-            return "A"
-        if normalize_text(player_b_name) and normalize_text(player_b_name) in normalized_winner:
-            return "B"
-
-    if winner_id is not None:
-        if player_a_id is not None and winner_id == player_a_id:
-            return "A"
-        if player_b_id is not None and winner_id == player_b_id:
-            return "B"
-
     return None
+
+
+def make_team_key(side_players: List[Tuple[str, str]]) -> str:
+    countries = sorted({(country or "").strip().upper() for _, country in side_players if (country or "").strip()})
+    # Team finals usually have stable country identity but varying lineups across rubber matches.
+    # Only use country aggregation for single-country teams; otherwise fall back to full roster.
+    if len(countries) == 1:
+        return f"C:{countries[0]}"
+
+    members = sorted(
+        {
+            f"{normalize_text(name)}|{(country or '').strip().upper()}"
+            for name, country in side_players
+            if name.strip()
+        }
+    )
+    return f"R:{'||'.join(members)}"
+
+
+def resolve_champion_country_code(
+    event_id: int,
+    sub_event_type_code: str,
+    champion_names: List[str],
+    champion_countries: List[str],
+) -> str:
+    deduped = list(dict.fromkeys([c.strip().upper() for c in champion_countries if c.strip()]))
+    if len(deduped) <= 1:
+        return deduped[0] if deduped else ""
+    if sub_event_type_code in {"WD", "XD", "CXD", "CGD", "JGD","JXD","U19WD","U19XD","U15WD","U15XD","U21WD","U21XD"}:
+        # WD/XD may legitimately contain players from different countries.
+        return ",".join(sorted(deduped))
+
+    print("\n[CONFLICT] Champion country code conflict detected.")
+    print(f"  event_id: {event_id}")
+    print(f"  sub_event_type_code: {sub_event_type_code}")
+    print(f"  champion members: {', '.join(champion_names) if champion_names else '(empty)'}")
+    print(f"  detected country codes: {', '.join(deduped)}")
+    print("  Please input final champion country code (e.g. CHN):")
+
+    while True:
+        user_input = input("  champion_country_code> ").strip().upper()
+        if not user_input:
+            print("  [ERROR] Empty input is not allowed. Please enter a country code.")
+            continue
+        return user_input
 
 
 def import_sub_events(db_path: str) -> dict:
     result = {
+        "full_refresh": True,
         "final_matches": 0,
-        "sub_events_upserted": 0,
+        "sub_events_inserted": 0,
         "duplicate_finals": 0,
         "unresolved_winner_side": 0,
         "unmatched_champion_members": set(),
+        "manual_country_overrides": 0,
+        "multi_country_champions": 0,
     }
 
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
     player_index = build_player_index(cursor)
 
+    # Full refresh mode: clear previous sub_events and reset AUTOINCREMENT.
+    cursor.execute("DELETE FROM sub_events")
+    cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'sub_events'")
+
     cursor.execute(
         """
         SELECT
-            match_id,
-            event_id,
-            sub_event_type_code,
-            player_a_id,
-            player_a_name,
-            player_a_country,
-            player_b_id,
-            player_b_name,
-            player_b_country,
-            winner_id,
-            winner_name,
-            raw_row_text
-        FROM matches
-        WHERE stage = 'Main Draw'
-          AND round = 'Final'
-          AND event_id IS NOT NULL
-        ORDER BY event_id, sub_event_type_code, match_id
+            m.match_id,
+            m.event_id,
+            m.sub_event_type_code,
+            m.winner_side,
+            m.winner_name,
+            ms.side_no,
+            msp.player_name,
+            msp.player_country
+        FROM matches m
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        LEFT JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
+        WHERE m.stage = 'Main Draw'
+          AND m.round = 'Final'
+          AND m.event_id IS NOT NULL
+        ORDER BY m.event_id, m.sub_event_type_code, m.match_id, ms.side_no, msp.player_order
         """
     )
     rows = cursor.fetchall()
-    result["final_matches"] = len(rows)
-
-    seen = set()
-    for row in rows:
-        (
-            _match_id,
-            event_id,
-            sub_event_type_code,
-            player_a_id,
-            player_a_name,
-            player_a_country,
-            player_b_id,
-            player_b_name,
-            player_b_country,
-            winner_id,
-            winner_name,
-            raw_row_text,
-        ) = row
-
-        key = (event_id, sub_event_type_code)
-        if key in seen:
-            result["duplicate_finals"] += 1
-            continue
-        seen.add(key)
-
-        parsed_players = parse_players_from_raw(raw_row_text or "")
-        side_a, side_b = split_sides(parsed_players)
-        if not side_a or not side_b:
-            side_a = [(player_a_name or "", player_a_country or "")]
-            side_b = [(player_b_name or "", player_b_country or "")]
-
-        winner_side = pick_winner_side(
-            winner_name=winner_name or "",
-            winner_id=winner_id,
-            player_a_name=player_a_name or "",
-            player_a_id=player_a_id,
-            player_b_name=player_b_name or "",
-            player_b_id=player_b_id,
-            side_a=side_a,
-            side_b=side_b,
+    match_map = {}
+    for (
+        match_id,
+        event_id,
+        sub_event_type_code,
+        winner_side,
+        winner_name,
+        side_no,
+        player_name,
+        player_country,
+    ) in rows:
+        current = match_map.setdefault(
+            match_id,
+            {
+                "event_id": event_id,
+                "sub_event_type_code": sub_event_type_code,
+                "winner_side": winner_side,
+                "winner_name": winner_name,
+                "side_a": [],
+                "side_b": [],
+            },
         )
+        if player_name:
+            if side_no == 1:
+                current["side_a"].append((player_name, player_country or ""))
+            elif side_no == 2:
+                current["side_b"].append((player_name, player_country or ""))
 
-        if winner_side is None:
-            result["unresolved_winner_side"] += 1
-            continue
+    result["final_matches"] = len(match_map)
 
-        winners = side_a if winner_side == "A" else side_b
+    grouped_finals: Dict[Tuple[int, str], List[dict]] = {}
+    for match_data in match_map.values():
+        key = (match_data["event_id"], match_data["sub_event_type_code"])
+        grouped_finals.setdefault(key, []).append(match_data)
+
+    for (event_id, sub_event_type_code), final_matches in grouped_finals.items():
+        wins_by_team: Dict[str, int] = {}
+        team_roster_by_key: Dict[str, List[Tuple[str, str]]] = {}
+        wins_by_side = {"A": 0, "B": 0}
+        side_rosters = {"A": [], "B": []}
+
+        for match_data in final_matches:
+            winner_side = pick_winner_side(
+                winner_side=match_data["winner_side"],
+                winner_name=match_data["winner_name"] or "",
+                side_a=match_data["side_a"],
+                side_b=match_data["side_b"],
+            )
+            if winner_side is None:
+                result["unresolved_winner_side"] += 1
+                continue
+
+            side_a = match_data["side_a"]
+            side_b = match_data["side_b"]
+
+            if sub_event_type_code in {"WT", "XT"}:
+                wins_by_side[winner_side] += 1
+                side_rosters["A"].extend(side_a)
+                side_rosters["B"].extend(side_b)
+                continue
+
+            team_a_key = make_team_key(side_a)
+            team_b_key = make_team_key(side_b)
+            winner_team_key = team_a_key if winner_side == "A" else team_b_key
+
+            wins_by_team[winner_team_key] = wins_by_team.get(winner_team_key, 0) + 1
+
+            if team_a_key not in team_roster_by_key:
+                team_roster_by_key[team_a_key] = []
+            if team_b_key not in team_roster_by_key:
+                team_roster_by_key[team_b_key] = []
+            team_roster_by_key[team_a_key].extend(side_a)
+            team_roster_by_key[team_b_key].extend(side_b)
+
+        if sub_event_type_code in {"WT", "XT"}:
+            side_a_wins = wins_by_side["A"]
+            side_b_wins = wins_by_side["B"]
+            if side_a_wins == 0 and side_b_wins == 0:
+                continue
+            if side_a_wins == side_b_wins:
+                raise RuntimeError(
+                    f"Tie detected for team final champion: event_id={event_id}, "
+                    f"sub_event_type_code={sub_event_type_code}, wins_by_side={wins_by_side}"
+                )
+            champion_side = "A" if side_a_wins > side_b_wins else "B"
+            champion_roster = side_rosters[champion_side]
+        else:
+            if not wins_by_team:
+                continue
+
+            max_wins = max(wins_by_team.values())
+            champion_team_keys = [team_key for team_key, wins in wins_by_team.items() if wins == max_wins]
+            if len(champion_team_keys) != 1:
+                raise RuntimeError(
+                    f"Tie detected for team final champion: event_id={event_id}, "
+                    f"sub_event_type_code={sub_event_type_code}, wins={wins_by_team}"
+                )
+
+            champion_team_key = champion_team_keys[0]
+            champion_roster = team_roster_by_key.get(champion_team_key, [])
+
+        champion_members: List[Tuple[str, str]] = []
+        seen_members = set()
+        for name, country in champion_roster:
+            cleaned_name = (name or "").strip()
+            cleaned_country = (country or "").strip()
+            if not cleaned_name:
+                continue
+            member_key = (normalize_text(cleaned_name), cleaned_country.upper())
+            if member_key in seen_members:
+                continue
+            seen_members.add(member_key)
+            champion_members.append((cleaned_name, cleaned_country))
+
         champion_names: List[str] = []
-        # Keep positional alignment with champion_names:
-        # unmatched members are represented as empty string.
         champion_ids: List[str] = []
         champion_countries: List[str] = []
 
-        for name, country in winners:
-            name = name.strip()
-            country = (country or "").strip()
-            if not name:
-                continue
-
+        for name, country in champion_members:
             champion_names.append(name)
             if country:
                 champion_countries.append(country)
@@ -230,32 +301,34 @@ def import_sub_events(db_path: str) -> dict:
                 champion_ids.append("")
                 result["unmatched_champion_members"].add(f"{name} ({country})")
 
-        if not champion_names and winner_name:
-            champion_names = [winner_name.strip()]
-            champion_ids = [str(winner_id)] if winner_id is not None else [""]
-
-        # Country code can be compacted safely for display.
-        champion_countries = list(dict.fromkeys(champion_countries))
+        deduped_countries = list(dict.fromkeys([c.strip().upper() for c in champion_countries if c.strip()]))
+        resolved_country = resolve_champion_country_code(
+            event_id=event_id,
+            sub_event_type_code=sub_event_type_code,
+            champion_names=champion_names,
+            champion_countries=champion_countries,
+        )
+        if len(deduped_countries) > 1:
+            if sub_event_type_code in {"WD", "XD"}:
+                result["multi_country_champions"] += 1
+            else:
+                result["manual_country_overrides"] += 1
 
         cursor.execute(
             """
             INSERT INTO sub_events (
                 event_id, sub_event_type_code, champion_player_ids, champion_name, champion_country_code
             ) VALUES (?, ?, ?, ?, ?)
-            ON CONFLICT(event_id, sub_event_type_code) DO UPDATE SET
-                champion_player_ids = excluded.champion_player_ids,
-                champion_name = excluded.champion_name,
-                champion_country_code = excluded.champion_country_code
             """,
             (
                 event_id,
                 sub_event_type_code,
                 ",".join(champion_ids) if champion_ids else None,
                 ",".join(champion_names) if champion_names else None,
-                ",".join(champion_countries) if champion_countries else None,
+                resolved_country if resolved_country else None,
             ),
         )
-        result["sub_events_upserted"] += 1
+        result["sub_events_inserted"] += 1
 
     conn.commit()
     conn.close()
@@ -306,10 +379,13 @@ if __name__ == "__main__":
     result = import_sub_events(str(DB_PATH))
 
     print("Results:")
+    print(f"  Full refresh mode:            {result['full_refresh']}")
     print(f"  Final matches scanned:        {result['final_matches']}")
-    print(f"  sub_events upserted:          {result['sub_events_upserted']}")
+    print(f"  sub_events inserted:          {result['sub_events_inserted']}")
     print(f"  duplicate finals skipped:     {result['duplicate_finals']}")
     print(f"  unresolved winner side:       {result['unresolved_winner_side']}")
+    print(f"  manual country overrides:     {result['manual_country_overrides']}")
+    print(f"  multi-country champions:      {result['multi_country_champions']}")
 
     unmatched = sorted(result["unmatched_champion_members"])
     if unmatched:
