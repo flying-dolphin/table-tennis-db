@@ -146,100 +146,142 @@ export function getPlayerAggregateStats(playerIds: number[]) {
     .prepare(
       `
         SELECT
+          m.match_id,
           m.event_id,
           m.stage,
           m.round,
-          m.player_a_id,
-          m.player_a_country,
-          m.player_b_id,
-          m.player_b_country,
-          m.winner_id,
+          m.winner_side,
           m.sub_event_type_code,
           ec.sort_order,
-          ec.category_id
+          ec.category_id,
+          msp.player_id,
+          msp.player_country,
+          ms.side_no,
+          opp.player_country AS opponent_country
         FROM matches m
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
+        LEFT JOIN match_sides opps ON opps.match_id = m.match_id AND opps.side_no <> ms.side_no
+        LEFT JOIN match_side_players opp ON opp.match_side_id = opps.match_side_id
         LEFT JOIN events e ON e.event_id = m.event_id
         LEFT JOIN event_categories ec ON ec.id = e.event_category_id
-        WHERE m.player_a_id IN (${inClause}) OR m.player_b_id IN (${inClause})
+        WHERE msp.player_id IN (${inClause})
       `,
     )
-    .all(...uniqueIds, ...uniqueIds) as Array<{
+    .all(...uniqueIds) as Array<{
+      match_id: number;
       event_id: number | null;
       stage: string | null;
       round: string | null;
-      player_a_id: number | null;
-      player_a_country: string | null;
-      player_b_id: number | null;
-      player_b_country: string | null;
-      winner_id: number | null;
+      winner_side: string | null;
       sub_event_type_code: string | null;
       sort_order: number | null;
       category_id: string | null;
+      player_id: number | null;
+      player_country: string | null;
+      side_no: number;
+      opponent_country: string | null;
     }>;
 
+  const groupedRows = new Map<
+    string,
+    {
+      matchId: number;
+      playerId: number;
+      eventId: number | null;
+      stage: string | null;
+      round: string | null;
+      winnerSide: string | null;
+      subEventTypeCode: string | null;
+      sortOrder: number | null;
+      categoryId: string | null;
+      playerCountry: string | null;
+      sideNo: number;
+      opponentCountries: Set<string>;
+    }
+  >();
+
   for (const row of matchRows) {
-    const categoryId = row.category_id?.toUpperCase() ?? '';
+    if (row.player_id == null) continue;
+    const key = `${row.match_id}:${row.player_id}`;
+    const current =
+      groupedRows.get(key) ??
+      {
+        matchId: row.match_id,
+        playerId: row.player_id,
+        eventId: row.event_id,
+        stage: row.stage,
+        round: row.round,
+        winnerSide: row.winner_side,
+        subEventTypeCode: row.sub_event_type_code,
+        sortOrder: row.sort_order,
+        categoryId: row.category_id,
+        playerCountry: row.player_country,
+        sideNo: row.side_no,
+        opponentCountries: new Set<string>(),
+      };
+
+    if (row.opponent_country) {
+      current.opponentCountries.add(row.opponent_country);
+    }
+    groupedRows.set(key, current);
+  }
+
+  for (const row of groupedRows.values()) {
+    const categoryId = row.categoryId?.toUpperCase() ?? '';
     if (categoryId.includes('YOUTH') || categoryId.includes('JUNIOR') || categoryId.includes('CADET')) {
       continue;
     }
 
-    const sides = [
-      {
-        playerId: row.player_a_id,
-        opponentCountry: row.player_b_country,
-      },
-      {
-        playerId: row.player_b_id,
-        opponentCountry: row.player_a_country,
-      },
-    ];
+    if (!statsMap.has(row.playerId)) continue;
+    const stats = statsMap.get(row.playerId)!;
 
-    for (const side of sides) {
-      if (side.playerId == null || !statsMap.has(side.playerId)) continue;
-      const stats = statsMap.get(side.playerId)!;
+    if (row.eventId != null) {
+      stats.eventIds.add(row.eventId);
+    }
 
-      if (row.event_id != null) {
-        stats.eventIds.add(row.event_id);
-      }
+    const didWin =
+      (row.winnerSide === 'A' && row.sideNo === 1) ||
+      (row.winnerSide === 'B' && row.sideNo === 2);
 
-      const playerCountry =
-        side.playerId === row.player_a_id ? row.player_a_country ?? null : row.player_b_country ?? null;
-      const opponentCountry = side.opponentCountry ?? null;
+    if (row.playerCountry && row.opponentCountries.size) {
+      const countries = Array.from(row.opponentCountries);
+      const allSameCountry = countries.every((country) => country === row.playerCountry);
+      const hasForeignCountry = countries.some((country) => country !== row.playerCountry);
 
-      if (playerCountry && opponentCountry && playerCountry === opponentCountry) {
+      if (allSameCountry) {
         stats.domesticMatches += 1;
-        if (row.winner_id != null && row.winner_id === side.playerId) {
+        if (didWin) {
           stats.domesticWins += 1;
         }
-      } else if (playerCountry && opponentCountry) {
+      } else if (hasForeignCountry) {
         stats.foreignMatches += 1;
-        if (row.winner_id != null && row.winner_id === side.playerId) {
+        if (didWin) {
           stats.foreignWins += 1;
         }
       }
+    }
 
-      const eventKey =
-        row.event_id != null ? `${row.event_id}:${row.sub_event_type_code ?? ''}` : null;
+    const eventKey = row.eventId != null ? `${row.eventId}:${row.subEventTypeCode ?? ''}` : null;
 
-      if (
-        eventKey &&
-        row.stage === 'Main Draw' &&
-        row.round === 'Final' &&
-        row.sort_order != null &&
-        row.sort_order >= 1 &&
-        row.sort_order <= 9
-      ) {
-        stats.sevenFinalEventKeys.add(eventKey);
-        if (row.winner_id === side.playerId) {
-          stats.allSevenTitleKeys.add(eventKey);
-          if (row.sort_order <= 5) {
-            stats.allThreeTitleKeys.add(eventKey);
-          }
-          if (row.sub_event_type_code === 'WS') {
-            stats.singleSevenTitleKeys.add(eventKey);
-            if (row.sort_order <= 5) {
-              stats.singleThreeTitleKeys.add(eventKey);
-            }
+    if (
+      eventKey &&
+      row.stage === 'Main Draw' &&
+      row.round === 'Final' &&
+      row.sortOrder != null &&
+      row.sortOrder >= 1 &&
+      row.sortOrder <= 9
+    ) {
+      stats.sevenFinalEventKeys.add(eventKey);
+      if (didWin) {
+        stats.allSevenTitleKeys.add(eventKey);
+        if (row.sortOrder <= 5) {
+          stats.allThreeTitleKeys.add(eventKey);
+        }
+        if (row.subEventTypeCode === 'WS') {
+          stats.singleSevenTitleKeys.add(eventKey);
+          if (row.sortOrder <= 5) {
+            stats.singleThreeTitleKeys.add(eventKey);
           }
         }
       }

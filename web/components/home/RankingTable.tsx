@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
+import "@/public/images/flags_local.css";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -120,14 +121,17 @@ export default function RankingTable() {
 
                     <PlayerAvatar player={player} size="md" />
 
-                    <div className="flex-1 flex flex-col justify-center items-center overflow-hidden px-2">
-                      <div className="flex items-center gap-1.5 max-w-full">
-                        <h3 className="text-[14px] font-bold text-text-primary leading-tight truncate">
+                    <div className="flex-1 flex justify-start items-end overflow-hidden px-2">
+                      <div className="flex items-end gap-2 max-w-full">
+                        <h3 className="text-[16px] font-bold text-text-primary leading-none truncate">
                           {displayName(player)}
                         </h3>
-                        <span className="shrink-0 text-[10px] font-medium text-text-secondary bg-surface-secondary border border-border-subtle px-1 py-0.5 rounded uppercase tracking-wider">
-                          {player.countryCode}
-                        </span>
+                        <div className="flex items-center gap-1.5 shrink-0 pb-0.5">
+                          <div className={`fg fg-${player.countryCode} scale-110 origin-center`} />
+                          <span className="text-[11px] font-bold text-text-tertiary uppercase tracking-wider">
+                            {player.countryCode}
+                          </span>
+                        </div>
                       </div>
                     </div>
 
@@ -166,13 +170,16 @@ export default function RankingTable() {
 
                   <PlayerAvatar player={player} size="sm" />
 
-                  <div className="flex-1 flex items-center justify-center gap-1.5 overflow-hidden px-2">
-                    <h3 className="text-[14px] font-semibold text-text-secondary leading-tight truncate">
+                  <div className="flex-1 flex items-end justify-start gap-2 overflow-hidden px-2">
+                    <h3 className="text-[15px] font-bold text-text-primary leading-none truncate overflow-visible">
                       {displayName(player)}
                     </h3>
-                    <span className="shrink-0 text-[9px] font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase tracking-wider">
-                      {player.countryCode}
-                    </span>
+                    <div className="flex items-center gap-1.5 shrink-0 pb-0.5">
+                      <div className={`fg fg-${player.countryCode} scale-100 origin-center`} />
+                      <span className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">
+                        {player.countryCode}
+                      </span>
+                    </div>
                   </div>
 
                   <div className="w-[72px] text-right shrink-0 pr-1 flex flex-col items-end leading-none">

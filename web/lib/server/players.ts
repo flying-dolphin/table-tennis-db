@@ -120,22 +120,24 @@ export function getPlayerDetail(slug: string) {
           m.round,
           m.round_zh AS roundZh,
           m.match_score AS matchScore,
-          m.winner_id AS winnerId,
-          m.player_a_id AS playerAId,
-          m.player_a_name AS playerAName,
-          m.player_a_country AS playerACountry,
-          m.player_b_id AS playerBId,
-          m.player_b_name AS playerBName,
-          m.player_b_country AS playerBCountry,
+          m.winner_side AS winnerSide,
+          ms.side_no AS playerSideNo,
+          GROUP_CONCAT(DISTINCT opp.player_name) AS opponentNames,
+          GROUP_CONCAT(DISTINCT opp.player_country) AS opponentCountries,
           e.start_date AS startDate
         FROM matches m
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        JOIN match_side_players self ON self.match_side_id = ms.match_side_id
+        LEFT JOIN match_sides opps ON opps.match_id = m.match_id AND opps.side_no <> ms.side_no
+        LEFT JOIN match_side_players opp ON opp.match_side_id = opps.match_side_id
         LEFT JOIN events e ON e.event_id = m.event_id
         LEFT JOIN sub_event_types sety ON sety.code = m.sub_event_type_code
-        WHERE m.player_a_id = ? OR m.player_b_id = ?
+        WHERE self.player_id = ?
+        GROUP BY m.match_id, ms.side_no
         ORDER BY COALESCE(e.start_date, '') DESC, COALESCE(m.event_year, 0) DESC, m.match_id DESC
       `,
     )
-    .all(player.playerId, player.playerId) as Array<{
+    .all(player.playerId) as Array<{
       matchId: number;
       eventId: number | null;
       eventName: string | null;
@@ -147,21 +149,66 @@ export function getPlayerDetail(slug: string) {
       round: string | null;
       roundZh: string | null;
       matchScore: string | null;
-      winnerId: number | null;
-      playerAId: number | null;
-      playerAName: string;
-      playerACountry: string | null;
-      playerBId: number | null;
-      playerBName: string | null;
-      playerBCountry: string | null;
+      winnerSide: string | null;
+      playerSideNo: number;
+      opponentNames: string | null;
+      opponentCountries: string | null;
       startDate: string | null;
     }>;
 
-  const recentMatches = matchRows.slice(0, 3).map((row) => {
-    const isPlayerA = row.playerAId === player.playerId;
-    const opponentName = isPlayerA ? row.playerBName : row.playerAName;
-    const opponentCountry = isPlayerA ? row.playerBCountry : row.playerACountry;
-    return {
+  const opponentRows = db
+    .prepare(
+      `
+        SELECT
+          m.match_id AS matchId,
+          m.winner_side AS winnerSide,
+          ms.side_no AS playerSideNo,
+          e.start_date AS startDate,
+          opp.player_id AS opponentId,
+          opp.player_name AS opponentName,
+          opp.player_country AS opponentCountry
+        FROM matches m
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        JOIN match_side_players self ON self.match_side_id = ms.match_side_id
+        LEFT JOIN match_sides opps ON opps.match_id = m.match_id AND opps.side_no <> ms.side_no
+        LEFT JOIN match_side_players opp ON opp.match_side_id = opps.match_side_id
+        LEFT JOIN events e ON e.event_id = m.event_id
+        WHERE self.player_id = ?
+      `,
+    )
+    .all(player.playerId) as Array<{
+    matchId: number;
+    winnerSide: string | null;
+    playerSideNo: number;
+    startDate: string | null;
+    opponentId: number | null;
+    opponentName: string | null;
+    opponentCountry: string | null;
+  }>;
+
+  const seenEventIds = new Set<number>();
+  const recentMatches: Array<{
+    matchId: number;
+    eventId: number | null;
+    eventName: string | null;
+    eventNameZh: string | null;
+    date: string | null;
+    opponentName: string | null;
+    opponentCountry: string | null;
+    matchScore: string | null;
+    didWin: boolean;
+  }> = [];
+
+  for (const row of matchRows) {
+    if (row.eventId != null && seenEventIds.has(row.eventId)) continue;
+    if (row.eventId != null) seenEventIds.add(row.eventId);
+
+    const opponentName = row.opponentNames ? row.opponentNames.split(',').join(' / ') : null;
+    const opponentCountry = row.opponentCountries ? row.opponentCountries.split(',').join(' / ') : null;
+    const didWin =
+      (row.winnerSide === 'A' && row.playerSideNo === 1) ||
+      (row.winnerSide === 'B' && row.playerSideNo === 2);
+    recentMatches.push({
       matchId: row.matchId,
       eventId: row.eventId,
       eventName: row.eventName,
@@ -170,9 +217,11 @@ export function getPlayerDetail(slug: string) {
       opponentName,
       opponentCountry,
       matchScore: row.matchScore,
-      didWin: row.winnerId != null && row.winnerId === player.playerId,
-    };
-  });
+      didWin,
+    });
+
+    if (recentMatches.length >= 3) break;
+  }
 
   const eventMap = new Map<
     number,
@@ -193,7 +242,10 @@ export function getPlayerDetail(slug: string) {
     if (row.eventId == null) continue;
     const current = eventMap.get(row.eventId);
     const weight = roundWeight(row.round);
-    const isChampion = row.stage === 'Main Draw' && row.round === 'Final' && row.winnerId === player.playerId;
+    const isChampion =
+      row.stage === 'Main Draw' &&
+      row.round === 'Final' &&
+      ((row.winnerSide === 'A' && row.playerSideNo === 1) || (row.winnerSide === 'B' && row.playerSideNo === 2));
 
     if (!current || weight > current.weight || (isChampion && !current.isChampion)) {
       eventMap.set(row.eventId, {
@@ -229,8 +281,8 @@ export function getPlayerDetail(slug: string) {
   >();
 
   const relatedPlayerIds = new Set<number>();
-  for (const row of matchRows) {
-    const opponentId = row.playerAId === player.playerId ? row.playerBId : row.playerAId;
+  for (const row of opponentRows) {
+    const opponentId = row.opponentId;
     if (opponentId != null) relatedPlayerIds.add(opponentId);
   }
 
@@ -251,11 +303,10 @@ export function getPlayerDetail(slug: string) {
     : [];
   const relatedPlayerMap = new Map(relatedPlayers.map((item) => [item.playerId, item]));
 
-  for (const row of matchRows) {
-    const isPlayerA = row.playerAId === player.playerId;
-    const opponentId = isPlayerA ? row.playerBId : row.playerAId;
-    const opponentName = isPlayerA ? row.playerBName : row.playerAName;
-    const opponentCountry = isPlayerA ? row.playerBCountry : row.playerACountry;
+  for (const row of opponentRows) {
+    const opponentId = row.opponentId;
+    const opponentName = row.opponentName;
+    const opponentCountry = row.opponentCountry;
     if (!opponentName) continue;
 
     const key = `${opponentId ?? 'unknown'}:${opponentName}`;
@@ -273,7 +324,10 @@ export function getPlayerDetail(slug: string) {
       };
 
     current.matches += 1;
-    if (row.winnerId != null && row.winnerId === player.playerId) {
+    const didWin =
+      (row.winnerSide === 'A' && row.playerSideNo === 1) ||
+      (row.winnerSide === 'B' && row.playerSideNo === 2);
+    if (didWin) {
       current.wins += 1;
     }
     current.latestDate =

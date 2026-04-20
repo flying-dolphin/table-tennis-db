@@ -5,6 +5,7 @@ import { ArrowUpRight, CalendarDays, ChevronRight, Medal, Target, Trophy } from 
 import { PlayerAvatar } from '@/components/PlayerAvatar';
 import { PlayerBackButton } from '@/components/player/PlayerBackButton';
 import { getPlayerDetail } from '@/lib/server/players';
+import '@/public/images/flags_local.css';
 
 type PlayerDetail = NonNullable<ReturnType<typeof getPlayerDetail>>;
 type Player = PlayerDetail['player'];
@@ -63,7 +64,7 @@ function formatPercent(value: number | null | undefined) {
 function displayBio(player: Player) {
   const parts: string[] = [];
   if (player.birthYear) {
-    parts.push(`${player.birthYear}${player.age ? ` (${player.age}岁)` : ''}`);
+    parts.push(`${player.birthYear}年出生${player.age ? ` (${player.age}岁)` : ''}`);
   } else if (player.age) {
     parts.push(`${player.age} 岁`);
   }
@@ -134,20 +135,32 @@ function PlayerHero({ player }: { player: Player }) {
           />
 
           <div className="min-w-0 flex-1 pb-1">
-            <h1 className="mt-1 truncate text-[32px] font-black leading-none tracking-tight">{displayPlayerName(player)}</h1>
-            <p className="mt-2 truncate text-[14px] font-semibold text-white/66">{player.name}</p>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-end gap-3">
+                <h1 className="truncate text-[32px] font-black leading-none tracking-tight">
+                  {displayPlayerName(player)}
+                </h1>
+                {player.countryCode && (
+                  <div className="flex items-center gap-2 rounded-lg bg-white/10 px-2.5 py-1.5 backdrop-blur-md mb-0.5">
+                    <div className={`fg fg-${player.countryCode} scale-125 origin-center`} />
+                    <span className="text-[12px] font-bold text-white/90">{player.country || player.countryCode}</span>
+                  </div>
+                )}
+              </div>
+              <p className="truncate text-[14px] font-semibold text-white/50 tracking-wide uppercase italic">
+                {player.name}
+              </p>
+            </div>
             <div className="mt-3 flex flex-wrap items-center gap-1.5">
               <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
-                {player.country || player.countryCode}
+                {player.gender === 'Female' ? '女' : player.gender === 'Male' ? '男' : '待补'}
+              </span>
+              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
+                {displayBio(player)}
               </span>
               {player.styleZh && (
                 <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-[11px] font-bold text-white/90 backdrop-blur-sm">
                   {player.styleZh}
-                </span>
-              )}
-              {player.careerBestRank && (
-                <span className="rounded-full bg-brand-primary/40 px-2.5 py-0.5 text-[11px] font-bold text-white backdrop-blur-sm">
-                  生涯最高 #{player.careerBestRank}
                 </span>
               )}
             </div>
@@ -162,7 +175,14 @@ function PlayerHero({ player }: { player: Player }) {
                 {rankChange > 0 ? '↑' : rankChange < 0 ? '↓' : '•'} {rankChange !== 0 ? Math.abs(rankChange) : ''}
               </span>
             </p>
-            <strong className="mt-1 block text-[30px] leading-none">#{player.rank ?? '-'}</strong>
+            <div className="mt-1 flex items-baseline gap-1.5 font-black">
+              <span className="text-[30px] leading-none">#{player.rank ?? '-'}</span>
+              {player.careerBestRank && (
+                <span className="text-[12px] text-white/60 font-medium">
+                  (最高{player.careerBestRank})
+                </span>
+              )}
+            </div>
           </div>
           <div className="rounded-[24px] border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
             <p className="text-[11px] font-bold text-white/55">当前积分</p>
@@ -182,41 +202,6 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
       <SectionHeader title="职业看板" hint="全维度数据与年度对照" />
 
       <div className="bento-grid">
-        {/* Bio Info - Basic Attributes */}
-        <div className="bento-span-6 bento-card bento-card-hover flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div>
-              <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">性别</p>
-              <p className="text-[14px] font-black text-text-primary">{player.gender === 'Female' ? '女' : player.gender === 'Male' ? '男' : '待补'}</p>
-            </div>
-            <div className="h-6 w-px bg-border-subtle" />
-            <div>
-              <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">出生 & 年龄</p>
-              <p className="text-[14px] font-black text-text-primary">{displayBio(player)}</p>
-            </div>
-          </div>
-          <div className="text-right">
-            <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">打球风格</p>
-            <p className="text-[14px] font-black text-brand-strong">{player.styleZh || '待补'}</p>
-          </div>
-        </div>
-
-        {/* Core Ranks */}
-        <div className="bento-span-2 bento-card bento-card-hover">
-          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">当前排名</p>
-          <p className="mt-1 text-[22px] font-black text-brand-strong">#{player.rank ?? '-'}</p>
-          <div className="mt-1 h-1 w-8 rounded-full bg-brand-strong/20" />
-        </div>
-        <div className="bento-span-2 bento-card bento-card-hover">
-          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">生涯最高</p>
-          <p className="mt-1 text-[22px] font-black text-text-primary">#{player.careerBestRank ?? '-'}</p>
-          <div className="mt-1 h-1 w-8 rounded-full bg-text-tertiary/20" />
-        </div>
-        <div className="bento-span-2 bento-card bento-card-hover">
-          <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider">当前积分</p>
-          <p className="mt-1 text-[20px] font-black text-text-primary whitespace-nowrap">{formatNumber(player.points)}</p>
-        </div>
-
         {/* Win Rate Comparison */}
         <div className="bento-span-4 bento-card bento-card-hover relative overflow-hidden">
           <div className="relative z-10 flex h-full flex-col justify-between">
@@ -323,7 +308,7 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
 function RecentMatches({ matches }: { matches: RecentMatch[] }) {
   return (
     <section className="px-5 pt-6">
-      <SectionHeader title="最近比赛" hint="固定展示最近 3 场 match" />
+      <SectionHeader title="最近比赛" />
       {matches.length === 0 ? (
         <EmptyState title="最近比赛暂无数据" />
       ) : (

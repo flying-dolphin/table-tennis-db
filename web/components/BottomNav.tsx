@@ -45,19 +45,22 @@ export default function BottomNav() {
               key={item.id}
               href={item.href}
               className={cn(
-                "flex flex-col items-center justify-center gap-1 min-w-[58px] px-1 py-1 rounded-2xl transition-all duration-300",
+                "flex flex-col items-center justify-center gap-1.5 min-w-[64px] px-2 py-1.5 rounded-full transition-all duration-500 relative",
                 isActive ? "text-brand-deep" : "text-text-tertiary hover:text-text-secondary"
               )}
             >
+              {isActive && (
+                <div className="absolute inset-0 bg-white/60 backdrop-blur-md rounded-full shadow-sm border border-white/80 -z-10 animate-in fade-in zoom-in-95 duration-500" />
+              )}
               <div className={cn(
-                "p-1 rounded-xl transition-all duration-300",
-                isActive ? "bg-brand-soft/85 scale-105 shadow-inner" : "bg-transparent"
+                "transition-all duration-500",
+                isActive ? "scale-110 drop-shadow-[0_0_8px_rgba(26,35,44,0.15)]" : "bg-transparent"
               )}>
-                <Icon size={22} strokeWidth={isActive ? 2.5 : 2} />
+                <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
               </div>
               <span className={cn(
-                "text-[10px] font-bold tracking-tight transition-all duration-300",
-                isActive ? "text-brand-deep scale-105" : "text-text-tertiary"
+                "text-[10px] font-black tracking-widest transition-all duration-500 uppercase",
+                isActive ? "" : "text-text-tertiary/80"
               )}>
                 {item.label}
               </span>

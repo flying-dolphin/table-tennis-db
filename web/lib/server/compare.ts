@@ -26,16 +26,21 @@ export function getCompareData(playerASlug: string, playerBSlug: string) {
           m.round,
           m.round_zh AS roundZh,
           m.match_score AS matchScore,
-          m.winner_id AS winnerId,
+          m.winner_side AS winnerSide,
+          sa.side_no AS playerASideNo,
           e.start_date AS startDate
         FROM matches m
+        JOIN match_sides sa ON sa.match_id = m.match_id
+        JOIN match_side_players spa ON spa.match_side_id = sa.match_side_id
+        JOIN match_sides sb ON sb.match_id = m.match_id AND sb.side_no <> sa.side_no
+        JOIN match_side_players spb ON spb.match_side_id = sb.match_side_id
         LEFT JOIN events e ON e.event_id = m.event_id
-        WHERE (m.player_a_id = ? AND m.player_b_id = ?)
-           OR (m.player_a_id = ? AND m.player_b_id = ?)
+        WHERE spa.player_id = ?
+          AND spb.player_id = ?
         ORDER BY COALESCE(e.start_date, '') DESC, COALESCE(m.event_year, 0) DESC, m.match_id DESC
       `,
     )
-    .all(playerA.playerId, playerB.playerId, playerB.playerId, playerA.playerId) as Array<{
+    .all(playerA.playerId, playerB.playerId) as Array<{
       matchId: number;
       eventId: number | null;
       eventName: string | null;
@@ -44,12 +49,36 @@ export function getCompareData(playerASlug: string, playerBSlug: string) {
       round: string | null;
       roundZh: string | null;
       matchScore: string | null;
-      winnerId: number | null;
+      winnerSide: string | null;
+      playerASideNo: number;
       startDate: string | null;
     }>;
 
-  const playerAWins = h2hMatches.filter((match) => match.winnerId === playerA.playerId).length;
-  const playerBWins = h2hMatches.filter((match) => match.winnerId === playerB.playerId).length;
+  const h2hMatchesWithWinner = h2hMatches.map((match) => {
+    const playerAWin =
+      (match.winnerSide === 'A' && match.playerASideNo === 1) ||
+      (match.winnerSide === 'B' && match.playerASideNo === 2);
+    const playerBWin =
+      (match.winnerSide === 'A' && match.playerASideNo === 2) ||
+      (match.winnerSide === 'B' && match.playerASideNo === 1);
+    return {
+      ...match,
+      winnerId: playerAWin ? playerA.playerId : playerBWin ? playerB.playerId : null,
+    };
+  });
+
+  const playerAWins = h2hMatches.filter((match) => {
+    return (
+      (match.winnerSide === 'A' && match.playerASideNo === 1) ||
+      (match.winnerSide === 'B' && match.playerASideNo === 2)
+    );
+  }).length;
+  const playerBWins = h2hMatches.filter((match) => {
+    return (
+      (match.winnerSide === 'A' && match.playerASideNo === 2) ||
+      (match.winnerSide === 'B' && match.playerASideNo === 1)
+    );
+  }).length;
   const total = h2hMatches.length;
 
   return {
@@ -76,6 +105,6 @@ export function getCompareData(playerASlug: string, playerBSlug: string) {
         winRate: total ? Number(((playerBWins / total) * 100).toFixed(2)) : 0,
       },
     },
-    headToHeadMatches: h2hMatches,
+    headToHeadMatches: h2hMatchesWithWinner,
   };
 }

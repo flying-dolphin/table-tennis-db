@@ -59,8 +59,8 @@
   }
 
   .pill-nav-container {
-    @apply mx-auto mb-[calc(8px+env(safe-area-inset-bottom))] w-[92vw] max-w-[420px] bg-white/75 backdrop-blur-xl px-4 py-1 rounded-full flex items-center justify-between gap-1 transition-all duration-300 border border-border-subtle;
-    box-shadow: 0 20px 45px rgba(30, 42, 61, 0.16);
+    @apply mx-auto mb-8 w-[90vw] max-w-[400px] bg-white/45 backdrop-blur-2xl px-3 py-2 rounded-full flex items-center justify-around gap-1 transition-all duration-500 border border-white/40 ring-1 ring-black/5;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 10px 20px -10px rgba(0, 0, 0, 0.1);
   }
 
   .nav-item {
