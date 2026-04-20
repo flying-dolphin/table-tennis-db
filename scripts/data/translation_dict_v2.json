@@ -44,6 +44,32 @@
       },
       "updated_at": "2026-04-10T18:30:00"
     },
+    "ding ning": {
+      "original": "Ding Ning",
+      "translated": "丁宁",
+      "categories": [
+        "players"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-10T18:30:00"
+    },
+    "liu shiwen": {
+      "original": "Liu Shiwen",
+      "translated": "刘诗雯",
+      "categories": [
+        "players"
+      ],
+      "source": "dict",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-04-10T18:30:00"
+    },
     "liang jingkun": {
       "original": "Liang Jingkun",
       "translated": "梁靖崑",
