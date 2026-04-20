@@ -515,6 +515,166 @@ V1 中常见的固定元素和浮层包括：
 - 所有状态色需优先保证在 `#F7F9FC` 和白色卡片上的可读性
 - `Info` 色必须与品牌蓝区分，不可与主品牌色承担相同语义
 
+### 4.5A 颜色对比度校验与修正
+
+本节基于 WCAG 2.1 AA 标准，对全站定义的颜色进行对比度审计，标注不达标项并给出修正方案。
+
+**WCAG AA 标准：**
+- 普通文字（< 18px regular / < 14px bold）：最低 **4.5:1**
+- 大号文字（≥ 18px regular 或 ≥ 14px bold）：最低 **3:1**
+- 非文字交互元素（图标、边框状态指示）：最低 **3:1**
+
+#### 文字色对比度
+
+| 颜色 Token | 色值 | on white | on page-bg | 结论 |
+|-----------|------|----------|------------|------|
+| `text-primary` | `#1E2A3D` | 14.45:1 | 13.70:1 | 通过 |
+| `text-secondary` | `#5F6F86` | 5.12:1 | 4.85:1 | 通过 |
+| `text-tertiary` | `#8A9AB0` | 2.87:1 | 2.72:1 | **不达标** |
+
+**修正：`text-tertiary` 从 `#8A9AB0` 改为 `#617283`**
+
+| 颜色 Token | 色值（修正后） | on white | on page-bg | 结论 |
+|-----------|-------------|----------|------------|------|
+| `text-tertiary` | `#617283` | 4.95:1 | 4.69:1 | 通过 |
+
+修正后的 `#617283` 与原色保持相同色相（冷蓝灰），仅亮度降低，视觉感知差异很小，不影响设计气质。
+
+#### 品牌色作为文字使用时的限制
+
+品牌色作为背景和装饰元素没有约束，但**作为文字颜色**时受对比度限制：
+
+| 颜色 Token | 色值 | on white | 结论 |
+|-----------|------|----------|------|
+| `brand-primary` | `#7FA9D9` | 2.45:1 | **禁止作为文字色** |
+| `brand-deep` | `#6B97CB` | 3.04:1 | 仅限大号粗体文字（≥ 14px bold） |
+| `brand-strong` | `#4F79B3` | 4.45:1 | 仅限大号文字（≥ 18px 或 ≥ 14px bold） |
+
+**文字颜色使用规则：**
+
+- `text-brand-primary`：禁止使用，品牌主色亮度过高
+- `text-brand-deep`：仅允许用于 `body-lg`（15px）以上的粗体文字，禁止用于 `caption`（12px）和 `micro`（10px）
+- `text-brand-strong`：可用于 `body-lg`（15px）bold 及以上；如在 `caption` 大小使用，需加下划线等辅助交互指示
+- 小尺寸的链接文字（12px 以下）统一使用 `text-text-primary` 或 `text-text-secondary`，通过下划线区分交互性
+
+**实际影响的修正点：**
+
+| 问题位置 | 当前写法 | 应改为 |
+|---------|---------|--------|
+| 排名列表"更多"（12px） | `text-text-tertiary hover:text-brand-deep` | `text-text-secondary hover:text-brand-strong` |
+| SearchBox "搜索"按钮（12px） | `text-brand-deep` | `text-brand-strong` |
+| 对比页"更换"（14px） | `text-brand-deep` | `text-brand-strong` |
+
+#### 状态色作为文字使用时的限制
+
+状态色主要用于背景填充和视觉指示，作为文字时对比度不足：
+
+| 颜色 Token | 色值 | on white | 可用文字尺寸 |
+|-----------|------|----------|------------|
+| `state-success` | `#4E9B7A` | 3.34:1 | 仅大号文字（≥ 18px 或 ≥ 14px bold）|
+| `state-danger` | `#C56B72` | 3.67:1 | 仅大号文字（≥ 18px 或 ≥ 14px bold）|
+| `state-warning` | `#C89A4B` | 2.57:1 | **所有尺寸均不达标** |
+| `state-info` | `#6E86A6` | 3.73:1 | 仅大号文字（≥ 18px 或 ≥ 14px bold）|
+
+**修正规则：**
+
+- 状态色原色（`#4E9B7A`、`#C56B72`）可用于：背景填充、进度条、图标、大号粗体标签（如胜/负徽标 14px bold）
+- **不得**用于 `caption`（12px）和 `micro`（10px）的文字，如排名变化箭头（10px）
+- 对于小尺寸胜负/涨跌指示，改用 `text-text-primary` 加符号（↑↓ 或 胜/负），或使用以下定义的深色文字变体：
+
+| 用途 | 文字变体色值 | on white |
+|------|------------|----------|
+| 胜 / 上升（小文字） | `#3A7A5E` | 5.09:1 |
+| 负 / 下降（小文字） | `#9E3E44` | 6.51:1 |
+| 警告（小文字） | `#8C5F0A` | 5.59:1 |
+
+这三个深色变体作为 token 扩展在 tailwind.config.ts 中定义：
+`state.success-text`、`state.danger-text`、`state.warning-text`
+
+#### 深色背景上的白色文字
+
+| 背景 | 色值 | white on bg | 结论 |
+|------|------|-------------|------|
+| `hero-anchor` | `#1A232C` | 15.90:1 | 通过，所有尺寸 |
+| `brand-strong` | `#4F79B3` | 4.45:1 | 仅大号文字 |
+| `brand-deep` | `#6B97CB` | 3.04:1 | 仅大号粗体 |
+
+规则：品牌蓝按钮（`bg-brand-deep`）上的白色文字，字号不得低于 `body-lg`（15px bold）。
+
+---
+
+### 4.5B 交互无障碍规范
+
+本节定义触控尺寸、焦点状态、动效偏好、颜色语义的最低可访问性要求。
+
+#### 触控目标尺寸
+
+所有可点击元素的可触控区域（包括 padding 扩展后的实际热区）不得小于 **44×44px**（WCAG 2.5.5 建议）。
+
+| 元素 | 要求 | 实现方式 |
+|------|------|---------|
+| 底部导航每项 | min 44×44px | `min-w-[64px] py-2`（当前已满足） |
+| 排名列表行 | min 44px 高度 | `py-2` + 头像高度合计应 ≥ 44px |
+| 卡片内小按钮 | min 44×44px 热区 | 必要时用 `p-2` 或 `-m-2 p-2` 扩展热区 |
+| 返回按钮 | min 44×44px | `p-2`（24px 图标 + 8px padding × 2 = 40px，需改为 `p-3`） |
+| 搜索框 | min 44px 高度 | 当前 `h-14`（56px）已满足 |
+
+不满足时的修复方式：不放大图标，而是增加 padding 扩展热区，必要时用 `min-h-[44px] min-w-[44px]` 配合 `flex items-center justify-center`。
+
+#### 焦点状态
+
+所有可通过键盘 Tab 键聚焦的交互元素，必须有**可见的焦点环**，不得使用 `outline-none` 或 `focus:outline-none` 消除默认焦点环，除非同时定义了替代的焦点样式。
+
+全局焦点样式规范：
+
+```css
+/* globals.css 中统一定义 */
+:focus-visible {
+  outline: 2px solid #6B97CB; /* brand-deep */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+```
+
+- 仅对 `:focus-visible` 生效（键盘触发），不影响鼠标点击后的外观
+- 焦点环颜色使用 `brand-deep`，与浅色背景对比度 3.04:1（满足非文字元素 3:1 要求）
+- 圆角元素（rounded-full、rounded-lg）的焦点环 `border-radius` 应与元素圆角一致
+
+#### 动效与偏好-减少动效
+
+所有过渡动画和关键帧动画必须遵守 `prefers-reduced-motion` 媒体查询。
+
+```css
+/* globals.css 中统一定义 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+具体规则：
+- `transition-*` 类：Tailwind 默认不处理此媒体查询，需全局 CSS 覆盖
+- `animate-spin`、`animate-pulse`（loading 用）：豁免，因为这些是功能性动画，不是装饰性的
+- 大幅位移动画（页面入场 `slide-in`）：受限
+- 缩放和淡入动画（`animate-in`）：受限
+
+#### 颜色不是唯一信息载体
+
+所有依赖颜色传达含义的元素，**必须同时提供文字、图标或符号**作为辅助信息。
+
+| 场景 | 禁止 | 要求 |
+|------|------|------|
+| 排名变化 | 只用红/绿色 | 颜色 + ↑↓ 符号 + 数字 |
+| 胜/负结果 | 只用红/绿色 | 颜色 + "胜"/"负"文字 |
+| 比赛胜者 | 只用颜色高亮 | 颜色 + 粗体或加亮 + 可选图标 |
+| 禁用状态 | 只用灰色 | 灰色 + `disabled` 属性 + opacity |
+| 未选/已选 | 只用颜色 | 颜色 + 背景变化 + 文字变化 |
+
+---
+
 ### 4.6 色彩氛围控制原则
 
 为了接近参考图中的轻空气感，同时不牺牲数据产品的清晰度，色彩使用遵循：
