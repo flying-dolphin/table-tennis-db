@@ -113,7 +113,7 @@ export default function RankingTable() {
                   <Link
                     key={player.playerId}
                     href={`/players/${player.slug}`}
-                    className="flex items-center bg-white/80 px-2 py-1.5 border border-white shadow-sm rounded-lg relative overflow-hidden mb-1 transition-colors hover:bg-white"
+                    className="flex items-center bg-white/80 px-2 py-2 border border-white shadow-sm rounded-lg relative overflow-hidden mb-2 transition-colors hover:bg-white"
                   >
                     <div className="w-9 shrink-0 text-center mr-1">
                       <span className="text-heading-1 font-bold text-brand-strong pr-1 leading-none tabular-nums">{player.rank}</span>
@@ -162,7 +162,7 @@ export default function RankingTable() {
                 <Link
                   key={player.playerId}
                   href={`/players/${player.slug}`}
-                  className="flex items-center py-1.5 px-1 hover:bg-white/30 transition-colors rounded-sm"
+                  className="flex items-center py-2.5 px-1 hover:bg-white/30 transition-colors rounded-sm"
                 >
                   <div className="w-8 shrink-0 text-center mr-1">
                     <span className="text-body-lg font-medium text-text-tertiary pr-0.5 tabular-nums">{player.rank}</span>
