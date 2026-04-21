@@ -1129,22 +1129,129 @@ white/12、white/15、white/20、white/30、white/40、white/45、white/55、whi
 
 ### 4.14 动效语言
 
-动效应强调轻盈和顺滑，避免“科技炫动感”。
+动效目标：轻盈顺滑，强化触感反馈，不做炫技表演。数据产品的动效首要原则是**不干扰读取**。
 
-重点场景包括：
+#### 4.14.1 时长 Token
 
-- 页面进入的轻量渐入
-- 排序切换和列表重排
-- 浮层开合
-- 卡片 hover / press
-- 对比条激活反馈
+| Token 名 | 时长 | 用途 |
+|----------|------|------|
+| `motion-instant` | 100ms | 颜色切换、状态指示灯、徽标出现 |
+| `motion-fast` | 200ms | 按钮 hover/press、行高亮、Tab 激活 |
+| `motion-normal` | 300ms | 卡片展开、弹层出现、图标切换 |
+| `motion-slow` | 500ms | 底部导航进场、页面级渐入、进度条填充 |
 
-规则：
+Tailwind 实现：直接使用 `duration-100` / `duration-200` / `duration-300` / `duration-500`，与上表一一对应。
 
-- 动效时长短而克制
-- 不使用夸张位移和大幅缩放
-- 不影响数据读取效率
-- 必须兼容 `prefers-reduced-motion`
+#### 4.14.2 Easing 规范
+
+| 场景 | Easing | Tailwind class |
+|------|--------|----------------|
+| 默认（元素出现/展开） | ease-out | `ease-out` |
+| 元素消失/收起 | ease-in | `ease-in` |
+| 位置平移 | ease-in-out | `ease-in-out` |
+| 状态切换（颜色/透明度） | linear | `ease-linear` |
+
+#### 4.14.3 过渡属性规范（禁止 transition-all）
+
+`transition-all` 会触发所有 CSS 属性的重绘，在数据列表频繁更新时造成性能问题。
+
+**强制规则**：使用具体属性代替 `transition-all`：
+
+| 场景 | 正确写法 |
+|------|----------|
+| 颜色 / 文字颜色 | `transition-colors` |
+| 阴影变化 | `transition-shadow` |
+| 位移 / 缩放 | `transition-transform` |
+| 透明度 | `transition-opacity` |
+| 多属性组合 | `transition-[color,shadow,transform]`（显式列出） |
+
+现有代码中 `transition-all` 出现约 17 处，应在下次重构时逐一替换。
+
+#### 4.14.4 场景规范
+
+| 场景 | 属性 | 时长 | Easing | 备注 |
+|------|------|------|--------|------|
+| 卡片 hover 上浮 | transform(-translate-y-0.5) + shadow | 200ms | ease-out | 不超过 2px 位移 |
+| Tab / 导航激活 | colors + background | 200ms | ease-out | — |
+| 底部导航进场 | opacity + transform | 500ms | ease-out | 页面加载时一次性动画 |
+| 进度条填充 | width | 500ms | ease-out | 从 0 到目标值 |
+| 弹层出现 | opacity + scale(0.96→1) | 300ms | ease-out | — |
+| 弹层消失 | opacity | 200ms | ease-in | 无需 scale |
+| 行/单元格高亮 | background-color | 200ms | linear | — |
+| 骨架屏 shimmer | opacity | 1000ms | ease-in-out | loop，仅 loading 态 |
+
+#### 4.14.5 禁止事项
+
+- 禁止位移超过 4px 的 hover 效果
+- 禁止 `scale` 超过 1.05 的放大效果
+- 禁止对整个列表容器做 `transition`（每行独立响应）
+- 禁止 `duration-700` 以上用于 UI 反馈（页面级进场除外）
+- 禁止 `animate-spin` / `animate-bounce` 等循环动效出现在数据区域
+
+#### 4.14.6 prefers-reduced-motion
+
+全局已在 `globals.css` 中声明强制覆盖：
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+无需在组件层额外处理。
+
+### 4.14A 组件尺寸规范
+
+#### 4.14A.1 图标尺寸（三档标准）
+
+现有代码中图标尺寸散落为 8 种（13/14/15/16/18/20/22/24px），需收敛至以下三档：
+
+| 档位 | 尺寸 | Lucide prop | 用途场景 |
+|------|------|-------------|----------|
+| small | 14px | `size={14}` | 行内辅助图标、标签前缀、Micro 文字旁 |
+| default | 18px | `size={18}` | 卡片标题区、导航图标、Section header |
+| large | 24px | `size={24}` | 顶部 Back 按钮、重要操作入口、空状态插图 |
+
+**迁移规则**：
+- `size={13}` / `size={15}` / `size={16}` → 统一改为 `size={14}`
+- `size={20}` / `size={22}` → 统一改为 `size={18}`
+- 仅 Back/主操作图标保留 `size={24}`
+
+#### 4.14A.2 头像尺寸
+
+| 档位 | 像素 | Tailwind | 用途 |
+|------|------|----------|------|
+| sm | 36px | `w-9 h-9` | 列表行内、搜索结果 |
+| md | 48px | `w-12 h-12` | 对比页球员卡片 |
+| lg | 96px | `w-24 h-24` | 球员详情页 hero 区 |
+
+> 头像外圆角统一使用 `rounded-full`。边框使用 `ring-1 ring-white/40`，不使用 `border`。
+
+#### 4.14A.3 可交互元素最小尺寸
+
+移动端触控目标最小 44×44px（参见 4.5B）。以下为常用组件的参考高度：
+
+| 组件 | 最小高度 | 备注 |
+|------|----------|------|
+| 列表行（含交互） | 52px | 内边距 `py-3`（12px×2）+ 内容约 28px |
+| 底部导航项 | 56px | 图标 + 标签合计 |
+| 顶部栏（sticky header） | 52px | `py-3` = 12px×2 + 图标 24px |
+| 胶囊按钮（主操作） | 44px | `py-2.5` = 10px×2 + 文字 |
+| 小标签 / Tag | 28px | `py-1` = 4px×2 + 文字 12px |
+
+#### 4.14A.4 卡片内边距规范
+
+| 卡片类型 | padding | 备注 |
+|----------|---------|------|
+| Hero 卡片 / 模块容器 | `p-5`（20px） | 宽松，用于首屏主卡片 |
+| 数据卡片 / Bento 卡片 | `p-4`（16px） | 标准数据卡 |
+| 紧凑列表行 | `px-3 py-3`（12px） | 排名列表、交手记录行 |
+| 标签 / 胶囊 | `px-3 py-1` / `px-4 py-1` | — |
+
+不允许在同一层级的卡片中混用两种以上 padding 规格。
 
 ### 4.15 数据表达的视觉原则
 
