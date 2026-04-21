@@ -288,6 +288,25 @@
       "priority": 0
     },
     {
+      "category_id": "ITTF_WJTTC",
+      "category_name": "ITTF World Juniro Table Tennis Championships Finals",
+      "category_name_zh": "国际乒联世界青少年乒乓球锦标赛",
+      "event_type": "ITTF WJTTC",
+      "event_kind": "--",
+      "ittf_rule_name": "",
+      "json_code": "WJTTC",
+      "points_tier": "",
+      "points_eligible": false,
+      "filtering_only": true,
+      "applicable_formats": [
+        "Singles",
+        "Doubles",
+        "Mixed Doubles"
+      ],
+      "notes": "旧版名称，现在统一为WYC",
+      "priority": 0
+    },
+    {
       "category_id": "YOUTH_GRAND_SMASH",
       "category_name": "U19 WTT Youth Grand Smash",
       "category_name_zh": "U19 WTT青年大满贯",
@@ -297,7 +316,7 @@
       "json_code": "YGS",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [
         "Singles"
       ],
@@ -313,7 +332,7 @@
       "json_code": "YSC",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [
         "Singles"
       ],
@@ -329,7 +348,7 @@
       "json_code": "YC",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [
         "Singles"
       ],
@@ -345,7 +364,7 @@
       "json_code": "YWC",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [
         "Singles",
         "Doubles",
@@ -362,8 +381,8 @@
       "ittf_rule_name": "Regional Championships",
       "json_code": "RCH",
       "points_tier": "Low",
-      "points_eligible": true,
-      "filtering_only": false,
+      "points_eligible": false,
+      "filtering_only": true,
       "applicable_formats": [
         "Singles"
       ],
@@ -379,7 +398,7 @@
       "json_code": "RCUP",
       "points_tier": "Low",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -392,8 +411,8 @@
       "ittf_rule_name": "U21 Regional Championships",
       "json_code": null,
       "points_tier": "Low",
-      "points_eligible": true,
-      "filtering_only": false,
+      "points_eligible": false,
+      "filtering_only": true,
       "applicable_formats": [
         "Singles",
         "Doubles",
@@ -471,7 +490,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -485,7 +504,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -499,7 +518,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -583,7 +602,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -597,7 +616,7 @@
       "json_code": "YOG",
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -639,7 +658,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -681,7 +700,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -709,7 +728,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     },
@@ -723,7 +742,7 @@
       "json_code": null,
       "points_tier": "None",
       "points_eligible": false,
-      "filtering_only": false,
+      "filtering_only": true,
       "applicable_formats": [],
       "priority": 0
     }
