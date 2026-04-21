@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { animated, useSpring } from "@react-spring/web";
@@ -520,13 +520,31 @@ export default function EventScroller() {
   );
 
   const handleCardClick = React.useCallback(
-    (monthId: string, index: number) => {
+    (monthId: string) => {
       if (suppressClickRef.current) return;
-      setActiveIndexSafe(index);
       setExpandedMonthId(monthId);
     },
-    [setActiveIndexSafe],
+    [],
   );
+
+  const restoreTrackPosition = React.useCallback(() => {
+    if (slideStep <= 0) return;
+    trackApi.start({
+      trackX: baseTrackX - activeIndexRef.current * slideStep,
+      immediate: true,
+      config: { tension: 280, friction: 34 },
+    });
+  }, [baseTrackX, slideStep, trackApi]);
+
+  const closeExpandedMonth = React.useCallback(() => {
+    setExpandedMonthId(null);
+    window.requestAnimationFrame(restoreTrackPosition);
+  }, [restoreTrackPosition]);
+
+  useLayoutEffect(() => {
+    if (cardWidth <= 0 || monthData.length === 0) return;
+    restoreTrackPosition();
+  }, [cardWidth, expandedMonthId, monthData.length, restoreTrackPosition]);
 
   const expandedMonth = useMemo(
     () => monthData.find((item) => item.id === expandedMonthId) ?? null,
@@ -606,29 +624,6 @@ export default function EventScroller() {
 
   return (
     <>
-      {expandedMonth && (
-        <div
-          className="fixed inset-0 z-60 bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
-          style={{ WebkitBackdropFilter: "blur(24px)" }}
-          onClick={(event) => {
-            event.stopPropagation();
-            setExpandedMonthId(null);
-          }}
-        >
-          <button
-            type="button"
-            className="w-full max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-white/60 backdrop-blur-2xl rounded-lg overflow-hidden bg-white/80 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
-            style={{ WebkitBackdropFilter: "blur(40px)" }}
-            onClick={(event) => {
-              event.stopPropagation();
-              setExpandedMonthId(null);
-            }}
-          >
-            {renderCardContent(expandedMonth, true)}
-          </button>
-        </div>
-      )}
-
       <section className="relative z-10 w-full">
         <div
           ref={carouselRef}
@@ -670,7 +665,7 @@ export default function EventScroller() {
                     data-month-id={month.id}
                     data-month-index={index}
                     type="button"
-                    onClick={() => handleCardClick(month.id, index)}
+                    onClick={() => handleCardClick(month.id)}
                     className="month-card-wrapper shrink-0 w-[72vw] max-w-[240px] cursor-pointer outline-none [-webkit-tap-highlight-color:transparent] text-left"
                   >
                     <animated.div
@@ -694,6 +689,31 @@ export default function EventScroller() {
           )}
         </div>
       </section>
+
+      {expandedMonth && (
+        <div
+          className="fixed inset-0 z-[60] bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
+          style={{ WebkitBackdropFilter: "blur(24px)" }}
+          onClick={(event) => {
+            event.stopPropagation();
+            closeExpandedMonth();
+          }}
+          onPointerDown={(event) => event.stopPropagation()}
+          onPointerUp={(event) => event.stopPropagation()}
+        >
+          <button
+            type="button"
+            className="w-full max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-white/60 backdrop-blur-2xl rounded-lg overflow-hidden bg-white/80 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
+            style={{ WebkitBackdropFilter: "blur(40px)" }}
+            onClick={(event) => {
+              event.stopPropagation();
+              closeExpandedMonth();
+            }}
+          >
+            {renderCardContent(expandedMonth, true)}
+          </button>
+        </div>
+      )}
     </>
   );
 }
