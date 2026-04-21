@@ -3,7 +3,7 @@
 Scrape team-event finals matches from ITTF event matches pages.
 
 Workflow:
-1. Load seed events from data/matches_complete/orig/*.json where sub_event=WT and round=Final.
+1. Load seed events from data/matches_complete/orig/*.json where sub_event in {WT, XT} and round=Final.
 2. Resolve event_id in DB and filter out events whose category has filtering_only=1.
 3. Search each event on https://results.ittf.link/index.php/events, open matches link,
    jump to End page, and collect matches with round=Final while paging backwards.
@@ -31,7 +31,7 @@ from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.browser_session import ensure_logged_in
 from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.navigation_runtime import verify_cdp_session_or_prompt
-from lib.page_ops import guarded_goto
+from lib.page_ops import click_next_page_if_any, guarded_goto
 from scrape_matches import parse_detail_matches_from_dom
 
 try:
@@ -223,13 +223,13 @@ def collect_target_events(source_dir: Path, db_path: Path) -> list[TargetEvent]:
             events = (year_data or {}).get("events", [])
             for event in events:
                 matches = event.get("matches", [])
-                has_ws_final = any(
+                has_team_final = any(
                     isinstance(m, dict)
-                    and (m.get("sub_event") or "").strip().upper() == "WT"
+                    and (m.get("sub_event") or "").strip().upper() in {"WT", "XT"}
                     and (m.get("round") or "").strip().lower() == "final"
                     for m in matches
                 )
-                if not has_ws_final:
+                if not has_team_final:
                     continue
 
                 event_name = (event.get("event_name") or "").strip()
@@ -273,6 +273,57 @@ def collect_target_events(source_dir: Path, db_path: Path) -> list[TargetEvent]:
         for name in sorted(unresolved_events)[:20]:
             logger.warning("  - %s", name)
     return sorted(targets.values(), key=lambda e: (e.event_year or 0, e.event_name.lower()))
+
+
+def parse_event_ids(raw: str) -> list[int]:
+    text = (raw or "").strip()
+    if not text:
+        return []
+    out: list[int] = []
+    seen: set[int] = set()
+    for token in text.split(","):
+        part = token.strip()
+        if not part:
+            continue
+        value = int(part)
+        if value in seen:
+            continue
+        seen.add(value)
+        out.append(value)
+    return out
+
+
+def collect_target_events_by_ids(db_path: Path, event_ids: list[int]) -> list[TargetEvent]:
+    if not db_path.exists():
+        raise FileNotFoundError(f"db not found: {db_path}")
+    if not event_ids:
+        return []
+
+    conn = sqlite3.connect(str(db_path))
+    cursor = conn.cursor()
+    targets: list[TargetEvent] = []
+    not_found: list[int] = []
+    for event_id in event_ids:
+        cursor.execute("SELECT event_id, name, year FROM events WHERE event_id = ?", (event_id,))
+        row = cursor.fetchone()
+        if not row:
+            not_found.append(event_id)
+            continue
+        eid, name, year = row
+        targets.append(
+            TargetEvent(
+                event_id=int(eid),
+                event_name=(name or "").strip(),
+                event_year=int(year) if year is not None else None,
+                source_count=0,
+            )
+        )
+    conn.close()
+
+    if not_found:
+        logger.warning("Event IDs not found in DB: %s", ",".join(str(x) for x in not_found))
+    logger.info("Event ID mode enabled. target events: %s", len(targets))
+    return targets
 
 
 def _row_fingerprint(page: Any) -> str:
@@ -412,71 +463,14 @@ def _search_event_and_get_matches_href(page: Any, target: TargetEvent) -> str | 
     return str(best.get("href") or "")
 
 
-def _click_end_if_any(page: Any) -> None:
-    candidates = [
-        "a[title='End']",
-        ".pagination a:has-text('End')",
-    ]
-    for sel in candidates:
-        loc = page.locator(sel).first
-        try:
-            if loc.count() == 0 or not loc.is_visible():
-                continue
-            href = (loc.get_attribute("href") or "").strip()
-            if href:
-                page.goto(urljoin(page.url, href), wait_until="domcontentloaded", timeout=45000)
-            else:
-                move_mouse_to_locator(page, loc)
-            try:
-                page.wait_for_load_state("networkidle", timeout=10000)
-            except Exception:
-                pass
-            return
-        except Exception:
-            continue
-
-
-def _click_prev_page_if_any(page: Any) -> bool:
-    candidates = [
-        "li.page-item:not(.disabled) a[rel='prev']",
-        "a[title='Previous']",
-        ".pagination a:has-text('Previous')",
-        ".pagination a:has-text('‹')",
-        ".pagination a:has-text('«')",
-    ]
-    for sel in candidates:
-        loc = page.locator(sel).first
-        try:
-            if loc.count() == 0 or not loc.is_visible():
-                continue
-            href = (loc.get_attribute("href") or "").strip()
-            if href:
-                old_url = page.url
-                page.goto(urljoin(page.url, href), wait_until="domcontentloaded", timeout=45000)
-                try:
-                    page.wait_for_load_state("networkidle", timeout=10000)
-                except Exception:
-                    pass
-                return page.url != old_url
-            move_mouse_to_locator(page, loc)
-            try:
-                page.wait_for_load_state("networkidle", timeout=10000)
-            except Exception:
-                pass
-            return True
-        except Exception:
-            continue
-    return False
-
-
 def _normalize_round(value: str) -> str:
     return " ".join((value or "").split()).strip().lower()
 
 
-def _is_wt_final_item(item: dict[str, Any]) -> bool:
+def _is_target_final_item(item: dict[str, Any]) -> bool:
     sub_event = (item.get("sub_event") or "").strip().upper()
     round_raw = (item.get("round") or "").strip()
-    return sub_event == "WT" and _normalize_round(round_raw) == "final"
+    return sub_event in {"WT", "XT"} and _normalize_round(round_raw) == "final"
 
 
 def _to_db_match(event: TargetEvent, item: dict[str, Any]) -> dict[str, Any] | None:
@@ -515,28 +509,86 @@ def _to_db_match(event: TargetEvent, item: dict[str, Any]) -> dict[str, Any] | N
     }
 
 
-def _collect_final_matches_from_end(page: Any, event: TargetEvent, max_prev_pages: int) -> list[dict[str, Any]]:
-    _click_end_if_any(page)
+def _get_active_pagination_page_strict(page: Any) -> int | None:
+    selectors = [
+        "li.page-item.active a.page-link",
+        "li.page-item.active .page-link",
+        ".pagination li.active a",
+        ".pagination li.active .page-link",
+    ]
+    for sel in selectors:
+        loc = page.locator(sel).first
+        try:
+            if loc.count() == 0 or not loc.is_visible():
+                continue
+            text = " ".join((loc.inner_text() or "").split())
+            if text.isdigit():
+                return int(text)
+            title = (loc.get_attribute("title") or "").strip()
+            if title.isdigit():
+                return int(title)
+        except Exception:
+            continue
+    return None
+
+
+def _click_start_to_first_page_if_needed(page: Any) -> None:
+    current_page = _get_active_pagination_page_strict(page)
+    if current_page is None:
+        raise RuntimeError("Cannot determine current pagination page on matches list.")
+    if current_page == 1:
+        return
+
+    selectors = [
+        "li.page-item:not(.disabled) a[rel='first']",
+        "a[rel='first']",
+        "a[aria-label='Start']",
+        "a[title='Start']",
+        ".pagination a:has-text('Start')",
+        "button:has-text('Start')",
+    ]
+    for sel in selectors:
+        loc = page.locator(sel).first
+        try:
+            if loc.count() == 0 or not loc.is_visible():
+                continue
+            move_mouse_to_locator(page, loc)
+            try:
+                page.wait_for_load_state("networkidle", timeout=10000)
+            except Exception:
+                pass
+            new_page = _get_active_pagination_page_strict(page)
+            if new_page == 1:
+                logger.info("Matches list reset to first page by Start button.")
+                return
+        except Exception:
+            continue
+
+    raise RuntimeError(f"Expected to jump to page 1 via Start, but current page={current_page}.")
+
+
+def _collect_final_matches_from_start(page: Any, event: TargetEvent, max_pages: int) -> list[dict[str, Any]]:
+    _click_start_to_first_page_if_needed(page)
+
     seen_urls: set[str] = set()
     final_matches: list[dict[str, Any]] = []
     dedup_keys: set[tuple[Any, ...]] = set()
-    found_wt_final = False
 
-    for _ in range(max_prev_pages):
+    for expected_page in range(1, max_pages + 1):
+        current_page = _get_active_pagination_page_strict(page)
+        if current_page != expected_page:
+            raise RuntimeError(
+                f"Page index mismatch before scrape: expected={expected_page}, actual={current_page}, url={page.url}"
+            )
+
         if page.url in seen_urls:
             break
         seen_urls.add(page.url)
 
         parsed = parse_detail_matches_from_dom(page, player_name="")
         for item in parsed:
-            is_wt_final = _is_wt_final_item(item)
-            if not found_wt_final:
-                if not is_wt_final:
-                    continue
-                found_wt_final = True
-            elif not is_wt_final:
-                return final_matches
-
+            if not _is_target_final_item(item):
+                continue
             db_item = _to_db_match(event, item)
             if db_item is None:
                 continue
@@ -552,7 +604,7 @@ def _collect_final_matches_from_end(page: Any, event: TargetEvent, max_prev_page
             dedup_keys.add(key)
             final_matches.append(db_item)
 
-        if not _click_prev_page_if_any(page):
+        if not click_next_page_if_any(page):
             break
 
     return final_matches
@@ -597,7 +649,7 @@ def scrape_targets(
             if detect_risk(page):
                 raise RiskControlTriggered(str(detect_risk(page)))
 
-            finals = _collect_final_matches_from_end(page, target, max_prev_pages=max_prev_pages)
+            finals = _collect_final_matches_from_start(page, target, max_pages=max_prev_pages)
             payload = {
                 "schema_version": "team_match.v1",
                 "scraped_at": utc_now_iso(),
@@ -645,7 +697,12 @@ def run(args: argparse.Namespace) -> int:
         logger.error("Output dir does not exist: %s", output_dir)
         return 2
 
-    targets = collect_target_events(source_dir=source_dir, db_path=db_path)
+    event_ids = parse_event_ids(args.event_id)
+    if event_ids:
+        targets = collect_target_events_by_ids(db_path=db_path, event_ids=event_ids)
+    else:
+        targets = collect_target_events(source_dir=source_dir, db_path=db_path)
+
     if not targets:
         logger.warning("No target events found after filtering.")
         return 0
@@ -727,6 +784,7 @@ def run(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Scrape ITTF team event final matches")
     parser.add_argument("--source-dir", default="data/matches_complete/orig")
+    parser.add_argument("--event-id", default="", help="Only scrape specified event_id(s), comma-separated")
     parser.add_argument("--output-dir", default="data/team_matches/orig")
     parser.add_argument("--db-path", default=str(DEFAULT_DB_PATH))
     parser.add_argument("--storage-state", default="data/session/ittf_storage_state.json")
@@ -737,7 +795,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--slow-mo", type=int, default=100)
     parser.add_argument("--min-delay", type=float, default=3.0)
     parser.add_argument("--max-delay", type=float, default=8.0)
-    parser.add_argument("--max-prev-pages", type=int, default=40, help="Max previous pages to traverse after End")
+    parser.add_argument("--max-prev-pages", type=int, default=40, help="Max pages to scan forward from first page")
     parser.add_argument("--limit-events", type=int, default=0, help="Debug mode: only scrape first N events")
     parser.add_argument("--force", action="store_true")
     return parser

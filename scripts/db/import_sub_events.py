@@ -13,6 +13,7 @@
 4. 如果成员无法完全匹配到 players，仍写入 champion_name，并记录未匹配信息
 """
 
+import argparse
 import re
 import sqlite3
 import sys
@@ -130,9 +131,21 @@ def resolve_champion_country_code(
         return user_input
 
 
-def import_sub_events(db_path: str) -> dict:
+def _record_problem(result: dict, event_id: int, sub_event_type_code: str, issue_type: str, detail: str) -> None:
+    result["problem_events"].append(
+        {
+            "event_id": event_id,
+            "sub_event_type_code": sub_event_type_code,
+            "issue_type": issue_type,
+            "detail": detail,
+        }
+    )
+
+
+def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
     result = {
         "full_refresh": True,
+        "dry_run": dry_run,
         "final_matches": 0,
         "sub_events_inserted": 0,
         "duplicate_finals": 0,
@@ -140,6 +153,7 @@ def import_sub_events(db_path: str) -> dict:
         "unmatched_champion_members": set(),
         "manual_country_overrides": 0,
         "multi_country_champions": 0,
+        "problem_events": [],
     }
 
     conn = sqlite3.connect(str(db_path))
@@ -147,8 +161,9 @@ def import_sub_events(db_path: str) -> dict:
     player_index = build_player_index(cursor)
 
     # Full refresh mode: clear previous sub_events and reset AUTOINCREMENT.
-    cursor.execute("DELETE FROM sub_events")
-    cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'sub_events'")
+    if not dry_run:
+        cursor.execute("DELETE FROM sub_events")
+        cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'sub_events'")
 
     cursor.execute(
         """
@@ -162,11 +177,14 @@ def import_sub_events(db_path: str) -> dict:
             msp.player_name,
             msp.player_country
         FROM matches m
+        JOIN events e ON e.event_id = m.event_id
+        JOIN event_categories ec ON ec.id = e.event_category_id
         JOIN match_sides ms ON ms.match_id = m.match_id
         LEFT JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
         WHERE m.stage = 'Main Draw'
           AND m.round = 'Final'
           AND m.event_id IS NOT NULL
+          AND COALESCE(ec.points_eligible, 0) = 1
         ORDER BY m.event_id, m.sub_event_type_code, m.match_id, ms.side_no, msp.player_order
         """
     )
@@ -221,6 +239,13 @@ def import_sub_events(db_path: str) -> dict:
             )
             if winner_side is None:
                 result["unresolved_winner_side"] += 1
+                _record_problem(
+                    result,
+                    event_id,
+                    sub_event_type_code,
+                    "unresolved_winner_side",
+                    "cannot infer winner side from winner_side/winner_name and side rosters",
+                )
                 continue
 
             side_a = match_data["side_a"]
@@ -251,10 +276,14 @@ def import_sub_events(db_path: str) -> dict:
             if side_a_wins == 0 and side_b_wins == 0:
                 continue
             if side_a_wins == side_b_wins:
-                raise RuntimeError(
+                msg = (
                     f"Tie detected for team final champion: event_id={event_id}, "
                     f"sub_event_type_code={sub_event_type_code}, wins_by_side={wins_by_side}"
                 )
+                _record_problem(result, event_id, sub_event_type_code, "champion_tie", msg)
+                if dry_run:
+                    continue
+                raise RuntimeError(msg)
             champion_side = "A" if side_a_wins > side_b_wins else "B"
             champion_roster = side_rosters[champion_side]
         else:
@@ -264,10 +293,14 @@ def import_sub_events(db_path: str) -> dict:
             max_wins = max(wins_by_team.values())
             champion_team_keys = [team_key for team_key, wins in wins_by_team.items() if wins == max_wins]
             if len(champion_team_keys) != 1:
-                raise RuntimeError(
+                msg = (
                     f"Tie detected for team final champion: event_id={event_id}, "
                     f"sub_event_type_code={sub_event_type_code}, wins={wins_by_team}"
                 )
+                _record_problem(result, event_id, sub_event_type_code, "champion_tie", msg)
+                if dry_run:
+                    continue
+                raise RuntimeError(msg)
 
             champion_team_key = champion_team_keys[0]
             champion_roster = team_roster_by_key.get(champion_team_key, [])
@@ -302,37 +335,87 @@ def import_sub_events(db_path: str) -> dict:
                 result["unmatched_champion_members"].add(f"{name} ({country})")
 
         deduped_countries = list(dict.fromkeys([c.strip().upper() for c in champion_countries if c.strip()]))
-        resolved_country = resolve_champion_country_code(
-            event_id=event_id,
-            sub_event_type_code=sub_event_type_code,
-            champion_names=champion_names,
-            champion_countries=champion_countries,
-        )
+        needs_manual_country = len(deduped_countries) > 1 and sub_event_type_code not in {
+            "WD",
+            "XD",
+            "CXD",
+            "CGD",
+            "JGD",
+            "JXD",
+            "U19WD",
+            "U19XD",
+            "U15WD",
+            "U15XD",
+            "U21WD",
+            "U21XD",
+        }
         if len(deduped_countries) > 1:
             if sub_event_type_code in {"WD", "XD"}:
                 result["multi_country_champions"] += 1
             else:
                 result["manual_country_overrides"] += 1
 
-        cursor.execute(
-            """
-            INSERT INTO sub_events (
-                event_id, sub_event_type_code, champion_player_ids, champion_name, champion_country_code
-            ) VALUES (?, ?, ?, ?, ?)
-            """,
-            (
-                event_id,
-                sub_event_type_code,
-                ",".join(champion_ids) if champion_ids else None,
-                ",".join(champion_names) if champion_names else None,
-                resolved_country if resolved_country else None,
-            ),
-        )
-        result["sub_events_inserted"] += 1
+        if needs_manual_country:
+            detail = (
+                f"champion members={','.join(champion_names) if champion_names else '(empty)'}; "
+                f"country_codes={','.join(deduped_countries)}"
+            )
+            _record_problem(result, event_id, sub_event_type_code, "manual_country_override", detail)
+            if dry_run:
+                continue
 
-    conn.commit()
+        resolved_country = resolve_champion_country_code(
+            event_id=event_id,
+            sub_event_type_code=sub_event_type_code,
+            champion_names=champion_names,
+            champion_countries=champion_countries,
+        )
+
+        if not dry_run:
+            cursor.execute(
+                """
+                INSERT INTO sub_events (
+                    event_id, sub_event_type_code, champion_player_ids, champion_name, champion_country_code
+                ) VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    event_id,
+                    sub_event_type_code,
+                    ",".join(champion_ids) if champion_ids else None,
+                    ",".join(champion_names) if champion_names else None,
+                    resolved_country if resolved_country else None,
+                ),
+            )
+            result["sub_events_inserted"] += 1
+
+    if not dry_run:
+        conn.commit()
     conn.close()
     return result
+
+
+def print_problem_events(result: dict) -> None:
+    problems = result.get("problem_events", [])
+    if not problems:
+        print("  problem events:              0")
+        return
+
+    print(f"  problem events:              {len(problems)}")
+    issue_counts: Dict[str, int] = {}
+    for item in problems:
+        issue = item["issue_type"]
+        issue_counts[issue] = issue_counts.get(issue, 0) + 1
+
+    print("  problem summary:")
+    for issue, cnt in sorted(issue_counts.items(), key=lambda x: (-x[1], x[0])):
+        print(f"    {issue:24s} {cnt}")
+
+    print("  problem details:")
+    for item in problems:
+        print(
+            f"    - event_id={item['event_id']}, sub_event={item['sub_event_type_code']}, "
+            f"issue={item['issue_type']}, detail={item['detail']}"
+        )
 
 
 def verify_sub_events(db_path: str):
@@ -366,26 +449,33 @@ def verify_sub_events(db_path: str):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Import sub_events from final matches")
+    parser.add_argument("--dry-run", action="store_true", help="Scan only, do not write sub_events")
+    cli_args = parser.parse_args()
+
     print("=" * 70)
     print("Import Sub Events")
     print("=" * 70)
     print(f"Database: {DB_PATH}")
+    print(f"Dry run:  {cli_args.dry_run}")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
         print(f"[ERROR] Database not found: {DB_PATH}")
         sys.exit(1)
 
-    result = import_sub_events(str(DB_PATH))
+    result = import_sub_events(str(DB_PATH), dry_run=cli_args.dry_run)
 
     print("Results:")
     print(f"  Full refresh mode:            {result['full_refresh']}")
+    print(f"  Dry run mode:                 {result['dry_run']}")
     print(f"  Final matches scanned:        {result['final_matches']}")
     print(f"  sub_events inserted:          {result['sub_events_inserted']}")
     print(f"  duplicate finals skipped:     {result['duplicate_finals']}")
     print(f"  unresolved winner side:       {result['unresolved_winner_side']}")
     print(f"  manual country overrides:     {result['manual_country_overrides']}")
     print(f"  multi-country champions:      {result['multi_country_champions']}")
+    print_problem_events(result)
 
     unmatched = sorted(result["unmatched_champion_members"])
     if unmatched:
@@ -395,5 +485,6 @@ if __name__ == "__main__":
         if len(unmatched) > 20:
             print(f"    ... and {len(unmatched) - 20} more")
 
-    verify_sub_events(str(DB_PATH))
+    if not cli_args.dry_run:
+        verify_sub_events(str(DB_PATH))
     sys.exit(0)

@@ -4,12 +4,12 @@
 Import team matches into matches/match_sides/match_side_players.
 
 Source:
-  data/team_matches/orig/*.json
+  data/team_matches/cn/*.json
 
-Dedup/update key (as requested):
+Dedup key:
   event_id, stage, round, side_a_key, side_b_key
 
-If existing row is found by this key, update it and print updated match_id.
+If existing row is found by this key, skip it (insert-only mode).
 """
 
 from __future__ import annotations
@@ -144,7 +144,7 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
         "files": 0,
         "total_in_files": 0,
         "inserted": 0,
-        "updated": 0,
+        "skipped_existing": 0,
         "skipped_no_event_id": 0,
         "skipped_no_side": 0,
         "skipped_no_key": 0,
@@ -152,7 +152,6 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
         "unmatched_players": set(),
         "auto_added_sub_event_codes": set(),
         "errors": [],
-        "updated_match_ids": [],
     }
 
     conn = sqlite3.connect(str(db_path))
@@ -175,13 +174,6 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
             sub_event_type_code, stage, stage_zh, round, round_zh,
             side_a_key, side_b_key, match_score, games, winner_side, winner_name, raw_row_text, scraped_at
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """
-    update_match_sql = """
-        UPDATE matches
-        SET event_name = ?, event_year = ?, sub_event_type_code = ?, stage = ?, round = ?,
-            side_a_key = ?, side_b_key = ?, match_score = ?, games = ?, winner_side = ?, winner_name = ?,
-            raw_row_text = ?, scraped_at = ?
-        WHERE match_id = ?
     """
     find_existing_sql = """
         SELECT match_id
@@ -220,6 +212,7 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
             continue
 
         event_name = (payload.get("event_name") or "").strip()
+        event_name_zh = (payload.get("event_name_zh") or "").strip() or None
         event_year_raw = payload.get("event_year")
         try:
             event_year = int(event_year_raw) if event_year_raw not in (None, "") else None
@@ -235,7 +228,9 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
                 continue
 
             stage = (match.get("stage") or "").strip()
+            stage_zh = (match.get("stage_zh") or "").strip() or None
             round_ = (match.get("round") or "").strip()
+            round_zh = (match.get("round_zh") or "").strip() or None
             side_a_key = (match.get("side_a_key") or "").strip() or make_side_key(side_a)
             side_b_key = (match.get("side_b_key") or "").strip() or make_side_key(side_b)
             if not side_a_key or not side_b_key:
@@ -262,55 +257,33 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
             existing_ids = [int(row[0]) for row in cursor.fetchall()]
 
             if existing_ids:
-                match_id = existing_ids[0]
-                cursor.execute(
-                    update_match_sql,
-                    (
-                        event_name,
-                        event_year,
-                        sub_event,
-                        stage,
-                        round_,
-                        side_a_key,
-                        side_b_key,
-                        (match.get("match_score") or "").strip(),
-                        games_json,
-                        winner_side,
-                        winner_name,
-                        raw_row_text,
-                        scraped_at,
-                        match_id,
-                    ),
-                )
-                cursor.execute("DELETE FROM match_sides WHERE match_id = ?", (match_id,))
-                result["updated"] += 1
-                result["updated_match_ids"].append(match_id)
-                print(f"[UPDATE] match_id={match_id} event_id={event_id} stage={stage} round={round_}")
-            else:
-                cursor.execute(
-                    insert_match_sql,
-                    (
-                        event_id,
-                        event_name,
-                        None,
-                        event_year,
-                        sub_event,
-                        stage,
-                        None,
-                        round_,
-                        None,
-                        side_a_key,
-                        side_b_key,
-                        (match.get("match_score") or "").strip(),
-                        games_json,
-                        winner_side,
-                        winner_name,
-                        raw_row_text,
-                        scraped_at,
-                    ),
-                )
-                match_id = int(cursor.lastrowid)
-                result["inserted"] += 1
+                result["skipped_existing"] += 1
+                continue
+
+            cursor.execute(
+                insert_match_sql,
+                (
+                    event_id,
+                    event_name,
+                    event_name_zh,
+                    event_year,
+                    sub_event,
+                    stage,
+                    stage_zh,
+                    round_,
+                    round_zh,
+                    side_a_key,
+                    side_b_key,
+                    (match.get("match_score") or "").strip(),
+                    games_json,
+                    winner_side,
+                    winner_name,
+                    raw_row_text,
+                    scraped_at,
+                ),
+            )
+            match_id = int(cursor.lastrowid)
+            result["inserted"] += 1
 
             for side_no, side_key, side_players in (
                 (1, side_a_key, side_a),
@@ -337,7 +310,7 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
 
 
 if __name__ == "__main__":
-    source_dir = PROJECT_ROOT / "data" / "team_matches" / "orig"
+    source_dir = PROJECT_ROOT / "data" / "team_matches" / "cn"
     print("=" * 70)
     print("Import Team Matches")
     print("=" * 70)
@@ -359,15 +332,10 @@ if __name__ == "__main__":
     print(f"  Files:                    {result['files']}")
     print(f"  Total in files:           {result['total_in_files']}")
     print(f"  Inserted:                 {result['inserted']}")
-    print(f"  Updated:                  {result['updated']}")
+    print(f"  Skipped existing:         {result['skipped_existing']}")
     print(f"  Skipped no side:          {result['skipped_no_side']}")
     print(f"  Skipped no key:           {result['skipped_no_key']}")
     print(f"  Unresolved winner_side:   {result['unresolved_winner_side']}")
-
-    if result["updated_match_ids"]:
-        print(f"\n  Updated match IDs ({len(result['updated_match_ids'])}):")
-        for mid in result["updated_match_ids"]:
-            print(f"    - {mid}")
 
     if result["unmatched_players"]:
         players = sorted(result["unmatched_players"])

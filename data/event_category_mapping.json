@@ -316,7 +316,7 @@
       "json_code": "YGS",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [
         "Singles"
       ],
@@ -332,7 +332,7 @@
       "json_code": "YSC",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [
         "Singles"
       ],
@@ -348,7 +348,7 @@
       "json_code": "YC",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [
         "Singles"
       ],
@@ -364,7 +364,7 @@
       "json_code": "YWC",
       "points_tier": "Low",
       "points_eligible": true,
-      "filtering_only": true,
+      "filtering_only": false,
       "applicable_formats": [
         "Singles",
         "Doubles",
