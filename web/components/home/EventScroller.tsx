@@ -3,6 +3,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { animated, useSpring } from "@react-spring/web";
+import { useDrag } from "@use-gesture/react";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -339,12 +341,32 @@ export default function EventScroller() {
   const [loading, setLoading] = useState(true);
   const [monthData, setMonthData] = useState<MonthCard[]>([]);
   const [carouselWidth, setCarouselWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const activeIndexRef = useRef(0);
   const initialTargetIndexRef = useRef(0);
   const wheelLockRef = useRef(false);
-  const pointerStartXRef = useRef<number | null>(null);
+  const dragStartTrackXRef = useRef(0);
+  const hasDraggedRef = useRef(false);
   const suppressClickRef = useRef(false);
+  const hasInitializedRef = useRef(false);
+  const cardGap = 16;
+  const cardWidth = carouselWidth > 0 ? Math.min(carouselWidth * 0.72, 240) : 0;
+  const slideStep = cardWidth + cardGap;
+  const baseTrackX = cardWidth > 0 ? carouselWidth / 2 - cardWidth / 2 : 0;
+
+  const clampIndex = React.useCallback(
+    (index: number) => {
+      const max = Math.max(0, monthData.length - 1);
+      return Math.min(Math.max(index, 0), max);
+    },
+    [monthData.length],
+  );
+
+  const [{ trackX }, trackApi] = useSpring(() => ({
+    trackX: 0,
+    config: { tension: 260, friction: 32 },
+  }));
 
   useEffect(() => {
     let canceled = false;
@@ -395,13 +417,12 @@ export default function EventScroller() {
 
   const setActiveIndexSafe = React.useCallback(
     (index: number) => {
-      const maxIndex = Math.max(0, monthData.length - 1);
-      const nextIndex = Math.min(Math.max(index, 0), maxIndex);
+      const nextIndex = clampIndex(index);
       if (nextIndex === activeIndexRef.current) return;
       activeIndexRef.current = nextIndex;
       setActiveIndex(nextIndex);
     },
-    [monthData.length],
+    [clampIndex],
   );
 
   const moveByStep = React.useCallback(
@@ -428,37 +449,84 @@ export default function EventScroller() {
     [moveByStep],
   );
 
-  const handlePointerDown = React.useCallback((event: React.PointerEvent<HTMLDivElement>) => {
-    pointerStartXRef.current = event.clientX;
-  }, []);
+  useEffect(() => {
+    if (cardWidth <= 0 || monthData.length === 0) return;
+    const targetX = baseTrackX - activeIndex * slideStep;
+    const isFirstSettle = !hasInitializedRef.current;
+    trackApi.start({
+      trackX: targetX,
+      immediate: isDragging || isFirstSettle,
+      config: { tension: 280, friction: 34 },
+    });
+    hasInitializedRef.current = true;
+  }, [activeIndex, baseTrackX, isDragging, slideStep, cardWidth, monthData.length, trackApi]);
 
-  const handlePointerUp = React.useCallback(
-    (event: React.PointerEvent<HTMLDivElement>) => {
-      const startX = pointerStartXRef.current;
-      pointerStartXRef.current = null;
-      if (startX === null) return;
+  const bindDrag = useDrag(
+    ({ first, last, movement: [mx], velocity: [vx], direction: [dx] }) => {
+      if (slideStep <= 0 || monthData.length <= 1) return;
+      const maxIndex = monthData.length - 1;
+      const minTrackX = baseTrackX - maxIndex * slideStep;
+      const maxTrackX = baseTrackX;
 
-      const deltaX = startX - event.clientX;
-      if (Math.abs(deltaX) < 32) return;
+      if (first) {
+        hasDraggedRef.current = false;
+        dragStartTrackXRef.current = baseTrackX - activeIndexRef.current * slideStep;
+      }
 
-      suppressClickRef.current = true;
-      moveByStep(deltaX > 0 ? 1 : -1);
+      const isIntentionalDrag = Math.abs(mx) > 12;
+      const dragDistance = mx * 1.12;
+      let nextTrackX = dragStartTrackXRef.current + dragDistance;
+      if (nextTrackX > maxTrackX) {
+        nextTrackX = maxTrackX + (nextTrackX - maxTrackX) * 0.28;
+      } else if (nextTrackX < minTrackX) {
+        nextTrackX = minTrackX + (nextTrackX - minTrackX) * 0.28;
+      }
+
+      if (!last) {
+        if (isIntentionalDrag) {
+          hasDraggedRef.current = true;
+          suppressClickRef.current = true;
+          setIsDragging(true);
+          trackApi.start({ trackX: nextTrackX, immediate: true });
+        }
+        return;
+      }
+
+      setIsDragging(false);
+      if (!hasDraggedRef.current) return; // real tap — let onClick handle it
+
+      const dir = dx === 0 ? (mx < 0 ? -1 : 1) : dx;
+      const projected = nextTrackX + vx * 220 * dir;
+      const targetIndex = clampIndex(Math.round((baseTrackX - projected) / slideStep));
+      setActiveIndexSafe(targetIndex);
+      trackApi.start({
+        trackX: baseTrackX - targetIndex * slideStep,
+        immediate: false,
+        config: { tension: 280, friction: 34 },
+      });
+      hasDraggedRef.current = false;
+      // release click suppression after the browser's post-pointerup click fires
+      window.setTimeout(() => {
+        suppressClickRef.current = false;
+      }, 80);
     },
-    [moveByStep],
+    {
+      axis: "x",
+      threshold: 2,
+      triggerAllEvents: true,
+      preventScroll: true,
+      pointer: { touch: true },
+    },
   );
 
-  const handleCardClick = React.useCallback((monthId: string, index: number) => {
-    if (suppressClickRef.current) {
-      suppressClickRef.current = false;
-      return;
-    }
-
-    setActiveIndexSafe(index);
-    setExpandedMonthId(monthId);
-  }, [setActiveIndexSafe]);
-
-  const cardWidth = carouselWidth > 0 ? Math.min(carouselWidth * 0.72, 240) : 0;
-  const trackX = cardWidth > 0 ? carouselWidth / 2 - cardWidth / 2 - activeIndex * (cardWidth + 16) : 0;
+  const handleCardClick = React.useCallback(
+    (monthId: string, index: number) => {
+      if (suppressClickRef.current) return;
+      setActiveIndexSafe(index);
+      setExpandedMonthId(monthId);
+    },
+    [setActiveIndexSafe],
+  );
 
   const expandedMonth = useMemo(
     () => monthData.find((item) => item.id === expandedMonthId) ?? null,
@@ -542,13 +610,19 @@ export default function EventScroller() {
         <div
           className="fixed inset-0 z-60 bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
           style={{ WebkitBackdropFilter: "blur(24px)" }}
-          onClick={() => setExpandedMonthId(null)}
+          onClick={(event) => {
+            event.stopPropagation();
+            setExpandedMonthId(null);
+          }}
         >
           <button
             type="button"
             className="w-full max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-white/60 backdrop-blur-2xl rounded-lg overflow-hidden bg-white/80 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
             style={{ WebkitBackdropFilter: "blur(40px)" }}
-            onClick={() => setExpandedMonthId(null)}
+            onClick={(event) => {
+              event.stopPropagation();
+              setExpandedMonthId(null);
+            }}
           >
             {renderCardContent(expandedMonth, true)}
           </button>
@@ -559,12 +633,8 @@ export default function EventScroller() {
         <div
           ref={carouselRef}
           onWheel={handleWheel}
-          onPointerDown={handlePointerDown}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={() => {
-            pointerStartXRef.current = null;
-          }}
           className="overflow-hidden py-3 touch-pan-y select-none"
+          {...bindDrag()}
         >
           {loading && (
             <div className="w-[78vw] max-w-[280px] rounded-lg bg-white/70 border border-white/60 p-4 text-body text-text-tertiary">
@@ -579,15 +649,20 @@ export default function EventScroller() {
           )}
 
           {!loading && monthData.length > 0 && (
-            <div
-              className="flex gap-4 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+            <animated.div
+              className="flex gap-4"
               style={{
-                transform: `translateX(${trackX}px)`,
+                transform: trackX.to((value) => `translateX(${value}px)`),
                 willChange: "transform",
               }}
             >
               {monthData.map((month, index) => {
                 const isActive = index === activeIndex;
+                const t = trackX.to((value) => {
+                  if (slideStep <= 0) return index === activeIndex ? 1 : 0;
+                  const center = (baseTrackX - value) / slideStep;
+                  return Math.max(0, 1 - Math.abs(index - center));
+                });
 
                 return (
                   <button
@@ -598,21 +673,24 @@ export default function EventScroller() {
                     onClick={() => handleCardClick(month.id, index)}
                     className="month-card-wrapper shrink-0 w-[72vw] max-w-[240px] cursor-pointer outline-none [-webkit-tap-highlight-color:transparent] text-left"
                   >
-                    <div
+                    <animated.div
+                      style={{
+                        transform: t.to((value) => `scale(${0.83 + value * 0.22}) translateZ(0)`),
+                        opacity: t.to((value) => 0.42 + value * 0.58),
+                      }}
                       className={cn(
-                        "bg-white/60 backdrop-blur-md rounded-lg border border-white/50 overflow-hidden pb-0.5 transform-gpu [backface-visibility:hidden]",
-                        "transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] origin-center",
+                        "bg-white/60 backdrop-blur-md rounded-lg border border-white/50 overflow-hidden pb-0.5 [backface-visibility:hidden] origin-center",
                         isActive
-                          ? "scale-[1.05] opacity-100 shadow-[0_8px_18px_-12px_rgba(30,42,61,0.18)]"
-                          : "scale-[0.80] opacity-45 shadow-none",
+                          ? "shadow-[0_8px_18px_-12px_rgba(30,42,61,0.18)]"
+                          : "shadow-none",
                       )}
                     >
                       {renderCardContent(month, false)}
-                    </div>
+                    </animated.div>
                   </button>
                 );
               })}
-            </div>
+            </animated.div>
           )}
         </div>
       </section>

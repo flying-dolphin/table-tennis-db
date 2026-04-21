@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import type { Route } from 'next';
 import { notFound } from 'next/navigation';
-import { ArrowUpRight, CalendarDays, ChevronRight, Medal, Target, Trophy } from 'lucide-react';
+import { ArrowUpRight, CalendarDays, ChevronRight, Target, Trophy } from 'lucide-react';
 import { PlayerAvatar } from '@/components/PlayerAvatar';
 import { PlayerBackButton } from '@/components/player/PlayerBackButton';
 import { getPlayerDetail } from '@/lib/server/players';
 import '@/public/images/flags_local.css';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 type PlayerDetail = NonNullable<ReturnType<typeof getPlayerDetail>>;
 type Player = PlayerDetail['player'];
@@ -114,15 +120,13 @@ function EmptyState({ title, action = '想要' }: { title: string; action?: stri
 }
 
 function PlayerHero({ player }: { player: Player }) {
-  const rankChange = player.rankChange ?? 0;
-
   return (
-    <section className="relative overflow-hidden rounded-b-[34px] bg-[rgb(var(--hero-anchor))] px-5 pb-6 pt-5 text-white shadow-lg">
+    <section className="relative overflow-hidden bg-[rgb(var(--hero-anchor))] px-5 pb-10 pt-5 text-white shadow-lg">
       <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_20%_15%,rgba(127,169,217,0.75),transparent_32%),linear-gradient(140deg,rgba(26,35,44,1),rgba(80,113,145,0.92))]" />
       <div className="relative z-10">
         <PlayerBackButton />
 
-        <div className="flex items-end gap-4">
+        <div className="flex items-end gap-5">
           <PlayerAvatar
             player={{
               playerId: player.playerId,
@@ -140,54 +144,67 @@ function PlayerHero({ player }: { player: Player }) {
                 <h1 className="truncate text-display font-black leading-none tracking-tight">
                   {displayPlayerName(player)}
                 </h1>
+              </div>
+              <div className="flex items-center gap-2 mt-1">
+                <p className="truncate text-caption font-bold text-white/40 tracking-wider uppercase italic">
+                  {player.name}
+                </p>
                 {player.countryCode && (
-                  <div className="flex items-center gap-2 rounded-md bg-white/10 px-2.5 py-1.5 backdrop-blur-md mb-0.5">
-                    <div className={`fg fg-${player.countryCode} scale-125 origin-center`} />
-                    <span className="text-caption font-bold text-white/90">{player.country || player.countryCode}</span>
+                  <div className="flex items-center gap-1.5 rounded bg-white/10 px-1.5 py-0.5 backdrop-blur-md">
+                    <div className={`fg fg-${player.countryCode} scale-100 origin-center`} />
+                    <span className="text-micro font-bold text-white/80">{player.country || player.countryCode}</span>
                   </div>
                 )}
               </div>
-              <p className="truncate text-body font-semibold text-white/50 tracking-wide uppercase italic">
-                {player.name}
-              </p>
             </div>
-            <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
+            <div className="mt-3.5 flex flex-wrap items-center gap-1.5">
+              <span className="rounded-full bg-white/12 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
                 {player.gender === 'Female' ? '女' : player.gender === 'Male' ? '男' : '待补'}
               </span>
-              <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
+              <span className="rounded-full bg-white/12 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
                 {displayBio(player)}
               </span>
               {player.styleZh && (
-                <span className="rounded-full bg-white/14 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
+                <span className="rounded-full bg-white/12 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
                   {player.styleZh}
                 </span>
               )}
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
 
-        <div className="mt-5 grid grid-cols-2 gap-2.5">
-          <div className="rounded-lg border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
-            <p className="flex items-center gap-1.5 text-micro font-bold text-white/55 uppercase tracking-widest">
-              当前排名
-              <span className={`text-[10px] tabular-nums ${rankChange > 0 ? 'text-state-success' : rankChange < 0 ? 'text-state-danger' : 'text-white/40'}`}>
-                {rankChange > 0 ? '↑' : rankChange < 0 ? '↓' : '•'} {rankChange !== 0 ? Math.abs(rankChange) : ''}
+function PlayerRankCard({ player }: { player: Player }) {
+  const rankChange = player.rankChange ?? 0;
+
+  return (
+    <section className="px-5 -mt-6 relative z-20">
+      <div className="grid grid-cols-2 gap-3">
+        <div className="rounded-2xl border border-white/60 bg-white/70 p-4 shadow-sm backdrop-blur-md">
+          <p className="flex items-center gap-1.5 text-micro font-black text-text-tertiary uppercase tracking-widest">
+            当前排名
+            <span className={cn(
+              "text-[10px] tabular-nums font-black",
+              rankChange > 0 ? "text-state-success" : rankChange < 0 ? "text-state-danger" : "text-text-tertiary/40"
+            )}>
+              {rankChange > 0 ? '↑' : rankChange < 0 ? '↓' : '•'} {rankChange !== 0 ? Math.abs(rankChange) : ''}
+            </span>
+          </p>
+          <div className="mt-1.5 flex items-baseline gap-1.5 font-black">
+            <span className="text-display-sm text-text-primary leading-none tabular-nums">{player.rank ?? '-'}</span>
+            {player.careerBestRank && (
+              <span className="text-micro text-text-tertiary font-bold bg-brand-soft/20 border-1 px-2 py-0.5 rounded-sm">
+                最高 {player.careerBestRank}
               </span>
-            </p>
-            <div className="mt-1 flex items-baseline gap-1.5 font-black">
-              <span className="text-data-hero leading-none tabular-nums">#{player.rank ?? '-'}</span>
-              {player.careerBestRank && (
-                <span className="text-caption text-white/60 font-medium">
-                  (最高{player.careerBestRank})
-                </span>
-              )}
-            </div>
+            )}
           </div>
-          <div className="rounded-lg border border-white/14 bg-white/12 p-4 backdrop-blur-sm">
-            <p className="text-micro font-bold text-white/55 uppercase tracking-widest">当前积分</p>
-            <strong className="mt-1 block text-data-hero leading-none tabular-nums">{formatNumber(player.points)}</strong>
-          </div>
+        </div>
+        <div className="rounded-2xl border border-white/60 bg-white/70 p-4 shadow-sm backdrop-blur-md">
+          <p className="text-micro font-black text-text-tertiary uppercase tracking-widest">当前积分</p>
+          <strong className="mt-1.5 block text-display-sm text-text-primary leading-none tabular-nums">{formatNumber(player.points)}</strong>
         </div>
       </div>
     </section>
@@ -196,109 +213,121 @@ function PlayerHero({ player }: { player: Player }) {
 
 function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStats }) {
   const yearWinRate = player.yearMatches ? (player.yearWins ?? 0) / player.yearMatches * 100 : null;
+  const sevenFinalsRate = stats.eventsTotal ? (stats.sevenFinals / stats.eventsTotal) * 100 : null;
 
   return (
     <section className="px-5 pt-5">
-      <SectionHeader title="职业看板" hint="全维度数据与年度对照" />
+      <SectionHeader title="职业数据" />
 
-      <div className="bento-grid">
-        {/* Win Rate Comparison */}
-        <div className="bento-span-4 bento-card bento-card-hover relative overflow-hidden">
-          <div className="relative z-10 flex h-full flex-col justify-between">
+      <div className="flex flex-col gap-3">
+
+        {/* ── 胜率大卡（全宽） ── */}
+        <div className="rounded-2xl border border-border-subtle bg-white p-4 shadow-subtle">
+          <div className="flex items-center gap-1.5 mb-3">
+            <Target size={12} className="text-brand-strong" strokeWidth={2.5} />
+            <p className="text-micro font-black text-brand-strong uppercase tracking-widest">胜率</p>
+          </div>
+
+          {/* 上半：生涯 + 年度 */}
+          <div className="grid grid-cols-2 gap-3 pb-3 border-b border-border-subtle">
             <div>
               <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">生涯总胜率</p>
               <p className="text-data-hero font-black text-text-primary leading-none mt-1 tabular-nums">{formatPercent(stats.winRate)}</p>
             </div>
-            <div className="mt-3">
-              <div className="mb-1.5 flex items-center justify-between text-micro font-bold uppercase tracking-widest">
-                <span className="text-brand-strong">2026 年度胜率</span>
-                <span className="text-text-primary tabular-nums">{formatPercent(yearWinRate)}</span>
+            <div>
+              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">2026 年度</p>
+              <p className="text-data-hero font-black text-brand-strong leading-none mt-1 tabular-nums">{formatPercent(yearWinRate)}</p>
+            </div>
+          </div>
+
+          {/* 下半：外战 + 内战 */}
+          <div className="grid grid-cols-2 gap-3 pt-3">
+            <div>
+              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">外战胜率</p>
+              <p className="text-heading-1 font-black text-state-success-text leading-none mt-1 tabular-nums">{formatPercent(stats.foreignWinRate)}</p>
+            </div>
+            <div>
+              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">内战胜率</p>
+              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{formatPercent(stats.domesticWinRate)}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ── 下行：冠军 + 赛事（半宽各一） ── */}
+        <div className="grid grid-cols-2 gap-3">
+
+          {/* 冠军数卡 */}
+          <div className="rounded-2xl border border-border-subtle bg-white p-4 shadow-subtle">
+            <div className="flex items-center gap-1.5 mb-3">
+              <Trophy size={12} className="text-brand-strong" strokeWidth={2.5} />
+              <p className="text-micro font-black text-brand-strong uppercase tracking-widest">冠军</p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-3">
+              {/* 三大赛 */}
+              <div className="border-r border-border-subtle pr-3">
+                <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest mb-2.5">三大赛</p>
+                <div className="space-y-2.5">
+                  <div>
+                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">单打冠</p>
+                    <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleThreeTitles}</p>
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">总冠军</p>
+                    <p className="text-heading-2 font-black text-text-secondary leading-none mt-1 tabular-nums">{stats.allThreeTitles}</p>
+                  </div>
+                </div>
               </div>
-              <div className="h-2 w-full rounded-full bg-brand-mist overflow-hidden">
-                <div
-                  className="h-full bg-brand-strong rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: `${yearWinRate ?? 0}%` }}
-                />
+              {/* 七大赛 */}
+              <div>
+                <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest mb-2.5">七大赛</p>
+                <div className="space-y-2.5">
+                  <div>
+                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">单打冠</p>
+                    <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleSevenTitles}</p>
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">总冠军</p>
+                    <p className="text-heading-2 font-black text-text-secondary leading-none mt-1 tabular-nums">{stats.allSevenTitles}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <Target className="absolute -bottom-2 -right-2 h-16 w-16 text-brand-mist/30" />
-        </div>
 
-        {/* Activity */}
-        <div className="bento-span-2 bento-card bento-card-hover">
-          <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">赛事总数</p>
-          <p className="text-heading-1 font-black text-text-primary mt-0.5 tabular-nums">{stats.eventsTotal}</p>
-          <div className="mt-2 text-micro font-bold text-brand-strong bg-brand-soft/50 px-2 py-0.5 rounded uppercase tracking-wider inline-block">
-            今年 {player.yearEvents ?? 0}
-          </div>
-        </div>
-
-        {/* Sub Win Rates */}
-        <div className="bento-span-3 bento-card bento-card-hover flex items-center justify-between">
-          <div>
-            <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">外战胜率</p>
-            <p className="text-heading-2 font-black text-state-success mt-0.5 tabular-nums">{formatPercent(stats.foreignWinRate)}</p>
-          </div>
-          <div className="h-9 w-9 rounded-md bg-state-success/10 flex items-center justify-center">
-            <Target size={16} className="text-state-success" />
-          </div>
-        </div>
-        <div className="bento-span-3 bento-card bento-card-hover flex items-center justify-between">
-          <div>
-            <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">内战胜率</p>
-            <p className="text-heading-2 font-black text-text-primary mt-0.5 tabular-nums">{formatPercent(stats.domesticWinRate)}</p>
-          </div>
-          <div className="h-9 w-9 rounded-md bg-brand-mist flex items-center justify-center">
-            <Target size={16} className="text-brand-strong" />
-          </div>
-        </div>
-
-        {/* Honor Wall - 3 Majors */}
-        <div className="bento-span-3 bento-card honor-diamond bento-card-hover">
-          <div className="flex items-center gap-1.5">
-            <Trophy size={14} className="text-brand-strong" />
-            <p className="text-micro font-black text-brand-strong uppercase tracking-widest">三大赛记录</p>
-          </div>
-          <div className="mt-3.5 grid grid-cols-2 gap-2">
-            <div>
-              <p className="text-[9px] font-bold text-text-tertiary uppercase">单打冠军</p>
-              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleThreeTitles}</p>
+          {/* 赛事数卡 */}
+          <div className="rounded-2xl border border-border-subtle bg-white p-4 shadow-subtle">
+            <div className="flex items-center gap-1.5 mb-3">
+              <CalendarDays size={12} className="text-brand-strong" strokeWidth={2.5} />
+              <p className="text-micro font-black text-brand-strong uppercase tracking-widest">赛事</p>
             </div>
-            <div>
-              <p className="text-[9px] font-bold text-text-tertiary uppercase">总冠军</p>
-              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.allThreeTitles}</p>
+            <div className="space-y-2.5">
+              <div className="flex items-baseline justify-between">
+                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">赛事总数</p>
+                <p className="text-heading-2 font-black text-text-primary tabular-nums">{stats.eventsTotal}</p>
+              </div>
+              <div className="flex items-baseline justify-between">
+                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">今年赛事</p>
+                <p className="text-heading-2 font-black text-brand-strong tabular-nums">{player.yearEvents ?? 0}</p>
+              </div>
+              <div className="h-px bg-border-subtle my-1" />
+              <div className="flex items-baseline justify-between">
+                {/* TODO: 需要 stats.sevenTotal 字段（七大赛参赛总次数） */}
+                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">七大赛次数</p>
+                <p className="text-heading-2 font-black text-text-primary tabular-nums">-</p>
+              </div>
+              <div className="flex items-baseline justify-between">
+                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">单打决赛</p>
+                <p className="text-heading-2 font-black text-text-primary tabular-nums">{stats.sevenFinals}</p>
+              </div>
+              {sevenFinalsRate != null && (
+                <div className="flex items-baseline justify-between border-t border-border-subtle pt-2">
+                  <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">决赛占比</p>
+                  <p className="text-[9px] font-bold text-text-tertiary tabular-nums">{formatPercent(sevenFinalsRate)}</p>
+                </div>
+              )}
             </div>
           </div>
-        </div>
 
-        {/* Honor Wall - 7 Majors */}
-        <div className="bento-span-3 bento-card honor-silver bento-card-hover">
-          <div className="flex items-center gap-1.5">
-            <Medal size={14} className="text-text-secondary" />
-            <p className="text-micro font-black text-text-secondary uppercase tracking-widest">七大赛记录</p>
-          </div>
-          <div className="mt-3.5 grid grid-cols-2 gap-2">
-            <div>
-              <p className="text-[9px] font-bold text-text-tertiary uppercase">单打冠军</p>
-              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleSevenTitles}</p>
-            </div>
-            <div>
-              <p className="text-[9px] font-bold text-text-tertiary uppercase">总冠军</p>
-              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.allSevenTitles}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* 7 Major Finals */}
-        <div className="bento-span-6 bento-card bento-card-hover flex items-center justify-between border-dashed bg-white/30">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-sm border border-state-warning/20">
-              <Target size={18} className="text-state-warning" />
-            </div>
-            <p className="text-body font-bold text-text-secondary">七大赛单打决赛次数</p>
-          </div>
-          <p className="text-heading-1 font-black text-text-primary tabular-nums">{stats.sevenFinals}</p>
         </div>
       </div>
     </section>
@@ -347,95 +376,108 @@ function RecentMatches({ matches }: { matches: RecentMatch[] }) {
 function EventRecords({ events }: { events: EventRecord[] }) {
   return (
     <section className="px-5 pt-6">
-      <SectionHeader title="比赛记录" hint="按赛事倒序，不逐场展开" />
-      {events.length === 0 ? (
-        <EmptyState title="赛事记录暂无数据" />
-      ) : (
-        <div className="space-y-2.5">
-          {events.map((event) => (
-            <Link
-              key={event.eventId}
-              href={route(`/events/${event.eventId}`)}
-              className="grid grid-cols-[1fr_auto] gap-3 rounded-lg border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
-            >
-              <div className="min-w-0">
-                <h3 className="truncate text-body font-black text-text-primary">{displayEventName(event)}</h3>
-                <p className="mt-1 text-caption font-semibold text-text-tertiary">
-                  {displayDate(event.date)} · {subEventLabel(event)}
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="rounded-full bg-brand-soft/75 px-3 py-1 text-caption font-black text-brand-strong uppercase tracking-widest">
-                  {event.result || '成绩待补'}
-                </span>
-                <ArrowUpRight size={15} className="text-text-tertiary" strokeWidth={2} />
-              </div>
-            </Link>
-          ))}
+      <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
+        <div className="flex justify-between items-end mb-3 px-1 relative z-10">
+          <h2 className="text-heading-2 font-black tracking-tight text-text-primary">比赛记录</h2>
+          <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">最近赛事</span>
         </div>
-      )}
+        {events.length === 0 ? (
+          <EmptyState title="赛事记录暂无数据" />
+        ) : (
+          <div className="flex flex-col gap-1 relative z-10">
+            {events.map((event, idx) => (
+              <Link
+                key={event.eventId}
+                href={route(`/events/${event.eventId}`)}
+                className={cn(
+                  "grid grid-cols-[1fr_auto] gap-3 px-2 py-3 transition-colors hover:bg-white/40 group",
+                  idx !== events.length - 1 && "border-b border-black/[0.04]"
+                )}
+              >
+                <div className="min-w-0">
+                  <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">{displayEventName(event)}</h3>
+                  <p className="mt-0.5 text-caption font-medium text-text-tertiary">
+                    {displayDate(event.date)} · {subEventLabel(event)}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="rounded-full bg-brand-soft/50 px-2.5 py-0.5 text-micro font-bold text-brand-strong uppercase tracking-wider">
+                    {event.result || '成绩待补'}
+                  </span>
+                  <ChevronRight size={14} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 }
 
 function TopOpponents({ opponents }: { opponents: TopOpponent[] }) {
   return (
-    <section className="px-5 pb-5 pt-6">
-      <SectionHeader title="Top 3 对手" hint="按交手次数排序，最近交手作为次级排序" />
-      {opponents.length === 0 ? (
-        <EmptyState title="对手交手数据暂无记录" />
-      ) : (
-        <div className="space-y-2.5">
-          {opponents.map((opponent, index) => {
-            const content = (
-              <>
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[rgb(var(--hero-anchor))] text-body font-black text-white tabular-nums">
-                  {index + 1}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h3 className="truncate text-body font-black text-text-primary">
-                    {opponent.nameZh?.trim() || opponent.name}
-                  </h3>
-                  <p className="mt-1 truncate text-caption font-semibold text-text-tertiary">
-                    {opponent.countryCode || '国家待补'} · 最近 {displayDate(opponent.latestDate)}
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-right">
-                  <div>
-                    <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">交手</p>
-                    <strong className="text-body-lg text-text-primary tabular-nums">{opponent.matches}</strong>
+    <section className="px-5 pb-8 pt-6">
+      <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
+        <div className="mb-3 px-1 relative z-10">
+          <h2 className="text-heading-2 font-black tracking-tight text-text-primary">Top 3 对手</h2>
+          <p className="mt-0.5 text-caption font-medium text-text-tertiary uppercase tracking-widest">按交手次数排序</p>
+        </div>
+        {opponents.length === 0 ? (
+          <EmptyState title="对手交手数据暂无记录" />
+        ) : (
+          <div className="flex flex-col gap-1 relative z-10">
+            {opponents.map((opponent, index) => {
+              const content = (
+                <div className={cn(
+                  "flex items-center gap-3 py-3 px-2 group transition-colors",
+                  index !== opponents.length - 1 && "border-b border-black/[0.04]"
+                )}>
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-mist/50 text-body font-black text-brand-strong tabular-nums group-hover:bg-brand-strong group-hover:text-white transition-all">
+                    {index + 1}
                   </div>
-                  <div>
-                    <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">胜率</p>
-                    <strong className="text-body-lg text-text-primary tabular-nums">{formatPercent(opponent.winRate)}</strong>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">
+                      {opponent.nameZh?.trim() || opponent.name}
+                    </h3>
+                    <p className="mt-0.5 truncate text-caption font-medium text-text-tertiary uppercase tracking-wider">
+                      {opponent.countryCode || '国家待补'} · 最近 {displayDate(opponent.latestDate)}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-right">
+                    <div>
+                      <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest leading-none">交手</p>
+                      <strong className="text-body font-black text-text-primary tabular-nums block mt-1">{opponent.matches}</strong>
+                    </div>
+                    <div>
+                      <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest leading-none">胜率</p>
+                      <strong className="text-body font-black text-text-primary tabular-nums block mt-1">{formatPercent(opponent.winRate)}</strong>
+                    </div>
                   </div>
                 </div>
-              </>
-            );
+              );
 
-            if (!opponent.slug) {
+              if (!opponent.slug) {
+                return (
+                  <article key={`${opponent.playerId ?? 'unknown'}-${opponent.name}`}>
+                    {content}
+                  </article>
+                );
+              }
+
               return (
-                <article
-                  key={`${opponent.playerId ?? 'unknown'}-${opponent.name}`}
-                  className="flex items-center gap-3 rounded-lg border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md"
+                <Link
+                  key={opponent.slug}
+                  href={route(`/players/${opponent.slug}`)}
+                  className="block hover:bg-white/40 transition-colors"
                 >
                   {content}
-                </article>
+                </Link>
               );
-            }
-
-            return (
-              <Link
-                key={opponent.slug}
-                href={route(`/players/${opponent.slug}`)}
-                className="flex items-center gap-3 rounded-lg border border-white/65 bg-white/62 p-4 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
-              >
-                {content}
-              </Link>
-            );
-          })}
-        </div>
-      )}
+            })}
+          </div>
+        )}
+      </div>
     </section>
   );
 }
@@ -446,10 +488,10 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ s
   if (!detail) notFound();
 
   return (
-    <main className="mx-auto min-h-screen max-w-lg overflow-hidden pb-12">
+    <main className="mx-auto min-h-screen max-w-lg overflow-hidden pb-12 bg-gray-50/30">
       <PlayerHero player={detail.player} />
+      <PlayerRankCard player={detail.player} />
       <PlayerStatsBento player={detail.player} stats={detail.stats} />
-      <RecentMatches matches={detail.recentMatches} />
       <EventRecords events={detail.events} />
       <TopOpponents opponents={detail.topOpponents} />
     </main>
