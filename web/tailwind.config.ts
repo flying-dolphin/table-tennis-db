@@ -33,6 +33,10 @@ export default {
           secondary: "#5F6F86",
           tertiary: "#617283", // was #8A9AB0 (2.87:1 fail) → now 4.95:1 on white
         },
+        gold: {
+          DEFAULT: '#C5A059',
+          bg: 'rgba(197,160,89,0.1)',
+        },
         state: {
           success: "#4E9B7A",
           danger: "#C56B72",
@@ -63,6 +67,7 @@ export default {
       fontFamily: {
         heading: ["Noto Sans SC", "sans-serif"],
         body: ["Noto Sans SC", "sans-serif"],
+        numeric: ["Inter", "DIN Alternate", "sans-serif"],
       },
     },
   },
