@@ -27,7 +27,7 @@ from typing import Any
 
 
 PLAYER_WITH_COUNTRY_RE = re.compile(
-    r"([A-Z][A-Za-z]*(?:[-'\s][A-Za-z]+)*)\s*\(([A-Z]{3})\)"
+    r"[A-Z][^|()]*?(?:\s*\([^()]*\))*\s*\([A-Z]{3}\)"
 )
 SCORE_RE = re.compile(r"^\s*(\d+)\s*-\s*(\d+)\s*$")
 WORD_RE = re.compile(r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)?")
@@ -51,10 +51,7 @@ def normalize_words(text: str) -> tuple[str, ...]:
 
 
 def strip_country(player_with_country: str) -> str:
-    match = PLAYER_WITH_COUNTRY_RE.search(player_with_country or "")
-    if match:
-        return match.group(1).strip()
-    return (player_with_country or "").strip()
+    return re.sub(r"\s*\([A-Z]{3}\)\s*$", "", player_with_country or "").strip()
 
 
 def is_same_person(left: str, right: str) -> bool:
@@ -281,6 +278,29 @@ def repair_match(match: dict[str, Any], player_name: str) -> tuple[dict[str, Any
     return match, changes
 
 
+def iter_match_lists(data: dict[str, Any]) -> list[list[dict[str, Any]]]:
+    """Return all match lists for both player-level and event-level JSON shapes."""
+    match_lists: list[list[dict[str, Any]]] = []
+
+    root_matches = data.get("matches")
+    if isinstance(root_matches, list):
+        match_lists.append(root_matches)
+
+    years = data.get("years")
+    if isinstance(years, dict):
+        for year_info in years.values():
+            if not isinstance(year_info, dict):
+                continue
+            for event in year_info.get("events", []):
+                if not isinstance(event, dict):
+                    continue
+                matches = event.get("matches")
+                if isinstance(matches, list):
+                    match_lists.append(matches)
+
+    return match_lists
+
+
 def repair_file(file_path: Path, location_dict: dict[str, str]) -> dict[str, Any]:
     data = json.loads(file_path.read_text(encoding="utf-8"))
     file_changes: Counter[str] = Counter()
@@ -289,39 +309,37 @@ def repair_file(file_path: Path, location_dict: dict[str, str]) -> dict[str, Any
 
     original_player_name = (data.get("player_name") or "").strip()
 
-    for year_info in (data.get("years") or {}).values():
-        if not isinstance(year_info, dict):
-            continue
-        for event in year_info.get("events", []):
-            for match in event.get("matches", []):
-                records_checked += 1
-                _, changes = repair_match(match, original_player_name)
-                if changes:
-                    records_changed += 1
-                    file_changes.update(changes)
+    for match_list in iter_match_lists(data):
+        for match in match_list:
+            if not isinstance(match, dict):
+                continue
+            records_checked += 1
+            _, changes = repair_match(match, original_player_name)
+            if changes:
+                records_changed += 1
+                file_changes.update(changes)
 
-    canonical_player_name = pick_canonical_player_name(data)
-    if canonical_player_name and canonical_player_name != original_player_name:
+    canonical_player_name = pick_canonical_player_name(data) if original_player_name else ""
+    if original_player_name and canonical_player_name and canonical_player_name != original_player_name:
         data["player_name"] = canonical_player_name
         file_changes.update(["player_name"])
         if data.get("english_name", "").strip() == original_player_name:
             data["english_name"] = canonical_player_name
             file_changes.update(["english_name_sync"])
 
-        for year_info in (data.get("years") or {}).values():
-            if not isinstance(year_info, dict):
-                continue
-            for event in year_info.get("events", []):
-                for match in event.get("matches", []):
-                    _, changes = repair_match(match, canonical_player_name)
-                    if changes:
-                        file_changes.update(changes)
+        for match_list in iter_match_lists(data):
+            for match in match_list:
+                if not isinstance(match, dict):
+                    continue
+                _, changes = repair_match(match, canonical_player_name)
+                if changes:
+                    file_changes.update(changes)
 
-    if "english_name" not in data:
+    if original_player_name and "english_name" not in data:
         data["english_name"] = data.get("player_name", "")
         file_changes.update(["english_name"])
 
-    if "country" not in data:
+    if original_player_name and "country" not in data:
         data["country"] = data.get("country_code", "")
         file_changes.update(["country"])
 

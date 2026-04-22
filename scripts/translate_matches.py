@@ -45,6 +45,7 @@ FIELD_CATEGORY: dict[str, str] = {
     "country": "locations",
     "event_name": "events",
     "event_type": "events",
+    "event": "events",
     "sub_event": "terms_others",
     "stage": "round",
     "round": "round",
@@ -52,6 +53,7 @@ FIELD_CATEGORY: dict[str, str] = {
     "side_a_country": "locations",
     "side_b_player": "players",
     "side_b_country": "locations",
+    "winner": "players",
 }
 
 SKIP_VALUES = {"", "--"}
@@ -83,7 +85,7 @@ def translate_value(
 
     category = FIELD_CATEGORY[field]
 
-    if field == "event_name":
+    if field in ("event_name", "event"):
         base_name, year = split_event_name(value)
         translated_base = dt.translate(base_name, category)
         if translated_base == base_name:
@@ -143,6 +145,31 @@ def translate_side_entry(
 def translate_file_data(data: dict, dt: DictTranslator, missing: dict[str, set[str]]) -> dict:
     """Return a new dict with _zh fields added for all translatable fields."""
     result = dict(data)
+
+    schema = data.get("schema_version", "")
+    if schema.startswith("event_match"):
+        for field in ("event",):
+            value = data.get(field, "")
+            if value and value not in SKIP_VALUES:
+                result[f"{field}_zh"] = translate_value(value, field, dt, missing)
+
+        matches_result = []
+        for match in data.get("matches", []):
+            m = dict(match)
+            for field in ("sub_event", "stage", "round", "winner"):
+                value = match.get(field, "")
+                if value and value not in SKIP_VALUES:
+                    m[f"{field}_zh"] = translate_value(value, field, dt, missing)
+
+            side_a_list = match.get("side_a", [])
+            side_b_list = match.get("side_b", [])
+            m["side_a_zh"] = [translate_side_entry(e, dt, missing) for e in side_a_list]
+            m["side_b_zh"] = [translate_side_entry(e, dt, missing) for e in side_b_list]
+
+            matches_result.append(m)
+
+        result["matches"] = matches_result
+        return result
 
     for field in ("player_name", "country"):
         value = data.get(field, "")

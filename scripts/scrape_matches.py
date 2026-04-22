@@ -52,7 +52,7 @@ DEFAULT_FROM_DATE = "2024-01-01"
 SCORE_RE = re.compile(r"(\d+)\s*-\s*(\d+)")
 GAME_RE = re.compile(r"(\d+):(\d+)")
 PLAYER_NAME_RE = re.compile(
-    r"([A-Z][A-Za-z]*(?:[-'\s][A-Za-z]+)*)\s*\(([A-Z]{3})\)"
+    r"[A-Z][^|()]*?(?:\s*\([^()]*\))*\s*\([A-Z]{3}\)"
 )
 # raw_row_text 的列结构固定为：
 # [0] year | [1] event_name
@@ -142,10 +142,7 @@ def _ck_event(ck_player: str, event: dict[str, Any]) -> str:
 
 
 def _strip_country(player_with_country: str) -> str:
-    match = PLAYER_NAME_RE.search(player_with_country or "")
-    if match:
-        return match.group(1).strip()
-    return (player_with_country or "").strip()
+    return re.sub(r"\s*\([A-Z]{3}\)\s*$", "", player_with_country or "").strip()
 
 
 def _is_same_person(left: str, right: str) -> bool:

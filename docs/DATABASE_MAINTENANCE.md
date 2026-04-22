@@ -26,11 +26,14 @@ python scripts/db/import_rankings.py
 python scripts/db/import_events.py
 python scripts/db/import_events_calendar.py
 python scripts/db/import_matches.py
+python scripts/db/import_event_draw_matches.py
 python scripts/db/import_sub_events.py
 ```
 
 注意：
 
+- `import_matches.py` 正式读取 `data/event_matches/cn/*.json`，不再以 `data/matches_complete/cn/*.json` 作为基础比赛表来源
+- `import_event_draw_matches.py` 必须在 `import_sub_events.py` 之前执行，冠军统计只读取正赛表里的 `draw_round='Final'`
 - 暂时不要执行 `python scripts/db/import_points_rules.py`
 - 该脚本当前为占位状态，`points_rules` 导入放在后续实现计划
 
@@ -56,7 +59,9 @@ python scripts/db/import_sub_events.py
 - `event_categories.sort_order` 已改为按 `data/event_category_mapping.json` 顺序从 1 开始写入
 - 新增 `events_calendar` 正式导入脚本
 - `import_matches.py` 不再依赖 `tmp/event_mapping.json`，改为基于数据库内 `events` 关联
+- `import_matches.py` 已切换为赛事维度 `data/event_matches/cn` 数据源，并允许同一双方在同一轮次重复交手
 - 新增 `import_sub_events.py`，从决赛 `matches` 聚合写入 `sub_events`
+- 新增 `import_event_draw_matches.py`，从 `matches` 生成正赛对战表 `event_draw_matches`
 
 ---
 
@@ -68,6 +73,7 @@ SELECT COUNT(*) FROM event_type_mapping;
 SELECT COUNT(*) FROM events;
 SELECT COUNT(*) FROM events_calendar;
 SELECT COUNT(*) FROM matches;
+SELECT COUNT(*) FROM event_draw_matches;
 ```
 
 检查分类顺序：

@@ -16,6 +16,7 @@ For each URL this script:
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import random
 import re
@@ -98,12 +99,57 @@ def event_name_from_match(match: dict[str, Any]) -> str:
     return ""
 
 
+def get_event_title_from_page(page: Any) -> str:
+    selectors = [
+        ".notranslate .span-class",
+        "span.span-class",
+    ]
+    for selector in selectors:
+        loc = page.locator(selector).first
+        try:
+            if loc.count() == 0 or not loc.is_visible():
+                continue
+            text = " ".join((loc.inner_text() or "").split()).strip()
+            if text:
+                return text
+        except Exception:
+            continue
+    return ""
+
+
 def output_filename(event_name: str, event_id: str) -> str:
     base = sanitize_filename((event_name or "event").replace(" ", "_"))
     return f"{base}_{event_id}.json"
 
 
+def collect_existing_event_ids(output_dir: Path) -> set[str]:
+    event_ids: set[str] = set()
+    if not output_dir.exists():
+        return event_ids
+
+    for path in output_dir.glob("*.json"):
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logger.warning("Skip unreadable existing output %s: %s", path, exc)
+            continue
+
+        event_id = str(payload.get("event_id") or "").strip()
+        if event_id:
+            event_ids.add(event_id)
+            continue
+
+        match = re.search(r"_(\d+)\.json$", path.name)
+        if match:
+            event_ids.add(match.group(1))
+    return event_ids
+
+
 def select_display_100(page: Any) -> bool:
+    return select_display_value(page, "100")
+
+
+def select_display_value(page: Any, value: str) -> bool:
     selectors = [
         ".limit select[id^='limit']",
         "select[id^='limit']",
@@ -116,13 +162,13 @@ def select_display_100(page: Any) -> bool:
             if loc.count() == 0 or not loc.is_visible():
                 continue
             current_value = (loc.input_value() or "").strip()
-            if current_value == "100":
-                logger.info("Display # already 100 via selector: %s", selector)
+            if current_value == value:
+                logger.info("Display # already %s via selector: %s", value, selector)
                 time.sleep(random.uniform(1.0, 2.0))
                 return True
 
-            loc.select_option("100")
-            logger.info("Selected Display # = 100 via selector: %s", selector)
+            loc.select_option(value)
+            logger.info("Selected Display # = %s via selector: %s", value, selector)
             page.wait_for_load_state("domcontentloaded", timeout=30000)
             try:
                 page.wait_for_load_state("networkidle", timeout=15000)
@@ -131,8 +177,41 @@ def select_display_100(page: Any) -> bool:
             time.sleep(random.uniform(1.0, 2.0))
             return True
         except Exception as exc:
-            logger.warning("Failed to select Display # = 100 via %s: %s", selector, exc)
+            logger.warning("Failed to select Display # = %s via %s: %s", value, selector, exc)
     return False
+
+
+def page_has_no_records_message(page: Any) -> bool:
+    risk = detect_risk(page)
+    if risk:
+        raise RiskControlTriggered(risk)
+
+    try:
+        empty = page.locator(".emptyDataMessage").first
+        if empty.count() > 0 and empty.is_visible():
+            text = " ".join((empty.inner_text() or "").split()).strip().lower()
+            return text == "no records"
+    except Exception:
+        return False
+    return False
+
+
+def diagnose_current_page(page: Any) -> str:
+    try:
+        row_count = page.locator("table tbody tr").count()
+    except Exception:
+        row_count = -1
+
+    empty_text = ""
+    try:
+        empty = page.locator(".emptyDataMessage").first
+        if empty.count() > 0 and empty.is_visible():
+            empty_text = " ".join((empty.inner_text() or "").split()).strip()
+    except Exception:
+        empty_text = ""
+
+    pagination = get_pagination_or_total_info(page)
+    return f"rows={row_count} emptyDataMessage={empty_text!r} pagination={pagination} url={page.url}"
 
 
 def wait_for_pagination_info(page: Any, timeout_sec: float = 20.0) -> tuple[int, int, int]:
@@ -147,23 +226,135 @@ def wait_for_pagination_info(page: Any, timeout_sec: float = 20.0) -> tuple[int,
     raise RuntimeError(f"Cannot read pagination info, last={last_info}, url={page.url}")
 
 
-def wait_for_table_rows(page: Any, timeout_sec: float = 20.0) -> None:
-    deadline = time.time() + timeout_sec
-    while time.time() < deadline:
-        risk = detect_risk(page)
-        if risk:
-            raise RiskControlTriggered(risk)
-
+def get_total_only_info(page: Any) -> tuple[int, int, int] | None:
+    selectors = [
+        ".limit.row p",
+        ".limit p",
+        ".pagination-info",
+    ]
+    for selector in selectors:
         try:
-            if page.locator("table tbody tr").count() > 0:
-                return
-            body = (page.inner_text("body") or "").lower()
-            if "total: 0" in body or "no records" in body:
-                return
+            elements = page.locator(selector).all()
+            for el in elements:
+                if not el.is_visible():
+                    continue
+                text = " ".join((el.inner_text() or "").split()).strip()
+                if re.search(r"\bPage\s+\d+\s+of\s+\d+\s+Total:", text, re.IGNORECASE):
+                    continue
+                match = re.fullmatch(r"Total:\s*(\d+)", text, re.IGNORECASE)
+                if match:
+                    return 1, 1, int(match.group(1))
         except Exception:
-            pass
+            continue
+    return None
+
+
+def get_pagination_or_total_info(page: Any) -> tuple[int | None, int | None, int | None]:
+    current_page, total_pages, total_records = get_pagination_info(page)
+    if current_page is not None and total_pages is not None and total_records is not None:
+        return current_page, total_pages, total_records
+    total_only = get_total_only_info(page)
+    if total_only:
+        return total_only
+    return None, None, None
+
+
+def wait_for_pagination_or_total_info(page: Any, timeout_sec: float = 20.0) -> tuple[int, int, int]:
+    deadline = time.time() + timeout_sec
+    last_info: tuple[int | None, int | None, int | None] = (None, None, None)
+    while time.time() < deadline:
+        last_info = get_pagination_or_total_info(page)
+        current_page, total_pages, total_records = last_info
+        if current_page is not None and total_pages is not None and total_records is not None:
+            return current_page, total_pages, total_records
         time.sleep(0.4)
-    raise RuntimeError(f"Timed out waiting for match rows, url={page.url}")
+    raise RuntimeError(f"Cannot read pagination/total info, last={last_info}, url={page.url}")
+
+
+def ensure_display_100_with_retry(page: Any) -> None:
+    if not select_display_100(page):
+        raise RuntimeError("Display # select element not found")
+
+    logger.info("Display # = 100 selected. Current page diagnostics: %s", diagnose_current_page(page))
+
+    logger.warning("Display # = 100 selected; page validity will be checked by parsed records.")
+
+
+def retry_display_100_once(page: Any, reason: str) -> None:
+    logger.warning("%s. Retrying with Display # 50 -> 100. Diagnostics: %s", reason, diagnose_current_page(page))
+    if not select_display_value(page, "50"):
+        raise RuntimeError("Display # select element not found while retrying value 50")
+    time.sleep(2.0)
+    if not select_display_100(page):
+        raise RuntimeError("Display # select element not found while retrying value 100")
+
+
+def reload_and_retry_display_100(page: Any, reason: str) -> None:
+    logger.warning("%s. Reloading page and retrying Display # 50 -> 100. Diagnostics: %s", reason, diagnose_current_page(page))
+    page.reload(wait_until="domcontentloaded", timeout=45000)
+    try:
+        page.wait_for_load_state("networkidle", timeout=15000)
+    except Exception:
+        pass
+    time.sleep(random.uniform(1.0, 2.0))
+
+    if not select_display_value(page, "50"):
+        raise RuntimeError("Display # select element not found after reload while retrying value 50")
+    time.sleep(2.0)
+    if not select_display_100(page):
+        raise RuntimeError("Display # select element not found after reload while retrying value 100")
+
+
+def read_initial_page_info(page: Any, event_id: str) -> tuple[int, int, int]:
+    try:
+        return wait_for_pagination_or_total_info(page, timeout_sec=8.0)
+    except RuntimeError:
+        logger.warning(
+            "Event %s: initial pagination/total info not ready before Display # decision. Diagnostics: %s",
+            event_id,
+            diagnose_current_page(page),
+        )
+        raise
+
+
+def parse_page_matches_with_retry(page: Any, event_id: str, expected_page: int) -> list[dict[str, Any]]:
+    for attempt in range(1, 4):
+        page_matches = parse_detail_matches_from_dom(page, player_name="")
+        if page_matches:
+            return page_matches
+
+        if page_has_no_records_message(page):
+            reason = f"Event {event_id} page {expected_page}: No records message detected"
+        else:
+            reason = f"Event {event_id} page {expected_page}: parsed 0 valid records"
+
+        if attempt == 1:
+            retry_display_100_once(page, reason)
+            continue
+        if attempt == 2:
+            reload_and_retry_display_100(page, reason)
+            continue
+
+        raise RuntimeError(f"{reason} after retry and reload. Diagnostics: {diagnose_current_page(page)}")
+
+    raise RuntimeError(f"Event {event_id} page {expected_page}: failed to parse valid records")
+
+
+def wait_for_pagination_info_after_retry(page: Any, event_id: str) -> tuple[int, int, int]:
+    for attempt in range(1, 4):
+        try:
+            return wait_for_pagination_or_total_info(page)
+        except RuntimeError as exc:
+            reason = f"Event {event_id}: cannot read pagination/total info"
+            if attempt == 1:
+                retry_display_100_once(page, reason)
+                continue
+            if attempt == 2:
+                reload_and_retry_display_100(page, reason)
+                continue
+            raise RuntimeError(f"{exc}. Diagnostics: {diagnose_current_page(page)}") from exc
+
+    raise RuntimeError(f"Event {event_id}: failed to read pagination/total info")
 
 
 def click_start_page_if_needed(page: Any, current_page: int, expected_page: int = 1) -> bool:
@@ -202,8 +393,7 @@ def click_start_page_if_needed(page: Any, current_page: int, expected_page: int 
             except Exception:
                 pass
             time.sleep(random.uniform(1.0, 2.0))
-            wait_for_table_rows(page)
-            new_page, _, _ = wait_for_pagination_info(page)
+            new_page, _, _ = wait_for_pagination_info_after_retry(page, event_id="unknown")
             return new_page == expected_page
         except Exception as exc:
             logger.warning("Failed to jump Start via %s: %s", selector, exc)
@@ -220,17 +410,27 @@ def scrape_event_url(
 ) -> dict[str, Any]:
     event_id = event_id_from_url(url)
     guarded_goto(page, url, delay_cfg, f"open event matches {event_id}", sleep_first=False)
-    wait_for_table_rows(page)
 
-    if not select_display_100(page):
-        raise RuntimeError("Display # select element not found")
+    try:
+        first_page, total_pages, total_records = read_initial_page_info(page, event_id)
+    except RuntimeError:
+        ensure_display_100_with_retry(page)
+        first_page, total_pages, total_records = wait_for_pagination_info_after_retry(page, event_id)
+    else:
+        if total_records >= 50:
+            ensure_display_100_with_retry(page)
+            first_page, total_pages, total_records = wait_for_pagination_info_after_retry(page, event_id)
+        else:
+            logger.info(
+                "Event %s total=%s < 50, keep current Display # without selecting 100",
+                event_id,
+                total_records,
+            )
 
-    wait_for_table_rows(page)
-    first_page, total_pages, total_records = wait_for_pagination_info(page)
     if first_page != 1:
         if not click_start_page_if_needed(page, first_page, expected_page=1):
             raise RuntimeError(f"Expected to start on page 1 after clicking Start, actual={first_page}, url={page.url}")
-        first_page, total_pages, total_records = wait_for_pagination_info(page)
+        first_page, total_pages, total_records = wait_for_pagination_info_after_retry(page, event_id)
         if first_page != 1:
             raise RuntimeError(f"Expected to start on page 1 after clicking Start, actual={first_page}, url={page.url}")
     if total_pages > max_pages:
@@ -238,11 +438,20 @@ def scrape_event_url(
 
     matches: list[dict[str, Any]] = []
     last_non_empty_page = 0
-    event_name = ""
+    event_name = get_event_title_from_page(page)
+    if not event_name:
+        raise RuntimeError(f"Cannot determine event title from page, event_id={event_id}, url={page.url}")
+    canonical_event = event_name
+    stop_reason = ""
 
     for expected_page in range(1, total_pages + 1):
-        wait_for_table_rows(page)
-        current_page, current_total_pages, current_total_records = wait_for_pagination_info(page)
+        current_page, current_total_pages, current_total_records = wait_for_pagination_info_after_retry(page, event_id)
+        if current_page > total_pages:
+            stop_reason = (
+                f"current page {current_page} exceeded first-page total_pages {total_pages}"
+            )
+            logger.warning("Stop event_id=%s: %s url=%s", event_id, stop_reason, page.url)
+            break
         if current_page != expected_page:
             raise RuntimeError(
                 f"Page index mismatch before scrape: expected={expected_page}, "
@@ -259,16 +468,21 @@ def scrape_event_url(
                 current_total_records,
             )
 
-        page_matches = parse_detail_matches_from_dom(page, player_name="")
+        page_matches = parse_page_matches_with_retry(page, event_id, expected_page)
         if page_matches:
             last_non_empty_page = expected_page
-            if not event_name:
-                event_name = event_name_from_match(page_matches[0])
             for item in page_matches:
                 item_event = event_name_from_match(item)
                 if item_event:
                     item.setdefault("event", item_event)
-        matches.extend(page_matches)
+                if canonical_event and item_event != canonical_event:
+                    stop_reason = (
+                        f"event mismatch on page {expected_page}: "
+                        f"expected={canonical_event!r} actual={item_event!r}"
+                    )
+                    logger.warning("Stop event_id=%s: %s url=%s", event_id, stop_reason, page.url)
+                    break
+                matches.append(item)
         logger.info(
             "Event %s page %s/%s: parsed %s matches (running=%s)",
             event_id,
@@ -278,6 +492,8 @@ def scrape_event_url(
             len(matches),
         )
 
+        if stop_reason:
+            break
         if expected_page >= total_pages:
             break
         if not click_next_page_if_any(page):
@@ -287,11 +503,6 @@ def scrape_event_url(
         except Exception:
             pass
         time.sleep(random.uniform(1.0, 2.0))
-
-    if not event_name and matches:
-        event_name = event_name_from_match(matches[0])
-    if not event_name:
-        event_name = "event"
 
     payload = {
         "schema_version": "event_match.v1",
@@ -304,20 +515,32 @@ def scrape_event_url(
         "matches": matches,
     }
 
-    output_file = output_dir / output_filename(event_name, event_id)
-    save_json(output_file, payload)
-    payload["output_file"] = str(output_file)
-
     if len(matches) != total_records:
         logger.error(
-            "Record count mismatch: url=%s actual=%s page_total=%s last_non_empty_page=%s",
+            "Record count mismatch: url=%s actual=%s page_total=%s last_non_empty_page=%s stop_reason=%s",
             url,
             len(matches),
             total_records,
             last_non_empty_page,
+            stop_reason or "",
         )
-    else:
-        logger.info("Record count verified for %s: %s matches", event_id, len(matches))
+        raise RuntimeError(
+            f"Record count mismatch for event_id={event_id}: "
+            f"actual={len(matches)} page_total={total_records} "
+            f"last_non_empty_page={last_non_empty_page} stop_reason={stop_reason or ''}"
+        )
+
+    output_file = output_dir / output_filename(event_name, event_id)
+    save_json(output_file, payload)
+    payload["output_file"] = str(output_file)
+
+    if stop_reason:
+        logger.warning(
+            "Saved event_id=%s after early stop because scraped count matches page total: %s",
+            event_id,
+            stop_reason,
+        )
+    logger.info("Record count verified for %s: %s matches", event_id, len(matches))
     logger.info("Saved event matches: %s", output_file)
     return payload
 
@@ -331,6 +554,9 @@ def run(args: argparse.Namespace) -> int:
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    existing_event_ids = collect_existing_event_ids(output_dir)
+    if existing_event_ids and not args.force:
+        logger.info("Loaded %s existing event ids from %s", len(existing_event_ids), output_dir)
     storage_state = Path(args.storage_state)
     delay_cfg = DelayConfig(
         min_request_sec=args.min_delay,
@@ -391,6 +617,17 @@ def run(args: argparse.Namespace) -> int:
 
             selected_urls = urls[: args.limit] if args.limit and args.limit > 0 else urls
             for idx, url in enumerate(selected_urls, start=1):
+                event_id = event_id_from_url(url)
+                if (not args.force) and event_id in existing_event_ids:
+                    logger.info(
+                        "[%s/%s] Skip existing event_id=%s (use --force to rescrape): %s",
+                        idx,
+                        len(selected_urls),
+                        event_id,
+                        url,
+                    )
+                    continue
+
                 logger.info("[%s/%s] Scraping event matches URL: %s", idx, len(selected_urls), url)
                 try:
                     scrape_event_url(
@@ -400,6 +637,7 @@ def run(args: argparse.Namespace) -> int:
                         delay_cfg=delay_cfg,
                         max_pages=args.max_pages,
                     )
+                    existing_event_ids.add(event_id)
                     saved += 1
                 except RiskControlTriggered as exc:
                     logger.error("Risk control triggered: %s", exc)
@@ -437,6 +675,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-pages", type=int, default=500)
     parser.add_argument("--limit", type=int, default=0, help="Only scrape the first N URLs after loading")
     parser.add_argument("--stop-on-error", action="store_true")
+    parser.add_argument("--force", action="store_true", help="Rescrape even if output for event_id already exists")
     return parser
 
 
