@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, Filter, ArrowUpDown } from "lucide-react";
+import { Check, ChevronLeft, GitCompareArrows, X } from "lucide-react";
 import Link from "next/link";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { clsx, type ClassValue } from "clsx";
@@ -48,6 +48,7 @@ export default function RankingsPage() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(false);
   const [sortBy, setSortBy] = useState("points");
+  const [compareMode, setCompareMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const loadMoreRef = React.useRef<HTMLDivElement>(null);
 
@@ -108,45 +109,76 @@ export default function RankingsPage() {
     });
   };
 
+  const toggleCompareMode = () => {
+    setCompareMode((prev) => {
+      if (prev) {
+        setSelectedIds([]);
+      }
+      return !prev;
+    });
+  };
+
   const selectedPlayers = players.filter((p) => selectedIds.includes(p.playerId));
 
   return (
-    <main className="min-h-screen pb-32">
+    <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-gray-50/30 pb-32">
       {/* Header */}
-      <div className="bg-white/80 backdrop-blur-md sticky top-0 z-30 border-b border-border-subtle px-4 pt-4 pb-3">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="p-1 -ml-1 text-text-secondary">
+      <section className="relative overflow-hidden px-5 pb-5 pt-5 text-white shadow-lg">
+        <div className="absolute inset-0 [background:linear-gradient(165deg,#2e2e42_0%,#565568_50%,#767484_100%)]" />
+        <div className="absolute inset-0 opacity-50 [background:radial-gradient(circle_at_85%_10%,#4e4868_0%,transparent_60%),radial-gradient(circle_at_15%_90%,#888796_0%,transparent_60%)]" />
+        <div className="relative z-10">
+          <div className="mb-5 flex items-start gap-3">
+            <Link
+              href="/"
+              aria-label="返回首页"
+              className="-ml-2 grid h-11 w-11 shrink-0 place-items-center rounded-full text-white/85 transition-colors hover:bg-white/10 hover:text-white"
+            >
               <ChevronLeft size={24} />
             </Link>
-            <h1 className="text-heading-1 font-bold text-text-primary">世界排名</h1>
+            <div className="min-w-0 flex-1 pt-1">
+              <h1 className="text-display-sm font-black leading-none tracking-tight">世界排名</h1>
+              <p className="mt-2 text-caption font-bold leading-relaxed text-white/55">
+                按积分、胜率和交手热度浏览球员，选两位就能开比。
+              </p>
+            </div>
           </div>
-          <button className="p-2 text-text-tertiary">
-            <Filter size={20} />
-          </button>
-        </div>
 
-        <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-          {[
-            { id: "points", label: "积分" },
-            { id: "win_rate", label: "胜率" },
-            { id: "head_to_head_count", label: "交手次数" },
-          ].map((item) => (
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+            {[
+              { id: "points", label: "积分" },
+              { id: "win_rate", label: "胜率" },
+              { id: "head_to_head_count", label: "交手次数" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setSortBy(item.id)}
+                className={cn(
+                  "min-h-11 shrink-0 rounded-full border px-4 text-body font-bold transition-all active:scale-95",
+                  sortBy === item.id
+                    ? "border-white bg-white text-text-primary shadow-sm"
+                    : "border-white/15 bg-white/10 text-white/78 backdrop-blur-md hover:bg-white/16 hover:text-white"
+                )}
+              >
+                {item.label}
+              </button>
+            ))}
             <button
-              key={item.id}
-              onClick={() => setSortBy(item.id)}
+              type="button"
+              onClick={toggleCompareMode}
+              aria-pressed={compareMode}
               className={cn(
-                "shrink-0 px-4 py-1.5 rounded-full text-body font-medium transition-all border",
-                sortBy === item.id
-                  ? "bg-brand-deep text-white border-brand-deep shadow-sm"
-                  : "bg-white text-text-secondary border-border-subtle hover:border-brand-soft"
+                "ml-auto inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-3.5 text-body font-bold transition-all active:scale-95",
+                compareMode
+                  ? "border-brand-deep bg-brand-deep text-white shadow-sm"
+                  : "border-white/25 bg-white/12 text-white backdrop-blur-md hover:bg-white/18"
               )}
             >
-              {item.label}
+              {compareMode ? <X size={18} /> : <GitCompareArrows size={18} />}
+              <span>{compareMode ? "退出选择" : "选择对比"}</span>
             </button>
-          ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* List */}
       <div className="px-4 mt-4">
@@ -162,14 +194,27 @@ export default function RankingsPage() {
                   selectedIds.includes(player.playerId) ? "bg-brand-mist/30" : "hover:bg-white/40"
                 )}
               >
-                <div className="mr-3 flex items-center justify-center">
-                  <input
-                    type="checkbox"
-                    checked={selectedIds.includes(player.playerId)}
-                    onChange={() => toggleSelect(player.playerId)}
-                    className="w-5 h-5 rounded-full border-2 border-border-strong text-brand-deep focus:ring-brand-deep transition-all"
-                  />
-                </div>
+                {compareMode && (
+                  <label className="mr-2 flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-brand-mist/70">
+                    <input
+                      type="checkbox"
+                      checked={selectedIds.includes(player.playerId)}
+                      onChange={() => toggleSelect(player.playerId)}
+                      aria-label={`选择 ${player.nameZh || player.name} 进行对比`}
+                      className="peer sr-only"
+                    />
+                    <span
+                      className={cn(
+                        "grid h-7 w-7 place-items-center rounded-full border-2 transition-all",
+                        selectedIds.includes(player.playerId)
+                          ? "border-brand-deep bg-brand-deep text-white shadow-sm"
+                          : "border-border-strong bg-white/80 text-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] peer-focus-visible:border-brand-deep peer-focus-visible:ring-2 peer-focus-visible:ring-brand-deep peer-focus-visible:ring-offset-2"
+                      )}
+                    >
+                      <Check size={15} strokeWidth={3} />
+                    </span>
+                  </label>
+                )}
                 
                 <div className="w-8 shrink-0 text-center mr-1">
                   <span className={cn(
@@ -223,7 +268,7 @@ export default function RankingsPage() {
       </div>
 
       {/* Compare Action Bar */}
-      {selectedIds.length > 0 && (
+      {compareMode && selectedIds.length > 0 && (
         <div className="fixed bottom-[84px] inset-x-0 z-40 px-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
           <div className="bg-brand-deep/95 backdrop-blur-md text-white rounded-lg py-2.5 px-4 shadow-[0_8px_32px_rgba(30,42,61,0.24)] flex items-center justify-between border border-white/20">
             <div className="flex items-center gap-3 overflow-hidden">
