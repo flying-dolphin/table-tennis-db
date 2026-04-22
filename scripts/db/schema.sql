@@ -174,14 +174,42 @@ CREATE TABLE IF NOT EXISTS matches (
     scraped_at          TEXT,
     FOREIGN KEY (event_id) REFERENCES events(event_id),
     FOREIGN KEY (sub_event_type_code) REFERENCES sub_event_types(code),
-    CHECK (winner_side IN ('A', 'B') OR winner_side IS NULL),
-    UNIQUE(event_id, sub_event_type_code, stage, round, side_a_key, side_b_key)
+    CHECK (winner_side IN ('A', 'B') OR winner_side IS NULL)
 );
 
 CREATE INDEX IF NOT EXISTS idx_matches_event ON matches(event_id);
 CREATE INDEX IF NOT EXISTS idx_matches_sub_event ON matches(sub_event_type_code);
 CREATE INDEX IF NOT EXISTS idx_matches_year ON matches(event_year);
 CREATE INDEX IF NOT EXISTS idx_matches_winner_side ON matches(winner_side);
+CREATE INDEX IF NOT EXISTS idx_matches_event_round_sides
+ON matches(event_id, sub_event_type_code, stage, round, side_a_key, side_b_key);
+
+CREATE TABLE IF NOT EXISTS event_draw_matches (
+    draw_match_id       INTEGER PRIMARY KEY AUTOINCREMENT,
+    match_id            INTEGER NOT NULL,
+    event_id            INTEGER NOT NULL,
+    sub_event_type_code TEXT NOT NULL,
+    draw_stage          TEXT NOT NULL DEFAULT 'Main Draw',
+    draw_round          TEXT NOT NULL,
+    round_order         INTEGER NOT NULL,
+    source_stage        TEXT,
+    source_round        TEXT,
+    bronze_source       TEXT,
+    bronze_verified     INTEGER NOT NULL DEFAULT 0,
+    validation_note     TEXT,
+    created_at          TEXT DEFAULT (datetime('now')),
+    FOREIGN KEY (match_id) REFERENCES matches(match_id) ON DELETE CASCADE,
+    FOREIGN KEY (event_id) REFERENCES events(event_id),
+    FOREIGN KEY (sub_event_type_code) REFERENCES sub_event_types(code),
+    CHECK (bronze_verified IN (0, 1)),
+    UNIQUE(match_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_draw_matches_event
+ON event_draw_matches(event_id, sub_event_type_code, round_order);
+
+CREATE INDEX IF NOT EXISTS idx_event_draw_matches_match
+ON event_draw_matches(match_id);
 
 CREATE TABLE IF NOT EXISTS match_sides (
     match_side_id        INTEGER PRIMARY KEY AUTOINCREMENT,
