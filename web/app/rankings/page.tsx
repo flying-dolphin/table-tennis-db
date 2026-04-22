@@ -37,32 +37,64 @@ type RankingsResponse = {
       rankingDate: string;
     } | null;
     players: RankingPlayer[];
+    hasMore: boolean;
+    total: number;
   };
 };
 
 export default function RankingsPage() {
   const [players, setPlayers] = useState<RankingPlayer[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(false);
   const [sortBy, setSortBy] = useState("points");
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
+  const loadMoreRef = React.useRef<HTMLDivElement>(null);
+
+  const loadPlayers = async (offset: number, isInitial = false) => {
+    if (isInitial) {
+      setLoading(true);
+    } else {
+      setLoadingMore(true);
+    }
+    try {
+      const res = await fetch(`/api/v1/rankings?sort_by=${sortBy}&limit=20&offset=${offset}`);
+      const json = (await res.json()) as RankingsResponse;
+      if (json.code === 0) {
+        if (isInitial) {
+          setPlayers(json.data.players);
+        } else {
+          setPlayers((prev) => [...prev, ...json.data.players]);
+        }
+        setHasMore(json.data.hasMore);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  };
 
   useEffect(() => {
-    async function load() {
-      setLoading(true);
-      try {
-        const res = await fetch(`/api/v1/rankings?sort_by=${sortBy}`);
-        const json = (await res.json()) as RankingsResponse;
-        if (json.code === 0) {
-          setPlayers(json.data.players);
-        }
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    load();
+    loadPlayers(0, true);
   }, [sortBy]);
+
+  useEffect(() => {
+    if (!hasMore || loadingMore) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadPlayers(players.length);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+    return () => observer.disconnect();
+  }, [hasMore, loadingMore, players.length]);
 
   const toggleSelect = (id: number) => {
     setSelectedIds((prev) => {
@@ -178,6 +210,14 @@ export default function RankingsPage() {
                 </div>
               </div>
             ))}
+            <div ref={loadMoreRef} className="py-4 text-center">
+              {loadingMore && (
+                <span className="text-body text-text-tertiary">加载中...</span>
+              )}
+              {!loadingMore && !hasMore && players.length > 0 && (
+                <span className="text-body text-text-tertiary">已加载全部</span>
+              )}
+            </div>
           </div>
         )}
       </div>

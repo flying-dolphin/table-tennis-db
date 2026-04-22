@@ -8,7 +8,7 @@ function resolveSortBy(sortBy?: string): SortBy {
   return 'points';
 }
 
-export function getRankings(category = 'women_singles', sortBy?: string) {
+export function getRankings(category = 'women_singles', sortBy?: string, limit = 20, offset = 0) {
   const resolvedSortBy = resolveSortBy(sortBy);
   const snapshot = db
     .prepare(
@@ -34,8 +34,15 @@ export function getRankings(category = 'women_singles', sortBy?: string) {
       sortBy: resolvedSortBy,
       snapshot: null,
       players: [],
+      hasMore: false,
+      total: 0,
     };
   }
+
+  const countResult = db
+    .prepare('SELECT COUNT(*) as total FROM ranking_entries WHERE snapshot_id = ?')
+    .get(snapshot.snapshotId) as { total: number };
+  const total = countResult.total;
 
   const rankingRows = db
     .prepare(
@@ -50,7 +57,7 @@ export function getRankings(category = 'women_singles', sortBy?: string) {
           p.name_zh AS nameZh,
           p.country,
           p.country_code AS countryCode,
-          p.avatar_file AS avatarFile,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
           p.avatar_url AS avatarUrl
         FROM ranking_entries re
         JOIN players p ON p.player_id = re.player_id
@@ -91,10 +98,15 @@ export function getRankings(category = 'women_singles', sortBy?: string) {
     return right.points - left.points || left.rank - right.rank;
   });
 
+  const paginatedPlayers = players.slice(offset, offset + limit);
+  const hasMore = offset + limit < total;
+
   return {
     category,
     sortBy: resolvedSortBy,
     snapshot,
-    players,
+    players: paginatedPlayers,
+    hasMore,
+    total,
   };
 }
