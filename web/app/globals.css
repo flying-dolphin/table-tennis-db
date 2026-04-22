@@ -72,19 +72,6 @@
     @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
   }
 
-  .pill-nav-container {
-    @apply mx-auto mb-8 w-[90vw] max-w-[400px] bg-white/45 backdrop-blur-2xl px-3 py-2 rounded-full flex items-center justify-around gap-1 transition-all duration-500 border border-white/40 ring-1 ring-black/5;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 10px 20px -10px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-item {
-    @apply flex flex-col items-center justify-center p-2 rounded-full transition-all duration-200 text-text-tertiary hover:text-brand-deep hover:bg-brand-mist/50;
-  }
-
-  .nav-item.active {
-    @apply text-brand-deep bg-brand-soft/80 shadow-inner;
-  }
-
   .section-container {
     @apply max-w-lg mx-auto px-5 py-6;
   }

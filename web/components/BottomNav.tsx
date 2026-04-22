@@ -1,8 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Home, Trophy, User } from "lucide-react";
+import { IconPingPong } from "@tabler/icons-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -10,16 +13,8 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const PingPongIcon = ({ size = 24, strokeWidth = 2, className, ...props }: any) => (
-  <svg
-    width={size} height={size} viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round"
-    className={className} {...props}
-  >
-    <circle cx="9" cy="9" r="6" />
-    <path d="m13.24 13.24 4.09 4.1a2 2 0 1 1-2.83 2.83l-4.1-4.09" />
-    <path d="M19.5 5.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
-  </svg>
+const EventsIcon = ({ size = 24, strokeWidth = 1.5, ...props }: any) => (
+  <IconPingPong size={size} stroke={strokeWidth} {...props} />
 );
 
 export default function BottomNav() {
@@ -28,46 +23,70 @@ export default function BottomNav() {
   const navItems = [
     { id: "home", label: "首页", href: "/", icon: Home },
     { id: "ranking", label: "排名", href: "/rankings", icon: Trophy },
-    { id: "events", label: "赛事", href: "/events", icon: PingPongIcon },
+    { id: "events", label: "赛事", href: "/events", icon: EventsIcon },
     { id: "profile", label: "我的", href: "/auth", icon: User },
   ];
 
+  const routeIndex = navItems.findIndex((item) =>
+    item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`)
+  );
+
+  const [activeIndex, setActiveIndex] = useState(routeIndex);
+
+  useEffect(() => {
+    if (routeIndex >= 0) setActiveIndex(routeIndex);
+  }, [routeIndex]);
+
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 pointer-events-none">
-      <nav className="pill-nav-container pointer-events-auto">
-        {navItems.map((item) => {
+    <nav
+      className="fixed inset-x-0 bottom-0 z-50 bg-white/80 backdrop-blur-xl border-t border-black/5"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
+      <div className="relative flex items-center justify-around h-16 max-w-[430px] mx-auto">
+        {navItems.map((item, index) => {
           const Icon = item.icon;
-          const isActive =
-            item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`);
+          const isActive = index === activeIndex;
 
           return (
-            <a
+            <Link
               key={item.id}
               href={item.href}
-              className={cn(
-                "flex flex-col items-center justify-center gap-1.5 min-w-[64px] px-2 py-1.5 rounded-full transition-all duration-500 relative",
-                isActive ? "text-brand-deep" : "text-text-tertiary hover:text-text-secondary"
-              )}
+              onClick={() => setActiveIndex(index)}
+              className="relative flex flex-col items-center justify-center gap-1 flex-1 h-full select-none transition-transform duration-150 ease-out active:scale-[0.88]"
             >
-              {isActive && (
-                <div className="absolute inset-0 bg-white/60 backdrop-blur-md rounded-full shadow-sm border border-white/80 -z-10 animate-in fade-in zoom-in-95 duration-500" />
-              )}
-              <div className={cn(
-                "transition-all duration-500",
-                isActive ? "scale-110 drop-shadow-[0_0_8px_rgba(26,35,44,0.15)]" : "bg-transparent"
-              )}>
-                <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
-              </div>
-              <span className={cn(
-                "text-micro font-black tracking-widest transition-all duration-500 uppercase",
-                isActive ? "" : "text-text-tertiary/80"
-              )}>
+              <Icon
+                size={24}
+                strokeWidth={1.5}
+                className={cn(
+                  "transition-colors duration-200",
+                  isActive ? "text-brand-deep" : "text-text-tertiary"
+                )}
+              />
+              <span
+                className={cn(
+                  "text-[10px] font-medium tracking-wide transition-colors duration-200",
+                  isActive ? "text-brand-deep" : "text-text-tertiary"
+                )}
+              >
                 {item.label}
               </span>
-            </a>
+            </Link>
           );
         })}
-      </nav>
-    </div>
+
+        <motion.div
+          className="pointer-events-none absolute bottom-1 left-0 flex justify-center"
+          style={{ width: `${100 / navItems.length}%` }}
+          initial={false}
+          animate={{
+            x: `${Math.max(activeIndex, 0) * 100}%`,
+            opacity: activeIndex >= 0 ? 1 : 0,
+          }}
+          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        >
+          <span className="h-1 w-1 rounded-full bg-brand-deep" />
+        </motion.div>
+      </div>
+    </nav>
   );
 }

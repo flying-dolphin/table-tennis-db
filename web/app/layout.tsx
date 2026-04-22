@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <body className="pb-24 text-text-primary min-h-screen antialiased font-body">
+      <body className="pb-[calc(4rem+env(safe-area-inset-bottom))] text-text-primary min-h-screen antialiased font-body">
         {children}
         <Suspense fallback={null}>
           <BottomNav />
