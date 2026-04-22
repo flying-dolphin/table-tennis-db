@@ -180,7 +180,7 @@ V1 账号能力包括：
 ### 建议参数
 
 - `category=women_singles`
-- `sort_by=points|win_rate|head_to_head_count`
+- `sort_by=points|win_rate`
 
 ### 返回要求
 

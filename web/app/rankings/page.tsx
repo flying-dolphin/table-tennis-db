@@ -47,7 +47,7 @@ export default function RankingsPage() {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(false);
-  const [sortBy, setSortBy] = useState("points");
+  const [sortBy, setSortBy] = useState<"points" | "win_rate">("points");
   const [compareMode, setCompareMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const loadMoreRef = React.useRef<HTMLDivElement>(null);
@@ -147,7 +147,6 @@ export default function RankingsPage() {
             {[
               { id: "points", label: "积分" },
               { id: "win_rate", label: "胜率" },
-              { id: "head_to_head_count", label: "交手次数" },
             ].map((item) => (
               <button
                 key={item.id}
@@ -247,12 +246,10 @@ export default function RankingsPage() {
                     <span className="text-body-lg font-bold text-text-primary tabular-nums">
                       {sortBy === "win_rate"
                         ? `${(player.winRate * 100).toFixed(1)}%`
-                        : sortBy === "head_to_head_count"
-                          ? player.headToHeadCount
-                          : player.points.toLocaleString()}
+                        : player.points.toLocaleString()}
                     </span>
                     <span className="text-micro text-text-tertiary">
-                      {sortBy === "win_rate" ? "胜率" : sortBy === "head_to_head_count" ? "场次" : "积分"}
+                      {sortBy === "win_rate" ? "胜率" : "积分"}
                     </span>
                   </div>
                 </div>
