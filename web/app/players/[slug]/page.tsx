@@ -121,8 +121,9 @@ function EmptyState({ title, action = '想要' }: { title: string; action?: stri
 
 function PlayerHero({ player }: { player: Player }) {
   return (
-    <section className="relative overflow-hidden bg-[rgb(var(--hero-anchor))] px-5 pb-10 pt-5 text-white shadow-lg">
-      <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_20%_15%,rgba(127,169,217,0.75),transparent_32%),linear-gradient(140deg,rgba(26,35,44,1),rgba(80,113,145,0.92))]" />
+    <section className="relative overflow-hidden px-5 pb-10 pt-5 text-white shadow-lg">
+      <div className="absolute inset-0 [background:linear-gradient(165deg,#2e2e42_0%,#565568_50%,#767484_100%)]" />
+      <div className="absolute inset-0 opacity-50 [background:radial-gradient(circle_at_85%_10%,#4e4868_0%,transparent_60%),radial-gradient(circle_at_15%_90%,#888796_0%,transparent_60%)]" />
       <div className="relative z-10">
         <PlayerBackButton />
 
@@ -238,7 +239,7 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
             <div className="flex flex-col gap-4">
               <div className="flex items-end gap-x-6">
                 <div>
-                  <p className="font-numeric text-[32px] font-bold leading-none text-text-primary tabular-nums">{stats.eventsTotal}</p>
+                  <p className="font-numeric text-[32px] font-bold text-gold leading-none tabular-nums">{stats.eventsTotal}</p>
                   <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-widest text-text-tertiary">总数</p>
                 </div>
                 <div className="">
@@ -246,16 +247,18 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
                   <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-widest text-text-tertiary">今年</p>
                 </div>
               </div>
-              <div>
-                <p className="font-numeric text-[22px] font-bold leading-none text-text-primary tabular-nums">{stats.sevenEvents}</p>
-                <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-text-tertiary">七大赛</p>
-                  {sevenFinalsRate != null && (
-                    <span className="rounded bg-[rgba(197,160,89,0.12)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-gold tabular-nums">
-                      决赛率 {formatPercent(sevenFinalsRate)}
-                    </span>
-                  )}
+              <div className='flex items-end gap-x-1'>
+                <div>
+                  <p className="font-numeric text-[22px] font-bold leading-none text-text-primary tabular-nums">{stats.sevenEvents}</p>
+                  <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-text-tertiary">七大赛</p>
+                  </div>
                 </div>
+                {sevenFinalsRate != null && (
+                  <span className="rounded bg-[rgba(197,160,89,0.12)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-gold tabular-nums">
+                    决赛率 {formatPercent(sevenFinalsRate)}
+                  </span>
+                )}
               </div>
             </div>
           </div>
