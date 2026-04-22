@@ -18,11 +18,13 @@ export type PlayerAggregateStats = {
   singleSevenTitles: number;
   allThreeTitles: number;
   allSevenTitles: number;
+  sevenEvents: number;
   sevenFinals: number;
 };
 
 type MutablePlayerAggregateStats = PlayerAggregateStats & {
   eventIds: Set<number>;
+  sevenEventKeys: Set<string>;
   sevenFinalEventKeys: Set<string>;
   singleThreeTitleKeys: Set<string>;
   singleSevenTitleKeys: Set<string>;
@@ -58,8 +60,10 @@ function createStats(): MutablePlayerAggregateStats {
     singleSevenTitles: 0,
     allThreeTitles: 0,
     allSevenTitles: 0,
+    sevenEvents: 0,
     sevenFinals: 0,
     eventIds: new Set<number>(),
+    sevenEventKeys: new Set<string>(),
     sevenFinalEventKeys: new Set<string>(),
     singleThreeTitleKeys: new Set<string>(),
     singleSevenTitleKeys: new Set<string>(),
@@ -79,6 +83,7 @@ function finalizeStats(stats: MutablePlayerAggregateStats): PlayerAggregateStats
   stats.allSevenTitles = stats.allSevenTitleKeys.size;
   stats.threeTitles = stats.singleThreeTitles;
   stats.sevenTitles = stats.singleSevenTitles;
+  stats.sevenEvents = stats.sevenEventKeys.size;
   stats.sevenFinals = stats.sevenFinalEventKeys.size;
 
   return {
@@ -99,6 +104,7 @@ function finalizeStats(stats: MutablePlayerAggregateStats): PlayerAggregateStats
     singleSevenTitles: stats.singleSevenTitles,
     allThreeTitles: stats.allThreeTitles,
     allSevenTitles: stats.allSevenTitles,
+    sevenEvents: stats.sevenEvents,
     sevenFinals: stats.sevenFinals,
   };
 }
@@ -264,23 +270,22 @@ export function getPlayerAggregateStats(playerIds: number[]) {
 
     const eventKey = row.eventId != null ? `${row.eventId}:${row.subEventTypeCode ?? ''}` : null;
 
-    if (
-      eventKey &&
-      row.stage === 'Main Draw' &&
-      row.round === 'Final' &&
-      row.sortOrder != null &&
-      row.sortOrder >= 1 &&
-      row.sortOrder <= 9
-    ) {
+    const sortOrder = row.sortOrder;
+    const isSevenEvent = sortOrder != null && sortOrder >= 1 && sortOrder <= 9;
+    if (eventKey && isSevenEvent) {
+      stats.sevenEventKeys.add(eventKey);
+    }
+
+    if (eventKey && row.stage === 'Main Draw' && row.round === 'Final' && isSevenEvent) {
       stats.sevenFinalEventKeys.add(eventKey);
       if (didWin) {
         stats.allSevenTitleKeys.add(eventKey);
-        if (row.sortOrder <= 5) {
+        if (sortOrder != null && sortOrder <= 5) {
           stats.allThreeTitleKeys.add(eventKey);
         }
         if (row.subEventTypeCode === 'WS') {
           stats.singleSevenTitleKeys.add(eventKey);
-          if (row.sortOrder <= 5) {
+          if (sortOrder != null && sortOrder <= 5) {
             stats.singleThreeTitleKeys.add(eventKey);
           }
         }

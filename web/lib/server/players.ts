@@ -102,6 +102,7 @@ export function getPlayerDetail(slug: string) {
     singleSevenTitles: 0,
     allThreeTitles: 0,
     allSevenTitles: 0,
+    sevenEvents: 0,
     sevenFinals: 0,
   };
 

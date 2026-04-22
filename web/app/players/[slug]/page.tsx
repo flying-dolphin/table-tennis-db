@@ -213,121 +213,107 @@ function PlayerRankCard({ player }: { player: Player }) {
 
 function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStats }) {
   const yearWinRate = player.yearMatches ? (player.yearWins ?? 0) / player.yearMatches * 100 : null;
-  const sevenFinalsRate = stats.eventsTotal ? (stats.sevenFinals / stats.eventsTotal) * 100 : null;
+  const sevenFinalsRate = stats.sevenEvents ? (stats.sevenFinals / stats.sevenEvents) * 100 : null;
+
+  const cardClass = "rounded-2xl border border-white/60 bg-white/60 backdrop-blur-md p-4 shadow-sm relative overflow-hidden";
 
   return (
     <section className="px-5 pt-5">
       <SectionHeader title="职业数据" />
 
       <div className="flex flex-col gap-3">
-
-        {/* ── 胜率大卡（全宽） ── */}
-        <div className="rounded-2xl border border-border-subtle bg-white p-4 shadow-subtle">
-          <div className="flex items-center gap-1.5 mb-3">
-            <Target size={12} className="text-brand-strong" strokeWidth={2.5} />
-            <p className="text-micro font-black text-brand-strong uppercase tracking-widest">胜率</p>
+        <div className="grid grid-cols-[2fr_3fr] gap-3">
+          <div className={cardClass}>
+            <div className="mb-3 flex items-center gap-1.5 opacity-80">
+              <CalendarDays size={14} className="text-brand-deep" strokeWidth={2.5} />
+              <p className="text-[11px] font-bold text-brand-deep tracking-widest uppercase">赛事</p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="grid grid-cols-2 gap-x-3">
+                <div>
+                  <p className="text-[28px] font-black leading-none text-text-primary tabular-nums tracking-tight">{stats.eventsTotal}</p>
+                  <p className="mt-1 text-[10px] font-medium text-text-tertiary">生涯总数</p>
+                </div>
+                <div>
+                  <p className="text-[28px] font-black leading-none text-brand-strong tabular-nums tracking-tight">{player.yearEvents ?? 0}</p>
+                  <p className="mt-1 text-[10px] font-medium text-text-tertiary">今年</p>
+                </div>
+              </div>
+              <div className="h-px bg-black/[0.04]" />
+              <div>
+                <p className="text-[24px] font-black leading-none text-text-primary tabular-nums tracking-tight">{stats.sevenEvents}</p>
+                <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                  <p className="text-[10px] font-medium text-text-tertiary">七大赛</p>
+                  {sevenFinalsRate != null && (
+                    <span className="rounded bg-brand-soft/30 border border-brand-soft/50 px-1.5 py-0.5 text-[9px] font-black text-brand-strong tabular-nums leading-none">
+                      决赛率 {formatPercent(sevenFinalsRate)}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* 上半：生涯 + 年度 */}
-          <div className="grid grid-cols-2 gap-3 pb-3 border-b border-border-subtle">
-            <div>
-              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">生涯总胜率</p>
-              <p className="text-data-hero font-black text-text-primary leading-none mt-1 tabular-nums">{formatPercent(stats.winRate)}</p>
+          <div className={cardClass}>
+            <div className="mb-3 flex items-center gap-1.5 opacity-80">
+              <Trophy size={14} className="text-brand-deep" strokeWidth={2.5} />
+              <p className="text-[11px] font-bold text-brand-deep tracking-widest uppercase">冠军</p>
             </div>
-            <div>
-              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">2026 年度</p>
-              <p className="text-data-hero font-black text-brand-strong leading-none mt-1 tabular-nums">{formatPercent(yearWinRate)}</p>
-            </div>
-          </div>
-
-          {/* 下半：外战 + 内战 */}
-          <div className="grid grid-cols-2 gap-3 pt-3">
-            <div>
-              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">外战胜率</p>
-              <p className="text-heading-1 font-black text-state-success-text leading-none mt-1 tabular-nums">{formatPercent(stats.foreignWinRate)}</p>
-            </div>
-            <div>
-              <p className="text-micro font-bold text-text-tertiary uppercase tracking-widest">内战胜率</p>
-              <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{formatPercent(stats.domesticWinRate)}</p>
+            <div className="flex flex-col justify-center h-[calc(100%-28px)]">
+              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                <div className="text-center">
+                  <p className="text-[10px] font-medium text-text-tertiary mb-1">三大赛</p>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <p className="text-[24px] font-black text-text-primary leading-none tabular-nums tracking-tight">{stats.allThreeTitles}</p>
+                    <p className="text-[9px] font-medium text-text-tertiary">总</p>
+                  </div>
+                  <div className="flex items-baseline justify-center gap-1 mt-0.5">
+                    <p className="text-[14px] font-bold text-text-secondary leading-none tabular-nums">{stats.singleThreeTitles}</p>
+                    <p className="text-[9px] font-medium text-text-tertiary/80">单</p>
+                  </div>
+                </div>
+                
+                <div className="w-px h-10 bg-black/[0.04]" />
+                
+                <div className="text-center">
+                  <p className="text-[10px] font-medium text-text-tertiary mb-1">七大赛</p>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <p className="text-[24px] font-black text-text-primary leading-none tabular-nums tracking-tight">{stats.allSevenTitles}</p>
+                    <p className="text-[9px] font-medium text-text-tertiary">总</p>
+                  </div>
+                  <div className="flex items-baseline justify-center gap-1 mt-0.5">
+                    <p className="text-[14px] font-bold text-text-secondary leading-none tabular-nums">{stats.singleSevenTitles}</p>
+                    <p className="text-[9px] font-medium text-text-tertiary/80">单</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* ── 下行：冠军 + 赛事（半宽各一） ── */}
-        <div className="grid grid-cols-2 gap-3">
-
-          {/* 冠军数卡 */}
-          <div className="rounded-2xl border border-border-subtle bg-white p-4 shadow-subtle">
-            <div className="flex items-center gap-1.5 mb-3">
-              <Trophy size={12} className="text-brand-strong" strokeWidth={2.5} />
-              <p className="text-micro font-black text-brand-strong uppercase tracking-widest">冠军</p>
+        <div className={cardClass}>
+          <div className="mb-2 flex items-center gap-1.5 opacity-80">
+            <Target size={14} className="text-brand-deep" strokeWidth={2.5} />
+            <p className="text-[11px] font-bold text-brand-deep tracking-widest uppercase">胜率</p>
+          </div>
+          <div className="pb-4 text-center">
+            <p className="mt-1 text-[48px] font-black leading-none text-text-primary tabular-nums tracking-tight">{formatPercent(stats.winRate)}</p>
+            <p className="mt-2 text-[11px] font-medium text-text-tertiary tracking-widest">生涯总胜率</p>
+          </div>
+          <div className="grid grid-cols-3 border-t border-black/[0.04] pt-4 text-center">
+            <div className="border-r border-black/[0.04] px-2">
+              <p className="text-[20px] font-black leading-none text-brand-strong tabular-nums">{formatPercent(yearWinRate)}</p>
+              <p className="mt-1 text-[10px] font-medium text-text-tertiary">今年</p>
             </div>
-            <div className="grid grid-cols-2 gap-x-3">
-              {/* 三大赛 */}
-              <div className="border-r border-border-subtle pr-3">
-                <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest mb-2.5">三大赛</p>
-                <div className="space-y-2.5">
-                  <div>
-                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">单打冠</p>
-                    <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleThreeTitles}</p>
-                  </div>
-                  <div>
-                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">总冠军</p>
-                    <p className="text-heading-2 font-black text-text-secondary leading-none mt-1 tabular-nums">{stats.allThreeTitles}</p>
-                  </div>
-                </div>
-              </div>
-              {/* 七大赛 */}
-              <div>
-                <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest mb-2.5">七大赛</p>
-                <div className="space-y-2.5">
-                  <div>
-                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">单打冠</p>
-                    <p className="text-heading-1 font-black text-text-primary leading-none mt-1 tabular-nums">{stats.singleSevenTitles}</p>
-                  </div>
-                  <div>
-                    <p className="text-[9px] font-bold text-text-tertiary uppercase leading-none">总冠军</p>
-                    <p className="text-heading-2 font-black text-text-secondary leading-none mt-1 tabular-nums">{stats.allSevenTitles}</p>
-                  </div>
-                </div>
-              </div>
+            <div className="border-r border-black/[0.04] px-2">
+              <p className="text-[20px] font-black leading-none text-orange-500 tabular-nums">{formatPercent(stats.foreignWinRate)}</p>
+              <p className="mt-1 text-[10px] font-medium text-text-tertiary">外战</p>
+            </div>
+            <div className="px-2">
+              <p className="text-[20px] font-black leading-none text-text-primary tabular-nums">{formatPercent(stats.domesticWinRate)}</p>
+              <p className="mt-1 text-[10px] font-medium text-text-tertiary">内战</p>
             </div>
           </div>
-
-          {/* 赛事数卡 */}
-          <div className="rounded-2xl border border-border-subtle bg-white p-4 shadow-subtle">
-            <div className="flex items-center gap-1.5 mb-3">
-              <CalendarDays size={12} className="text-brand-strong" strokeWidth={2.5} />
-              <p className="text-micro font-black text-brand-strong uppercase tracking-widest">赛事</p>
-            </div>
-            <div className="space-y-2.5">
-              <div className="flex items-baseline justify-between">
-                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">赛事总数</p>
-                <p className="text-heading-2 font-black text-text-primary tabular-nums">{stats.eventsTotal}</p>
-              </div>
-              <div className="flex items-baseline justify-between">
-                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">今年赛事</p>
-                <p className="text-heading-2 font-black text-brand-strong tabular-nums">{player.yearEvents ?? 0}</p>
-              </div>
-              <div className="h-px bg-border-subtle my-1" />
-              <div className="flex items-baseline justify-between">
-                {/* TODO: 需要 stats.sevenTotal 字段（七大赛参赛总次数） */}
-                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">七大赛次数</p>
-                <p className="text-heading-2 font-black text-text-primary tabular-nums">-</p>
-              </div>
-              <div className="flex items-baseline justify-between">
-                <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">单打决赛</p>
-                <p className="text-heading-2 font-black text-text-primary tabular-nums">{stats.sevenFinals}</p>
-              </div>
-              {sevenFinalsRate != null && (
-                <div className="flex items-baseline justify-between border-t border-border-subtle pt-2">
-                  <p className="text-[9px] font-bold text-text-tertiary uppercase tracking-widest">决赛占比</p>
-                  <p className="text-[9px] font-bold text-text-tertiary tabular-nums">{formatPercent(sevenFinalsRate)}</p>
-                </div>
-              )}
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -379,7 +365,6 @@ function EventRecords({ events }: { events: EventRecord[] }) {
       <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
         <div className="flex justify-between items-end mb-3 px-1 relative z-10">
           <h2 className="text-heading-2 font-black tracking-tight text-text-primary">比赛记录</h2>
-          <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">最近赛事</span>
         </div>
         {events.length === 0 ? (
           <EmptyState title="赛事记录暂无数据" />
