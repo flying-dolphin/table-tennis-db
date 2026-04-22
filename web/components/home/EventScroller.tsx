@@ -582,7 +582,7 @@ export default function EventScroller() {
                   className={cn(
                     "text-center font-semibold",
                     isModal ? "text-body" : "text-[8px]",
-                    d.out ? "text-border-strong opacity-40" : "text-text-primary",
+                    d.out ? "text-border-strong" : "text-text-primary",
                   )}
                 >
                   {d.num}
