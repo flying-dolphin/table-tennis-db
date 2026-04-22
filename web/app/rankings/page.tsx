@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Check, ChevronLeft, GitCompareArrows, X } from "lucide-react";
+import { ArrowLeft, Check, GitCompareArrows, X } from "lucide-react";
 import Link from "next/link";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { clsx, type ClassValue } from "clsx";
@@ -124,20 +124,20 @@ export default function RankingsPage() {
     <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-gray-50/30 pb-32">
       {/* Header */}
       <section className="relative overflow-hidden px-5 pb-5 pt-5 text-white shadow-lg">
-        <div className="absolute inset-0 [background:linear-gradient(165deg,#2e2e42_0%,#565568_50%,#767484_100%)]" />
-        <div className="absolute inset-0 opacity-50 [background:radial-gradient(circle_at_85%_10%,#4e4868_0%,transparent_60%),radial-gradient(circle_at_15%_90%,#888796_0%,transparent_60%)]" />
+        <div className="absolute inset-0 [background:linear-gradient(45deg,#242536_0%,#45465a_54%,#666477_100%)]" />
+        <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_86%_8%,#7b7789_0%,transparent_56%),radial-gradient(circle_at_12%_88%,#252638_0%,transparent_62%)]" />
         <div className="relative z-10">
-          <div className="mb-5 flex items-start gap-3">
+          <div className="mb-6">
             <Link
               href="/"
-              aria-label="返回首页"
-              className="-ml-2 grid h-11 w-11 shrink-0 place-items-center rounded-full text-white/85 transition-colors hover:bg-white/10 hover:text-white"
+              className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[12px] font-bold text-white/85 backdrop-blur-sm transition-colors hover:bg-white/15"
             >
-              <ChevronLeft size={24} />
+              <ArrowLeft size={14} strokeWidth={2} />
+              返回
             </Link>
-            <div className="min-w-0 flex-1 pt-1">
-              <h1 className="text-display-sm font-black leading-none tracking-tight">世界排名</h1>
-              <p className="mt-2 text-caption font-bold leading-relaxed text-white/55">
+            <div className="min-w-0">
+              <h1 className="text-display font-black leading-none tracking-tight">世界排名</h1>
+              <p className="mt-2 text-caption font-bold leading-relaxed text-white/72">
                 按积分、胜率和交手热度浏览球员，选两位就能开比。
               </p>
             </div>
@@ -181,7 +181,7 @@ export default function RankingsPage() {
       </section>
 
       {/* List */}
-      <div className="px-4 mt-4">
+      <div className="mt-4 px-5">
         {loading ? (
           <div className="flex justify-center py-20 text-text-tertiary text-body">加载中...</div>
         ) : (
@@ -190,12 +190,12 @@ export default function RankingsPage() {
               <div
                 key={player.playerId}
                 className={cn(
-                  "flex items-center py-3 px-3 transition-colors border-b border-white/40 last:border-0",
+                  "flex items-center border-b border-white/40 px-4 py-3 transition-colors last:border-0",
                   selectedIds.includes(player.playerId) ? "bg-brand-mist/30" : "hover:bg-white/40"
                 )}
               >
                 {compareMode && (
-                  <label className="mr-2 flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-brand-mist/70">
+                  <label className="mr-2 flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-brand-mist/70">
                     <input
                       type="checkbox"
                       checked={selectedIds.includes(player.playerId)}
@@ -205,18 +205,18 @@ export default function RankingsPage() {
                     />
                     <span
                       className={cn(
-                        "grid h-7 w-7 place-items-center rounded-full border-2 transition-all",
+                        "grid h-6 w-6 place-items-center rounded-full border-2 transition-all",
                         selectedIds.includes(player.playerId)
                           ? "border-brand-deep bg-brand-deep text-white shadow-sm"
                           : "border-border-strong bg-white/80 text-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] peer-focus-visible:border-brand-deep peer-focus-visible:ring-2 peer-focus-visible:ring-brand-deep peer-focus-visible:ring-offset-2"
                       )}
                     >
-                      <Check size={15} strokeWidth={3} />
+                      <Check size={13} strokeWidth={3} />
                     </span>
                   </label>
                 )}
-                
-                <div className="w-8 shrink-0 text-center mr-1">
+
+                <div className="mr-2 w-8 shrink-0 text-center">
                   <span className={cn(
                     "text-body-lg font-bold tabular-nums",
                     player.rank <= 3 ? "text-brand-strong" : "text-text-tertiary"
@@ -232,6 +232,9 @@ export default function RankingsPage() {
                       <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
                         {player.nameZh || player.name}
                       </h3>
+                      {player.countryCode && (
+                        <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
+                      )}
                       <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
                         {player.countryCode}
                       </span>
@@ -239,14 +242,14 @@ export default function RankingsPage() {
                   </div>
                 </Link>
 
-                <div className="text-right shrink-0 min-w-[70px]">
+                <div className="min-w-[58px] shrink-0 text-right">
                   <div className="flex flex-col items-end">
                     <span className="text-body-lg font-bold text-text-primary tabular-nums">
-                      {sortBy === "win_rate" 
-                        ? `${(player.winRate * 100).toFixed(1)}%` 
+                      {sortBy === "win_rate"
+                        ? `${(player.winRate * 100).toFixed(1)}%`
                         : sortBy === "head_to_head_count"
-                        ? player.headToHeadCount
-                        : player.points.toLocaleString()}
+                          ? player.headToHeadCount
+                          : player.points.toLocaleString()}
                     </span>
                     <span className="text-micro text-text-tertiary">
                       {sortBy === "win_rate" ? "胜率" : sortBy === "head_to_head_count" ? "场次" : "积分"}
@@ -286,9 +289,9 @@ export default function RankingsPage() {
                 </span>
               </div>
             </div>
-            
+
             {selectedIds.length === 2 ? (
-              <Link 
+              <Link
                 href={`/compare?player_a=${selectedPlayers[0].slug}&player_b=${selectedPlayers[1].slug}`}
                 className="bg-white text-brand-deep px-5 py-2 rounded-full text-body font-bold hover:bg-brand-mist active:scale-95 transition-all shrink-0 shadow-sm"
               >

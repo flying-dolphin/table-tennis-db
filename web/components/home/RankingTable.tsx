@@ -121,12 +121,12 @@ export default function RankingTable() {
 
                     <PlayerAvatar player={player} size="md" />
 
-                    <div className="flex-1 flex justify-start items-end overflow-hidden px-2">
-                      <div className="flex items-end gap-2 max-w-full">
-                        <h3 className="text-body-lg font-bold text-text-primary leading-none truncate">
+                    <div className="ml-3 flex-1 overflow-hidden">
+                      <div className="flex items-center gap-1.5">
+                        <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
                           {displayName(player)}
                         </h3>
-                        <div className="flex items-center gap-1.5 shrink-0 pb-0.5">
+                        <div className="flex items-center gap-1.5 shrink-0">
                           <div className={`fg fg-${player.countryCode} scale-110 origin-center`} />
                           <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">
                             {player.countryCode}
@@ -170,15 +170,17 @@ export default function RankingTable() {
 
                   <PlayerAvatar player={player} size="sm" />
 
-                  <div className="flex-1 flex items-end justify-start gap-2 overflow-hidden px-2">
-                    <h3 className="text-body-lg font-bold text-text-primary leading-none truncate overflow-visible">
-                      {displayName(player)}
-                    </h3>
-                    <div className="flex items-center gap-1.5 shrink-0 pb-0.5">
-                      <div className={`fg fg-${player.countryCode} scale-100 origin-center`} />
-                      <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">
-                        {player.countryCode}
-                      </span>
+                  <div className="ml-3 flex-1 overflow-hidden">
+                    <div className="flex items-center gap-1.5">
+                      <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
+                        {displayName(player)}
+                      </h3>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <div className={`fg fg-${player.countryCode} scale-100 origin-center`} />
+                        <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">
+                          {player.countryCode}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
