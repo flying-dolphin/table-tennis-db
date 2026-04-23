@@ -42,12 +42,19 @@ type RankingsResponse = {
   };
 };
 
+type SortField = "points" | "win_rate";
+
+const SORT_OPTIONS: { id: SortField; label: string }[] = [
+  { id: "points", label: "积分" },
+  { id: "win_rate", label: "胜率" },
+];
+
 export default function RankingsPage() {
   const [players, setPlayers] = useState<RankingPlayer[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(false);
-  const [sortBy, setSortBy] = useState<"points" | "win_rate">("points");
+  const [sortBy, setSortBy] = useState<SortField>("points");
   const [compareMode, setCompareMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const loadMoreRef = React.useRef<HTMLDivElement>(null);
@@ -138,16 +145,13 @@ export default function RankingsPage() {
             <div className="min-w-0">
               <h1 className="text-display font-black leading-none tracking-tight">世界排名</h1>
               <p className="mt-2 text-caption font-bold leading-relaxed text-white/72">
-                按积分、胜率和交手热度浏览球员，选两位就能开比。
+                按积分、胜率浏览球员，也可选择两名球员进行对比
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-            {[
-              { id: "points", label: "积分" },
-              { id: "win_rate", label: "胜率" },
-            ].map((item) => (
+            {SORT_OPTIONS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setSortBy(item.id)}
@@ -245,7 +249,7 @@ export default function RankingsPage() {
                   <div className="flex flex-col items-end">
                     <span className="text-body-lg font-bold text-text-primary tabular-nums">
                       {sortBy === "win_rate"
-                        ? `${(player.winRate * 100).toFixed(1)}%`
+                        ? `${(player.winRate).toFixed(2)}%`
                         : player.points.toLocaleString()}
                     </span>
                     <span className="text-micro text-text-tertiary">
