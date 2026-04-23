@@ -3,8 +3,8 @@
 import React, { Suspense } from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { ArrowLeft, ChevronRight, Crown, ListTree, Medal } from "lucide-react";
+import { useParams, useSearchParams } from "next/navigation";
+import { ArrowLeft, Crown, ListTree, Medal } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
@@ -59,6 +59,22 @@ type EventDetail = {
     importedMatches: number;
   }>;
   selectedSubEvent: string;
+  subEventDetails: Array<{
+    code: string;
+    champion: {
+      championName: string | null;
+      championCountryCode: string | null;
+      players: Array<{
+        playerId: number;
+        slug: string;
+        name: string;
+        nameZh: string | null;
+        countryCode: string | null;
+        avatarFile: string | null;
+      }>;
+    } | null;
+    bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
+  }>;
   champion: {
     championName: string | null;
     championCountryCode: string | null;
@@ -98,8 +114,9 @@ function sideCountry(side: BracketMatch["sides"][number]) {
   return countries.join(" / ");
 }
 
-function ChampionCard({ data }: { data: EventDetail }) {
-  const champion = data.champion;
+function ChampionCard({ data, selectedSubEvent }: { data: EventDetail; selectedSubEvent: string }) {
+  const detail = data.subEventDetails.find((d) => d.code === selectedSubEvent);
+  const champion = detail?.champion;
   const displayChampion = champion?.players.length
     ? champion.players.map((player) => player.nameZh?.trim() || player.name).join(" / ")
     : champion?.championName?.split(",").join(" / ");
@@ -123,7 +140,7 @@ function ChampionCard({ data }: { data: EventDetail }) {
             <div className="min-w-0 flex-1">
               <p className="truncate text-heading-1 font-black text-text-primary">{displayChampion}</p>
               <p className="mt-1 text-caption font-semibold text-text-tertiary">
-                {data.subEvents.find((item) => item.code === data.selectedSubEvent)?.nameZh || data.selectedSubEvent}
+                {data.subEvents.find((item) => item.code === selectedSubEvent)?.nameZh || selectedSubEvent}
                 {champion?.championCountryCode ? ` · ${champion.championCountryCode}` : ""}
               </p>
             </div>
@@ -183,20 +200,22 @@ function MatchNode({ match }: { match: BracketMatch }) {
 function EventDetailContent() {
   const params = useParams<{ eventId: string }>();
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const selectedQuery = searchParams.get("sub_event");
+  const urlSubEvent = searchParams.get("sub_event");
   const [data, setData] = React.useState<EventDetail | null>(null);
+  const [selectedSubEvent, setSelectedSubEvent] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     async function load() {
       setLoading(true);
       try {
-        const query = selectedQuery ? `?sub_event=${selectedQuery}` : "";
-        const res = await fetch(`/api/v1/events/${params.eventId}${query}`);
+        const res = await fetch(`/api/v1/events/${params.eventId}`);
         const json = (await res.json()) as EventDetailResponse;
         if (json.code === 0) {
           setData(json.data);
+          if (!selectedSubEvent && json.data.selectedSubEvent) {
+            setSelectedSubEvent(json.data.selectedSubEvent);
+          }
         }
       } catch (err) {
         console.error(err);
@@ -206,10 +225,10 @@ function EventDetailContent() {
     }
 
     if (params.eventId) load();
-  }, [params.eventId, selectedQuery]);
+  }, [params.eventId]);
 
   const selectSubEvent = (code: string) => {
-    router.replace(`/events/${params.eventId}?sub_event=${code}`);
+    setSelectedSubEvent(code);
   };
 
   if (loading || !data) {
@@ -219,6 +238,13 @@ function EventDetailContent() {
       </main>
     );
   }
+
+  const validSubEventCodes = ["WS", "WD", "XD"];
+  const filteredSubEvents = data.subEvents.filter((subEvent) => validSubEventCodes.includes(subEvent.code));
+  const currentSubEvent = selectedSubEvent ?? urlSubEvent ?? data.selectedSubEvent;
+  const currentDetail = data.subEventDetails.find((d) => d.code === currentSubEvent);
+  const currentBracket = currentDetail?.bracket ?? [];
+  const currentChampion = currentDetail?.champion;
 
   return (
     <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-gray-50/30 pb-28">
@@ -236,7 +262,7 @@ function EventDetailContent() {
           <p className="text-caption font-bold uppercase tracking-widest text-white/66">
             {data.event.categoryNameZh || data.event.eventKindZh || "赛事详情"}
           </p>
-          <h1 className="mt-2 text-display font-black leading-tight">{displayName(data.event.name, data.event.nameZh)}</h1>
+          <h1 className="mt-2 text-heading-1 font-black leading-tight">{displayName(data.event.name, data.event.nameZh)}</h1>
           <p className="mt-3 text-caption font-bold leading-relaxed text-white/72">
             {displayDateRange(data.event.startDate, data.event.endDate)}
             {data.event.location ? ` · ${data.event.location}` : ""}
@@ -244,28 +270,63 @@ function EventDetailContent() {
         </div>
       </section>
 
+      {filteredSubEvents.length > 0 && (
+        <section className="px-5 pt-4">
+          <div className="flex gap-2 overflow-x-auto pb-2">
+            {filteredSubEvents.map((subEvent) => (
+              <button
+                key={subEvent.code}
+                type="button"
+                disabled={subEvent.disabled}
+                onClick={() => selectSubEvent(subEvent.code)}
+                className={cn(
+                  "min-h-11 shrink-0 rounded-full border px-4 text-body font-bold transition-all active:scale-95 disabled:cursor-not-allowed disabled:opacity-45",
+                  currentSubEvent === subEvent.code
+                    ? "border-brand-deep bg-brand-deep text-white shadow-sm"
+                    : "border-border-subtle bg-white/70 text-text-secondary hover:bg-white",
+                )}
+              >
+                {subEvent.nameZh || subEvent.code}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="px-5 pt-4">
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          {data.subEvents.map((subEvent) => (
-            <button
-              key={subEvent.code}
-              type="button"
-              disabled={subEvent.disabled}
-              onClick={() => selectSubEvent(subEvent.code)}
-              className={cn(
-                "min-h-11 shrink-0 rounded-full border px-4 text-body font-bold transition-all active:scale-95 disabled:cursor-not-allowed disabled:opacity-45",
-                data.selectedSubEvent === subEvent.code
-                  ? "border-brand-deep bg-brand-deep text-white shadow-sm"
-                  : "border-border-subtle bg-white/70 text-text-secondary hover:bg-white",
+        <div className="rounded-lg border border-white/60 bg-white/75 p-4 shadow-sm backdrop-blur-md">
+          <div className="mb-3 flex items-center gap-2">
+            <Crown size={18} className="text-gold" />
+            <h2 className="text-heading-2 font-black text-text-primary">冠军摘要</h2>
+          </div>
+          {currentChampion?.players.length || currentChampion?.championName ? (
+            <div className="flex items-center gap-3">
+              {currentChampion?.players[0] ? (
+                <PlayerAvatar player={currentChampion.players[0]} size="md" />
+              ) : (
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-mist text-body-lg font-black text-brand-strong">
+                  冠
+                </div>
               )}
-            >
-              {subEvent.nameZh || subEvent.code}
-            </button>
-          ))}
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-heading-1 font-black text-text-primary">
+                  {currentChampion?.players.length
+                    ? currentChampion.players.map((p) => p.nameZh?.trim() || p.name).join(" / ")
+                    : currentChampion?.championName?.split(",").join(" / ")}
+                </p>
+                <p className="mt-1 text-caption font-semibold text-text-tertiary">
+                  {data.subEvents.find((item) => item.code === currentSubEvent)?.nameZh || currentSubEvent}
+                  {currentChampion?.championCountryCode ? ` · ${currentChampion.championCountryCode}` : ""}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="rounded-lg bg-surface-secondary p-4 text-center">
+              <p className="text-body font-bold text-text-secondary">这项冠军还没补齐</p>
+            </div>
+          )}
         </div>
       </section>
-
-      <ChampionCard data={data} />
 
       <section className="px-5 pt-5">
         <div className="mb-3 flex items-center justify-between gap-3 px-1">
@@ -279,13 +340,13 @@ function EventDetailContent() {
           <Medal size={18} className="text-gold" />
         </div>
 
-        {data.bracket.length === 0 ? (
+        {currentBracket.length === 0 ? (
           <div className="rounded-lg border border-white/60 bg-white/70 p-6 text-center shadow-sm">
             <p className="text-body font-bold text-text-secondary">这项对战图还没收进来</p>
           </div>
         ) : (
           <div className="space-y-4">
-            {data.bracket.map((round) => (
+            {currentBracket.map((round) => (
               <section key={round.code} className="rounded-lg border border-white/60 bg-white/60 p-3 shadow-sm backdrop-blur-md">
                 <div className="mb-3 flex items-center justify-between px-1">
                   <h3 className="text-body-lg font-black text-text-primary">{round.label}</h3>

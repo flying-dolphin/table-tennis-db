@@ -1,7 +1,6 @@
 import { db } from '@/lib/server/db';
 
 const CORE_SUB_EVENT_CODES = ['WS', 'MS', 'WD', 'MD', 'XD'] as const;
-const TEAM_SUB_EVENT_CODES = ['WT', 'MT', 'XT'] as const;
 
 type SidePlayer = {
   playerId: number | null;
@@ -62,22 +61,32 @@ export function getEvents(options?: {
   year?: number;
   includeAllYears?: boolean;
   keyword?: string;
+  ageGroup?: 'senior' | 'non_senior' | 'all';
   limit?: number;
   offset?: number;
 }) {
   const includeAllYears = options?.includeAllYears === true;
   const year = options?.year;
   const keyword = options?.keyword?.trim().toLowerCase() ?? '';
+  const ageGroup = options?.ageGroup ?? 'senior';
   const limit = Math.max(1, Math.min(100, Math.floor(options?.limit ?? 20)));
   const offset = Math.max(0, Math.floor(options?.offset ?? 0));
+  const ageGroupWhere: string[] = [];
+
+  if (ageGroup === 'senior') {
+    ageGroupWhere.push("UPPER(COALESCE(ec.age_group, 'SENIOR')) = 'SENIOR'");
+  } else if (ageGroup === 'non_senior') {
+    ageGroupWhere.push("UPPER(COALESCE(ec.age_group, 'SENIOR')) <> 'SENIOR'");
+  }
+
+  const availableYearsWhere = ['e.year >= 2014', '(ec.filtering_only IS NULL OR ec.filtering_only = 0)', ...ageGroupWhere];
   const availableYears = db
     .prepare(
       `
         SELECT DISTINCT e.year AS year
         FROM events e
         LEFT JOIN event_categories ec ON ec.id = e.event_category_id
-        WHERE e.year >= 2014
-          AND (ec.filtering_only IS NULL OR ec.filtering_only = 0)
+        WHERE ${availableYearsWhere.join(' AND ')}
         ORDER BY e.year DESC
       `,
     )
@@ -98,6 +107,9 @@ export function getEvents(options?: {
     const like = `%${keyword}%`;
     params.push(like, like);
   }
+
+  where.push(...ageGroupWhere);
+
   const whereClause = where.join(' AND ');
   const totalRow = db
     .prepare(
@@ -124,6 +136,8 @@ export function getEvents(options?: {
           e.event_kind_zh AS eventKindZh,
           e.category_code AS categoryCode,
           e.category_name_zh AS categoryNameZh,
+          ec.age_group AS ageGroup,
+          ec.event_series AS eventSeries,
           e.total_matches AS totalMatches,
           e.start_date AS startDate,
           e.end_date AS endDate,
@@ -249,9 +263,20 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
   const existingMap = new Map(existingSubEvents.map((item) => [item.code, item]));
   const drawCountMap = new Map(drawCounts.map((item) => [item.code, item.matches]));
   const matchCountMap = new Map(matchCounts.map((item) => [item.code, item.matches]));
-  const visibleBaseCodes = isTeamEvent(event) ? [...TEAM_SUB_EVENT_CODES, ...CORE_SUB_EVENT_CODES] : [...CORE_SUB_EVENT_CODES, ...TEAM_SUB_EVENT_CODES];
-  const extraCodes = new Set([...existingSubEvents.map((item) => item.code), ...drawCounts.map((item) => item.code), ...matchCounts.map((item) => item.code)]);
-  const orderedCodes = [...visibleBaseCodes, ...Array.from(extraCodes).filter((code) => !visibleBaseCodes.includes(code as never))];
+  const codesWithData = new Set([
+    ...drawCounts.map((item) => item.code),
+    ...matchCounts.map((item) => item.code),
+    ...existingSubEvents.map((item) => item.code),
+  ]);
+  const preferredOrder = ['WS', 'WD', 'XD'];
+  const orderedCodes = Array.from(codesWithData).sort((a, b) => {
+    const aIdx = preferredOrder.indexOf(a);
+    const bIdx = preferredOrder.indexOf(b);
+    if (aIdx >= 0 && bIdx >= 0) return aIdx - bIdx;
+    if (aIdx >= 0) return -1;
+    if (bIdx >= 0) return 1;
+    return a.localeCompare(b);
+  });
 
   const subEvents = orderedCodes.map((code) => {
     const record = existingMap.get(code);
@@ -270,7 +295,7 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     };
   });
 
-  const preferredDefault = isTeamEvent(event) ? 'WT' : 'WS';
+  const preferredDefault = 'WS';
   const selectedSubEvent =
     requestedSubEvent && subEvents.some((item) => item.code === requestedSubEvent)
       ? requestedSubEvent
@@ -278,150 +303,161 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
         subEvents.find((item) => !item.disabled)?.code ??
         preferredDefault;
 
-  const selected = subEvents.find((item) => item.code === selectedSubEvent) ?? null;
+  const championForSubEvent = (subEventCode: string) => {
+    const se = subEvents.find((item) => item.code === subEventCode);
+    if (!se || se.championPlayerIds.length === 0) return null;
+    const playerIds = se.championPlayerIds;
+    const players = db
+      .prepare(
+        `
+          SELECT
+            player_id AS playerId,
+            slug,
+            name,
+            name_zh AS nameZh,
+            country_code AS countryCode,
+            REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+          FROM players
+          WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
+        `,
+      )
+      .all(...playerIds) as Array<{
+      playerId: number;
+      slug: string;
+      name: string;
+      nameZh: string | null;
+      countryCode: string | null;
+      avatarFile: string | null;
+    }>;
+    return {
+      championName: se.championName,
+      championCountryCode: se.championCountryCode,
+      players,
+    };
+  };
 
-  const championPlayers =
-    selected?.championPlayerIds.length
-      ? (db
-          .prepare(
-            `
-              SELECT
-                player_id AS playerId,
-                slug,
-                name,
-                name_zh AS nameZh,
-                country_code AS countryCode,
-                REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
-              FROM players
-              WHERE player_id IN (${selected.championPlayerIds.map(() => '?').join(', ')})
-            `,
-          )
-          .all(...selected.championPlayerIds) as Array<{
-          playerId: number;
-          slug: string;
-          name: string;
-          nameZh: string | null;
-          countryCode: string | null;
-          avatarFile: string | null;
-        }>)
-      : [];
-
-  const drawRows = db
-    .prepare(
-      `
-        SELECT
-          edm.match_id AS matchId,
-          edm.draw_round AS drawRound,
-          edm.round_order AS roundOrder,
-          m.round AS sourceRound,
-          m.round_zh AS sourceRoundZh,
-          m.match_score AS matchScore,
-          m.games,
-          ms.side_no AS sideNo,
-          ms.is_winner AS isWinner,
-          msp.player_order AS playerOrder,
-          msp.player_id AS playerId,
-          msp.player_name AS playerName,
-          msp.player_country AS playerCountry,
-          p.slug,
-          p.name_zh AS playerNameZh
-        FROM event_draw_matches edm
-        JOIN matches m ON m.match_id = edm.match_id
-        JOIN match_sides ms ON ms.match_id = m.match_id
-        JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
-        LEFT JOIN players p ON p.player_id = msp.player_id
-        WHERE edm.event_id = ?
-          AND edm.sub_event_type_code = ?
-        ORDER BY edm.round_order DESC, edm.match_id ASC, ms.side_no ASC, msp.player_order ASC
-      `,
-    )
-    .all(eventId, selectedSubEvent) as Array<{
-    matchId: number;
-    drawRound: string;
-    roundOrder: number;
-    sourceRound: string | null;
-    sourceRoundZh: string | null;
-    matchScore: string | null;
-    games: string | null;
-    sideNo: number;
-    isWinner: number;
-    playerOrder: number;
-    playerId: number | null;
-    playerName: string;
-    playerCountry: string | null;
-    slug: string | null;
-    playerNameZh: string | null;
-  }>;
-
-  const matchMap = new Map<
-    number,
-    {
+  const bracketForSubEvent = (subEventCode: string) => {
+    const drawRows = db
+      .prepare(
+        `
+          SELECT
+            edm.match_id AS matchId,
+            edm.draw_round AS drawRound,
+            edm.round_order AS roundOrder,
+            m.round AS sourceRound,
+            m.round_zh AS sourceRoundZh,
+            m.match_score AS matchScore,
+            m.games,
+            ms.side_no AS sideNo,
+            ms.is_winner AS isWinner,
+            msp.player_order AS playerOrder,
+            msp.player_id AS playerId,
+            msp.player_name AS playerName,
+            msp.player_country AS playerCountry,
+            p.slug,
+            p.name_zh AS playerNameZh
+          FROM event_draw_matches edm
+          JOIN matches m ON m.match_id = edm.match_id
+          JOIN match_sides ms ON ms.match_id = m.match_id
+          JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
+          LEFT JOIN players p ON p.player_id = msp.player_id
+          WHERE edm.event_id = ?
+            AND edm.sub_event_type_code = ?
+          ORDER BY edm.round_order DESC, edm.match_id ASC, ms.side_no ASC, msp.player_order ASC
+        `,
+      )
+      .all(eventId, subEventCode) as Array<{
       matchId: number;
       drawRound: string;
-      roundLabel: string;
       roundOrder: number;
+      sourceRound: string | null;
+      sourceRoundZh: string | null;
       matchScore: string | null;
-      games: Array<{ player: number; opponent: number }>;
-      sides: Array<{ sideNo: number; isWinner: boolean; players: SidePlayer[] }>;
-    }
-  >();
+      games: string | null;
+      sideNo: number;
+      isWinner: number;
+      playerOrder: number;
+      playerId: number | null;
+      playerName: string;
+      playerCountry: string | null;
+      slug: string | null;
+      playerNameZh: string | null;
+    }>;
 
-  for (const row of drawRows) {
-    const current =
-      matchMap.get(row.matchId) ??
+    const matchMap = new Map<
+      number,
       {
-        matchId: row.matchId,
-        drawRound: row.drawRound,
-        roundLabel: roundLabel(row.sourceRound ?? row.drawRound, row.sourceRoundZh),
-        roundOrder: row.roundOrder,
-        matchScore: row.matchScore,
-        games: parseGames(row.games),
-        sides: [],
-      };
+        matchId: number;
+        drawRound: string;
+        roundLabel: string;
+        roundOrder: number;
+        matchScore: string | null;
+        games: Array<{ player: number; opponent: number }>;
+        sides: Array<{ sideNo: number; isWinner: boolean; players: SidePlayer[] }>;
+      }
+    >();
 
-    let side = current.sides.find((item) => item.sideNo === row.sideNo);
-    if (!side) {
-      side = { sideNo: row.sideNo, isWinner: row.isWinner === 1, players: [] };
-      current.sides.push(side);
-    }
-    side.players.push({
-      playerId: row.playerId,
-      slug: row.slug,
-      name: row.playerName,
-      nameZh: row.playerNameZh,
-      countryCode: row.playerCountry,
-    });
-    matchMap.set(row.matchId, current);
-  }
-
-  const rounds = Array.from(
-    Array.from(matchMap.values())
-      .reduce((map, match) => {
-        const current = map.get(match.drawRound) ?? {
-          code: match.drawRound,
-          label: match.roundLabel,
-          order: match.roundOrder,
-          matches: [] as Array<(typeof match)>,
+    for (const row of drawRows) {
+      const current =
+        matchMap.get(row.matchId) ??
+        {
+          matchId: row.matchId,
+          drawRound: row.drawRound,
+          roundLabel: roundLabel(row.sourceRound ?? row.drawRound, row.sourceRoundZh),
+          roundOrder: row.roundOrder,
+          matchScore: row.matchScore,
+          games: parseGames(row.games),
+          sides: [],
         };
-        current.matches.push(match);
-        map.set(match.drawRound, current);
-        return map;
-      }, new Map<string, { code: string; label: string; order: number; matches: Array<ReturnType<typeof matchMap.get> extends infer T ? NonNullable<T> : never> }>())
-      .values(),
-  ).sort((left, right) => right.order - left.order);
+
+      let side = current.sides.find((item) => item.sideNo === row.sideNo);
+      if (!side) {
+        side = { sideNo: row.sideNo, isWinner: row.isWinner === 1, players: [] };
+        current.sides.push(side);
+      }
+      side.players.push({
+        playerId: row.playerId,
+        slug: row.slug,
+        name: row.playerName,
+        nameZh: row.playerNameZh,
+        countryCode: row.playerCountry,
+      });
+      matchMap.set(row.matchId, current);
+    }
+
+    return Array.from(
+      Array.from(matchMap.values())
+        .reduce((map, match) => {
+          const current = map.get(match.drawRound) ?? {
+            code: match.drawRound,
+            label: match.roundLabel,
+            order: match.roundOrder,
+            matches: [] as Array<(typeof match)>,
+          };
+          current.matches.push(match);
+          map.set(match.drawRound, current);
+          return map;
+        }, new Map<string, { code: string; label: string; order: number; matches: Array<ReturnType<typeof matchMap.get> extends infer T ? NonNullable<T> : never> }>())
+        .values(),
+    ).sort((left, right) => right.order - left.order);
+  };
+
+const subEventDetails = subEvents.map((se) => ({
+    code: se.code,
+    champion: championForSubEvent(se.code),
+    bracket: bracketForSubEvent(se.code),
+  }));
+
+  const selected = subEvents.find((item) => item.code === selectedSubEvent) ?? null;
+  const dataForSelected = subEventDetails.find((item) => item.code === selectedSubEvent);
 
   return {
     event,
     subEvents,
     selectedSubEvent,
-    champion: selected
-      ? {
-          championName: selected.championName,
-          championCountryCode: selected.championCountryCode,
-          players: championPlayers,
-        }
-      : null,
-    bracket: rounds,
+    subEventDetails,
+    champion: dataForSelected?.champion ?? null,
+    bracket: dataForSelected?.bracket ?? [],
   };
 }
 

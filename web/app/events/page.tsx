@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { ArrowLeft, CalendarDays, ChevronRight, Search, Trophy } from "lucide-react";
+import { ArrowLeft, CalendarDays, ChevronRight, Search } from "lucide-react";
+import { IconCircleLetterI, IconCircleLetterW, IconFlag, IconOlympics } from "@tabler/icons-react";
 
 function route(path: string) {
   return path as Route;
@@ -19,6 +20,8 @@ type EventListItem = {
   eventKindZh: string | null;
   categoryCode: string | null;
   categoryNameZh: string | null;
+  ageGroup: string | null;
+  eventSeries: string | null;
   totalMatches: number | null;
   startDate: string | null;
   endDate: string | null;
@@ -54,9 +57,39 @@ function compactCategory(event: EventListItem) {
 }
 
 const PAGE_SIZE = 20;
+type AgeGroupFilter = "senior" | "non_senior" | "all";
+
+const AGE_GROUP_OPTIONS: Array<{ value: AgeGroupFilter; label: string }> = [
+  { value: "senior", label: "成年组" },
+  { value: "non_senior", label: "非成年组" },
+  { value: "all", label: "全部年龄" },
+];
+
+function normalizeSeries(series: string | null) {
+  const value = (series ?? "").trim().toUpperCase();
+  if (value === "WTT") return "WTT";
+  if (value === "ITTF") return "ITTF";
+  if (value.startsWith("OLYMPIC")) return "OLYMPIC";
+  return "OTHER";
+}
+
+function EventSeriesIcon({ series }: { series: string | null }) {
+  const key = normalizeSeries(series);
+  if (key === "WTT") {
+    return <IconCircleLetterW size={18} stroke={1.8} />;
+  }
+  if (key === "ITTF") {
+    return <IconCircleLetterI size={18} stroke={1.8} />;
+  }
+  if (key === "OLYMPIC") {
+    return <IconOlympics size={18} stroke={1.8} />;
+  }
+  return <IconFlag size={18} stroke={1.8} />;
+}
 
 export default function EventsPage() {
   const [selectedYear, setSelectedYear] = React.useState<string>("all");
+  const [selectedAgeGroup, setSelectedAgeGroup] = React.useState<AgeGroupFilter>("senior");
   const [keyword, setKeyword] = React.useState("");
   const [debouncedKeyword, setDebouncedKeyword] = React.useState("");
   const [meta, setMeta] = React.useState<Omit<EventsResponse["data"], "events" | "total" | "hasMore"> | null>(null);
@@ -84,6 +117,7 @@ export default function EventsPage() {
     try {
       const params = new URLSearchParams();
       params.set("year", selectedYear);
+      params.set("age_group", selectedAgeGroup);
       params.set("limit", String(PAGE_SIZE));
       params.set("offset", String(offset));
       if (debouncedKeyword) {
@@ -108,7 +142,7 @@ export default function EventsPage() {
       setLoading(false);
       setLoadingMore(false);
     }
-  }, [selectedYear, debouncedKeyword]);
+  }, [selectedYear, selectedAgeGroup, debouncedKeyword]);
 
   React.useEffect(() => {
     if (listScrollRef.current) {
@@ -134,7 +168,8 @@ export default function EventsPage() {
     return () => observer.disconnect();
   }, [events.length, hasMore, loadEvents, loading, loadingMore]);
 
-  const subtitle = selectedYear === "all" ? "所有参与积分的赛事" : `${selectedYear} 年赛事`;
+  const ageGroupLabel = AGE_GROUP_OPTIONS.find((item) => item.value === selectedAgeGroup)?.label ?? "成年组";
+  const subtitle = selectedYear === "all" ? `${ageGroupLabel}赛事` : `${selectedYear} 年${ageGroupLabel}赛事`;
   const years = meta?.availableYears ?? [];
   const hasQuery = debouncedKeyword.length > 0;
 
@@ -173,7 +208,7 @@ export default function EventsPage() {
       <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-[22px] bg-white/96">
         <div className="z-20 border-b border-black/[0.06] bg-white/90 px-5 py-3.5 backdrop-blur-md">
           <div className="flex items-center gap-2.5">
-            <div className="relative w-[130px] shrink-0">
+            <div className="relative w-[116px] shrink-0">
               <CalendarDays
                 size={15}
                 className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary"
@@ -187,6 +222,22 @@ export default function EventsPage() {
                 {years.map((year) => (
                   <option key={year} value={String(year)}>
                     {year}
+                  </option>
+                ))}
+              </select>
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-micro text-text-tertiary">
+                ▼
+              </span>
+            </div>
+            <div className="relative w-[116px] shrink-0">
+              <select
+                value={selectedAgeGroup}
+                onChange={(event) => setSelectedAgeGroup(event.target.value as AgeGroupFilter)}
+                className="min-h-9 w-full appearance-none rounded-[10px] border border-black/[0.08] bg-white px-3 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
+              >
+                {AGE_GROUP_OPTIONS.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
                   </option>
                 ))}
               </select>
@@ -228,7 +279,7 @@ export default function EventsPage() {
                 >
                   <div className="flex items-start gap-3">
                     <div className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-brand-mist text-brand-strong">
-                      <Trophy size={18} />
+                      <EventSeriesIcon series={event.eventSeries} />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
