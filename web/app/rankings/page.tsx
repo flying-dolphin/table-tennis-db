@@ -251,22 +251,45 @@ export default function RankingsPage() {
                     </span>
                   </div>
 
-                  <Link href={`/players/${player.slug}`} className="flex flex-1 items-center overflow-hidden">
-                    <PlayerAvatar player={player} size="sm" />
-                    <div className="ml-3 flex-1 overflow-hidden">
-                      <div className="flex items-center gap-1.5">
-                        <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
-                          {player.nameZh || player.name}
-                        </h3>
-                        {player.countryCode && (
-                          <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
-                        )}
-                        <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
-                          {player.countryCode}
-                        </span>
+                  {compareMode ? (
+                    <button
+                      type="button"
+                      onClick={() => toggleSelect(player.playerId)}
+                      className="flex flex-1 items-center overflow-hidden"
+                    >
+                      <PlayerAvatar player={player} size="sm" />
+                      <div className="ml-3 flex-1 overflow-hidden">
+                        <div className="flex items-center gap-1.5">
+                          <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
+                            {player.nameZh || player.name}
+                          </h3>
+                          {player.countryCode && (
+                            <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
+                          )}
+                          <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
+                            {player.countryCode}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
+                    </button>
+                  ) : (
+                    <Link href={`/players/${player.slug}`} className="flex flex-1 items-center overflow-hidden">
+                      <PlayerAvatar player={player} size="sm" />
+                      <div className="ml-3 flex-1 overflow-hidden">
+                        <div className="flex items-center gap-1.5">
+                          <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
+                            {player.nameZh || player.name}
+                          </h3>
+                          {player.countryCode && (
+                            <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
+                          )}
+                          <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
+                            {player.countryCode}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  )}
 
                   <div className="min-w-[58px] shrink-0 text-right">
                     <div className="flex flex-col items-end">
