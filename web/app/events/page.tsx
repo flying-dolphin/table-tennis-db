@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowLeft, CalendarDays, ChevronRight, Search } from "lucide-react";
-import { IconCircleLetterI, IconCircleLetterW, IconFlag, IconOlympics } from "@tabler/icons-react";
+import { IconFlag, IconOlympics } from "@tabler/icons-react";
 
 function route(path: string) {
   return path as Route;
@@ -76,15 +76,15 @@ function normalizeSeries(series: string | null) {
 function EventSeriesIcon({ series }: { series: string | null }) {
   const key = normalizeSeries(series);
   if (key === "WTT") {
-    return <IconCircleLetterW size={18} stroke={1.8} />;
+    return <span className="text-base font-bold">W</span>;
   }
   if (key === "ITTF") {
-    return <IconCircleLetterI size={18} stroke={1.8} />;
+    return <span className="text-base font-bold">I</span>;
   }
   if (key === "OLYMPIC") {
-    return <IconOlympics size={18} stroke={1.8} />;
+    return <IconOlympics size={26} stroke={1.8} />;
   }
-  return <IconFlag size={18} stroke={1.8} />;
+  return <IconFlag size={20} stroke={1.8} />;
 }
 
 export default function EventsPage() {
@@ -183,13 +183,6 @@ export default function EventsPage() {
         <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_86%_8%,#7b7789_0%,transparent_56%),radial-gradient(circle_at_12%_88%,#252638_0%,transparent_62%)]" />
         <div className="relative z-10">
           <div className="mb-2">
-            <Link
-              href="/"
-              className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[12px] font-bold text-white/85 backdrop-blur-sm transition-colors hover:bg-white/15"
-            >
-              <ArrowLeft size={14} strokeWidth={2} />
-              返回
-            </Link>
             <div className="min-w-0">
               <p className="text-caption font-bold uppercase tracking-widest text-white/68">EVENTS</p>
               <h1 className="mt-1 text-display font-black leading-none tracking-tight">赛事</h1>
