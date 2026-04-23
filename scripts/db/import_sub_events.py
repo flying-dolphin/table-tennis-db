@@ -142,6 +142,17 @@ def make_team_key(side_players: List[Tuple[str, str]]) -> str:
     return f"R:{'||'.join(members)}"
 
 
+def make_roster_key(side_players: List[Tuple[str, str]]) -> str:
+    members = sorted(
+        {
+            f"{normalize_text(name)}|{(country or '').strip().upper()}"
+            for name, country in side_players
+            if name.strip()
+        }
+    )
+    return f"R:{'||'.join(members)}"
+
+
 def resolve_champion_country_code(
     event_id: int,
     sub_event_type_code: str,
@@ -581,8 +592,10 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
                 side_a = match_data["side_a"]
                 side_b = match_data["side_b"]
 
-                team_a_key = make_team_key(side_a)
-                team_b_key = make_team_key(side_b)
+                # Singles/doubles finals must distinguish roster identity even when both sides
+                # share the same country code (e.g., domestic final).
+                team_a_key = make_roster_key(side_a)
+                team_b_key = make_roster_key(side_b)
                 winner_team_key = team_a_key if winner_side == "A" else team_b_key
 
                 wins_by_team[winner_team_key] = wins_by_team.get(winner_team_key, 0) + 1
