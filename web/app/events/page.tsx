@@ -207,45 +207,47 @@ export default function EventsPage() {
 
       <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-[22px] bg-white/96">
         <div className="z-20 border-b border-black/[0.06] bg-white/90 px-5 py-3.5 backdrop-blur-md">
-          <div className="flex items-center gap-2.5">
-            <div className="relative w-[116px] shrink-0">
-              <CalendarDays
-                size={15}
-                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary"
-              />
-              <select
-                value={selectedYear}
-                onChange={(event) => setSelectedYear(event.target.value)}
-                className="min-h-9 w-full appearance-none rounded-[10px] border border-black/[0.08] bg-white pl-8 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
-              >
-                <option value="all">全部年份</option>
-                {years.map((year) => (
-                  <option key={year} value={String(year)}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-micro text-text-tertiary">
-                ▼
-              </span>
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="relative flex-1">
+                <CalendarDays
+                  size={15}
+                  className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary"
+                />
+                <select
+                  value={selectedYear}
+                  onChange={(event) => setSelectedYear(event.target.value)}
+                  className="min-h-9 w-full appearance-none rounded-[10px] border border-black/[0.08] bg-white pl-8 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
+                >
+                  <option value="all">全部年份</option>
+                  {years.map((year) => (
+                    <option key={year} value={String(year)}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-micro text-text-tertiary">
+                  ▼
+                </span>
+              </div>
+              <div className="relative flex-1">
+                <select
+                  value={selectedAgeGroup}
+                  onChange={(event) => setSelectedAgeGroup(event.target.value as AgeGroupFilter)}
+                  className="min-h-9 w-full appearance-none rounded-[10px] border border-black/[0.08] bg-white px-3 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
+                >
+                  {AGE_GROUP_OPTIONS.map((item) => (
+                    <option key={item.value} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-micro text-text-tertiary">
+                  ▼
+                </span>
+              </div>
             </div>
-            <div className="relative w-[116px] shrink-0">
-              <select
-                value={selectedAgeGroup}
-                onChange={(event) => setSelectedAgeGroup(event.target.value as AgeGroupFilter)}
-                className="min-h-9 w-full appearance-none rounded-[10px] border border-black/[0.08] bg-white px-3 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
-              >
-                {AGE_GROUP_OPTIONS.map((item) => (
-                  <option key={item.value} value={item.value}>
-                    {item.label}
-                  </option>
-                ))}
-              </select>
-              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-micro text-text-tertiary">
-                ▼
-              </span>
-            </div>
-            <div className="relative min-w-0 flex-1">
+            <div className="relative w-full">
               <Search
                 size={15}
                 className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary"
