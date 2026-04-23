@@ -565,9 +565,15 @@ def run(args: argparse.Namespace) -> int:
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    existing_event_ids = collect_existing_event_ids(output_dir)
+    problematic_output_dir = Path(DEFAULT_PROBLEMATIC_OUTPUT_DIR)
+    existing_event_ids = collect_existing_event_ids(output_dir) | collect_existing_event_ids(problematic_output_dir)
     if existing_event_ids and not args.force:
-        logger.info("Loaded %s existing event ids from %s", len(existing_event_ids), output_dir)
+        logger.info(
+            "Loaded %s existing event ids from %s and %s",
+            len(existing_event_ids),
+            output_dir,
+            problematic_output_dir,
+        )
     storage_state = Path(args.storage_state)
     delay_cfg = DelayConfig(
         min_request_sec=args.min_delay,
