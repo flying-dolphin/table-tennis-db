@@ -92,7 +92,7 @@ function EventSeriesIcon({ series }: { series: string | null }) {
     return <Trophy size={20} strokeWidth={3} />;
   }
   if (key === "OLYMPIC") {
-    return <IconOlympics size={32} stroke={2.2} />;
+    return <IconOlympics size={28} stroke={2.2} />;
   }
   return <IconFlag size={20} stroke={3} />;
 }
