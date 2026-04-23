@@ -54,9 +54,11 @@ export default function RankingsPage() {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(false);
+  const [rankingDate, setRankingDate] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<SortField>("points");
   const [compareMode, setCompareMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
+  const listScrollRef = React.useRef<HTMLDivElement>(null);
   const loadMoreRef = React.useRef<HTMLDivElement>(null);
 
   const loadPlayers = async (offset: number, isInitial = false) => {
@@ -69,6 +71,7 @@ export default function RankingsPage() {
       const res = await fetch(`/api/v1/rankings?sort_by=${sortBy}&limit=20&offset=${offset}`);
       const json = (await res.json()) as RankingsResponse;
       if (json.code === 0) {
+        setRankingDate(json.data.snapshot?.rankingDate ?? null);
         if (isInitial) {
           setPlayers(json.data.players);
         } else {
@@ -96,7 +99,7 @@ export default function RankingsPage() {
           loadPlayers(players.length);
         }
       },
-      { threshold: 0.1 }
+      { root: listScrollRef.current, threshold: 0.1 }
     );
     if (loadMoreRef.current) {
       observer.observe(loadMoreRef.current);
@@ -126,149 +129,170 @@ export default function RankingsPage() {
   };
 
   const selectedPlayers = players.filter((p) => selectedIds.includes(p.playerId));
+  const subtitle = (() => {
+    if (!rankingDate) return "更新于2026年4月14日";
+    const match = rankingDate.trim().match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+    if (!match) return `更新于${rankingDate}`;
+    return `更新于${match[1]}年${Number(match[2])}月${Number(match[3])}日`;
+  })();
 
   return (
-    <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-gray-50/30 pb-32">
+    <main
+      className="mx-auto flex max-w-lg flex-col overflow-hidden bg-gray-50/30"
+      style={{ height: "calc(100dvh - (4rem + env(safe-area-inset-bottom)))" }}
+    >
       {/* Header */}
-      <section className="relative overflow-hidden px-5 pb-5 pt-5 text-white shadow-lg">
+      <section className="relative overflow-hidden px-5 pb-7 pt-5 text-white">
         <div className="absolute inset-0 [background:linear-gradient(45deg,#242536_0%,#45465a_54%,#666477_100%)]" />
         <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_86%_8%,#7b7789_0%,transparent_56%),radial-gradient(circle_at_12%_88%,#252638_0%,transparent_62%)]" />
         <div className="relative z-10">
-          <div className="mb-6">
+          <div className="mb-2">
             <Link
               href="/"
-              className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[12px] font-bold text-white/85 backdrop-blur-sm transition-colors hover:bg-white/15"
+              className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[12px] font-bold text-white/85 backdrop-blur-sm transition-colors hover:bg-white/15"
             >
               <ArrowLeft size={14} strokeWidth={2} />
               返回
             </Link>
             <div className="min-w-0">
-              <h1 className="text-display font-black leading-none tracking-tight">世界排名</h1>
-              <p className="mt-2 text-caption font-bold leading-relaxed text-white/72">
-                按积分、胜率浏览球员，也可选择两名球员进行对比
+              <p className="text-caption font-bold uppercase tracking-widest text-white/68">RANKINGS</p>
+              <h1 className="mt-1 text-display font-black leading-none tracking-tight">世界排名</h1>
+              <p className="mt-2.5 text-caption font-bold leading-relaxed text-white/72">
+                {subtitle}
               </p>
             </div>
           </div>
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-10 [background:linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(26,30,42,0.5)_100%)]"
+        />
+      </section>
 
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-            {SORT_OPTIONS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setSortBy(item.id)}
-                className={cn(
-                  "min-h-11 shrink-0 rounded-full border px-4 text-body font-bold transition-all active:scale-95",
-                  sortBy === item.id
-                    ? "border-white bg-white text-text-primary shadow-sm"
-                    : "border-white/15 bg-white/10 text-white/78 backdrop-blur-md hover:bg-white/16 hover:text-white"
-                )}
-              >
-                {item.label}
-              </button>
-            ))}
+      <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-[22px] bg-white/96">
+        {/* Controls */}
+        <div className="z-20 border-b border-black/[0.06] bg-white/90 px-5 py-3.5 backdrop-blur-md">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex shrink-0 items-center rounded-[12px] bg-black/[0.06] p-1">
+              {SORT_OPTIONS.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setSortBy(item.id)}
+                  className={cn(
+                    "min-h-9 rounded-[8px] px-5 text-body font-bold transition-all active:scale-95",
+                    sortBy === item.id
+                      ? "bg-white text-text-primary shadow-[0_2px_8px_rgba(17,24,39,0.12)]"
+                      : "text-text-secondary hover:text-text-primary"
+                  )}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
             <button
               type="button"
               onClick={toggleCompareMode}
               aria-pressed={compareMode}
               className={cn(
-                "ml-auto inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-3.5 text-body font-bold transition-all active:scale-95",
+                "inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3.5 text-[13px] font-bold transition-all active:scale-95",
                 compareMode
                   ? "border-brand-deep bg-brand-deep text-white shadow-sm"
-                  : "border-white/25 bg-white/12 text-white backdrop-blur-md hover:bg-white/18"
+                  : "border-brand-deep/40 bg-white text-brand-deep hover:bg-brand-mist/30"
               )}
             >
-              {compareMode ? <X size={18} /> : <GitCompareArrows size={18} />}
+              {compareMode ? <X size={16} /> : <span>⇄</span>}
               <span>{compareMode ? "退出选择" : "选择对比"}</span>
             </button>
           </div>
         </div>
-      </section>
 
-      {/* List */}
-      <div className="mt-4 px-5">
-        {loading ? (
-          <div className="flex justify-center py-20 text-text-tertiary text-body">加载中...</div>
-        ) : (
-          <div className="bg-white/60 backdrop-blur-md rounded-lg overflow-hidden border border-white/50 shadow-sm">
-            {players.map((player) => (
-              <div
-                key={player.playerId}
-                className={cn(
-                  "flex items-center border-b border-white/40 px-4 py-3 transition-colors last:border-0",
-                  selectedIds.includes(player.playerId) ? "bg-brand-mist/30" : "hover:bg-white/40"
-                )}
-              >
-                {compareMode && (
-                  <label className="mr-2 flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-brand-mist/70">
-                    <input
-                      type="checkbox"
-                      checked={selectedIds.includes(player.playerId)}
-                      onChange={() => toggleSelect(player.playerId)}
-                      aria-label={`选择 ${player.nameZh || player.name} 进行对比`}
-                      className="peer sr-only"
-                    />
-                    <span
-                      className={cn(
-                        "grid h-6 w-6 place-items-center rounded-full border-2 transition-all",
-                        selectedIds.includes(player.playerId)
-                          ? "border-brand-deep bg-brand-deep text-white shadow-sm"
-                          : "border-border-strong bg-white/80 text-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] peer-focus-visible:border-brand-deep peer-focus-visible:ring-2 peer-focus-visible:ring-brand-deep peer-focus-visible:ring-offset-2"
-                      )}
-                    >
-                      <Check size={13} strokeWidth={3} />
+        {/* List */}
+        <div ref={listScrollRef} className="min-h-0 flex-1 overflow-y-auto px-5 pb-28">
+          {loading ? (
+            <div className="flex justify-center py-20 text-text-tertiary text-body">加载中...</div>
+          ) : (
+            <div>
+              {players.map((player) => (
+                <div
+                  key={player.playerId}
+                  className={cn(
+                    "flex items-center border-b border-black/[0.06] px-0 py-3.5 transition-colors last:border-0",
+                    selectedIds.includes(player.playerId) ? "bg-brand-mist/15" : "hover:bg-black/[0.02]"
+                  )}
+                >
+                  {compareMode && (
+                    <label className="mr-2 flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-brand-mist/70">
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.includes(player.playerId)}
+                        onChange={() => toggleSelect(player.playerId)}
+                        aria-label={`选择 ${player.nameZh || player.name} 进行对比`}
+                        className="peer sr-only"
+                      />
+                      <span
+                        className={cn(
+                          "grid h-6 w-6 place-items-center rounded-full border-2 transition-all",
+                          selectedIds.includes(player.playerId)
+                            ? "border-brand-deep bg-brand-deep text-white shadow-sm"
+                            : "border-border-strong bg-white/80 text-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] peer-focus-visible:border-brand-deep peer-focus-visible:ring-2 peer-focus-visible:ring-brand-deep peer-focus-visible:ring-offset-2"
+                        )}
+                      >
+                        <Check size={13} strokeWidth={3} />
+                      </span>
+                    </label>
+                  )}
+
+                  <div className="mr-2 w-8 shrink-0 text-center">
+                    <span className={cn(
+                      "text-body-lg font-bold tabular-nums",
+                      player.rank <= 3 ? "text-brand-strong" : "text-text-tertiary"
+                    )}>
+                      {player.rank}
                     </span>
-                  </label>
-                )}
+                  </div>
 
-                <div className="mr-2 w-8 shrink-0 text-center">
-                  <span className={cn(
-                    "text-body-lg font-bold tabular-nums",
-                    player.rank <= 3 ? "text-brand-strong" : "text-text-tertiary"
-                  )}>
-                    {player.rank}
-                  </span>
-                </div>
+                  <Link href={`/players/${player.slug}`} className="flex flex-1 items-center overflow-hidden">
+                    <PlayerAvatar player={player} size="sm" />
+                    <div className="ml-3 flex-1 overflow-hidden">
+                      <div className="flex items-center gap-1.5">
+                        <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
+                          {player.nameZh || player.name}
+                        </h3>
+                        {player.countryCode && (
+                          <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
+                        )}
+                        <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
+                          {player.countryCode}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
 
-                <Link href={`/players/${player.slug}`} className="flex flex-1 items-center overflow-hidden">
-                  <PlayerAvatar player={player} size="sm" />
-                  <div className="ml-3 flex-1 overflow-hidden">
-                    <div className="flex items-center gap-1.5">
-                      <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
-                        {player.nameZh || player.name}
-                      </h3>
-                      {player.countryCode && (
-                        <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
-                      )}
-                      <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
-                        {player.countryCode}
+                  <div className="min-w-[58px] shrink-0 text-right">
+                    <div className="flex flex-col items-end">
+                      <span className="text-body-lg font-bold text-text-primary tabular-nums">
+                        {sortBy === "win_rate"
+                          ? `${(player.winRate).toFixed(2)}%`
+                          : player.points.toLocaleString()}
+                      </span>
+                      <span className="text-micro text-text-tertiary">
+                        {sortBy === "win_rate" ? "胜率" : "积分"}
                       </span>
                     </div>
                   </div>
-                </Link>
-
-                <div className="min-w-[58px] shrink-0 text-right">
-                  <div className="flex flex-col items-end">
-                    <span className="text-body-lg font-bold text-text-primary tabular-nums">
-                      {sortBy === "win_rate"
-                        ? `${(player.winRate).toFixed(2)}%`
-                        : player.points.toLocaleString()}
-                    </span>
-                    <span className="text-micro text-text-tertiary">
-                      {sortBy === "win_rate" ? "胜率" : "积分"}
-                    </span>
-                  </div>
                 </div>
+              ))}
+              <div ref={loadMoreRef} className="py-4 text-center">
+                {loadingMore && (
+                  <span className="text-body text-text-tertiary">加载中...</span>
+                )}
+                {!loadingMore && !hasMore && players.length > 0 && (
+                  <span className="text-body text-text-tertiary">已加载全部</span>
+                )}
               </div>
-            ))}
-            <div ref={loadMoreRef} className="py-4 text-center">
-              {loadingMore && (
-                <span className="text-body text-text-tertiary">加载中...</span>
-              )}
-              {!loadingMore && !hasMore && players.length > 0 && (
-                <span className="text-body text-text-tertiary">已加载全部</span>
-              )}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Compare Action Bar */}
