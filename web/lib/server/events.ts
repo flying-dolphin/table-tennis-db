@@ -142,14 +142,19 @@ export function getEvents(options?: {
           e.start_date AS startDate,
           e.end_date AS endDate,
           e.location,
-          COUNT(DISTINCT edm.match_id) AS drawMatches,
-          COUNT(DISTINCT m.match_id) AS importedMatches
+          (
+            SELECT COUNT(*)
+            FROM event_draw_matches edm
+            WHERE edm.event_id = e.event_id
+          ) AS drawMatches,
+          (
+            SELECT COUNT(*)
+            FROM matches m
+            WHERE m.event_id = e.event_id
+          ) AS importedMatches
         FROM events e
         LEFT JOIN event_categories ec ON ec.id = e.event_category_id
-        LEFT JOIN event_draw_matches edm ON edm.event_id = e.event_id
-        LEFT JOIN matches m ON m.event_id = e.event_id
         WHERE ${whereClause}
-        GROUP BY e.event_id
         ORDER BY e.year DESC, COALESCE(e.start_date, '' ) DESC, e.event_id DESC
         LIMIT ? OFFSET ?
       `,
