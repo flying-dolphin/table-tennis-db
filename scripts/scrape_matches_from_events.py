@@ -48,6 +48,7 @@ logger = logging.getLogger("event_matches_scraper")
 BASE_URL = "https://results.ittf.link"
 DEFAULT_URLS_FILE = "data/event_matches_url_list.txt"
 DEFAULT_OUTPUT_DIR = "data/event_matches/orig"
+DEFAULT_PROBLEMATIC_OUTPUT_DIR = "data/event_matches/problematic"
 
 
 def load_event_urls(urls_file: Path | None, urls: list[str]) -> list[str]:
@@ -516,6 +517,19 @@ def scrape_event_url(
     }
 
     if len(matches) != total_records:
+        validation_error = (
+            f"Record count mismatch for event_id={event_id}: "
+            f"actual={len(matches)} page_total={total_records} "
+            f"last_non_empty_page={last_non_empty_page} stop_reason={stop_reason or ''}"
+        )
+        payload["validation_error"] = validation_error
+        payload["actual_records"] = len(matches)
+        payload["last_non_empty_page"] = last_non_empty_page
+        payload["stop_reason"] = stop_reason or ""
+        problematic_output_dir = Path(DEFAULT_PROBLEMATIC_OUTPUT_DIR)
+        problematic_output_file = problematic_output_dir / output_filename(event_name, event_id)
+        save_json(problematic_output_file, payload)
+        payload["problematic_output_file"] = str(problematic_output_file)
         logger.error(
             "Record count mismatch: url=%s actual=%s page_total=%s last_non_empty_page=%s stop_reason=%s",
             url,
@@ -524,11 +538,8 @@ def scrape_event_url(
             last_non_empty_page,
             stop_reason or "",
         )
-        raise RuntimeError(
-            f"Record count mismatch for event_id={event_id}: "
-            f"actual={len(matches)} page_total={total_records} "
-            f"last_non_empty_page={last_non_empty_page} stop_reason={stop_reason or ''}"
-        )
+        logger.error("Saved problematic event matches: %s", problematic_output_file)
+        raise RuntimeError(validation_error)
 
     output_file = output_dir / output_filename(event_name, event_id)
     save_json(output_file, payload)
