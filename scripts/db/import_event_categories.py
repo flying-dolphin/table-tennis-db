@@ -32,7 +32,7 @@ def generate_insert_sql(mapping_data):
 
     # 生成INSERT语句
     lines.append("INSERT INTO event_categories (")
-    lines.append("    category_id, category_name, category_name_zh, json_code,")
+    lines.append("    category_id, category_name, category_name_zh, age_group, event_series, json_code,")
     lines.append("    points_tier, points_eligible, filtering_only, ittf_rule_name,")
     lines.append("    applicable_formats, sort_order")
     lines.append(") VALUES")
@@ -48,6 +48,8 @@ def generate_insert_sql(mapping_data):
             f"('{event['category_id']}', "
             f"'{escape_sql(event['category_name'])}', "
             f"'{escape_sql(event['category_name_zh'])}', "
+            f"'{escape_sql(event.get('age_group', 'SENIOR'))}', "
+            f"'{escape_sql(event.get('event_series', 'OTHER'))}', "
             f"{json_code}, "
             f"'{event['points_tier']}', "
             f"{1 if event['points_eligible'] else 0}, "
@@ -62,6 +64,8 @@ def generate_insert_sql(mapping_data):
     lines.append("ON CONFLICT(category_id) DO UPDATE SET")
     lines.append("    category_name=excluded.category_name,")
     lines.append("    category_name_zh=excluded.category_name_zh,")
+    lines.append("    age_group=excluded.age_group,")
+    lines.append("    event_series=excluded.event_series,")
     lines.append("    json_code=excluded.json_code,")
     lines.append("    points_tier=excluded.points_tier,")
     lines.append("    points_eligible=excluded.points_eligible,")
@@ -121,13 +125,15 @@ def import_to_sqlite(db_path, mapping_data):
         # 2. 使用 UPSERT 更新/插入 event_categories（保留现有id，避免外键约束问题）
         category_sql = """
             INSERT INTO event_categories (
-                category_id, category_name, category_name_zh, json_code,
+                category_id, category_name, category_name_zh, age_group, event_series, json_code,
                 points_tier, points_eligible, filtering_only, ittf_rule_name,
                 applicable_formats, sort_order
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(category_id) DO UPDATE SET
                 category_name=excluded.category_name,
                 category_name_zh=excluded.category_name_zh,
+                age_group=excluded.age_group,
+                event_series=excluded.event_series,
                 json_code=excluded.json_code,
                 points_tier=excluded.points_tier,
                 points_eligible=excluded.points_eligible,
@@ -144,6 +150,8 @@ def import_to_sqlite(db_path, mapping_data):
                 event['category_id'],
                 event['category_name'],
                 event['category_name_zh'],
+                event.get('age_group', 'SENIOR'),
+                event.get('event_series', 'OTHER'),
                 event.get('json_code'),
                 event['points_tier'],
                 1 if event['points_eligible'] else 0,

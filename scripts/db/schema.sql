@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS event_categories (
     category_id         TEXT NOT NULL UNIQUE,   -- 唯一标识，如 "WTT_GRAND_SMASH"
     category_name       TEXT NOT NULL,
     category_name_zh    TEXT,
+    age_group           TEXT NOT NULL DEFAULT 'SENIOR',   -- SENIOR / YOUTH
+    event_series        TEXT NOT NULL DEFAULT 'OTHER',    -- ITTF / WTT / OLYMPIC / OTHER
     json_code           TEXT,                   -- ranking JSON 中的缩写，如 "GS"
     points_tier         TEXT,                   -- Premium / High / Medium / Low / None
     points_eligible     INTEGER DEFAULT 1,

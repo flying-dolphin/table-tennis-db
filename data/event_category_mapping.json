@@ -3,7 +3,7 @@
     "version": "1.0",
     "description": "Unified mapping between event_type_kind, ITTF regulations, and JSON category codes",
     "created_at": "2026-04-16",
-    "last_updated": "2026-04-19",
+    "last_updated": "2026-04-23",
     "notes": "category_name_zh values are synchronized with translation_dict_v2.json"
   },
   "events": [
@@ -24,7 +24,9 @@
         "Mixed Doubles",
         "Teams"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "OLYMPIC"
     },
     {
       "category_id": "ITTF_WTTC",
@@ -46,7 +48,9 @@
         "Mixed Doubles"
       ],
       "notes": "event_kind '--'(2015-2019旧命名)和'WTTC Finals'(2021+新命名)均指同一赛事。数据源中团体世锦赛(World Team TTC)也归在此event_type下，需通过name字段区分。",
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_WORLD_TEAM_CHAMPS",
@@ -62,7 +66,9 @@
       "applicable_formats": [
         "Teams"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_MIXED_TEAM_WORLD_CUP",
@@ -78,7 +84,9 @@
       "applicable_formats": [
         "Teams"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_WORLD_CUP",
@@ -94,7 +102,9 @@
       "applicable_formats": [
         "Singles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "CONTINENTAL_GAMES",
@@ -112,7 +122,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "CONTINENTAL_CHAMPS",
@@ -130,7 +142,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "CONTINENTAL_CUP",
@@ -146,7 +160,9 @@
       "applicable_formats": [
         "Singles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "WTT_FINALS",
@@ -163,7 +179,9 @@
         "Singles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "WTT"
     },
     {
       "category_id": "WTT_GRAND_SMASH",
@@ -181,7 +199,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "WTT"
     },
     {
       "category_id": "WTT_CHAMPIONS",
@@ -199,7 +219,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "WTT"
     },
     {
       "category_id": "WTT_STAR_CONTENDER",
@@ -217,7 +239,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "WTT"
     },
     {
       "category_id": "WTT_CONTENDER",
@@ -235,7 +259,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "WTT"
     },
     {
       "category_id": "WTT_FEEDER",
@@ -253,7 +279,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 10
+      "priority": 10,
+      "age_group": "SENIOR",
+      "event_series": "WTT"
     },
     {
       "category_id": "OLYMPIC_QUALIFICATION",
@@ -267,7 +295,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "OLYMPIC"
     },
     {
       "category_id": "MULTI_SPORT_GAMES",
@@ -285,7 +315,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "OTHER"
     },
     {
       "category_id": "ITTF_WJTTC",
@@ -304,7 +336,9 @@
         "Mixed Doubles"
       ],
       "notes": "旧版名称，现在统一为WYC",
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "YOUTH_GRAND_SMASH",
@@ -320,7 +354,9 @@
       "applicable_formats": [
         "Singles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "WTT"
     },
     {
       "category_id": "YOUTH_STAR_CONTENDER",
@@ -336,7 +372,9 @@
       "applicable_formats": [
         "Singles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "WTT"
     },
     {
       "category_id": "YOUTH_CONTENDER",
@@ -352,7 +390,9 @@
       "applicable_formats": [
         "Singles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "WTT"
     },
     {
       "category_id": "YOUTH_WORLD_CHAMPS",
@@ -370,7 +410,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "REGIONAL_CHAMPS",
@@ -386,7 +428,9 @@
       "applicable_formats": [
         "Singles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "REGIONAL_CUP",
@@ -400,7 +444,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "REGIONAL_U21_CHAMPS",
@@ -418,7 +464,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "U21_CONTINENTAL_CHAMPS",
@@ -436,7 +484,9 @@
         "Doubles",
         "Mixed Doubles"
       ],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "YOUTH_CONTINENTAL_CHAMPS",
@@ -450,7 +500,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "YOUTH_CONTINENTAL_CUP",
@@ -464,7 +516,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "REGIONAL_YOUTH_CHAMPS",
@@ -478,7 +532,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_CHALLENGE",
@@ -492,7 +548,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_CHALLENGE_SERIES",
@@ -506,7 +564,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_CHALLENGE_PLUS",
@@ -520,7 +580,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT",
@@ -534,7 +596,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_FINALS",
@@ -548,7 +612,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_PREMIUM",
@@ -562,7 +628,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_WORLD_JUNIOR_CIRCUIT_GOLDEN",
@@ -576,7 +644,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "ITTF_WORLD_CADET_CHALLENGE",
@@ -590,7 +660,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "ITTF"
     },
     {
       "category_id": "T2_DIAMOND",
@@ -604,7 +676,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "OTHER"
     },
     {
       "category_id": "YOUTH_OLYMPIC_GAMES",
@@ -618,7 +692,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "OLYMPIC"
     },
     {
       "category_id": "YOUTH_OLYMPIC_GAMES_QUALIFICATION",
@@ -632,7 +708,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "YOUTH",
+      "event_series": "OLYMPIC"
     },
     {
       "category_id": "WORLD_TOUR_PRO_TOUR",
@@ -646,7 +724,9 @@
       "points_eligible": false,
       "filtering_only": false,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "WORLD_TOUR_CHALLENGE_SERIES",
@@ -660,7 +740,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "WORLD_TOUR_FINALS",
@@ -674,7 +756,9 @@
       "points_eligible": false,
       "filtering_only": false,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "WORLD_TOUR_GRAND_FINALS",
@@ -688,7 +772,9 @@
       "points_eligible": false,
       "filtering_only": false,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "WORLD_TOUR_MAJOR_SERIES",
@@ -702,7 +788,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "WORLD_TOUR_PLATINUM",
@@ -716,7 +804,9 @@
       "points_eligible": false,
       "filtering_only": false,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "WORLD_TOUR_SUPER_SERIES",
@@ -730,7 +820,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "ITTF"
     },
     {
       "category_id": "OTHER_EVENTS",
@@ -744,7 +836,9 @@
       "points_eligible": false,
       "filtering_only": true,
       "applicable_formats": [],
-      "priority": 0
+      "priority": 0,
+      "age_group": "SENIOR",
+      "event_series": "OTHER"
     }
   ]
 }

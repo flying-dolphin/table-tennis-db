@@ -60,11 +60,66 @@ def backup_database(db_path):
     return backup_path
 
 
+def category_classification_sql(category_expr, name_expr):
+    age_group_expr = f"""
+        CASE
+            WHEN UPPER({category_expr}) LIKE '%YOUTH%'
+              OR UPPER({category_expr}) LIKE '%U21%'
+              OR UPPER({category_expr}) LIKE '%JUNIOR%'
+              OR UPPER({category_expr}) LIKE '%CADET%'
+              OR UPPER({category_expr}) LIKE '%WJTTC%'
+            THEN 'YOUTH'
+            ELSE 'SENIOR'
+        END
+    """
+    event_series_expr = f"""
+        CASE
+            WHEN UPPER({category_expr}) LIKE 'WTT_%'
+              OR UPPER({category_expr}) IN ('YOUTH_GRAND_SMASH', 'YOUTH_STAR_CONTENDER', 'YOUTH_CONTENDER')
+            THEN 'WTT'
+            WHEN UPPER({category_expr}) LIKE '%OLYMPIC%'
+            THEN 'OLYMPIC'
+            WHEN UPPER({category_expr}) LIKE 'ITTF%'
+              OR UPPER({category_expr}) LIKE 'WORLD_TOUR%'
+              OR UPPER({category_expr}) LIKE 'CONTINENTAL%'
+              OR UPPER({category_expr}) LIKE 'REGIONAL%'
+              OR UPPER({category_expr}) IN ('U21_CONTINENTAL_CHAMPS', 'YOUTH_CONTINENTAL_CHAMPS', 'YOUTH_CONTINENTAL_CUP', 'YOUTH_WORLD_CHAMPS')
+              OR UPPER({name_expr}) LIKE '%ITTF%'
+              OR UPPER({name_expr}) LIKE '%CONTINENTAL%'
+              OR UPPER({name_expr}) LIKE '%REGIONAL%'
+              OR UPPER({name_expr}) LIKE '%WORLD TOUR%'
+              OR UPPER({name_expr}) LIKE '%WORLD YOUTH%'
+            THEN 'ITTF'
+            ELSE 'OTHER'
+        END
+    """
+    return age_group_expr, event_series_expr
+
+
 def ensure_event_categories(cursor):
     columns = get_columns(cursor, "event_categories")
     legacy = "event_type" in columns or "id" not in columns
 
     if not legacy:
+        if "age_group" not in columns:
+            cursor.execute(
+                "ALTER TABLE event_categories ADD COLUMN age_group TEXT NOT NULL DEFAULT 'SENIOR'"
+            )
+        if "event_series" not in columns:
+            cursor.execute(
+                "ALTER TABLE event_categories ADD COLUMN event_series TEXT NOT NULL DEFAULT 'OTHER'"
+            )
+
+        age_group_expr, event_series_expr = category_classification_sql("category_id", "category_name")
+        cursor.execute(
+            f"""
+            UPDATE event_categories
+            SET
+                age_group = {age_group_expr},
+                event_series = {event_series_expr}
+            """
+        )
+
         if not index_exists(cursor, "idx_event_categories_json_code"):
             cursor.execute(
                 "CREATE INDEX idx_event_categories_json_code ON event_categories(json_code)"
@@ -83,6 +138,8 @@ def ensure_event_categories(cursor):
             category_id         TEXT NOT NULL UNIQUE,
             category_name       TEXT NOT NULL,
             category_name_zh    TEXT,
+            age_group           TEXT NOT NULL DEFAULT 'SENIOR',
+            event_series        TEXT NOT NULL DEFAULT 'OTHER',
             json_code           TEXT,
             points_tier         TEXT,
             points_eligible     INTEGER DEFAULT 0,
@@ -97,12 +154,43 @@ def ensure_event_categories(cursor):
     cursor.execute(
         """
         INSERT INTO event_categories (
-            category_id, category_name, category_name_zh, json_code,
+            category_id, category_name, category_name_zh, age_group, event_series, json_code,
             points_tier, points_eligible, filtering_only, applicable_formats,
             ittf_rule_name, notes, sort_order
         )
         SELECT
-            category_id, category_name, category_name_zh, json_code,
+            category_id,
+            category_name,
+            category_name_zh,
+            CASE
+                WHEN UPPER(category_id) LIKE '%YOUTH%'
+                  OR UPPER(category_id) LIKE '%U21%'
+                  OR UPPER(category_id) LIKE '%JUNIOR%'
+                  OR UPPER(category_id) LIKE '%CADET%'
+                  OR UPPER(category_id) LIKE '%WJTTC%'
+                THEN 'YOUTH'
+                ELSE 'SENIOR'
+            END,
+            CASE
+                WHEN UPPER(category_id) LIKE 'WTT_%'
+                  OR UPPER(category_id) IN ('YOUTH_GRAND_SMASH', 'YOUTH_STAR_CONTENDER', 'YOUTH_CONTENDER')
+                THEN 'WTT'
+                WHEN UPPER(category_id) LIKE '%OLYMPIC%'
+                THEN 'OLYMPIC'
+                WHEN UPPER(category_id) LIKE 'ITTF%'
+                  OR UPPER(category_id) LIKE 'WORLD_TOUR%'
+                  OR UPPER(category_id) LIKE 'CONTINENTAL%'
+                  OR UPPER(category_id) LIKE 'REGIONAL%'
+                  OR UPPER(category_id) IN ('U21_CONTINENTAL_CHAMPS', 'YOUTH_CONTINENTAL_CHAMPS', 'YOUTH_CONTINENTAL_CUP', 'YOUTH_WORLD_CHAMPS')
+                  OR UPPER(category_name) LIKE '%ITTF%'
+                  OR UPPER(category_name) LIKE '%CONTINENTAL%'
+                  OR UPPER(category_name) LIKE '%REGIONAL%'
+                  OR UPPER(category_name) LIKE '%WORLD TOUR%'
+                  OR UPPER(category_name) LIKE '%WORLD YOUTH%'
+                THEN 'ITTF'
+                ELSE 'OTHER'
+            END,
+            json_code,
             points_tier, COALESCE(points_eligible, 0), COALESCE(filtering_only, 0),
             applicable_formats, ittf_rule_name, notes, COALESCE(sort_order, 0)
         FROM event_categories_legacy
