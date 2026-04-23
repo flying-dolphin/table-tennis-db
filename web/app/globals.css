@@ -62,7 +62,10 @@
 
   /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -105,11 +108,25 @@
     font-variant-numeric: tabular-nums;
   }
 
-  .bento-span-1 { @apply col-span-1; }
-  .bento-span-2 { @apply col-span-2; }
-  .bento-span-3 { @apply col-span-3; }
-  .bento-span-4 { @apply col-span-4; }
-  .bento-span-6 { @apply col-span-6; }
+  .bento-span-1 {
+    @apply col-span-1;
+  }
+
+  .bento-span-2 {
+    @apply col-span-2;
+  }
+
+  .bento-span-3 {
+    @apply col-span-3;
+  }
+
+  .bento-span-4 {
+    @apply col-span-4;
+  }
+
+  .bento-span-6 {
+    @apply col-span-6;
+  }
 
   /* Special Tokens */
   .honor-diamond {
@@ -127,14 +144,14 @@
   /* Ranking Badge */
   .rank-badge {
     position: relative;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     color: #fff;
     flex-shrink: 0;
     isolation: isolate;
@@ -173,8 +190,8 @@
     top: 55%;
     left: 50%;
     transform: translateX(-50%);
-    width: 19px;
-    height: 21px;
+    width: 17px;
+    height: 19px;
     background: #E5484D;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
     z-index: -2;
