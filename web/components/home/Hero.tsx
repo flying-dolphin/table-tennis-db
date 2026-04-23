@@ -35,7 +35,7 @@ export default function Hero() {
             src="/images/logo.png"
             alt="ITTF Logo"
             fill
-            className="object-contain scale-190"
+            className="object-contain scale-195"
           />
         </div>
       </div>
