@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { ArrowLeft, CalendarDays, ChevronRight, Search, Trophy } from "lucide-react";
+import { ArrowLeft, CalendarDays, Search, Trophy } from "lucide-react";
 import { IconFlag, IconOlympics } from "@tabler/icons-react";
 import { Outfit } from "next/font/google";
 
@@ -275,52 +275,48 @@ export default function EventsPage() {
               </p>
             </div>
           ) : (
-            <div className="space-y-2.5 pt-2">
+            <div>
               {events.map((event) => (
                 <Link
                   key={event.eventId}
                   href={route(`/events/${event.eventId}`)}
-                  className="group block rounded-[12px] border border-black/[0.06] bg-white px-3.5 py-3.5 transition-colors hover:bg-black/[0.02]"
+                  className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-brand-mist text-brand-strong">
-                      <EventSeriesIcon series={event.eventSeries} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
-                        <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-micro font-bold text-text-primary">
-                          {event.year}
+                  <div className="mr-3 grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-brand-mist text-brand-strong">
+                    <EventSeriesIcon series={event.eventSeries} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
+                      <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-micro font-bold text-text-primary">
+                        {event.year}
+                      </span>
+                      <span className="rounded-full bg-brand-soft/60 px-2 py-0.5 text-micro font-bold text-text-primary">
+                        {compactCategory(event)}
+                      </span>
+                      {event.drawMatches > 0 ? (
+                        <span className="rounded-full bg-state-success/12 px-2 py-0.5 text-micro font-bold text-state-success-text">
+                          有正赛图
                         </span>
-                        <span className="rounded-full bg-brand-soft/60 px-2 py-0.5 text-micro font-bold text-text-primary">
-                          {compactCategory(event)}
+                      ) : (
+                        <span className="rounded-full bg-surface-tinted px-2 py-0.5 text-micro font-bold text-text-tertiary">
+                          比赛记录
                         </span>
-                        {event.drawMatches > 0 ? (
-                          <span className="rounded-full bg-state-success/12 px-2 py-0.5 text-micro font-bold text-state-success-text">
-                            有正赛图
-                          </span>
-                        ) : (
-                          <span className="rounded-full bg-surface-tinted px-2 py-0.5 text-micro font-bold text-text-tertiary">
-                            比赛记录
-                          </span>
-                        )}
-                      </div>
-                      <h2 className="line-clamp-2 text-body-lg font-black leading-snug text-text-primary transition-colors group-hover:text-brand-strong">
-                        {displayEventName(event)}
-                      </h2>
-                      <p className="mt-1 text-caption font-semibold text-text-tertiary">
-                        {displayDateRange(event.startDate, event.endDate)}
-                        {event.location ? ` · ${event.location}` : ""}
-                      </p>
+                      )}
                     </div>
-                    <div className="flex shrink-0 flex-col items-end gap-1">
-                      <strong className="text-body-lg font-black tabular-nums text-text-primary">
+                    <h2 className="line-clamp-2 text-body-lg font-bold leading-tight text-text-primary transition-colors group-hover:text-brand-strong">
+                      {displayEventName(event)}
+                    </h2>
+                    <p className="mt-1 text-caption font-semibold text-text-tertiary">
+                      {displayDateRange(event.startDate, event.endDate)}
+                      {event.location ? ` · ${event.location}` : ""}
+                    </p>
+                  </div>
+                  <div className="ml-2 min-w-[58px] shrink-0 text-right">
+                    <div className="flex flex-col items-end">
+                      <span className="text-body-lg font-bold tabular-nums text-text-primary">
                         {event.importedMatches || event.totalMatches || 0}
-                      </strong>
-                      <span className="text-micro font-bold text-text-tertiary">场</span>
-                      <ChevronRight
-                        size={16}
-                        className="mt-1 text-text-tertiary transition-colors group-hover:text-brand-strong"
-                      />
+                      </span>
+                      <span className="text-micro text-text-tertiary">场</span>
                     </div>
                   </div>
                 </Link>
