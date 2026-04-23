@@ -123,4 +123,67 @@
   .honor-silver {
     @apply border-text-tertiary/20 bg-gradient-to-br from-page-background to-white/90;
   }
+
+  /* Ranking Badge */
+  .rank-badge {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: #fff;
+    flex-shrink: 0;
+    isolation: isolate;
+  }
+
+  .rank-1::before,
+  .rank-2::before,
+  .rank-3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .rank-1::before {
+    background: linear-gradient(145deg, #FFD700, #F5C542);
+    box-shadow: 0 2px 6px rgba(255, 200, 0, 0.4);
+  }
+
+  .rank-2::before {
+    background: linear-gradient(145deg, #D9D9D9, #BFBFBF);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .rank-3::before {
+    background: linear-gradient(145deg, #D08C60, #B87333);
+    box-shadow: 0 2px 6px rgba(160, 90, 50, 0.3);
+  }
+
+  .rank-1::after,
+  .rank-2::after,
+  .rank-3::after {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 19px;
+    height: 21px;
+    background: #E5484D;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+    z-index: -2;
+  }
+
+  .rank-default {
+    background: #f2f3f5;
+    color: #666;
+    font-weight: 500;
+    box-shadow: none;
+  }
 }
