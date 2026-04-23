@@ -3,8 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { ArrowLeft, CalendarDays, ChevronRight, Search } from "lucide-react";
+import { ArrowLeft, CalendarDays, ChevronRight, Search, Trophy } from "lucide-react";
 import { IconFlag, IconOlympics } from "@tabler/icons-react";
+import { Outfit } from "next/font/google";
+
+const letterIcon = Outfit({
+  subsets: ["latin"],
+  weight: "800",
+});
 
 function route(path: string) {
   return path as Route;
@@ -76,15 +82,19 @@ function normalizeSeries(series: string | null) {
 function EventSeriesIcon({ series }: { series: string | null }) {
   const key = normalizeSeries(series);
   if (key === "WTT") {
-    return <span className="text-base font-bold">W</span>;
+    return (
+      <span className={`${letterIcon.className} text-[16px] leading-none tracking-tighter`}>
+        W
+      </span>
+    );
   }
   if (key === "ITTF") {
-    return <span className="text-base font-bold">I</span>;
+    return <Trophy size={20} strokeWidth={3} />;
   }
   if (key === "OLYMPIC") {
-    return <IconOlympics size={26} stroke={1.8} />;
+    return <IconOlympics size={32} stroke={2.2} />;
   }
-  return <IconFlag size={20} stroke={1.8} />;
+  return <IconFlag size={20} stroke={3} />;
 }
 
 export default function EventsPage() {
