@@ -11,6 +11,13 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+const getRankClass = (rank: number) => {
+  if (rank === 1) return "rank-badge rank-1";
+  if (rank === 2) return "rank-badge rank-2";
+  if (rank === 3) return "rank-badge rank-3";
+  return "rank-badge rank-default";
+};
+
 type RankingPlayer = {
   playerId: number;
   rank: number;
@@ -147,13 +154,6 @@ export default function RankingsPage() {
         <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_86%_8%,#7b7789_0%,transparent_56%),radial-gradient(circle_at_12%_88%,#252638_0%,transparent_62%)]" />
         <div className="relative z-10">
           <div className="mb-2">
-            <Link
-              href="/"
-              className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[12px] font-bold text-white/85 backdrop-blur-sm transition-colors hover:bg-white/15"
-            >
-              <ArrowLeft size={14} strokeWidth={2} />
-              返回
-            </Link>
             <div className="min-w-0">
               <p className="text-caption font-bold uppercase tracking-widest text-white/68">RANKINGS</p>
               <h1 className="mt-1 text-display font-black leading-none tracking-tight">世界排名</h1>
@@ -242,11 +242,8 @@ export default function RankingsPage() {
                     </label>
                   )}
 
-                  <div className="mr-2 w-8 shrink-0 text-center">
-                    <span className={cn(
-                      "text-body-lg font-bold tabular-nums",
-                      player.rank <= 3 ? "text-brand-strong" : "text-text-tertiary"
-                    )}>
+                  <div className="mr-2 w-9 shrink-0 text-center">
+                    <span className={getRankClass(player.rank)}>
                       {player.rank}
                     </span>
                   </div>
@@ -269,6 +266,17 @@ export default function RankingsPage() {
                           <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
                             {player.countryCode}
                           </span>
+                          {player.rankChange !== 0 && (
+                            <span
+                              className={cn(
+                                "text-micro font-semibold tabular-nums",
+                                player.rankChange > 0 ? "text-state-success" : "text-state-danger"
+                              )}
+                            >
+                              {player.rankChange > 0 ? "↑" : "↓"}
+                              {Math.abs(player.rankChange)}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </button>
@@ -286,6 +294,17 @@ export default function RankingsPage() {
                           <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
                             {player.countryCode}
                           </span>
+                          {player.rankChange !== 0 && (
+                            <span
+                              className={cn(
+                                "text-micro font-semibold tabular-nums",
+                                player.rankChange > 0 ? "text-state-success" : "text-state-danger"
+                              )}
+                            >
+                              {player.rankChange > 0 ? "↑" : "↓"}
+                              {Math.abs(player.rankChange)}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </Link>
