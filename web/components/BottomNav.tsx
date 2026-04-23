@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import type { Route } from "next";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Home, Trophy, User } from "lucide-react";
@@ -20,7 +21,7 @@ const EventsIcon = ({ size = 24, strokeWidth = 1.5, ...props }: any) => (
 export default function BottomNav() {
   const pathname = usePathname();
 
-  const navItems = [
+  const navItems: Array<{ id: string; label: string; href: Route; icon: React.ComponentType<any> }> = [
     { id: "home", label: "首页", href: "/", icon: Home },
     { id: "ranking", label: "排名", href: "/rankings", icon: Trophy },
     { id: "events", label: "赛事", href: "/events", icon: EventsIcon },
@@ -51,7 +52,13 @@ export default function BottomNav() {
             <Link
               key={item.id}
               href={item.href}
-              onClick={() => setActiveIndex(index)}
+              onClick={(event) => {
+                const isHomeTapOnHome = item.href === "/" && pathname === "/";
+                if (isHomeTapOnHome) {
+                  event.preventDefault();
+                }
+                setActiveIndex(index);
+              }}
               className="relative flex flex-col items-center justify-center gap-1 flex-1 h-full select-none transition-transform duration-150 ease-out active:scale-[0.88]"
             >
               <Icon

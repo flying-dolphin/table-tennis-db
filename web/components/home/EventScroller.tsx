@@ -342,9 +342,11 @@ export default function EventScroller() {
   const [monthData, setMonthData] = useState<MonthCard[]>([]);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [isCarouselReady, setIsCarouselReady] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const activeIndexRef = useRef(0);
   const initialTargetIndexRef = useRef(0);
+
   const wheelLockRef = useRef(false);
   const dragStartTrackXRef = useRef(0);
   const hasDraggedRef = useRef(false);
@@ -368,6 +370,59 @@ export default function EventScroller() {
     config: { tension: 260, friction: 32 },
   }));
 
+  const logTrackSnapshot = React.useCallback(
+    (tag: string) => {
+      const x = trackX.get();
+      const rawIndex = slideStep > 0 ? (baseTrackX - x) / slideStep : NaN;
+      const rounded = Number.isFinite(rawIndex) ? Math.round(rawIndex) : -1;
+      console.log(
+        "[ESC2] %s x=%.2f raw=%.3f rounded=%d active=%d ref=%d baseX=%.1f step=%.1f",
+        tag,
+        x,
+        rawIndex,
+        rounded,
+        activeIndex,
+        activeIndexRef.current,
+        baseTrackX,
+        slideStep,
+      );
+    },
+    [activeIndex, baseTrackX, slideStep, trackX],
+  );
+
+  const setTrackImmediate = React.useCallback(
+    (reason: string, nextX: number) => {
+      console.log(
+        "[ESC2] setTrackImmediate reason=%s nextX=%.2f active=%d ref=%d",
+        reason,
+        nextX,
+        activeIndex,
+        activeIndexRef.current,
+      );
+      trackApi.set({ trackX: nextX });
+      window.requestAnimationFrame(() => logTrackSnapshot(`${reason}:raf`));
+    },
+    [activeIndex, logTrackSnapshot, trackApi],
+  );
+
+  const startTrackAnim = React.useCallback(
+    (reason: string, nextX: number) => {
+      console.log(
+        "[ESC2] startTrackAnim reason=%s nextX=%.2f active=%d ref=%d",
+        reason,
+        nextX,
+        activeIndex,
+        activeIndexRef.current,
+      );
+      trackApi.start({
+        trackX: nextX,
+        config: { tension: 280, friction: 34 },
+      });
+      window.requestAnimationFrame(() => logTrackSnapshot(`${reason}:raf`));
+    },
+    [activeIndex, logTrackSnapshot, trackApi],
+  );
+
   useEffect(() => {
     let canceled = false;
     async function loadCalendar() {
@@ -382,6 +437,13 @@ export default function EventScroller() {
         const now = new Date();
         const currentMonthId = `${now.getFullYear()}-${now.getMonth() + 1}`;
         const targetIndex = months.findIndex((m) => m.id === currentMonthId);
+        console.log(
+          "[ESC2] init apiYear=%d months=%d currentMonthId=%s targetIndex=%d",
+          payload.data.year,
+          months.length,
+          currentMonthId,
+          targetIndex,
+        );
         initialTargetIndexRef.current = targetIndex >= 0 ? targetIndex : 0;
         activeIndexRef.current = initialTargetIndexRef.current;
         setActiveIndex(initialTargetIndexRef.current);
@@ -405,6 +467,7 @@ export default function EventScroller() {
     if (!carousel) return;
 
     const updateWidth = () => {
+      console.log("[ESC2] updateWidth clientWidth=%d", carousel.clientWidth);
       setCarouselWidth(carousel.clientWidth);
     };
 
@@ -416,32 +479,55 @@ export default function EventScroller() {
   }, []);
 
   const setActiveIndexSafe = React.useCallback(
-    (index: number) => {
+    (index: number, reason: "wheel" | "drag" | "program") => {
       const nextIndex = clampIndex(index);
       if (nextIndex === activeIndexRef.current) return;
+      console.log(
+        "[ESC2] setActiveIndexSafe reason=%s %d -> %d (active=%d)",
+        reason,
+        activeIndexRef.current,
+        nextIndex,
+        activeIndex,
+      );
       activeIndexRef.current = nextIndex;
       setActiveIndex(nextIndex);
     },
-    [clampIndex],
+    [activeIndex, clampIndex],
   );
 
   const moveByStep = React.useCallback(
-    (direction: -1 | 1) => {
-      setActiveIndexSafe(activeIndexRef.current + direction);
+    (direction: -1 | 1, reason: "wheel" | "drag" | "program") => {
+      setActiveIndexSafe(activeIndexRef.current + direction, reason);
     },
     [setActiveIndexSafe],
   );
 
   const handleWheel = React.useCallback(
     (event: React.WheelEvent<HTMLDivElement>) => {
-      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      const absX = Math.abs(event.deltaX);
+      const absY = Math.abs(event.deltaY);
+      if (absX < 8 || absX <= absY) {
+        console.log(
+          "[ESC2] wheel ignored deltaX=%.2f deltaY=%.2f",
+          event.deltaX,
+          event.deltaY,
+        );
+        return;
+      }
+      const delta = event.deltaX;
       if (Math.abs(delta) < 8) return;
 
       event.preventDefault();
       if (wheelLockRef.current) return;
 
       wheelLockRef.current = true;
-      moveByStep(delta > 0 ? 1 : -1);
+      console.log(
+        "[ESC2] wheel accepted deltaX=%.2f deltaY=%.2f direction=%d",
+        event.deltaX,
+        event.deltaY,
+        delta > 0 ? 1 : -1,
+      );
+      moveByStep(delta > 0 ? 1 : -1, "wheel");
       window.setTimeout(() => {
         wheelLockRef.current = false;
       }, 520);
@@ -451,15 +537,23 @@ export default function EventScroller() {
 
   useEffect(() => {
     if (cardWidth <= 0 || monthData.length === 0) return;
-    const targetX = baseTrackX - activeIndex * slideStep;
+    const targetIndex = activeIndexRef.current;
+    const targetX = baseTrackX - targetIndex * slideStep;
     const isFirstSettle = !hasInitializedRef.current;
-    trackApi.start({
-      trackX: targetX,
-      immediate: isDragging || isFirstSettle,
-      config: { tension: 280, friction: 34 },
-    });
+    const shouldSetImmediate = isDragging || isFirstSettle;
+    console.log(
+      "[ESC2] animFX targetIndex=%d targetX=%.2f immediate=%s",
+      targetIndex,
+      targetX,
+      String(shouldSetImmediate),
+    );
+    if (shouldSetImmediate) {
+      setTrackImmediate("animFX", targetX);
+    } else {
+      startTrackAnim("animFX", targetX);
+    }
     hasInitializedRef.current = true;
-  }, [activeIndex, baseTrackX, isDragging, slideStep, cardWidth, monthData.length, trackApi]);
+  }, [baseTrackX, cardWidth, isDragging, monthData.length, setTrackImmediate, slideStep, startTrackAnim]);
 
   const bindDrag = useDrag(
     ({ first, last, movement: [mx], velocity: [vx], direction: [dx] }) => {
@@ -487,6 +581,7 @@ export default function EventScroller() {
           hasDraggedRef.current = true;
           suppressClickRef.current = true;
           setIsDragging(true);
+          console.log("[ESC2] drag move nextX=%.2f", nextTrackX);
           trackApi.start({ trackX: nextTrackX, immediate: true });
         }
         return;
@@ -498,12 +593,9 @@ export default function EventScroller() {
       const dir = dx === 0 ? (mx < 0 ? -1 : 1) : dx;
       const projected = nextTrackX + vx * 220 * dir;
       const targetIndex = clampIndex(Math.round((baseTrackX - projected) / slideStep));
-      setActiveIndexSafe(targetIndex);
-      trackApi.start({
-        trackX: baseTrackX - targetIndex * slideStep,
-        immediate: false,
-        config: { tension: 280, friction: 34 },
-      });
+      console.log("[ESC2] drag end targetIndex=%d", targetIndex);
+      setActiveIndexSafe(targetIndex, "drag");
+      startTrackAnim("dragEnd", baseTrackX - targetIndex * slideStep);
       hasDraggedRef.current = false;
       // release click suppression after the browser's post-pointerup click fires
       window.setTimeout(() => {
@@ -529,12 +621,9 @@ export default function EventScroller() {
 
   const restoreTrackPosition = React.useCallback(() => {
     if (slideStep <= 0) return;
-    trackApi.start({
-      trackX: baseTrackX - activeIndexRef.current * slideStep,
-      immediate: true,
-      config: { tension: 280, friction: 34 },
-    });
-  }, [baseTrackX, slideStep, trackApi]);
+    const tx = baseTrackX - activeIndexRef.current * slideStep;
+    setTrackImmediate("restore", tx);
+  }, [baseTrackX, setTrackImmediate, slideStep]);
 
   const closeExpandedMonth = React.useCallback(() => {
     setExpandedMonthId(null);
@@ -543,8 +632,17 @@ export default function EventScroller() {
 
   useLayoutEffect(() => {
     if (cardWidth <= 0 || monthData.length === 0) return;
+    console.log(
+      "[ESC2] layoutFX cardWidth=%d months=%d active=%d ref=%d ready=%s",
+      cardWidth,
+      monthData.length,
+      activeIndex,
+      activeIndexRef.current,
+      String(isCarouselReady),
+    );
     restoreTrackPosition();
-  }, [cardWidth, expandedMonthId, monthData.length, restoreTrackPosition]);
+    setIsCarouselReady(true);
+  }, [activeIndex, cardWidth, expandedMonthId, isCarouselReady, monthData.length, restoreTrackPosition]);
 
   const expandedMonth = useMemo(
     () => monthData.find((item) => item.id === expandedMonthId) ?? null,
@@ -649,6 +747,7 @@ export default function EventScroller() {
               style={{
                 transform: trackX.to((value) => `translateX(${value}px)`),
                 willChange: "transform",
+                opacity: isCarouselReady ? undefined : 0,
               }}
             >
               {monthData.map((month, index) => {
