@@ -665,6 +665,8 @@ def parse_match_from_row(
     cells: list[Any],
     player_name: str,
     column_map: dict[str, int] | None = None,
+    stats: dict[str, int] | None = None,
+    source_row_id: str = "",
 ) -> dict[str, Any] | None:
     cell_texts = [" ".join((c.inner_text() or "").split()) for c in cells]
     # Keep empty cells so gaps in the source table remain visible in debug output.
@@ -718,6 +720,8 @@ def parse_match_from_row(
     game_scores = [f"{a}:{b}" for a, b in raw_games]
     game_objects = [{"player": int(a), "opponent": int(b)} for a, b in raw_games]
 
+    parsed_sub_event, parsed_side_a, parsed_side_b, parsed_all_players, parsed_winner = _parse_row_participants(row_text)
+
     if not match_score:
         for idx, text in enumerate(cell_texts):
             m = SCORE_RE.search(text)
@@ -729,9 +733,22 @@ def parse_match_from_row(
                 break
 
     if score_idx == -1 and not game_scores:
-        return None
-
-    parsed_sub_event, parsed_side_a, parsed_side_b, parsed_all_players, parsed_winner = _parse_row_participants(row_text)
+        has_match_like_content = bool(
+            parsed_all_players
+            or parsed_winner
+            or parsed_sub_event
+            or stage_text
+            or round_text
+            or winner_text
+            or player_a_text
+            or player_b_text
+            or player_x_text
+            or player_y_text
+        )
+        if not has_match_like_content:
+            if stats is not None:
+                stats["skipped_unrecognized_rows"] = stats.get("skipped_unrecognized_rows", 0) + 1
+            return None
 
     # 从表格列提取作为补充，优先信任 raw_row_text 的列顺序。
     explicit_side_a = [p for p in [player_a_text, player_b_text] if p and PLAYER_NAME_RE.search(p)]
@@ -812,6 +829,7 @@ def parse_match_from_row(
                 result_for_player = "win" if score_b > score_a else "loss"
 
     return {
+        "source_row_id": source_row_id,
         "sub_event": sub_event,
         "stage": stage,
         "round": round_text,
@@ -828,9 +846,19 @@ def parse_match_from_row(
     }
 
 
-def parse_detail_matches_from_dom(page: Any, player_name: str) -> list[dict[str, Any]]:
+def parse_detail_matches_from_dom(
+    page: Any,
+    player_name: str,
+    diagnostics: dict[str, int] | None = None,
+) -> list[dict[str, Any]]:
     matches: list[dict[str, Any]] = []
     seen: set[str] = set()
+    stats: dict[str, int] = {
+        "rows_with_cells": 0,
+        "parsed_rows": 0,
+        "deduped_rows": 0,
+        "skipped_unrecognized_rows": 0,
+    }
 
     tables = _query_selector_all_with_retry(page, "table", retries=4)
     for table in tables:
@@ -842,22 +870,51 @@ def parse_detail_matches_from_dom(page: Any, player_name: str) -> list[dict[str,
             cells = _query_selector_all_with_retry(row, "td", retries=2)
             if len(cells) < 2:
                 continue
-            parsed = parse_match_from_row(cells, player_name, column_map=column_map)
+            stats["rows_with_cells"] += 1
+            row_id = (row.get_attribute("id") or "").strip()
+            parsed = parse_match_from_row(
+                cells,
+                player_name,
+                column_map=column_map,
+                stats=stats,
+                source_row_id=row_id,
+            )
             if not parsed:
                 continue
-            key = "||".join(
-                [
-                    parsed.get("match_score", ""),
-                    ",".join(parsed.get("side_a", [])),
-                    ",".join(parsed.get("side_b", [])),
-                    parsed.get("round", ""),
-                    parsed.get("raw_row_text", "")[:160],
-                ]
-            )
+            source_row_id = parsed.get("source_row_id", "")
+            if source_row_id:
+                key = f"row_id::{source_row_id}"
+            else:
+                key = "||".join(
+                    [
+                        parsed.get("match_score", ""),
+                        ",".join(parsed.get("side_a", [])),
+                        ",".join(parsed.get("side_b", [])),
+                        parsed.get("round", ""),
+                        hashlib.sha1(parsed.get("raw_row_text", "").encode("utf-8")).hexdigest(),
+                    ]
+                )
             if key in seen:
+                stats["deduped_rows"] += 1
                 continue
             seen.add(key)
             matches.append(parsed)
+            stats["parsed_rows"] += 1
+
+    rows_with_cells = stats.get("rows_with_cells", 0)
+    parsed_rows = stats.get("parsed_rows", 0)
+    deduped_rows = stats.get("deduped_rows", 0)
+    skipped_unrecognized_rows = stats.get("skipped_unrecognized_rows", 0)
+    if rows_with_cells and (parsed_rows < rows_with_cells):
+        logger.info(
+            "parse_detail_matches_from_dom diagnostics: rows_with_cells=%s parsed=%s deduped=%s skipped_unrecognized=%s",
+            rows_with_cells,
+            parsed_rows,
+            deduped_rows,
+            skipped_unrecognized_rows,
+        )
+    if diagnostics is not None:
+        diagnostics.update(stats)
 
     return matches
 

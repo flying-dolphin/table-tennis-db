@@ -318,9 +318,38 @@ def read_initial_page_info(page: Any, event_id: str) -> tuple[int, int, int]:
         raise
 
 
-def parse_page_matches_with_retry(page: Any, event_id: str, expected_page: int) -> list[dict[str, Any]]:
+def expected_records_for_page(expected_page: int, total_pages: int, total_records: int, page_size: int = 100) -> int:
+    if total_pages <= 1:
+        return max(0, total_records)
+    if expected_page < total_pages:
+        return page_size
+    last_page_expected = total_records - page_size * (total_pages - 1)
+    return max(0, last_page_expected)
+
+
+def parse_page_matches_with_retry(
+    page: Any,
+    event_id: str,
+    expected_page: int,
+    total_pages: int,
+    total_records: int,
+) -> list[dict[str, Any]]:
+    expected_count = expected_records_for_page(expected_page, total_pages, total_records)
     for attempt in range(1, 4):
-        page_matches = parse_detail_matches_from_dom(page, player_name="")
+        parse_diagnostics: dict[str, int] = {}
+        page_matches = parse_detail_matches_from_dom(page, player_name="", diagnostics=parse_diagnostics)
+        parsed_count = len(page_matches)
+        if expected_count > 0 and parsed_count < expected_count:
+            logger.warning(
+                "Event %s page %s/%s parsed fewer rows than expected: parsed=%s expected=%s diagnostics=%s page=%s",
+                event_id,
+                expected_page,
+                total_pages,
+                parsed_count,
+                expected_count,
+                parse_diagnostics,
+                diagnose_current_page(page),
+            )
         if page_matches:
             return page_matches
 
@@ -469,7 +498,13 @@ def scrape_event_url(
                 current_total_records,
             )
 
-        page_matches = parse_page_matches_with_retry(page, event_id, expected_page)
+        page_matches = parse_page_matches_with_retry(
+            page,
+            event_id,
+            expected_page,
+            total_pages,
+            total_records,
+        )
         if page_matches:
             last_non_empty_page = expected_page
             for item in page_matches:
