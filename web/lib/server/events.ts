@@ -1,6 +1,6 @@
 import { db } from '@/lib/server/db';
 
-const CORE_SUB_EVENT_CODES = ['WS', 'MS', 'WD', 'MD', 'XD'] as const;
+const CORE_SUB_EVENT_CODES = ['WS', 'WD', 'WT', 'XD'] as const;
 
 type SidePlayer = {
   playerId: number | null;
@@ -268,12 +268,13 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
   const existingMap = new Map(existingSubEvents.map((item) => [item.code, item]));
   const drawCountMap = new Map(drawCounts.map((item) => [item.code, item.matches]));
   const matchCountMap = new Map(matchCounts.map((item) => [item.code, item.matches]));
-  const codesWithData = new Set([
-    ...drawCounts.map((item) => item.code),
-    ...matchCounts.map((item) => item.code),
-    ...existingSubEvents.map((item) => item.code),
-  ]);
-  const preferredOrder = ['WS', 'WD', 'XD'];
+  const validCodes = new Set<string>(CORE_SUB_EVENT_CODES);
+  const codesWithData = new Set<string>(
+    [...drawCounts.map((item) => item.code), ...matchCounts.map((item) => item.code), ...existingSubEvents.map((item) => item.code)].filter(
+      (code) => validCodes.has(code),
+    ),
+  );
+  const preferredOrder: string[] = [...CORE_SUB_EVENT_CODES];
   const orderedCodes = Array.from(codesWithData).sort((a, b) => {
     const aIdx = preferredOrder.indexOf(a);
     const bIdx = preferredOrder.indexOf(b);
