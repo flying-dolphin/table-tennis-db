@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-21T19:01:04.434461",
-    "total_entries": 4731
+    "updated_at": "2026-04-23T23:17:33.499780",
+    "total_entries": 4752
   },
   "entries": {
     "ma long": {
@@ -61517,6 +61517,321 @@
         "players": "player_name"
       },
       "updated_at": "2026-04-21T19:01:04.434461"
+    },
+    "consolation": {
+      "original": "Consolation",
+      "translated": "附加赛",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "groups": {
+      "original": "GROUPS",
+      "translated": "小组赛",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - division 1": {
+      "original": "Main Draw - Division 1",
+      "translated": "正赛 - 第一级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - division 2": {
+      "original": "Main Draw - Division 2",
+      "translated": "正赛 - 第二级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - division 3": {
+      "original": "Main Draw - Division 3",
+      "translated": "正赛 - 第三级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - stage 1": {
+      "original": "Main Draw - Stage 1",
+      "translated": "正赛 - 第一阶段",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - stage 2": {
+      "original": "Main Draw - Stage 2",
+      "translated": "正赛 - 第二阶段",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - stage 2 (5-8th place)": {
+      "original": "Main Draw - Stage 2 (5-8th place)",
+      "translated": "正赛 - 第二阶段（5-8名排位赛）",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - stage 2 (5th place)": {
+      "original": "Main Draw - Stage 2 (5th place)",
+      "translated": "正赛 - 第二阶段（第5名争夺赛）",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - stage 2 (7th place)": {
+      "original": "Main Draw - Stage 2 (7th place)",
+      "translated": "正赛 - 第二阶段（第7名争夺赛）",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "main draw - stage 2 (bronze match)": {
+      "original": "Main Draw - Stage 2 (Bronze Match)",
+      "translated": "正赛 - 第二阶段（铜牌赛）",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "position matches - division 1": {
+      "original": "Position matches - Division 1",
+      "translated": "排位赛 - 第一级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "position matches - division 2": {
+      "original": "Position matches - Division 2",
+      "translated": "排位赛 - 第二级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "position matches - division 3": {
+      "original": "Position matches - Division 3",
+      "translated": "排位赛 - 第三级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "position matches 57-60 - division 3": {
+      "original": "Position matches 57-60 - Division 3",
+      "translated": "排位赛 57-60名 - 第三级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "position matches 61-64 - division 3": {
+      "original": "Position matches 61-64 - Division 3",
+      "translated": "排位赛 61-64名 - 第三级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "position matches 69- division 3": {
+      "original": "Position matches 69- Division 3",
+      "translated": "排位赛 69名及以后 - 第三级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "qualification - 2nd stage": {
+      "original": "Qualification - 2nd Stage",
+      "translated": "资格赛 - 第二阶段",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "qualification - division 1": {
+      "original": "Qualification - Division 1",
+      "translated": "资格赛 - 第一级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "qualification - division 2": {
+      "original": "Qualification - Division 2",
+      "translated": "资格赛 - 第二级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "qualification - division 3": {
+      "original": "Qualification - Division 3",
+      "translated": "资格赛 - 第三级别",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-23T23:17:33.499780"
     }
   }
 }
