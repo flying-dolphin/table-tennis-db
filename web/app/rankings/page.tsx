@@ -148,7 +148,16 @@ export default function RankingsPage() {
       className="mx-auto flex max-w-lg flex-col overflow-hidden bg-gray-50/30"
       style={{ height: "calc(100dvh - (4rem + env(safe-area-inset-bottom)))" }}
     >
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_right,#d7e6ff_0%,rgba(215,230,255,0.18)_48%,transparent_72%)] px-4 pb-3 pt-4">
+      <section className="relative overflow-hidden bg-[#f0f4ff] px-4 pb-3 pt-4">
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: "url('/images/header_bg.jpeg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center right",
+            opacity: 0.7,
+          }}
+        />
         <div className="relative z-10 flex items-end gap-x-4 mb-8 mt-2">
           <h1 className="text-3xl font-bold leading-tight text-slate-950">世界排名</h1>
           <p className="text-[0.9rem] font-medium text-slate-500">
