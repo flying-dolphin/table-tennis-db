@@ -823,6 +823,7 @@ function DrawView({
             const championName = hasPlayers
               ? champion.players.map((p) => displayPlayerName(p)).join(" / ")
               : champion?.championName ?? "";
+            const showName = hasPlayers || !!championName;
             return (
               <div
                 className="absolute flex flex-col items-center justify-center rounded-[0.75rem] border border-[#e8c96a] bg-[linear-gradient(160deg,#fff9e3_0%,#fffef8_100%)] px-2 py-2.5 shadow-[0_4px_14px_rgba(218,187,112,0.18)]"
@@ -839,7 +840,7 @@ function DrawView({
                     className="scale-[1.0]"
                   />
                 </div>
-                {hasPlayers ? (
+                {showName ? (
                   <p className="mt-0.5 text-center text-[0.65rem] font-black leading-tight text-slate-950">
                     {truncateChineseName(championName, 6)}
                   </p>

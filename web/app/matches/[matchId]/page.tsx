@@ -1,9 +1,9 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useCallback } from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { ArrowLeft, CalendarDays, ChevronLeft, ChevronRight, Goal, Trophy } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -98,7 +98,7 @@ function SideCard({ side }: { side: MatchSide }) {
           ) : (
             <div className="h-12 w-12 rounded-full bg-surface-tinted" />
           )}
-          <div className="min-w-0">
+          <div className="min-w-0 overflow-hidden">
             <h2 className="truncate text-heading-2 font-black text-text-primary">{sideTitle(side)}</h2>
             <p className="mt-0.5 text-caption font-bold uppercase tracking-wider text-text-tertiary">
               {sideCountries(side) || "国家待补"}
@@ -119,8 +119,8 @@ function SideCard({ side }: { side: MatchSide }) {
         {side.players.map((player, index) => {
           const content = (
             <div className="flex min-h-11 items-center justify-between gap-3 rounded-md bg-white/70 px-3 py-2">
-              <div className="min-w-0">
-                <p className="truncate text-body font-bold text-text-primary">{displayPlayerName(player)}</p>
+<div className="min-w-0 overflow-hidden">
+                  <p className="truncate text-body font-bold text-text-primary">{displayPlayerName(player)}</p>
                 <p className="text-micro font-bold uppercase tracking-wider text-text-tertiary">
                   {player.countryCode || "国家待补"}
                 </p>
@@ -146,6 +146,7 @@ function SideCard({ side }: { side: MatchSide }) {
 
 function MatchContent() {
   const params = useParams<{ matchId: string }>();
+  const router = useRouter();
   const [data, setData] = React.useState<MatchDetail | null>(null);
   const [loading, setLoading] = React.useState(true);
 
@@ -167,6 +168,18 @@ function MatchContent() {
 
     if (params.matchId) load();
   }, [params.matchId]);
+
+  const handleBack = useCallback(() => {
+    if (window.history.length > 1) {
+      router.back();
+      return;
+    }
+    if (!data) {
+      router.push(route("/events"));
+      return;
+    }
+    router.push(route(`/events/${data.match.eventId}?sub_event=${data.match.subEventTypeCode}`));
+  }, [data, router]);
 
   if (loading || !data) {
     return (
@@ -202,12 +215,13 @@ function MatchContent() {
         />
         <div className="relative z-10">
           <div className="flex items-start justify-between gap-2">
-            <Link
-              href={route(`/events/${data.match.eventId}?sub_event=${data.match.subEventTypeCode}`)}
+            <button
+              type="button"
+              onClick={handleBack}
               className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center text-slate-900 transition-colors"
             >
               <ChevronLeft size={26} strokeWidth={2} />
-            </Link>
+            </button>
 
             <div className="min-w-0 flex-1 text-center pt-1.5">
               <p className="text-[0.88rem] font-medium text-[#7d8fae]">
