@@ -65,9 +65,9 @@ export default {
         'micro': ['10px', { lineHeight: '1.3', letterSpacing: '0.03em' }],
       },
       fontFamily: {
-        heading: ["Noto Sans SC", "sans-serif"],
-        body: ["Noto Sans SC", "sans-serif"],
-        numeric: ["Inter", "DIN Alternate", "sans-serif"],
+        heading: ["var(--font-noto-sans-sc)", "Noto Sans SC", "sans-serif"],
+        body: ["var(--font-noto-sans-sc)", "Noto Sans SC", "sans-serif"],
+        numeric: ["var(--font-inter)", "Inter", "DIN Alternate", "sans-serif"],
       },
     },
   },

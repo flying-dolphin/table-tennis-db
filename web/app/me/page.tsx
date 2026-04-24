@@ -29,12 +29,8 @@ export default function MePage() {
   async function handleLogout() {
     if (loggingOut) return;
     setLoggingOut(true);
-    try {
-      await fetch("/api/v1/auth/logout", { method: "POST", credentials: "include" });
-    } finally {
-      router.push("/");
-      router.refresh();
-    }
+    await fetch("/api/v1/auth/logout", { method: "POST", credentials: "include" }).catch(() => {});
+    window.location.href = "/";
   }
 
   if (loading) {
