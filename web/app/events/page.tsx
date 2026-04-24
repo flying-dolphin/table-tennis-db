@@ -34,6 +34,8 @@ type EventListItem = {
   location: string | null;
   drawMatches: number;
   importedMatches: number;
+  presentationMode: "knockout" | "staged_round_robin" | null;
+  hasPresentation: boolean;
 };
 
 type EventsResponse = {
@@ -60,6 +62,25 @@ function displayDateRange(startDate: string | null, endDate: string | null) {
 
 function compactCategory(event: EventListItem) {
   return event.categoryNameZh || event.eventKindZh || event.eventKind || event.eventTypeName || "赛事";
+}
+
+function presentationBadge(event: EventListItem) {
+  if (event.presentationMode === "staged_round_robin") {
+    return {
+      label: "赛事流程",
+      className: "rounded-full bg-state-success/12 px-2 py-0.5 text-micro font-bold text-state-success-text",
+    };
+  }
+  if (event.drawMatches > 0) {
+    return {
+      label: "有正赛图",
+      className: "rounded-full bg-state-success/12 px-2 py-0.5 text-micro font-bold text-state-success-text",
+    };
+  }
+  return {
+    label: "比赛记录",
+    className: "rounded-full bg-surface-tinted px-2 py-0.5 text-micro font-bold text-text-tertiary",
+  };
 }
 
 const PAGE_SIZE = 20;
@@ -362,7 +383,9 @@ export default function EventsPage() {
             </div>
           ) : (
             <div>
-              {events.map((event) => (
+              {events.map((event) => {
+                const badge = presentationBadge(event);
+                return (
                 <Link
                   key={event.eventId}
                   href={route(`/events/${event.eventId}`)}
@@ -382,15 +405,7 @@ export default function EventsPage() {
                       <span className="rounded-full bg-brand-soft/60 px-2 py-0.5 text-micro font-bold text-text-primary">
                         {compactCategory(event)}
                       </span>
-                      {event.drawMatches > 0 ? (
-                        <span className="rounded-full bg-state-success/12 px-2 py-0.5 text-micro font-bold text-state-success-text">
-                          有正赛图
-                        </span>
-                      ) : (
-                        <span className="rounded-full bg-surface-tinted px-2 py-0.5 text-micro font-bold text-text-tertiary">
-                          比赛记录
-                        </span>
-                      )}
+                      <span className={badge.className}>{badge.label}</span>
                     </div>
                     <h2 className="line-clamp-2 text-body-lg font-bold leading-tight text-text-primary transition-colors group-hover:text-brand-strong">
                       {displayEventName(event)}
@@ -409,7 +424,8 @@ export default function EventsPage() {
                     </div>
                   </div>
                 </Link>
-              ))}
+                );
+              })}
               <div ref={loadMoreRef} className="py-4 text-center">
                 {loadingMore ? (
                   <span className="text-body text-text-tertiary">加载中...</span>
