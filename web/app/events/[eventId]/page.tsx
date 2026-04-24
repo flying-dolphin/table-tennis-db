@@ -995,7 +995,7 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
                         <h3 className="shrink-0 text-[1.15rem] font-black text-slate-900 whitespace-nowrap">{group.nameZh || group.code}</h3>
                         <div className="flex min-w-0 flex-1 flex-wrap items-center justify-center gap-1 text-[0.72rem] font-bold text-slate-600">
                           {group.teams.map((team) => (
-                            <span key={team} className="inline-flex flex-col items-center gap-0.5 rounded-lg bg-white px-1.5 py-1 whitespace-nowrap leading-none">
+                            <span key={team} className="inline-flex flex-col items-center gap-0.5 rounded-sm bg-white px-4 py-1 whitespace-nowrap leading-none">
                               <Flag code={team} />
                               <span>{team}</span>
                             </span>
