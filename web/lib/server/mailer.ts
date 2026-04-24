@@ -1,4 +1,6 @@
 import nodemailer from 'nodemailer';
+import { APP_NAME } from "@/lib/constants";
+
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST ?? 'smtp.gmail.com',
@@ -11,7 +13,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const FROM = process.env.SMTP_FROM ?? process.env.SMTP_USER ?? 'noreply@example.com';
-const APP_NAME_MAIL = process.env.NEXT_PUBLIC_APP_NAME ?? 'ITTF Rankings';
+const APP_NAME_MAIL = process.env.NEXT_PUBLIC_APP_NAME ?? APP_NAME;
 
 export async function sendVerificationCode(to: string, code: string): Promise<void> {
   await transporter.sendMail({
