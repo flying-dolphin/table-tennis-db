@@ -59,6 +59,59 @@ type EventChampion = {
   players: ChampionPlayer[];
 };
 
+type TeamTie = {
+  tieId: string;
+  stage: string;
+  stageZh: string | null;
+  round: string;
+  roundZh: string | null;
+  teamA: { code: string; name: string; nameZh: string | null };
+  teamB: { code: string; name: string; nameZh: string | null };
+  scoreA: number;
+  scoreB: number;
+  winnerCode: string | null;
+  rubbers: Array<{
+    matchId: number;
+    matchScore: string | null;
+    winnerSide: string | null;
+    sides: Array<{ sideNo: number; isWinner: boolean; players: SidePlayer[] }>;
+  }>;
+};
+
+type StageStanding = {
+  rank: number;
+  teamCode: string;
+  teamName: string;
+  teamNameZh: string | null;
+};
+
+type RoundRobinStage = {
+  code: string;
+  name: string;
+  nameZh: string | null;
+  format: "group_round_robin" | "round_robin";
+  groups?: Array<{
+    code: string;
+    nameZh: string | null;
+    teams: string[];
+    ties: TeamTie[];
+    standings?: StageStanding[];
+  }>;
+  ties?: TeamTie[];
+  standings?: StageStanding[];
+};
+
+type EventRoundRobinView = {
+  mode: "staged_round_robin";
+  stages: RoundRobinStage[];
+  finalStandings: StageStanding[];
+  podium: {
+    champion: StageStanding | null;
+    runnerUp: StageStanding | null;
+    thirdPlace: StageStanding | null;
+  };
+};
+
 type EventDetail = {
   event: {
     eventId: number;
@@ -86,9 +139,13 @@ type EventDetail = {
     code: string;
     champion: EventChampion | null;
     bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
+    roundRobinView: EventRoundRobinView | null;
+    presentationMode: "knockout" | "staged_round_robin";
   }>;
   champion: EventChampion | null;
   bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
+  roundRobinView: EventRoundRobinView | null;
+  presentationMode: "knockout" | "staged_round_robin";
 };
 
 type EventDetailResponse = {
@@ -127,7 +184,10 @@ function dedupeCountries(players: Array<{ countryCode: string | null }>) {
   return Array.from(new Set(players.map((player) => player.countryCode).filter(Boolean))) as string[];
 }
 
-function sideName(side: BracketMatch["sides"][number]) {
+function sideName(side: BracketMatch["sides"][number], isXT: boolean = false) {
+  if (isXT && side.players.length > 0) {
+    return side.players[0].countryCode || side.players.map(displayPlayerName).join(" / ");
+  }
   return side.players.map(displayPlayerName).join(" / ");
 }
 
@@ -137,7 +197,11 @@ function subEventLabel(subEvent: { code: string; nameZh: string | null } | undef
 
 function isDoublesSubEvent(code: string, label: string) {
   const text = `${code} ${label}`.toUpperCase();
-  return code === "WD" || code === "MD" || code === "XD" || text.includes("双打") || text.includes("MIXED");
+  return code === "WD" || code === "MD" || code === "XD" || code === "XT" || text.includes("双打") || text.includes("MIXED");
+}
+
+function isXTSubEvent(code: string, label: string) {
+  return code === "XT";
 }
 
 function isTeamSubEvent(code: string, label: string) {
@@ -156,7 +220,7 @@ function truncateChineseName(name: string, maxChars: number = 4) {
       count++;
     }
     result += char;
-    if (count >= maxChars) break;
+    if (count >= maxChars - 1) break;
   }
   return result + "...";
 }
@@ -195,30 +259,51 @@ function EventHeader({
   onBack: () => void;
 }) {
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_right,#d7e6ff_0%,rgba(215,230,255,0.18)_48%,transparent_72%)] px-4 pb-3 pt-4">
+    <section className="relative overflow-hidden bg-[#f0f4ff] px-4 pb-4 pt-4 ">
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/header_bg.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center right",
+          opacity: 0.7,
+        }}
+      />
       <div className="relative z-10">
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-start justify-between gap-2">
           <button
             type="button"
             onClick={onBack}
-            className="grid h-9 w-9 place-items-center rounded-full text-slate-900 transition-colors hover:bg-black/5"
+            className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center text-slate-900 transition-colors"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={26} strokeWidth={2} />
           </button>
-          <div className="min-w-0 flex-1 text-center">
-            <h1 className="line-clamp-1 text-[1.25rem] font-bold leading-tight text-slate-950">
+
+          <div className="min-w-0 flex-1 text-center pt-1.5">
+            <h1 className="line-clamp-2 text-[1.2rem] font-bold leading-snug text-slate-950">
               {displayName(data.event.name, data.event.nameZh)}
             </h1>
+            <div className="mt-2 text-[0.88rem] font-medium text-[#7d8fae]">
+              <span>{displayDateRange(data.event.startDate, data.event.endDate).replace(" 至 ", " - ")}{data.event.location ? ` · ${data.event.location}` : ""}</span>
+            </div>
           </div>
-          <div className="h-9 w-9" />
+
+          <button
+            type="button"
+            className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center text-slate-900 transition-colors"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" x2="21" y1="14" y2="3" />
+            </svg>
+          </button>
         </div>
 
-        <div className="mt-1 flex items-center justify-center gap-2 text-[0.9rem] font-medium text-slate-500">
-          <span>{displayDateRange(data.event.startDate, data.event.endDate)}</span>
-        </div>
-
-        <div className="relative z-10 mt-3 pb-1">
+        <div className="relative z-10 mt-7 pb-1">
+          {/* <div className="flex items-start"> */}
           <SubEventTabs subEvents={subEvents} currentSubEvent={currentSubEvent} onSelect={onSelect} />
+          {/* </div> */}
         </div>
       </div>
     </section>
@@ -235,8 +320,8 @@ function SubEventTabs({
   onSelect: (code: string) => void;
 }) {
   return (
-    <div className="-mb-px px-1">
-      <div className="flex gap-2 overflow-x-auto no-scrollbar rounded-[1.65rem] bg-white/60 p-1.5 shadow-[0_8px_20px_rgba(165,178,196,0.12)] ring-1 ring-white/80 backdrop-blur">
+    <div className="px-0.5">
+      <div className="flex gap-1.5 overflow-x-auto no-scrollbar rounded-full bg-white px-1 py-[3px] shadow-[0_2px_10px_rgba(150,170,200,0.14)] justify-start">
         {subEvents.map((subEvent) => {
           const active = currentSubEvent === subEvent.code;
           return (
@@ -246,10 +331,10 @@ function SubEventTabs({
               disabled={subEvent.disabled}
               onClick={() => onSelect(subEvent.code)}
               className={cn(
-                "flex min-h-12 shrink-0 items-center justify-center rounded-[1.15rem] px-5 text-[1rem] font-black transition disabled:opacity-30",
+                "flex h-[28px] shrink-0 items-center justify-center rounded-full px-4 text-base transition disabled:opacity-30",
                 active
-                  ? "bg-[#4a86f7] text-white shadow-[0_8px_22px_rgba(74,134,247,0.28)]"
-                  : "text-slate-600 hover:bg-white/60",
+                  ? "bg-[#3372f5] text-white font-bold shadow-[0_1px_6px_rgba(51,114,245,0.28)]"
+                  : "text-slate-500 font-medium hover:text-slate-800",
               )}
             >
               {subEvent.nameZh || subEvent.code}
@@ -281,10 +366,11 @@ function ChampionBanner({
     : [];
   const isTeam = isTeamSubEvent(subEvent?.code ?? "", label);
   const isDoubles = !isTeam && isDoublesSubEvent(subEvent?.code ?? "", label);
+  const isXT = isXTSubEvent(subEvent?.code ?? "", label);
   const championPath = findChampionMatch(rounds, championNames);
   const isTeamHeadline = isTeam
     ? countries[0] || champion?.championCountryCode || championNames[0] || "冠军待补"
-    : championNames.map((name) => truncateChineseName(name, 3)).join(" / ") || "冠军待补";
+    : championNames.map((name) => truncateChineseName(name, 4)).join(" / ") || "冠军待补";
   const subtitle = `${label}冠军`;
 
   return (
@@ -294,7 +380,7 @@ function ChampionBanner({
         <div className="absolute -left-6 bottom-0 h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.85),transparent_72%)]" />
         <div className="absolute right-0 top-0 h-full w-36 bg-[radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.38),transparent_58%)]" />
         <div className="relative flex min-h-[64px] sm:min-h-[72px] items-center gap-3">
-          {champion?.players[0] && !isDoubles && !isTeam ? (
+          {champion?.players[0] && !isDoubles && !isTeam && !isXT ? (
             <PlayerAvatar
               player={champion.players[0]}
               size="lg"
@@ -304,7 +390,7 @@ function ChampionBanner({
 
           <div className="flex min-w-0 flex-1 flex-col items-center justify-center">
             <div className="flex items-center gap-1 text-[#466cb9]">
-              {!isDoubles && !isTeam ? (
+              {!isDoubles && !isTeam && !isXT ? (
                 <Image
                   src="/images/wheatear_left.png"
                   alt=""
@@ -314,7 +400,7 @@ function ChampionBanner({
                 />
               ) : null}
               <p className="whitespace-nowrap text-[0.85rem] font-bold tracking-[0.01em]">{subtitle}</p>
-              {!isDoubles && !isTeam ? (
+              {!isDoubles && !isTeam && !isXT ? (
                 <Image
                   src="/images/wheatear_right.png"
                   alt=""
@@ -326,9 +412,9 @@ function ChampionBanner({
             </div>
 
             <div className="mt-0.5 flex items-center justify-center gap-2">
-              {isTeam && countries[0] ? <Flag code={countries[0]} className="shrink-0 scale-[1.2]" /> : null}
-              <p className="truncate text-[1.45rem] font-black leading-none text-slate-950 sm:text-[1.7rem]">{isTeamHeadline}</p>
-              {!isTeam && countries[0] ? <Flag code={countries[0]} className="mb-0.5 shrink-0 scale-[1.05]" /> : null}
+              {(isTeam || isXT) && countries[0] ? <Flag code={countries[0]} className="shrink-0 scale-[1.2]" /> : null}
+              <p className="truncate text-[1.45rem] font-black leading-none text-slate-950 sm:text-[1.7rem]">{isXT && countries.length > 0 ? countries.join(" / ") : isTeamHeadline}</p>
+              {!isTeam && !isXT && countries[0] ? <Flag code={countries[0]} className="mb-0.5 shrink-0 scale-[1.05]" /> : null}
             </div>
           </div>
         </div>
@@ -347,50 +433,48 @@ function ChampionBanner({
 
 function ViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMode) => void }) {
   return (
-    <div className="pt-6">
-      <div className="flex justify-between border-b border-slate-200/80 px-8">
-        <button
-          type="button"
-          onClick={() => onChange("schedule")}
+    <div className="flex justify-between border-b border-slate-200/80 px-8">
+      <button
+        type="button"
+        onClick={() => onChange("schedule")}
+        className={cn(
+          "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
+          mode === "schedule" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
+        )}
+      >
+        <List size={16} />
+        赛程列表
+        <span
+          aria-hidden="true"
           className={cn(
-            "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
-            mode === "schedule" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+            mode === "schedule" ? "bg-[#2d6cf6]" : "bg-transparent",
           )}
-        >
-          <List size={16} />
-          赛程列表
-          <span
-            aria-hidden="true"
-            className={cn(
-              "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
-              mode === "schedule" ? "bg-[#2d6cf6]" : "bg-transparent",
-            )}
-          />
-        </button>
-        <button
-          type="button"
-          onClick={() => onChange("draw")}
+        />
+      </button>
+      <button
+        type="button"
+        onClick={() => onChange("draw")}
+        className={cn(
+          "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
+          mode === "draw" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
+        )}
+      >
+        <FolderTree size={20} />
+        完整赛事图
+        <span
+          aria-hidden="true"
           className={cn(
-            "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
-            mode === "draw" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+            mode === "draw" ? "bg-[#2d6cf6]" : "bg-transparent",
           )}
-        >
-          <FolderTree size={20} />
-          完整赛事图
-          <span
-            aria-hidden="true"
-            className={cn(
-              "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
-              mode === "draw" ? "bg-[#2d6cf6]" : "bg-transparent",
-            )}
-          />
-        </button>
-      </div>
+        />
+      </button>
     </div>
   );
 }
 
-function MatchListCard({ match, matchIndex }: { match: BracketMatch; matchIndex: number }) {
+function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; matchIndex: number; isXT?: boolean }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
 
   return (
@@ -417,7 +501,7 @@ function MatchListCard({ match, matchIndex }: { match: BracketMatch; matchIndex:
             >
               <Flag code={dedupeCountries(side.players)[0] ?? null} className="scale-[1.55] origin-left shrink-0" />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-[1.08rem] font-black text-slate-900">{sideName(side)}</p>
+                <p className="truncate text-[1.08rem] font-black text-slate-900">{sideName(side, isXT)}</p>
               </div>
             </div>
           ))}
@@ -452,7 +536,7 @@ function MatchListCard({ match, matchIndex }: { match: BracketMatch; matchIndex:
   );
 }
 
-function ScheduleView({ rounds }: { rounds: EventDetail["bracket"] }) {
+function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?: boolean }) {
   if (rounds.length === 0) {
     return (
       <div className="pt-5">
@@ -474,7 +558,7 @@ function ScheduleView({ rounds }: { rounds: EventDetail["bracket"] }) {
             </div>
             <div className="space-y-4">
               {round.matches.map((match, index) => (
-                <MatchListCard key={match.matchId} match={match} matchIndex={index + 1} />
+                <MatchListCard key={match.matchId} match={match} matchIndex={index + 1} isXT={isXT} />
               ))}
             </div>
           </section>
@@ -484,7 +568,7 @@ function ScheduleView({ rounds }: { rounds: EventDetail["bracket"] }) {
   );
 }
 
-function DrawMatchCard({ match, isChampionPath }: { match: BracketMatch; isChampionPath: boolean }) {
+function DrawMatchCard({ match, isChampionPath, isXT }: { match: BracketMatch; isChampionPath: boolean; isXT?: boolean }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
 
@@ -502,7 +586,7 @@ function DrawMatchCard({ match, isChampionPath }: { match: BracketMatch; isChamp
           <div key={side.sideNo} className="grid grid-cols-[16px_1fr_auto] items-center gap-2">
             <Flag code={dedupeCountries(side.players)[0] ?? null} className="scale-[1.05] origin-left" />
             <p className={cn("truncate text-[0.95rem] font-bold", side.isWinner ? "text-slate-950" : "text-slate-600")}>
-              {sideName(side)}
+              {sideName(side, isXT)}
             </p>
             <span className={cn("font-numeric text-[1.9rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
               {match.matchScore?.split("-")[side.sideNo - 1] ?? "-"}
@@ -518,10 +602,12 @@ function DrawView({
   rounds,
   selectedSubEvent,
   champion,
+  isXT,
 }: {
   rounds: EventDetail["bracket"];
   selectedSubEvent: string;
   champion: EventChampion | null;
+  isXT?: boolean;
 }) {
   const [search, setSearch] = React.useState("");
   const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
@@ -585,8 +671,8 @@ function DrawView({
               <div key={round.code} className="relative flex w-[176px] shrink-0 flex-col justify-center" style={{ minHeight: `${Math.max(round.matches.length, 1) * 132}px` }}>
                 <div className="space-y-5">
                   {round.matches.map((match) => {
-                    const isChampionPath = highlightedNames.length > 0 && match.sides.some((side) => side.isWinner && highlightedNames.every((name) => sideName(side).includes(name)));
-                    return <DrawMatchCard key={match.matchId} match={match} isChampionPath={isChampionPath} />;
+                    const isChampionPath = highlightedNames.length > 0 && match.sides.some((side) => side.isWinner && highlightedNames.every((name) => sideName(side, isXT).includes(name)));
+                    return <DrawMatchCard key={match.matchId} match={match} isChampionPath={isChampionPath} isXT={isXT} />;
                   })}
                 </div>
                 {roundIndex < filteredRounds.length - 1 ? (
@@ -607,6 +693,146 @@ function DrawView({
             ) : null}
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function PodiumCard({
+  title,
+  standing,
+}: {
+  title: string;
+  standing: StageStanding | null;
+}) {
+  return (
+    <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+      <p className="text-[0.92rem] font-bold text-slate-500">{title}</p>
+      <div className="mt-3 flex items-center gap-3">
+        <Flag code={standing?.teamCode ?? null} className="scale-[1.35]" />
+        <p className="text-[1.2rem] font-black text-slate-950">{standing?.teamNameZh || standing?.teamName || "待补"}</p>
+      </div>
+    </div>
+  );
+}
+
+function TeamTieCard({ tie }: { tie: TeamTie }) {
+  return (
+    <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+      <div className="flex items-center justify-between gap-3 text-[0.92rem] font-bold text-slate-500">
+        <span>{tie.roundZh || tie.round || "循环赛"}</span>
+        <span>团体赛</span>
+      </div>
+      <div className="mt-4 grid grid-cols-[1fr_auto] gap-3">
+        <div className="space-y-3">
+          {[
+            { team: tie.teamA, score: tie.scoreA, winner: tie.winnerCode === tie.teamA.code },
+            { team: tie.teamB, score: tie.scoreB, winner: tie.winnerCode === tie.teamB.code },
+          ].map((item) => (
+            <div key={item.team.code} className="flex items-center gap-3 rounded-[1rem] bg-[#f6f8fd] px-3 py-3">
+              <Flag code={item.team.code} className="scale-[1.35] origin-left shrink-0" />
+              <p className={cn("text-[1.05rem] font-black", item.winner ? "text-slate-950" : "text-slate-600")}>
+                {item.team.nameZh || item.team.name}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="flex min-w-[62px] flex-col items-end justify-center gap-4 font-numeric text-[2rem] font-black leading-none tabular-nums">
+          <span className={tie.winnerCode === tie.teamA.code ? "text-[#2d6cf6]" : "text-slate-400"}>{tie.scoreA}</span>
+          <span className={tie.winnerCode === tie.teamB.code ? "text-[#2d6cf6]" : "text-slate-400"}>{tie.scoreB}</span>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tie.rubbers.map((rubber, index) => (
+          <Link
+            key={rubber.matchId}
+            href={route(`/matches/${rubber.matchId}`)}
+            className="rounded-full bg-[#eef4ff] px-3 py-1.5 text-[0.92rem] font-bold text-[#2d6cf6] transition hover:bg-[#dfeaff]"
+          >
+            第{index + 1}盘 {rubber.matchScore ?? "比分待补"}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FinalStandingsView({ standings }: { standings: StageStanding[] }) {
+  return (
+    <div className="rounded-[1.6rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+      <h3 className="text-[1.25rem] font-black text-slate-950">最终排名</h3>
+      <div className="mt-4 space-y-3">
+        {standings.map((standing) => (
+          <div key={standing.teamCode} className="flex items-center gap-3 rounded-[1rem] bg-[#f6f8fd] px-3 py-3">
+            <div className="grid h-9 w-9 place-items-center rounded-full bg-[#2d6cf6] text-[1rem] font-black text-white">
+              {standing.rank}
+            </div>
+            <Flag code={standing.teamCode} className="scale-[1.35]" />
+            <p className="text-[1.02rem] font-black text-slate-900">{standing.teamNameZh || standing.teamName}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function RoundRobinView({ view }: { view: EventRoundRobinView }) {
+  return (
+    <div className="pb-10 pt-5">
+      <section>
+        <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+        <div className="grid gap-3">
+          <PodiumCard title="冠军" standing={view.podium.champion} />
+          <PodiumCard title="亚军" standing={view.podium.runnerUp} />
+          <PodiumCard title="季军" standing={view.podium.thirdPlace} />
+        </div>
+      </section>
+
+      <div className="mt-6 space-y-6">
+        {view.stages.map((stage) => (
+          <section key={stage.code}>
+            <div className="mb-3 flex items-center justify-between px-1">
+              <h2 className="text-[1.3rem] font-black text-slate-950">{stage.nameZh || stage.name}</h2>
+              <span className="text-[0.92rem] font-medium text-slate-500">
+                {stage.format === "group_round_robin" ? "分组循环赛" : "循环赛"}
+              </span>
+            </div>
+            {stage.groups ? (
+              <div className="space-y-4">
+                {stage.groups.map((group) => (
+                  <div key={group.code} className="rounded-[1.6rem] bg-[#f7f9fd] p-4 ring-1 ring-[#e8eef9]">
+                    <div className="mb-3 flex items-center justify-between gap-3">
+                      <h3 className="text-[1.08rem] font-black text-slate-900">{group.nameZh || group.code}</h3>
+                      <div className="flex flex-wrap justify-end gap-2 text-[0.88rem] font-bold text-slate-500">
+                        {group.teams.map((team) => (
+                          <span key={team} className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1">
+                            <Flag code={team} />
+                            {team}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      {group.ties.map((tie) => (
+                        <TeamTieCard key={tie.tieId} tie={tie} />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {(stage.ties ?? []).map((tie) => (
+                  <TeamTieCard key={tie.tieId} tie={tie} />
+                ))}
+              </div>
+            )}
+          </section>
+        ))}
+      </div>
+
+      <div className="mt-6">
+        <FinalStandingsView standings={view.finalStandings} />
       </div>
     </div>
   );
@@ -662,7 +888,10 @@ function EventDetailContent() {
   const currentDetail = data.subEventDetails.find((detail) => detail.code === currentSubEvent);
   const currentBracket = currentDetail?.bracket ?? [];
   const currentChampion = currentDetail?.champion ?? null;
+  const currentRoundRobinView = currentDetail?.roundRobinView ?? data.roundRobinView ?? null;
+  const currentPresentationMode = currentDetail?.presentationMode ?? data.presentationMode;
   const currentSubEventMeta = data.subEvents.find((subEvent) => subEvent.code === currentSubEvent);
+  const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
 
   return (
     <main className="mx-auto min-h-screen max-w-lg bg-[#f8fafc] pb-24">
@@ -674,14 +903,20 @@ function EventDetailContent() {
         onBack={handleBack}
       />
 
-      <div className="relative z-10 -mt-3 rounded-t-[2.5rem] bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02]">
+      <div className="relative z-10 -mt-3 rounded-sm bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02]">
         <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
-        <ViewTabs mode={viewMode} onChange={setViewMode} />
         <div className="mt-2">
-          {viewMode === "schedule" ? (
-            <ScheduleView rounds={currentBracket} />
+          {currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
+            <RoundRobinView view={currentRoundRobinView} />
           ) : (
-            <DrawView rounds={currentBracket} selectedSubEvent={currentSubEvent} champion={currentChampion} />
+            <>
+              <ViewTabs mode={viewMode} onChange={setViewMode} />
+              {viewMode === "schedule" ? (
+                <ScheduleView rounds={currentBracket} isXT={isXT} />
+              ) : (
+                <DrawView rounds={currentBracket} selectedSubEvent={currentSubEvent} champion={currentChampion} isXT={isXT} />
+              )}
+            </>
           )}
         </div>
       </div>

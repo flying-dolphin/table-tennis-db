@@ -460,6 +460,10 @@ export function getEvents(options?: {
 
   where.push(...ageGroupWhere);
 
+  where.push(
+    "NOT (LOWER(e.name) LIKE '%男子%' OR LOWER(COALESCE(e.name_zh, '')) LIKE '%男子%') OR (LOWER(e.name) LIKE '%女子%' OR LOWER(COALESCE(e.name_zh, '')) LIKE '%女子%')"
+  );
+
   const whereClause = where.join(' AND ');
   const totalRow = db
     .prepare(
@@ -670,42 +674,43 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
         preferredDefault;
 
   const championForSubEvent = (subEventCode: string): EventChampion | null => {
-    if (override && subEventCode === override.sub_event_type_code) {
-      return {
-        championName: override.podium.champion,
-        championCountryCode: override.podium.champion,
-        players: [],
-      };
-    }
-
     const se = subEvents.find((item) => item.code === subEventCode);
-    if (!se || se.championPlayerIds.length === 0) return null;
-    const playerIds = se.championPlayerIds;
-    const players = db
-      .prepare(
-        `
-          SELECT
-            player_id AS playerId,
-            slug,
-            name,
-            name_zh AS nameZh,
-            country_code AS countryCode,
-            REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
-          FROM players
-          WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
-        `,
-      )
-      .all(...playerIds) as Array<{
-      playerId: number;
-      slug: string;
-      name: string;
-      nameZh: string | null;
-      countryCode: string | null;
-      avatarFile: string | null;
-    }>;
+    const playerIds = se?.championPlayerIds ?? [];
+    const players =
+      playerIds.length > 0
+        ? (db
+            .prepare(
+              `
+                SELECT
+                  player_id AS playerId,
+                  slug,
+                  name,
+                  name_zh AS nameZh,
+                  country_code AS countryCode,
+                  REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+                FROM players
+                WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
+              `,
+            )
+            .all(...playerIds) as Array<{
+            playerId: number;
+            slug: string;
+            name: string;
+            nameZh: string | null;
+            countryCode: string | null;
+            avatarFile: string | null;
+          }>)
+        : [];
+
+    const overrideChampionCountry =
+      override && subEventCode === override.sub_event_type_code ? override.podium.champion : null;
+
+    if (!se && !overrideChampionCountry) return null;
+    if (!se?.championName && players.length === 0 && !overrideChampionCountry) return null;
+
     return {
-      championName: se.championName,
-      championCountryCode: se.championCountryCode,
+      championName: se?.championName ?? overrideChampionCountry,
+      championCountryCode: se?.championCountryCode ?? overrideChampionCountry,
       players,
     };
   };
