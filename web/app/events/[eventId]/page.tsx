@@ -592,35 +592,63 @@ function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?:
   );
 }
 
-function DrawMatchCard({ match, isChampionPath, isXT }: { match: BracketMatch; isChampionPath: boolean; isXT?: boolean }) {
-  const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
+function DrawMatchCard({
+  match,
+  isChampionPath,
+  isXT,
+  matchNumber,
+}: {
+  match: BracketMatch;
+  isChampionPath: boolean;
+  isXT?: boolean;
+  matchNumber?: number;
+}) {
+  const [sideA, sideB] = [...match.sides].sort((a, b) => a.sideNo - b.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
 
   return (
-    <Link
-      href={route(`/matches/${match.matchId}`)}
-      className={cn(
-        "relative block w-[176px] rounded-[1.1rem] border bg-white px-3 py-3 shadow-[0_10px_22px_rgba(180,189,203,0.14)] transition hover:-translate-y-0.5",
-        isChampionPath ? "border-[#3f79f3] shadow-[0_10px_26px_rgba(63,121,243,0.18)]" : "border-[#d8e1ef]",
+    <div className="relative">
+      {matchNumber !== undefined && (
+        <span className="absolute right-full top-1/2 mr-1.5 w-4 -translate-y-1/2 text-right text-[0.72rem] font-bold text-[#9bb3e0]">
+          {matchNumber}
+        </span>
       )}
-    >
-      {isChampionPath ? <span className="absolute -right-2 top-9 h-5 w-5 rounded-full bg-[#3f79f3] ring-4 ring-white" /> : null}
-      <div className="space-y-2.5">
-        {sides.map((side) => (
-          <div key={side.sideNo} className="grid grid-cols-[16px_1fr_auto] items-center gap-2">
-            <Flag code={dedupeCountries(side.players)[0] ?? null} className="scale-[1.05] origin-left" />
-            <p className={cn("truncate text-[0.95rem] font-bold", side.isWinner ? "text-slate-950" : "text-slate-600")}>
-              {sideName(side, isXT)}
-            </p>
-            <span className={cn("font-numeric text-[1.9rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-              {match.matchScore?.split("-")[side.sideNo - 1] ?? "-"}
-            </span>
-          </div>
-        ))}
-      </div>
-    </Link>
+      <Link
+        href={route(`/matches/${match.matchId}`)}
+        className={cn(
+          "block rounded-[0.85rem] border bg-white px-2.5 py-2.5 shadow-sm transition active:scale-[0.99]",
+          isChampionPath ? "border-[#3a74f2] shadow-[0_4px_14px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
+        )}
+      >
+        <div className="space-y-2">
+          {sides.map((side) => {
+            const score = match.matchScore?.split("-")[side.sideNo - 1] ?? "-";
+            const flag = dedupeCountries(side.players)[0] ?? null;
+            return (
+              <div key={side.sideNo} className="flex items-center gap-1.5">
+                <Flag code={flag} className="shrink-0" />
+                <p className={cn("min-w-0 flex-1 truncate text-[0.85rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-400")}>
+                  {sideName(side, isXT)}
+                </p>
+                <span className={cn("font-numeric shrink-0 text-[1.5rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                  {score}
+                </span>
+                <span className="flex w-4 shrink-0 items-center justify-center">
+                  {side.isWinner ? <CheckCircle2 size={13} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </Link>
+    </div>
   );
 }
+
+const DRAW_CARD_W = 162;
+const DRAW_CARD_H = 76;
+const DRAW_COL_GAP = 36;
+const DRAW_NUM_SPACE = 26;
 
 function DrawView({
   rounds,
@@ -659,63 +687,136 @@ function DrawView({
     );
   }
 
+  // Data is ordered latest-first (Final → SF → R1); reverse for left-to-right bracket display
+  const displayRounds = React.useMemo(() => [...filteredRounds].reverse(), [filteredRounds]);
+
+  const firstRoundCount = displayRounds[0]?.matches.length ?? 1;
+  const slotH0 = Math.max(DRAW_CARD_H + 14, 96);
+  const totalH = firstRoundCount * slotH0;
+
+  const getCardInfo = (rIdx: number, mIdx: number) => {
+    const count = displayRounds[rIdx]?.matches.length ?? 1;
+    const slotH = totalH / count;
+    return {
+      top: mIdx * slotH + (slotH - DRAW_CARD_H) / 2,
+      centerY: mIdx * slotH + slotH / 2,
+      left: DRAW_NUM_SPACE + rIdx * (DRAW_CARD_W + DRAW_COL_GAP),
+    };
+  };
+
+  const champBoxW = 108;
+  const champVisible = highlightedNames.length > 0;
+  const totalW =
+    DRAW_NUM_SPACE +
+    displayRounds.length * (DRAW_CARD_W + DRAW_COL_GAP) +
+    (champVisible ? champBoxW + 8 : 0);
+
   return (
     <div className="pb-10 pt-5">
-      <div className="rounded-[1.8rem] bg-white/86 p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <label className="flex min-h-14 flex-1 items-center gap-3 rounded-[1.15rem] bg-[#f3f6fb] px-4 text-slate-500">
-            <Search size={21} />
-            <input
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-              placeholder="搜索选手（如：孙颖莎）"
-              className="w-full bg-transparent text-[1.05rem] outline-none placeholder:text-slate-400"
-            />
-          </label>
-          <div className="inline-flex min-h-14 items-center gap-2 rounded-[1.15rem] bg-[#f3f6ff] px-4 text-[1.02rem] font-bold text-[#3873f5]">
-            <Trophy size={18} />
-            当前项目 {selectedSubEvent}
-          </div>
+      <div className="overflow-x-auto pb-2">
+        {/* Round column headers */}
+        <div className="mb-3 flex" style={{ paddingLeft: DRAW_NUM_SPACE, minWidth: totalW }}>
+          {displayRounds.map((round) => (
+            <div
+              key={round.code}
+              className="shrink-0 text-center"
+              style={{ width: DRAW_CARD_W, marginRight: DRAW_COL_GAP }}
+            >
+              <p className="text-[1.05rem] font-black text-slate-900">{round.label}</p>
+              <p className="mt-0.5 text-[0.78rem] font-medium text-slate-400">{round.matches.length} 场</p>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-4 rounded-[1.2rem] bg-[#f7f9fd] px-3 py-3">
-          <div className="grid min-w-[720px] grid-cols-[repeat(var(--round-count),minmax(140px,1fr))] gap-4" style={{ ["--round-count" as string]: String(filteredRounds.length) }}>
-            {filteredRounds.map((round) => (
-              <div key={round.code} className="text-center">
-                <p className="text-[1.1rem] font-black text-slate-900">{round.label}</p>
-                <p className="mt-1 text-sm text-slate-400">{round.matches.length} 场</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Bracket area */}
+        <div className="relative" style={{ height: totalH, minWidth: totalW }}>
+          {/* SVG connector lines */}
+          <svg
+            className="pointer-events-none absolute inset-0 overflow-visible"
+            style={{ width: totalW, height: totalH }}
+          >
+            {displayRounds.map((_, rIdx) => {
+              if (rIdx >= displayRounds.length - 1) return null;
+              const nextRound = displayRounds[rIdx + 1];
+              return nextRound.matches.map((__, nMIdx) => {
+                const f1 = getCardInfo(rIdx, nMIdx * 2);
+                const f2 =
+                  nMIdx * 2 + 1 < (displayRounds[rIdx]?.matches.length ?? 0)
+                    ? getCardInfo(rIdx, nMIdx * 2 + 1)
+                    : null;
+                const fn = getCardInfo(rIdx + 1, nMIdx);
+                const xR = f1.left + DRAW_CARD_W;
+                const xM = xR + DRAW_COL_GAP / 2;
+                const xL = fn.left;
+                return (
+                  <g key={`conn-${rIdx}-${nMIdx}`}>
+                    <line x1={xR} y1={f1.centerY} x2={xM} y2={f1.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                    {f2 && (
+                      <>
+                        <line x1={xR} y1={f2.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                        <line x1={xM} y1={f1.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                      </>
+                    )}
+                    <line x1={xM} y1={fn.centerY} x2={xL} y2={fn.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                  </g>
+                );
+              });
+            })}
+            {/* Connector from final to champion box */}
+            {champVisible && displayRounds.length > 0 && (() => {
+              const lastPos = getCardInfo(displayRounds.length - 1, 0);
+              const x2 = DRAW_NUM_SPACE + displayRounds.length * (DRAW_CARD_W + DRAW_COL_GAP);
+              return <line x1={lastPos.left + DRAW_CARD_W} y1={lastPos.centerY} x2={x2} y2={lastPos.centerY} stroke="#c5d8f2" strokeWidth={1.5} />;
+            })()}
+          </svg>
 
-        <div className="mt-5 overflow-x-auto pb-2">
-          <div className="flex min-w-max items-start gap-8 pr-4">
-            {filteredRounds.map((round, roundIndex) => (
-              <div key={round.code} className="relative flex w-[176px] shrink-0 flex-col justify-center" style={{ minHeight: `${Math.max(round.matches.length, 1) * 132}px` }}>
-                <div className="space-y-5">
-                  {round.matches.map((match) => {
-                    const isChampionPath = highlightedNames.length > 0 && match.sides.some((side) => side.isWinner && highlightedNames.every((name) => sideName(side, isXT).includes(name)));
-                    return <DrawMatchCard key={match.matchId} match={match} isChampionPath={isChampionPath} isXT={isXT} />;
-                  })}
+          {/* Match cards */}
+          {displayRounds.map((round, rIdx) =>
+            round.matches.map((match, mIdx) => {
+              const { top, left } = getCardInfo(rIdx, mIdx);
+              const isChampionPath =
+                highlightedNames.length > 0 &&
+                match.sides.some((s) => s.isWinner && highlightedNames.every((n) => sideName(s, isXT).includes(n)));
+              return (
+                <div key={match.matchId} className="absolute" style={{ top, left, width: DRAW_CARD_W }}>
+                  <DrawMatchCard
+                    match={match}
+                    isChampionPath={isChampionPath}
+                    isXT={isXT}
+                    matchNumber={rIdx === 0 ? mIdx + 1 : undefined}
+                  />
                 </div>
-                {roundIndex < filteredRounds.length - 1 ? (
-                  <div className="pointer-events-none absolute -right-5 top-1/2 h-px w-5 bg-[#8cb0ff]" />
-                ) : null}
-              </div>
-            ))}
+              );
+            }),
+          )}
 
-            {highlightedNames.length > 0 ? (
-              <div className="flex shrink-0 flex-col items-center justify-center self-center rounded-[1.3rem] border border-[#efcf8a] bg-[linear-gradient(180deg,#fff9e8_0%,#fffdf8_100%)] px-5 py-6 shadow-[0_12px_28px_rgba(218,187,112,0.16)]">
-                <Crown size={24} className="text-[#d6a129]" />
-                <div className="mt-3 flex items-center gap-2">
-                  <Flag code={champion?.championCountryCode ?? dedupeCountries(champion?.players ?? [])[0] ?? null} className="scale-[1.25]" />
-                  <p className="text-[1.35rem] font-black text-slate-950">{highlightedNames.join(" / ")}</p>
+          {/* Champion box */}
+          {champVisible && displayRounds.length > 0 && (() => {
+            const lastPos = getCardInfo(displayRounds.length - 1, 0);
+            return (
+              <div
+                className="absolute flex flex-col items-center justify-center rounded-[1.1rem] border border-[#e8c96a] bg-[linear-gradient(160deg,#fff9e3_0%,#fffef8_100%)] px-3 py-4 shadow-[0_8px_22px_rgba(218,187,112,0.18)]"
+                style={{
+                  left: DRAW_NUM_SPACE + displayRounds.length * (DRAW_CARD_W + DRAW_COL_GAP),
+                  top: lastPos.centerY - 68,
+                  width: champBoxW,
+                }}
+              >
+                <Crown size={20} className="text-[#d4a017]" />
+                <div className="mt-1.5 flex items-center justify-center gap-1.5">
+                  <Flag
+                    code={champion?.championCountryCode ?? dedupeCountries(champion?.players ?? [])[0] ?? null}
+                    className="scale-[1.2]"
+                  />
                 </div>
-                <p className="mt-2 text-[1rem] font-medium text-slate-500">冠军</p>
+                <p className="mt-1 text-center text-[1rem] font-black leading-tight text-slate-950">
+                  {highlightedNames.join(" / ")}
+                </p>
+                <Trophy size={17} className="mt-2 text-[#d4a017]" />
+                <p className="mt-0.5 text-[0.75rem] font-bold text-slate-500">冠军</p>
               </div>
-            ) : null}
-          </div>
+            );
+          })()}
         </div>
       </div>
     </div>
