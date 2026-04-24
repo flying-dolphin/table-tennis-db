@@ -25,6 +25,57 @@ function parseChampionIds(value: string | null) {
     .filter((item) => Number.isFinite(item));
 }
 
+function loadPlayersByIds(playerIds: number[]): ChampionPlayer[] {
+  if (playerIds.length === 0) return [];
+
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          player_id AS playerId,
+          slug,
+          name,
+          name_zh AS nameZh,
+          country_code AS countryCode,
+          REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+        FROM players
+        WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
+      `,
+    )
+    .all(...playerIds) as ChampionPlayer[];
+
+  const rowMap = new Map(rows.map((player) => [player.playerId, player]));
+  return playerIds.map((playerId) => rowMap.get(playerId)).filter((player): player is ChampionPlayer => Boolean(player));
+}
+
+function loadTeamChampionPlayers(eventId: number, subEventCode: string, championCountryCode: string | null): ChampionPlayer[] {
+  if (!championCountryCode) return [];
+
+  return db
+    .prepare(
+      `
+        SELECT
+          p.player_id AS playerId,
+          p.slug AS slug,
+          p.name AS name,
+          p.name_zh AS nameZh,
+          p.country_code AS countryCode,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
+          COUNT(*) AS appearances
+        FROM matches m
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
+        JOIN players p ON p.player_id = msp.player_id
+        WHERE m.event_id = ?
+          AND m.sub_event_type_code = ?
+          AND p.country_code = ?
+        GROUP BY p.player_id, p.slug, p.name, p.name_zh, p.country_code, p.avatar_file
+        ORDER BY appearances DESC, p.player_id ASC
+      `,
+    )
+    .all(eventId, subEventCode, championCountryCode) as ChampionPlayer[];
+}
+
 function parseGames(value: string | null) {
   if (!value) return [];
   try {
@@ -71,6 +122,8 @@ type EventChampion = {
     avatarFile: string | null;
   }>;
 };
+
+type ChampionPlayer = EventChampion['players'][number];
 
 type EventBracketRound = {
   code: string;
@@ -653,31 +706,9 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     const importedMatches = matchCountMap.get(code) ?? 0;
     const playerIds = parseChampionIds(record?.championPlayerIds ?? null);
     const hasChampion = Boolean(record?.championName || record?.championCountryCode || playerIds.length > 0);
-    const players =
-      playerIds.length > 0
-        ? (db
-            .prepare(
-              `
-              SELECT
-                player_id AS playerId,
-                slug,
-                name,
-                name_zh AS nameZh,
-                country_code AS countryCode,
-                REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
-              FROM players
-              WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
-            `,
-            )
-            .all(...playerIds) as Array<{
-            playerId: number;
-            slug: string;
-            name: string;
-            nameZh: string | null;
-            countryCode: string | null;
-            avatarFile: string | null;
-          }>)
-        : [];
+    const fallbackPlayers = loadPlayersByIds(playerIds);
+    const teamPlayers = code === 'WT' || code === 'XT' ? loadTeamChampionPlayers(eventId, code, record?.championCountryCode ?? null) : [];
+    const players = teamPlayers.length > 0 ? teamPlayers : fallbackPlayers;
 
     return {
       code,

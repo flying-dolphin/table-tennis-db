@@ -827,7 +827,7 @@ function DrawView({
                   width: champBoxW,
                 }}
               >
-                <Crown size={13} className="text-[#d4a017]" />
+                <Trophy size={12} className="mt-1 text-[#d4a017]" />
                 <div className="mt-0.5 flex items-center justify-center gap-1">
                   <Flag
                     code={champion?.championCountryCode ?? dedupeCountries(champion?.players ?? [])[0] ?? null}
@@ -835,9 +835,8 @@ function DrawView({
                   />
                 </div>
                 <p className="mt-0.5 text-center text-[0.75rem] font-black leading-tight text-slate-950">
-                  {highlightedNames.join(" / ")}
+                  {champion?.championCountryCode}
                 </p>
-                <Trophy size={12} className="mt-1 text-[#d4a017]" />
                 <p className="mt-0.5 text-[0.62rem] font-bold text-slate-500">冠军</p>
               </div>
             );
@@ -1023,10 +1022,6 @@ function ChampionsListView({ subEvents }: { subEvents: EventSubEventView[] }) {
                   <Crown size={18} className="text-[#d4a017]" />
                   <span className="text-[0.92rem] font-bold text-slate-500">冠军球队</span>
                 </div>
-                <div className="mt-3 flex items-center gap-3">
-                  {countries[0] && <Flag code={countries[0]} className="shrink-0 scale-[1.35]" />}
-                  <p className="text-[1.15rem] font-black text-slate-950">{championNames.join(" / ") || champion?.championName || "待补"}</p>
-                </div>
                 {champion && champion.players.length > 0 && (
                   <div className="mt-4">
                     <p className="mb-2 text-[0.88rem] font-bold text-slate-500">成员名单</p>
@@ -1037,8 +1032,7 @@ function ChampionsListView({ subEvents }: { subEvents: EventSubEventView[] }) {
                           href={route(`/players/${player.slug}`)}
                           className="inline-flex items-center gap-2 rounded-full bg-[#f6f8fd] px-3 py-1.5 transition hover:bg-[#eef4ff]"
                         >
-                          <Flag code={player.countryCode} />
-                          <span className="text-[0.95rem] font-bold text-slate-700">{displayPlayerName(player)}</span>
+                          <span className="text-base font-bold text-slate-700">{displayPlayerName(player)}</span>
                         </Link>
                       ))}
                     </div>
