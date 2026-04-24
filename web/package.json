@@ -19,6 +19,7 @@
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",
     "next": "15.2.4",
+    "nodemailer": "^8.0.5",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "tailwind-merge": "^3.5.0"
@@ -27,6 +28,7 @@
     "@tailwindcss/postcss": "^4.2.2",
     "@types/better-sqlite3": "^7.6.12",
     "@types/node": "^22.14.1",
+    "@types/nodemailer": "^8.0.0",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.5",
     "postcss": "^8.5.9",
