@@ -23,7 +23,7 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
   const [error, setError] = useState(false);
 
   const displayName = player.nameZh?.trim() || player.name;
-  
+
   // Construct paths
   const filename = player.avatarFile || `player_${player.playerId}_${player.name.replace(/ /g, "_")}.png`;
   const croppedPath = `/images/crops/${filename}`;
@@ -51,7 +51,7 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
   };
 
   const containerClasses = cn(
-    "rounded-full flex items-center justify-center shrink-0 shadow-sm border border-white relative z-10 overflow-hidden",
+    "rounded-full flex items-center justify-center shrink-0 shadow-sm relative z-10 overflow-hidden",
     sizeClasses[size],
     className
   );

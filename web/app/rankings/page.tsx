@@ -148,25 +148,13 @@ export default function RankingsPage() {
       className="mx-auto flex max-w-lg flex-col overflow-hidden bg-gray-50/30"
       style={{ height: "calc(100dvh - (4rem + env(safe-area-inset-bottom)))" }}
     >
-      {/* Header */}
-      <section className="relative overflow-hidden px-5 pb-7 pt-5 text-white">
-        <div className="absolute inset-0 [background:linear-gradient(45deg,#242536_0%,#45465a_54%,#666477_100%)]" />
-        <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_86%_8%,#7b7789_0%,transparent_56%),radial-gradient(circle_at_12%_88%,#252638_0%,transparent_62%)]" />
-        <div className="relative z-10">
-          <div className="mb-2">
-            <div className="min-w-0">
-              <p className="text-caption font-bold uppercase tracking-widest text-white/68">RANKINGS</p>
-              <h1 className="mt-1 text-display font-black leading-none tracking-tight">世界排名</h1>
-              <p className="mt-2.5 text-caption font-bold leading-relaxed text-white/72">
-                {subtitle}
-              </p>
-            </div>
-          </div>
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_right,#d7e6ff_0%,rgba(215,230,255,0.18)_48%,transparent_72%)] px-4 pb-3 pt-4">
+        <div className="relative z-10 flex items-end gap-x-4 mb-8 mt-2">
+          <h1 className="text-3xl font-bold leading-tight text-slate-950">世界排名</h1>
+          <p className="text-[0.9rem] font-medium text-slate-500">
+            {subtitle}
+          </p>
         </div>
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-10 [background:linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(26,30,42,0.5)_100%)]"
-        />
       </section>
 
       <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-[22px] bg-white/96">

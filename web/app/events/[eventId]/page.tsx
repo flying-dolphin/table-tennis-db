@@ -4,13 +4,12 @@ import React, { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import {
   Crown,
   List,
   FolderTree,
   Search,
-  Spline,
   Trophy,
   ChevronLeft
 } from "lucide-react";
@@ -132,10 +131,6 @@ function sideName(side: BracketMatch["sides"][number]) {
   return side.players.map(displayPlayerName).join(" / ");
 }
 
-function sideCountry(side: BracketMatch["sides"][number]) {
-  return dedupeCountries(side.players).join(" / ");
-}
-
 function subEventLabel(subEvent: { code: string; nameZh: string | null } | undefined) {
   return subEvent?.nameZh || subEvent?.code || "项目待补";
 }
@@ -148,6 +143,22 @@ function isDoublesSubEvent(code: string, label: string) {
 function isTeamSubEvent(code: string, label: string) {
   const text = `${code} ${label}`.toUpperCase();
   return text.includes("TEAM") || text.includes("团体");
+}
+
+function truncateChineseName(name: string, maxChars: number = 4) {
+  const chineseMatch = name.match(/[\u4e00-\u9fa5]/g);
+  const chineseCount = chineseMatch ? chineseMatch.length : 0;
+  if (chineseCount <= maxChars) return name;
+  let count = 0;
+  let result = "";
+  for (const char of name) {
+    if (/[\u4e00-\u9fa5]/.test(char)) {
+      count++;
+    }
+    result += char;
+    if (count >= maxChars) break;
+  }
+  return result + "...";
 }
 
 function findChampionMatch(rounds: EventDetail["bracket"], championNames: string[]) {
@@ -175,22 +186,25 @@ function EventHeader({
   subEvents,
   currentSubEvent,
   onSelect,
+  onBack,
 }: {
   data: EventDetail;
   subEvents: EventDetail["subEvents"];
   currentSubEvent: string;
   onSelect: (code: string) => void;
+  onBack: () => void;
 }) {
   return (
     <section className="relative overflow-hidden bg-[radial-gradient(circle_at_right,#d7e6ff_0%,rgba(215,230,255,0.18)_48%,transparent_72%)] px-4 pb-3 pt-4">
       <div className="relative z-10">
         <div className="flex items-center justify-between gap-3">
-          <Link
-            href="/events"
+          <button
+            type="button"
+            onClick={onBack}
             className="grid h-9 w-9 place-items-center rounded-full text-slate-900 transition-colors hover:bg-black/5"
           >
             <ChevronLeft size={24} />
-          </Link>
+          </button>
           <div className="min-w-0 flex-1 text-center">
             <h1 className="line-clamp-1 text-[1.25rem] font-bold leading-tight text-slate-950">
               {displayName(data.event.name, data.event.nameZh)}
@@ -203,7 +217,7 @@ function EventHeader({
           <span>{displayDateRange(data.event.startDate, data.event.endDate)}</span>
         </div>
 
-        <div className="relative z-10 mt-1 border-b border-slate-200/80">
+        <div className="relative z-10 mt-3 pb-1">
           <SubEventTabs subEvents={subEvents} currentSubEvent={currentSubEvent} onSelect={onSelect} />
         </div>
       </div>
@@ -222,7 +236,7 @@ function SubEventTabs({
 }) {
   return (
     <div className="-mb-px px-1">
-      <div className="flex gap-1 overflow-x-auto no-scrollbar">
+      <div className="flex gap-2 overflow-x-auto no-scrollbar rounded-[1.65rem] bg-white/60 p-1.5 shadow-[0_8px_20px_rgba(165,178,196,0.12)] ring-1 ring-white/80 backdrop-blur">
         {subEvents.map((subEvent) => {
           const active = currentSubEvent === subEvent.code;
           return (
@@ -232,20 +246,13 @@ function SubEventTabs({
               disabled={subEvent.disabled}
               onClick={() => onSelect(subEvent.code)}
               className={cn(
-                "relative flex h-12 shrink-0 items-center whitespace-nowrap px-4 text-[1rem] font-semibold transition-colors disabled:opacity-30",
+                "flex min-h-12 shrink-0 items-center justify-center rounded-[1.15rem] px-5 text-[1rem] font-black transition disabled:opacity-30",
                 active
-                  ? "text-[#2d6cf6]"
-                  : "text-slate-400 hover:text-slate-700",
+                  ? "bg-[#4a86f7] text-white shadow-[0_8px_22px_rgba(74,134,247,0.28)]"
+                  : "text-slate-600 hover:bg-white/60",
               )}
             >
               {subEvent.nameZh || subEvent.code}
-              <span
-                aria-hidden="true"
-                className={cn(
-                  "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
-                  active ? "bg-[#2d6cf6]" : "bg-transparent",
-                )}
-              />
             </button>
           );
         })}
@@ -275,26 +282,24 @@ function ChampionBanner({
   const isTeam = isTeamSubEvent(subEvent?.code ?? "", label);
   const isDoubles = !isTeam && isDoublesSubEvent(subEvent?.code ?? "", label);
   const championPath = findChampionMatch(rounds, championNames);
-  const headline = isTeam
+  const isTeamHeadline = isTeam
     ? countries[0] || champion?.championCountryCode || championNames[0] || "冠军待补"
-    : championNames.join(" / ") || "冠军待补";
+    : championNames.map((name) => truncateChineseName(name, 3)).join(" / ") || "冠军待补";
   const subtitle = `${label}冠军`;
 
   return (
     <div className="relative pt-1">
-      <div className="relative overflow-hidden rounded-[1.5rem] bg-[linear-gradient(90deg,#dfeafe_0%,#d9e7ff_55%,#d5e1ff_100%)] pl-[104px] pr-3 shadow-[0_14px_28px_rgba(144,166,201,0.16)] ring-1 ring-white/80 sm:pl-[120px]">
+      <div className="relative overflow-hidden rounded-[1.5rem] bg-[linear-gradient(90deg,#dfeafe_0%,#d9e7ff_55%,#d5e1ff_100%)] pl-[104px] pr-3 shadow-[0_14px_28px_rgba(144,166,201,0.16)] py-1 sm:pl-[120px]">
         <div className="absolute inset-y-0 left-0 w-32 bg-[radial-gradient(circle_at_18%_50%,rgba(255,255,255,0.95),transparent_60%)]" />
         <div className="absolute -left-6 bottom-0 h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.85),transparent_72%)]" />
         <div className="absolute right-0 top-0 h-full w-36 bg-[radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.38),transparent_58%)]" />
-        <div className="relative flex items-center gap-3">
+        <div className="relative flex min-h-[64px] sm:min-h-[72px] items-center gap-3">
           {champion?.players[0] && !isDoubles && !isTeam ? (
-            <div className="shrink-0 rounded-full bg-white/45 p-1 shadow-[0_8px_20px_rgba(136,154,180,0.12)]">
-              <PlayerAvatar
-                player={champion.players[0]}
-                size="lg"
-                className="h-[64px] w-[64px] ring-4 ring-white/75 sm:h-[72px] sm:w-[72px]"
-              />
-            </div>
+            <PlayerAvatar
+              player={champion.players[0]}
+              size="lg"
+              className="h-[64px] w-[64px] sm:h-[72px] sm:w-[72px] border-none"
+            />
           ) : null}
 
           <div className="flex min-w-0 flex-1 flex-col items-center justify-center">
@@ -322,7 +327,7 @@ function ChampionBanner({
 
             <div className="mt-0.5 flex items-center justify-center gap-2">
               {isTeam && countries[0] ? <Flag code={countries[0]} className="shrink-0 scale-[1.2]" /> : null}
-              <p className="truncate text-[1.45rem] font-black leading-none text-slate-950 sm:text-[1.7rem]">{headline}</p>
+              <p className="truncate text-[1.45rem] font-black leading-none text-slate-950 sm:text-[1.7rem]">{isTeamHeadline}</p>
               {!isTeam && countries[0] ? <Flag code={countries[0]} className="mb-0.5 shrink-0 scale-[1.05]" /> : null}
             </div>
           </div>
@@ -333,7 +338,7 @@ function ChampionBanner({
         alt="冠军奖杯"
         width={120}
         height={140}
-        className="pointer-events-none absolute -top-2 left-2 z-10 h-auto w-[92px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:-top-3 sm:left-3 sm:w-[108px]"
+        className="pointer-events-none absolute bottom-0 left-2 z-10 h-auto w-[100px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:left-3 sm:w-[116px]"
         priority
       />
     </div>
@@ -343,28 +348,42 @@ function ChampionBanner({
 function ViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMode) => void }) {
   return (
     <div className="pt-6">
-      <div className="grid grid-cols-2 gap-3 rounded-[1.65rem] bg-white/80 p-2 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80 backdrop-blur">
+      <div className="flex justify-between border-b border-slate-200/80 px-8">
         <button
           type="button"
           onClick={() => onChange("schedule")}
           className={cn(
-            "flex min-h-14 items-center justify-center gap-2 rounded-[1.15rem] text-[1.06rem] font-black transition",
-            mode === "schedule" ? "bg-[#4a86f7] text-white shadow-[0_8px_22px_rgba(74,134,247,0.28)]" : "text-slate-500 hover:bg-slate-50",
+            "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
+            mode === "schedule" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
           )}
         >
-          <List size={20} />
+          <List size={16} />
           赛程列表
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+              mode === "schedule" ? "bg-[#2d6cf6]" : "bg-transparent",
+            )}
+          />
         </button>
         <button
           type="button"
           onClick={() => onChange("draw")}
           className={cn(
-            "flex min-h-14 items-center justify-center gap-2 rounded-[1.15rem] text-[1.06rem] font-black transition",
-            mode === "draw" ? "bg-[#4a86f7] text-white shadow-[0_8px_22px_rgba(74,134,247,0.28)]" : "text-slate-500 hover:bg-slate-50",
+            "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
+            mode === "draw" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
           )}
         >
           <FolderTree size={20} />
           完整赛事图
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+              mode === "draw" ? "bg-[#2d6cf6]" : "bg-transparent",
+            )}
+          />
         </button>
       </div>
     </div>
@@ -505,7 +524,7 @@ function DrawView({
   champion: EventChampion | null;
 }) {
   const [search, setSearch] = React.useState("");
-  const highlightedNames = normalizeChampionNames(champion);
+  const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
 
   const filteredRounds = React.useMemo(() => {
     if (!search.trim()) return rounds;
@@ -595,12 +614,20 @@ function DrawView({
 
 function EventDetailContent() {
   const params = useParams<{ eventId: string }>();
+  const router = useRouter();
   const searchParams = useSearchParams();
   const urlSubEvent = searchParams.get("sub_event");
   const [data, setData] = React.useState<EventDetail | null>(null);
   const [selectedSubEvent, setSelectedSubEvent] = React.useState<string | null>(urlSubEvent);
   const [viewMode, setViewMode] = React.useState<ViewMode>("schedule");
   const [loading, setLoading] = React.useState(true);
+  const handleBack = React.useCallback(() => {
+    if (window.history.length > 1) {
+      router.back();
+      return;
+    }
+    router.push("/events");
+  }, [router]);
 
   React.useEffect(() => {
     async function load() {
@@ -644,6 +671,7 @@ function EventDetailContent() {
         subEvents={data.subEvents}
         currentSubEvent={currentSubEvent}
         onSelect={setSelectedSubEvent}
+        onBack={handleBack}
       />
 
       <div className="relative z-10 -mt-3 rounded-t-[2.5rem] bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02]">

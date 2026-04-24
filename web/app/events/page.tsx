@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { ArrowLeft, CalendarDays, Search, Trophy } from "lucide-react";
+import { CalendarDays, Search, Trophy, X } from "lucide-react";
 import { IconFlag, IconOlympics } from "@tabler/icons-react";
 import { Outfit } from "next/font/google";
 
@@ -64,6 +64,8 @@ function compactCategory(event: EventListItem) {
 
 const PAGE_SIZE = 20;
 type AgeGroupFilter = "senior" | "non_senior" | "all";
+const EVENTS_PAGE_CACHE_KEY = "events-page-cache";
+const EVENTS_PAGE_CACHE_LIMIT = 100;
 
 const AGE_GROUP_OPTIONS: Array<{ value: AgeGroupFilter; label: string }> = [
   { value: "senior", label: "成年组" },
@@ -108,8 +110,31 @@ export default function EventsPage() {
   const [total, setTotal] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
   const [loadingMore, setLoadingMore] = React.useState(false);
+  const [restored, setRestored] = React.useState(false);
   const listScrollRef = React.useRef<HTMLDivElement>(null);
   const loadMoreRef = React.useRef<HTMLDivElement>(null);
+  const restoredFromCacheRef = React.useRef(false);
+
+  const persistCache = React.useCallback(() => {
+    try {
+      window.sessionStorage.setItem(
+        EVENTS_PAGE_CACHE_KEY,
+        JSON.stringify({
+          selectedYear,
+          selectedAgeGroup,
+          keyword,
+          debouncedKeyword,
+          meta,
+          events: events.slice(0, EVENTS_PAGE_CACHE_LIMIT),
+          hasMore,
+          total,
+          scrollTop: listScrollRef.current?.scrollTop ?? 0,
+        }),
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  }, [debouncedKeyword, events, hasMore, keyword, meta, selectedAgeGroup, selectedYear, total]);
 
   React.useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -117,6 +142,54 @@ export default function EventsPage() {
     }, 250);
     return () => window.clearTimeout(timer);
   }, [keyword]);
+
+  React.useEffect(() => {
+    try {
+      const raw = window.sessionStorage.getItem(EVENTS_PAGE_CACHE_KEY);
+      if (!raw) {
+        setRestored(true);
+        return;
+      }
+
+      const cache = JSON.parse(raw) as {
+        selectedYear?: string;
+        selectedAgeGroup?: AgeGroupFilter;
+        keyword?: string;
+        debouncedKeyword?: string;
+        meta?: Omit<EventsResponse["data"], "events" | "total" | "hasMore"> | null;
+        events?: EventListItem[];
+        hasMore?: boolean;
+        total?: number;
+        scrollTop?: number;
+      };
+
+      setSelectedYear(cache.selectedYear ?? "all");
+      setSelectedAgeGroup(cache.selectedAgeGroup ?? "senior");
+      setKeyword(cache.keyword ?? "");
+      setDebouncedKeyword(cache.debouncedKeyword ?? "");
+      setMeta(cache.meta ?? null);
+      setEvents(cache.events ?? []);
+      setHasMore(cache.hasMore ?? false);
+      setTotal(cache.total ?? 0);
+      setLoading(false);
+      restoredFromCacheRef.current = Array.isArray(cache.events);
+
+      window.requestAnimationFrame(() => {
+        if (listScrollRef.current && typeof cache.scrollTop === "number") {
+          listScrollRef.current.scrollTop = cache.scrollTop;
+        }
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setRestored(true);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (!restored) return;
+    persistCache();
+  }, [persistCache, restored]);
 
   const loadEvents = React.useCallback(async (offset: number, isInitial = false) => {
     if (isInitial) {
@@ -155,12 +228,19 @@ export default function EventsPage() {
   }, [selectedYear, selectedAgeGroup, debouncedKeyword]);
 
   React.useEffect(() => {
+    if (!restored) return;
+
+    if (restoredFromCacheRef.current) {
+      restoredFromCacheRef.current = false;
+      return;
+    }
+
     if (listScrollRef.current) {
       listScrollRef.current.scrollTop = 0;
     }
     setHasMore(false);
     void loadEvents(0, true);
-  }, [loadEvents]);
+  }, [loadEvents, restored]);
 
   React.useEffect(() => {
     if (!hasMore || loading || loadingMore) return;
@@ -188,24 +268,13 @@ export default function EventsPage() {
       className="mx-auto flex max-w-lg flex-col overflow-hidden bg-gray-50/30"
       style={{ height: "calc(100dvh - (4rem + env(safe-area-inset-bottom)))" }}
     >
-      <section className="relative overflow-hidden px-5 pb-7 pt-5 text-white">
-        <div className="absolute inset-0 [background:linear-gradient(45deg,#242536_0%,#45465a_54%,#666477_100%)]" />
-        <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_86%_8%,#7b7789_0%,transparent_56%),radial-gradient(circle_at_12%_88%,#252638_0%,transparent_62%)]" />
-        <div className="relative z-10">
-          <div className="mb-2">
-            <div className="min-w-0">
-              <p className="text-caption font-bold uppercase tracking-widest text-white/68">EVENTS</p>
-              <h1 className="mt-1 text-display font-black leading-none tracking-tight">赛事</h1>
-              <p className="mt-2.5 text-caption font-bold leading-relaxed text-white/72">
-                {subtitle} · {total} 场
-              </p>
-            </div>
-          </div>
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_right,#d7e6ff_0%,rgba(215,230,255,0.18)_48%,transparent_72%)] px-4 pb-3 pt-4">
+        <div className="relative z-10 flex items-end gap-x-4 mb-8 mt-2">
+          <h1 className="text-3xl font-bold leading-tight text-slate-950">赛事</h1>
+          <p className="text-[0.9rem] font-medium text-slate-500">
+            {subtitle} · {total} 场
+          </p>
         </div>
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-10 [background:linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(26,30,42,0.5)_100%)]"
-        />
       </section>
 
       <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-[22px] bg-white/96">
@@ -259,13 +328,30 @@ export default function EventsPage() {
                 value={keyword}
                 onChange={(event) => setKeyword(event.target.value)}
                 placeholder="搜索赛事名称"
-                className="min-h-9 w-full rounded-[10px] border border-black/[0.08] bg-white pl-8 pr-3 text-body text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors placeholder:text-text-tertiary focus:border-brand-deep/50"
+                className="min-h-9 w-full rounded-[10px] border border-black/[0.08] bg-white pl-8 pr-8 text-body text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors placeholder:text-text-tertiary focus:border-brand-deep/50"
               />
+              {keyword && (
+                <button
+                  type="button"
+                  onClick={() => setKeyword("")}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 flex h-5 w-5 items-center justify-center rounded-full text-text-tertiary transition-colors hover:bg-black/[0.06] hover:text-text-secondary"
+                >
+                  <X size={14} />
+                </button>
+              )}
             </div>
           </div>
         </div>
 
-        <div ref={listScrollRef} className="min-h-0 flex-1 overflow-y-auto px-5 pb-28">
+        <div
+          ref={listScrollRef}
+          onScroll={() => {
+            if (restored) {
+              persistCache();
+            }
+          }}
+          className="min-h-0 flex-1 overflow-y-auto px-5 pb-28"
+        >
           {loading ? (
             <div className="flex justify-center py-20 text-body text-text-tertiary">加载中...</div>
           ) : events.length === 0 ? (
@@ -280,6 +366,9 @@ export default function EventsPage() {
                 <Link
                   key={event.eventId}
                   href={route(`/events/${event.eventId}`)}
+                  onClick={() => {
+                    persistCache();
+                  }}
                   className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
                 >
                   <div className="mr-3 grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-brand-mist text-brand-strong">
