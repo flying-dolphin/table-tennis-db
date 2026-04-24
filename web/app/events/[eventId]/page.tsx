@@ -609,32 +609,32 @@ function DrawMatchCard({
   return (
     <div className="relative">
       {matchNumber !== undefined && (
-        <span className="absolute right-full top-1/2 mr-1 w-4 -translate-y-1/2 text-right text-[0.68rem] font-bold text-[#9bb3e0]">
+        <span className="absolute right-full top-1/2 mr-1 w-3.5 -translate-y-1/2 text-right text-[0.6rem] font-bold text-[#9bb3e0]">
           {matchNumber}
         </span>
       )}
       <Link
         href={route(`/matches/${match.matchId}`)}
         className={cn(
-          "block rounded-[0.75rem] border bg-white px-2 py-1.5 shadow-sm transition active:scale-[0.99]",
-          isChampionPath ? "border-[#3a74f2] shadow-[0_3px_10px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
+          "block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm transition active:scale-[0.99]",
+          isChampionPath ? "border-[#3a74f2] shadow-[0_2px_8px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
         )}
       >
-        <div className="space-y-1.5">
+        <div className="space-y-1">
           {sides.map((side) => {
             const score = match.matchScore?.split("-")[side.sideNo - 1] ?? "-";
             const flag = dedupeCountries(side.players)[0] ?? null;
             return (
               <div key={side.sideNo} className="flex items-center gap-1">
-                <Flag code={flag} className="shrink-0" />
-                <p className={cn("min-w-0 flex-1 truncate text-[0.78rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-400")}>
+                <Flag code={flag} className="shrink-0 scale-[0.85] origin-left" />
+                <p className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-400")}>
                   {sideName(side, isXT)}
                 </p>
-                <span className={cn("font-numeric shrink-0 text-[1.2rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                <span className={cn("font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
                   {score}
                 </span>
-                <span className="flex w-3.5 shrink-0 items-center justify-center">
-                  {side.isWinner ? <CheckCircle2 size={11} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+                <span className="flex w-3 shrink-0 items-center justify-center">
+                  {side.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
                 </span>
               </div>
             );
@@ -645,10 +645,10 @@ function DrawMatchCard({
   );
 }
 
-const DRAW_CARD_W = 138;
-const DRAW_CARD_H = 60;
-const DRAW_COL_GAP = 24;
-const DRAW_NUM_SPACE = 20;
+const DRAW_CARD_W = 112;
+const DRAW_CARD_H = 48;
+const DRAW_COL_GAP = 16;
+const DRAW_NUM_SPACE = 16;
 
 function DrawView({
   rounds,
@@ -691,7 +691,7 @@ function DrawView({
   const displayRounds = React.useMemo(() => [...filteredRounds].reverse(), [filteredRounds]);
 
   const firstRoundCount = displayRounds[0]?.matches.length ?? 1;
-  const slotH0 = Math.max(DRAW_CARD_H + 10, 76);
+  const slotH0 = Math.max(DRAW_CARD_H + 8, 60);
   const totalH = firstRoundCount * slotH0;
 
   const getCardInfo = (rIdx: number, mIdx: number) => {
@@ -704,7 +704,7 @@ function DrawView({
     };
   };
 
-  const champBoxW = 92;
+  const champBoxW = 76;
   const champVisible = highlightedNames.length > 0;
   const totalW =
     DRAW_NUM_SPACE +
@@ -722,8 +722,8 @@ function DrawView({
               className="shrink-0 text-center"
               style={{ width: DRAW_CARD_W, marginRight: DRAW_COL_GAP }}
             >
-              <p className="text-[0.9rem] font-black text-slate-900">{round.label}</p>
-              <p className="mt-0.5 text-[0.72rem] font-medium text-slate-400">{round.matches.length} 场</p>
+              <p className="text-[0.78rem] font-black text-slate-900">{round.label}</p>
+              <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{round.matches.length} 场</p>
             </div>
           ))}
         </div>
@@ -795,25 +795,25 @@ function DrawView({
             const lastPos = getCardInfo(displayRounds.length - 1, 0);
             return (
               <div
-                className="absolute flex flex-col items-center justify-center rounded-[0.9rem] border border-[#e8c96a] bg-[linear-gradient(160deg,#fff9e3_0%,#fffef8_100%)] px-2.5 py-3 shadow-[0_6px_18px_rgba(218,187,112,0.18)]"
+                className="absolute flex flex-col items-center justify-center rounded-[0.75rem] border border-[#e8c96a] bg-[linear-gradient(160deg,#fff9e3_0%,#fffef8_100%)] px-2 py-2.5 shadow-[0_4px_14px_rgba(218,187,112,0.18)]"
                 style={{
                   left: DRAW_NUM_SPACE + displayRounds.length * (DRAW_CARD_W + DRAW_COL_GAP),
-                  top: lastPos.centerY - 56,
+                  top: lastPos.centerY - 46,
                   width: champBoxW,
                 }}
               >
-                <Crown size={16} className="text-[#d4a017]" />
-                <div className="mt-1 flex items-center justify-center gap-1">
+                <Crown size={13} className="text-[#d4a017]" />
+                <div className="mt-0.5 flex items-center justify-center gap-1">
                   <Flag
                     code={champion?.championCountryCode ?? dedupeCountries(champion?.players ?? [])[0] ?? null}
-                    className="scale-[1.1]"
+                    className="scale-[1.0]"
                   />
                 </div>
-                <p className="mt-1 text-center text-[0.88rem] font-black leading-tight text-slate-950">
+                <p className="mt-0.5 text-center text-[0.75rem] font-black leading-tight text-slate-950">
                   {highlightedNames.join(" / ")}
                 </p>
-                <Trophy size={14} className="mt-1.5 text-[#d4a017]" />
-                <p className="mt-0.5 text-[0.68rem] font-bold text-slate-500">冠军</p>
+                <Trophy size={12} className="mt-1 text-[#d4a017]" />
+                <p className="mt-0.5 text-[0.62rem] font-bold text-slate-500">冠军</p>
               </div>
             );
           })()}
@@ -1019,16 +1019,18 @@ function EventDetailContent() {
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
 
   return (
-    <main className="mx-auto min-h-screen max-w-lg bg-[#f8fafc] pb-24">
-      <EventHeader
-        data={data}
-        subEvents={data.subEvents}
-        currentSubEvent={currentSubEvent}
-        onSelect={setSelectedSubEvent}
-        onBack={handleBack}
-      />
+    <main className="mx-auto min-h-screen max-w-lg bg-[#f8fafc]">
+      <div className="sticky top-0 z-50 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+        <EventHeader
+          data={data}
+          subEvents={data.subEvents}
+          currentSubEvent={currentSubEvent}
+          onSelect={setSelectedSubEvent}
+          onBack={handleBack}
+        />
+      </div>
 
-      <div className="relative z-10 -mt-3 rounded-sm bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02]">
+      <div className="relative z-10 -mt-3 rounded-t-[1.5rem] bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] pb-24">
         <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
         <div className="mt-2">
           {currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
