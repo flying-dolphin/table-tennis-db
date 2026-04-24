@@ -197,6 +197,13 @@ function sideName(side: BracketMatch["sides"][number], isXT: boolean = false) {
   return side.players.map(displayPlayerName).join(" / ");
 }
 
+function rubberPlayersLabel(rubber: TeamTie["rubbers"][number]) {
+  const [sideA, sideB] = [...rubber.sides].sort((a, b) => a.sideNo - b.sideNo);
+  const left = sideA ? sideName(sideA, false) : "待补";
+  const right = sideB ? sideName(sideB, false) : "待补";
+  return `${left} vs ${right}`;
+}
+
 function subEventLabel(subEvent: { code: string; nameZh: string | null } | undefined) {
   return formatSubEventLabel(subEvent?.code, subEvent?.nameZh);
 }
@@ -877,40 +884,44 @@ function PodiumCard({
   );
 }
 
-function TeamTieCard({ tie }: { tie: TeamTie }) {
+function TeamTieCard({ tie, title }: { tie: TeamTie; title?: string }) {
+  const titleText = title || tie.roundZh || tie.round || "循环赛";
+  const winnerA = tie.winnerCode === tie.teamA.code;
+  const winnerB = tie.winnerCode === tie.teamB.code;
   return (
-    <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
-      <div className="flex items-center justify-between gap-3 text-[0.92rem] font-bold text-slate-500">
-        <span>{tie.roundZh || tie.round || "循环赛"}</span>
-        <span>团体赛</span>
-      </div>
-      <div className="mt-4 grid grid-cols-[1fr_auto] gap-3">
-        <div className="space-y-3">
-          {[
-            { team: tie.teamA, score: tie.scoreA, winner: tie.winnerCode === tie.teamA.code },
-            { team: tie.teamB, score: tie.scoreB, winner: tie.winnerCode === tie.teamB.code },
-          ].map((item) => (
-            <div key={item.team.code} className="flex items-center gap-3 rounded-[1rem] bg-[#f6f8fd] px-3 py-3">
-              <Flag code={item.team.code} className="scale-[1.35] origin-left shrink-0" />
-              <p className={cn("text-[1.05rem] font-black", item.winner ? "text-slate-950" : "text-slate-600")}>
-                {item.team.nameZh || item.team.name}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div className="flex min-w-[62px] flex-col items-end justify-center gap-4 font-numeric text-[2rem] font-black leading-none tabular-nums">
-          <span className={tie.winnerCode === tie.teamA.code ? "text-[#2d6cf6]" : "text-slate-400"}>{tie.scoreA}</span>
-          <span className={tie.winnerCode === tie.teamB.code ? "text-[#2d6cf6]" : "text-slate-400"}>{tie.scoreB}</span>
+    <div className="rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-[#e8edf8]">
+      <div className="flex items-center justify-between gap-2">
+        <span className="shrink-0 text-[0.85rem] font-bold text-slate-500">{titleText}</span>
+        <div className="flex items-center gap-1.5 min-w-0">
+          <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
+          <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
+            {tie.teamA.code}
+          </span>
+          <span className={cn("font-numeric ml-0.5 text-[1.25rem] font-black leading-none tabular-nums", winnerA ? "text-[#2d6cf6]" : "text-slate-400")}>
+            {tie.scoreA}
+          </span>
+          <span className="text-[0.95rem] font-black leading-none text-slate-300">-</span>
+          <span className={cn("font-numeric text-[1.25rem] font-black leading-none tabular-nums", winnerB ? "text-[#2d6cf6]" : "text-slate-400")}>
+            {tie.scoreB}
+          </span>
+          <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
+            {tie.teamB.code}
+          </span>
+          <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
         </div>
       </div>
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-2 divide-y divide-slate-100">
         {tie.rubbers.map((rubber, index) => (
           <Link
             key={rubber.matchId}
             href={route(`/matches/${rubber.matchId}`)}
-            className="rounded-full bg-[#eef4ff] px-3 py-1.5 text-[0.92rem] font-bold text-[#2d6cf6] transition hover:bg-[#dfeaff]"
+            className="flex items-start justify-between gap-3 py-2 transition"
           >
-            第{index + 1}盘 {rubber.matchScore ?? "比分待补"}
+            <div className="flex min-w-0 flex-1 items-start gap-2">
+              <span className="shrink-0 text-[0.88rem] font-black leading-snug text-[#2d6cf6]">第{index + 1}盘</span>
+              <span className="min-w-0 flex-1 text-[0.88rem] font-medium leading-snug text-slate-600">{rubberPlayersLabel(rubber)}</span>
+            </div>
+            <span className="font-numeric shrink-0 text-[0.95rem] font-black leading-snug tabular-nums text-[#2d6cf6]">{rubber.matchScore ?? "-"}</span>
           </Link>
         ))}
       </div>
@@ -938,6 +949,17 @@ function FinalStandingsView({ standings }: { standings: StageStanding[] }) {
 }
 
 function RoundRobinView({ view }: { view: EventRoundRobinView }) {
+  const [collapsedGroups, setCollapsedGroups] = React.useState<Set<string>>(new Set());
+
+  const toggleGroup = React.useCallback((key: string) => {
+    setCollapsedGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  }, []);
+
   return (
     <div className="pb-10 pt-5">
       <section>
@@ -952,39 +974,53 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
       <div className="mt-6 space-y-6">
         {view.stages.map((stage) => (
           <section key={stage.code}>
-            <div className="mb-3 flex items-center justify-between px-1">
-              <h2 className="text-[1.3rem] font-black text-slate-950">{stage.nameZh || stage.name}</h2>
-              <span className="text-[0.92rem] font-medium text-slate-500">
+            <div className="mb-3 flex items-center justify-between px-1.5">
+              <h2 className="text-[1.9rem] font-black text-slate-950">{stage.nameZh || stage.name}</h2>
+              <span className="text-[1rem] font-semibold text-slate-500">
                 {stage.format === "group_round_robin" ? "分组循环赛" : "循环赛"}
               </span>
             </div>
             {stage.groups ? (
               <div className="space-y-4">
-                {stage.groups.map((group) => (
-                  <div key={group.code} className="rounded-[1.6rem] bg-[#f7f9fd] p-4 ring-1 ring-[#e8eef9]">
-                    <div className="mb-3 flex items-center justify-between gap-3">
-                      <h3 className="text-[1.08rem] font-black text-slate-900">{group.nameZh || group.code}</h3>
-                      <div className="flex flex-wrap justify-end gap-2 text-[0.88rem] font-bold text-slate-500">
+                {stage.groups.map((group) => {
+                  const groupKey = `${stage.code}:${group.code}`;
+                  const isCollapsed = collapsedGroups.has(groupKey);
+                  return (
+                    <div key={group.code} className="rounded-[1.8rem] bg-[#f3f6fb] p-4 ring-1 ring-[#e4ebf8]">
+                      <button
+                        type="button"
+                        onClick={() => toggleGroup(groupKey)}
+                        className="flex w-full items-center justify-between gap-2"
+                      >
+                        <h3 className="text-[1.15rem] font-black text-slate-900">{group.nameZh || group.code}</h3>
+                        <span className="flex items-center gap-1 text-[0.82rem] font-medium text-slate-400">
+                          {isCollapsed ? "展开" : "收起"}
+                          {isCollapsed ? <ChevronDown size={14} strokeWidth={2.5} /> : <ChevronUp size={14} strokeWidth={2.5} />}
+                        </span>
+                      </button>
+                      <div className="mt-2.5 flex flex-wrap justify-center gap-1.5 text-[0.82rem] font-bold text-slate-500">
                         {group.teams.map((team) => (
-                          <span key={team} className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1">
-                            <Flag code={team} />
+                          <span key={team} className="inline-flex items-center gap-1 rounded-full bg-white px-2 py-1 whitespace-nowrap">
+                            <Flag code={team} className="scale-90" />
                             {team}
                           </span>
                         ))}
                       </div>
+                      {!isCollapsed && (
+                        <div className="mt-4 space-y-3">
+                          {group.ties.map((tie, index) => (
+                            <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
+                          ))}
+                        </div>
+                      )}
                     </div>
-                    <div className="space-y-3">
-                      {group.ties.map((tie) => (
-                        <TeamTieCard key={tie.tieId} tie={tie} />
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="space-y-3">
-                {(stage.ties ?? []).map((tie) => (
-                  <TeamTieCard key={tie.tieId} tie={tie} />
+                {(stage.ties ?? []).map((tie, index) => (
+                  <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
                 ))}
               </div>
             )}

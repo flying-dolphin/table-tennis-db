@@ -69,6 +69,12 @@ function displayPlayerName(player: MatchSide["players"][number]) {
   return player.nameZh?.trim() || player.name;
 }
 
+function limitName(name: string, maxChars: number = 18) {
+  const chars = Array.from(name);
+  if (chars.length <= maxChars) return name;
+  return `${chars.slice(0, maxChars).join("")}...`;
+}
+
 function displayDate(value: string | null) {
   return value || "日期待补";
 }
@@ -119,8 +125,8 @@ function SideCard({ side }: { side: MatchSide }) {
         {side.players.map((player, index) => {
           const content = (
             <div className="flex min-h-11 items-center justify-between gap-3 rounded-md bg-white/70 px-3 py-2">
-<div className="min-w-0 overflow-hidden">
-                  <p className="truncate text-body font-bold text-text-primary">{displayPlayerName(player)}</p>
+              <div className="min-w-0 w-full overflow-hidden">
+                <p className="w-full truncate text-body font-bold text-text-primary">{limitName(displayPlayerName(player))}</p>
                 <p className="text-micro font-bold uppercase tracking-wider text-text-tertiary">
                   {player.countryCode || "国家待补"}
                 </p>
@@ -224,9 +230,6 @@ function MatchContent() {
             </button>
 
             <div className="min-w-0 flex-1 text-center pt-1.5">
-              <p className="text-[0.88rem] font-medium text-[#7d8fae]">
-                {formatSubEventLabel(data.match.subEventTypeCode, data.match.subEventNameZh)}
-              </p>
               <h1 className="line-clamp-2 text-[1.2rem] font-bold leading-snug text-slate-950">
                 {displayName(data.match.eventName, data.match.eventNameZh)}
               </h1>

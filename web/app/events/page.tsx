@@ -3,9 +3,16 @@
 import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
+import { useRouter, useSearchParams } from "next/navigation";
 import { CalendarDays, Search, Trophy, X } from "lucide-react";
 import { IconFlag, IconOlympics } from "@tabler/icons-react";
 import { Outfit } from "next/font/google";
+import {
+  ensureEventsHistoryKey,
+  readEventsSnapshot,
+  writeEventsHistoryKey,
+  writeEventsSnapshot,
+} from "@/lib/events-history-cache";
 
 const letterIcon = Outfit({
   subsets: ["latin"],
@@ -85,7 +92,6 @@ function presentationBadge(event: EventListItem) {
 
 const PAGE_SIZE = 20;
 type AgeGroupFilter = "senior" | "non_senior" | "all";
-const EVENTS_PAGE_CACHE_KEY = "events-page-cache";
 const EVENTS_PAGE_CACHE_LIMIT = 100;
 
 const AGE_GROUP_OPTIONS: Array<{ value: AgeGroupFilter; label: string }> = [
@@ -93,6 +99,63 @@ const AGE_GROUP_OPTIONS: Array<{ value: AgeGroupFilter; label: string }> = [
   { value: "non_senior", label: "非成年组" },
   { value: "all", label: "全部年龄" },
 ];
+
+type EventsQueryState = {
+  selectedYear: string;
+  selectedAgeGroup: AgeGroupFilter;
+  keyword: string;
+};
+
+type SearchParamReader = {
+  get(name: string): string | null;
+};
+
+type EventsPageSnapshot = EventsQueryState & {
+  debouncedKeyword: string;
+  meta: Omit<EventsResponse["data"], "events" | "total" | "hasMore"> | null;
+  events: EventListItem[];
+  hasMore: boolean;
+  total: number;
+  scrollTop: number;
+};
+
+function normalizeAgeGroup(value: string | null): AgeGroupFilter {
+  if (value === "senior" || value === "non_senior" || value === "all") {
+    return value;
+  }
+  return "senior";
+}
+
+function readQueryState(searchParams: SearchParamReader): EventsQueryState {
+  return {
+    selectedYear: searchParams.get("year") || "all",
+    selectedAgeGroup: normalizeAgeGroup(searchParams.get("age_group")),
+    keyword: (searchParams.get("q") || "").trim(),
+  };
+}
+
+function buildQueryString(query: EventsQueryState) {
+  const params = new URLSearchParams();
+  if (query.selectedYear !== "all") {
+    params.set("year", query.selectedYear);
+  }
+  if (query.selectedAgeGroup !== "senior") {
+    params.set("age_group", query.selectedAgeGroup);
+  }
+  const trimmedKeyword = query.keyword.trim();
+  if (trimmedKeyword) {
+    params.set("q", trimmedKeyword);
+  }
+  return params.toString();
+}
+
+function buildQuerySignature(query: Pick<EventsQueryState, "selectedYear" | "selectedAgeGroup"> & { debouncedKeyword: string }) {
+  return JSON.stringify({
+    year: query.selectedYear,
+    ageGroup: query.selectedAgeGroup,
+    keyword: query.debouncedKeyword,
+  });
+}
 
 function normalizeSeries(series: string | null) {
   const value = (series ?? "").trim().toUpperCase();
@@ -120,41 +183,55 @@ function EventSeriesIcon({ series }: { series: string | null }) {
   return <IconFlag size={20} stroke={3} />;
 }
 
-export default function EventsPage() {
-  const [selectedYear, setSelectedYear] = React.useState<string>("all");
-  const [selectedAgeGroup, setSelectedAgeGroup] = React.useState<AgeGroupFilter>("senior");
-  const [keyword, setKeyword] = React.useState("");
-  const [debouncedKeyword, setDebouncedKeyword] = React.useState("");
+function EventsPageContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialQueryRef = React.useRef<EventsQueryState>(readQueryState(searchParams));
+  const [selectedYear, setSelectedYear] = React.useState<string>(initialQueryRef.current.selectedYear);
+  const [selectedAgeGroup, setSelectedAgeGroup] = React.useState<AgeGroupFilter>(initialQueryRef.current.selectedAgeGroup);
+  const [keyword, setKeyword] = React.useState(initialQueryRef.current.keyword);
+  const [debouncedKeyword, setDebouncedKeyword] = React.useState(initialQueryRef.current.keyword.trim());
   const [meta, setMeta] = React.useState<Omit<EventsResponse["data"], "events" | "total" | "hasMore"> | null>(null);
   const [events, setEvents] = React.useState<EventListItem[]>([]);
   const [hasMore, setHasMore] = React.useState(false);
   const [total, setTotal] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
   const [loadingMore, setLoadingMore] = React.useState(false);
-  const [restored, setRestored] = React.useState(false);
+  const [ready, setReady] = React.useState(false);
   const listScrollRef = React.useRef<HTMLDivElement>(null);
   const loadMoreRef = React.useRef<HTMLDivElement>(null);
-  const restoredFromCacheRef = React.useRef(false);
+  const historyKeyRef = React.useRef<string | null>(null);
+  const restoredFromSnapshotRef = React.useRef(false);
+  const loadedQuerySignatureRef = React.useRef<string | null>(null);
 
-  const persistCache = React.useCallback(() => {
-    try {
-      window.sessionStorage.setItem(
-        EVENTS_PAGE_CACHE_KEY,
-        JSON.stringify({
-          selectedYear,
-          selectedAgeGroup,
-          keyword,
-          debouncedKeyword,
-          meta,
-          events: events.slice(0, EVENTS_PAGE_CACHE_LIMIT),
-          hasMore,
-          total,
-          scrollTop: listScrollRef.current?.scrollTop ?? 0,
-        }),
-      );
-    } catch (err) {
-      console.error(err);
+  const persistSnapshot = React.useCallback(() => {
+    const currentSignature = buildQuerySignature({
+      selectedYear,
+      selectedAgeGroup,
+      debouncedKeyword,
+    });
+
+    if (loadedQuerySignatureRef.current !== currentSignature) {
+      return;
     }
+
+    const historyKey = historyKeyRef.current ?? ensureEventsHistoryKey();
+    if (!historyKey) {
+      return;
+    }
+
+    historyKeyRef.current = historyKey;
+    writeEventsSnapshot<EventsPageSnapshot>(historyKey, {
+      selectedYear,
+      selectedAgeGroup,
+      keyword,
+      debouncedKeyword,
+      meta,
+      events: events.slice(0, EVENTS_PAGE_CACHE_LIMIT),
+      hasMore,
+      total,
+      scrollTop: listScrollRef.current?.scrollTop ?? 0,
+    });
   }, [debouncedKeyword, events, hasMore, keyword, meta, selectedAgeGroup, selectedYear, total]);
 
   React.useEffect(() => {
@@ -165,52 +242,73 @@ export default function EventsPage() {
   }, [keyword]);
 
   React.useEffect(() => {
-    try {
-      const raw = window.sessionStorage.getItem(EVENTS_PAGE_CACHE_KEY);
-      if (!raw) {
-        setRestored(true);
-        return;
-      }
+    const historyKey = ensureEventsHistoryKey();
+    historyKeyRef.current = historyKey;
 
-      const cache = JSON.parse(raw) as {
-        selectedYear?: string;
-        selectedAgeGroup?: AgeGroupFilter;
-        keyword?: string;
-        debouncedKeyword?: string;
-        meta?: Omit<EventsResponse["data"], "events" | "total" | "hasMore"> | null;
-        events?: EventListItem[];
-        hasMore?: boolean;
-        total?: number;
-        scrollTop?: number;
-      };
+    if (!historyKey) {
+      setReady(true);
+      return;
+    }
 
-      setSelectedYear(cache.selectedYear ?? "all");
-      setSelectedAgeGroup(cache.selectedAgeGroup ?? "senior");
-      setKeyword(cache.keyword ?? "");
-      setDebouncedKeyword(cache.debouncedKeyword ?? "");
-      setMeta(cache.meta ?? null);
-      setEvents(cache.events ?? []);
-      setHasMore(cache.hasMore ?? false);
-      setTotal(cache.total ?? 0);
+    const snapshot = readEventsSnapshot<EventsPageSnapshot>(historyKey);
+    const queryState = initialQueryRef.current;
+    const expectedSignature = buildQuerySignature({
+      selectedYear: queryState.selectedYear,
+      selectedAgeGroup: queryState.selectedAgeGroup,
+      debouncedKeyword: queryState.keyword.trim(),
+    });
+
+    if (
+      snapshot &&
+      buildQuerySignature({
+        selectedYear: snapshot.selectedYear,
+        selectedAgeGroup: snapshot.selectedAgeGroup,
+        debouncedKeyword: snapshot.debouncedKeyword,
+      }) === expectedSignature
+    ) {
+      setSelectedYear(snapshot.selectedYear);
+      setSelectedAgeGroup(snapshot.selectedAgeGroup);
+      setKeyword(snapshot.keyword);
+      setDebouncedKeyword(snapshot.debouncedKeyword);
+      setMeta(snapshot.meta);
+      setEvents(snapshot.events);
+      setHasMore(snapshot.hasMore);
+      setTotal(snapshot.total);
       setLoading(false);
-      restoredFromCacheRef.current = Array.isArray(cache.events);
+      loadedQuerySignatureRef.current = expectedSignature;
+      restoredFromSnapshotRef.current = true;
 
       window.requestAnimationFrame(() => {
-        if (listScrollRef.current && typeof cache.scrollTop === "number") {
-          listScrollRef.current.scrollTop = cache.scrollTop;
+        if (listScrollRef.current) {
+          listScrollRef.current.scrollTop = snapshot.scrollTop;
         }
       });
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setRestored(true);
     }
+    setReady(true);
   }, []);
 
   React.useEffect(() => {
-    if (!restored) return;
-    persistCache();
-  }, [persistCache, restored]);
+    if (!ready) return;
+
+    const nextQuery = buildQueryString({
+      selectedYear,
+      selectedAgeGroup,
+      keyword,
+    });
+    const currentQuery = searchParams.toString();
+
+    if (nextQuery === currentQuery) {
+      return;
+    }
+
+    const nextHref = nextQuery ? `/events?${nextQuery}` : "/events";
+    router.replace(route(nextHref), { scroll: false });
+  }, [keyword, ready, router, searchParams, selectedAgeGroup, selectedYear]);
+
+  React.useEffect(() => {
+    if (!ready || !historyKeyRef.current) return;
+    writeEventsHistoryKey(historyKeyRef.current);
+  }, [ready, searchParams]);
 
   const loadEvents = React.useCallback(async (offset: number, isInitial = false) => {
     if (isInitial) {
@@ -239,6 +337,11 @@ export default function EventsPage() {
         }
         setHasMore(more);
         setTotal(nextTotal);
+        loadedQuerySignatureRef.current = buildQuerySignature({
+          selectedYear,
+          selectedAgeGroup,
+          debouncedKeyword,
+        });
       }
     } catch (err) {
       console.error(err);
@@ -249,10 +352,10 @@ export default function EventsPage() {
   }, [selectedYear, selectedAgeGroup, debouncedKeyword]);
 
   React.useEffect(() => {
-    if (!restored) return;
+    if (!ready) return;
 
-    if (restoredFromCacheRef.current) {
-      restoredFromCacheRef.current = false;
+    if (restoredFromSnapshotRef.current) {
+      restoredFromSnapshotRef.current = false;
       return;
     }
 
@@ -261,7 +364,12 @@ export default function EventsPage() {
     }
     setHasMore(false);
     void loadEvents(0, true);
-  }, [loadEvents, restored]);
+  }, [loadEvents, ready]);
+
+  React.useEffect(() => {
+    if (!ready || loading || loadingMore) return;
+    persistSnapshot();
+  }, [loading, loadingMore, persistSnapshot, ready]);
 
   React.useEffect(() => {
     if (!hasMore || loading || loadingMore) return;
@@ -376,8 +484,8 @@ export default function EventsPage() {
         <div
           ref={listScrollRef}
           onScroll={() => {
-            if (restored) {
-              persistCache();
+            if (ready) {
+              persistSnapshot();
             }
           }}
           className="min-h-0 flex-1 overflow-y-auto px-5 pb-28"
@@ -396,11 +504,11 @@ export default function EventsPage() {
                 // const badge = presentationBadge(event);
                 return (
                   <Link
-                    key={event.eventId}
-                    href={route(`/events/${event.eventId}`)}
-                    onClick={() => {
-                      persistCache();
-                    }}
+                  key={event.eventId}
+                  href={route(`/events/${event.eventId}`)}
+                  onClick={() => {
+                    persistSnapshot();
+                  }}
                     className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
                   >
                     <div className="mr-3 grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-brand-mist text-brand-strong">
@@ -447,5 +555,13 @@ export default function EventsPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function EventsPage() {
+  return (
+    <React.Suspense fallback={<main className="min-h-screen bg-gray-50/30" />}>
+      <EventsPageContent />
+    </React.Suspense>
   );
 }
