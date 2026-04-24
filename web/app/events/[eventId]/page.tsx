@@ -281,66 +281,61 @@ function ChampionBanner({
   const subtitle = `${label}冠军`;
 
   return (
-    <div className="pt-2">
-      <div className="relative overflow-hidden rounded-[1.7rem] bg-[linear-gradient(90deg,#dfeafe_0%,#d9e7ff_55%,#d5e1ff_100%)] px-3 py-3 shadow-[0_14px_28px_rgba(144,166,201,0.16)] ring-1 ring-white/80">
+    <div className="relative pt-1">
+      <div className="relative overflow-hidden rounded-[1.5rem] bg-[linear-gradient(90deg,#dfeafe_0%,#d9e7ff_55%,#d5e1ff_100%)] pl-[104px] pr-3 shadow-[0_14px_28px_rgba(144,166,201,0.16)] ring-1 ring-white/80 sm:pl-[120px]">
         <div className="absolute inset-y-0 left-0 w-32 bg-[radial-gradient(circle_at_18%_50%,rgba(255,255,255,0.95),transparent_60%)]" />
         <div className="absolute -left-6 bottom-0 h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.85),transparent_72%)]" />
         <div className="absolute right-0 top-0 h-full w-36 bg-[radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.38),transparent_58%)]" />
-        <div className="relative grid grid-cols-[84px_minmax(0,1fr)] items-center gap-2 sm:grid-cols-[96px_86px_minmax(0,1fr)] sm:gap-3">
-          <div className="relative flex h-full items-end justify-center">
-            <Image src="/images/cup.png" alt="冠军奖杯" width={96} height={112} className="h-auto w-[74px] sm:w-[84px]" priority />
-          </div>
-
-          <div className="relative hidden h-full items-center justify-center sm:flex">
-            {champion?.players[0] && !isDoubles && !isTeam ? (
-              <div className="rounded-full bg-white/45 p-1 shadow-[0_8px_20px_rgba(136,154,180,0.12)]">
-                <PlayerAvatar player={champion.players[0]} size="lg" className="h-[72px] w-[72px] ring-4 ring-white/75" />
-              </div>
-            ) : null}
-          </div>
-
-          <div className="relative min-w-0 pr-1">
-            {!isDoubles && !isTeam ? (
-              <Image
-                src="/images/wheatear_left.png"
-                alt=""
-                width={28}
-                height={72}
-                className="absolute -left-3 top-0 hidden h-auto w-[18px] opacity-85 sm:block"
+        <div className="relative flex items-center gap-3">
+          {champion?.players[0] && !isDoubles && !isTeam ? (
+            <div className="shrink-0 rounded-full bg-white/45 p-1 shadow-[0_8px_20px_rgba(136,154,180,0.12)]">
+              <PlayerAvatar
+                player={champion.players[0]}
+                size="lg"
+                className="h-[64px] w-[64px] ring-4 ring-white/75 sm:h-[72px] sm:w-[72px]"
               />
-            ) : null}
-            {!isDoubles && !isTeam ? (
-              <Image
-                src="/images/wheatear_right.png"
-                alt=""
-                width={28}
-                height={72}
-                className="absolute right-3 top-0 hidden h-auto w-[18px] opacity-85 sm:block"
-              />
-            ) : null}
+            </div>
+          ) : null}
 
-            <div className="rounded-[1.35rem] bg-white/22 px-3 py-3 backdrop-blur-[4px]">
-              <div className="flex items-center gap-1.5 text-[#466cb9]">
-                <Crown size={15} className="shrink-0 text-[#cc9a2c]" />
-                <p className="truncate text-[0.95rem] font-bold tracking-[0.01em]">{subtitle}</p>
-              </div>
-
-              <div className="mt-2 flex items-center gap-2">
-                {isTeam && countries[0] ? <Flag code={countries[0]} className="shrink-0 scale-[1.25] origin-left" /> : null}
-                <p className="truncate text-[1.9rem] font-black leading-none text-slate-950 sm:text-[2.1rem]">{headline}</p>
-                {!isTeam && countries[0] ? <Flag code={countries[0]} className="mb-0.5 shrink-0 scale-[1.15]" /> : null}
-              </div>
-
-              {championPath?.finalMatch ? (
-                <p className="mt-2 truncate text-[0.85rem] font-medium text-slate-600">
-                  决赛 {championPath.finalMatch.matchScore || "比分待补"}
-                  {championPath.winningSide ? ` · 对阵 ${sideName(championPath.winningSide)}` : ""}
-                </p>
+          <div className="flex min-w-0 flex-1 flex-col items-center justify-center">
+            <div className="flex items-center gap-1 text-[#466cb9]">
+              {!isDoubles && !isTeam ? (
+                <Image
+                  src="/images/wheatear_left.png"
+                  alt=""
+                  width={14}
+                  height={36}
+                  className="h-5 w-auto shrink-0 opacity-85"
+                />
               ) : null}
+              <p className="whitespace-nowrap text-[0.85rem] font-bold tracking-[0.01em]">{subtitle}</p>
+              {!isDoubles && !isTeam ? (
+                <Image
+                  src="/images/wheatear_right.png"
+                  alt=""
+                  width={14}
+                  height={36}
+                  className="h-5 w-auto shrink-0 opacity-85"
+                />
+              ) : null}
+            </div>
+
+            <div className="mt-0.5 flex items-center justify-center gap-2">
+              {isTeam && countries[0] ? <Flag code={countries[0]} className="shrink-0 scale-[1.2]" /> : null}
+              <p className="truncate text-[1.45rem] font-black leading-none text-slate-950 sm:text-[1.7rem]">{headline}</p>
+              {!isTeam && countries[0] ? <Flag code={countries[0]} className="mb-0.5 shrink-0 scale-[1.05]" /> : null}
             </div>
           </div>
         </div>
       </div>
+      <Image
+        src="/images/cup.png"
+        alt="冠军奖杯"
+        width={120}
+        height={140}
+        className="pointer-events-none absolute -top-2 left-2 z-10 h-auto w-[92px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:-top-3 sm:left-3 sm:w-[108px]"
+        priority
+      />
     </div>
   );
 }
