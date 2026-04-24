@@ -14,6 +14,7 @@
 """
 
 import argparse
+import json
 import re
 import sqlite3
 import sys
@@ -69,6 +70,31 @@ MULTI_COUNTRY_SUB_EVENTS = {
 def is_team_sub_event(sub_event_type_code: str) -> bool:
     code = (sub_event_type_code or "").strip().upper()
     return code in {"MT", "WT", "XT"} or code.endswith("MT") or code.endswith("WT")
+
+
+def load_manual_event_overrides() -> Dict[Tuple[int, str], str]:
+    overrides_dir = PROJECT_ROOT / "web" / "data" / "manual_event_overrides"
+    if not overrides_dir.exists():
+        return {}
+
+    champion_teams: Dict[Tuple[int, str], str] = {}
+    for file_path in overrides_dir.glob("*.json"):
+        try:
+            payload = json.loads(file_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        event_id = payload.get("event_id")
+        sub_event_type_code = str(payload.get("sub_event_type_code") or "").strip().upper()
+        presentation_mode = str(payload.get("presentation_mode") or "").strip()
+        champion_team = str((payload.get("podium") or {}).get("champion") or "").strip().upper()
+
+        if not isinstance(event_id, int) or not sub_event_type_code or presentation_mode != "staged_round_robin" or not champion_team:
+            continue
+
+        champion_teams[(event_id, sub_event_type_code)] = champion_team
+
+    return champion_teams
 
 
 def parse_match_score(score: str) -> Optional[Tuple[int, int]]:
@@ -296,6 +322,84 @@ def resolve_team_tie_by_side(
 
     champion_side = "A" if wins_by_side["A"] > wins_by_side["B"] else "B"
     return side_rosters[champion_side], majority_country(side_rosters[champion_side]), wins_by_side
+
+
+def collect_override_team_champion_rosters(
+    cursor,
+    champion_team_by_event: Dict[Tuple[int, str], str],
+) -> Dict[Tuple[int, str], tuple[List[Tuple[str, str]], str]]:
+    if not champion_team_by_event:
+        return {}
+
+    cursor.execute(
+        """
+        SELECT
+            m.match_id,
+            m.event_id,
+            m.sub_event_type_code,
+            ms.side_no,
+            msp.player_name,
+            msp.player_country
+        FROM matches m
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        LEFT JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
+        WHERE m.event_id IS NOT NULL
+        ORDER BY m.event_id, m.sub_event_type_code, m.match_id, ms.side_no, msp.player_order
+        """
+    )
+    rows = cursor.fetchall()
+
+    roster_by_event: Dict[Tuple[int, str], List[Tuple[str, str]]] = {}
+    seen_by_event: Dict[Tuple[int, str], set[Tuple[str, str]]] = {}
+
+    current_match_key: Optional[Tuple[int, str, int]] = None
+    current_sides: Dict[int, List[Tuple[str, str]]] = {1: [], 2: []}
+
+    def flush_current_match() -> None:
+        nonlocal current_match_key, current_sides
+        if current_match_key is None:
+            return
+
+        event_id, sub_event_type_code, _match_id = current_match_key
+        event_key = (event_id, sub_event_type_code)
+        champion_country = champion_team_by_event.get(event_key)
+        if champion_country:
+            for side in (current_sides.get(1, []), current_sides.get(2, [])):
+                side_countries = {country.strip().upper() for _, country in side if country.strip()}
+                if side_countries != {champion_country}:
+                    continue
+                roster = roster_by_event.setdefault(event_key, [])
+                seen = seen_by_event.setdefault(event_key, set())
+                for name, country in side:
+                    cleaned_name = (name or "").strip()
+                    cleaned_country = (country or "").strip().upper()
+                    if not cleaned_name or cleaned_country != champion_country:
+                        continue
+                    member_key = (normalize_text(cleaned_name), cleaned_country)
+                    if member_key in seen:
+                        continue
+                    seen.add(member_key)
+                    roster.append((cleaned_name, cleaned_country))
+
+        current_match_key = None
+        current_sides = {1: [], 2: []}
+
+    for match_id, event_id, sub_event_type_code, side_no, player_name, player_country in rows:
+        match_key = (event_id, sub_event_type_code, match_id)
+        if current_match_key != match_key:
+            flush_current_match()
+            current_match_key = match_key
+
+        if player_name:
+            current_sides.setdefault(side_no, []).append((player_name, player_country or ""))
+
+    flush_current_match()
+
+    return {
+        event_key: (roster, champion_team_by_event[event_key])
+        for event_key, roster in roster_by_event.items()
+        if roster
+    }
 
 
 def resolve_team_tie_winner(
@@ -580,6 +684,8 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
     player_index = build_player_index(cursor)
     team_semifinal_winner_pairs = build_team_semifinal_winner_pairs(cursor)
     non_team_championship_final_pairs = build_non_team_championship_final_pairs(cursor)
+    manual_override_champion_teams = load_manual_event_overrides()
+    override_team_champion_rosters = collect_override_team_champion_rosters(cursor, manual_override_champion_teams)
 
     # Full refresh mode: clear previous sub_events and reset AUTOINCREMENT.
     if not dry_run:
@@ -649,6 +755,8 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
     for match_data in match_map.values():
         key = (match_data["event_id"], match_data["sub_event_type_code"])
         grouped_finals.setdefault(key, []).append(match_data)
+
+    sub_event_rows: Dict[Tuple[int, str], Dict[str, Optional[str]]] = {}
 
     for (event_id, sub_event_type_code), final_matches in grouped_finals.items():
         champion_country_override: Optional[str] = None
@@ -820,7 +928,36 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
             champion_countries=champion_countries,
         )
 
-        if not dry_run:
+        sub_event_rows[(event_id, sub_event_type_code)] = {
+            "champion_player_ids": ",".join(champion_ids) if champion_ids else None,
+            "champion_name": ",".join(champion_names) if champion_names else None,
+            "champion_country_code": resolved_country if resolved_country else None,
+        }
+
+    for (event_id, sub_event_type_code), (champion_roster, champion_country_override) in override_team_champion_rosters.items():
+        champion_names: List[str] = []
+        champion_ids: List[str] = []
+
+        for name, country in champion_roster:
+            champion_names.append(name)
+            pid = lookup_player_id(player_index, name, country)
+            if pid is not None:
+                champion_ids.append(str(pid))
+            else:
+                champion_ids.append("")
+                result["unmatched_champion_members"].add(f"{name} ({country})")
+
+        if not champion_names:
+            continue
+
+        sub_event_rows[(event_id, sub_event_type_code)] = {
+            "champion_player_ids": ",".join(champion_ids) if champion_ids else None,
+            "champion_name": ",".join(champion_names) if champion_names else None,
+            "champion_country_code": champion_country_override,
+        }
+
+    if not dry_run:
+        for (event_id, sub_event_type_code), row in sorted(sub_event_rows.items()):
             cursor.execute(
                 """
                 INSERT INTO sub_events (
@@ -830,9 +967,9 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
                 (
                     event_id,
                     sub_event_type_code,
-                    ",".join(champion_ids) if champion_ids else None,
-                    ",".join(champion_names) if champion_names else None,
-                    resolved_country if resolved_country else None,
+                    row["champion_player_ids"],
+                    row["champion_name"],
+                    row["champion_country_code"],
                 ),
             )
             result["sub_events_inserted"] += 1
