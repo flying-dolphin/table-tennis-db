@@ -366,7 +366,7 @@ export function getPlayerDetail(slug: string) {
   }
 
   const eventMap = new Map<
-    string,
+    number,
     {
       eventId: number;
       eventName: string | null;
@@ -383,8 +383,7 @@ export function getPlayerDetail(slug: string) {
 
   for (const row of matchRows) {
     if (row.eventId == null) continue;
-    const eventKey = `${row.eventId}:${row.subEventTypeCode ?? ''}`;
-    const current = eventMap.get(eventKey);
+    const current = eventMap.get(row.eventId);
     const weight = roundWeight(row.round);
     const didWin =
       (row.winnerSide === 'A' && row.playerSideNo === 1) ||
@@ -399,7 +398,7 @@ export function getPlayerDetail(slug: string) {
     });
 
     if (!current || weight > current.weight || (isChampion && !current.isChampion)) {
-      eventMap.set(eventKey, {
+      eventMap.set(row.eventId, {
         eventId: row.eventId,
         eventName: row.eventName,
         eventNameZh: row.eventNameZh,
