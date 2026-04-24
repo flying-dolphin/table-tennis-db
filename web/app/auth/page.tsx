@@ -160,21 +160,15 @@ export default function AuthPage() {
   const inputBaseCls = "flex-1 bg-transparent outline-none text-[16px] text-text-primary placeholder:text-text-tertiary min-w-0";
 
   return (
-    <main className="min-h-screen bg-white relative flex flex-col overflow-x-hidden font-body">
+    <main className="min-h-screen bg-white relative flex flex-col overflow-x-hidden font-body pb-[calc(4rem+env(safe-area-inset-bottom)+1rem)]">
       <div className="absolute top-0 left-0 w-full h-[40vh] pointer-events-none overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_#EBF4FF_0%,_#FFFFFF_70%)] opacity-80" />
         <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-blue-50/50 blur-[80px] rounded-full rotate-12" />
         <div className="absolute top-[10%] right-[-10%] w-[50%] h-[50%] bg-brand-soft/20 blur-[100px] rounded-full" />
       </div>
 
-      <div className="w-full flex justify-start p-6 relative z-20">
-        <Link href="/" className="text-text-primary p-2 hover:bg-white/50 backdrop-blur-sm rounded-full transition-colors border border-white/20">
-          <X size={24} strokeWidth={1.5} />
-        </Link>
-      </div>
-
       <div className="w-full max-w-[400px] mx-auto px-8 flex-1 flex flex-col relative z-10">
-        <div className="flex flex-col items-center mt-2 mb-10">
+        <div className="flex flex-col items-center mt-10 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -182,8 +176,8 @@ export default function AuthPage() {
             className="relative mb-6"
           >
             <div className="absolute inset-0 bg-brand-primary/20 blur-3xl rounded-full scale-150" />
-            <div className="relative z-10 p-1 bg-white/40 backdrop-blur-md rounded-[28px] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] w-24 h-24">
-              <Image src="/images/logo.png" alt="Logo" className="object-contain drop-shadow-sm w-full h-full" fill />
+            <div className="relative z-10 w-24 h-24 overflow-hidden">
+              <Image src="/images/logo.png" alt="Logo" className="object-cover drop-shadow-sm scale-[1.6]" fill />
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-center">
@@ -381,14 +375,36 @@ export default function AuthPage() {
         </div>
 
         <div className="mt-auto py-8">
-          <button type="button" onClick={() => setAgreed(!agreed)} className="flex items-start gap-2 group text-left">
-            <div className={`mt-0.5 transition-colors ${agreed ? "text-brand-primary" : "text-gray-300 group-hover:text-gray-400"}`}>
-              {agreed ? <CheckCircle2 size={16} fill="currentColor" className="text-white bg-brand-primary rounded-full shadow-sm" /> : <Circle size={16} />}
-            </div>
-            <p className="text-[12px] text-text-tertiary leading-relaxed">
-              阅读并同意<Link href="/terms" className="text-brand-deep font-medium hover:underline mx-0.5">《用户协议》</Link>和<Link href="/privacy" className="text-brand-deep font-medium hover:underline mx-0.5">《隐私政策》</Link>，登录后解锁自然语言搜索功能
+          <div className="flex items-start gap-2">
+            <button
+              type="button"
+              onClick={() => setAgreed(!agreed)}
+              className="mt-0.5 shrink-0 transition-colors text-gray-300 hover:text-gray-400 data-[checked]:text-brand-primary"
+              data-checked={agreed ? "" : undefined}
+            >
+              {agreed
+                ? <CheckCircle2 size={16} strokeWidth={2.5} className="text-brand-primary" />
+                : <Circle size={16} strokeWidth={1.5} className="text-gray-300" />}
+            </button>
+            <p
+              className="text-[12px] text-text-tertiary leading-relaxed cursor-pointer select-none"
+              onClick={() => setAgreed(!agreed)}
+            >
+              阅读并同意
+              <Link
+                href="/terms"
+                className="text-brand-deep font-medium hover:underline mx-0.5"
+                onClick={(e) => e.stopPropagation()}
+              >《用户协议》</Link>
+              和
+              <Link
+                href="/privacy"
+                className="text-brand-deep font-medium hover:underline mx-0.5"
+                onClick={(e) => e.stopPropagation()}
+              >《隐私政策》</Link>
+              ，登录后解锁自然语言搜索功能
             </p>
-          </button>
+          </div>
         </div>
       </div>
     </main>
