@@ -990,22 +990,22 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
                       <button
                         type="button"
                         onClick={() => toggleGroup(groupKey)}
-                        className="flex w-full items-center justify-between gap-2"
+                        className="flex w-full items-center gap-2"
                       >
-                        <h3 className="text-[1.15rem] font-black text-slate-900">{group.nameZh || group.code}</h3>
-                        <span className="flex items-center gap-1 text-[0.82rem] font-medium text-slate-400">
+                        <h3 className="shrink-0 text-[1.15rem] font-black text-slate-900 whitespace-nowrap">{group.nameZh || group.code}</h3>
+                        <div className="flex min-w-0 flex-1 flex-wrap items-center justify-center gap-1 text-[0.72rem] font-bold text-slate-600">
+                          {group.teams.map((team) => (
+                            <span key={team} className="inline-flex flex-col items-center gap-0.5 rounded-lg bg-white px-1.5 py-1 whitespace-nowrap leading-none">
+                              <Flag code={team} />
+                              <span>{team}</span>
+                            </span>
+                          ))}
+                        </div>
+                        <span className="shrink-0 flex items-center gap-0.5 text-[0.8rem] font-medium text-slate-400">
                           {isCollapsed ? "展开" : "收起"}
                           {isCollapsed ? <ChevronDown size={14} strokeWidth={2.5} /> : <ChevronUp size={14} strokeWidth={2.5} />}
                         </span>
                       </button>
-                      <div className="mt-2.5 flex flex-wrap justify-center gap-1.5 text-[0.82rem] font-bold text-slate-500">
-                        {group.teams.map((team) => (
-                          <span key={team} className="inline-flex items-center gap-1 rounded-full bg-white px-2 py-1 whitespace-nowrap">
-                            <Flag code={team} className="scale-90" />
-                            {team}
-                          </span>
-                        ))}
-                      </div>
                       {!isCollapsed && (
                         <div className="mt-4 space-y-3">
                           {group.ties.map((tie, index) => (

@@ -80,7 +80,9 @@ function displayDate(value: string | null) {
 }
 
 function sideTitle(side: MatchSide) {
-  return side.players.map(displayPlayerName).join(" / ");
+  // 更加激进的限制：双打每个名字 8 字符，单打 14 字符
+  const maxChars = side.players.length > 1 ? 8 : 14;
+  return side.players.map((p) => limitName(displayPlayerName(p), maxChars)).join(" / ");
 }
 
 function sideCountries(side: MatchSide) {
@@ -93,27 +95,31 @@ function SideCard({ side }: { side: MatchSide }) {
   return (
     <section
       className={cn(
-        "rounded-lg border p-4 shadow-sm",
+        "rounded-lg border p-4 shadow-sm overflow-hidden",
         side.isWinner ? "border-brand-deep bg-brand-mist" : "border-white/60 bg-white/75",
       )}
     >
       <div className="mb-3 flex items-center justify-between gap-3">
-        <div className="flex min-w-0 items-center gap-3">
+        <div className="flex min-w-0 flex-1 items-center gap-3">
           {firstPlayer ? (
-            <PlayerAvatar player={{ ...firstPlayer, playerId: firstPlayer.playerId ?? `side-${side.sideNo}` }} size="md" />
+            <div className="shrink-0">
+              <PlayerAvatar player={{ ...firstPlayer, playerId: firstPlayer.playerId ?? `side-${side.sideNo}` }} size="md" />
+            </div>
           ) : (
-            <div className="h-12 w-12 rounded-full bg-surface-tinted" />
+            <div className="h-12 w-12 shrink-0 rounded-full bg-surface-tinted" />
           )}
-          <div className="min-w-0 overflow-hidden">
-            <h2 className="truncate text-heading-2 font-black text-text-primary">{sideTitle(side)}</h2>
-            <p className="mt-0.5 text-caption font-bold uppercase tracking-wider text-text-tertiary">
+          <div className="min-w-0 flex-1">
+            <h2 className="line-clamp-1 text-heading-2 font-black text-text-primary" title={sideTitle(side)}>
+              {sideTitle(side)}
+            </h2>
+            <p className="mt-0.5 line-clamp-1 text-caption font-bold uppercase tracking-wider text-text-tertiary">
               {sideCountries(side) || "国家待补"}
             </p>
           </div>
         </div>
         <span
           className={cn(
-            "grid h-9 min-w-9 place-items-center rounded-full text-caption font-black",
+            "grid h-9 w-9 shrink-0 place-items-center rounded-full text-caption font-black",
             side.isWinner ? "bg-brand-deep text-white" : "bg-surface-secondary text-text-tertiary",
           )}
         >
@@ -125,13 +131,15 @@ function SideCard({ side }: { side: MatchSide }) {
         {side.players.map((player, index) => {
           const content = (
             <div className="flex min-h-11 items-center justify-between gap-3 rounded-md bg-white/70 px-3 py-2">
-              <div className="min-w-0 w-full overflow-hidden">
-                <p className="w-full truncate text-body font-bold text-text-primary">{limitName(displayPlayerName(player))}</p>
-                <p className="text-micro font-bold uppercase tracking-wider text-text-tertiary">
+              <div className="min-w-0 flex-1">
+                <p className="line-clamp-1 text-body font-bold text-text-primary">
+                  {limitName(displayPlayerName(player), 15)}
+                </p>
+                <p className="line-clamp-1 text-micro font-bold uppercase tracking-wider text-text-tertiary">
                   {player.countryCode || "国家待补"}
                 </p>
               </div>
-              {player.slug ? <ChevronRight size={15} className="text-text-tertiary" /> : null}
+              {player.slug ? <ChevronRight size={15} className="shrink-0 text-text-tertiary" /> : null}
             </div>
           );
 
@@ -204,7 +212,9 @@ function MatchContent() {
     if (parts.length !== 2 || !Number.isFinite(parts[0]) || !Number.isFinite(parts[1])) return null;
     const winnerSide = parts[0] > parts[1] ? sideA : sideB;
     if (!winnerSide) return null;
-    return winnerSide.players.map(displayPlayerName).join(" / ");
+    // 获胜方名字也进行激进截断
+    const maxChars = winnerSide.players.length > 1 ? 8 : 14;
+    return winnerSide.players.map((p) => limitName(displayPlayerName(p), maxChars)).join(" / ");
   })();
 
   return (
@@ -246,7 +256,7 @@ function MatchContent() {
       </section>
 
       <section className="px-5 pt-4">
-        <div className="rounded-lg border border-white/60 bg-white/80 p-5 text-center shadow-sm backdrop-blur-md">
+        <div className="rounded-lg border border-white/60 bg-white/80 p-5 text-center shadow-sm backdrop-blur-md overflow-hidden">
           <div className="mb-2 flex items-center justify-center gap-2 text-brand-strong">
             <Goal size={18} />
             <span className="text-caption font-black uppercase tracking-widest">Match Score</span>
@@ -254,9 +264,11 @@ function MatchContent() {
           <p className="font-numeric text-[46px] font-black leading-none text-text-primary tabular-nums">
             {data.match.matchScore || "-"}
           </p>
-          <p className="mt-2 text-caption font-semibold text-text-tertiary">
-            获胜方：{winnerName || "待补"}
-          </p>
+          <div className="mt-2 flex justify-center w-full overflow-hidden">
+            <p className="max-w-full line-clamp-1 px-2 text-caption font-semibold text-text-tertiary" title={winnerName || ""}>
+              获胜方：{winnerName || "待补"}
+            </p>
+          </div>
         </div>
       </section>
 
