@@ -9,13 +9,11 @@ import {
   Crown,
   List,
   FolderTree,
-  Search,
   Trophy,
   ChevronLeft,
   ChevronDown,
   ChevronUp,
   CheckCircle2,
-  PlayCircle,
 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -137,6 +135,7 @@ type EventDetail = {
     hasDraw: boolean;
     drawMatches: number;
     importedMatches: number;
+    champion: EventChampion | null;
   }>;
   selectedSubEvent: string;
   subEventDetails: Array<{
@@ -157,7 +156,9 @@ type EventDetailResponse = {
   data: EventDetail;
 };
 
-type ViewMode = "schedule" | "draw";
+type ViewMode = "schedule" | "draw" | "champions";
+
+type EventSubEventView = EventDetail["subEvents"][number] & EventDetail["subEventDetails"][number];
 
 function displayName(name: string, nameZh: string | null) {
   return nameZh?.trim() || name;
@@ -206,6 +207,10 @@ function isDoublesSubEvent(code: string, label: string) {
 
 function isXTSubEvent(code: string, label: string) {
   return code === "XT";
+}
+
+function isMixedTeamSubEvent(code: string) {
+  return code === "WT" || code === "XT";
 }
 
 function isTeamSubEvent(code: string, label: string) {
@@ -378,7 +383,7 @@ function ChampionBanner({
   const subtitle = `${label}冠军`;
 
   return (
-    <div className="relative pt-1">
+    <div className="relative pt-10 pb-1">
       <div className="relative overflow-hidden rounded-[1.5rem] bg-[linear-gradient(90deg,#dfeafe_0%,#d9e7ff_55%,#d5e1ff_100%)] pl-[104px] pr-3 shadow-[0_14px_28px_rgba(144,166,201,0.16)] py-1 sm:pl-[120px]">
         <div className="absolute inset-y-0 left-0 w-32 bg-[radial-gradient(circle_at_18%_50%,rgba(255,255,255,0.95),transparent_60%)]" />
         <div className="absolute -left-6 bottom-0 h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.85),transparent_72%)]" />
@@ -428,26 +433,26 @@ function ChampionBanner({
         alt="冠军奖杯"
         width={120}
         height={140}
-        className="pointer-events-none absolute bottom-0 left-2 z-10 h-auto w-[100px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:left-3 sm:w-[116px]"
+        className="pointer-events-none absolute bottom-0 left-2 z-30 h-auto w-[100px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:left-3 sm:w-[116px]"
         priority
       />
     </div>
   );
 }
 
-function ViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMode) => void }) {
+function ViewTabs({ mode, onChange, showChampionsTab }: { mode: ViewMode; onChange: (mode: ViewMode) => void; showChampionsTab: boolean }) {
   return (
-    <div className="flex justify-between border-b border-slate-200/80 px-8">
+    <div className="flex justify-around border-b border-slate-200/80 px-1 text-base">
       <button
         type="button"
         onClick={() => onChange("schedule")}
         className={cn(
-          "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
+          "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
           mode === "schedule" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
         )}
       >
         <List size={16} />
-        赛程列表
+        赛程
         <span
           aria-hidden="true"
           className={cn(
@@ -460,12 +465,12 @@ function ViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMod
         type="button"
         onClick={() => onChange("draw")}
         className={cn(
-          "relative flex h-14 items-center justify-center gap-2 px-4 text-[1.06rem] font-bold transition-colors",
+          "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
           mode === "draw" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
         )}
       >
-        <FolderTree size={20} />
-        完整赛事图
+        <FolderTree size={16} />
+        赛事图
         <span
           aria-hidden="true"
           className={cn(
@@ -474,6 +479,26 @@ function ViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMod
           )}
         />
       </button>
+      {showChampionsTab && (
+        <button
+          type="button"
+          onClick={() => onChange("champions")}
+          className={cn(
+            "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
+            mode === "champions" ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
+          )}
+        >
+          <Crown size={16} />
+          冠军成员
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+              mode === "champions" ? "bg-[#2d6cf6]" : "bg-transparent",
+            )}
+          />
+        </button>
+      )}
     </div>
   );
 }
@@ -963,6 +988,71 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
   );
 }
 
+function ChampionsListView({ subEvents }: { subEvents: EventSubEventView[] }) {
+  const subEventsWithChampions = subEvents.filter((se) => !se.disabled && isMixedTeamSubEvent(se.code));
+
+  if (subEventsWithChampions.length === 0) {
+    return (
+      <div className="pt-5">
+        <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+          本赛事无WT/XD项目
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="pb-10 pt-4">
+      <div className="space-y-6">
+        {subEventsWithChampions.map((se) => {
+          const champion = se.champion;
+          const championNames = normalizeChampionNames(champion);
+          const countries = champion
+            ? dedupeCountries(champion.players).length > 0
+              ? dedupeCountries(champion.players)
+              : champion.championCountryCode
+                ? [champion.championCountryCode]
+                : []
+            : [];
+
+          return (
+            <section key={se.code}>
+              <h2 className="mb-3 text-[1.2rem] font-black text-slate-900">{se.nameZh || se.code}</h2>
+              <div className="rounded-[1.6rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+                <div className="flex items-center gap-2">
+                  <Crown size={18} className="text-[#d4a017]" />
+                  <span className="text-[0.92rem] font-bold text-slate-500">冠军球队</span>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  {countries[0] && <Flag code={countries[0]} className="shrink-0 scale-[1.35]" />}
+                  <p className="text-[1.15rem] font-black text-slate-950">{championNames.join(" / ") || champion?.championName || "待补"}</p>
+                </div>
+                {champion && champion.players.length > 0 && (
+                  <div className="mt-4">
+                    <p className="mb-2 text-[0.88rem] font-bold text-slate-500">成员名单</p>
+                    <div className="flex flex-wrap gap-2">
+                      {champion.players.map((player) => (
+                        <Link
+                          key={player.playerId}
+                          href={route(`/players/${player.slug}`)}
+                          className="inline-flex items-center gap-2 rounded-full bg-[#f6f8fd] px-3 py-1.5 transition hover:bg-[#eef4ff]"
+                        >
+                          <Flag code={player.countryCode} />
+                          <span className="text-[0.95rem] font-bold text-slate-700">{displayPlayerName(player)}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function EventDetailContent() {
   const params = useParams<{ eventId: string }>();
   const router = useRouter();
@@ -1010,13 +1100,24 @@ function EventDetailContent() {
   }
 
   const currentSubEvent = selectedSubEvent ?? data.selectedSubEvent;
-  const currentDetail = data.subEventDetails.find((detail) => detail.code === currentSubEvent);
+  const subEventViews = data.subEvents.map((subEvent) => {
+    const detail = data.subEventDetails.find((item) => item.code === subEvent.code);
+    return {
+      ...subEvent,
+      champion: detail?.champion ?? subEvent.champion,
+      bracket: detail?.bracket ?? [],
+      roundRobinView: detail?.roundRobinView ?? null,
+      presentationMode: detail?.presentationMode ?? data.presentationMode,
+    };
+  });
+  const currentDetail = subEventViews.find((detail) => detail.code === currentSubEvent);
   const currentBracket = currentDetail?.bracket ?? [];
   const currentChampion = currentDetail?.champion ?? null;
   const currentRoundRobinView = currentDetail?.roundRobinView ?? data.roundRobinView ?? null;
   const currentPresentationMode = currentDetail?.presentationMode ?? data.presentationMode;
-  const currentSubEventMeta = data.subEvents.find((subEvent) => subEvent.code === currentSubEvent);
+  const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === currentSubEvent);
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
+  const showChampionsTab = subEventViews.some((se) => !se.disabled && isMixedTeamSubEvent(se.code));
 
   return (
     <main className="mx-auto min-h-screen max-w-lg bg-[#f8fafc]">
@@ -1037,11 +1138,13 @@ function EventDetailContent() {
             <RoundRobinView view={currentRoundRobinView} />
           ) : (
             <>
-              <ViewTabs mode={viewMode} onChange={setViewMode} />
+              <ViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
               {viewMode === "schedule" ? (
                 <ScheduleView rounds={currentBracket} isXT={isXT} />
-              ) : (
+              ) : viewMode === "draw" ? (
                 <DrawView rounds={currentBracket} selectedSubEvent={currentSubEvent} champion={currentChampion} isXT={isXT} />
+              ) : (
+                <ChampionsListView subEvents={subEventViews} />
               )}
             </>
           )}

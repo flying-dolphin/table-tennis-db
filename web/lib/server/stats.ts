@@ -1,4 +1,5 @@
 import { db } from '@/lib/server/db';
+import { isChampionRecord } from '@/lib/server/event-outcomes';
 
 export type PlayerAggregateStats = {
   totalMatches: number;
@@ -272,6 +273,15 @@ export function getPlayerAggregateStats(playerIds: number[]) {
 
     const sortOrder = row.sortOrder;
     const isSevenEvent = sortOrder != null && sortOrder >= 1 && sortOrder <= 9;
+    const isChampion = isChampionRecord({
+      eventId: row.eventId,
+      subEventTypeCode: row.subEventTypeCode,
+      stage: row.stage,
+      round: row.round,
+      didWin,
+      playerCountry: row.playerCountry,
+    });
+
     if (eventKey && isSevenEvent) {
       stats.sevenEventKeys.add(eventKey);
     }
@@ -288,6 +298,19 @@ export function getPlayerAggregateStats(playerIds: number[]) {
           if (sortOrder != null && sortOrder <= 5) {
             stats.singleThreeTitleKeys.add(eventKey);
           }
+        }
+      }
+    }
+
+    if (eventKey && isSevenEvent && isChampion) {
+      stats.allSevenTitleKeys.add(eventKey);
+      if (sortOrder != null && sortOrder <= 5) {
+        stats.allThreeTitleKeys.add(eventKey);
+      }
+      if (row.subEventTypeCode === 'WS') {
+        stats.singleSevenTitleKeys.add(eventKey);
+        if (sortOrder != null && sortOrder <= 5) {
+          stats.singleThreeTitleKeys.add(eventKey);
         }
       }
     }

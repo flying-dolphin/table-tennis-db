@@ -651,6 +651,34 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     const record = existingMap.get(code);
     const drawMatches = drawCountMap.get(code) ?? 0;
     const importedMatches = matchCountMap.get(code) ?? 0;
+    const playerIds = parseChampionIds(record?.championPlayerIds ?? null);
+    const hasChampion = Boolean(record?.championName || record?.championCountryCode || playerIds.length > 0);
+    const players =
+      playerIds.length > 0
+        ? (db
+            .prepare(
+              `
+              SELECT
+                player_id AS playerId,
+                slug,
+                name,
+                name_zh AS nameZh,
+                country_code AS countryCode,
+                REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+              FROM players
+              WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
+            `,
+            )
+            .all(...playerIds) as Array<{
+            playerId: number;
+            slug: string;
+            name: string;
+            nameZh: string | null;
+            countryCode: string | null;
+            avatarFile: string | null;
+          }>)
+        : [];
+
     return {
       code,
       nameZh: nameMap.get(code) ?? code,
@@ -658,9 +686,14 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
       hasDraw: drawMatches > 0,
       drawMatches,
       importedMatches,
-      championPlayerIds: parseChampionIds(record?.championPlayerIds ?? null),
-      championName: record?.championName ?? null,
-      championCountryCode: record?.championCountryCode ?? null,
+      champion:
+        hasChampion
+          ? {
+              championName: record?.championName ?? null,
+              championCountryCode: record?.championCountryCode ?? null,
+              players,
+            }
+          : null,
     };
   });
 
@@ -673,44 +706,20 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
         subEvents.find((item) => !item.disabled)?.code ??
         preferredDefault;
 
-  const championForSubEvent = (subEventCode: string): EventChampion | null => {
+const championForSubEvent = (subEventCode: string): EventChampion | null => {
     const se = subEvents.find((item) => item.code === subEventCode);
-    const playerIds = se?.championPlayerIds ?? [];
-    const players =
-      playerIds.length > 0
-        ? (db
-            .prepare(
-              `
-                SELECT
-                  player_id AS playerId,
-                  slug,
-                  name,
-                  name_zh AS nameZh,
-                  country_code AS countryCode,
-                  REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
-                FROM players
-                WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
-              `,
-            )
-            .all(...playerIds) as Array<{
-            playerId: number;
-            slug: string;
-            name: string;
-            nameZh: string | null;
-            countryCode: string | null;
-            avatarFile: string | null;
-          }>)
-        : [];
+    const champion = se?.champion;
+    const players = champion?.players ?? [];
 
     const overrideChampionCountry =
       override && subEventCode === override.sub_event_type_code ? override.podium.champion : null;
 
     if (!se && !overrideChampionCountry) return null;
-    if (!se?.championName && players.length === 0 && !overrideChampionCountry) return null;
+    if (!champion?.championName && players.length === 0 && !overrideChampionCountry) return null;
 
     return {
-      championName: se?.championName ?? overrideChampionCountry,
-      championCountryCode: se?.championCountryCode ?? overrideChampionCountry,
+      championName: champion?.championName ?? overrideChampionCountry,
+      championCountryCode: champion?.championCountryCode ?? overrideChampionCountry,
       players,
     };
   };
