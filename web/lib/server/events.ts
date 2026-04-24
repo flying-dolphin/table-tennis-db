@@ -1,6 +1,6 @@
 import { db } from '@/lib/server/db';
 
-const CORE_SUB_EVENT_CODES = ['WS', 'WD', 'WT', 'XD'] as const;
+const CORE_SUB_EVENT_CODES = ['WS', 'WD', 'WT', 'XD', 'XT'] as const;
 
 type SidePlayer = {
   playerId: number | null;
