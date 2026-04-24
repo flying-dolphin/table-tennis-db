@@ -9,6 +9,11 @@
 2. side_a/side_b 作为完整参赛方（支持单双打/团体）。
 3. winner_side 以 A/B 记录，球员级信息落在 match_side_players。
 4. 不按双方去重；团体/资格赛中同一双方可能多次交手。
+
+导入前置条件：
+- `event_id=2860`（ITTF Mixed Team World Cup Chengdu 2023）在源数据里被错误写成整届 `Qualification`
+- 正式入库前应先执行 `python scripts/fix_special_event_2860_stage_round.py`
+- 否则该赛事会以错误的 stage/round 写入 `matches`
 """
 
 import argparse

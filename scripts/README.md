@@ -88,6 +88,36 @@ python scripts/scrape_matches.py
 python scripts/translate_matches.py --file data/matches_complete/xxx.json
 ```
 
+## 特殊赛事修复
+
+### 修复 `event_id=2860` 的 stage/round
+
+`2023 ITTF Mixed Team World Cup Chengdu` 在 ITTF 原始赛事维度数据里，全部被错误标记为 `Qualification`。
+该赛事真实赛制是：
+
+- 第一阶段：4 个小组循环赛
+- 第二阶段：8 强循环赛
+- 冠军按第二阶段积分榜产生，不是淘汰赛 `Final`
+
+修复脚本：
+
+```bash
+python scripts/fix_special_event_2860_stage_round.py --dry-run
+python scripts/fix_special_event_2860_stage_round.py
+```
+
+作用范围：
+
+- `data/event_matches/orig/ITTF_Mixed_Team_World_Cup_Chengdu_2023_2860.json`
+- `data/event_matches/cn/ITTF_Mixed_Team_World_Cup_Chengdu_2023_2860.json`
+
+修正结果：
+
+- `Main Draw - Stage 1` + `Group 1/2/3/4`
+- `Main Draw - Stage 2` + `Round Robin`
+
+如果后续要执行 `python scripts/db/import_matches.py` 重建比赛表，先跑这个修复脚本。
+
 ## Rankings 抓取
 
 从 https://www.ittf.com/rankings/ 抓取 Women's Singles 排名 + points breakdown：

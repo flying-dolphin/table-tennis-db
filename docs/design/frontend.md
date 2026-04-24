@@ -334,6 +334,10 @@
 - 展示某个 `event` 下的多个 `sub event`
 - 展示当前 `sub event` 的冠军和正赛对战图
 
+补充：
+
+- 对于特殊赛制赛事，页面需要支持“冠军 + 赛制流程 + standings”视图，而不是只支持 bracket
+
 ## 10.2 顶部信息区
 
 展示：
@@ -357,6 +361,32 @@
 - 展示正赛对战图
 - 展示晋级路径
 - 点击任意一场进入比赛详情页
+
+## 10.6 特殊赛事视图
+
+当后端返回 `presentationMode = staged_round_robin` 时：
+
+- 不显示传统淘汰赛 bracket
+- 改为显示 `RoundRobinView`
+
+`RoundRobinView` 推荐结构：
+
+1. Podium
+2. 第一阶段分组
+3. 第二阶段循环赛
+4. 最终排名
+
+展示要求：
+
+- Podium：冠军 / 亚军 / 季军
+- Stage 1：按 group 展示队伍与组内对阵
+- Stage 2：展示八强循环赛对阵
+- Final Standings：展示 1-8 名
+
+说明：
+
+- `event_id=2860` 是首个正式承载该视图的赛事
+- 页面不能通过伪造 `Final` 或 fake bracket 来兼容此类赛事
 
 ---
 

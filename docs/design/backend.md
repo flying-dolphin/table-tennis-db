@@ -2,7 +2,7 @@
 
 版本：v1.0
 日期：2026-04-17
-关联文档：`docs/design/PRD-v1.md`、`docs/design/database.md`
+关联文档：`docs/design/PRD-v1.md`、`docs/design/database.md`、`docs/design/special-event-round-robin.md`
 
 ---
 
@@ -385,6 +385,23 @@ V1 账号能力包括：
 - 正赛节点
 - 晋级路径
 - 可跳转 `match_id`
+
+#### 特殊赛事扩展
+
+当赛事赛制不是 knockout，而是“分阶段循环赛 / 积分榜决冠”时：
+
+- 返回 `presentationMode = staged_round_robin`
+- 不强制返回 bracket
+- 改为返回：
+  - `roundRobinView.stages`
+  - `roundRobinView.finalStandings`
+  - `roundRobinView.podium`
+
+说明：
+
+- `event_id=2860` 是首个正式支持的特殊赛事
+- 该类赛事的冠军来源不应强依赖 `Final`
+- 后端应允许冠军来自 standings override，而不是伪造 `Final`
 
 ---
 

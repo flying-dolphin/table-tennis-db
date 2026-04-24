@@ -25,6 +25,7 @@ python scripts/db/import_players.py
 python scripts/db/import_rankings.py
 python scripts/db/import_events.py
 python scripts/db/import_events_calendar.py
+python scripts/fix_special_event_2860_stage_round.py
 python scripts/db/import_matches.py
 python scripts/db/import_event_draw_matches.py
 python scripts/db/import_sub_events.py
@@ -33,6 +34,10 @@ python scripts/db/import_sub_events.py
 注意：
 
 - `import_matches.py` 正式读取 `data/event_matches/cn/*.json`，不再以 `data/matches_complete/cn/*.json` 作为基础比赛表来源
+- `event_id=2860`（`ITTF Mixed Team World Cup Chengdu 2023`）在 ITTF 原始数据中被整届错误标记为 `Qualification`
+- 该赛事真实赛制是“两阶段循环赛”，入库前必须先执行 `python scripts/fix_special_event_2860_stage_round.py`
+- 该修复脚本会把 `data/event_matches/orig|cn/ITTF_Mixed_Team_World_Cup_Chengdu_2023_2860.json` 改写为：
+  `Main Draw - Stage 1 + Group 1/2/3/4` 和 `Main Draw - Stage 2 + Round Robin`
 - `import_event_draw_matches.py` 必须在 `import_sub_events.py` 之前执行，冠军统计只读取正赛表里的 `draw_round='Final'`
 - 暂时不要执行 `python scripts/db/import_points_rules.py`
 - 该脚本当前为占位状态，`points_rules` 导入放在后续实现计划
