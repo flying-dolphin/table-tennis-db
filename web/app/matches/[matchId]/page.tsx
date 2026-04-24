@@ -4,7 +4,7 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import type { Route } from "next";
 import { useParams } from "next/navigation";
-import { ArrowLeft, CalendarDays, ChevronRight, Goal, Trophy } from "lucide-react";
+import { ArrowLeft, CalendarDays, ChevronLeft, ChevronRight, Goal, Trophy } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
@@ -177,40 +177,52 @@ function MatchContent() {
 
   const [sideA, sideB] = [...data.sides].sort((left, right) => left.sideNo - right.sideNo);
 
+  const winnerName = (() => {
+    const score = data.match.matchScore;
+    if (!score) return null;
+    const parts = score.split("-").map(Number);
+    if (parts.length !== 2 || !Number.isFinite(parts[0]) || !Number.isFinite(parts[1])) return null;
+    const winnerSide = parts[0] > parts[1] ? sideA : sideB;
+    if (!winnerSide) return null;
+    return winnerSide.players.map(displayPlayerName).join(" / ");
+  })();
+
   return (
     <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-gray-50/30 pb-28">
-      <section className="relative overflow-hidden px-5 pb-6 pt-5 text-white shadow-lg">
-        <div className="absolute inset-0 [background:linear-gradient(45deg,#222b34_0%,#4b6479_54%,#83acd2_100%)]" />
-        <div className="absolute inset-0 opacity-50 [background:radial-gradient(circle_at_88%_10%,#dceaf8_0%,transparent_42%),radial-gradient(circle_at_8%_88%,#1e2a3d_0%,transparent_58%)]" />
+      <section className="relative overflow-hidden bg-[#f0f4ff] px-4 pb-4 pt-4">
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: "url('/images/header_bg.jpeg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center right",
+            opacity: 0.7,
+          }}
+        />
         <div className="relative z-10">
-          <Link
-            href={route(`/events/${data.match.eventId}?sub_event=${data.match.subEventTypeCode}`)}
-            className="mb-5 inline-flex min-h-11 items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 text-caption font-bold text-white/85 backdrop-blur-sm transition-colors hover:bg-white/15"
-          >
-            <ArrowLeft size={14} />
-            返回赛事
-          </Link>
-          <p className="text-caption font-bold uppercase tracking-widest text-white/66">
-            {data.match.subEventNameZh || data.match.subEventTypeCode}
-          </p>
-          <h1 className="mt-2 line-clamp-2 text-display font-black leading-tight">
-            {displayName(data.match.eventName, data.match.eventNameZh)}
-          </h1>
-          <div className="mt-4 grid grid-cols-2 gap-2">
-            <div className="rounded-lg border border-white/15 bg-white/10 p-3 backdrop-blur-md">
-              <div className="mb-1 flex items-center gap-1.5 text-white/66">
-                <CalendarDays size={14} />
-                <span className="text-micro font-bold uppercase tracking-widest">日期</span>
+          <div className="flex items-start justify-between gap-2">
+            <Link
+              href={route(`/events/${data.match.eventId}?sub_event=${data.match.subEventTypeCode}`)}
+              className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center text-slate-900 transition-colors"
+            >
+              <ChevronLeft size={26} strokeWidth={2} />
+            </Link>
+
+            <div className="min-w-0 flex-1 text-center pt-1.5">
+              <p className="text-[0.88rem] font-medium text-[#7d8fae]">
+                {data.match.subEventNameZh || data.match.subEventTypeCode}
+              </p>
+              <h1 className="line-clamp-2 text-[1.2rem] font-bold leading-snug text-slate-950">
+                {displayName(data.match.eventName, data.match.eventNameZh)}
+              </h1>
+              <div className="mt-2 flex items-center justify-center gap-3">
+                <span className="text-[0.88rem] font-medium text-[#7d8fae]">{displayDate(data.match.startDate)}</span>
+                <span className="text-[0.88rem] text-[#c5cddc]">·</span>
+                <span className="text-[0.88rem] font-medium text-[#7d8fae]">{data.match.roundLabel}</span>
               </div>
-              <p className="text-body font-black">{displayDate(data.match.startDate)}</p>
             </div>
-            <div className="rounded-lg border border-white/15 bg-white/10 p-3 backdrop-blur-md">
-              <div className="mb-1 flex items-center gap-1.5 text-white/66">
-                <Trophy size={14} />
-                <span className="text-micro font-bold uppercase tracking-widest">轮次</span>
-              </div>
-              <p className="text-body font-black">{data.match.roundLabel}</p>
-            </div>
+
+            <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" />
           </div>
         </div>
       </section>
@@ -225,7 +237,7 @@ function MatchContent() {
             {data.match.matchScore || "-"}
           </p>
           <p className="mt-2 text-caption font-semibold text-text-tertiary">
-            获胜方：{data.match.winnerName || "待补"}
+            获胜方：{winnerName || "待补"}
           </p>
         </div>
       </section>
