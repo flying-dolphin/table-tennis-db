@@ -353,3 +353,33 @@ CREATE TABLE IF NOT EXISTS ingestion_runs (
 
 CREATE INDEX IF NOT EXISTS idx_ingestion_runs_task ON ingestion_runs(task_type);
 CREATE INDEX IF NOT EXISTS idx_ingestion_runs_status ON ingestion_runs(status);
+
+-- ============================================================================
+-- 用户与会话
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS users (
+    user_id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    username        TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    email           TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    password_hash   TEXT NOT NULL,
+    salt            TEXT NOT NULL,
+    created_at      TEXT DEFAULT (datetime('now')),
+    updated_at      TEXT DEFAULT (datetime('now'))
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email ON users(email COLLATE NOCASE);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_users_username ON users(username COLLATE NOCASE);
+
+CREATE TABLE IF NOT EXISTS user_sessions (
+    session_id  INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id     INTEGER NOT NULL,
+    token       TEXT NOT NULL UNIQUE,
+    expires_at  TEXT NOT NULL,
+    created_at  TEXT DEFAULT (datetime('now')),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_sessions_token ON user_sessions(token);
+CREATE INDEX IF NOT EXISTS idx_user_sessions_user ON user_sessions(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_sessions_expires ON user_sessions(expires_at);

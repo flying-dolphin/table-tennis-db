@@ -20,17 +20,27 @@ const EventsIcon = ({ size = 24, strokeWidth = 1.5, ...props }: any) => (
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const [profileHref, setProfileHref] = useState<Route>("/auth");
+
+  useEffect(() => {
+    fetch("/api/v1/auth/me", { credentials: "include", cache: "no-store" })
+      .then((res) => { if (res.ok) setProfileHref("/me"); })
+      .catch(() => {});
+  }, []);
 
   const navItems: Array<{ id: string; label: string; href: Route; icon: React.ComponentType<any> }> = [
     { id: "home", label: "首页", href: "/", icon: Home },
     { id: "ranking", label: "排名", href: "/rankings", icon: Trophy },
     { id: "events", label: "赛事", href: "/events", icon: EventsIcon },
-    { id: "profile", label: "我的", href: "/auth", icon: User },
+    { id: "profile", label: "我的", href: profileHref, icon: User },
   ];
 
-  const routeIndex = navItems.findIndex((item) =>
-    item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`)
-  );
+  const routeIndex = navItems.findIndex((item) => {
+    if (item.id === "profile") {
+      return pathname === "/auth" || pathname === "/me";
+    }
+    return item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`);
+  });
 
   const [activeIndex, setActiveIndex] = useState(routeIndex);
 

@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import './globals.css';
 import BottomNav from '@/components/BottomNav';
+import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'ITTF Rankings · 女子单打',
-  description: '展示 ITTF 女子单打排名、球员赛事与统计结果的轻量级站点。',
+  title: `${APP_NAME} · 女子单打`,
+  description: APP_DESCRIPTION,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
