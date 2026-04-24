@@ -383,7 +383,7 @@ function ChampionBanner({
   const subtitle = `${label}冠军`;
 
   return (
-    <div className="relative pt-10 pb-1">
+    <div className="relative pt-4">
       <div className="relative overflow-hidden rounded-[1.5rem] bg-[linear-gradient(90deg,#dfeafe_0%,#d9e7ff_55%,#d5e1ff_100%)] pl-[104px] pr-3 shadow-[0_14px_28px_rgba(144,166,201,0.16)] py-1 sm:pl-[120px]">
         <div className="absolute inset-y-0 left-0 w-32 bg-[radial-gradient(circle_at_18%_50%,rgba(255,255,255,0.95),transparent_60%)]" />
         <div className="absolute -left-6 bottom-0 h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.85),transparent_72%)]" />
@@ -433,7 +433,7 @@ function ChampionBanner({
         alt="冠军奖杯"
         width={120}
         height={140}
-        className="pointer-events-none absolute bottom-0 left-2 z-30 h-auto w-[100px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:left-3 sm:w-[116px]"
+        className="pointer-events-none absolute bottom-0 left-2 z-20 h-auto w-[100px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:left-3 sm:w-[116px]"
         priority
       />
     </div>
@@ -1131,7 +1131,7 @@ function EventDetailContent() {
         />
       </div>
 
-      <div className="relative z-10 -mt-3 rounded-t-[1.5rem] bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] pb-24">
+      <div className="relative z-10 -mt-3 rounded-t-[1.5rem] bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] pb-4">
         <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
         <div className="mt-2">
           {currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
