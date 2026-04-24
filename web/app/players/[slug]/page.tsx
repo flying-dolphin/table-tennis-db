@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { ArrowUpRight, ChevronRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronRight, ChevronDown, List, FolderTree } from "lucide-react";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
 import "@/public/images/flags_local.css";
@@ -169,6 +169,51 @@ function SectionHeader({ title, hint }: { title: string; hint?: string }) {
         <h2 className="text-heading-2 font-black tracking-tight text-text-primary">{title}</h2>
         {hint ? <p className="mt-0.5 text-caption font-medium text-text-tertiary">{hint}</p> : null}
       </div>
+    </div>
+  );
+}
+
+type RecordsTab = "events" | "opponents";
+
+function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange: (tab: RecordsTab) => void }) {
+  return (
+    <div className="flex justify-between border-b border-border-subtle px-8">
+      <button
+        type="button"
+        onClick={() => onChange("events")}
+        className={cn(
+          "relative flex h-12 items-center justify-center gap-2 px-4 text-body font-bold transition-colors",
+          activeTab === "events" ? "text-brand-strong" : "text-text-tertiary hover:text-text-secondary",
+        )}
+      >
+        <List size={16} />
+        比赛记录
+        <span
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+            activeTab === "events" ? "bg-brand-strong" : "bg-transparent",
+          )}
+        />
+      </button>
+      <button
+        type="button"
+        onClick={() => onChange("opponents")}
+        className={cn(
+          "relative flex h-12 items-center justify-center gap-2 px-4 text-body font-bold transition-colors",
+          activeTab === "opponents" ? "text-brand-strong" : "text-text-tertiary hover:text-text-secondary",
+        )}
+      >
+        <FolderTree size={18} />
+        Top 3 对手
+        <span
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+            activeTab === "opponents" ? "bg-brand-strong" : "bg-transparent",
+          )}
+        />
+      </button>
     </div>
   );
 }
@@ -435,142 +480,125 @@ function RecentMatches({ matches }: { matches: RecentMatch[] }) {
   );
 }
 
-function EventRecords({ events }: { events: EventRecord[] }) {
+function PlayerEventRecords({ events }: { events: EventRecord[] }) {
   const [expanded, setExpanded] = useState(false);
   const displayEvents = expanded ? events : events.slice(0, 10);
   const hasMore = events.length > 10;
 
+  if (events.length === 0) {
+    return <EmptyState title="赛事记录暂无数据" />;
+  }
+
   return (
-    <section className="px-5 pt-6">
-      <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
-        <div className="mb-3 px-1 relative z-10">
-          <h2 className="text-heading-2 font-black tracking-tight text-text-primary">比赛记录</h2>
-        </div>
-        {events.length === 0 ? (
-          <EmptyState title="赛事记录暂无数据" />
-        ) : (
-          <>
-            <div className="flex flex-col gap-1 relative z-10">
-              {displayEvents.map((event, idx) => (
-                <Link
-                  key={event.eventId}
-                  href={route(`/events/${event.eventId}`)}
-                  className={cn(
-                    "grid grid-cols-[1fr_auto] gap-3 px-2 py-3 transition-colors hover:bg-white/40 group",
-                    idx !== displayEvents.length - 1 && "border-b border-black/[0.04]"
-                  )}
-                >
-                  <div className="min-w-0">
-                    <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">{displayEventName(event)}</h3>
-                    <p className="mt-0.5 text-caption font-medium text-text-tertiary">
-                      {displayDate(event.date)} · {subEventLabel(event)}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-brand-soft/50 px-2.5 py-0.5 text-micro font-bold text-brand-strong uppercase tracking-wider">
-                      {event.result || '成绩待补'}
-                    </span>
-                    <ChevronRight size={14} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-            {hasMore && !expanded && (
-              <button
-                onClick={() => setExpanded(true)}
-                className="mt-2 w-full flex items-center justify-center gap-1.5 py-2.5 text-caption font-bold text-brand-strong hover:text-brand-deep transition-colors border-t border-black/[0.04]"
-              >
-                <ChevronDown size={14} />
-                展开全部
-                <span className="text-text-tertiary font-medium">({events.length})</span>
-              </button>
-            )}
-            {expanded && (
-              <button
-                onClick={() => setExpanded(false)}
-                className="mt-2 w-full flex items-center justify-center gap-1.5 py-2.5 text-caption font-bold text-text-tertiary hover:text-brand-strong transition-colors border-t border-black/[0.04]"
-              >
-                <ChevronDown size={14} className="rotate-180" />
-                收起
-              </button>
-            )}
-          </>
-        )}
-      </div>
-    </section>
+    <div className="flex flex-col gap-1">
+      {displayEvents.map((event, idx) => (
+        <Link
+          key={event.eventId}
+          href={route(`/events/${event.eventId}`)}
+          className={cn(
+            "grid grid-cols-[1fr_auto] gap-3 px-2 py-3 transition-colors hover:bg-white/40 group",
+            idx !== displayEvents.length - 1 && "border-b border-black/[0.04]"
+          )}
+        >
+          <div className="min-w-0">
+            <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">{displayEventName(event)}</h3>
+            <p className="mt-0.5 text-caption font-medium text-text-tertiary">
+              {displayDate(event.date)} · {subEventLabel(event)}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="rounded-full bg-brand-soft/50 px-2.5 py-0.5 text-micro font-bold text-brand-strong uppercase tracking-wider">
+              {event.result || '成绩待补'}
+            </span>
+            <ChevronRight size={14} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
+          </div>
+        </Link>
+      ))}
+      {hasMore && !expanded && (
+        <button
+          onClick={() => setExpanded(true)}
+          className="mt-2 w-full flex items-center justify-center gap-1.5 py-2.5 text-caption font-bold text-brand-strong hover:text-brand-deep transition-colors border-t border-black/[0.04]"
+        >
+          <ChevronDown size={14} />
+          展开全部
+          <span className="text-text-tertiary font-medium">({events.length})</span>
+        </button>
+      )}
+      {expanded && (
+        <button
+          onClick={() => setExpanded(false)}
+          className="mt-2 w-full flex items-center justify-center gap-1.5 py-2.5 text-caption font-bold text-text-tertiary hover:text-brand-strong transition-colors border-t border-black/[0.04]"
+        >
+          <ChevronDown size={14} className="rotate-180" />
+          收起
+        </button>
+      )}
+    </div>
   );
 }
 
-function TopOpponents({ opponents }: { opponents: TopOpponent[] }) {
+function PlayerTopOpponents({ opponents }: { opponents: TopOpponent[] }) {
+  if (opponents.length === 0) {
+    return <EmptyState title="对手交手数据暂无记录" />;
+  }
+
   return (
-    <section className="px-5 pb-8 pt-6">
-      <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
-        <div className="mb-3 px-1 relative z-10">
-          <h2 className="text-heading-2 font-black tracking-tight text-text-primary">Top 3 对手</h2>
-          <p className="mt-0.5 text-caption font-medium text-text-tertiary uppercase tracking-widest">按交手次数排序</p>
-        </div>
-        {opponents.length === 0 ? (
-          <EmptyState title="对手交手数据暂无记录" />
-        ) : (
-          <div className="flex flex-col gap-1 relative z-10">
-            <div className="grid grid-cols-[2.5rem_1fr_2.5rem_2.5rem] gap-x-2 px-2 pb-1.5 border-b border-black/[0.06]">
-              <div />
-              <div />
-              <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest leading-none text-center">交手</p>
-              <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest leading-none text-center">胜率</p>
-            </div>
-            {opponents.map((opponent, index) => {
-              const content = (
-                <div className={cn(
-                  "grid grid-cols-[2.5rem_1fr_2.5rem_2.5rem] gap-x-2 items-center py-3 px-2 group transition-colors",
-                  index !== opponents.length - 1 && "border-b border-black/[0.04]"
-                )}>
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-mist/50 text-body font-black text-brand-strong tabular-nums group-hover:bg-brand-strong group-hover:text-white transition-all">
-                    {index + 1}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1.5">
-                      <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">
-                        {opponent.nameZh?.trim() || opponent.name}
-                      </h3>
-                      {opponent.countryCode && (
-                        <div className={`fg fg-${opponent.countryCode} shrink-0 scale-90 origin-center`} />
-                      )}
-                      <span className="shrink-0 text-caption font-medium text-text-tertiary uppercase">
-                        {opponent.countryCode || '待补'}
-                      </span>
-                    </div>
-                    <p className="mt-0.5 truncate text-caption font-medium text-text-tertiary">
-                      最近 {displayDate(opponent.latestDate)}
-                    </p>
-                  </div>
-                  <strong className="text-body font-black text-text-primary tabular-nums text-center">{opponent.matches}</strong>
-                  <strong className="text-body font-black text-text-primary tabular-nums text-center">{formatPercent(opponent.winRate)}</strong>
-                </div>
-              );
-
-              if (!opponent.slug) {
-                return (
-                  <article key={`${opponent.playerId ?? 'unknown'}-${opponent.name}`}>
-                    {content}
-                  </article>
-                );
-              }
-
-              return (
-                <Link
-                  key={opponent.slug}
-                  href={route(`/players/${opponent.slug}`)}
-                  className="block hover:bg-white/40 transition-colors"
-                >
-                  {content}
-                </Link>
-              );
-            })}
-          </div>
-        )}
+    <div className="flex flex-col gap-1">
+      <div className="grid grid-cols-[2.5rem_1fr_2.5rem_2.5rem] gap-x-2 px-2 pb-1.5 border-b border-black/[0.06]">
+        <div />
+        <div />
+        <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest leading-none text-center">交手</p>
+        <p className="text-[9px] font-black text-text-tertiary uppercase tracking-widest leading-none text-center">胜率</p>
       </div>
-    </section>
+      {opponents.map((opponent, index) => {
+        const content = (
+          <div className={cn(
+            "grid grid-cols-[2.5rem_1fr_2.5rem_2.5rem] gap-x-2 items-center py-3 px-2 group transition-colors",
+            index !== opponents.length - 1 && "border-b border-black/[0.04]"
+          )}>
+            <div className="grid h-10 w-10 place-items-center rounded-full bg-brand-mist/50 text-body font-black text-brand-strong tabular-nums group-hover:bg-brand-strong group-hover:text-white transition-all">
+              {index + 1}
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">
+                  {opponent.nameZh?.trim() || opponent.name}
+                </h3>
+                {opponent.countryCode && (
+                  <div className={`fg fg-${opponent.countryCode} shrink-0 scale-90 origin-center`} />
+                )}
+                <span className="shrink-0 text-caption font-medium text-text-tertiary uppercase">
+                  {opponent.countryCode || '待补'}
+                </span>
+              </div>
+              <p className="mt-0.5 truncate text-caption font-medium text-text-tertiary">
+                最近 {displayDate(opponent.latestDate)}
+              </p>
+            </div>
+            <strong className="text-body font-black text-text-primary tabular-nums text-center">{opponent.matches}</strong>
+            <strong className="text-body font-black text-text-primary tabular-nums text-center">{formatPercent(opponent.winRate)}</strong>
+          </div>
+        );
+
+        if (!opponent.slug) {
+          return (
+            <article key={`${opponent.playerId ?? 'unknown'}-${opponent.name}`}>
+              {content}
+            </article>
+          );
+        }
+
+        return (
+          <Link
+            key={opponent.slug}
+            href={route(`/players/${opponent.slug}`)}
+            className="block hover:bg-white/40 transition-colors"
+          >
+            {content}
+          </Link>
+        );
+      })}
+    </div>
   );
 }
 
@@ -578,6 +606,7 @@ export default function PlayerDetailPage({ params }: { params: Promise<{ slug: s
   const [slug, setSlug] = React.useState<string | null>(null);
   const [detail, setDetail] = React.useState<PlayerDetail | null>(null);
   const [loading, setLoading] = React.useState(true);
+  const [recordsTab, setRecordsTab] = React.useState<RecordsTab>("events");
 
   React.useEffect(() => {
     params.then(({ slug }) => setSlug(slug));
@@ -616,8 +645,18 @@ export default function PlayerDetailPage({ params }: { params: Promise<{ slug: s
       <PlayerHero player={detail.player} />
       <PlayerRankCard player={detail.player} />
       <PlayerStatsBento player={detail.player} stats={detail.stats} />
-      <EventRecords events={detail.events} />
-      <TopOpponents opponents={detail.topOpponents} />
+      <section className="px-5 pt-6 pb-2">
+        <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
+          <RecordsTabs activeTab={recordsTab} onChange={setRecordsTab} />
+          <div className="mt-4">
+            {recordsTab === "events" ? (
+              <PlayerEventRecords events={detail.events} />
+            ) : (
+              <PlayerTopOpponents opponents={detail.topOpponents} />
+            )}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
