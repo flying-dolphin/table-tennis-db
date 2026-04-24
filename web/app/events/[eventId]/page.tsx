@@ -11,7 +11,11 @@ import {
   FolderTree,
   Search,
   Trophy,
-  ChevronLeft
+  ChevronLeft,
+  ChevronDown,
+  ChevronUp,
+  CheckCircle2,
+  PlayCircle,
 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -236,7 +240,7 @@ function findChampionMatch(rounds: EventDetail["bracket"], championNames: string
 
 function sideGamesLabel(games: Array<{ player: number; opponent: number }>) {
   if (games.length === 0) return "局分待补";
-  return games.map((game) => `${game.player}-${game.opponent}`).join("、");
+  return games.map((game) => `${game.player}-${game.opponent}`).join(", ");
 }
 
 function Flag({ code, className }: { code: string | null; className?: string }) {
@@ -476,60 +480,45 @@ function ViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMod
 
 function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; matchIndex: number; isXT?: boolean }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
+  const sides = [sideA, sideB].filter(Boolean);
 
   return (
     <Link
       href={route(`/matches/${match.matchId}`)}
-      className="block rounded-[1.7rem] bg-white px-4 py-4 shadow-[0_14px_30px_rgba(174,184,199,0.16)] ring-1 ring-white/80 transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(164,177,196,0.22)]"
+      className="block rounded-2xl bg-white px-4 py-3.5 ring-1 ring-slate-100 shadow-sm transition active:scale-[0.99]"
     >
-      <div className="mb-3 flex items-center justify-between gap-3 text-slate-500">
-        <span className="text-[1.02rem] font-medium">已结束</span>
-        <span className="text-sm font-semibold text-[#4a86f7]">赛事回放</span>
+      <div className="mb-2.5 flex items-center justify-between">
+        <span className="text-[0.82rem] font-medium text-slate-400">已结束</span>
       </div>
 
-      <div className="grid grid-cols-[26px_1fr_auto] gap-3">
-        <div className="pt-4 text-center text-[1.8rem] font-black leading-none text-[#8aa5de]">{matchIndex}</div>
-
-        <div className="space-y-2">
-          {[sideA, sideB].filter(Boolean).map((side) => (
-            <div
-              key={side.sideNo}
-              className={cn(
-                "flex min-h-14 items-center gap-3 rounded-[1rem] px-3 py-2.5",
-                side.isWinner ? "bg-[#f5f8ff]" : "bg-white",
-              )}
-            >
-              <Flag code={dedupeCountries(side.players)[0] ?? null} className="scale-[1.55] origin-left shrink-0" />
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-[1.08rem] font-black text-slate-900">{sideName(side, isXT)}</p>
+      <div className="flex gap-3">
+        <div className="flex-1 min-w-0 space-y-2.5">
+          {sides.map((side, i) => {
+            const score = match.matchScore?.split("-")[side.sideNo - 1] ?? "-";
+            const flag = dedupeCountries(side.players)[0] ?? null;
+            return (
+              <div key={side.sideNo} className="flex items-center gap-2">
+                <span className="w-5 shrink-0 text-right text-[0.8rem] font-bold text-[#9bb3e0]">
+                  {i === 0 ? matchIndex : ""}
+                </span>
+                <Flag code={flag} className="shrink-0 scale-[1.3] origin-left" />
+                <p className={cn("flex-1 min-w-0 truncate text-[0.98rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-500")}>
+                  {sideName(side, isXT)}
+                </p>
+                <span className={cn("font-numeric text-[1.5rem] font-black leading-none tabular-nums ml-1 shrink-0", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                  {score}
+                </span>
+                <span className="w-5 shrink-0 flex items-center justify-center">
+                  {side.isWinner ? <CheckCircle2 size={18} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+                </span>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="grid min-w-[118px] grid-cols-[auto_16px_minmax(0,1fr)] items-center gap-3 rounded-[1.15rem] bg-[#f6f8fd] px-3 py-3">
-          <div className="space-y-2 text-right font-numeric text-[2rem] font-black leading-none tabular-nums text-slate-400">
-            {[sideA, sideB].filter(Boolean).map((side) => (
-              <p key={side.sideNo} className={side.isWinner ? "text-[#2d6cf6]" : "text-slate-400"}>
-                {match.matchScore?.split("-")[side.sideNo - 1] ?? "-"}
-              </p>
-            ))}
-          </div>
-          <div className="space-y-4 pt-1.5">
-            {[sideA, sideB].filter(Boolean).map((side) => (
-              <span
-                key={side.sideNo}
-                className={cn(
-                  "block h-4 w-4 rounded-full",
-                  side.isWinner ? "bg-[#2d6cf6] shadow-[0_0_0_3px_rgba(45,108,246,0.14)]" : "bg-slate-200",
-                )}
-              />
-            ))}
-          </div>
-          <div>
-            <p className="text-[1.05rem] font-medium text-slate-500">局分</p>
-            <p className="mt-2 text-[1rem] leading-8 text-slate-600">{sideGamesLabel(match.games)}</p>
-          </div>
+        <div className="w-[95px] shrink-0 border-l border-slate-100 pl-3 self-center">
+          <p className="text-[0.78rem] font-medium text-slate-400 mb-1">局分</p>
+          <p className="text-[0.8rem] leading-relaxed text-slate-500">{sideGamesLabel(match.games)}</p>
         </div>
       </div>
     </Link>
@@ -537,6 +526,17 @@ function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; match
 }
 
 function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?: boolean }) {
+  const [collapsed, setCollapsed] = React.useState<Set<string>>(new Set());
+
+  const toggle = React.useCallback((code: string) => {
+    setCollapsed((prev) => {
+      const next = new Set(prev);
+      if (next.has(code)) next.delete(code);
+      else next.add(code);
+      return next;
+    });
+  }, []);
+
   if (rounds.length === 0) {
     return (
       <div className="pt-5">
@@ -548,21 +548,45 @@ function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?:
   }
 
   return (
-    <div className="pb-10 pt-5">
-      <div className="space-y-6">
-        {rounds.map((round) => (
-          <section key={round.code}>
-            <div className="mb-3 flex items-center justify-between px-1">
-              <h2 className="text-[2rem] font-black leading-none text-slate-950">{round.label}</h2>
-              <span className="text-[1.02rem] font-medium text-slate-500">已完成</span>
-            </div>
-            <div className="space-y-4">
-              {round.matches.map((match, index) => (
-                <MatchListCard key={match.matchId} match={match} matchIndex={index + 1} isXT={isXT} />
-              ))}
-            </div>
-          </section>
-        ))}
+    <div className="pb-10 pt-4">
+      <div className="space-y-5">
+        {rounds.map((round) => {
+          const isCollapsed = collapsed.has(round.code);
+          return (
+            <section key={round.code}>
+              <button
+                type="button"
+                onClick={() => toggle(round.code)}
+                className="mb-3 flex w-full items-center justify-between px-1 py-0.5"
+              >
+                <h2 className="text-[1.25rem] font-black leading-none text-slate-950">{round.label}</h2>
+                <span className="flex items-center gap-1 text-[0.9rem] font-medium text-slate-400">
+                  已完成
+                  {isCollapsed ? <ChevronDown size={15} strokeWidth={2.5} /> : <ChevronUp size={15} strokeWidth={2.5} />}
+                </span>
+              </button>
+              {!isCollapsed && (
+                <>
+                  <div className="space-y-3">
+                    {round.matches.map((match, index) => (
+                      <MatchListCard key={match.matchId} match={match} matchIndex={index + 1} isXT={isXT} />
+                    ))}
+                  </div>
+                  {round.matches.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => toggle(round.code)}
+                      className="mt-3 flex w-full items-center justify-center gap-1.5 py-2.5 text-[0.88rem] text-slate-400 hover:text-slate-600"
+                    >
+                      <ChevronUp size={13} strokeWidth={2.5} />
+                      收起全部
+                    </button>
+                  )}
+                </>
+              )}
+            </section>
+          );
+        })}
       </div>
     </div>
   );
