@@ -6,6 +6,7 @@ import type { Route } from "next";
 import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, X, UsersRound } from "lucide-react";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
+import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 import "@/public/images/flags_local.css";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -109,17 +110,6 @@ type EventTierFilter = "all" | "three" | "seven";
 
 type EventSubTypeFilter = "all" | "WS" | "WD" | "XD" | "team";
 
-const subEventNames: Record<string, string> = {
-  WS: '女子单打',
-  MS: '男子单打',
-  WD: '女子双打',
-  MD: '男子双打',
-  XD: '混合双打',
-  XT: '混合团队',
-  WT: '女子团体',
-  MT: '男子团体',
-};
-
 function route(path: string) {
   return path as Route;
 }
@@ -172,7 +162,7 @@ function rankChangeLabel(value: number | null) {
 }
 
 function subEventLabel(event: EventRecord) {
-  return event.subEventNameZh || subEventNames[event.subEventTypeCode ?? ''] || event.subEventTypeCode || '项目待补';
+  return formatSubEventLabel(event.subEventTypeCode, event.subEventNameZh);
 }
 
 function matchesEventTier(event: EventRecord, filter: EventTierFilter) {
@@ -548,18 +538,6 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
     <div className="flex flex-col gap-1">
       <div className="mb-2 flex flex-col gap-3 border-b border-black/[0.05] px-2 pb-3">
         <div className="flex flex-wrap items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setChampionsOnly((current) => !current)}
-            className={cn(
-              filterButtonClass,
-              championsOnly ? activeFilterButtonClass : inactiveFilterButtonClass,
-            )}
-          >
-            只看冠军
-          </button>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
           {[
             { value: "all", label: "全部" },
             { value: "three", label: "三大赛" },
@@ -581,9 +559,9 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
         <div className="flex flex-wrap items-center gap-2">
           {[
             { value: "all", label: "全部项目" },
-            { value: "WS", label: "WS" },
-            { value: "WD", label: "WD" },
-            { value: "XD", label: "XD" },
+            { value: "WS", label: getSubEventShortName("WS") || "WS" },
+            { value: "WD", label: getSubEventShortName("WD") || "WD" },
+            { value: "XD", label: getSubEventShortName("XD") || "XD" },
             { value: "team", label: "团体" },
           ].map((option) => (
             <button
@@ -599,6 +577,18 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
             </button>
           ))}
         </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setChampionsOnly((current) => !current)}
+            className={cn(
+              filterButtonClass,
+              championsOnly ? activeFilterButtonClass : inactiveFilterButtonClass,
+            )}
+          >
+            只看冠军
+          </button>
+        </div>
       </div>
 
       {filteredEvents.length === 0 ? (
@@ -609,7 +599,7 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
 
       {displayEvents.map((event, idx) => (
         <Link
-          key={`${event.eventId}:${event.subEventTypeCode ?? "unknown"}`}
+          key={event.eventId}
           href={route(`/events/${event.eventId}`)}
           className={cn(
             "grid grid-cols-[1fr_auto] gap-3 px-2 py-3 transition-colors hover:bg-white/40 group",

@@ -18,6 +18,7 @@ import {
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
+import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 import "@/public/images/flags_local.css";
 
 function cn(...inputs: ClassValue[]) {
@@ -197,7 +198,7 @@ function sideName(side: BracketMatch["sides"][number], isXT: boolean = false) {
 }
 
 function subEventLabel(subEvent: { code: string; nameZh: string | null } | undefined) {
-  return subEvent?.nameZh || subEvent?.code || "项目待补";
+  return formatSubEventLabel(subEvent?.code, subEvent?.nameZh);
 }
 
 function isDoublesSubEvent(code: string, label: string) {
@@ -346,7 +347,7 @@ function SubEventTabs({
                   : "text-slate-500 font-medium hover:text-slate-800",
               )}
             >
-              {subEvent.nameZh || subEvent.code}
+              {subEventLabel(subEvent)}
             </button>
           );
         })}
@@ -818,6 +819,10 @@ function DrawView({
           {/* Champion box */}
           {champVisible && displayRounds.length > 0 && (() => {
             const lastPos = getCardInfo(displayRounds.length - 1, 0);
+            const hasPlayers = champion?.players && champion.players.length > 0;
+            const championName = hasPlayers
+              ? champion.players.map((p) => displayPlayerName(p)).join(" / ")
+              : champion?.championName ?? "";
             return (
               <div
                 className="absolute flex flex-col items-center justify-center rounded-[0.75rem] border border-[#e8c96a] bg-[linear-gradient(160deg,#fff9e3_0%,#fffef8_100%)] px-2 py-2.5 shadow-[0_4px_14px_rgba(218,187,112,0.18)]"
@@ -834,9 +839,15 @@ function DrawView({
                     className="scale-[1.0]"
                   />
                 </div>
-                <p className="mt-0.5 text-center text-[0.75rem] font-black leading-tight text-slate-950">
-                  {champion?.championCountryCode}
-                </p>
+                {hasPlayers ? (
+                  <p className="mt-0.5 text-center text-[0.65rem] font-black leading-tight text-slate-950">
+                    {truncateChineseName(championName, 6)}
+                  </p>
+                ) : (
+                  <p className="mt-0.5 text-center text-[0.75rem] font-black leading-tight text-slate-950">
+                    {champion?.championCountryCode}
+                  </p>
+                )}
                 <p className="mt-0.5 text-[0.62rem] font-bold text-slate-500">冠军</p>
               </div>
             );
@@ -994,7 +1005,7 @@ function ChampionsListView({ subEvents }: { subEvents: EventSubEventView[] }) {
     return (
       <div className="pt-5">
         <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
-          本赛事无WT/XD项目
+          本赛事无{getSubEventShortName("WT") || "WT"}/{getSubEventShortName("XD") || "XD"}项目
         </div>
       </div>
     );
@@ -1016,7 +1027,7 @@ function ChampionsListView({ subEvents }: { subEvents: EventSubEventView[] }) {
 
           return (
             <section key={se.code}>
-              <h2 className="mb-3 text-[1.2rem] font-black text-slate-900">{se.nameZh || se.code}</h2>
+              <h2 className="mb-3 text-[1.2rem] font-black text-slate-900">{subEventLabel(se)}</h2>
               <div className="rounded-[1.6rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
                 <div className="flex items-center gap-2">
                   <Crown size={18} className="text-[#d4a017]" />

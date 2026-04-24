@@ -8,6 +8,7 @@ import { ArrowLeft, CalendarDays, ChevronLeft, ChevronRight, Goal, Trophy } from
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
+import { formatSubEventLabel } from "@/lib/sub-event-label";
 import "@/public/images/flags_local.css";
 
 function cn(...inputs: ClassValue[]) {
@@ -210,7 +211,7 @@ function MatchContent() {
 
             <div className="min-w-0 flex-1 text-center pt-1.5">
               <p className="text-[0.88rem] font-medium text-[#7d8fae]">
-                {data.match.subEventNameZh || data.match.subEventTypeCode}
+                {formatSubEventLabel(data.match.subEventTypeCode, data.match.subEventNameZh)}
               </p>
               <h1 className="line-clamp-2 text-[1.2rem] font-bold leading-snug text-slate-950">
                 {displayName(data.match.eventName, data.match.eventNameZh)}
