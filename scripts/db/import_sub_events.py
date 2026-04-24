@@ -443,6 +443,120 @@ def build_team_semifinal_winner_pairs(cursor) -> dict[Tuple[int, str], set[Tuple
     return final_pairs_by_event
 
 
+def build_non_team_championship_final_pairs(cursor) -> dict[Tuple[int, str], set[Tuple[str, str]]]:
+    cursor.execute(
+        """
+        SELECT
+            m.match_id,
+            edm.event_id,
+            edm.sub_event_type_code,
+            edm.draw_round,
+            m.winner_side,
+            m.winner_name,
+            ms.side_no,
+            msp.player_name,
+            msp.player_country
+        FROM event_draw_matches edm
+        JOIN matches m ON m.match_id = edm.match_id
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        LEFT JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
+        WHERE edm.draw_stage = 'Main Draw'
+          AND edm.draw_round IN ('QuarterFinal', 'SemiFinal', 'Final')
+        ORDER BY edm.event_id, edm.sub_event_type_code, edm.draw_round, m.match_id, ms.side_no, msp.player_order
+        """
+    )
+
+    match_map: Dict[int, dict] = {}
+    for (
+        match_id,
+        event_id,
+        sub_event_type_code,
+        draw_round,
+        winner_side,
+        winner_name,
+        side_no,
+        player_name,
+        player_country,
+    ) in cursor.fetchall():
+        if is_team_sub_event(sub_event_type_code):
+            continue
+        current = match_map.setdefault(
+            match_id,
+            {
+                "match_id": match_id,
+                "event_id": event_id,
+                "sub_event_type_code": sub_event_type_code,
+                "draw_round": draw_round,
+                "winner_side": winner_side,
+                "winner_name": winner_name,
+                "side_a": [],
+                "side_b": [],
+            },
+        )
+        if player_name:
+            if side_no == 1:
+                current["side_a"].append((player_name, player_country or ""))
+            elif side_no == 2:
+                current["side_b"].append((player_name, player_country or ""))
+
+    grouped: Dict[Tuple[int, str], Dict[str, List[dict]]] = {}
+    for match_data in match_map.values():
+        grouped.setdefault(
+            (match_data["event_id"], match_data["sub_event_type_code"]),
+            {"QuarterFinal": [], "SemiFinal": [], "Final": []},
+        )[match_data["draw_round"]].append(match_data)
+
+    championship_pairs_by_event: dict[Tuple[int, str], set[Tuple[str, str]]] = {}
+    for event_key, rounds in grouped.items():
+        qf_matches = rounds["QuarterFinal"]
+        sf_matches = rounds["SemiFinal"]
+
+        if len(qf_matches) < 2 or len(sf_matches) < 2:
+            continue
+
+        qf_winners: set[str] = set()
+        for match_data in qf_matches:
+            winner_side = pick_winner_side(
+                winner_side=match_data["winner_side"],
+                winner_name=match_data["winner_name"] or "",
+                side_a=match_data["side_a"],
+                side_b=match_data["side_b"],
+            )
+            if winner_side == "A":
+                qf_winners.add(make_roster_key(match_data["side_a"]))
+            elif winner_side == "B":
+                qf_winners.add(make_roster_key(match_data["side_b"]))
+
+        if len(qf_winners) < 2:
+            continue
+
+        championship_sf_winners: List[str] = []
+        for match_data in sf_matches:
+            side_a_key = make_roster_key(match_data["side_a"])
+            side_b_key = make_roster_key(match_data["side_b"])
+            if side_a_key not in qf_winners or side_b_key not in qf_winners:
+                continue
+
+            winner_side = pick_winner_side(
+                winner_side=match_data["winner_side"],
+                winner_name=match_data["winner_name"] or "",
+                side_a=match_data["side_a"],
+                side_b=match_data["side_b"],
+            )
+            if winner_side == "A":
+                championship_sf_winners.append(side_a_key)
+            elif winner_side == "B":
+                championship_sf_winners.append(side_b_key)
+
+        unique_winners = sorted(set(championship_sf_winners))
+        if len(unique_winners) != 2:
+            continue
+
+        championship_pairs_by_event[event_key] = {tuple(unique_winners)}
+
+    return championship_pairs_by_event
+
+
 def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
     result = {
         "full_refresh": True,
@@ -457,6 +571,7 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
         "skipped_unfinished_team_rubbers": 0,
         "team_final_ties_selected": 0,
         "team_final_tie_fallbacks": 0,
+        "non_team_final_fallbacks": 0,
         "problem_events": [],
     }
 
@@ -464,6 +579,7 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
     cursor = conn.cursor()
     player_index = build_player_index(cursor)
     team_semifinal_winner_pairs = build_team_semifinal_winner_pairs(cursor)
+    non_team_championship_final_pairs = build_non_team_championship_final_pairs(cursor)
 
     # Full refresh mode: clear previous sub_events and reset AUTOINCREMENT.
     if not dry_run:
@@ -568,10 +684,32 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
                     continue
                 raise RuntimeError(msg)
         else:
+            selected_finals = final_matches
+            if len(final_matches) > 1:
+                championship_pairs = non_team_championship_final_pairs.get((event_id, sub_event_type_code), set())
+                matching_finals = []
+                for match_data in final_matches:
+                    final_pair = tuple(
+                        sorted(
+                            (
+                                make_roster_key(match_data["side_a"]),
+                                make_roster_key(match_data["side_b"]),
+                            )
+                        )
+                    )
+                    if final_pair in championship_pairs:
+                        matching_finals.append(match_data)
+
+                if len(matching_finals) == 1:
+                    selected_finals = matching_finals
+                else:
+                    selected_finals = sorted(final_matches, key=lambda item: int(item["match_id"]))[:1]
+                    result["non_team_final_fallbacks"] += 1
+
             wins_by_team: Dict[str, int] = {}
             team_roster_by_key: Dict[str, List[Tuple[str, str]]] = {}
 
-            for match_data in final_matches:
+            for match_data in selected_finals:
                 winner_side = pick_winner_side(
                     winner_side=match_data["winner_side"],
                     winner_name=match_data["winner_name"] or "",
@@ -788,6 +926,7 @@ if __name__ == "__main__":
     print(f"  multi-country champions:      {result['multi_country_champions']}")
     print(f"  team final ties selected:     {result['team_final_ties_selected']}")
     print(f"  team final tie fallbacks:     {result['team_final_tie_fallbacks']}")
+    print(f"  non-team final fallbacks:     {result['non_team_final_fallbacks']}")
     print(f"  skipped unfinished rubbers:   {result['skipped_unfinished_team_rubbers']}")
     print_problem_events(result)
 

@@ -36,6 +36,12 @@ except ImportError:
 
 PLAYER_TOKEN_RE = re.compile(r"^(.+?)\s*\((\w+)\)$")
 
+# 赛事命名里的年份与实际举办年份不一致（如赛季总决赛在次年 1 月举办），
+# 这些 event_id 的 raw_row_text 年份检查将被放行。
+EVENT_ID_YEAR_MISMATCH_WHITELIST: set[int] = {
+    2866,  # WTT Finals Men Doha 2023（实际于 2024 年 1 月举办）
+}
+
 
 def normalize_event_name(name: str) -> str:
     s = name.strip().lower()
@@ -246,7 +252,12 @@ def iter_event_matches_payload(
                     f"{json_file.name}#{row_index}: raw={raw_event_name!r}, expected={event_row['name']!r}"
                 )
             continue
-        if raw_year is not None and event_row["year"] is not None and raw_year != event_row["year"]:
+        if (
+            raw_year is not None
+            and event_row["year"] is not None
+            and raw_year != event_row["year"]
+            and event_id not in EVENT_ID_YEAR_MISMATCH_WHITELIST
+        ):
             result["skipped_raw_event_mismatch"] += 1
             if len(result["raw_event_mismatch_examples"]) < 20:
                 result["raw_event_mismatch_examples"].append(
