@@ -41,7 +41,10 @@ SEARCH_URL = f"{BASE_URL}/index.php/players-profiles"
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Scrape ITTF profiles by player search")
-    parser.add_argument("--players-file", required=True, help="JSON file with players to scrape")
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--players-file", help="JSON file with players to scrape")
+    mode.add_argument("--player-name", help="Single player name to search and scrape")
+    parser.add_argument("--country-code", help="Country code for --player-name (e.g. CHN)")
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
     parser.add_argument("--cdp-port", type=int, default=9222, help="CDP remote debugging port")
@@ -179,6 +182,14 @@ def _wait_profile_result_row(page: Any, expected_name: str, timeout_sec: float =
         time.sleep(0.25)
 
     raise RuntimeError(f"profile result row not ready in {timeout_sec:.1f}s (expected={expected_name}, rows={last_rows})")
+
+
+def _build_single_player(name: str, country_code: str) -> list[dict[str, Any]]:
+    return [{
+        "english_name": normalize_player_name(_normalize_space(name)),
+        "country_code": _normalize_space(country_code).upper(),
+        "name_zh": "",
+    }]
 
 
 def _load_players(players_file: Path) -> list[dict[str, Any]]:
@@ -351,8 +362,8 @@ def run(args: argparse.Namespace) -> int:
         logger.error("patchright is required. Install with: pip install patchright && python -m patchright install chromium")
         return 2
 
-    players_file = Path(args.players_file)
-    if not players_file.exists():
+    players_file = Path(args.players_file) if args.players_file else None
+    if players_file and not players_file.exists():
         logger.error("Players file not found: %s", players_file)
         return 2
 
@@ -370,7 +381,10 @@ def run(args: argparse.Namespace) -> int:
     if args.rebuild_checkpoint:
         checkpoint.reset()
 
-    players = _load_players(players_file)
+    if args.player_name:
+        players = _build_single_player(args.player_name, args.country_code or "")
+    else:
+        players = _load_players(players_file)
     if not players:
         logger.info("No players to scrape.")
         return 0
@@ -383,8 +397,10 @@ def run(args: argparse.Namespace) -> int:
     )
 
     logger.info("Loaded %d players for profile search scrape", len(players))
-    existing_orig_keys = _load_existing_orig_keys(profile_orig_dir)
-    logger.info("Loaded %d existing profiles from orig directory", len(existing_orig_keys))
+    existing_orig_keys: set[str] = set()
+    if not args.force:
+        existing_orig_keys = _load_existing_orig_keys(profile_orig_dir)
+        logger.info("Loaded %d existing profiles from orig directory", len(existing_orig_keys))
     done_count = 0
     fail_count = 0
 
