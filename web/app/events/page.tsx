@@ -158,46 +158,7 @@ function buildQuerySignature(query: Pick<EventsQueryState, "selectedYear" | "sel
   });
 }
 
-function getEventCategory(event: EventListItem) {
-  const series = (event.eventSeries ?? "").trim().toUpperCase();
-  const name = (event.categoryNameZh || event.name || "").toUpperCase();
-
-  if (series.includes("OLYMPIC") || name.includes("OLYMPIC") || name.includes("奥运")) {
-    return "OLYMPIC";
-  }
-
-  if (
-    name.includes("WORLD CHAMPIONSHIPS") ||
-    name.includes("世界乒乓球锦标赛") ||
-    name.includes("WORLD CUP") ||
-    name.includes("世界杯")
-  ) {
-    return "MAJOR";
-  }
-
-  if (series === "WTT") return "WTT";
-  return "OTHER";
-}
-
-function EventSeriesIcon({ category }: { category: string }) {
-  if (category === "WTT") {
-    return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-      <circle cx="12" cy="8" r="6"></circle>
-      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-    </svg>
-  }
-  if (category === "MAJOR") {
-    return <Trophy size={20} strokeWidth={2} />;
-  }
-  if (category === "OLYMPIC") {
-    return (
-      <div className="relative h-7 w-7">
-        <Image src="/icons/Olympic.svg" alt="Olympics" fill className="object-contain" />
-      </div>
-    );
-  }
-  return <Medal size={20} strokeWidth={2} />;
-}
+import { EventCategoryIcon, getEventCategory } from "@/components/events/EventCategoryIcon";
 
 function EventsPageContent() {
   const router = useRouter();
@@ -518,16 +479,6 @@ function EventsPageContent() {
             <div>
               {events.map((event) => {
                 const category = getEventCategory(event);
-                let containerClass = "mr-3 grid h-10 w-10 shrink-0 place-items-center rounded-[10px]";
-                if (category === "WTT") {
-                  containerClass += " bg-brand-strong text-white";
-                } else if (category === "MAJOR") {
-                  containerClass += " bg-gold text-white";
-                } else if (category === "OLYMPIC") {
-                  containerClass += " bg-white border border-black/[0.04] shadow-sm";
-                } else {
-                  containerClass += " bg-silver text-white";
-                }
 
                 return (
                   <Link
@@ -538,9 +489,7 @@ function EventsPageContent() {
                     }}
                     className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
                   >
-                    <div className={containerClass}>
-                      <EventSeriesIcon category={category} />
-                    </div>
+                    <EventCategoryIcon category={category} className="mr-3 h-10 w-10 rounded-[10px]" />
                     <div className="min-w-0 flex-1">
                       <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
                         <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-micro font-bold text-text-primary">
