@@ -1,4 +1,5 @@
 import { db } from '@/lib/server/db';
+import { expandEventQuery } from '@/lib/server/query-rewrite';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
@@ -686,7 +687,8 @@ export function getEvents(options?: {
 }) {
   const includeAllYears = options?.includeAllYears === true;
   const year = options?.year;
-  const keyword = options?.keyword?.trim().toLowerCase() ?? '';
+  const keyword = options?.keyword?.trim() ?? '';
+  const expandedKeywords = keyword ? expandEventQuery(keyword) : [];
   const ageGroup = options?.ageGroup ?? 'senior';
   const limit = Math.max(1, Math.min(100, Math.floor(options?.limit ?? 20)));
   const offset = Math.max(0, Math.floor(options?.offset ?? 0));
@@ -721,10 +723,14 @@ export function getEvents(options?: {
     params.push(resolvedYear);
   }
 
-  if (keyword) {
-    where.push("(LOWER(e.name) LIKE ? OR LOWER(COALESCE(e.name_zh, '')) LIKE ?)");
-    const like = `%${keyword}%`;
-    params.push(like, like);
+  if (expandedKeywords.length > 0) {
+    const keywordClauses = expandedKeywords.map(() => "(LOWER(e.name) LIKE ? OR LOWER(COALESCE(e.name_zh, '')) LIKE ?)");
+    where.push(`(${keywordClauses.join(' OR ')})`);
+
+    for (const expandedKeyword of expandedKeywords) {
+      const like = `%${expandedKeyword}%`;
+      params.push(like, like);
+    }
   }
 
   where.push(...ageGroupWhere);
