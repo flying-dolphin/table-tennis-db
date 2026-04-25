@@ -160,7 +160,7 @@ function buildQuerySignature(query: Pick<EventsQueryState, "selectedYear" | "sel
 
 function getEventCategory(event: EventListItem) {
   const series = (event.eventSeries ?? "").trim().toUpperCase();
-  const name = (event.nameZh || event.name || "").toUpperCase();
+  const name = (event.categoryNameZh || event.name || "").toUpperCase();
 
   if (series.includes("OLYMPIC") || name.includes("OLYMPIC") || name.includes("奥运")) {
     return "OLYMPIC";
@@ -168,7 +168,7 @@ function getEventCategory(event: EventListItem) {
 
   if (
     name.includes("WORLD CHAMPIONSHIPS") ||
-    name.includes("世乒赛") ||
+    name.includes("世界乒乓球锦标赛") ||
     name.includes("WORLD CUP") ||
     name.includes("世界杯")
   ) {
