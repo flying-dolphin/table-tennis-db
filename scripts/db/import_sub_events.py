@@ -89,7 +89,12 @@ def load_manual_event_overrides() -> Dict[Tuple[int, str], str]:
         presentation_mode = str(payload.get("presentation_mode") or "").strip()
         champion_team = str((payload.get("podium") or {}).get("champion") or "").strip().upper()
 
-        if not isinstance(event_id, int) or not sub_event_type_code or presentation_mode != "staged_round_robin" or not champion_team:
+        if (
+            not isinstance(event_id, int)
+            or not sub_event_type_code
+            or presentation_mode not in {"staged_round_robin", "team_knockout_with_bronze"}
+            or not champion_team
+        ):
             continue
 
         champion_teams[(event_id, sub_event_type_code)] = champion_team

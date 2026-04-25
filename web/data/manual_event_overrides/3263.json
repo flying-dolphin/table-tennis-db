@@ -1,0 +1,43 @@
+{
+  "event_id": 3263,
+  "presentation_mode": "team_knockout_with_bronze",
+  "sub_event_type_code": "XT",
+  "title": "ITTF Mixed Team World Cup Chengdu 2025",
+  "podium": {
+    "champion": "CHN",
+    "runner_up": "JPN",
+    "third_place": "KOR"
+  },
+  "final_standings": [
+    {
+      "rank": 1,
+      "team_code": "CHN"
+    },
+    {
+      "rank": 2,
+      "team_code": "JPN"
+    },
+    {
+      "rank": 3,
+      "team_code": "KOR"
+    },
+    {
+      "rank": 4,
+      "team_code": "GER"
+    }
+  ],
+  "ties": {
+    "final": {
+      "team_codes": [
+        "CHN",
+        "JPN"
+      ]
+    },
+    "bronze": {
+      "team_codes": [
+        "KOR",
+        "GER"
+      ]
+    }
+  }
+}

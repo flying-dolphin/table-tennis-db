@@ -195,7 +195,19 @@ type EventRoundRobinView = {
   };
 };
 
-type ManualEventOverride = {
+type EventTeamKnockoutView = {
+  mode: 'team_knockout_with_bronze';
+  finalStandings: StageStanding[];
+  podium: {
+    champion: StageStanding | null;
+    runnerUp: StageStanding | null;
+    thirdPlace: StageStanding | null;
+  };
+  finalTie: TeamTie | null;
+  bronzeTie: TeamTie | null;
+};
+
+type RoundRobinEventOverride = {
   event_id: number;
   presentation_mode: 'staged_round_robin';
   sub_event_type_code: string;
@@ -221,6 +233,31 @@ type ManualEventOverride = {
     third_place: string;
   };
 };
+
+type TeamKnockoutEventOverride = {
+  event_id: number;
+  presentation_mode: 'team_knockout_with_bronze';
+  sub_event_type_code: string;
+  final_standings: Array<{
+    rank: number;
+    team_code: string;
+  }>;
+  podium: {
+    champion: string;
+    runner_up: string;
+    third_place: string;
+  };
+  ties: {
+    final: {
+      team_codes: [string, string];
+    };
+    bronze: {
+      team_codes: [string, string];
+    };
+  };
+};
+
+type ManualEventOverride = RoundRobinEventOverride | TeamKnockoutEventOverride;
 
 type EventPresentationMode = 'knockout' | 'staged_round_robin';
 
@@ -274,6 +311,14 @@ function buildStageStanding(teamCode: string, rank: number): StageStanding {
     teamName: teamCode,
     teamNameZh: null,
   };
+}
+
+function isRoundRobinOverride(override: ManualEventOverride): override is RoundRobinEventOverride {
+  return override.presentation_mode === 'staged_round_robin';
+}
+
+function isTeamKnockoutOverride(override: ManualEventOverride): override is TeamKnockoutEventOverride {
+  return override.presentation_mode === 'team_knockout_with_bronze';
 }
 
 function buildTeamTiesForSubEvent(eventId: number, subEventCode: string): TeamTie[] {
@@ -414,6 +459,9 @@ function buildTeamTiesForSubEvent(eventId: number, subEventCode: string): TeamTi
 }
 
 function buildRoundRobinView(eventId: number, subEventCode: string, override: ManualEventOverride): EventRoundRobinView {
+  if (!isRoundRobinOverride(override)) {
+    throw new Error(`Expected staged_round_robin override for event ${eventId}`);
+  }
   const ties = buildTeamTiesForSubEvent(eventId, subEventCode);
   const finalStandings = override.final_standings
     .slice()
@@ -457,6 +505,36 @@ function buildRoundRobinView(eventId: number, subEventCode: string, override: Ma
       runnerUp: podiumByCode.get(override.podium.runner_up) ?? null,
       thirdPlace: podiumByCode.get(override.podium.third_place) ?? null,
     },
+  };
+}
+
+function teamCodesMatch(tie: TeamTie, teamCodes: [string, string]) {
+  return new Set([tie.teamA.code, tie.teamB.code]).size === new Set(teamCodes).size &&
+    teamCodes.every((code) => code === tie.teamA.code || code === tie.teamB.code);
+}
+
+function buildTeamKnockoutView(eventId: number, subEventCode: string, override: ManualEventOverride): EventTeamKnockoutView {
+  if (!isTeamKnockoutOverride(override)) {
+    throw new Error(`Expected team_knockout_with_bronze override for event ${eventId}`);
+  }
+
+  const ties = buildTeamTiesForSubEvent(eventId, subEventCode);
+  const finalStandings = override.final_standings
+    .slice()
+    .sort((left, right) => left.rank - right.rank)
+    .map((item) => buildStageStanding(item.team_code, item.rank));
+  const podiumByCode = new Map(finalStandings.map((item) => [item.teamCode, item]));
+
+  return {
+    mode: 'team_knockout_with_bronze',
+    finalStandings,
+    podium: {
+      champion: podiumByCode.get(override.podium.champion) ?? null,
+      runnerUp: podiumByCode.get(override.podium.runner_up) ?? null,
+      thirdPlace: podiumByCode.get(override.podium.third_place) ?? null,
+    },
+    finalTie: ties.find((tie) => teamCodesMatch(tie, override.ties.final.team_codes)) ?? null,
+    bronzeTie: ties.find((tie) => teamCodesMatch(tie, override.ties.bronze.team_codes)) ?? null,
   };
 }
 
@@ -569,7 +647,8 @@ export function getEvents(options?: {
     .all(...params, limit, offset) as EventListRow[];
   const eventsWithPresentation = events.map((event) => {
     const override = readManualEventOverride(event.eventId);
-    const presentationMode: EventPresentationMode | null = override?.presentation_mode ?? (event.drawMatches > 0 ? 'knockout' : null);
+    const presentationMode: EventPresentationMode | null =
+      override?.presentation_mode === 'staged_round_robin' ? 'staged_round_robin' : event.drawMatches > 0 ? 'knockout' : null;
     return {
       ...event,
       presentationMode,
@@ -862,8 +941,13 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
   };
 
   const roundRobinViewForSubEvent = (subEventCode: string): EventRoundRobinView | null => {
-    if (!override || subEventCode !== override.sub_event_type_code) return null;
+    if (!override || !isRoundRobinOverride(override) || subEventCode !== override.sub_event_type_code) return null;
     return buildRoundRobinView(eventId, subEventCode, override);
+  };
+
+  const teamKnockoutViewForSubEvent = (subEventCode: string): EventTeamKnockoutView | null => {
+    if (!override || !isTeamKnockoutOverride(override) || subEventCode !== override.sub_event_type_code) return null;
+    return buildTeamKnockoutView(eventId, subEventCode, override);
   };
 
   const subEventDetails = subEvents.map((se) => ({
@@ -871,8 +955,9 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
     champion: championForSubEvent(se.code),
     bracket: bracketForSubEvent(se.code),
     roundRobinView: roundRobinViewForSubEvent(se.code),
+    teamKnockoutView: teamKnockoutViewForSubEvent(se.code),
     presentationMode:
-      override && se.code === override.sub_event_type_code ? ('staged_round_robin' as const) : ('knockout' as const),
+      override && isRoundRobinOverride(override) && se.code === override.sub_event_type_code ? ('staged_round_robin' as const) : ('knockout' as const),
   }));
 
   const dataForSelected = subEventDetails.find((item) => item.code === selectedSubEvent);
@@ -885,6 +970,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
     champion: dataForSelected?.champion ?? null,
     bracket: dataForSelected?.bracket ?? [],
     roundRobinView: dataForSelected?.roundRobinView ?? null,
+    teamKnockoutView: dataForSelected?.teamKnockoutView ?? null,
     presentationMode: dataForSelected?.presentationMode ?? 'knockout',
   };
 }

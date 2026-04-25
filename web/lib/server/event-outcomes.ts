@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 type ManualEventOverride = {
-  presentation_mode: 'staged_round_robin';
+  presentation_mode: 'staged_round_robin' | 'team_knockout_with_bronze';
   sub_event_type_code: string;
   podium: {
     champion: string;
@@ -52,7 +52,7 @@ export function isChampionRecord(input: ChampionRecordInput) {
 
   const override = readManualEventOverride(input.eventId);
   return (
-    override?.presentation_mode === 'staged_round_robin' &&
+    (override?.presentation_mode === 'staged_round_robin' || override?.presentation_mode === 'team_knockout_with_bronze') &&
     input.subEventTypeCode === override.sub_event_type_code &&
     input.playerCountry === override.podium.champion
   );

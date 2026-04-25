@@ -115,6 +115,18 @@ type EventRoundRobinView = {
   };
 };
 
+type EventTeamKnockoutView = {
+  mode: "team_knockout_with_bronze";
+  finalStandings: StageStanding[];
+  podium: {
+    champion: StageStanding | null;
+    runnerUp: StageStanding | null;
+    thirdPlace: StageStanding | null;
+  };
+  finalTie: TeamTie | null;
+  bronzeTie: TeamTie | null;
+};
+
 type EventDetail = {
   event: {
     eventId: number;
@@ -144,11 +156,13 @@ type EventDetail = {
     champion: EventChampion | null;
     bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
     roundRobinView: EventRoundRobinView | null;
+    teamKnockoutView: EventTeamKnockoutView | null;
     presentationMode: "knockout" | "staged_round_robin";
   }>;
   champion: EventChampion | null;
   bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
   roundRobinView: EventRoundRobinView | null;
+  teamKnockoutView: EventTeamKnockoutView | null;
   presentationMode: "knockout" | "staged_round_robin";
 };
 
@@ -688,11 +702,13 @@ function DrawView({
   selectedSubEvent,
   champion,
   isXT,
+  teamKnockoutView,
 }: {
   rounds: EventDetail["bracket"];
   selectedSubEvent: string;
   champion: EventChampion | null;
   isXT?: boolean;
+  teamKnockoutView?: EventTeamKnockoutView | null;
 }) {
   const [search, setSearch] = React.useState("");
   const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
@@ -746,6 +762,33 @@ function DrawView({
 
   return (
     <div className="pb-10 pt-5">
+      {teamKnockoutView && (
+        <section className="mb-6 space-y-6">
+          <div>
+            <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+            <div className="grid gap-3">
+              <PodiumCard title="冠军" standing={teamKnockoutView.podium.champion} />
+              <PodiumCard title="亚军" standing={teamKnockoutView.podium.runnerUp} />
+              <PodiumCard title="季军" standing={teamKnockoutView.podium.thirdPlace} />
+            </div>
+          </div>
+
+          {teamKnockoutView.finalTie && (
+            <section>
+              <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">决赛</h2>
+              <TeamTieCard tie={teamKnockoutView.finalTie} title="冠军战" />
+            </section>
+          )}
+
+          {teamKnockoutView.bronzeTie && (
+            <section>
+              <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">铜牌赛</h2>
+              <TeamTieCard tie={teamKnockoutView.bronzeTie} title="铜牌战" />
+            </section>
+          )}
+        </section>
+      )}
+
       <div className="overflow-x-auto pb-2">
         {/* Round column headers */}
         <div className="mb-3 flex" style={{ paddingLeft: DRAW_NUM_SPACE, minWidth: totalW }}>
@@ -862,6 +905,12 @@ function DrawView({
           })()}
         </div>
       </div>
+
+      {teamKnockoutView && (
+        <div className="mt-6">
+          <FinalStandingsView standings={teamKnockoutView.finalStandings} />
+        </div>
+      )}
     </div>
   );
 }
@@ -1149,6 +1198,7 @@ function EventDetailContent() {
       champion: detail?.champion ?? subEvent.champion,
       bracket: detail?.bracket ?? [],
       roundRobinView: detail?.roundRobinView ?? null,
+      teamKnockoutView: detail?.teamKnockoutView ?? null,
       presentationMode: detail?.presentationMode ?? data.presentationMode,
     };
   });
@@ -1156,6 +1206,7 @@ function EventDetailContent() {
   const currentBracket = currentDetail?.bracket ?? [];
   const currentChampion = currentDetail?.champion ?? null;
   const currentRoundRobinView = currentDetail?.roundRobinView ?? data.roundRobinView ?? null;
+  const currentTeamKnockoutView = currentDetail?.teamKnockoutView ?? data.teamKnockoutView ?? null;
   const currentPresentationMode = currentDetail?.presentationMode ?? data.presentationMode;
   const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === currentSubEvent);
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
@@ -1184,7 +1235,13 @@ function EventDetailContent() {
               {viewMode === "schedule" ? (
                 <ScheduleView rounds={currentBracket} isXT={isXT} />
               ) : viewMode === "draw" ? (
-                <DrawView rounds={currentBracket} selectedSubEvent={currentSubEvent} champion={currentChampion} isXT={isXT} />
+                <DrawView
+                  rounds={currentBracket}
+                  selectedSubEvent={currentSubEvent}
+                  champion={currentChampion}
+                  isXT={isXT}
+                  teamKnockoutView={currentTeamKnockoutView}
+                />
               ) : (
                 <ChampionsListView subEvents={subEventViews} />
               )}
