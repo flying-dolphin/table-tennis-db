@@ -910,10 +910,25 @@ function DrawView({
 
   // Data is ordered latest-first (Final → SF → R1); reverse for left-to-right and
   // reorder so that prev[2n], prev[2n+1] feed next[n] (matched by player identity).
-  // Exclude Bronze: 3rd-place playoff is not part of the knockout chain.
+  // When a bronze match exists, place it between the semifinals and final so the
+  // draw reads in match chronology even though bronze is a side branch.
   const orderedRounds = React.useMemo(() => {
-    const knockoutOnly = rounds.filter((r) => r.code !== "Bronze");
-    return orderBracketByFeeders([...knockoutOnly].reverse());
+    const reversed = [...rounds].reverse();
+    const bronzeRound = reversed.find((round) => round.code === "Bronze");
+    const roundsWithoutBronze = reversed.filter((round) => round.code !== "Bronze");
+
+    if (!bronzeRound) {
+      return orderBracketByFeeders(roundsWithoutBronze);
+    }
+
+    const bronzeInsertIndex = roundsWithoutBronze.findIndex((round) => round.code === "Final");
+    if (bronzeInsertIndex === -1) {
+      return orderBracketByFeeders([...roundsWithoutBronze, bronzeRound]);
+    }
+
+    const roundsWithBronze = [...roundsWithoutBronze];
+    roundsWithBronze.splice(bronzeInsertIndex, 0, bronzeRound);
+    return orderBracketByFeeders(roundsWithBronze);
   }, [rounds]);
 
   const filteredRounds = React.useMemo(() => {
@@ -1178,13 +1193,48 @@ const TEAM_DRAW_CARD_W = 132;
 const TEAM_DRAW_CARD_H = 52;
 const TEAM_DRAW_COL_GAP = 16;
 
+type TeamKnockoutRound = EventTeamKnockoutView["rounds"][number];
+
+function orderTeamRoundsByFeeders(rounds: TeamKnockoutRound[]): TeamKnockoutRound[] {
+  if (rounds.length <= 1) return rounds;
+  const result = rounds.map((round) => ({ ...round, ties: [...round.ties] }));
+
+  for (let r = result.length - 1; r > 0; r--) {
+    const nextRound = result[r];
+    const prevRound = result[r - 1];
+    const used = new Set<string>();
+    const ordered: TeamTie[] = [];
+
+    for (const nt of nextRound.ties) {
+      for (const teamCode of [nt.teamA.code, nt.teamB.code]) {
+        const feeder = prevRound.ties.find(
+          (pt) => !used.has(pt.tieId) && pt.winnerCode === teamCode,
+        );
+        if (feeder) {
+          ordered.push(feeder);
+          used.add(feeder.tieId);
+        }
+      }
+    }
+    for (const pt of prevRound.ties) {
+      if (!used.has(pt.tieId)) ordered.push(pt);
+    }
+
+    result[r - 1] = { ...prevRound, ties: ordered };
+  }
+
+  return result;
+}
+
 function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
   const mainRounds = React.useMemo(
-    () =>
-      view.rounds
+    () => {
+      const filtered = view.rounds
         .filter((round) => round.code !== "Bronze" && round.ties.length > 0)
         .slice()
-        .sort((a, b) => a.order - b.order),
+        .sort((a, b) => a.order - b.order);
+      return orderTeamRoundsByFeeders(filtered);
+    },
     [view.rounds],
   );
   const bronzeTie = view.bronzeTie ?? view.rounds.find((round) => round.code === "Bronze")?.ties[0] ?? null;
@@ -1246,19 +1296,34 @@ function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
                 if (rIdx >= mainRounds.length - 1) return null;
                 const currentRound = mainRounds[rIdx];
                 const nextRound = mainRounds[rIdx + 1];
-                if (currentRound.ties.length !== nextRound.ties.length * 2) return null;
-                return nextRound.ties.map((__, nMIdx) => {
-                  const f1 = getCardInfo(rIdx, nMIdx * 2);
-                  const f2 = getCardInfo(rIdx, nMIdx * 2 + 1);
+                return nextRound.ties.map((nt, nMIdx) => {
+                  const f1Idx = nMIdx * 2;
+                  const f2Idx = nMIdx * 2 + 1;
+                  if (f2Idx >= currentRound.ties.length) return null;
+                  const f1Tie = currentRound.ties[f1Idx];
+                  const f2Tie = currentRound.ties[f2Idx];
+                  const teams = new Set([nt.teamA.code, nt.teamB.code]);
+                  if (
+                    !f1Tie.winnerCode ||
+                    !f2Tie.winnerCode ||
+                    !teams.has(f1Tie.winnerCode) ||
+                    !teams.has(f2Tie.winnerCode)
+                  ) {
+                    return null;
+                  }
+                  const f1 = getCardInfo(rIdx, f1Idx);
+                  const f2 = getCardInfo(rIdx, f2Idx);
                   const fn = getCardInfo(rIdx + 1, nMIdx);
                   const xR = f1.left + TEAM_DRAW_CARD_W;
                   const xM = xR + TEAM_DRAW_COL_GAP / 2;
                   const xL = fn.left;
+                  const yTop = Math.min(f1.centerY, f2.centerY, fn.centerY);
+                  const yBottom = Math.max(f1.centerY, f2.centerY, fn.centerY);
                   return (
                     <g key={`team-conn-${rIdx}-${nMIdx}`}>
                       <line x1={xR} y1={f1.centerY} x2={xM} y2={f1.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
                       <line x1={xR} y1={f2.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
-                      <line x1={xM} y1={f1.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                      <line x1={xM} y1={yTop} x2={xM} y2={yBottom} stroke="#c5d8f2" strokeWidth={1.5} />
                       <line x1={xM} y1={fn.centerY} x2={xL} y2={fn.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
                     </g>
                   );
@@ -1434,8 +1499,8 @@ function PodiumSlot({
   const tied = Boolean(entrySecond);
 
   return (
-    <div className={cn("flex flex-col items-center", tied ? "flex-[2]" : "flex-1")}>
-      <div className="mb-2.5 flex w-full items-end justify-center gap-2">
+    <div className="flex flex-1 flex-col items-center">
+      <div className="mb-2.5 flex w-full items-end justify-center gap-1 sm:gap-2">
         {tied ? (
           <>
             <PodiumEntryDisplay entry={entry} compact />
