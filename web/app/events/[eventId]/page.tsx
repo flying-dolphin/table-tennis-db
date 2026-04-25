@@ -264,6 +264,7 @@ function isMixedTeamSubEvent(code: string) {
 }
 
 function isTeamSubEvent(code: string, label: string) {
+  if (code === "WT" || code === "MT" || code === "XT") return true;
   const text = `${code} ${label}`.toUpperCase();
   return text.includes("TEAM") || text.includes("团体");
 }
@@ -282,6 +283,57 @@ function truncateChineseName(name: string, maxChars: number = 4) {
     if (count >= maxChars - 1) break;
   }
   return result + "...";
+}
+
+function makeSidePlayerKey(side: BracketMatch["sides"][number] | undefined): string | null {
+  if (!side || side.players.length === 0) return null;
+  return side.players
+    .map((p) => (p.playerId != null ? `id:${p.playerId}` : `nm:${p.name}`))
+    .sort()
+    .join("|");
+}
+
+// Reorder matches in each round so that prev[2n] and prev[2n+1] feed next[n].
+// Rounds are expected in left-to-right order (R1 → ... → Final).
+function orderBracketByFeeders(rounds: EventDetail["bracket"]): EventDetail["bracket"] {
+  if (rounds.length <= 1) return rounds;
+  const result = rounds.map((r) => ({ ...r, matches: [...r.matches] }));
+
+  for (let r = result.length - 1; r > 0; r--) {
+    const nextRound = result[r];
+    const prevRound = result[r - 1];
+    const prevMatches = prevRound.matches;
+    if (prevMatches.length !== nextRound.matches.length * 2) continue;
+
+    const used = new Set<number>();
+    const newOrder: BracketMatch[] = [];
+    let allMatched = true;
+
+    for (const nm of nextRound.matches) {
+      const sortedSides = [...nm.sides].sort((a, b) => a.sideNo - b.sideNo);
+      for (let s = 0; s < 2; s++) {
+        const sideKey = makeSidePlayerKey(sortedSides[s]);
+        let feeder: BracketMatch | undefined;
+        if (sideKey) {
+          feeder = prevMatches.find(
+            (pm) => !used.has(pm.matchId) && pm.sides.some((ps) => makeSidePlayerKey(ps) === sideKey),
+          );
+        }
+        if (feeder) {
+          newOrder.push(feeder);
+          used.add(feeder.matchId);
+        } else {
+          allMatched = false;
+        }
+      }
+    }
+
+    if (allMatched && newOrder.length === prevMatches.length) {
+      result[r - 1] = { ...prevRound, matches: newOrder };
+    }
+  }
+
+  return result;
 }
 
 function findChampionMatch(rounds: EventDetail["bracket"], championNames: string[]) {
@@ -850,10 +902,18 @@ function DrawView({
   const [search, setSearch] = React.useState("");
   const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
 
+  // Data is ordered latest-first (Final → SF → R1); reverse for left-to-right and
+  // reorder so that prev[2n], prev[2n+1] feed next[n] (matched by player identity).
+  // Exclude Bronze: 3rd-place playoff is not part of the knockout chain.
+  const orderedRounds = React.useMemo(() => {
+    const knockoutOnly = rounds.filter((r) => r.code !== "Bronze");
+    return orderBracketByFeeders([...knockoutOnly].reverse());
+  }, [rounds]);
+
   const filteredRounds = React.useMemo(() => {
-    if (!search.trim()) return rounds;
+    if (!search.trim()) return orderedRounds;
     const keyword = search.trim().toLowerCase();
-    return rounds
+    return orderedRounds
       .map((round) => ({
         ...round,
         matches: round.matches.filter((match) =>
@@ -861,7 +921,7 @@ function DrawView({
         ),
       }))
       .filter((round) => round.matches.length > 0);
-  }, [rounds, search]);
+  }, [orderedRounds, search]);
 
   if (rounds.length === 0) {
     return (
@@ -873,8 +933,7 @@ function DrawView({
     );
   }
 
-  // Data is ordered latest-first (Final → SF → R1); reverse for left-to-right bracket display
-  const displayRounds = React.useMemo(() => [...filteredRounds].reverse(), [filteredRounds]);
+  const displayRounds = filteredRounds;
 
   const firstRoundCount = displayRounds[0]?.matches.length ?? 1;
   const slotH0 = Math.max(DRAW_CARD_H + 8, 60);
@@ -1074,17 +1133,50 @@ function TeamTieNodeCard({ tie, title }: { tie: TeamTie; title?: string }) {
   );
 }
 
-function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
-  const semiFinals = view.rounds.find((round) => round.code === "SemiFinal")?.ties ?? [];
-  const finalTie = view.rounds.find((round) => round.code === "Final")?.ties[0] ?? view.finalTie;
-  const bronzeTie = view.rounds.find((round) => round.code === "Bronze")?.ties[0] ?? view.bronzeTie;
-  const leftColumnWidth = 162;
-  const rightColumnWidth = 162;
-  const connectorX1 = leftColumnWidth;
-  const connectorX2 = leftColumnWidth + 20;
-  const rightColumnLeft = leftColumnWidth + 40;
+function DrawTeamTieCard({ tie }: { tie: TeamTie }) {
+  const winnerA = tie.winnerCode === tie.teamA.code;
+  const winnerB = tie.winnerCode === tie.teamB.code;
+  return (
+    <div className="rounded-[0.6rem] border border-[#dce7f5] bg-white px-1.5 py-1 shadow-sm">
+      <div className="space-y-1">
+        {[
+          { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
+          { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
+        ].map((item) => (
+          <div key={item.team.code} className="flex items-center gap-1">
+            <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
+            <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
+              {item.team.code}
+            </span>
+            <span className={cn("font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+              {item.score}
+            </span>
+            <span className="flex w-3 shrink-0 items-center justify-center">
+              {item.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-  if (semiFinals.length === 0 && !finalTie && !bronzeTie) {
+const TEAM_DRAW_CARD_W = 132;
+const TEAM_DRAW_CARD_H = 52;
+const TEAM_DRAW_COL_GAP = 16;
+
+function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
+  const mainRounds = React.useMemo(
+    () =>
+      view.rounds
+        .filter((round) => round.code !== "Bronze" && round.ties.length > 0)
+        .slice()
+        .sort((a, b) => a.order - b.order),
+    [view.rounds],
+  );
+  const bronzeTie = view.bronzeTie ?? view.rounds.find((round) => round.code === "Bronze")?.ties[0] ?? null;
+
+  if (mainRounds.length === 0 && !bronzeTie) {
     return (
       <div className="pt-5">
         <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
@@ -1094,72 +1186,103 @@ function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
     );
   }
 
+  const firstRoundCount = mainRounds[0]?.ties.length ?? 1;
+  const slotH0 = Math.max(TEAM_DRAW_CARD_H + 12, 72);
+  const totalH = firstRoundCount * slotH0;
+
+  const getCardInfo = (rIdx: number, mIdx: number) => {
+    const count = mainRounds[rIdx]?.ties.length ?? 1;
+    const slotH = totalH / count;
+    return {
+      top: mIdx * slotH + (slotH - TEAM_DRAW_CARD_H) / 2,
+      centerY: mIdx * slotH + slotH / 2,
+      left: rIdx * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP),
+    };
+  };
+
+  const totalW = mainRounds.length * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP);
+
   return (
     <div className="pb-10 pt-5">
-      <div className="mb-6 space-y-6">
-        <div>
-          <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-          <Podium podium={view.podium} />
-        </div>
-      </div>
+      <section className="mb-6">
+        <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+        <Podium podium={view.podium} />
+      </section>
 
-      <div className="overflow-x-auto pb-2">
-        <div className="mb-3 flex" style={{ minWidth: rightColumnLeft + rightColumnWidth }}>
-          <div className="shrink-0 text-center" style={{ width: leftColumnWidth }}>
-            <p className="text-[0.78rem] font-black text-slate-900">半决赛</p>
-            <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{semiFinals.length} 场</p>
+      {mainRounds.length > 0 && (
+        <div className="overflow-x-auto pb-2">
+          <div className="mb-3 flex" style={{ minWidth: totalW }}>
+            {mainRounds.map((round) => (
+              <div
+                key={round.code}
+                className="shrink-0 text-center"
+                style={{ width: TEAM_DRAW_CARD_W, marginRight: TEAM_DRAW_COL_GAP }}
+              >
+                <p className="text-[0.78rem] font-black text-slate-900">{round.label}</p>
+                <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{round.ties.length} 场</p>
+              </div>
+            ))}
           </div>
-          <div className="w-10 shrink-0" />
-          <div className="shrink-0 text-center" style={{ width: rightColumnWidth }}>
-            <p className="text-[0.78rem] font-black text-slate-900">奖牌战</p>
-            <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{[finalTie, bronzeTie].filter(Boolean).length} 场</p>
+
+          <div className="relative" style={{ height: totalH, minWidth: totalW }}>
+            <svg
+              className="pointer-events-none absolute inset-0 overflow-visible"
+              style={{ width: totalW, height: totalH }}
+            >
+              {mainRounds.map((_, rIdx) => {
+                if (rIdx >= mainRounds.length - 1) return null;
+                const currentRound = mainRounds[rIdx];
+                const nextRound = mainRounds[rIdx + 1];
+                if (currentRound.ties.length !== nextRound.ties.length * 2) return null;
+                return nextRound.ties.map((__, nMIdx) => {
+                  const f1 = getCardInfo(rIdx, nMIdx * 2);
+                  const f2 = getCardInfo(rIdx, nMIdx * 2 + 1);
+                  const fn = getCardInfo(rIdx + 1, nMIdx);
+                  const xR = f1.left + TEAM_DRAW_CARD_W;
+                  const xM = xR + TEAM_DRAW_COL_GAP / 2;
+                  const xL = fn.left;
+                  return (
+                    <g key={`team-conn-${rIdx}-${nMIdx}`}>
+                      <line x1={xR} y1={f1.centerY} x2={xM} y2={f1.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                      <line x1={xR} y1={f2.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                      <line x1={xM} y1={f1.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                      <line x1={xM} y1={fn.centerY} x2={xL} y2={fn.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                    </g>
+                  );
+                });
+              })}
+            </svg>
+
+            {mainRounds.map((round, rIdx) =>
+              round.ties.map((tie, mIdx) => {
+                const { top, left } = getCardInfo(rIdx, mIdx);
+                return (
+                  <div
+                    key={tie.tieId}
+                    className="absolute"
+                    style={{ top, left, width: TEAM_DRAW_CARD_W }}
+                  >
+                    <DrawTeamTieCard tie={tie} />
+                  </div>
+                );
+              }),
+            )}
           </div>
         </div>
+      )}
 
-        <div className="relative" style={{ minWidth: rightColumnLeft + rightColumnWidth, height: 380 }}>
-          <svg className="pointer-events-none absolute inset-0 overflow-visible" style={{ width: rightColumnLeft + rightColumnWidth, height: 380 }}>
-            {semiFinals[0] ? (
-              <>
-                <line x1={connectorX1} y1={90} x2={connectorX2} y2={90} stroke="#c5d8f2" strokeWidth={1.5} />
-                <line x1={connectorX2} y1={90} x2={connectorX2} y2={120} stroke="#c5d8f2" strokeWidth={1.5} />
-                <line x1={connectorX2} y1={120} x2={rightColumnLeft} y2={120} stroke="#c5d8f2" strokeWidth={1.5} />
-              </>
-            ) : null}
-            {semiFinals[1] ? (
-              <>
-                <line x1={connectorX1} y1={270} x2={connectorX2} y2={270} stroke="#c5d8f2" strokeWidth={1.5} />
-                <line x1={connectorX2} y1={270} x2={connectorX2} y2={260} stroke="#c5d8f2" strokeWidth={1.5} />
-                <line x1={connectorX2} y1={260} x2={rightColumnLeft} y2={260} stroke="#c5d8f2" strokeWidth={1.5} />
-              </>
-            ) : null}
-          </svg>
+      {bronzeTie && (
+        <section className="mt-6">
+          <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">铜牌赛</h2>
+          <TeamTieNodeCard tie={bronzeTie} />
+        </section>
+      )}
 
-          {semiFinals[0] ? (
-            <div className="absolute left-0 top-[24px]" style={{ width: leftColumnWidth }}>
-              <TeamTieNodeCard tie={semiFinals[0]} title="半决赛 1" />
-            </div>
-          ) : null}
-          {semiFinals[1] ? (
-            <div className="absolute left-0 top-[204px]" style={{ width: leftColumnWidth }}>
-              <TeamTieNodeCard tie={semiFinals[1]} title="半决赛 2" />
-            </div>
-          ) : null}
-          {finalTie ? (
-            <div className="absolute top-[54px]" style={{ left: rightColumnLeft, width: rightColumnWidth }}>
-              <TeamTieNodeCard tie={finalTie} title="决赛" />
-            </div>
-          ) : null}
-          {bronzeTie ? (
-            <div className="absolute top-[194px]" style={{ left: rightColumnLeft, width: rightColumnWidth }}>
-              <TeamTieNodeCard tie={bronzeTie} title="铜牌赛" />
-            </div>
-          ) : null}
+      {view.finalStandings.length > 0 && (
+        <div className="mt-6">
+          <FinalStandingsView standings={view.finalStandings} />
         </div>
-      </div>
-
-      <div className="mt-6">
-        <FinalStandingsView standings={view.finalStandings} />
-      </div>
+      )}
     </div>
   );
 }
