@@ -419,15 +419,21 @@ type CarouselTrackProps = {
 // are all known. useSpring is therefore initialized with the correct target
 // trackX from the very first render, so the first paint is already on the
 // current month and never flashes through January.
-function CarouselTrack({ monthData, initialIndex, carouselWidth, onCardClick }: CarouselTrackProps) {
+const CarouselTrack = React.memo(function CarouselTrack({ monthData, initialIndex, carouselWidth, onCardClick }: CarouselTrackProps) {
   const cardGap = 16;
   const cardWidth = Math.min(carouselWidth * 0.72, 240);
   const slideStep = cardWidth + cardGap;
   const baseTrackX = carouselWidth / 2 - cardWidth / 2;
 
   const [activeIndex, setActiveIndex] = useState(initialIndex);
-  const [isDragging, setIsDragging] = useState(false);
   const activeIndexRef = useRef(initialIndex);
+  // isDragging is intentionally a ref (not state). The snap effect below
+  // depends on activeIndex / layout only — if isDragging were state and lived
+  // in that effect's deps, every drag-end (and every stray setIsDragging(false)
+  // fired from a tap-after-incomplete-gesture) would re-run the snap and could
+  // animate the carousel back to whatever activeIndex currently holds, even
+  // when the user has already settled visually somewhere else.
+  const isDraggingRef = useRef(false);
   const wheelLockRef = useRef(false);
   const dragStartTrackXRef = useRef(0);
   const hasDraggedRef = useRef(false);
@@ -450,9 +456,9 @@ function CarouselTrack({ monthData, initialIndex, carouselWidth, onCardClick }: 
   // slideStep) changes from resize. Skip during drag — drag handler writes
   // trackX directly.
   useEffect(() => {
-    if (isDragging) return;
+    if (isDraggingRef.current) return;
     trackApi.start({ trackX: baseTrackX - activeIndex * slideStep });
-  }, [activeIndex, baseTrackX, slideStep, trackApi, isDragging]);
+  }, [activeIndex, baseTrackX, slideStep, trackApi]);
 
   const setActiveIndexSafe = useCallback(
     (index: number) => {
@@ -489,6 +495,18 @@ function CarouselTrack({ monthData, initialIndex, carouselWidth, onCardClick }: 
 
       if (first) {
         hasDraggedRef.current = false;
+        // Re-derive activeIndex from the actual trackX before each new gesture.
+        // Defends against any case where a previous gesture ended without
+        // updating activeIndex (e.g. a drag whose `last` event was swallowed):
+        // without this, the next tap's `setIsDragging(false)` could fire the
+        // snap effect with a stale activeIndex and animate back to the
+        // initial month behind the modal.
+        const currentTrackX = trackX.get();
+        const recoveredIndex = clampIndex(Math.round((baseTrackX - currentTrackX) / slideStep));
+        if (recoveredIndex !== activeIndexRef.current) {
+          activeIndexRef.current = recoveredIndex;
+          setActiveIndex(recoveredIndex);
+        }
         dragStartTrackXRef.current = baseTrackX - activeIndexRef.current * slideStep;
       }
 
@@ -505,13 +523,13 @@ function CarouselTrack({ monthData, initialIndex, carouselWidth, onCardClick }: 
         if (isIntentionalDrag) {
           hasDraggedRef.current = true;
           suppressClickRef.current = true;
-          setIsDragging(true);
+          isDraggingRef.current = true;
           trackApi.start({ trackX: nextTrackX, immediate: true });
         }
         return;
       }
 
-      setIsDragging(false);
+      isDraggingRef.current = false;
       if (!hasDraggedRef.current) return; // real tap — let onClick handle it
 
       const dir = dx === 0 ? (mx < 0 ? -1 : 1) : dx;
@@ -590,7 +608,7 @@ function CarouselTrack({ monthData, initialIndex, carouselWidth, onCardClick }: 
       </animated.div>
     </div>
   );
-}
+});
 
 export default function EventScroller() {
   const [expandedMonthId, setExpandedMonthId] = useState<string | null>(null);
