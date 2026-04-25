@@ -37,6 +37,7 @@ export function getCompareData(playerASlug: string, playerBSlug: string) {
         LEFT JOIN events e ON e.event_id = m.event_id
         WHERE spa.player_id = ?
           AND spb.player_id = ?
+          AND m.sub_event_type_code = 'WS'
         ORDER BY COALESCE(e.start_date, '') DESC, COALESCE(m.event_year, 0) DESC, m.match_id DESC
       `,
     )
@@ -61,8 +62,19 @@ export function getCompareData(playerASlug: string, playerBSlug: string) {
     const playerBWin =
       (match.winnerSide === 'A' && match.playerASideNo === 2) ||
       (match.winnerSide === 'B' && match.playerASideNo === 1);
+
+    // Adjust score to be always (Player A Score)-(Player B Score)
+    let displayScore = match.matchScore;
+    if (match.playerASideNo === 2 && displayScore && displayScore.includes('-')) {
+      const parts = displayScore.split('-');
+      if (parts.length === 2) {
+        displayScore = `${parts[1]}-${parts[0]}`;
+      }
+    }
+
     return {
       ...match,
+      matchScore: displayScore,
       winnerId: playerAWin ? playerA.playerId : playerBWin ? playerB.playerId : null,
     };
   });

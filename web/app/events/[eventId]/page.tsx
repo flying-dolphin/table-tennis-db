@@ -665,40 +665,54 @@ function TeamTieSummaryCard({ tie, tieIndex }: { tie: TeamTie; tieIndex?: number
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
   return (
-    <div className="rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-slate-100 shadow-sm">
-      <div className="mb-3 flex items-center justify-between gap-2">
-        <span className="text-[0.82rem] font-medium text-slate-400">已结束</span>
-        {tieIndex !== undefined ? <span className="text-[0.78rem] font-bold text-[#9bb3e0]">第 {tieIndex} 场</span> : null}
+    <div className="rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-[#e8edf8]">
+      <div className="flex items-center justify-between gap-2">
+        <span className="shrink-0 text-[0.85rem] font-bold text-slate-500">
+          {tieIndex !== undefined ? `第 ${tieIndex} 场` : "已结束"}
+        </span>
+        <div className="flex items-center gap-1.5 min-w-0">
+          <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
+          <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
+            {tie.teamA.code}
+          </span>
+          <span
+            className={cn(
+              "font-numeric ml-0.5 text-[1.25rem] font-black leading-none tabular-nums",
+              winnerA ? "text-[#2d6cf6]" : "text-slate-400"
+            )}
+          >
+            {tie.scoreA}
+          </span>
+          <span className="text-[0.95rem] font-black leading-none text-slate-300">-</span>
+          <span
+            className={cn(
+              "font-numeric text-[1.25rem] font-black leading-none tabular-nums",
+              winnerB ? "text-[#2d6cf6]" : "text-slate-400"
+            )}
+          >
+            {tie.scoreB}
+          </span>
+          <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
+            {tie.teamB.code}
+          </span>
+          <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
+        </div>
       </div>
-      <div className="space-y-2.5">
-        {[
-          { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
-          { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
-        ].map((item) => (
-          <div key={item.team.code} className="flex items-center gap-2">
-            <Flag code={item.team.code} className="shrink-0 scale-[1.25] origin-left" />
-            <p className={cn("flex-1 text-[1rem] font-black leading-tight", item.isWinner ? "text-slate-950" : "text-slate-500")}>
-              {item.team.nameZh || item.team.name}
-            </p>
-            <span className={cn("font-numeric shrink-0 text-[1.5rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-              {item.score}
-            </span>
-            <span className="flex w-5 shrink-0 items-center justify-center">
-              {item.isWinner ? <CheckCircle2 size={18} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className="mt-3 divide-y divide-slate-100 border-t border-slate-100">
+      <div className="mt-2 divide-y divide-slate-100">
         {tie.rubbers.map((rubber, index) => (
           <Link
             key={rubber.matchId}
             href={route(`/matches/${rubber.matchId}`)}
-            className="flex items-start gap-3 py-2.5 transition active:scale-[0.995]"
+            className="flex items-start justify-between gap-3 py-2 transition"
           >
-            <span className="shrink-0 text-[0.82rem] font-black leading-snug text-[#2d6cf6]">第{index + 1}盘</span>
-            <span className="min-w-0 flex-1 text-[0.84rem] font-medium leading-snug text-slate-600">
-              {compactRubberPlayersLabel(rubber)}
+            <div className="flex min-w-0 flex-1 items-start gap-2">
+              <span className="shrink-0 text-[0.88rem] font-black leading-snug text-[#2d6cf6]">第{index + 1}盘</span>
+              <span className="min-w-0 flex-1 text-[0.88rem] font-medium leading-snug text-slate-600">
+                {compactRubberPlayersLabel(rubber)}
+              </span>
+            </div>
+            <span className="font-numeric shrink-0 text-[0.95rem] font-black leading-snug tabular-nums text-[#2d6cf6]">
+              {rubber.matchScore ?? "-"}
             </span>
           </Link>
         ))}
@@ -1358,12 +1372,12 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
                       <button
                         type="button"
                         onClick={() => toggleGroup(groupKey)}
-                        className="flex w-full items-center gap-2"
+                        className="flex w-full justify-between items-center"
                       >
-                        <h3 className="shrink-0 text-[1.15rem] font-black text-slate-900 whitespace-nowrap">{group.nameZh || group.code}</h3>
-                        <div className="flex min-w-0 flex-1 flex-wrap items-center justify-center gap-1 text-[0.72rem] font-bold text-slate-600">
+                        <h3 className="shrink-0 text-base font-black text-slate-900 whitespace-nowrap">{group.nameZh || group.code}</h3>
+                        <div className="flex min-w-0 flex-1 flex-wrap pt-2 items-center justify-center gap-1 text-[0.72rem] font-bold text-slate-600">
                           {group.teams.map((team) => (
-                            <span key={team} className="inline-flex flex-col items-center gap-0.5 rounded-sm bg-white px-4 py-1 whitespace-nowrap leading-none">
+                            <span key={team} className="inline-flex items-center gap-0.5 rounded-sm bg-white px-1 py-2 whitespace-nowrap leading-none">
                               <Flag code={team} />
                               <span>{team}</span>
                             </span>

@@ -93,6 +93,100 @@ export function getPlayerBySlug(slug: string) {
     | undefined;
 }
 
+export function searchPlayers(query?: string, limit = 12, excludeSlug?: string) {
+  const resolvedLimit = Math.min(Math.max(limit, 1), 20);
+  const keyword = query?.trim().toLowerCase() ?? '';
+  const like = `%${keyword}%`;
+
+  const latestSnapshot = db
+    .prepare(
+      `
+        SELECT snapshot_id AS snapshotId
+        FROM ranking_snapshots
+        WHERE category = 'women_singles'
+        ORDER BY ranking_date DESC, snapshot_id DESC
+        LIMIT 1
+      `,
+    )
+    .get() as { snapshotId: number } | undefined;
+
+  if (!latestSnapshot) {
+    return [];
+  }
+
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          p.player_id AS playerId,
+          p.slug,
+          p.name,
+          p.name_zh AS nameZh,
+          p.country,
+          p.country_code AS countryCode,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
+          p.avatar_url AS avatarUrl,
+          re.rank,
+          re.points
+        FROM players p
+        LEFT JOIN ranking_entries re
+          ON re.player_id = p.player_id
+          AND re.snapshot_id = ?
+        WHERE (? = '' OR LOWER(p.name) LIKE ? OR LOWER(COALESCE(p.name_zh, '')) LIKE ? OR LOWER(p.slug) LIKE ?)
+          AND (? = '' OR p.slug <> ?)
+        ORDER BY
+          CASE
+            WHEN ? <> '' AND LOWER(COALESCE(p.name_zh, '')) = ? THEN 0
+            WHEN ? <> '' AND LOWER(p.name) = ? THEN 1
+            WHEN ? <> '' AND LOWER(p.slug) = ? THEN 2
+            WHEN ? <> '' AND LOWER(COALESCE(p.name_zh, '')) LIKE ? THEN 3
+            WHEN ? <> '' AND LOWER(p.name) LIKE ? THEN 4
+            WHEN ? <> '' AND LOWER(p.slug) LIKE ? THEN 5
+            WHEN re.rank IS NOT NULL THEN 6
+            ELSE 7
+          END,
+          CASE WHEN re.rank IS NULL THEN 999999 ELSE re.rank END ASC,
+          p.name ASC
+        LIMIT ?
+      `,
+    )
+    .all(
+      latestSnapshot.snapshotId,
+      keyword,
+      like,
+      like,
+      like,
+      excludeSlug ?? '',
+      excludeSlug ?? '',
+      keyword,
+      keyword,
+      keyword,
+      keyword,
+      keyword,
+      keyword,
+      keyword,
+      `${keyword}%`,
+      keyword,
+      `${keyword}%`,
+      keyword,
+      `${keyword}%`,
+      resolvedLimit,
+    ) as Array<{
+      playerId: number;
+      slug: string;
+      name: string;
+      nameZh: string | null;
+      country: string | null;
+      countryCode: string;
+      avatarFile: string | null;
+      avatarUrl: string | null;
+      rank: number | null;
+      points: number | null;
+    }>;
+
+  return rows;
+}
+
 function getPlayerOpponentAggregates(playerId: number) {
   const opponentRows = db
     .prepare(
