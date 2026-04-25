@@ -384,7 +384,7 @@ function renderMonthCardContent(month: MonthCard, isModal: boolean) {
                       className={cn(
                         "font-medium flex items-center shadow-sm overflow-hidden",
                         isModal
-                          ? "rounded-[6px] px-1.5 py-1 text-[9px] leading-tight whitespace-normal break-words min-h-[24px]"
+                          ? "rounded-[6px] px-1.5 py-1 text-[10px] leading-tight whitespace-normal break-words min-h-[24px]"
                           : "rounded-[3px] px-0.5 py-0 text-[6px] leading-[10px] whitespace-nowrap text-ellipsis min-h-[10px]",
                         ev.color,
                       )}
