@@ -128,6 +128,7 @@ type EventTeamKnockoutView = {
     champion: StageStanding | null;
     runnerUp: StageStanding | null;
     thirdPlace: StageStanding | null;
+    thirdPlaceSecond: StageStanding | null;
   };
   finalTie: TeamTie | null;
   bronzeTie: TeamTie | null;
@@ -902,6 +903,11 @@ function DrawView({
   const [search, setSearch] = React.useState("");
   const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
 
+  const bracketPodium = React.useMemo(
+    () => deriveBracketPodium(rounds, isXT ?? false),
+    [rounds, isXT],
+  );
+
   // Data is ordered latest-first (Final → SF → R1); reverse for left-to-right and
   // reorder so that prev[2n], prev[2n+1] feed next[n] (matched by player identity).
   // Exclude Bronze: 3rd-place playoff is not part of the knockout chain.
@@ -958,11 +964,18 @@ function DrawView({
 
   return (
     <div className="pb-10 pt-5">
+      {!teamKnockoutView && bracketPodium && (
+        <section className="mb-6">
+          <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+          <Podium podium={bracketPodium} />
+        </section>
+      )}
+
       {teamKnockoutView && (
         <section className="mb-6 space-y-6">
           <div>
             <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-            <Podium podium={teamKnockoutView.podium} />
+            <Podium podium={teamPodiumDisplay(teamKnockoutView.podium)} />
           </div>
 
           {teamKnockoutView.finalTie && (
@@ -1206,7 +1219,7 @@ function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
     <div className="pb-10 pt-5">
       <section className="mb-6">
         <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-        <Podium podium={view.podium} />
+        <Podium podium={teamPodiumDisplay(view.podium)} />
       </section>
 
       {mainRounds.length > 0 && (
@@ -1287,14 +1300,128 @@ function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
   );
 }
 
+type PodiumEntry = {
+  flagCode: string | null;
+  lines: string[];
+};
+
+type PodiumDisplay = {
+  champion: PodiumEntry | null;
+  runnerUp: PodiumEntry | null;
+  thirdPlace: PodiumEntry | null;
+  thirdPlaceSecond?: PodiumEntry | null;
+};
+
+function standingToPodiumEntry(standing: StageStanding | null): PodiumEntry | null {
+  if (!standing) return null;
+  const name = standing.teamNameZh || standing.teamName || standing.teamCode || "待补";
+  return { flagCode: standing.teamCode ?? null, lines: [name] };
+}
+
+function sideToPodiumEntry(
+  side: BracketMatch["sides"][number] | undefined,
+  isXT: boolean,
+): PodiumEntry | null {
+  if (!side || side.players.length === 0) return null;
+  const flagCode = dedupeCountries(side.players)[0] ?? null;
+  if (isXT) {
+    return { flagCode, lines: [flagCode ?? "待补"] };
+  }
+  const lines = side.players.slice(0, 2).map((player) => compactPlayerName(player));
+  return { flagCode, lines: lines.length > 0 ? lines : ["待补"] };
+}
+
+function deriveBracketPodium(
+  rounds: EventDetail["bracket"],
+  isXT: boolean,
+): PodiumDisplay | null {
+  const finalRound = rounds.find((round) => round.code === "Final");
+  const finalMatch = finalRound?.matches[0];
+  if (!finalMatch) return null;
+
+  const finalWinner = finalMatch.sides.find((side) => side.isWinner);
+  const finalLoser = finalMatch.sides.find((side) => !side.isWinner);
+  const champion = sideToPodiumEntry(finalWinner, isXT);
+  const runnerUp = sideToPodiumEntry(finalLoser, isXT);
+
+  let thirdPlace: PodiumEntry | null = null;
+  let thirdPlaceSecond: PodiumEntry | null = null;
+
+  const bronzeRound = rounds.find((round) => round.code === "Bronze");
+  const bronzeMatch = bronzeRound?.matches[0];
+  if (bronzeMatch && bronzeMatch.sides.some((side) => side.isWinner)) {
+    const bronzeWinner = bronzeMatch.sides.find((side) => side.isWinner);
+    thirdPlace = sideToPodiumEntry(bronzeWinner, isXT);
+  } else {
+    const semiRound = rounds.find((round) => round.code === "SemiFinal");
+    const losers = (semiRound?.matches ?? [])
+      .map((match) => match.sides.find((side) => !side.isWinner))
+      .filter((side): side is BracketMatch["sides"][number] => Boolean(side));
+    thirdPlace = sideToPodiumEntry(losers[0], isXT);
+    thirdPlaceSecond = sideToPodiumEntry(losers[1], isXT);
+  }
+
+  if (!champion && !runnerUp && !thirdPlace) return null;
+  return { champion, runnerUp, thirdPlace, thirdPlaceSecond };
+}
+
+function PodiumEntryDisplay({
+  entry,
+  showCrown,
+  compact,
+}: {
+  entry: PodiumEntry | null;
+  showCrown?: boolean;
+  compact?: boolean;
+}) {
+  const flagSize = compact
+    ? "h-8 w-8 sm:h-9 sm:w-9"
+    : "h-11 w-11 sm:h-14 sm:w-14";
+  const flagScale = compact ? "scale-[1.1] sm:scale-[1.3]" : "scale-[1.6] sm:scale-[2.2]";
+  const nameWidth = compact
+    ? "max-w-[58px] sm:max-w-[72px] text-[0.66rem] sm:text-[0.72rem]"
+    : "max-w-[76px] sm:max-w-[100px] text-[0.72rem] sm:text-[0.82rem]";
+  const lines = entry?.lines && entry.lines.length > 0 ? entry.lines : ["待补"];
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className="relative mb-1.5">
+        <div
+          className={cn(
+            "flex items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-[#e8edf8]",
+            flagSize,
+          )}
+        >
+          <Flag code={entry?.flagCode ?? null} className={flagScale} />
+        </div>
+        {showCrown && (
+          <Crown
+            size={compact ? 14 : 18}
+            className="absolute -right-1 -top-2 fill-yellow-400 text-yellow-600 drop-shadow-sm rotate-[12deg]"
+          />
+        )}
+      </div>
+      <div className={cn("text-center font-bold text-slate-700", nameWidth)}>
+        {lines.map((line, index) => (
+          <p key={index} className="truncate leading-tight">
+            {line}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function PodiumSlot({
   rank,
-  standing,
+  entry,
+  entrySecond,
   baseHeight,
   colorScheme,
 }: {
   rank: 1 | 2 | 3;
-  standing: StageStanding | null;
+  entry: PodiumEntry | null;
+  entrySecond?: PodiumEntry | null;
   baseHeight: string;
   colorScheme: {
     bg: string;
@@ -1303,35 +1430,22 @@ function PodiumSlot({
     trophy: string;
   };
 }) {
-  const name = standing?.teamNameZh || standing?.teamName || "待补";
   const isChampion = rank === 1;
+  const tied = Boolean(entrySecond);
 
   return (
-    <div className="flex flex-1 flex-col items-center">
-      {/* 球员信息 */}
-      <div className="mb-2.5 flex flex-col items-center">
-        <div className="relative mb-1.5">
-          <div
-            className={cn(
-              "flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm ring-1 sm:h-14 sm:w-14",
-              colorScheme.border,
-            )}
-          >
-            <Flag code={standing?.teamCode ?? null} className="scale-[1.6] sm:scale-[2.2]" />
-          </div>
-          {isChampion && (
-            <Crown
-              size={18}
-              className="absolute -right-1 -top-2 fill-yellow-400 text-yellow-600 drop-shadow-sm rotate-[12deg]"
-            />
-          )}
-        </div>
-        <p className="line-clamp-1 max-w-[76px] text-center text-[0.72rem] font-bold text-slate-700 sm:max-w-[100px] sm:text-[0.82rem]">
-          {name}
-        </p>
+    <div className={cn("flex flex-col items-center", tied ? "flex-[2]" : "flex-1")}>
+      <div className="mb-2.5 flex w-full items-end justify-center gap-2">
+        {tied ? (
+          <>
+            <PodiumEntryDisplay entry={entry} compact />
+            <PodiumEntryDisplay entry={entrySecond ?? null} compact />
+          </>
+        ) : (
+          <PodiumEntryDisplay entry={entry} showCrown={isChampion} />
+        )}
       </div>
 
-      {/* 领奖台底座 */}
       <div
         className={cn(
           "relative flex w-full flex-col items-center justify-center rounded-t-xl border-x border-t transition-all duration-500",
@@ -1340,8 +1454,18 @@ function PodiumSlot({
           baseHeight,
         )}
       >
+        {tied && (
+          <span className="absolute -top-2 rounded-full bg-orange-100 px-1.5 py-0.5 text-[0.55rem] font-bold text-orange-600 ring-1 ring-orange-200">
+            并列
+          </span>
+        )}
         <Trophy size={isChampion ? 20 : 16} className={cn("mb-0.5", colorScheme.trophy)} />
-        <span className={cn("font-numeric text-lg font-black leading-none sm:text-xl", colorScheme.text)}>
+        <span
+          className={cn(
+            "font-numeric text-lg font-black leading-none sm:text-xl",
+            colorScheme.text,
+          )}
+        >
           {rank}
         </span>
       </div>
@@ -1349,16 +1473,13 @@ function PodiumSlot({
   );
 }
 
-function Podium({
-  podium,
-}: {
-  podium: { champion: StageStanding | null; runnerUp: StageStanding | null; thirdPlace: StageStanding | null };
-}) {
+function Podium({ podium }: { podium: PodiumDisplay }) {
   return (
     <div className="flex items-end justify-center gap-2 px-1 py-4 sm:gap-4 sm:px-4">
       <PodiumSlot
         rank={3}
-        standing={podium.thirdPlace}
+        entry={podium.thirdPlace}
+        entrySecond={podium.thirdPlaceSecond ?? null}
         baseHeight="h-12 sm:h-14"
         colorScheme={{
           bg: "bg-[#fdf8f4]",
@@ -1369,7 +1490,7 @@ function Podium({
       />
       <PodiumSlot
         rank={1}
-        standing={podium.champion}
+        entry={podium.champion}
         baseHeight="h-20 sm:h-24"
         colorScheme={{
           bg: "bg-[#fffdf2]",
@@ -1380,7 +1501,7 @@ function Podium({
       />
       <PodiumSlot
         rank={2}
-        standing={podium.runnerUp}
+        entry={podium.runnerUp}
         baseHeight="h-16 sm:h-18"
         colorScheme={{
           bg: "bg-[#f8fafc]",
@@ -1391,6 +1512,20 @@ function Podium({
       />
     </div>
   );
+}
+
+function teamPodiumDisplay(podium: {
+  champion: StageStanding | null;
+  runnerUp: StageStanding | null;
+  thirdPlace: StageStanding | null;
+  thirdPlaceSecond?: StageStanding | null;
+}): PodiumDisplay {
+  return {
+    champion: standingToPodiumEntry(podium.champion),
+    runnerUp: standingToPodiumEntry(podium.runnerUp),
+    thirdPlace: standingToPodiumEntry(podium.thirdPlace),
+    thirdPlaceSecond: standingToPodiumEntry(podium.thirdPlaceSecond ?? null),
+  };
 }
 
 function TeamTieCard({ tie, title }: { tie: TeamTie; title?: string }) {
@@ -1473,7 +1608,7 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
     <div className="pb-10 pt-5">
       <section>
         <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-        <Podium podium={view.podium} />
+        <Podium podium={teamPodiumDisplay(view.podium)} />
       </section>
 
       <div className="mt-6 space-y-6">

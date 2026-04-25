@@ -214,6 +214,7 @@ type EventTeamKnockoutView = {
     champion: StageStanding | null;
     runnerUp: StageStanding | null;
     thirdPlace: StageStanding | null;
+    thirdPlaceSecond: StageStanding | null;
   };
   finalTie: TeamTie | null;
   bronzeTie: TeamTie | null;
@@ -560,20 +561,71 @@ function teamTieRoundMeta(round: string, roundZh: string | null) {
   return { code: round || 'unknown', label: roundZh?.trim() || round || '轮次待补', order: 0 };
 }
 
-const AUTO_TEAM_SUB_EVENT_CODES = new Set(['WT', 'MT', 'XT']);
+type TeamDrawRoundRecord = {
+  drawRound: string;
+  roundOrder: number;
+};
 
-function isAutoTeamSubEvent(code: string) {
-  return AUTO_TEAM_SUB_EVENT_CODES.has(code);
+function loadTeamDrawRoundMap(eventId: number, subEventCode: string) {
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          match_id AS matchId,
+          draw_round AS drawRound,
+          round_order AS roundOrder
+        FROM event_draw_matches
+        WHERE event_id = ?
+          AND sub_event_type_code = ?
+      `,
+    )
+    .all(eventId, subEventCode) as Array<{
+    matchId: number;
+    drawRound: string;
+    roundOrder: number;
+  }>;
+
+  return new Map(rows.map((row) => [row.matchId, { drawRound: row.drawRound, roundOrder: row.roundOrder }]));
 }
 
-function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): EventTeamKnockoutView | null {
-  const ties = buildTeamTiesForSubEvent(eventId, subEventCode).filter((tie) => TEAM_BRACKET_STAGES.has(tie.stage));
-  if (ties.length === 0) return null;
+function teamTieRoundMetaFromDrawRound(drawRound: string, roundOrder: number) {
+  const meta = TEAM_ROUND_META[drawRound];
+  if (meta) {
+    return { code: meta.code, label: meta.label, order: roundOrder || meta.order };
+  }
+  const fallback = teamTieRoundMeta(drawRound, null);
+  return { code: fallback.code, label: fallback.label, order: roundOrder || fallback.order };
+}
 
-  const rounds = Array.from(
+function resolveTeamTieRoundMeta(tie: TeamTie, drawRoundMap: Map<number, TeamDrawRoundRecord>) {
+  const grouped = new Map<string, { count: number; roundOrder: number }>();
+  for (const rubber of tie.rubbers) {
+    const record = drawRoundMap.get(rubber.matchId);
+    if (!record) continue;
+    const current = grouped.get(record.drawRound) ?? { count: 0, roundOrder: record.roundOrder };
+    current.count += 1;
+    current.roundOrder = Math.max(current.roundOrder, record.roundOrder);
+    grouped.set(record.drawRound, current);
+  }
+
+  const resolved = Array.from(grouped.entries())
+    .sort((left, right) => right[1].count - left[1].count || right[1].roundOrder - left[1].roundOrder)[0];
+  if (resolved) {
+    return teamTieRoundMetaFromDrawRound(resolved[0], resolved[1].roundOrder);
+  }
+
+  if (!TEAM_BRACKET_STAGES.has(tie.stage)) return null;
+  const fallback = teamTieRoundMeta(tie.round, tie.roundZh);
+  return fallback.order > 0 ? fallback : null;
+}
+
+function buildTeamKnockoutRounds(eventId: number, subEventCode: string, ties: TeamTie[]) {
+  const drawRoundMap = loadTeamDrawRoundMap(eventId, subEventCode);
+  return Array.from(
     ties
       .reduce((map, tie) => {
-        const meta = teamTieRoundMeta(tie.round, tie.roundZh);
+        const meta = resolveTeamTieRoundMeta(tie, drawRoundMap);
+        if (!meta) return map;
         const current = map.get(meta.code) ?? {
           code: meta.code,
           label: meta.label,
@@ -586,6 +638,20 @@ function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): Event
       }, new Map<string, { code: string; label: string; order: number; ties: TeamTie[] }>())
       .values(),
   ).sort((left, right) => right.order - left.order);
+}
+
+const AUTO_TEAM_SUB_EVENT_CODES = new Set(['WT', 'MT', 'XT']);
+
+function isAutoTeamSubEvent(code: string) {
+  return AUTO_TEAM_SUB_EVENT_CODES.has(code);
+}
+
+function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): EventTeamKnockoutView | null {
+  const ties = buildTeamTiesForSubEvent(eventId, subEventCode);
+  if (ties.length === 0) return null;
+
+  const rounds = buildTeamKnockoutRounds(eventId, subEventCode, ties);
+  if (rounds.length === 0) return null;
 
   const finalTie = rounds.find((r) => r.code === 'Final')?.ties[0] ?? null;
   const bronzeTie = rounds.find((r) => r.code === 'Bronze')?.ties[0] ?? null;
@@ -620,6 +686,7 @@ function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): Event
     }
   }
 
+  const thirdPlaces = standings.filter((s) => s.rank === 3);
   return {
     mode: 'team_knockout_with_bronze',
     rounds,
@@ -627,7 +694,8 @@ function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): Event
     podium: {
       champion: standings.find((s) => s.rank === 1) ?? null,
       runnerUp: standings.find((s) => s.rank === 2) ?? null,
-      thirdPlace: standings.find((s) => s.rank === 3) ?? null,
+      thirdPlace: thirdPlaces[0] ?? null,
+      thirdPlaceSecond: !bronzeTie?.winnerCode ? thirdPlaces[1] ?? null : null,
     },
     finalTie,
     bronzeTie,
@@ -640,23 +708,7 @@ function buildTeamKnockoutView(eventId: number, subEventCode: string, override: 
   }
 
   const ties = buildTeamTiesForSubEvent(eventId, subEventCode);
-  const rounds = Array.from(
-    ties
-      .filter((tie) => tie.stage === 'Main Draw')
-      .reduce((map, tie) => {
-        const meta = teamTieRoundMeta(tie.round, tie.roundZh);
-        const current = map.get(meta.code) ?? {
-          code: meta.code,
-          label: meta.label,
-          order: meta.order,
-          ties: [] as TeamTie[],
-        };
-        current.ties.push(tie);
-        map.set(meta.code, current);
-        return map;
-      }, new Map<string, { code: string; label: string; order: number; ties: TeamTie[] }>())
-      .values(),
-  ).sort((left, right) => right.order - left.order);
+  const rounds = buildTeamKnockoutRounds(eventId, subEventCode, ties);
   const finalStandings = override.final_standings
     .slice()
     .sort((left, right) => left.rank - right.rank)
@@ -671,6 +723,7 @@ function buildTeamKnockoutView(eventId: number, subEventCode: string, override: 
       champion: podiumByCode.get(override.podium.champion) ?? null,
       runnerUp: podiumByCode.get(override.podium.runner_up) ?? null,
       thirdPlace: podiumByCode.get(override.podium.third_place) ?? null,
+      thirdPlaceSecond: null,
     },
     finalTie: ties.find((tie) => teamCodesMatch(tie, override.ties.final.team_codes)) ?? null,
     bronzeTie: ties.find((tie) => teamCodesMatch(tie, override.ties.bronze.team_codes)) ?? null,
