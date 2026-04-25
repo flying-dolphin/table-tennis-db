@@ -4,8 +4,7 @@ import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
 import { useRouter, useSearchParams } from "next/navigation";
-import { CalendarDays, Search, Trophy, X } from "lucide-react";
-import { IconFlag, IconOlympics } from "@tabler/icons-react";
+import { CalendarDays, Search, Trophy, Medal, X } from "lucide-react";
 import { Outfit } from "next/font/google";
 import {
   ensureEventsHistoryKey,
@@ -13,6 +12,8 @@ import {
   writeEventsHistoryKey,
   writeEventsSnapshot,
 } from "@/lib/events-history-cache";
+
+import Image from "next/image";
 
 const letterIcon = Outfit({
   subsets: ["latin"],
@@ -157,30 +158,45 @@ function buildQuerySignature(query: Pick<EventsQueryState, "selectedYear" | "sel
   });
 }
 
-function normalizeSeries(series: string | null) {
-  const value = (series ?? "").trim().toUpperCase();
-  if (value === "WTT") return "WTT";
-  if (value === "ITTF") return "ITTF";
-  if (value.startsWith("OLYMPIC")) return "OLYMPIC";
+function getEventCategory(event: EventListItem) {
+  const series = (event.eventSeries ?? "").trim().toUpperCase();
+  const name = (event.nameZh || event.name || "").toUpperCase();
+
+  if (series.includes("OLYMPIC") || name.includes("OLYMPIC") || name.includes("奥运")) {
+    return "OLYMPIC";
+  }
+
+  if (
+    name.includes("WORLD CHAMPIONSHIPS") ||
+    name.includes("世乒赛") ||
+    name.includes("WORLD CUP") ||
+    name.includes("世界杯")
+  ) {
+    return "MAJOR";
+  }
+
+  if (series === "WTT") return "WTT";
   return "OTHER";
 }
 
-function EventSeriesIcon({ series }: { series: string | null }) {
-  const key = normalizeSeries(series);
-  if (key === "WTT") {
+function EventSeriesIcon({ category }: { category: string }) {
+  if (category === "WTT") {
+    return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+      <circle cx="12" cy="8" r="6"></circle>
+      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+    </svg>
+  }
+  if (category === "MAJOR") {
+    return <Trophy size={20} strokeWidth={2} />;
+  }
+  if (category === "OLYMPIC") {
     return (
-      <span className={`${letterIcon.className} text-[16px] leading-none tracking-tighter`}>
-        W
-      </span>
+      <div className="relative h-7 w-7">
+        <Image src="/icons/Olympic.svg" alt="Olympics" fill className="object-contain" />
+      </div>
     );
   }
-  if (key === "ITTF") {
-    return <Trophy size={20} strokeWidth={3} />;
-  }
-  if (key === "OLYMPIC") {
-    return <IconOlympics size={28} stroke={2.2} />;
-  }
-  return <IconFlag size={20} stroke={3} />;
+  return <Medal size={20} strokeWidth={2} />;
 }
 
 function EventsPageContent() {
@@ -501,18 +517,29 @@ function EventsPageContent() {
           ) : (
             <div>
               {events.map((event) => {
-                // const badge = presentationBadge(event);
+                const category = getEventCategory(event);
+                let containerClass = "mr-3 grid h-10 w-10 shrink-0 place-items-center rounded-[10px]";
+                if (category === "WTT") {
+                  containerClass += " bg-brand-strong text-white";
+                } else if (category === "MAJOR") {
+                  containerClass += " bg-gold text-white";
+                } else if (category === "OLYMPIC") {
+                  containerClass += " bg-white border border-black/[0.04] shadow-sm";
+                } else {
+                  containerClass += " bg-silver text-white";
+                }
+
                 return (
                   <Link
-                  key={event.eventId}
-                  href={route(`/events/${event.eventId}`)}
-                  onClick={() => {
-                    persistSnapshot();
-                  }}
+                    key={event.eventId}
+                    href={route(`/events/${event.eventId}`)}
+                    onClick={() => {
+                      persistSnapshot();
+                    }}
                     className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
                   >
-                    <div className="mr-3 grid h-10 w-10 shrink-0 place-items-center rounded-[10px] bg-brand-mist text-brand-strong">
-                      <EventSeriesIcon series={event.eventSeries} />
+                    <div className={containerClass}>
+                      <EventSeriesIcon category={category} />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
