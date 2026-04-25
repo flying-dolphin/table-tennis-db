@@ -8,6 +8,7 @@ export default function SearchBox() {
   const [authState, setAuthState] = useState<"unknown" | "authenticated" | "unauthenticated">("unknown");
   const [checkingAuth, setCheckingAuth] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
+  const [showComingSoonPrompt, setShowComingSoonPrompt] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const placeholder = "试试：孙颖莎、王曼昱最近 3 年交手记录";
 
@@ -35,24 +36,24 @@ export default function SearchBox() {
   }
 
   async function handleInputFocus() {
-    if (authState === "authenticated") return;
-    const isLoggedIn = await checkLoggedIn();
-    if (!isLoggedIn) {
-      inputRef.current?.blur();
-      setShowLoginPrompt(true);
+    inputRef.current?.blur();
+    setShowComingSoonPrompt(true);
+
+    // Keep the auth gate logic for future reopening of search.
+    if (authState !== "authenticated") {
+      void checkLoggedIn();
     }
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const isLoggedIn = await checkLoggedIn();
-    if (!isLoggedIn) {
-      setShowLoginPrompt(true);
+    setShowComingSoonPrompt(true);
+
+    // Keep the original submit path warm for future reopening.
+    if (authState === "authenticated") {
       return;
     }
-
-    const finalQuery = query.trim() || placeholder;
-    window.location.href = `/search?q=${encodeURIComponent(finalQuery)}`;
+    void checkLoggedIn();
   }
 
   return (
@@ -103,6 +104,26 @@ export default function SearchBox() {
                 className="px-3 py-1.5 rounded-sm text-body font-semibold text-white bg-brand-deep hover:bg-brand-strong transition-colors"
               >
                 去登录
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showComingSoonPrompt && (
+        <div className="fixed inset-0 z-[70] bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
+          <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-xl p-5">
+            <h3 className="text-heading-2 font-bold text-text-primary">搜索功能稍后开放</h3>
+            <p className="mt-2 text-body text-text-secondary leading-relaxed">
+              首页搜索功能正在准备中，敬请期待。
+            </p>
+            <div className="mt-4 flex items-center justify-end">
+              <button
+                type="button"
+                onClick={() => setShowComingSoonPrompt(false)}
+                className="px-3 py-1.5 rounded-sm text-body font-semibold text-white bg-brand-deep hover:bg-brand-strong transition-colors"
+              >
+                我知道了
               </button>
             </div>
           </div>

@@ -1454,11 +1454,6 @@ function PodiumSlot({
           baseHeight,
         )}
       >
-        {tied && (
-          <span className="absolute -top-2 rounded-full bg-orange-100 px-1.5 py-0.5 text-[0.55rem] font-bold text-orange-600 ring-1 ring-orange-200">
-            并列
-          </span>
-        )}
         <Trophy size={isChampion ? 20 : 16} className={cn("mb-0.5", colorScheme.trophy)} />
         <span
           className={cn(

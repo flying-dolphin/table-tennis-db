@@ -3,8 +3,7 @@
 import React, { useDeferredValue, useState } from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, X, UsersRound } from "lucide-react";
-import { PlayerAvatar } from "@/components/PlayerAvatar";
+import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, Trophy, X, UsersRound } from "lucide-react";
 import { Flag } from "@/components/Flag";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
@@ -139,7 +138,7 @@ function formatPercent(value: number | null | undefined) {
 function displayBio(player: Player) {
   const parts: string[] = [];
   if (player.birthYear) {
-    parts.push(`${player.birthYear}年出生${player.age ? ` (${player.age}岁)` : ''}`);
+    parts.push(`${player.birthYear}年出生`);
   } else if (player.age) {
     parts.push(`${player.age} 岁`);
   }
@@ -218,46 +217,63 @@ function SectionHeader({ title, hint }: { title: string; hint?: string }) {
   );
 }
 
+function MetricBar({ label, value }: { label: string; value: number | null }) {
+  const width = Math.max(0, Math.min(100, value ?? 0));
+
+  return (
+    <div className="grid grid-cols-[5rem_minmax(0,1fr)_3.25rem] items-center gap-3">
+      <span className="text-[0.82rem] font-semibold text-[#44527c]">{label}</span>
+      <div className="h-2 rounded-full bg-[#e8edf8]">
+        <div
+          className="h-full rounded-full bg-[linear-gradient(90deg,#162a67_0%,#29479c_100%)]"
+          style={{ width: `${width}%` }}
+        />
+      </div>
+      <span className="text-right font-numeric text-[0.88rem] font-black text-[#162a67] tabular-nums">
+        {formatPercent(value)}
+      </span>
+    </div>
+  );
+}
+
+function HeroBadge({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="rounded-full border border-white/12 bg-white/10 px-2.5 py-1 text-[0.7rem] font-bold text-white/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm">
+      {children}
+    </span>
+  );
+}
+
 type RecordsTab = "events" | "opponents";
 
 function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange: (tab: RecordsTab) => void }) {
   return (
-    <div className="flex justify-between border-b border-border-subtle px-8">
+    <div className="flex gap-2 border-b border-[#e7ecf5] px-2 pb-2.5">
       <button
         type="button"
         onClick={() => onChange("events")}
         className={cn(
-          "relative flex h-12 items-center justify-center gap-2 px-4 text-body font-bold transition-colors",
-          activeTab === "events" ? "text-brand-strong" : "text-text-tertiary hover:text-text-secondary",
+          "flex h-10 min-w-[7rem] items-center justify-center gap-2 rounded-full px-4 text-[0.92rem] font-bold transition-all",
+          activeTab === "events"
+            ? "bg-[#162a67] text-white shadow-[0_12px_24px_rgba(22,42,103,0.18)]"
+            : "bg-[#f3f6fb] text-[#64749a] hover:bg-[#eaf0fb] hover:text-[#162a67]",
         )}
       >
         <List size={16} />
         比赛记录
-        <span
-          aria-hidden="true"
-          className={cn(
-            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
-            activeTab === "events" ? "bg-brand-strong" : "bg-transparent",
-          )}
-        />
       </button>
       <button
         type="button"
         onClick={() => onChange("opponents")}
         className={cn(
-          "relative flex h-12 items-center justify-center gap-2 px-4 text-body font-bold transition-colors",
-          activeTab === "opponents" ? "text-brand-strong" : "text-text-tertiary hover:text-text-secondary",
+          "flex h-10 min-w-[7rem] items-center justify-center gap-2 rounded-full px-4 text-[0.92rem] font-bold transition-all",
+          activeTab === "opponents"
+            ? "bg-[#162a67] text-white shadow-[0_12px_24px_rgba(22,42,103,0.18)]"
+            : "bg-[#f3f6fb] text-[#64749a] hover:bg-[#eaf0fb] hover:text-[#162a67]",
         )}
       >
         <UsersRound size={18} />
         对手
-        <span
-          aria-hidden="true"
-          className={cn(
-            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
-            activeTab === "opponents" ? "bg-brand-strong" : "bg-transparent",
-          )}
-        />
       </button>
     </div>
   );
@@ -278,94 +294,96 @@ function EmptyState({ title, action = '想要' }: { title: string; action?: stri
   );
 }
 
-function PlayerHero({ player }: { player: Player }) {
-  return (
-    <section className="relative overflow-hidden px-5 pb-10 pt-5 text-white shadow-lg">
-      <div className="absolute inset-0 [background:linear-gradient(45deg,#242536_0%,#45465a_54%,#666477_100%)]" />
-      <div className="absolute inset-0 opacity-55 [background:radial-gradient(circle_at_86%_8%,#7b7789_0%,transparent_56%),radial-gradient(circle_at_12%_88%,#252638_0%,transparent_62%)]" />
-      <div className="relative z-10">
-        <PlayerBackButton />
+function HeroPlayerAvatar({ player }: { player: Player }) {
+  const [error, setError] = React.useState(false);
+  const displayName = displayPlayerName(player);
+  const filename = player.avatarFile || `player_${player.playerId}_${player.name.replace(/ /g, "_")}.png`;
 
-        <div className="flex items-end gap-5">
-          <PlayerAvatar
-            player={{
-              playerId: player.playerId,
-              name: player.name,
-              nameZh: player.nameZh,
-              avatarFile: player.avatarFile,
-            }}
-            size="lg"
-            className="h-28 w-28 border-white/70 ring-4 ring-white/15"
-          />
-
-          <div className="min-w-0 flex-1 pb-1">
-            <div className="flex flex-col gap-1">
-              <div className="flex items-end gap-3">
-                <h1 className="truncate text-display font-black leading-none tracking-tight">
-                  {displayPlayerName(player)}
-                </h1>
-              </div>
-              <div className="flex items-center gap-2 mt-1">
-                <p className="truncate text-caption font-bold text-white/68 tracking-wider uppercase italic">
-                  {player.name}
-                </p>
-                {player.countryCode && (
-                  <div className="flex items-center gap-1.5 rounded bg-white/10 px-1.5 py-0.5 backdrop-blur-md">
-                    <Flag code={player.countryCode} className="scale-100 origin-center" />
-                    <span className="text-micro font-bold text-white/80">{player.country || player.countryCode}</span>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="mt-3.5 flex flex-wrap items-center gap-1.5">
-              <span className="rounded-full bg-white/12 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
-                {player.gender === 'Female' ? '女' : player.gender === 'Male' ? '男' : '待补'}
-              </span>
-              <span className="rounded-full bg-white/12 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
-                {displayBio(player)}
-              </span>
-              {player.styleZh && (
-                <span className="rounded-full bg-white/12 px-2.5 py-0.5 text-micro font-bold text-white/90 backdrop-blur-sm">
-                  {player.styleZh}
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
+  if (error) {
+    return (
+      <div className="grid h-full w-full place-items-center rounded-[2rem] bg-[linear-gradient(135deg,#31406c_0%,#162655_100%)]">
+        <span className="text-[2.5rem] font-black text-white/88">{displayName.slice(0, 1)}</span>
       </div>
-    </section>
+    );
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`/images/avatars/${filename}`}
+      alt={displayName}
+      className="h-full w-full object-cover"
+      onError={() => setError(true)}
+    />
   );
 }
 
-function PlayerRankCard({ player }: { player: Player }) {
-  const rankChange = player.rankChange ?? 0;
-
+function PlayerHero({ player, winRate }: { player: Player; winRate: number | null }) {
   return (
-    <section className="px-5 -mt-6 relative z-20">
-      <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-2xl border border-white/60 bg-white/70 p-4 shadow-sm backdrop-blur-md">
-          <p className="flex items-center gap-1.5 text-micro font-black text-text-tertiary uppercase tracking-widest">
-            当前排名
-            <span className={cn(
-              "text-[10px] tabular-nums font-black",
-              rankChange > 0 ? "text-state-success" : rankChange < 0 ? "text-state-danger" : "text-text-tertiary/40"
-            )}>
-              {rankChange > 0 ? '↑' : rankChange < 0 ? '↓' : '•'} {rankChange !== 0 ? Math.abs(rankChange) : ''}
-            </span>
-          </p>
-          <div className="mt-1.5 flex items-baseline gap-1.5 font-black">
-            <span className="text-display-sm text-text-primary leading-none tabular-nums">{player.rank ?? '-'}</span>
-            {player.careerBestRank && (
-              <span className="text-micro text-text-tertiary font-bold bg-brand-soft/20 border-1 px-2 py-0.5 rounded-sm">
-                最高 {player.careerBestRank}
-              </span>
-            )}
+    <section className="relative overflow-hidden px-5 pb-4 pt-4 text-white">
+      <div className="absolute inset-0 bg-[linear-gradient(145deg,#050914_0%,#08143a_38%,#0e1f58_100%)]" />
+      <div className="absolute inset-0 opacity-90 [background:radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.15)_0%,transparent_18%),radial-gradient(circle_at_82%_18%,rgba(105,132,255,0.38)_0%,transparent_22%),radial-gradient(circle_at_54%_74%,rgba(16,38,105,0.82)_0%,transparent_42%)]" />
+      <div className="absolute inset-y-0 right-[-3.5rem] w-[17rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.03)_38%,transparent_68%)] blur-2xl" />
+      <div className="absolute left-8 top-22 h-2.5 w-2.5 rounded-full bg-white/40 shadow-[0_0_22px_rgba(255,255,255,0.8)]" />
+      <div className="absolute left-28 top-32 h-1.5 w-1.5 rounded-full bg-white/30 shadow-[0_0_16px_rgba(255,255,255,0.7)]" />
+      <div className="absolute right-16 top-12 h-3 w-3 rounded-full bg-[#9ab2ff]/55 blur-[1px]" />
+
+      <div className="relative z-10">
+        <PlayerBackButton />
+
+        <div className="flex justify-between"></div>
+        <div className="my-1 grid grid-cols-[7.25rem_minmax(0,1fr)] items-start gap-4">
+          <div className="relative h-48 overflow-hidden">
+            <HeroPlayerAvatar player={player} />
+          </div>
+
+          <div className="min-w-0 py-2">
+            <h1 className="truncate text-3xl font-black leading-none tracking-[-0.04em]">
+              {displayPlayerName(player)}
+            </h1>
+            <div className="mt-2 flex min-w-0 items-center gap-2">
+              <p className="min-w-0 truncate text-[1.02rem] font-bold uppercase italic tracking-[0.08em] text-white/72">
+                {player.name}
+              </p>
+              {player.countryCode && (
+                <div className="flex shrink-0 items-center gap-1.5 px-2.5 py-1 backdrop-blur-md">
+                  <Flag code={player.countryCode} className="origin-center scale-100" />
+                  <span className="text-[0.8rem] font-bold text-white/86">{player.country || player.countryCode}</span>
+                </div>
+              )}
+            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-1.5">
+              <HeroBadge>{genderLabel(player.gender)}</HeroBadge>
+              <HeroBadge>{displayBio(player)}</HeroBadge>
+              {player.styleZh && (
+                <HeroBadge>{player.styleZh}</HeroBadge>
+              )}
+            </div>
+            <div className="flex item-start mt-2">
+              <p className="text-[9px] tracking-[0.08em] text-center text-white/68">世界排名</p>
+            </div>
+            <div className="flex items-start flex px-1 gap-1">
+              <div className="flex justify-start items-start gap-2 pr-2">
+                <span className="font-numeric text-5xl font-black text-[#ffd36a] tabular-nums">
+                  {player.rank ?? "-"}
+                </span>
+              </div>
+              <div className="flex flex-col items-start justify-start border-l border-white/14 px-2">
+                <strong className="py-1 block font-numeric text-xl leading-none text-white tabular-nums">
+                  {player.careerBestRank ?? "-"}
+                </strong>
+                <p className="text-[9px] tracking-[0.08em] text-white/68">最高排名</p>
+              </div>
+              <div className="flex flex-col items-start justify-start border-l border-white/14 px-2">
+                <strong className="py-1 block font-numeric text-xl leading-none text-white tabular-nums">
+                  {formatNumber(player.points)}
+                </strong>
+                <p className="text-[9px] tracking-[0.08em] text-white/68">积分</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="rounded-2xl border border-white/60 bg-white/70 p-4 shadow-sm backdrop-blur-md">
-          <p className="text-micro font-black text-text-tertiary uppercase tracking-widest">当前积分</p>
-          <strong className="mt-1.5 block text-display-sm text-text-primary leading-none tabular-nums">{formatNumber(player.points)}</strong>
-        </div>
+
       </div>
     </section>
   );
@@ -383,99 +401,109 @@ function StatSectionTitle({ label }: { label: string }) {
 function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStats }) {
   const yearWinRate = player.yearMatches ? (player.yearWins ?? 0) / player.yearMatches * 100 : null;
   const sevenFinalsRate = stats.sevenEvents ? (stats.sevenFinals / stats.sevenEvents) * 100 : null;
-
-  const cardClass = "rounded-2xl border border-border-subtle bg-white p-4 shadow-sm";
+  const careerWinRate = stats.winRate;
+  const summaryItems = [
+    { label: "总赛事", value: stats.eventsTotal },
+    { label: "七大赛出战", value: stats.sevenEvents },
+    { label: "今年参赛", value: player.yearEvents ?? 0 },
+  ];
 
   return (
-    <section className="px-5 pt-5">
-      <SectionHeader title="职业数据" />
+    <section className="relative z-20 -mt-5 px-5 pt-0">
 
       <div className="flex flex-col gap-3">
-        <div className="grid grid-cols-[2fr_3fr] gap-3">
-          {/* 赛事 */}
-          <div className={cardClass}>
-            <StatSectionTitle label="赛事" />
-            <div className="flex flex-col gap-4">
-              <div className="flex items-end gap-x-6">
-                <div>
-                  <p className="font-numeric text-[32px] font-bold text-gold leading-none tabular-nums">{stats.eventsTotal}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-widest text-text-tertiary">总数</p>
-                </div>
-                <div className="">
-                  <p className="font-numeric text-[22px] font-bold leading-none tabular-nums">{player.yearEvents ?? 0}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-widest text-text-tertiary">今年</p>
-                </div>
-              </div>
-              <div className='flex items-end gap-x-1'>
-                <div>
-                  <p className="font-numeric text-[22px] font-bold leading-none text-text-primary tabular-nums">{stats.sevenEvents}</p>
-                  <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                    <p className="text-[10px] font-semibold uppercase tracking-widest text-text-tertiary">七大赛</p>
-                  </div>
-                </div>
-                {sevenFinalsRate != null && (
-                  <span className="rounded bg-[rgba(197,160,89,0.12)] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-gold tabular-nums">
-                    决赛率 {formatPercent(sevenFinalsRate)}
-                  </span>
+        <div className="rounded-md border border-white/70 bg-white/98 backdrop-blur- px-5 py-2 shadow-[0_24px_60px_rgba(15,36,95,0.12)]">
+          <div className="grid grid-cols-3 gap-3">
+            {summaryItems.map((item, index) => (
+              <div
+                key={item.label}
+                className={cn(
+                  "text-center",
+                  index !== 0 && "border-l border-[#edf1f7]",
                 )}
+              >
+                <p className="font-numeric text-xl font-black leading-none text-[#132865] tabular-nums">
+                  {item.value}
+                </p>
+                <p className="mt-1 text-xs font-semibold text-[#68789e]">{item.label}</p>
               </div>
+            ))}
+          </div>
+          {sevenFinalsRate != null ? (
+            <div className="mt-2 border-t border-[#edf1f7] pt-2">
+              <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
+                <p className="text-xs font-bold text-[#162a67]">决赛进入率 {formatPercent(sevenFinalsRate)}</p>
+                <div className="h-2 rounded-full bg-[#e8edf8]">
+                  <div
+                    className="h-full rounded-full bg-[linear-gradient(90deg,#162a67_0%,#2e4aa2_100%)]"
+                    style={{ width: `${Math.max(0, Math.min(100, sevenFinalsRate))}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="relative overflow-hidden rounded-md border border-white/70 bg-[linear-gradient(135deg,#ffffff_0%,#f8fbff_100%)] p-5 shadow-[0_24px_60px_rgba(15,36,95,0.1)]">
+          <div className="absolute right-[-0.5rem] top-2 opacity-[0.14]">
+            <div className="relative h-36 w-36">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/cup3.png"
+                alt="Trophy background"
+                className="h-full w-full object-contain"
+              />
             </div>
           </div>
 
-          {/* 胜率 */}
-          <div className={cardClass}>
-            <StatSectionTitle label="胜率" />
-            <div className="flex flex-col gap-4">
-              <div className="text-center">
-                <p className="font-numeric text-[32px] font-bold leading-none text-text-primary tabular-nums">{formatPercent(stats.winRate)}</p>
-                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[1.5px] text-text-tertiary">总胜率</p>
-              </div>
-              <div className="grid grid-cols-3 border-border-subtle pt-4 text-center">
-                <div className="border-r border-border-subtle px-1.5">
-                  <p className="font-numeric text-[12px] font-bold leading-none text-gold text-brand-strong tabular-nums">{formatPercent(stats.foreignWinRate)}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold text-text-tertiary">外战</p>
-                </div>
-                <div className="px-1.5 border-r border-border-subtle">
-                  <p className="font-numeric text-[12px] font-bold leading-none text-text-primary tabular-nums">{formatPercent(stats.domesticWinRate)}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold text-text-tertiary">内战</p>
-                </div>
-                <div className="px-1.5">
-                  <p className="font-numeric text-[12px] font-bold leading-none tabular-nums">{formatPercent(yearWinRate)}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold text-text-tertiary">今年</p>
-                </div>
-              </div>
+          <div className="relative z-10">
+            <StatSectionTitle label="生涯胜率" />
+            <div className="mb-4">
+              <p className="font-numeric text-4xl font-black leading-none tracking-[-0.05em] text-[#132865] tabular-nums">
+                {formatPercent(careerWinRate)}
+              </p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <MetricBar label="外战胜率" value={stats.foreignWinRate} />
+              <MetricBar label="内战胜率" value={stats.domesticWinRate} />
+              <MetricBar label="年度胜率" value={yearWinRate} />
             </div>
           </div>
         </div>
 
-        {/* 冠军 */}
-        <div className={cardClass}>
-          <StatSectionTitle label="冠军" />
-          <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-4">
-            <div>
-              <p className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[1.5px] text-text-tertiary">三大赛</p>
-              <div className="grid grid-cols-2 gap-3 text-center">
-                <div>
-                  <p className="font-numeric text-[28px] font-bold leading-none text-gold tabular-nums">{stats.allThreeTitles}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold text-text-tertiary">总数</p>
-                </div>
-                <div>
-                  <p className="font-numeric text-[28px] font-bold leading-none tabular-nums">{stats.singleThreeTitles}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold ">单打</p>
+        <div>
+          <SectionHeader title="世界冠军" />
+          <div className="grid grid-cols-2 gap-3">
+            <div className="relative overflow-hidden rounded-[1rem] bg-[linear-gradient(135deg,#f1b12d_0%,#ffd978_55%,#f9c450_100%)] p-4 text-[#1d1a12] shadow-[0_20px_40px_rgba(240,181,44,0.28)] flex items-center justify-center min-h-[6.5rem]">
+              <div className="flex flex-col items-start w-fit">
+                <p className="text-[0.85rem] font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
+                <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-center min-w-[2.5rem]">
+                    <p className="font-numeric text-[1.8rem] font-black leading-none tabular-nums">{stats.allThreeTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">冠军</p>
+                  </div>
+                  <div className="w-[1px] h-7 bg-[#1d1a12]/15"></div>
+                  <div className="flex flex-col items-center min-w-[2.5rem]">
+                    <p className="font-numeric text-[1.6rem] font-black leading-none tabular-nums">{stats.singleThreeTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">单打</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="h-16 w-px bg-border-subtle" />
-            <div>
-              <p className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[1.5px] text-text-tertiary">七大赛</p>
-              <div className="grid grid-cols-2 gap-3 text-center">
-                <div>
-                  <p className="font-numeric text-[28px] font-bold leading-none text-gold tabular-nums">{stats.allSevenTitles}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold text-text-tertiary">总数</p>
-                </div>
-                <div>
-                  <p className="font-numeric text-[28px] font-bold leading-none tabular-nums">{stats.singleSevenTitles}</p>
-                  <p className="mt-1.5 text-[10px] font-semibold">单打</p>
+
+            <div className="relative overflow-hidden rounded-[1rem] bg-[linear-gradient(135deg,#10245f_0%,#1e357f_60%,#2f4ea6_100%)] p-4 text-white shadow-[0_20px_40px_rgba(22,42,103,0.26)] flex items-center justify-center min-h-[6.5rem]">
+              <div className="flex flex-col items-start w-fit">
+                <p className="text-[0.85rem] font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
+                <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-center min-w-[2.5rem]">
+                    <p className="font-numeric text-[1.8rem] font-black leading-none text-[#ffd36a] tabular-nums">{stats.allSevenTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">冠军</p>
+                  </div>
+                  <div className="w-[1px] h-7 bg-white/15"></div>
+                  <div className="flex flex-col items-center min-w-[2.5rem]">
+                    <p className="font-numeric text-[1.6rem] font-black leading-none tabular-nums">{stats.singleSevenTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">单打</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -506,9 +534,9 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
   const displayEvents = expanded ? filteredEvents : filteredEvents.slice(0, 10);
   const hasMore = filteredEvents.length > 10;
   const filterButtonClass =
-    "rounded-full border px-3 py-1.5 text-[11px] font-bold transition-colors";
-  const activeFilterButtonClass = "border-brand-strong bg-brand-strong text-white";
-  const inactiveFilterButtonClass = "border-border-subtle bg-white text-text-secondary hover:border-brand-strong/35 hover:text-brand-strong";
+    "rounded-full border px-3.5 py-1.5 text-[0.82rem] font-bold transition-all";
+  const activeFilterButtonClass = "border-[#162a67] bg-[#162a67] text-white shadow-[0_10px_18px_rgba(22,42,103,0.14)]";
+  const inactiveFilterButtonClass = "border-[#e5eaf4] bg-[#f7f9fd] text-[#607095] hover:border-[#cbd6ef] hover:text-[#162a67]";
 
   if (events.length === 0) {
     return <EmptyState title="赛事记录暂无数据" />;
@@ -516,7 +544,7 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="mb-2 flex flex-col gap-3 border-b border-black/[0.05] px-2 pb-3">
+      <div className="mb-2 flex flex-col gap-2.5 border-b border-[#edf1f7] px-1 pb-3">
         <div className="flex flex-wrap items-center gap-2">
           {[
             { value: "all", label: "全部" },
@@ -582,10 +610,13 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
           key={event.eventId}
           href={route(`/events/${event.eventId}`)}
           className={cn(
-            "grid grid-cols-[1fr_auto] gap-3 px-2 py-3 transition-colors hover:bg-white/40 group",
-            idx !== displayEvents.length - 1 && "border-b border-black/[0.04]"
+            "grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-[1.25rem] px-2 py-2.5 transition-colors group hover:bg-[#f7f9fe]",
+            idx !== displayEvents.length - 1 && "mb-1"
           )}
         >
+          <div className="grid h-10 w-10 place-items-center rounded-2xl bg-[linear-gradient(180deg,#fff6da_0%,#f4c851_100%)] text-[#d39200] shadow-[0_12px_20px_rgba(244,200,81,0.28)]">
+            <Trophy size={20} strokeWidth={2} />
+          </div>
           <div className="min-w-0">
             <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">{displayEventName(event)}</h3>
             <p className="mt-0.5 text-caption font-medium text-text-tertiary">
@@ -593,10 +624,10 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="rounded-full bg-brand-soft/50 px-2.5 py-0.5 text-micro font-bold text-brand-strong uppercase tracking-wider">
+            <span className="rounded-full bg-[#fff3d9] px-3 py-1 text-[0.82rem] font-bold text-[#d39200] uppercase tracking-wider">
               {getDisplayResult(event, subEventFilter)}
             </span>
-            <ChevronRight size={14} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
+            <ChevronRight size={16} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
           </div>
         </Link>
       ))}
@@ -881,12 +912,11 @@ export default function PlayerDetailPage({ params }: { params: Promise<{ slug: s
   }
 
   return (
-    <main className="mx-auto min-h-screen max-w-lg overflow-hidden pb-12 bg-gray-50/30">
-      <PlayerHero player={detail.player} />
-      <PlayerRankCard player={detail.player} />
+    <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-[linear-gradient(180deg,#f3f6fb_0%,#ffffff_30%,#f8fbff_100%)] pb-12">
+      <PlayerHero player={detail.player} winRate={detail.stats.winRate} />
       <PlayerStatsBento player={detail.player} stats={detail.stats} />
-      <section className="px-5 pt-6 pb-2">
-        <div className="relative overflow-hidden rounded-sm bg-white px-4 pt-2 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02]">
+      <section className="px-5 pt-5 pb-2">
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-white px-4 pt-4 shadow-[0_24px_60px_rgba(15,36,95,0.1)] ring-1 ring-[#eef2f8]">
           <RecordsTabs activeTab={recordsTab} onChange={setRecordsTab} />
           <div className="mt-3">
             {recordsTab === "events" ? (
