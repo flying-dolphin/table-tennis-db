@@ -7,6 +7,7 @@ import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, Trophy, X, Users
 import { Flag } from "@/components/Flag";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
+import { EventCategoryIcon, getEventCategory } from "@/components/events/EventCategoryIcon";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -20,6 +21,8 @@ type EventRecord = {
   eventNameZh: string | null;
   date: string | null;
   eventCategorySortOrder: number | null;
+  eventSeries: string | null;
+  categoryNameZh: string | null;
   subEvents: Array<{
     subEventTypeCode: string | null;
     subEventNameZh: string | null;
@@ -186,6 +189,10 @@ function getDisplayResult(event: EventRecord, filter: EventSubTypeFilter) {
   return getDisplaySubEvent(event, filter)?.result ?? "成绩待补";
 }
 
+function getIsChampion(event: EventRecord, filter: EventSubTypeFilter) {
+  return getDisplaySubEvent(event, filter)?.isChampion ?? false;
+}
+
 function matchesEventTier(event: EventRecord, filter: EventTierFilter) {
   if (filter === "all") return true;
   const sortOrder = event.eventCategorySortOrder;
@@ -248,32 +255,42 @@ type RecordsTab = "events" | "opponents";
 
 function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange: (tab: RecordsTab) => void }) {
   return (
-    <div className="flex gap-2 border-b border-[#e7ecf5] px-2 pb-2.5">
+    <div className="flex justify-around border-b border-slate-200/80 px-1 text-base">
       <button
         type="button"
         onClick={() => onChange("events")}
         className={cn(
-          "flex h-10 min-w-[7rem] items-center justify-center gap-2 rounded-full px-4 text-[0.92rem] font-bold transition-all",
-          activeTab === "events"
-            ? "bg-[#162a67] text-white shadow-[0_12px_24px_rgba(22,42,103,0.18)]"
-            : "bg-[#f3f6fb] text-[#64749a] hover:bg-[#eaf0fb] hover:text-[#162a67]",
+          "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
+          activeTab === "events" ? "text-[#162a67]" : "text-slate-400 hover:text-slate-700",
         )}
       >
         <List size={16} />
         比赛记录
+        <span
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+            activeTab === "events" ? "bg-[#162a67]" : "bg-transparent",
+          )}
+        />
       </button>
       <button
         type="button"
         onClick={() => onChange("opponents")}
         className={cn(
-          "flex h-10 min-w-[7rem] items-center justify-center gap-2 rounded-full px-4 text-[0.92rem] font-bold transition-all",
-          activeTab === "opponents"
-            ? "bg-[#162a67] text-white shadow-[0_12px_24px_rgba(22,42,103,0.18)]"
-            : "bg-[#f3f6fb] text-[#64749a] hover:bg-[#eaf0fb] hover:text-[#162a67]",
+          "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
+          activeTab === "opponents" ? "text-[#162a67]" : "text-slate-400 hover:text-slate-700",
         )}
       >
         <UsersRound size={18} />
         对手
+        <span
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+            activeTab === "opponents" ? "bg-[#162a67]" : "bg-transparent",
+          )}
+        />
       </button>
     </div>
   );
@@ -320,7 +337,7 @@ function HeroPlayerAvatar({ player }: { player: Player }) {
 
 function PlayerHero({ player, winRate }: { player: Player; winRate: number | null }) {
   return (
-    <section className="relative overflow-hidden px-5 pb-4 pt-4 text-white">
+    <section className="relative overflow-hidden px-4 pb-4 pt-4 text-white">
       <div className="absolute inset-0 bg-[linear-gradient(145deg,#050914_0%,#08143a_38%,#0e1f58_100%)]" />
       <div className="absolute inset-0 opacity-90 [background:radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.15)_0%,transparent_18%),radial-gradient(circle_at_82%_18%,rgba(105,132,255,0.38)_0%,transparent_22%),radial-gradient(circle_at_54%_74%,rgba(16,38,105,0.82)_0%,transparent_42%)]" />
       <div className="absolute inset-y-0 right-[-3.5rem] w-[17rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.03)_38%,transparent_68%)] blur-2xl" />
@@ -474,11 +491,11 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
         <div>
           <SectionHeader title="世界冠军" />
           <div className="grid grid-cols-2 gap-3">
-            <div className="relative overflow-hidden rounded-[1rem] bg-[linear-gradient(135deg,#f1b12d_0%,#ffd978_55%,#f9c450_100%)] p-4 text-[#1d1a12] shadow-[0_20px_40px_rgba(240,181,44,0.28)] flex items-center justify-center min-h-[6.5rem]">
-              <div className="flex flex-col items-start w-fit">
-                <p className="text-[0.85rem] font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
-                <div className="flex items-center gap-4">
-                  <div className="flex flex-col items-center min-w-[2.5rem]">
+            <div className="relative overflow-hidden rounded-md bg-[linear-gradient(135deg,#f1b12d_0%,#ffd978_55%,#f9c450_100%)] p-1 text-[#1d1a12] shadow-[0_20px_40px_rgba(240,181,44,0.28)] flex items-center justify-center">
+              <div className="flex flex-col items-start ">
+                <p className="text-sm font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
+                <div className="flex w-full items-center gap-6">
+                  <div className="flex flex-col items-center">
                     <p className="font-numeric text-[1.8rem] font-black leading-none tabular-nums">{stats.allThreeTitles}</p>
                     <p className="mt-1 text-[0.7rem] font-bold opacity-75">冠军</p>
                   </div>
@@ -493,8 +510,8 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
 
             <div className="relative overflow-hidden rounded-[1rem] bg-[linear-gradient(135deg,#10245f_0%,#1e357f_60%,#2f4ea6_100%)] p-4 text-white shadow-[0_20px_40px_rgba(22,42,103,0.26)] flex items-center justify-center min-h-[6.5rem]">
               <div className="flex flex-col items-start w-fit">
-                <p className="text-[0.85rem] font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
-                <div className="flex items-center gap-4">
+                <p className="text-sm font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
+                <div className="flex items-center gap-6">
                   <div className="flex flex-col items-center min-w-[2.5rem]">
                     <p className="font-numeric text-[1.8rem] font-black leading-none text-[#ffd36a] tabular-nums">{stats.allSevenTitles}</p>
                     <p className="mt-1 text-[0.7rem] font-bold text-white/60">冠军</p>
@@ -614,9 +631,7 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
             idx !== displayEvents.length - 1 && "mb-1"
           )}
         >
-          <div className="grid h-10 w-10 place-items-center rounded-2xl bg-[linear-gradient(180deg,#fff6da_0%,#f4c851_100%)] text-[#d39200] shadow-[0_12px_20px_rgba(244,200,81,0.28)]">
-            <Trophy size={20} strokeWidth={2} />
-          </div>
+          <EventCategoryIcon category={getEventCategory(event)} className="h-10 w-10 rounded-2xl" />
           <div className="min-w-0">
             <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">{displayEventName(event)}</h3>
             <p className="mt-0.5 text-caption font-medium text-text-tertiary">
@@ -624,7 +639,12 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="rounded-full bg-[#fff3d9] px-3 py-1 text-[0.82rem] font-bold text-[#d39200] uppercase tracking-wider">
+            <span className={cn(
+              "rounded-full px-3 py-1 text-[0.82rem] font-bold uppercase tracking-wider",
+              getIsChampion(event, subEventFilter)
+                ? "bg-[#fff3d9] text-[#d39200]"
+                : "bg-brand-soft/60 text-brand-strong"
+            )}>
               {getDisplayResult(event, subEventFilter)}
             </span>
             <ChevronRight size={16} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
@@ -916,15 +936,13 @@ export default function PlayerDetailPage({ params }: { params: Promise<{ slug: s
       <PlayerHero player={detail.player} winRate={detail.stats.winRate} />
       <PlayerStatsBento player={detail.player} stats={detail.stats} />
       <section className="px-5 pt-5 pb-2">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-white px-4 pt-4 shadow-[0_24px_60px_rgba(15,36,95,0.1)] ring-1 ring-[#eef2f8]">
-          <RecordsTabs activeTab={recordsTab} onChange={setRecordsTab} />
-          <div className="mt-3">
-            {recordsTab === "events" ? (
-              <PlayerEventRecords events={detail.events} />
-            ) : (
-              <PlayerTopOpponents slug={detail.player.slug} active={recordsTab === "opponents"} />
-            )}
-          </div>
+        <RecordsTabs activeTab={recordsTab} onChange={setRecordsTab} />
+        <div className="mt-3">
+          {recordsTab === "events" ? (
+            <PlayerEventRecords events={detail.events} />
+          ) : (
+            <PlayerTopOpponents slug={detail.player.slug} active={recordsTab === "opponents"} />
+          )}
         </div>
       </section>
     </main>

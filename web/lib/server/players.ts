@@ -376,6 +376,8 @@ export function getPlayerDetail(slug: string) {
           m.event_name_zh AS eventNameZh,
           m.event_year AS eventYear,
           ec.sort_order AS eventCategorySortOrder,
+          ec.event_series AS eventSeries,
+          e.category_name_zh AS categoryNameZh,
           m.sub_event_type_code AS subEventTypeCode,
           sety.name_zh AS subEventNameZh,
           m.stage,
@@ -408,6 +410,8 @@ export function getPlayerDetail(slug: string) {
       eventNameZh: string | null;
       eventYear: number | null;
       eventCategorySortOrder: number | null;
+      eventSeries: string | null;
+      categoryNameZh: string | null;
       subEventTypeCode: string | null;
       subEventNameZh: string | null;
       stage: string | null;
@@ -430,6 +434,8 @@ export function getPlayerDetail(slug: string) {
       eventNameZh: string | null;
       date: string | null;
       eventCategorySortOrder: number | null;
+      eventSeries: string | null;
+      categoryNameZh: string | null;
       subEvents: Map<
         string,
         {
@@ -453,6 +459,8 @@ export function getPlayerDetail(slug: string) {
         eventNameZh: row.eventNameZh,
         date: row.startDate ?? row.eventYear?.toString() ?? null,
         eventCategorySortOrder: row.eventCategorySortOrder,
+        eventSeries: row.eventSeries,
+        categoryNameZh: row.categoryNameZh,
         subEvents: new Map(),
       };
     const subEventKey = row.subEventTypeCode ?? 'unknown';
@@ -491,6 +499,8 @@ export function getPlayerDetail(slug: string) {
       eventNameZh: event.eventNameZh,
       date: event.date,
       eventCategorySortOrder: event.eventCategorySortOrder,
+      eventSeries: event.eventSeries,
+      categoryNameZh: event.categoryNameZh,
       subEvents: Array.from(event.subEvents.values())
         .sort((left, right) => right.weight - left.weight || Number(right.isChampion) - Number(left.isChampion))
         .map(({ weight: _weight, ...subEvent }) => subEvent),
