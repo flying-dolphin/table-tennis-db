@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
-import "@/public/images/flags_local.css";
+import { Flag } from "@/components/Flag";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -126,8 +126,8 @@ export default function RankingTable() {
                         <h3 className="text-body-lg font-bold text-text-primary leading-tight truncate">
                           {displayName(player)}
                         </h3>
-                        <div className="flex items-center gap-1.5 shrink-0">
-                          <div className={`fg fg-${player.countryCode} scale-110 origin-center`} />
+                      <div className="flex items-center gap-1.5 shrink-0">
+                          <Flag code={player.countryCode} className="scale-110 origin-center" />
                           <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">
                             {player.countryCode}
                           </span>
@@ -176,7 +176,7 @@ export default function RankingTable() {
                         {displayName(player)}
                       </h3>
                       <div className="flex items-center gap-1.5 shrink-0">
-                        <div className={`fg fg-${player.countryCode} scale-100 origin-center`} />
+                        <Flag code={player.countryCode} className="scale-100 origin-center" />
                         <span className="text-micro font-bold text-text-tertiary uppercase tracking-wider">
                           {player.countryCode}
                         </span>

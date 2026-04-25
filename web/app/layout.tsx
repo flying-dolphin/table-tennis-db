@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { Noto_Sans_SC, Inter } from 'next/font/google';
+import 'flag-icons/css/flag-icons.min.css';
 import './globals.css';
 import BottomNav from '@/components/BottomNav';
 import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';

@@ -328,43 +328,6 @@ export function getPlayerDetail(slug: string) {
       startDate: string | null;
     }>;
 
-  const seenEventIds = new Set<number>();
-  const recentMatches: Array<{
-    matchId: number;
-    eventId: number | null;
-    eventName: string | null;
-    eventNameZh: string | null;
-    date: string | null;
-    opponentName: string | null;
-    opponentCountry: string | null;
-    matchScore: string | null;
-    didWin: boolean;
-  }> = [];
-
-  for (const row of matchRows) {
-    if (row.eventId != null && seenEventIds.has(row.eventId)) continue;
-    if (row.eventId != null) seenEventIds.add(row.eventId);
-
-    const opponentName = row.opponentNames ? row.opponentNames.split(',').join(' / ') : null;
-    const opponentCountry = row.opponentCountries ? row.opponentCountries.split(',').join(' / ') : null;
-    const didWin =
-      (row.winnerSide === 'A' && row.playerSideNo === 1) ||
-      (row.winnerSide === 'B' && row.playerSideNo === 2);
-    recentMatches.push({
-      matchId: row.matchId,
-      eventId: row.eventId,
-      eventName: row.eventName,
-      eventNameZh: row.eventNameZh,
-      date: row.startDate ?? row.eventYear?.toString() ?? null,
-      opponentName,
-      opponentCountry,
-      matchScore: row.matchScore,
-      didWin,
-    });
-
-    if (recentMatches.length >= 3) break;
-  }
-
   const eventMap = new Map<
     number,
     {
@@ -372,18 +335,34 @@ export function getPlayerDetail(slug: string) {
       eventName: string | null;
       eventNameZh: string | null;
       date: string | null;
-      subEventTypeCode: string | null;
-      subEventNameZh: string | null;
       eventCategorySortOrder: number | null;
-      result: string | null;
-      weight: number;
-      isChampion: boolean;
+      subEvents: Map<
+        string,
+        {
+          subEventTypeCode: string | null;
+          subEventNameZh: string | null;
+          result: string | null;
+          weight: number;
+          isChampion: boolean;
+        }
+      >;
     }
   >();
 
   for (const row of matchRows) {
     if (row.eventId == null) continue;
-    const current = eventMap.get(row.eventId);
+    const current =
+      eventMap.get(row.eventId) ??
+      {
+        eventId: row.eventId,
+        eventName: row.eventName,
+        eventNameZh: row.eventNameZh,
+        date: row.startDate ?? row.eventYear?.toString() ?? null,
+        eventCategorySortOrder: row.eventCategorySortOrder,
+        subEvents: new Map(),
+      };
+    const subEventKey = row.subEventTypeCode ?? 'unknown';
+    const currentSubEvent = current.subEvents.get(subEventKey);
     const weight = roundWeight(row.round);
     const didWin =
       (row.winnerSide === 'A' && row.playerSideNo === 1) ||
@@ -397,13 +376,8 @@ export function getPlayerDetail(slug: string) {
       playerCountry: row.playerCountry,
     });
 
-    if (!current || weight > current.weight || (isChampion && !current.isChampion)) {
-      eventMap.set(row.eventId, {
-        eventId: row.eventId,
-        eventName: row.eventName,
-        eventNameZh: row.eventNameZh,
-        date: row.startDate ?? row.eventYear?.toString() ?? null,
-        eventCategorySortOrder: row.eventCategorySortOrder,
+    if (!currentSubEvent || weight > currentSubEvent.weight || (isChampion && !currentSubEvent.isChampion)) {
+      current.subEvents.set(subEventKey, {
         subEventTypeCode: row.subEventTypeCode,
         subEventNameZh: row.subEventNameZh,
         result: isChampion ? '冠军' : row.roundZh ?? row.round,
@@ -411,11 +385,22 @@ export function getPlayerDetail(slug: string) {
         isChampion,
       });
     }
+
+    eventMap.set(row.eventId, current);
   }
 
   const events = Array.from(eventMap.values())
     .sort((left, right) => (right.date ?? '').localeCompare(left.date ?? ''))
-    .map(({ weight: _weight, ...event }) => event);
+    .map((event) => ({
+      eventId: event.eventId,
+      eventName: event.eventName,
+      eventNameZh: event.eventNameZh,
+      date: event.date,
+      eventCategorySortOrder: event.eventCategorySortOrder,
+      subEvents: Array.from(event.subEvents.values())
+        .sort((left, right) => right.weight - left.weight || Number(right.isChampion) - Number(left.isChampion))
+        .map(({ weight: _weight, ...subEvent }) => subEvent),
+    }));
 
   const topOpponents = getPlayerOpponentAggregates(player.playerId)
     .sort((left, right) => right.matches - left.matches || (right.latestDate ?? '').localeCompare(left.latestDate ?? ''))
@@ -424,7 +409,6 @@ export function getPlayerDetail(slug: string) {
   return {
     player,
     stats,
-    recentMatches,
     events,
     topOpponents,
   };

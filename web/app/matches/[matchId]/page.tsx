@@ -9,7 +9,6 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { formatSubEventLabel } from "@/lib/sub-event-label";
-import "@/public/images/flags_local.css";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

@@ -118,6 +118,33 @@ python scripts/fix_special_event_2860_stage_round.py
 
 如果后续要执行 `python scripts/db/import_matches.py` 重建比赛表，先跑这个修复脚本。
 
+### 修复 `event_id=2979/3263` 的铜牌赛标签
+
+`2024/2025 ITTF Mixed Team World Cup Chengdu` 的铜牌赛在 ITTF 原始赛事维度数据里标注不一致：
+
+- `2024`：铜牌赛被错误标成 `Main Draw / Final`
+- `2025`：铜牌赛被标成 `Position Draw / 2`
+
+修复脚本：
+
+```bash
+python scripts/fix_special_event_mixed_team_world_cup_2024_2025.py --dry-run
+python scripts/fix_special_event_mixed_team_world_cup_2024_2025.py
+```
+
+作用范围：
+
+- `data/event_matches/orig/ITTF_Mixed_Team_World_Cup_Chengdu_2024_2979.json`
+- `data/event_matches/cn/ITTF_Mixed_Team_World_Cup_Chengdu_2024_2979.json`
+- `data/event_matches/orig/ittf_mixed_team_world_cup_chengdu_2025_3263.json`
+- `data/event_matches/cn/ittf_mixed_team_world_cup_chengdu_2025_3263.json`
+
+修正结果：
+
+- 两届铜牌赛统一改成 `Main Draw / Bronze`
+- `2024` 铜牌赛：`ROU vs HKG`
+- `2025` 铜牌赛：`KOR vs GER`
+
 ## Rankings 抓取
 
 从 https://www.ittf.com/rankings/ 抓取 Women's Singles 排名 + points breakdown：

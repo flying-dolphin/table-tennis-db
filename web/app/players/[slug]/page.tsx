@@ -5,9 +5,9 @@ import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, X, UsersRound } from "lucide-react";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
+import { Flag } from "@/components/Flag";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
-import "@/public/images/flags_local.css";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -21,10 +21,12 @@ type EventRecord = {
   eventNameZh: string | null;
   date: string | null;
   eventCategorySortOrder: number | null;
-  subEventTypeCode: string | null;
-  subEventNameZh: string | null;
-  result: string | null;
-  isChampion: boolean;
+  subEvents: Array<{
+    subEventTypeCode: string | null;
+    subEventNameZh: string | null;
+    result: string | null;
+    isChampion: boolean;
+  }>;
 };
 
 type Player = {
@@ -62,17 +64,6 @@ type PlayerStats = {
   singleSevenTitles: number;
 };
 
-type RecentMatch = {
-  matchId: number;
-  eventName: string | null;
-  eventNameZh: string | null;
-  date: string | null;
-  opponentName: string | null;
-  opponentCountry: string | null;
-  matchScore: string | null;
-  didWin: boolean;
-};
-
 type TopOpponent = {
   playerId: number | null;
   slug: string | null;
@@ -87,7 +78,6 @@ type TopOpponent = {
 type PlayerDetail = {
   player: Player;
   stats: PlayerStats;
-  recentMatches: RecentMatch[];
   events: EventRecord[];
 };
 
@@ -118,7 +108,7 @@ function displayPlayerName(player: Pick<Player, 'name' | 'nameZh'>) {
   return player.nameZh?.trim() || player.name;
 }
 
-function displayEventName(event: Pick<EventRecord, 'eventName' | 'eventNameZh'> | Pick<RecentMatch, 'eventName' | 'eventNameZh'>) {
+function displayEventName(event: Pick<EventRecord, 'eventName' | 'eventNameZh'>) {
   return event.eventNameZh?.trim() || event.eventName || '未命名赛事';
 }
 
@@ -161,8 +151,40 @@ function rankChangeLabel(value: number | null) {
   return value > 0 ? `上升 ${value}` : `下降 ${Math.abs(value)}`;
 }
 
-function subEventLabel(event: EventRecord) {
-  return formatSubEventLabel(event.subEventTypeCode, event.subEventNameZh);
+function matchesSubEventCode(code: string | null, filter: EventSubTypeFilter) {
+  if (filter === "team") {
+    return code === "WT" || code === "XT";
+  }
+  return code === filter;
+}
+
+function getMatchingSubEvents(event: EventRecord, filter: EventSubTypeFilter) {
+  if (filter === "all") return event.subEvents;
+  return event.subEvents.filter((subEvent) => matchesSubEventCode(subEvent.subEventTypeCode, filter));
+}
+
+function getDisplaySubEvent(event: EventRecord, filter: EventSubTypeFilter) {
+  const matched = getMatchingSubEvents(event, filter);
+  if (matched.length > 0) return matched[0];
+  return event.subEvents[0] ?? null;
+}
+
+function getDisplaySubEventLabel(event: EventRecord, filter: EventSubTypeFilter) {
+  if (filter !== "all") {
+    const displaySubEvent = getDisplaySubEvent(event, filter);
+    return displaySubEvent
+      ? formatSubEventLabel(displaySubEvent.subEventTypeCode, displaySubEvent.subEventNameZh)
+      : "项目待补";
+  }
+
+  const labels = event.subEvents
+    .map((subEvent) => formatSubEventLabel(subEvent.subEventTypeCode, subEvent.subEventNameZh))
+    .filter((label, index, all) => label && all.indexOf(label) === index);
+  return labels.join(" / ") || "项目待补";
+}
+
+function getDisplayResult(event: EventRecord, filter: EventSubTypeFilter) {
+  return getDisplaySubEvent(event, filter)?.result ?? "成绩待补";
 }
 
 function matchesEventTier(event: EventRecord, filter: EventTierFilter) {
@@ -175,10 +197,7 @@ function matchesEventTier(event: EventRecord, filter: EventTierFilter) {
 
 function matchesSubEventFilter(event: EventRecord, filter: EventSubTypeFilter) {
   if (filter === "all") return true;
-  if (filter === "team") {
-    return event.subEventTypeCode === "WT" || event.subEventTypeCode === "XT";
-  }
-  return event.subEventTypeCode === filter;
+  return event.subEvents.some((subEvent) => matchesSubEventCode(subEvent.subEventTypeCode, filter));
 }
 
 function genderLabel(value: string | null) {
@@ -292,7 +311,7 @@ function PlayerHero({ player }: { player: Player }) {
                 </p>
                 {player.countryCode && (
                   <div className="flex items-center gap-1.5 rounded bg-white/10 px-1.5 py-0.5 backdrop-blur-md">
-                    <div className={`fg fg-${player.countryCode} scale-100 origin-center`} />
+                    <Flag code={player.countryCode} className="scale-100 origin-center" />
                     <span className="text-micro font-bold text-white/80">{player.country || player.countryCode}</span>
                   </div>
                 )}
@@ -467,45 +486,6 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
   );
 }
 
-function RecentMatches({ matches }: { matches: RecentMatch[] }) {
-  return (
-    <section className="px-5 pt-6">
-      <SectionHeader title="最近比赛" />
-      {matches.length === 0 ? (
-        <EmptyState title="最近比赛暂无数据" />
-      ) : (
-        <div className="space-y-2.5">
-          {matches.map((match) => (
-            <Link
-              key={match.matchId}
-              href={route(`/matches/${match.matchId}`)}
-              className="flex items-center gap-3 rounded-lg border border-white/70 bg-white/70 p-3 shadow-sm backdrop-blur-md transition-colors hover:bg-white"
-            >
-              <div
-                className={`grid h-12 w-12 shrink-0 place-items-center rounded-full text-body font-black tabular-nums ${match.didWin ? 'bg-state-success/12 text-state-success' : 'bg-state-danger/12 text-state-danger'
-                  }`}
-              >
-                {match.didWin ? '胜' : '负'}
-              </div>
-              <div className="min-w-0 flex-1">
-                <h3 className="truncate text-body font-black text-text-primary">{displayEventName(match)}</h3>
-                <p className="mt-1 truncate text-caption font-semibold text-text-tertiary">
-                  {displayDate(match.date)} · vs {match.opponentName || '对手待补'}
-                  {match.opponentCountry ? ` (${match.opponentCountry})` : ''}
-                </p>
-              </div>
-              <div className="shrink-0 text-right">
-                <p className="text-body font-black text-text-secondary tabular-nums">{match.matchScore || '-'}</p>
-                <ChevronRight size={16} className="ml-auto mt-1 text-text-tertiary" strokeWidth={2} />
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
-    </section>
-  );
-}
-
 function PlayerEventRecords({ events }: { events: EventRecord[] }) {
   const [championsOnly, setChampionsOnly] = useState(false);
   const [eventTierFilter, setEventTierFilter] = useState<EventTierFilter>("all");
@@ -513,9 +493,9 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
   const [expanded, setExpanded] = useState(false);
 
   const filteredEvents = events.filter((event) => {
-    if (championsOnly && !event.isChampion) return false;
     if (!matchesEventTier(event, eventTierFilter)) return false;
     if (!matchesSubEventFilter(event, subEventFilter)) return false;
+    if (championsOnly && !getMatchingSubEvents(event, subEventFilter).some((subEvent) => subEvent.isChampion)) return false;
     return true;
   });
 
@@ -609,12 +589,12 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
           <div className="min-w-0">
             <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">{displayEventName(event)}</h3>
             <p className="mt-0.5 text-caption font-medium text-text-tertiary">
-              {displayDate(event.date)} · {subEventLabel(event)}
+              {displayDate(event.date)} · {getDisplaySubEventLabel(event, subEventFilter)}
             </p>
           </div>
           <div className="flex items-center gap-2">
             <span className="rounded-full bg-brand-soft/50 px-2.5 py-0.5 text-micro font-bold text-brand-strong uppercase tracking-wider">
-              {event.result || '成绩待补'}
+              {getDisplayResult(event, subEventFilter)}
             </span>
             <ChevronRight size={14} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
           </div>
@@ -818,7 +798,7 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
                     <div className="flex items-center gap-2">
                       <span className="w-6 shrink-0 text-[0.82rem] font-bold text-[#9bb3e0]">{rank}</span>
                       {opponent.countryCode ? (
-                        <span className={`fg fg-${opponent.countryCode} shrink-0 scale-[1.05]`} />
+                        <Flag code={opponent.countryCode} className="shrink-0 scale-[1.05]" />
                       ) : null}
                       <div className="min-w-0">
                         <h3 className="truncate text-[0.98rem] font-bold leading-tight text-slate-900 group-hover:text-[#2d6cf6]">

@@ -197,6 +197,12 @@ type EventRoundRobinView = {
 
 type EventTeamKnockoutView = {
   mode: 'team_knockout_with_bronze';
+  rounds: Array<{
+    code: string;
+    label: string;
+    order: number;
+    ties: TeamTie[];
+  }>;
   finalStandings: StageStanding[];
   podium: {
     champion: StageStanding | null;
@@ -259,7 +265,7 @@ type TeamKnockoutEventOverride = {
 
 type ManualEventOverride = RoundRobinEventOverride | TeamKnockoutEventOverride;
 
-type EventPresentationMode = 'knockout' | 'staged_round_robin';
+type EventPresentationMode = 'knockout' | 'staged_round_robin' | 'team_knockout_with_bronze';
 
 type EventListRow = {
   eventId: number;
@@ -513,12 +519,42 @@ function teamCodesMatch(tie: TeamTie, teamCodes: [string, string]) {
     teamCodes.every((code) => code === tie.teamA.code || code === tie.teamB.code);
 }
 
+function teamTieRoundMeta(round: string, roundZh: string | null) {
+  if (round === 'Final') {
+    return { code: round, label: roundZh?.trim() || '决赛', order: 3 };
+  }
+  if (round === 'Bronze') {
+    return { code: round, label: roundZh?.trim() || '铜牌赛', order: 2 };
+  }
+  if (round === 'SemiFinal') {
+    return { code: round, label: roundZh?.trim() || '半决赛', order: 1 };
+  }
+  return { code: round || 'unknown', label: roundZh?.trim() || round || '轮次待补', order: 0 };
+}
+
 function buildTeamKnockoutView(eventId: number, subEventCode: string, override: ManualEventOverride): EventTeamKnockoutView {
   if (!isTeamKnockoutOverride(override)) {
     throw new Error(`Expected team_knockout_with_bronze override for event ${eventId}`);
   }
 
   const ties = buildTeamTiesForSubEvent(eventId, subEventCode);
+  const rounds = Array.from(
+    ties
+      .filter((tie) => tie.stage === 'Main Draw')
+      .reduce((map, tie) => {
+        const meta = teamTieRoundMeta(tie.round, tie.roundZh);
+        const current = map.get(meta.code) ?? {
+          code: meta.code,
+          label: meta.label,
+          order: meta.order,
+          ties: [] as TeamTie[],
+        };
+        current.ties.push(tie);
+        map.set(meta.code, current);
+        return map;
+      }, new Map<string, { code: string; label: string; order: number; ties: TeamTie[] }>())
+      .values(),
+  ).sort((left, right) => right.order - left.order);
   const finalStandings = override.final_standings
     .slice()
     .sort((left, right) => left.rank - right.rank)
@@ -527,6 +563,7 @@ function buildTeamKnockoutView(eventId: number, subEventCode: string, override: 
 
   return {
     mode: 'team_knockout_with_bronze',
+    rounds,
     finalStandings,
     podium: {
       champion: podiumByCode.get(override.podium.champion) ?? null,
@@ -648,7 +685,13 @@ export function getEvents(options?: {
   const eventsWithPresentation = events.map((event) => {
     const override = readManualEventOverride(event.eventId);
     const presentationMode: EventPresentationMode | null =
-      override?.presentation_mode === 'staged_round_robin' ? 'staged_round_robin' : event.drawMatches > 0 ? 'knockout' : null;
+      override?.presentation_mode === 'staged_round_robin'
+        ? 'staged_round_robin'
+        : override?.presentation_mode === 'team_knockout_with_bronze'
+          ? 'team_knockout_with_bronze'
+          : event.drawMatches > 0
+            ? 'knockout'
+            : null;
     return {
       ...event,
       presentationMode,
@@ -957,7 +1000,13 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
     roundRobinView: roundRobinViewForSubEvent(se.code),
     teamKnockoutView: teamKnockoutViewForSubEvent(se.code),
     presentationMode:
-      override && isRoundRobinOverride(override) && se.code === override.sub_event_type_code ? ('staged_round_robin' as const) : ('knockout' as const),
+      override && se.code === override.sub_event_type_code
+        ? isRoundRobinOverride(override)
+          ? ('staged_round_robin' as const)
+          : isTeamKnockoutOverride(override)
+            ? ('team_knockout_with_bronze' as const)
+            : ('knockout' as const)
+        : ('knockout' as const),
   }));
 
   const dataForSelected = subEventDetails.find((item) => item.code === selectedSubEvent);

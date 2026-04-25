@@ -18,8 +18,8 @@ import {
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
+import { Flag } from "@/components/Flag";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
-import "@/public/images/flags_local.css";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -117,6 +117,12 @@ type EventRoundRobinView = {
 
 type EventTeamKnockoutView = {
   mode: "team_knockout_with_bronze";
+  rounds: Array<{
+    code: string;
+    label: string;
+    order: number;
+    ties: TeamTie[];
+  }>;
   finalStandings: StageStanding[];
   podium: {
     champion: StageStanding | null;
@@ -157,13 +163,13 @@ type EventDetail = {
     bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
     roundRobinView: EventRoundRobinView | null;
     teamKnockoutView: EventTeamKnockoutView | null;
-    presentationMode: "knockout" | "staged_round_robin";
+    presentationMode: "knockout" | "staged_round_robin" | "team_knockout_with_bronze";
   }>;
   champion: EventChampion | null;
   bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
   roundRobinView: EventRoundRobinView | null;
   teamKnockoutView: EventTeamKnockoutView | null;
-  presentationMode: "knockout" | "staged_round_robin";
+  presentationMode: "knockout" | "staged_round_robin" | "team_knockout_with_bronze";
 };
 
 type EventDetailResponse = {
@@ -218,6 +224,28 @@ function rubberPlayersLabel(rubber: TeamTie["rubbers"][number]) {
   return `${left} vs ${right}`;
 }
 
+function truncateLabel(text: string, maxChars: number) {
+  const chars = Array.from(text);
+  if (chars.length <= maxChars) return text;
+  return `${chars.slice(0, maxChars - 1).join("")}…`;
+}
+
+function compactPlayerName(player: { name: string; nameZh: string | null }) {
+  const display = displayPlayerName(player);
+  return /[\u4e00-\u9fa5]/.test(display) ? truncateChineseName(display, 4) : truncateLabel(display, 14);
+}
+
+function compactPlayersLabel(players: SidePlayer[]) {
+  return players.map(compactPlayerName).join(" / ");
+}
+
+function compactRubberPlayersLabel(rubber: TeamTie["rubbers"][number]) {
+  const [sideA, sideB] = [...rubber.sides].sort((a, b) => a.sideNo - b.sideNo);
+  const left = sideA ? compactPlayersLabel(sideA.players) : "待补";
+  const right = sideB ? compactPlayersLabel(sideB.players) : "待补";
+  return `${left} vs ${right}`;
+}
+
 function subEventLabel(subEvent: { code: string; nameZh: string | null } | undefined) {
   return formatSubEventLabel(subEvent?.code, subEvent?.nameZh);
 }
@@ -268,12 +296,6 @@ function findChampionMatch(rounds: EventDetail["bracket"], championNames: string
 function sideGamesLabel(games: Array<{ player: number; opponent: number }>) {
   if (games.length === 0) return "局分待补";
   return games.map((game) => `${game.player}-${game.opponent}`).join(", ");
-}
-
-function Flag({ code, className }: { code: string | null; className?: string }) {
-  if (!code) return <span className={cn("inline-block h-3.5 w-5 rounded-sm bg-slate-200", className)} />;
-
-  return <span className={cn("fg rounded-[2px] shadow-sm", `fg-${code}`, className)} aria-hidden="true" />;
 }
 
 function EventHeader({
@@ -639,6 +661,107 @@ function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?:
   );
 }
 
+function TeamTieSummaryCard({ tie, tieIndex }: { tie: TeamTie; tieIndex?: number }) {
+  const winnerA = tie.winnerCode === tie.teamA.code;
+  const winnerB = tie.winnerCode === tie.teamB.code;
+  return (
+    <div className="rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-slate-100 shadow-sm">
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <span className="text-[0.82rem] font-medium text-slate-400">已结束</span>
+        {tieIndex !== undefined ? <span className="text-[0.78rem] font-bold text-[#9bb3e0]">第 {tieIndex} 场</span> : null}
+      </div>
+      <div className="space-y-2.5">
+        {[
+          { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
+          { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
+        ].map((item) => (
+          <div key={item.team.code} className="flex items-center gap-2">
+            <Flag code={item.team.code} className="shrink-0 scale-[1.25] origin-left" />
+            <p className={cn("flex-1 text-[1rem] font-black leading-tight", item.isWinner ? "text-slate-950" : "text-slate-500")}>
+              {item.team.nameZh || item.team.name}
+            </p>
+            <span className={cn("font-numeric shrink-0 text-[1.5rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+              {item.score}
+            </span>
+            <span className="flex w-5 shrink-0 items-center justify-center">
+              {item.isWinner ? <CheckCircle2 size={18} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 divide-y divide-slate-100 border-t border-slate-100">
+        {tie.rubbers.map((rubber, index) => (
+          <Link
+            key={rubber.matchId}
+            href={route(`/matches/${rubber.matchId}`)}
+            className="flex items-start gap-3 py-2.5 transition active:scale-[0.995]"
+          >
+            <span className="shrink-0 text-[0.82rem] font-black leading-snug text-[#2d6cf6]">第{index + 1}盘</span>
+            <span className="min-w-0 flex-1 text-[0.84rem] font-medium leading-snug text-slate-600">
+              {compactRubberPlayersLabel(rubber)}
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TeamKnockoutScheduleView({ view }: { view: EventTeamKnockoutView }) {
+  const [collapsed, setCollapsed] = React.useState<Set<string>>(new Set());
+
+  const toggle = React.useCallback((code: string) => {
+    setCollapsed((prev) => {
+      const next = new Set(prev);
+      if (next.has(code)) next.delete(code);
+      else next.add(code);
+      return next;
+    });
+  }, []);
+
+  if (view.rounds.length === 0) {
+    return (
+      <div className="pt-5">
+        <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+          这项赛程还没补齐
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="pb-10 pt-4">
+      <div className="space-y-5">
+        {view.rounds.map((round) => {
+          const isCollapsed = collapsed.has(round.code);
+          return (
+            <section key={round.code}>
+              <button
+                type="button"
+                onClick={() => toggle(round.code)}
+                className="mb-3 flex w-full items-center justify-between px-1 py-0.5"
+              >
+                <h2 className="text-[1.25rem] font-black leading-none text-slate-950">{round.label}</h2>
+                <span className="flex items-center gap-1 text-[0.9rem] font-medium text-slate-400">
+                  已完成
+                  {isCollapsed ? <ChevronDown size={15} strokeWidth={2.5} /> : <ChevronUp size={15} strokeWidth={2.5} />}
+                </span>
+              </button>
+              {!isCollapsed && (
+                <div className="space-y-3">
+                  {round.ties.map((tie, index) => (
+                    <TeamTieSummaryCard key={tie.tieId} tie={tie} tieIndex={index + 1} />
+                  ))}
+                </div>
+              )}
+            </section>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function DrawMatchCard({
   match,
   isChampionPath,
@@ -766,11 +889,7 @@ function DrawView({
         <section className="mb-6 space-y-6">
           <div>
             <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-            <div className="grid gap-3">
-              <PodiumCard title="冠军" standing={teamKnockoutView.podium.champion} />
-              <PodiumCard title="亚军" standing={teamKnockoutView.podium.runnerUp} />
-              <PodiumCard title="季军" standing={teamKnockoutView.podium.thirdPlace} />
-            </div>
+            <Podium podium={teamKnockoutView.podium} />
           </div>
 
           {teamKnockoutView.finalTie && (
@@ -915,20 +1034,224 @@ function DrawView({
   );
 }
 
-function PodiumCard({
-  title,
+function TeamTieNodeCard({ tie, title }: { tie: TeamTie; title?: string }) {
+  const winnerA = tie.winnerCode === tie.teamA.code;
+  const winnerB = tie.winnerCode === tie.teamB.code;
+  return (
+    <div className="rounded-[1rem] border border-[#dce7f5] bg-white px-3 py-3 shadow-sm">
+      {title ? <p className="mb-2 text-[0.72rem] font-bold uppercase tracking-[0.08em] text-[#7d95c7]">{title}</p> : null}
+      <div className="space-y-2">
+        {[
+          { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
+          { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
+        ].map((item) => (
+          <div key={item.team.code} className="flex items-center gap-2">
+            <Flag code={item.team.code} className="shrink-0 scale-[1.0]" />
+            <span className={cn("flex-1 text-[0.88rem] font-black leading-none", item.isWinner ? "text-slate-950" : "text-slate-500")}>
+              {item.team.code}
+            </span>
+            <span className={cn("font-numeric shrink-0 text-[1.12rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+              {item.score}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
+  const semiFinals = view.rounds.find((round) => round.code === "SemiFinal")?.ties ?? [];
+  const finalTie = view.rounds.find((round) => round.code === "Final")?.ties[0] ?? view.finalTie;
+  const bronzeTie = view.rounds.find((round) => round.code === "Bronze")?.ties[0] ?? view.bronzeTie;
+  const leftColumnWidth = 162;
+  const rightColumnWidth = 162;
+  const connectorX1 = leftColumnWidth;
+  const connectorX2 = leftColumnWidth + 20;
+  const rightColumnLeft = leftColumnWidth + 40;
+
+  if (semiFinals.length === 0 && !finalTie && !bronzeTie) {
+    return (
+      <div className="pt-5">
+        <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+          这项赛事图还没收录
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="pb-10 pt-5">
+      <div className="mb-6 space-y-6">
+        <div>
+          <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+          <Podium podium={view.podium} />
+        </div>
+      </div>
+
+      <div className="overflow-x-auto pb-2">
+        <div className="mb-3 flex" style={{ minWidth: rightColumnLeft + rightColumnWidth }}>
+          <div className="shrink-0 text-center" style={{ width: leftColumnWidth }}>
+            <p className="text-[0.78rem] font-black text-slate-900">半决赛</p>
+            <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{semiFinals.length} 场</p>
+          </div>
+          <div className="w-10 shrink-0" />
+          <div className="shrink-0 text-center" style={{ width: rightColumnWidth }}>
+            <p className="text-[0.78rem] font-black text-slate-900">奖牌战</p>
+            <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{[finalTie, bronzeTie].filter(Boolean).length} 场</p>
+          </div>
+        </div>
+
+        <div className="relative" style={{ minWidth: rightColumnLeft + rightColumnWidth, height: 380 }}>
+          <svg className="pointer-events-none absolute inset-0 overflow-visible" style={{ width: rightColumnLeft + rightColumnWidth, height: 380 }}>
+            {semiFinals[0] ? (
+              <>
+                <line x1={connectorX1} y1={90} x2={connectorX2} y2={90} stroke="#c5d8f2" strokeWidth={1.5} />
+                <line x1={connectorX2} y1={90} x2={connectorX2} y2={120} stroke="#c5d8f2" strokeWidth={1.5} />
+                <line x1={connectorX2} y1={120} x2={rightColumnLeft} y2={120} stroke="#c5d8f2" strokeWidth={1.5} />
+              </>
+            ) : null}
+            {semiFinals[1] ? (
+              <>
+                <line x1={connectorX1} y1={270} x2={connectorX2} y2={270} stroke="#c5d8f2" strokeWidth={1.5} />
+                <line x1={connectorX2} y1={270} x2={connectorX2} y2={260} stroke="#c5d8f2" strokeWidth={1.5} />
+                <line x1={connectorX2} y1={260} x2={rightColumnLeft} y2={260} stroke="#c5d8f2" strokeWidth={1.5} />
+              </>
+            ) : null}
+          </svg>
+
+          {semiFinals[0] ? (
+            <div className="absolute left-0 top-[24px]" style={{ width: leftColumnWidth }}>
+              <TeamTieNodeCard tie={semiFinals[0]} title="半决赛 1" />
+            </div>
+          ) : null}
+          {semiFinals[1] ? (
+            <div className="absolute left-0 top-[204px]" style={{ width: leftColumnWidth }}>
+              <TeamTieNodeCard tie={semiFinals[1]} title="半决赛 2" />
+            </div>
+          ) : null}
+          {finalTie ? (
+            <div className="absolute top-[54px]" style={{ left: rightColumnLeft, width: rightColumnWidth }}>
+              <TeamTieNodeCard tie={finalTie} title="决赛" />
+            </div>
+          ) : null}
+          {bronzeTie ? (
+            <div className="absolute top-[194px]" style={{ left: rightColumnLeft, width: rightColumnWidth }}>
+              <TeamTieNodeCard tie={bronzeTie} title="铜牌赛" />
+            </div>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <FinalStandingsView standings={view.finalStandings} />
+      </div>
+    </div>
+  );
+}
+
+function PodiumSlot({
+  rank,
   standing,
+  baseHeight,
+  colorScheme,
 }: {
-  title: string;
+  rank: 1 | 2 | 3;
   standing: StageStanding | null;
+  baseHeight: string;
+  colorScheme: {
+    bg: string;
+    border: string;
+    text: string;
+    trophy: string;
+  };
+}) {
+  const name = standing?.teamNameZh || standing?.teamName || "待补";
+  const isChampion = rank === 1;
+
+  return (
+    <div className="flex flex-1 flex-col items-center">
+      {/* 球员信息 */}
+      <div className="mb-2.5 flex flex-col items-center">
+        <div className="relative mb-1.5">
+          <div
+            className={cn(
+              "flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm ring-1 sm:h-14 sm:w-14",
+              colorScheme.border,
+            )}
+          >
+            <Flag code={standing?.teamCode ?? null} className="scale-[1.6] sm:scale-[2.2]" />
+          </div>
+          {isChampion && (
+            <Crown
+              size={18}
+              className="absolute -right-1 -top-2 fill-yellow-400 text-yellow-600 drop-shadow-sm rotate-[12deg]"
+            />
+          )}
+        </div>
+        <p className="line-clamp-1 max-w-[76px] text-center text-[0.72rem] font-bold text-slate-700 sm:max-w-[100px] sm:text-[0.82rem]">
+          {name}
+        </p>
+      </div>
+
+      {/* 领奖台底座 */}
+      <div
+        className={cn(
+          "relative flex w-full flex-col items-center justify-center rounded-t-xl border-x border-t transition-all duration-500",
+          colorScheme.bg,
+          colorScheme.border,
+          baseHeight,
+        )}
+      >
+        <Trophy size={isChampion ? 20 : 16} className={cn("mb-0.5", colorScheme.trophy)} />
+        <span className={cn("font-numeric text-lg font-black leading-none sm:text-xl", colorScheme.text)}>
+          {rank}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function Podium({
+  podium,
+}: {
+  podium: { champion: StageStanding | null; runnerUp: StageStanding | null; thirdPlace: StageStanding | null };
 }) {
   return (
-    <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
-      <p className="text-[0.92rem] font-bold text-slate-500">{title}</p>
-      <div className="mt-3 flex items-center gap-3">
-        <Flag code={standing?.teamCode ?? null} className="scale-[1.35]" />
-        <p className="text-[1.2rem] font-black text-slate-950">{standing?.teamNameZh || standing?.teamName || "待补"}</p>
-      </div>
+    <div className="flex items-end justify-center gap-2 px-1 py-4 sm:gap-4 sm:px-4">
+      <PodiumSlot
+        rank={3}
+        standing={podium.thirdPlace}
+        baseHeight="h-12 sm:h-14"
+        colorScheme={{
+          bg: "bg-[#fdf8f4]",
+          border: "border-orange-100",
+          text: "text-orange-700",
+          trophy: "text-orange-400",
+        }}
+      />
+      <PodiumSlot
+        rank={1}
+        standing={podium.champion}
+        baseHeight="h-20 sm:h-24"
+        colorScheme={{
+          bg: "bg-[#fffdf2]",
+          border: "border-yellow-200",
+          text: "text-yellow-700",
+          trophy: "text-yellow-500",
+        }}
+      />
+      <PodiumSlot
+        rank={2}
+        standing={podium.runnerUp}
+        baseHeight="h-16 sm:h-18"
+        colorScheme={{
+          bg: "bg-[#f8fafc]",
+          border: "border-slate-200",
+          text: "text-slate-700",
+          trophy: "text-slate-400",
+        }}
+      />
     </div>
   );
 }
@@ -968,7 +1291,7 @@ function TeamTieCard({ tie, title }: { tie: TeamTie; title?: string }) {
           >
             <div className="flex min-w-0 flex-1 items-start gap-2">
               <span className="shrink-0 text-[0.88rem] font-black leading-snug text-[#2d6cf6]">第{index + 1}盘</span>
-              <span className="min-w-0 flex-1 text-[0.88rem] font-medium leading-snug text-slate-600">{rubberPlayersLabel(rubber)}</span>
+              <span className="min-w-0 flex-1 text-[0.88rem] font-medium leading-snug text-slate-600">{compactRubberPlayersLabel(rubber)}</span>
             </div>
             <span className="font-numeric shrink-0 text-[0.95rem] font-black leading-snug tabular-nums text-[#2d6cf6]">{rubber.matchScore ?? "-"}</span>
           </Link>
@@ -1013,11 +1336,7 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
     <div className="pb-10 pt-5">
       <section>
         <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-        <div className="grid gap-3">
-          <PodiumCard title="冠军" standing={view.podium.champion} />
-          <PodiumCard title="亚军" standing={view.podium.runnerUp} />
-          <PodiumCard title="季军" standing={view.podium.thirdPlace} />
-        </div>
+        <Podium podium={view.podium} />
       </section>
 
       <div className="mt-6 space-y-6">
@@ -1229,6 +1548,17 @@ function EventDetailContent() {
         <div className="mt-2">
           {currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
             <RoundRobinView view={currentRoundRobinView} />
+          ) : currentPresentationMode === "team_knockout_with_bronze" && currentTeamKnockoutView ? (
+            <>
+              <ViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
+              {viewMode === "schedule" ? (
+                <TeamKnockoutScheduleView view={currentTeamKnockoutView} />
+              ) : viewMode === "draw" ? (
+                <TeamKnockoutDrawView view={currentTeamKnockoutView} />
+              ) : (
+                <ChampionsListView subEvents={subEventViews} />
+              )}
+            </>
           ) : (
             <>
               <ViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />

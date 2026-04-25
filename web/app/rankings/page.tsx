@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { ArrowLeft, Check, GitCompareArrows, X } from "lucide-react";
 import Link from "next/link";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
+import { Flag } from "@/components/Flag";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -258,7 +259,7 @@ export default function RankingsPage() {
                             {player.nameZh || player.name}
                           </h3>
                           {player.countryCode && (
-                            <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
+                            <Flag code={player.countryCode} className="shrink-0 scale-90 origin-center" />
                           )}
                           <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
                             {player.countryCode}
@@ -286,7 +287,7 @@ export default function RankingsPage() {
                             {player.nameZh || player.name}
                           </h3>
                           {player.countryCode && (
-                            <div className={`fg fg-${player.countryCode} shrink-0 scale-90 origin-center`} />
+                            <Flag code={player.countryCode} className="shrink-0 scale-90 origin-center" />
                           )}
                           <span className="shrink-0 text-micro font-medium text-text-tertiary bg-white/50 border border-white/50 px-1 py-0.5 rounded uppercase">
                             {player.countryCode}
