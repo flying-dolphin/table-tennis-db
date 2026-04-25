@@ -97,9 +97,11 @@ function parseGames(value: string | null) {
 }
 
 function roundLabel(round: string | null, roundZh: string | null) {
-  if (roundZh?.trim()) return roundZh;
+  const normalizedRound = round?.trim() ?? '';
+  const normalizedRoundZh = roundZh?.trim() ?? '';
   const labels: Record<string, string> = {
     Final: '决赛',
+    Bronze: '铜牌赛',
     SemiFinal: '半决赛',
     QuarterFinal: '四分之一决赛',
     R16: '16 强',
@@ -107,7 +109,10 @@ function roundLabel(round: string | null, roundZh: string | null) {
     R64: '64 强',
     R128: '128 强',
   };
-  return labels[round ?? ''] ?? round ?? '轮次待补';
+
+  if (labels[normalizedRound]) return labels[normalizedRound];
+  if (normalizedRoundZh) return normalizedRoundZh;
+  return normalizedRound || '轮次待补';
 }
 
 type EventChampion = {
@@ -519,17 +524,113 @@ function teamCodesMatch(tie: TeamTie, teamCodes: [string, string]) {
     teamCodes.every((code) => code === tie.teamA.code || code === tie.teamB.code);
 }
 
+const TEAM_ROUND_META: Record<string, { code: string; label: string; order: number }> = {
+  Final: { code: 'Final', label: '决赛', order: 80 },
+  Bronze: { code: 'Bronze', label: '铜牌赛', order: 75 },
+  SemiFinal: { code: 'SemiFinal', label: '半决赛', order: 60 },
+  QuarterFinal: { code: 'QuarterFinal', label: '四分之一决赛', order: 50 },
+  R16: { code: 'R16', label: '16 强', order: 40 },
+  R32: { code: 'R32', label: '32 强', order: 30 },
+  R64: { code: 'R64', label: '64 强', order: 20 },
+  R128: { code: 'R128', label: '128 强', order: 10 },
+};
+
+const NUMERIC_TEAM_ROUND_ALIAS: Record<string, string> = {
+  '2': 'Final',
+  '4': 'SemiFinal',
+  '8': 'QuarterFinal',
+  '16': 'R16',
+  '32': 'R32',
+  '64': 'R64',
+  '128': 'R128',
+};
+
+const TEAM_BRACKET_STAGES = new Set(['Main Draw', 'MAIN']);
+
 function teamTieRoundMeta(round: string, roundZh: string | null) {
-  if (round === 'Final') {
-    return { code: round, label: roundZh?.trim() || '决赛', order: 3 };
-  }
-  if (round === 'Bronze') {
-    return { code: round, label: roundZh?.trim() || '铜牌赛', order: 2 };
-  }
-  if (round === 'SemiFinal') {
-    return { code: round, label: roundZh?.trim() || '半决赛', order: 1 };
+  const trimmed = round?.trim() ?? '';
+  const normalized = NUMERIC_TEAM_ROUND_ALIAS[trimmed] ?? trimmed;
+  const meta = TEAM_ROUND_META[normalized];
+  if (meta) {
+    const trimmedZh = roundZh?.trim() ?? '';
+    const useStandardLabel = !trimmedZh || /^\d+$/.test(trimmedZh);
+    return { code: meta.code, label: useStandardLabel ? meta.label : trimmedZh, order: meta.order };
   }
   return { code: round || 'unknown', label: roundZh?.trim() || round || '轮次待补', order: 0 };
+}
+
+const AUTO_TEAM_SUB_EVENT_CODES = new Set(['WT', 'MT', 'XT']);
+
+function isAutoTeamSubEvent(code: string) {
+  return AUTO_TEAM_SUB_EVENT_CODES.has(code);
+}
+
+function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): EventTeamKnockoutView | null {
+  const ties = buildTeamTiesForSubEvent(eventId, subEventCode).filter((tie) => TEAM_BRACKET_STAGES.has(tie.stage));
+  if (ties.length === 0) return null;
+
+  const rounds = Array.from(
+    ties
+      .reduce((map, tie) => {
+        const meta = teamTieRoundMeta(tie.round, tie.roundZh);
+        const current = map.get(meta.code) ?? {
+          code: meta.code,
+          label: meta.label,
+          order: meta.order,
+          ties: [] as TeamTie[],
+        };
+        current.ties.push(tie);
+        map.set(meta.code, current);
+        return map;
+      }, new Map<string, { code: string; label: string; order: number; ties: TeamTie[] }>())
+      .values(),
+  ).sort((left, right) => right.order - left.order);
+
+  const finalTie = rounds.find((r) => r.code === 'Final')?.ties[0] ?? null;
+  const bronzeTie = rounds.find((r) => r.code === 'Bronze')?.ties[0] ?? null;
+  const semiFinalTies = rounds.find((r) => r.code === 'SemiFinal')?.ties ?? [];
+
+  const standings: StageStanding[] = [];
+  const seen = new Set<string>();
+  const pushStanding = (code: string | null | undefined, rank: number) => {
+    if (!code || seen.has(code)) return;
+    seen.add(code);
+    standings.push(buildStageStanding(code, rank));
+  };
+
+  if (finalTie?.winnerCode) {
+    const champion = finalTie.winnerCode;
+    const runnerUp = champion === finalTie.teamA.code ? finalTie.teamB.code : finalTie.teamA.code;
+    pushStanding(champion, 1);
+    pushStanding(runnerUp, 2);
+  }
+
+  if (bronzeTie?.winnerCode) {
+    const third = bronzeTie.winnerCode;
+    const fourth = third === bronzeTie.teamA.code ? bronzeTie.teamB.code : bronzeTie.teamA.code;
+    pushStanding(third, 3);
+    pushStanding(fourth, 4);
+  } else {
+    for (const tie of semiFinalTies) {
+      if (!tie.winnerCode) continue;
+      const loser = tie.winnerCode === tie.teamA.code ? tie.teamB.code : tie.teamA.code;
+      if (loser === finalTie?.teamA.code || loser === finalTie?.teamB.code) continue;
+      pushStanding(loser, 3);
+    }
+  }
+
+  return {
+    mode: 'team_knockout_with_bronze',
+    rounds,
+    finalStandings: standings,
+    podium: {
+      champion: standings.find((s) => s.rank === 1) ?? null,
+      runnerUp: standings.find((s) => s.rank === 2) ?? null,
+      thirdPlace: standings.find((s) => s.rank === 3) ?? null,
+    },
+    finalTie,
+    bronzeTie,
+  };
 }
 
 function buildTeamKnockoutView(eventId: number, subEventCode: string, override: ManualEventOverride): EventTeamKnockoutView {
@@ -944,7 +1045,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
         {
           matchId: row.matchId,
           drawRound: row.drawRound,
-          roundLabel: roundLabel(row.sourceRound ?? row.drawRound, row.sourceRoundZh),
+          roundLabel: roundLabel(row.drawRound ?? row.sourceRound, row.sourceRoundZh),
           roundOrder: row.roundOrder,
           matchScore: row.matchScore,
           games: parseGames(row.games),
@@ -989,25 +1090,35 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
   };
 
   const teamKnockoutViewForSubEvent = (subEventCode: string): EventTeamKnockoutView | null => {
-    if (!override || !isTeamKnockoutOverride(override) || subEventCode !== override.sub_event_type_code) return null;
-    return buildTeamKnockoutView(eventId, subEventCode, override);
+    if (override && isTeamKnockoutOverride(override) && subEventCode === override.sub_event_type_code) {
+      return buildTeamKnockoutView(eventId, subEventCode, override);
+    }
+    if (override && subEventCode === override.sub_event_type_code) return null;
+    if (!isAutoTeamSubEvent(subEventCode)) return null;
+    return buildAutoTeamKnockoutView(eventId, subEventCode);
   };
 
-  const subEventDetails = subEvents.map((se) => ({
-    code: se.code,
-    champion: championForSubEvent(se.code),
-    bracket: bracketForSubEvent(se.code),
-    roundRobinView: roundRobinViewForSubEvent(se.code),
-    teamKnockoutView: teamKnockoutViewForSubEvent(se.code),
-    presentationMode:
+  const subEventDetails = subEvents.map((se) => {
+    const teamKnockoutView = teamKnockoutViewForSubEvent(se.code);
+    const presentationMode: EventPresentationMode =
       override && se.code === override.sub_event_type_code
         ? isRoundRobinOverride(override)
-          ? ('staged_round_robin' as const)
+          ? 'staged_round_robin'
           : isTeamKnockoutOverride(override)
-            ? ('team_knockout_with_bronze' as const)
-            : ('knockout' as const)
-        : ('knockout' as const),
-  }));
+            ? 'team_knockout_with_bronze'
+            : 'knockout'
+        : teamKnockoutView
+          ? 'team_knockout_with_bronze'
+          : 'knockout';
+    return {
+      code: se.code,
+      champion: championForSubEvent(se.code),
+      bracket: bracketForSubEvent(se.code),
+      roundRobinView: roundRobinViewForSubEvent(se.code),
+      teamKnockoutView,
+      presentationMode,
+    };
+  });
 
   const dataForSelected = subEventDetails.find((item) => item.code === selectedSubEvent);
 
@@ -1044,11 +1155,13 @@ export function getMatchDetail(matchId: number) {
           m.games,
           m.winner_side AS winnerSide,
           m.winner_name AS winnerName,
+          edm.draw_round AS drawRound,
           e.start_date AS startDate,
           e.end_date AS endDate,
           e.name AS eventCanonicalName,
           e.name_zh AS eventCanonicalNameZh
         FROM matches m
+        LEFT JOIN event_draw_matches edm ON edm.match_id = m.match_id
         LEFT JOIN events e ON e.event_id = m.event_id
         LEFT JOIN sub_event_types st ON st.code = m.sub_event_type_code
         WHERE m.match_id = ?
@@ -1071,6 +1184,7 @@ export function getMatchDetail(matchId: number) {
         games: string | null;
         winnerSide: string | null;
         winnerName: string | null;
+        drawRound: string | null;
         startDate: string | null;
         endDate: string | null;
         eventCanonicalName: string | null;
@@ -1143,7 +1257,7 @@ export function getMatchDetail(matchId: number) {
       ...match,
       eventName: match.eventCanonicalName ?? match.eventName,
       eventNameZh: match.eventCanonicalNameZh ?? match.eventNameZh,
-      roundLabel: roundLabel(match.round, match.roundZh),
+      roundLabel: roundLabel(match.drawRound ?? match.round, match.roundZh),
       games: parseGames(match.games),
     },
     sides: Array.from(sideMap.values()),
