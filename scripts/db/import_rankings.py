@@ -9,6 +9,7 @@ import sqlite3
 import sys
 import json
 import re
+import argparse
 from pathlib import Path
 
 if sys.platform == 'win32':
@@ -82,11 +83,77 @@ def normalize_expires_date(date_str: str) -> str:
     return date_str
 
 
-def import_rankings(db_path: str, rankings_dir: str) -> dict:
+def ranking_date_to_month(ranking_date: str) -> str | None:
+    """将 ranking_date 转为 YYYY-MM，用于维护 career_best_month。"""
+    if not ranking_date:
+        return None
+    match = re.match(r'^(\d{4})-(\d{2})-\d{2}$', ranking_date)
+    if match:
+        return f"{match.group(1)}-{match.group(2)}"
+    return None
+
+
+def update_player_career_best(cursor, player_id: int, rank: int, ranking_date: str) -> bool:
+    """仅在本周排名刷新历史最佳时更新 players 摘要字段。"""
+    if rank is None:
+        return False
+
+    row = cursor.execute("""
+        SELECT career_best_rank, career_best_month
+        FROM players
+        WHERE player_id = ?
+    """, (player_id,)).fetchone()
+    if row is None:
+        return False
+
+    current_best_rank, current_best_month = row
+    should_update = current_best_rank is None or rank < current_best_rank
+    if not should_update:
+        return False
+
+    new_best_month = ranking_date_to_month(ranking_date) or current_best_month
+    cursor.execute("""
+        UPDATE players
+        SET career_best_rank = ?, career_best_month = ?
+        WHERE player_id = ?
+    """, (rank, new_best_month, player_id))
+    return True
+
+
+def resolve_ranking_files(rankings_dir: str, target_file: str | None = None) -> list[Path]:
+    rankings_path = Path(rankings_dir)
+    if target_file:
+        file_path = Path(target_file)
+        if not file_path.is_absolute():
+            file_path = PROJECT_ROOT / file_path
+        return [file_path]
+    return sorted(rankings_path.glob("*.json"))
+
+
+def cleanup_existing_snapshot(cursor, category: str, ranking_week: str) -> bool:
+    """覆盖同周数据前，先清理旧 snapshot 及其明细。"""
+    row = cursor.execute("""
+        SELECT snapshot_id
+        FROM ranking_snapshots
+        WHERE category = ? AND ranking_week = ?
+    """, (category, ranking_week)).fetchone()
+    if row is None:
+        return False
+
+    snapshot_id = row[0]
+    cursor.execute("DELETE FROM points_breakdown WHERE snapshot_id = ?", (snapshot_id,))
+    cursor.execute("DELETE FROM ranking_entries WHERE snapshot_id = ?", (snapshot_id,))
+    cursor.execute("DELETE FROM ranking_snapshots WHERE snapshot_id = ?", (snapshot_id,))
+    return True
+
+
+def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = None) -> dict:
     result = {
         'snapshots': 0,
         'entries': 0,
         'breakdowns': 0,
+        'career_best_updates': 0,
+        'replaced_snapshots': 0,
         'unmatched_players': [],
         'errors': [],
     }
@@ -97,10 +164,12 @@ def import_rankings(db_path: str, rankings_dir: str) -> dict:
     player_index = build_player_index(cursor)
     print(f"Player index: {len(player_index)} entries")
 
-    rankings_path = Path(rankings_dir)
-    json_files = sorted(rankings_path.glob("*.json"))
+    json_files = resolve_ranking_files(rankings_dir, target_file)
 
     for json_file in json_files:
+        if not json_file.exists():
+            result['errors'].append(f"Ranking file not found: {json_file}")
+            continue
         try:
             with open(json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
@@ -117,10 +186,18 @@ def import_rankings(db_path: str, rankings_dir: str) -> dict:
         print(f"\nProcessing {json_file.name}")
         print(f"  Category: {category}, Week: {ranking_week}, Date: {ranking_date}")
 
+        try:
+            if cleanup_existing_snapshot(cursor, category, ranking_week):
+                result['replaced_snapshots'] += 1
+                print("  Existing snapshot found, cleaned up old entries")
+        except sqlite3.Error as e:
+            result['errors'].append(f"Snapshot cleanup failed: {e}")
+            continue
+
         # 1. 插入 ranking_snapshot
         try:
             cursor.execute("""
-                INSERT OR REPLACE INTO ranking_snapshots
+                INSERT INTO ranking_snapshots
                 (category, ranking_week, ranking_date, total_players, scraped_at)
                 VALUES (?, ?, ?, ?, ?)
             """, (category, ranking_week, ranking_date, total_players, scraped_at))
@@ -134,6 +211,7 @@ def import_rankings(db_path: str, rankings_dir: str) -> dict:
         rankings = data.get('rankings', [])
         entries_count = 0
         bd_count = 0
+        best_updates_count = 0
         unmatched_in_file = set()
 
         for r in rankings:
@@ -164,6 +242,8 @@ def import_rankings(db_path: str, rankings_dir: str) -> dict:
                     VALUES (?, ?, ?, ?, ?)
                 """, (snapshot_id, player_id, rank, points, rank_change))
                 entries_count += 1
+                if update_player_career_best(cursor, player_id, rank, ranking_date):
+                    best_updates_count += 1
             except sqlite3.Error as e:
                 result['errors'].append(f"Entry {name}: {e}")
                 continue
@@ -200,9 +280,11 @@ def import_rankings(db_path: str, rankings_dir: str) -> dict:
 
         result['entries'] += entries_count
         result['breakdowns'] += bd_count
+        result['career_best_updates'] += best_updates_count
 
         print(f"  Entries: {entries_count}/{len(rankings)}")
         print(f"  Breakdowns: {bd_count}")
+        print(f"  Career best updates: {best_updates_count}")
         if unmatched_in_file:
             print(f"  Unmatched players: {len(unmatched_in_file)}")
 
@@ -244,6 +326,13 @@ def verify_rankings(db_path: str):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Import ranking snapshots into SQLite.")
+    parser.add_argument(
+        "--file",
+        help="指定要导入的 JSON 文件；可用相对项目根目录或绝对路径",
+    )
+    args = parser.parse_args()
+
     rankings_dir = PROJECT_ROOT / "data" / "rankings" / "cn"
 
     print("=" * 70)
@@ -257,13 +346,15 @@ if __name__ == '__main__':
         print(f"[ERROR] Database not found: {DB_PATH}")
         sys.exit(1)
 
-    result = import_rankings(str(DB_PATH), str(rankings_dir))
+    result = import_rankings(str(DB_PATH), str(rankings_dir), args.file)
 
     print(f"\n{'='*70}")
     print("Results:")
     print(f"  Snapshots:   {result['snapshots']}")
     print(f"  Entries:     {result['entries']}")
     print(f"  Breakdowns:  {result['breakdowns']}")
+    print(f"  Career best updates: {result['career_best_updates']}")
+    print(f"  Replaced snapshots: {result['replaced_snapshots']}")
 
     if result['unmatched_players']:
         print(f"\n  Unmatched players ({len(result['unmatched_players'])}):")
