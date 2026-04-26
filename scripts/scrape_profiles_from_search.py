@@ -20,6 +20,7 @@ from typing import Any
 from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import sanitize_filename, save_json
+from lib.career_best import normalize_career_best_month
 from lib.browser_session import ensure_logged_in
 from lib.checkpoint import CheckpointStore
 from lib.name_normalizer import normalize_player_name
@@ -262,12 +263,33 @@ def save_player_to_players_table(db_path: Path, profile_data: dict[str, Any]) ->
     if not country_code:
         raise RuntimeError("missing country_code for players upsert")
     slug = f"{_slugify(name)}-{player_id}"
+    if not profile_data.get("career_best_month") and profile_data.get("career_best_week"):
+        normalized = normalize_career_best_month(str(profile_data.get("career_best_week")), "week")
+        if normalized.month:
+            profile_data["career_best_month"] = normalized.month
 
     career_stats = profile_data.get("career_stats") if isinstance(profile_data.get("career_stats"), dict) else {}
     year_stats = profile_data.get("current_year_stats") if isinstance(profile_data.get("current_year_stats"), dict) else {}
 
     conn = sqlite3.connect(str(db_path))
     try:
+        existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(players)")}
+        if "career_best_month" not in existing_cols:
+            conn.execute("ALTER TABLE players ADD COLUMN career_best_month TEXT")
+            existing_cols.add("career_best_month")
+        if "career_best_week" in existing_cols:
+            rows = conn.execute("""
+                SELECT player_id, career_best_week
+                FROM players
+                WHERE career_best_month IS NULL AND career_best_week IS NOT NULL
+            """).fetchall()
+            for row_player_id, career_best_week in rows:
+                normalized = normalize_career_best_month(str(career_best_week), "week")
+                if normalized.month:
+                    conn.execute(
+                        "UPDATE players SET career_best_month = ? WHERE player_id = ?",
+                        (normalized.month, row_player_id),
+                    )
         conn.execute(
             """
             INSERT INTO players (
@@ -277,7 +299,7 @@ def save_player_to_players_table(db_path: Path, profile_data: dict[str, Any]) ->
                 avatar_url, avatar_file,
                 career_events, career_matches, career_wins, career_losses,
                 career_wtt_titles, career_all_titles,
-                career_best_rank, career_best_week,
+                career_best_rank, career_best_month,
                 year_events, year_matches, year_wins, year_losses,
                 year_games, year_games_won, year_games_lost,
                 year_wtt_titles, year_all_titles,
@@ -302,7 +324,7 @@ def save_player_to_players_table(db_path: Path, profile_data: dict[str, Any]) ->
                 career_wtt_titles = excluded.career_wtt_titles,
                 career_all_titles = excluded.career_all_titles,
                 career_best_rank = excluded.career_best_rank,
-                career_best_week = excluded.career_best_week,
+                career_best_month = excluded.career_best_month,
                 year_events = excluded.year_events,
                 year_matches = excluded.year_matches,
                 year_wins = excluded.year_wins,
@@ -336,7 +358,7 @@ def save_player_to_players_table(db_path: Path, profile_data: dict[str, Any]) ->
                 int(career_stats.get("wtt_senior_titles", 0) or 0),
                 int(career_stats.get("all_senior_titles", 0) or 0),
                 profile_data.get("career_best_rank"),
-                profile_data.get("career_best_week"),
+                profile_data.get("career_best_month"),
                 int(year_stats.get("events", 0) or 0),
                 int(year_stats.get("matches", 0) or 0),
                 int(year_stats.get("wins", 0) or 0),

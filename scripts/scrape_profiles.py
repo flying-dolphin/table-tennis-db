@@ -16,6 +16,7 @@ import re
 import sqlite3
 import sys
 import urllib.parse
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -24,6 +25,7 @@ from lib.anti_bot import DelayConfig, RiskControlTriggered, human_sleep
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import save_json, sanitize_filename
 from lib.checkpoint import CheckpointStore
+from lib.career_best import normalize_career_best_month
 from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import open_page_with_verification
 from lib.page_ops import click_next_page_if_any, guarded_goto
@@ -283,7 +285,7 @@ def init_player_profiles_table(db_path: Path) -> None:
             current_rank INTEGER,
             ranking_week TEXT,
             career_best_rank INTEGER,
-            career_best_week TEXT,
+            career_best_month TEXT,
             career_stats JSON,
             current_year_stats JSON,
             recent_matches JSON,
@@ -304,7 +306,7 @@ def init_player_profiles_table(db_path: Path) -> None:
         "current_rank": "INTEGER",
         "ranking_week": "TEXT",
         "career_best_rank": "INTEGER",
-        "career_best_week": "TEXT",
+        "career_best_month": "TEXT",
         "career_stats": "JSON",
         "current_year_stats": "JSON",
         "recent_matches": "JSON",
@@ -314,6 +316,20 @@ def init_player_profiles_table(db_path: Path) -> None:
     for col, col_type in required_cols.items():
         if col not in existing_cols:
             conn.execute(f"ALTER TABLE player_profiles ADD COLUMN {col} {col_type}")
+            existing_cols.add(col)
+    if "career_best_week" in existing_cols and "career_best_month" in existing_cols:
+        rows = conn.execute("""
+            SELECT player_id, career_best_week
+            FROM player_profiles
+            WHERE career_best_month IS NULL AND career_best_week IS NOT NULL
+        """).fetchall()
+        for player_id, career_best_week in rows:
+            normalized = normalize_career_best_month(str(career_best_week), "week")
+            if normalized.month:
+                conn.execute(
+                    "UPDATE player_profiles SET career_best_month = ? WHERE player_id = ?",
+                    (normalized.month, player_id),
+                )
     conn.execute("""
         CREATE INDEX IF NOT EXISTS idx_player_profiles_player_id 
         ON player_profiles(player_id)
@@ -335,7 +351,7 @@ def save_player_profile_to_db(
             INSERT INTO player_profiles (
                 player_id, player_external_id, name, english_name, country,
                 country_code, gender, birth_year, age, playing_hand, grip,
-                current_rank, ranking_week, career_best_rank, career_best_week,
+                current_rank, ranking_week, career_best_rank, career_best_month,
                 career_stats, current_year_stats, recent_matches, avatar_url,
                 avatar_file_path, profile_data, profile_url, json_file_path, updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -352,7 +368,7 @@ def save_player_profile_to_db(
                 current_rank = excluded.current_rank,
                 ranking_week = excluded.ranking_week,
                 career_best_rank = excluded.career_best_rank,
-                career_best_week = excluded.career_best_week,
+                career_best_month = excluded.career_best_month,
                 career_stats = excluded.career_stats,
                 current_year_stats = excluded.current_year_stats,
                 recent_matches = excluded.recent_matches,
@@ -377,7 +393,7 @@ def save_player_profile_to_db(
             profile_data.get("current_rank"),
             profile_data.get("ranking_week"),
             profile_data.get("career_best_rank"),
-            profile_data.get("career_best_week"),
+            profile_data.get("career_best_month"),
             json.dumps(profile_data.get("career_stats"), ensure_ascii=False) if profile_data.get("career_stats") else None,
             json.dumps(profile_data.get("current_year_stats"), ensure_ascii=False) if profile_data.get("current_year_stats") else None,
             json.dumps(profile_data.get("recent_matches"), ensure_ascii=False) if profile_data.get("recent_matches") else None,
@@ -594,10 +610,15 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
             profile_data["current_rank"] = int(ranking_match.group(1))
             profile_data["ranking_week"] = ranking_match.group(2).strip()
 
-        career_best_match = re.search(r'Career Best\*\*:\s*(\d+)\s*\|\s*Week:\s*([^\n]+)', text_content)
+        career_best_match = re.search(r'Career Best\*\*:\s*(\d+)\s*\|\s*(Week|Month):\s*([^\n]+)', text_content)
         if career_best_match:
             profile_data["career_best_rank"] = int(career_best_match.group(1))
-            profile_data["career_best_week"] = career_best_match.group(2).strip()
+            normalized = normalize_career_best_month(
+                career_best_match.group(3).strip(),
+                career_best_match.group(2).strip(),
+            )
+            if normalized.month:
+                profile_data["career_best_month"] = normalized.month
 
         if career_cell_text:
             profile_data["career_stats"] = parse_stats_cell(career_cell_text, "career")

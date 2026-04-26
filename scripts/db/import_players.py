@@ -11,7 +11,13 @@ import json
 import re
 from pathlib import Path
 
+CURRENT_DIR = Path(__file__).resolve().parent
+SCRIPTS_DIR = CURRENT_DIR.parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
 import config
+from lib.career_best import normalize_career_best_month
 
 # Windows 编码兼容
 if sys.platform == 'win32':
@@ -42,6 +48,23 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
     try:
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
+        player_cols = {row[1] for row in cursor.execute("PRAGMA table_info(players)")}
+        if 'career_best_month' not in player_cols:
+            cursor.execute("ALTER TABLE players ADD COLUMN career_best_month TEXT")
+            player_cols.add('career_best_month')
+        if 'career_best_week' in player_cols:
+            legacy_rows = cursor.execute("""
+                SELECT player_id, career_best_week
+                FROM players
+                WHERE career_best_month IS NULL AND career_best_week IS NOT NULL
+            """).fetchall()
+            for row_player_id, career_best_week in legacy_rows:
+                normalized = normalize_career_best_month(str(career_best_week), 'week').month
+                if normalized:
+                    cursor.execute(
+                        "UPDATE players SET career_best_month = ? WHERE player_id = ?",
+                        (normalized, row_player_id),
+                    )
 
         player_profiles_path = Path(player_profiles_dir)
         json_files = sorted(player_profiles_path.glob('player_*.json'))
@@ -71,6 +94,10 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                 career_stats = data.get('career_stats', {})
                 current_year_stats = data.get('current_year_stats', {})
 
+                career_best_month = data.get('career_best_month')
+                if not career_best_month and data.get('career_best_week'):
+                    career_best_month = normalize_career_best_month(str(data.get('career_best_week')), 'week').month
+
                 cursor.execute("""
                     INSERT OR REPLACE INTO players (
                         player_id, name, name_zh, slug, country, country_code,
@@ -79,7 +106,7 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                         avatar_url, avatar_file,
                         career_events, career_matches, career_wins, career_losses,
                         career_wtt_titles, career_all_titles,
-                        career_best_rank, career_best_week,
+                        career_best_rank, career_best_month,
                         year_events, year_matches, year_wins, year_losses,
                         year_games, year_games_won, year_games_lost,
                         year_wtt_titles, year_all_titles,
@@ -101,7 +128,7 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                     career_stats.get('wtt_senior_titles', 0),
                     career_stats.get('all_senior_titles', 0),
                     data.get('career_best_rank'),
-                    data.get('career_best_week'),
+                    career_best_month,
                     current_year_stats.get('events', 0),
                     current_year_stats.get('matches', 0),
                     current_year_stats.get('wins', 0),
