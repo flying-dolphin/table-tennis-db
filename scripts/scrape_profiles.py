@@ -90,6 +90,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--checkpoint", default="data/player_profiles/checkpoint_scrape_profiles.json", help="Scrape checkpoint file path")
     parser.add_argument("--player-id", type=str, default=None, help="Player ID (player_id_raw)")
     parser.add_argument("--player-name", type=str, default=None, help="Player name (URL encoded)")
+    parser.add_argument("--player-file", type=str, default=None, help="Batch file (player_id,player_name per line)")
     parser.add_argument("--force", action="store_true", help="Force rescrape (ignore checkpoint)")
     parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing orig/cn files")
     return parser
@@ -735,6 +736,25 @@ def _bootstrap_profiles_checkpoint_from_orig(
                 checkpoint.mark_done(ck_scrape, meta={"bootstrapped_from": str(p)})
 
 
+def load_player_file(player_file: str) -> list[dict[str, Any]]:
+    """Load player_id,player_name from CSV-like file."""
+    players = []
+    path = Path(player_file)
+    if not path.exists():
+        raise FileNotFoundError(f"Player file not found: {player_file}")
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split(",")
+        if len(parts) >= 2:
+            players.append({
+                "player_id": parts[0].strip(),
+                "player_name": parts[1].strip(),
+            })
+    return players
+
+
 def run(args: argparse.Namespace) -> int:
     snapshot_dir = Path(args.snapshot_dir)
     snapshot_dir.mkdir(parents=True, exist_ok=True)
@@ -768,7 +788,13 @@ def run(args: argparse.Namespace) -> int:
 
     player_id_arg = getattr(args, "player_id", None)
     player_name_arg = getattr(args, "player_name", None)
+    player_file_arg = getattr(args, "player_file", None)
     direct_player_mode = bool(player_id_arg and player_name_arg)
+    player_file_mode = bool(player_file_arg)
+
+    if player_file_mode:
+        players_from_file = load_player_file(player_file_arg)
+        logger.info("Loaded %d players from file: %s", len(players_from_file), player_file_arg)
 
     try:
         from playwright.sync_api import sync_playwright
@@ -821,6 +847,39 @@ def run(args: argparse.Namespace) -> int:
                     return 4
                 rankings = [player_info]
                 week, update_date = "", ""
+            elif player_file_mode:
+                logger.info("Batch player-file mode: scraping %d players...", len(players_from_file))
+                for idx, pf in enumerate(players_from_file):
+                    pid = pf.get("player_id")
+                    pname = pf.get("player_name")
+                    profile_url = f"{BASE_URL}/index.php/player-profile/list/60?resetfilters=1&vw_profiles___player_id_raw={pid}&vw_profiles___Name_raw={urllib.parse.quote(pname)}"
+                    player_info = {
+                        "player_id": pid,
+                        "name": pname,
+                        "english_name": pname,
+                        "profile_url": profile_url,
+                    }
+                    logger.info("[%d/%d] Batch scraping: %s (id=%s)", idx + 1, len(players_from_file), pname, pid)
+                    profile_data, scraped_now = scrape_player_profile(
+                        page,
+                        profile_url,
+                        player_info,
+                        delay_cfg,
+                        profile_orig_dir,
+                        avatar_dir,
+                        db_path,
+                        checkpoint=checkpoint,
+                        category=args.category,
+                        force=bool(args.force),
+                    )
+                    if profile_data is None:
+                        logger.error("Profile scrape failed: %s", pname)
+                        close_browser_page(via_cdp, browser, page)
+                        return 4
+                    if scraped_now and idx < len(players_from_file) - 1:
+                        human_sleep(delay_cfg.min_player_gap_sec, delay_cfg.max_player_gap_sec, "between player profiles")
+                rankings = players_from_file
+                week, update_date = "", ""
             else:
                 open_page_with_verification(page, target_url, delay_cfg, f"open ranking page: {args.category}")
 
@@ -868,7 +927,7 @@ def run(args: argparse.Namespace) -> int:
 
                 week, update_date = extract_update_meta(page, args.category)
             
-            if not direct_player_mode:
+            if not direct_player_mode and not player_file_mode:
                 payload = build_output(rankings, args.category, week, update_date)
                 save_json(output_path, payload)
                 logger.info("Saved ranking JSON: %s", output_path)
