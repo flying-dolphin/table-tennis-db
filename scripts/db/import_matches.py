@@ -210,8 +210,51 @@ def parse_event_id(value) -> int | None:
         return None
 
 
+def parse_event_year(value) -> int | None:
+    if value in (None, ""):
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def parse_event_id_from_filename(json_file: Path) -> int | None:
+    match = re.search(r"_(\d+)\.json$", json_file.name, re.IGNORECASE)
+    if not match:
+        return None
+    return parse_event_id(match.group(1))
+
+
+def resolve_event_row_for_payload(data: dict, json_file: Path, event_index: dict) -> dict | None:
+    event_name = (data.get("event") or data.get("event_name") or "").strip()
+    event_year = parse_event_year(data.get("event_year"))
+
+    explicit_event_id = parse_event_id(data.get("event_id"))
+    if explicit_event_id is not None:
+        return event_index["by_id"].get(explicit_event_id)
+
+    filename_event_id = parse_event_id_from_filename(json_file)
+    if filename_event_id is not None:
+        candidate = event_index["by_id"].get(filename_event_id)
+        if candidate is not None:
+            same_name = (
+                not event_name
+                or normalize_event_name(event_name) == normalize_event_name(candidate["name"])
+            )
+            same_year = event_year is None or candidate["year"] is None or event_year == candidate["year"]
+            if same_name and same_year:
+                return candidate
+
+    resolved_event_id = resolve_event_id(event_index, event_name, event_year)
+    if resolved_event_id is not None:
+        return event_index["by_id"].get(resolved_event_id)
+
+    return None
+
+
 def is_event_matches_payload(data: dict) -> bool:
-    return isinstance(data.get("matches"), list) and data.get("event_id") not in (None, "")
+    return isinstance(data.get("matches"), list)
 
 
 def iter_event_matches_payload(
@@ -220,12 +263,14 @@ def iter_event_matches_payload(
     event_index: dict,
     result: dict,
 ) -> Iterator[tuple[dict, dict]]:
-    event_id = parse_event_id(data.get("event_id"))
     event_name = (data.get("event") or data.get("event_name") or "").strip()
-    event_row = event_index["by_id"].get(event_id) if event_id is not None else None
+    event_row = resolve_event_row_for_payload(data, json_file, event_index)
+    event_id = event_row["event_id"] if event_row is not None else None
 
     if event_id is None:
-        result["skipped_files"].append(f"{json_file.name}: missing/invalid event_id")
+        result["skipped_files"].append(
+            f"{json_file.name}: missing/invalid event_id and cannot resolve by filename or event_name+event_year"
+        )
         return
     if event_row is None:
         result["skipped_files"].append(f"{json_file.name}: event_id={event_id} not found in events")
