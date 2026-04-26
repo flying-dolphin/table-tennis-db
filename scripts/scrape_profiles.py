@@ -5,6 +5,8 @@ ITTF player profile scraper.
 Scrapes player profiles from results.ittf.link ranking pages.
 Uses the ranking table as input source to get player list,
 then scrapes individual profile pages for detailed data.
+
+注意：这个脚本有个bug，无法获取country code！待废弃
 """
 
 from __future__ import annotations
