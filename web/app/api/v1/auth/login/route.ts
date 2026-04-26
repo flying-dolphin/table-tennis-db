@@ -1,11 +1,17 @@
 import { type NextRequest } from 'next/server';
 import { ok, error } from '@/lib/server/api';
+import { assertTrustedOrigin } from '@/lib/server/csrf';
 import { db } from '@/lib/server/db';
-import { verifyPassword, createSession, SESSION_COOKIE } from '@/lib/server/auth';
-import { rateLimit } from '@/lib/server/ratelimit';
+import { verifyPassword, createSession, SESSION_COOKIE, getSessionCookieOptions } from '@/lib/server/auth';
+import { getClientIp, rateLimit } from '@/lib/server/ratelimit';
 
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get('x-forwarded-for') ?? 'local';
+  const originCheck = assertTrustedOrigin(request);
+  if (!originCheck.ok) {
+    return error(403, 4031, originCheck.message);
+  }
+
+  const ip = getClientIp(request);
   if (!rateLimit(`login:${ip}`, 10, 15 * 60 * 1000)) {
     return error(429, 4290, '登录请求过于频繁，请 15 分钟后再试');
   }
@@ -41,11 +47,6 @@ export async function POST(request: NextRequest) {
   const { token, maxAge } = createSession(user.user_id);
 
   const response = ok({ user_id: user.user_id, username: user.username, email: user.email });
-  response.cookies.set(SESSION_COOKIE, token, {
-    httpOnly: true,
-    sameSite: 'lax',
-    maxAge,
-    path: '/',
-  });
+  response.cookies.set(SESSION_COOKIE, token, getSessionCookieOptions(maxAge));
   return response;
 }

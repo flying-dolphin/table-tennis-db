@@ -1,14 +1,20 @@
 import { type NextRequest } from 'next/server';
 import { ok, error } from '@/lib/server/api';
+import { assertTrustedOrigin } from '@/lib/server/csrf';
 import { db } from '@/lib/server/db';
-import { hashPassword, createSession, SESSION_COOKIE, verifyEmailCode } from '@/lib/server/auth';
-import { rateLimit } from '@/lib/server/ratelimit';
+import { hashPassword, createSession, SESSION_COOKIE, verifyEmailCode, getSessionCookieOptions } from '@/lib/server/auth';
+import { getClientIp, rateLimit } from '@/lib/server/ratelimit';
 
 const USERNAME_RE = /^[a-zA-Z0-9][a-zA-Z0-9_]{2,19}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get('x-forwarded-for') ?? 'local';
+  const originCheck = assertTrustedOrigin(request);
+  if (!originCheck.ok) {
+    return error(403, 4031, originCheck.message);
+  }
+
+  const ip = getClientIp(request);
   if (!rateLimit(`register:${ip}`, 5, 15 * 60 * 1000)) {
     return error(429, 4290, '注册请求过于频繁，请 15 分钟后再试');
   }
@@ -45,17 +51,20 @@ export async function POST(request: NextRequest) {
     return error(400, 4007, '密码长度不能超过 50 个字符');
   }
 
-  if (!code || typeof code !== 'string' || code.trim() === '') {
-    return error(400, 4008, '请输入邮箱验证码');
-  }
-  if (!verifyEmailCode(trimmedEmail, code.trim())) {
-    return error(400, 4009, '验证码错误或已过期');
-  }
-
   const existingEmail = db.prepare(
     'SELECT user_id FROM users WHERE email = ? COLLATE NOCASE'
   ).get(trimmedEmail);
   if (existingEmail) return error(409, 4091, '该邮箱已被注册');
+
+  if (!code || typeof code !== 'string' || code.trim() === '') {
+    return error(400, 4008, '请输入邮箱验证码');
+  }
+  if (!rateLimit(`verify-code-email:${trimmedEmail}`, 10, 10 * 60 * 1000)) {
+    return error(429, 4292, '验证码校验过于频繁，请稍后再试');
+  }
+  if (!verifyEmailCode(trimmedEmail, code.trim())) {
+    return error(400, 4009, '验证码错误或已过期');
+  }
 
   const existingUsername = db.prepare(
     'SELECT user_id FROM users WHERE username = ? COLLATE NOCASE'
@@ -71,11 +80,6 @@ export async function POST(request: NextRequest) {
   const { token, maxAge } = createSession(userId);
 
   const response = ok({ user_id: userId, username: trimmedUsername, email: trimmedEmail });
-  response.cookies.set(SESSION_COOKIE, token, {
-    httpOnly: true,
-    sameSite: 'lax',
-    maxAge,
-    path: '/',
-  });
+  response.cookies.set(SESSION_COOKIE, token, getSessionCookieOptions(maxAge));
   return response;
 }

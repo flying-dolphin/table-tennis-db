@@ -26,7 +26,7 @@ export default function TermsPage() {
         <p className="text-caption text-text-tertiary mb-6">生效日期：{EFFECTIVE_DATE}</p>
 
         <p className="text-body text-text-secondary leading-relaxed mb-8">
-          欢迎使用{APP_NAME}（以下简称"本平台"或"我们"）。在使用本平台前，请仔细阅读并理解以下用户协议。注册或使用本平台即表示您已阅读、理解并同意受本协议约束。
+          欢迎使用{APP_NAME}（以下简称“本平台”或“我们”）。在使用本平台前，请仔细阅读并理解以下用户协议。注册或使用本平台即表示您已阅读、理解并同意受本协议约束。
         </p>
 
         <Section title="一、服务说明">

@@ -26,7 +26,7 @@ export default function PrivacyPage() {
         <p className="text-caption text-text-tertiary mb-6">生效日期：{EFFECTIVE_DATE}</p>
 
         <p className="text-body text-text-secondary leading-relaxed mb-8">
-          {APP_NAME}（以下简称"我们"）非常重视您的隐私保护。本政策说明我们如何收集、使用和保护您在使用本平台过程中产生的信息。请在使用前仔细阅读。
+          {APP_NAME}（以下简称“我们”）非常重视您的隐私保护。本政策说明我们如何收集、使用和保护您在使用本平台过程中产生的信息。请在使用前仔细阅读。
         </p>
 
         <Section title="一、我们收集哪些信息">
@@ -81,9 +81,9 @@ export default function PrivacyPage() {
         <Section title="五、您的权利">
           <p>您对自己的个人信息拥有以下权利：</p>
           <ul>
-            <li><strong>查看</strong>：登录后可在"我的"页面查看您的账号信息。</li>
+            <li><strong>查看</strong>：登录后可在“我的”页面查看您的账号信息。</li>
             <li><strong>注销</strong>：您可随时联系我们申请注销账号，注销后我们将删除您的账号信息。</li>
-            <li><strong>退出登录</strong>：可随时在"我的"页面退出登录，清除会话状态。</li>
+            <li><strong>退出登录</strong>：可随时在“我的”页面退出登录，清除会话状态。</li>
           </ul>
           <p>如需行使上述权利，请发送邮件至 <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-deep hover:underline">{CONTACT_EMAIL}</a>。</p>
         </Section>

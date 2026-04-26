@@ -1,14 +1,20 @@
 import { type NextRequest } from 'next/server';
 import { ok, error } from '@/lib/server/api';
+import { assertTrustedOrigin } from '@/lib/server/csrf';
 import { db } from '@/lib/server/db';
 import { createEmailCode } from '@/lib/server/auth';
 import { sendVerificationCode } from '@/lib/server/mailer';
-import { rateLimit } from '@/lib/server/ratelimit';
+import { getClientIp, rateLimit } from '@/lib/server/ratelimit';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get('x-forwarded-for') ?? 'local';
+  const originCheck = assertTrustedOrigin(request);
+  if (!originCheck.ok) {
+    return error(403, 4031, originCheck.message);
+  }
+
+  const ip = getClientIp(request);
   if (!rateLimit(`send-code:${ip}`, 5, 60 * 1000)) {
     return error(429, 4290, '发送过于频繁，请稍后再试');
   }
@@ -34,7 +40,7 @@ export async function POST(request: NextRequest) {
   // Check if email is already registered
   const existing = db.prepare('SELECT user_id FROM users WHERE email = ? COLLATE NOCASE').get(trimmedEmail);
   if (existing) {
-    return error(409, 4091, '该邮箱已被注册');
+    return ok({ sent: true });
   }
 
   const code = createEmailCode(trimmedEmail);
@@ -42,7 +48,8 @@ export async function POST(request: NextRequest) {
   try {
     await sendVerificationCode(trimmedEmail, code);
   } catch (err) {
-    console.error('[send-code] mail error:', err);
+    const detail = err instanceof Error ? err.message : 'unknown';
+    console.error('[send-code] mail error:', detail);
     return error(500, 5001, '验证码发送失败，请检查邮箱地址或稍后重试');
   }
 

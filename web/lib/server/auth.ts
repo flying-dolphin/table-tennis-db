@@ -4,6 +4,30 @@ import { db } from '@/lib/server/db';
 export const SESSION_COOKIE = 'ittf_session';
 export const SESSION_DAYS = 30;
 
+function shouldUseSecureSessionCookie(): boolean {
+  const override = process.env.SESSION_COOKIE_SECURE;
+  if (override === 'true') return true;
+  if (override === 'false') return false;
+  return process.env.NODE_ENV === 'production';
+}
+
+export function getSessionCookieOptions(maxAge: number) {
+  return {
+    httpOnly: true,
+    sameSite: 'lax' as const,
+    secure: shouldUseSecureSessionCookie(),
+    maxAge,
+    path: '/',
+  };
+}
+
+export function getExpiredSessionCookieOptions() {
+  return {
+    ...getSessionCookieOptions(0),
+    maxAge: 0,
+  };
+}
+
 // Ensure auth tables exist at module load time
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
