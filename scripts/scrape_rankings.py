@@ -13,6 +13,7 @@ import json
 import logging
 import re
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -240,9 +241,11 @@ def _find_details_row(row: Any) -> Any | None:
     return None
 
 
-def _parse_rrow_row(row: Any) -> dict[str, Any] | None:
+def _parse_rrow_row(row: Any, idx: int = 0) -> dict[str, Any] | None:
+    start_time = time.time()
     cells = row.locator("td")
     if cells.count() < 4:
+        logger.warning("[Row %d] cells.count=%d, returning None", idx, cells.count())
         return None
 
     rank_text, rank_loc = _first_existing_text(
@@ -257,6 +260,7 @@ def _parse_rrow_row(row: Any) -> dict[str, Any] | None:
     )
     rank_match = re.search(r"\d+", rank_text)
     if not rank_match:
+        logger.debug("[Row %d] rank_text='%s', no rank match", idx, rank_text)
         return None
     rank = int(rank_match.group())
 
@@ -291,6 +295,7 @@ def _parse_rrow_row(row: Any) -> dict[str, Any] | None:
         ],
     )
     if not name:
+        logger.debug("[Row %d] name empty", idx)
         return None
 
     name = normalize_player_name(name)
@@ -317,6 +322,9 @@ def _parse_rrow_row(row: Any) -> dict[str, Any] | None:
     )
     points_text = re.sub(r"[,\s]", "", points_text)
     points = int(points_text) if points_text.isdigit() else 0
+
+    elapsed = time.time() - start_time
+    logger.debug("[Row %d] parsed in %.3fs: rank=%d name='%s' points=%d", idx, elapsed, rank, name, points)
 
     details_row = _find_details_row(row)
     points_breakdown = _parse_breakdown_table(details_row) if details_row is not None else []
@@ -396,24 +404,36 @@ def _parse_fabrik_row(row: Any) -> dict[str, Any] | None:
 def parse_ranking_table(page: Any, top_n: int) -> list[dict[str, Any]]:
     """Parse the ranking table from the current page."""
     rankings: list[dict[str, Any]] = []
+    start_time = time.time()
 
     rows = page.locator("tr.rrow")
     if rows.count() == 0:
         rows = page.locator("table#list_58_com_fabrik_58 tr.fabrik_row")
 
     row_count = rows.count()
+    logger.info("Found %d rows, parsing top %d...", row_count, top_n)
     if row_count == 0:
         logger.error("No ranking rows found on page")
         return rankings
 
+    parse_time = time.time()
     for idx in range(min(row_count, top_n)):
+        row_start = time.time()
         row = rows.nth(idx)
-        player = _parse_rrow_row(row)
+        player = _parse_rrow_row(row, idx)
         if player is None:
             player = _parse_fabrik_row(row)
         if player is not None:
             rankings.append(player)
+        
+        if (idx + 1) % 10 == 0 or idx + 1 == min(row_count, top_n):
+            elapsed = time.time() - row_start
+            logger.info("Parsed %d/%d rows (%.2fs, avg %.3fs/row)", 
+                      idx + 1, min(row_count, top_n), elapsed, elapsed / (idx + 1))
 
+    total_time = time.time() - start_time
+    logger.info("Parsing complete: %d rankings in %.2fs (avg %.3fs/row)", 
+                len(rankings), total_time, total_time / len(rankings) if rankings else 0)
     return rankings[:top_n]
 
 
