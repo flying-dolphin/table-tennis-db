@@ -1,0 +1,66 @@
+# 服务器 A 上的 ITTF Web 应用
+#
+# 两种使用方式：
+#
+# A. 从阿里云 ACR 拉镜像（生产推荐）
+#    在 .env 里设置 ITTF_WEB_IMAGE=crpi-.../doubao_tt/doubao_web:vX.Y.Z
+#    docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env pull web
+#    docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env up -d
+#
+# B. 本地构建（开发或紧急修复）
+#    不设置 ITTF_WEB_IMAGE，会用 build: 里的 Dockerfile 构建为 ittf-web:local
+#    docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env build
+#    docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env up -d
+
+services:
+  web:
+    image: ${ITTF_WEB_IMAGE:-ittf-web:local}
+    container_name: ittf-web
+    build:
+      context: ../..              # 仓库根目录（需要拷贝 scripts/db）
+      dockerfile: deploy/web/Dockerfile
+      args:
+        # build 时内联到客户端 bundle 的变量；这些都是公开标识符，不是机密
+        NEXT_PUBLIC_UMAMI_URL: ${NEXT_PUBLIC_UMAMI_URL:-}
+        NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${NEXT_PUBLIC_UMAMI_WEBSITE_ID:-}
+        NEXT_PUBLIC_CLARITY_PROJECT_ID: ${NEXT_PUBLIC_CLARITY_PROJECT_ID:-}
+        NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
+        NEXT_PUBLIC_SENTRY_ENV: ${NEXT_PUBLIC_SENTRY_ENV:-production}
+        SENTRY_ORG: ${SENTRY_ORG:-}
+        SENTRY_PROJECT: ${SENTRY_PROJECT:-}
+      # SENTRY_AUTH_TOKEN 通过 secret 挂载传给 RUN，绝不进 build args / 镜像层
+      secrets:
+        - sentry_auth_token
+    restart: unless-stopped
+    environment:
+      # 运行时变量（SMTP / Sentry server-side）
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_SECURE: ${SMTP_SECURE}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_FROM: ${SMTP_FROM}
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      SENTRY_ENV: ${SENTRY_ENV:-production}
+    volumes:
+      # SQLite 数据库与抓取产物：宿主 /opt/ittf/data ↔ 容器 /app/data
+      # （web/lib/paths.ts 里 DB_FILE 是 ../data/db/ittf.db，容器工作目录在 /app/web）
+      - ${ITTF_DATA_DIR:-/opt/ittf/data}:/app/data
+    ports:
+      - "127.0.0.1:3000:3000"
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:3000').then(r => process.exit(r.ok ? 0 : 1))\""]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+
+secrets:
+  # 从宿主进程环境里读 SENTRY_AUTH_TOKEN（compose 启动时已加载 .env，所以这里可见）
+  # build 阶段会以 tmpfs 文件挂到容器 /run/secrets/sentry_auth_token，仅 RUN 步骤可读
+  sentry_auth_token:
+    environment: SENTRY_AUTH_TOKEN

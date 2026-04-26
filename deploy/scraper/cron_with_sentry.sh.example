@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# 在 sentry-cli monitors run 包装下跑 sync_to_server_a.sh
+# 复制为 cron_with_sentry.sh，按实际填入 SENTRY_* 变量后给 cron 用
+#
+# 安装 sentry-cli（一次性）：
+#   curl -sL https://sentry.io/get-cli/ | bash
+#
+# 创建 monitor（一次性）：
+#   1. Sentry → Crons → Add Monitor
+#   2. Slug 填 ittf-data-sync
+#   3. Schedule 选 Crontab，填入与 cron 一致的表达式（例如 0 3 * * 1）
+#   4. Checkin Margin: 30 分钟（容忍稍迟）
+#   5. Max Runtime: 60 分钟（超过算失败）
+#   6. Failure Tolerance: 0（一次失败就告警）
+#
+# Cron 配置示例（每周一凌晨 3 点）：
+#   0 3 * * 1 /local/ittf/deploy/scraper/cron_with_sentry.sh >> /local/ittf/scripts/logs/cron.log 2>&1
+
+set -euo pipefail
+
+# ===== Sentry 配置 =====
+export SENTRY_AUTH_TOKEN=填你的 token
+export SENTRY_ORG=你的 org slug
+export SENTRY_PROJECT=ittf
+MONITOR_SLUG=ittf-data-sync
+
+# sentry-cli monitors run 自动：
+#   - 启动时发 in_progress check-in
+#   - 退出码 0 发 ok，非 0 发 error
+#   - 自动记录 duration
+exec sentry-cli monitors run "${MONITOR_SLUG}" -- \
+    /local/ittf/deploy/scraper/sync_to_server_a.sh

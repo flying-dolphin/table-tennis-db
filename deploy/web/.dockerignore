@@ -1,0 +1,45 @@
+# 这个文件位于仓库根目录的 deploy/web/，但 Dockerfile build context 是仓库根目录，
+# 所以 docker 会找根目录的 .dockerignore（不是这个）。请把内容复制到根目录的 .dockerignore，
+# 或者把本文件软链/复制为根目录的 .dockerignore。
+#
+# 路径相对于构建上下文（仓库根）
+
+# 大文件 / 临时
+**/node_modules
+**/.next
+**/.turbo
+**/__pycache__
+**/.venv
+**/venv
+**/.pytest_cache
+**/dist
+**/build
+
+# 数据（运行时通过 volume 挂载，不进镜像）
+data/event_matches
+data/matches
+data/matches_complete
+data/raw_event_payloads
+data/player_avatars
+data/checkpoints
+data/session
+data/ranking_snapshots
+data/db/*.db
+data/db/*.db-*
+
+# 开发产物
+**/tmp
+**/tmp_*.json
+**/test_*.csv
+.git
+.idea
+.vscode
+.DS_Store
+*.log
+
+# 不需要的子项目
+SynologyDrive
+references
+output
+demo
+design-system

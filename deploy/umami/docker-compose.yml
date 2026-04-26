@@ -1,0 +1,69 @@
+# Umami 自建 - 部署在服务器 B
+#
+# 拓扑：
+#   - 服务器 A：Next.js 应用 + 主 PostgreSQL/Redis/MongoDB/FastAPI（与本文件无关）
+#   - 服务器 B：本 docker-compose 启动 Umami + 专用 PostgreSQL（仅服务 Umami）
+#
+# 使用方式：
+#   1. cp .env.example .env  并填入随机密码
+#   2. docker compose up -d
+#   3. 配 nginx 反代到 127.0.0.1:3001（见 nginx.conf.example）
+#
+# 端口映射策略：所有服务只在 127.0.0.1 监听，由宿主 nginx 反代对外。
+# 如需暂时直连测试，把 umami 的 ports 改成 "3001:3000" 即可。
+
+services:
+  umami-db:
+    image: postgres:16-alpine
+    container_name: umami-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD}
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    networks:
+      - umami-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami -d umami"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    container_name: umami
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD}@umami-db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: ${UMAMI_APP_SECRET}
+      # 关闭遥测（Umami 默认会把匿名使用统计上报给官方）
+      DISABLE_TELEMETRY: "1"
+      # 反代后必须告诉 Umami 它的真实 URL，否则邮件/链接生成会出错
+      # 也可省略，仅当 Umami 行为异常时再启用
+      # TRACKER_SCRIPT_NAME: script.js
+    ports:
+      - "127.0.0.1:3001:3000"
+    depends_on:
+      umami-db:
+        condition: service_healthy
+    networks:
+      - umami-net
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+volumes:
+  umami-db-data:
+    driver: local
+
+networks:
+  umami-net:
+    driver: bridge
