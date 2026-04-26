@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS players (
     career_wtt_titles   INTEGER DEFAULT 0,
     career_all_titles   INTEGER DEFAULT 0,
     career_best_rank    INTEGER,
-    career_best_week    TEXT,
+    career_best_month   TEXT,
     year_events         INTEGER DEFAULT 0,
     year_matches        INTEGER DEFAULT 0,
     year_wins           INTEGER DEFAULT 0,
