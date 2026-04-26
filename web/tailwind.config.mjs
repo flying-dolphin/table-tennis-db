@@ -1,5 +1,3 @@
-import type { Config } from "tailwindcss";
-
 export default {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -37,6 +35,14 @@ export default {
           DEFAULT: '#C5A059',
           bg: 'rgba(197,160,89,0.1)',
         },
+        silver: {
+          DEFAULT: '#8E8E8E',
+          bg: 'rgba(192,192,192,0.1)',
+        },
+        bronze: {
+          DEFAULT: '#CD7F32',
+          bg: 'rgba(205,127,50,0.1)',
+        },
         state: {
           success: "#4E9B7A",
           danger: "#C56B72",
@@ -59,7 +65,7 @@ export default {
         'data-hero': ['24px', { lineHeight: '1.15', letterSpacing: '-0.01em' }],
         'heading-1': ['20px', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
         'heading-2': ['17px', { lineHeight: '1.3' }],
-        'body-lg': ['15px', { lineHeight: '1.4' }],
+        'body-lg': ['16px', { lineHeight: '1.4' }],
         'body': ['14px', { lineHeight: '1.5' }],
         'caption': ['12px', { lineHeight: '1.4', letterSpacing: '0.01em' }],
         'micro': ['10px', { lineHeight: '1.3', letterSpacing: '0.03em' }],
@@ -72,4 +78,4 @@ export default {
     },
   },
   plugins: [],
-} satisfies Config;
+};
