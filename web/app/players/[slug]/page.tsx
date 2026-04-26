@@ -860,8 +860,7 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
                           {opponent.nameZh?.trim() || opponent.name}
                         </h3>
                         <p className="mt-1 truncate text-[0.8rem] font-medium text-slate-400">
-                          {opponent.name}
-                          {opponent.latestDate ? ` · 最近 ${displayDate(opponent.latestDate)}` : ""}
+                          {opponent.latestDate ? `最近 ${displayDate(opponent.latestDate)}` : ""}
                         </p>
                       </div>
                     </div>
@@ -881,7 +880,7 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
               }
 
               return (
-                <Link key={opponent.slug} href={route(`/players/${opponent.slug}`)} className="block">
+                <Link key={opponent.slug} href={route(`/compare?player_a=${slug}&player_b=${opponent.slug}`)} className="block">
                   {content}
                 </Link>
               );
