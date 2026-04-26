@@ -4,6 +4,7 @@ import { Noto_Sans_SC, Inter } from 'next/font/google';
 import 'flag-icons/css/flag-icons.min.css';
 import './globals.css';
 import BottomNav from '@/components/BottomNav';
+import Analytics from '@/components/Analytics';
 import { APP_NAME, APP_DESCRIPTION } from '@/lib/constants';
 
 const notoSansSC = Noto_Sans_SC({
@@ -32,6 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Suspense fallback={null}>
           <BottomNav />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Analytics />
         </Suspense>
       </body>
     </html>

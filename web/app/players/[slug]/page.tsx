@@ -46,6 +46,7 @@ type Player = {
   rankChange: number | null;
   points: number | null;
   careerBestRank: number | null;
+  careerBestMonth?: string | null;
   yearEvents: number | null;
   yearMatches: number | null;
   yearWins: number | null;
@@ -315,19 +316,22 @@ function HeroPlayerAvatar({ player }: { player: Player }) {
   const [error, setError] = React.useState(false);
   const displayName = displayPlayerName(player);
   const filename = player.avatarFile || `player_${player.playerId}_${player.name.replace(/ /g, "_")}.png`;
+  const src = `/images/avatars/${filename}`;
 
   if (error) {
     return (
-      <div className="grid h-full w-full place-items-center rounded-[2rem] bg-[linear-gradient(135deg,#31406c_0%,#162655_100%)]">
-        <span className="text-[2.5rem] font-black text-white/88">{displayName.slice(0, 1)}</span>
-      </div>
+      <img
+        src="/images/avatars/player_default.png"
+        alt={displayName}
+        className="h-full w-full object-cover"
+      />
     );
   }
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={`/images/avatars/${filename}`}
+      src={src}
       alt={displayName}
       className="h-full w-full object-cover"
       onError={() => setError(true)}

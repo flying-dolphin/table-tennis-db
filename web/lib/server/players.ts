@@ -44,6 +44,7 @@ export function getPlayerBySlug(slug: string) {
           p.age,
           p.style_zh AS styleZh,
           p.career_best_rank AS careerBestRank,
+          p.career_best_month AS careerBestMonth,
           p.career_matches AS careerMatches,
           p.career_wins AS careerWins,
           p.year_events AS yearEvents,
@@ -77,6 +78,7 @@ export function getPlayerBySlug(slug: string) {
         age: number | null;
         styleZh: string | null;
         careerBestRank: number | null;
+        careerBestMonth: string | null;
         careerMatches: number | null;
         careerWins: number | null;
         yearEvents: number | null;

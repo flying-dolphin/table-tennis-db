@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Search } from "lucide-react";
 
 export default function SearchBox() {
@@ -8,11 +8,12 @@ export default function SearchBox() {
   const [authState, setAuthState] = useState<"unknown" | "authenticated" | "unauthenticated">("unknown");
   const [checkingAuth, setCheckingAuth] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
-  const [showComingSoonPrompt, setShowComingSoonPrompt] = useState(false);
+  const [showNotFoundPrompt, setShowNotFoundPrompt] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const placeholder = "试试：孙颖莎、王曼昱最近 3 年交手记录";
+  const placeholder = "搜索球员或赛事，例如：孙颖莎 或 澳门世界杯";
 
-  async function checkLoggedIn(): Promise<boolean> {
+  const checkLoggedIn = useCallback(async (): Promise<boolean> => {
     if (authState === "authenticated") return true;
     if (authState === "unauthenticated") return false;
     if (checkingAuth) return false;
@@ -33,27 +34,60 @@ export default function SearchBox() {
     } finally {
       setCheckingAuth(false);
     }
-  }
+  }, [authState, checkingAuth]);
 
   async function handleInputFocus() {
-    inputRef.current?.blur();
-    setShowComingSoonPrompt(true);
-
-    // Keep the auth gate logic for future reopening of search.
-    if (authState !== "authenticated") {
-      void checkLoggedIn();
+    if (authState === "unauthenticated") {
+      inputRef.current?.blur();
+      setShowLoginPrompt(true);
+      return;
+    }
+    const isLoggedIn = await checkLoggedIn();
+    if (!isLoggedIn) {
+      inputRef.current?.blur();
+      setShowLoginPrompt(true);
     }
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setShowComingSoonPrompt(true);
+    if (!query.trim() || isSearching) return;
 
-    // Keep the original submit path warm for future reopening.
-    if (authState === "authenticated") {
+    const isLoggedIn = await checkLoggedIn();
+    if (!isLoggedIn) {
+      setShowLoginPrompt(true);
       return;
     }
-    void checkLoggedIn();
+
+    setIsSearching(true);
+    try {
+      const playerRes = await fetch(`/api/v1/players/search?q=${encodeURIComponent(query.trim())}&limit=1`);
+      if (playerRes.ok) {
+        const payload = await playerRes.json();
+        const items = payload.data?.items || [];
+        if (items.length > 0) {
+          window.location.href = `/players/${items[0].slug}`;
+          return;
+        }
+      }
+
+      const eventRes = await fetch(`/api/v1/events?q=${encodeURIComponent(query.trim())}&limit=1`);
+      if (eventRes.ok) {
+        const payload = await eventRes.json();
+        const events = payload.data?.events || [];
+        if (events.length > 0) {
+          window.location.href = `/events/${events[0].eventId}`;
+          return;
+        }
+      }
+
+      setShowNotFoundPrompt(true);
+    } catch (e) {
+      console.error("Search failed:", e);
+      setShowNotFoundPrompt(true);
+    } finally {
+      setIsSearching(false);
+    }
   }
 
   return (
@@ -68,14 +102,16 @@ export default function SearchBox() {
             onChange={(e) => setQuery(e.target.value)}
             onFocus={handleInputFocus}
             placeholder={placeholder}
-            className="flex-1 bg-transparent border-none outline-none text-text-primary placeholder:text-text-tertiary font-medium text-body h-full"
+            className="flex-1 bg-transparent border-none outline-none text-text-primary placeholder:text-text-tertiary font-medium text-body h-full disabled:opacity-50"
             aria-label="搜索问题输入框"
+            disabled={isSearching}
           />
           <button
             type="submit"
-            className="shrink-0 px-2 py-1 text-caption font-medium text-brand-deep hover:text-brand-strong transition-colors"
+            disabled={isSearching}
+            className="shrink-0 px-2 py-1 text-caption font-medium text-brand-deep hover:text-brand-strong transition-colors disabled:opacity-50"
           >
-            搜索
+            {isSearching ? "搜索中" : "搜索"}
           </button>
         </div>
       </form>
@@ -110,17 +146,17 @@ export default function SearchBox() {
         </div>
       )}
 
-      {showComingSoonPrompt && (
+      {showNotFoundPrompt && (
         <div className="fixed inset-0 z-[70] bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
           <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-xl p-5">
-            <h3 className="text-heading-2 font-bold text-text-primary">搜索功能稍后开放</h3>
+            <h3 className="text-heading-2 font-bold text-text-primary">未找到结果</h3>
             <p className="mt-2 text-body text-text-secondary leading-relaxed">
-              首页搜索功能正在准备中，敬请期待。
+              目前仅支持人名和赛事搜索，未找到匹配的结果，请换个词试试。
             </p>
             <div className="mt-4 flex items-center justify-end">
               <button
                 type="button"
-                onClick={() => setShowComingSoonPrompt(false)}
+                onClick={() => setShowNotFoundPrompt(false)}
                 className="px-3 py-1.5 rounded-sm text-body font-semibold text-white bg-brand-deep hover:bg-brand-strong transition-colors"
               >
                 我知道了

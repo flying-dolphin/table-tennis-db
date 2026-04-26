@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ArrowLeft, Check, GitCompareArrows, X } from "lucide-react";
 import Link from "next/link";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
@@ -69,7 +69,7 @@ export default function RankingsPage() {
   const listScrollRef = React.useRef<HTMLDivElement>(null);
   const loadMoreRef = React.useRef<HTMLDivElement>(null);
 
-  const loadPlayers = async (offset: number, isInitial = false) => {
+  const loadPlayers = useCallback(async (offset: number, isInitial = false) => {
     if (isInitial) {
       setLoading(true);
     } else {
@@ -93,11 +93,11 @@ export default function RankingsPage() {
       setLoading(false);
       setLoadingMore(false);
     }
-  };
+  }, [sortBy]);
 
   useEffect(() => {
     loadPlayers(0, true);
-  }, [sortBy]);
+  }, [loadPlayers]);
 
   useEffect(() => {
     if (!hasMore || loadingMore) return;
@@ -113,7 +113,7 @@ export default function RankingsPage() {
       observer.observe(loadMoreRef.current);
     }
     return () => observer.disconnect();
-  }, [hasMore, loadingMore, players.length]);
+  }, [hasMore, loadingMore, loadPlayers, players.length]);
 
   const toggleSelect = (id: number) => {
     setSelectedIds((prev) => {

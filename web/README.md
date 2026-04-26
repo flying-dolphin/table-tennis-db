@@ -30,6 +30,22 @@ npm run dev
 
 数据库正式初始化与导入请使用 `scripts/db/*.py`。
 
+## 环境变量
+
+- `APP_ORIGIN`
+  - 生产环境站点的标准外部地址，例如 `https://example.com`
+  - 用于校验认证类 `POST` 请求的 `Origin`
+- `SESSION_COOKIE_SECURE`
+  - `true`：强制会话 Cookie 使用 `Secure`
+  - `false`：强制关闭 `Secure`
+  - 未设置：在 `NODE_ENV=production` 时自动启用
+- `TRUST_PROXY_HEADERS`
+  - `true`：允许从受信任代理头读取客户端 IP
+  - 建议仅在 Cloudflare / Nginx 等受控反向代理之后开启
+- `TRUSTED_PROXY_IP_HEADER`
+  - 默认 `cf-connecting-ip`
+  - 如果前面不是 Cloudflare，可改成你的反向代理注入的真实客户端 IP 头
+
 ## 适合后续扩展的方向
 
 - 增加球员头像、国旗、积分趋势图
