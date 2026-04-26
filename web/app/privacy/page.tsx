@@ -39,7 +39,7 @@ export default function PrivacyPage() {
           </SubSection>
           <SubSection label="自动产生的信息">
             <ul>
-              <li><strong>会话 Cookie</strong>：登录后我们会在您的浏览器中设置一个 HttpOnly 会话 Cookie，用于维持登录状态，有效期 30 天。</li>
+              <li><strong>会话 Cookie</strong>：登录后我们会在您的浏览器中维护一个会话 Cookie，用于维持登录状态，有效期 30 天。</li>
               <li><strong>搜索记录</strong>：您通过智能搜索功能提交的查询内容，用于返回搜索结果。目前我们不对搜索记录进行持久化存储。</li>
             </ul>
           </SubSection>
@@ -47,7 +47,6 @@ export default function PrivacyPage() {
             <ul>
               <li>我们不收集您的真实姓名、手机号码、身份证号或支付信息。</li>
               <li>我们不追踪您的地理位置。</li>
-              <li>我们不使用第三方广告追踪工具。</li>
             </ul>
           </SubSection>
         </Section>
@@ -65,27 +64,11 @@ export default function PrivacyPage() {
 
         <Section title="三、信息存储与安全">
           <ul>
-            <li>您的账号数据存储在本平台服务器的 SQLite 数据库中。</li>
-            <li>密码使用 <code className="text-caption bg-surface-tinted px-1 rounded">scrypt</code> 算法加密哈希后存储，即使数据库泄露也无法还原明文密码。</li>
-            <li>会话令牌使用加密随机数生成，每次登录产生唯一 token。</li>
             <li>我们采取合理的技术措施保护数据安全，但无法保证 100% 安全。如发生数据安全事件，我们将尽快通知受影响用户。</li>
           </ul>
         </Section>
 
-        <Section title="四、Cookie 说明">
-          <p>
-            本平台仅使用一个名为 <code className="text-caption bg-surface-tinted px-1 rounded">ittf_session</code> 的 HttpOnly Cookie，用于保持您的登录状态。该 Cookie：
-          </p>
-          <ul>
-            <li>仅在您登录后设置，有效期 30 天；</li>
-            <li>设置了 HttpOnly 属性，JavaScript 无法读取，有效防止 XSS 攻击；</li>
-            <li>设置了 SameSite=Lax 属性，防止跨站请求伪造；</li>
-            <li>退出登录后立即失效并被清除。</li>
-          </ul>
-          <p>我们不使用广告 Cookie 或第三方追踪 Cookie。</p>
-        </Section>
-
-        <Section title="五、信息共享">
+        <Section title="四、信息共享">
           <p>
             我们不会向任何第三方出售、出租或交换您的个人信息。以下情况除外：
           </p>
@@ -95,7 +78,7 @@ export default function PrivacyPage() {
           </ul>
         </Section>
 
-        <Section title="六、您的权利">
+        <Section title="五、您的权利">
           <p>您对自己的个人信息拥有以下权利：</p>
           <ul>
             <li><strong>查看</strong>：登录后可在"我的"页面查看您的账号信息。</li>
@@ -105,19 +88,19 @@ export default function PrivacyPage() {
           <p>如需行使上述权利，请发送邮件至 <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-deep hover:underline">{CONTACT_EMAIL}</a>。</p>
         </Section>
 
-        <Section title="七、未成年人保护">
+        <Section title="六、未成年人保护">
           <p>
             本平台不针对 14 周岁以下未成年人。若您是未成年人，请在监护人陪同下阅读本政策并在监护人同意后使用本平台。
           </p>
         </Section>
 
-        <Section title="八、隐私政策更新">
+        <Section title="七、隐私政策更新">
           <p>
             我们可能不定期更新本隐私政策。政策发生重大变更时，我们将在平台内发布通知。继续使用本平台即视为您同意更新后的政策。
           </p>
         </Section>
 
-        <Section title="九、联系我们">
+        <Section title="八、联系我们">
           <p>
             如您对本隐私政策有任何疑问或投诉，请通过以下方式联系我们：
           </p>
