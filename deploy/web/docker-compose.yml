@@ -33,19 +33,28 @@ services:
         - sentry_auth_token
     restart: unless-stopped
     environment:
-      # 运行时变量（SMTP / Sentry server-side）
+      # 运行时变量（SMTP / Sentry server-side / auth security / trusted proxy）
       SMTP_HOST: ${SMTP_HOST}
       SMTP_PORT: ${SMTP_PORT}
       SMTP_SECURE: ${SMTP_SECURE}
       SMTP_USER: ${SMTP_USER}
       SMTP_PASS: ${SMTP_PASS}
       SMTP_FROM: ${SMTP_FROM}
+      APP_ORIGIN: ${APP_ORIGIN:-}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-}
+      TRUST_PROXY_HEADERS: ${TRUST_PROXY_HEADERS:-false}
+      TRUSTED_PROXY_IP_HEADER: ${TRUSTED_PROXY_IP_HEADER:-cf-connecting-ip}
       SENTRY_DSN: ${SENTRY_DSN:-}
       SENTRY_ENV: ${SENTRY_ENV:-production}
     volumes:
       # SQLite 数据库与抓取产物：宿主 /opt/ittf/data ↔ 容器 /app/data
       # （web/lib/paths.ts 里 DB_FILE 是 ../data/db/ittf.db，容器工作目录在 /app/web）
       - ${ITTF_DATA_DIR:-/opt/ittf/data}:/app/data
+      # 头像图片：从宿主数据卷以只读方式挂到 Next.js public 目录。
+      # 镜像里这两个路径已被 .dockerignore 排除，部署前需先把仓库里的
+      # web/public/images/{avatars,crops} 拷到数据卷的 web_assets/{avatars,crops}。
+      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/avatars:/app/web/public/images/avatars:ro
+      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/crops:/app/web/public/images/crops:ro
     ports:
       - "127.0.0.1:3000:3000"
     healthcheck:

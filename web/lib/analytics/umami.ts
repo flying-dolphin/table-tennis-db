@@ -27,14 +27,19 @@ declare global {
 export const UMAMI_URL = process.env.NEXT_PUBLIC_UMAMI_URL;
 export const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 export const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+const isProduction = process.env.NODE_ENV === 'production';
 
 export const isUmamiEnabled = (): boolean => Boolean(UMAMI_URL && UMAMI_WEBSITE_ID);
-export const isClarityEnabled = (): boolean => Boolean(CLARITY_PROJECT_ID);
+export const isClarityEnabled = (): boolean => Boolean(isProduction && CLARITY_PROJECT_ID);
 
 /** 上报页面浏览。url 为站内路径（如 /rankings?week=2026-12）。 */
 export function trackPageview(url: string, referrer?: string): void {
   if (typeof window === 'undefined' || !window.umami) return;
-  window.umami.track({ url, referrer: referrer ?? document.referrer ?? '' });
+  window.umami.track((props: { url?: string; referrer?: string; title?: string; website?: string }) => ({
+    ...props,
+    url,
+    referrer: referrer ?? document.referrer ?? '',
+  }));
 }
 
 /**

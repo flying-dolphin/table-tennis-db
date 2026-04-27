@@ -1,0 +1,47 @@
+# 路径相对于构建上下文（仓库根）。Dockerfile 在 deploy/web/Dockerfile，
+# build context = 仓库根，所以这份 .dockerignore 必须放在根目录才会生效。
+
+# 大文件 / 临时
+**/node_modules
+**/.next
+**/.turbo
+**/__pycache__
+**/.venv
+**/venv
+**/.pytest_cache
+**/dist
+**/build
+
+# 数据（运行时通过 volume 挂载，不进镜像）
+data/event_matches
+data/matches
+data/matches_complete
+data/raw_event_payloads
+data/player_avatars
+data/checkpoints
+data/session
+data/ranking_snapshots
+data/db/*.db
+data/db/*.db-*
+
+# 头像图片：体量大且本质是数据，不该进镜像。
+# 部署时由 docker-compose 把数据卷上的 web_assets/{avatars,crops} bind-mount 到这两个路径。
+web/public/images/avatars
+web/public/images/crops
+
+# 开发产物
+**/tmp
+**/tmp_*.json
+**/test_*.csv
+.git
+.idea
+.vscode
+.DS_Store
+*.log
+
+# 不需要的子项目
+SynologyDrive
+references
+output
+demo
+design-system

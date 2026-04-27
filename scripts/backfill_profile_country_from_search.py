@@ -38,6 +38,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--players-file", default="tmp/profiles_tobe_update.txt")
     parser.add_argument("--profile-dir", default="data/player_profiles/orig")
     parser.add_argument("--dry-run", action="store_true", help="Preview updates without writing files")
+    parser.add_argument("--force", action="store_true", help="Re-query and update even when country fields are already non-empty")
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
     parser.add_argument("--cdp-port", type=int, default=9222, help="CDP remote debugging port")
@@ -97,7 +98,15 @@ def extract_country_code(candidate_text: str) -> str:
     return match.group(1).upper() if match else ""
 
 
-def fetch_first_autocomplete_candidate(page: Any, player_name: str) -> str:
+def split_candidate_name_and_country(candidate_text: str) -> tuple[str, str]:
+    normalized = normalize_space(candidate_text)
+    match = re.match(r"^(.*?)\s*\(([A-Z]{3})\)\s*$", normalized)
+    if not match:
+        return normalized, ""
+    return normalize_space(match.group(1)), match.group(2).upper()
+
+
+def fetch_matching_autocomplete_candidate(page: Any, player_name: str) -> str:
     search_input = page.locator("input[type='text']").first
     if search_input.count() == 0:
         raise RuntimeError("search input not found")
@@ -129,13 +138,14 @@ def fetch_first_autocomplete_candidate(page: Any, player_name: str) -> str:
                 if not item.is_visible():
                     continue
                 text = normalize_space(item.inner_text() or "")
-                if text:
+                candidate_name, _ = split_candidate_name_and_country(text)
+                if candidate_name == player_name:
                     return text
             except Exception:
                 continue
         time.sleep(0.25)
 
-    raise RuntimeError(f"autocomplete candidates not found for {player_name}")
+    raise RuntimeError(f"autocomplete exact match not found for {player_name}")
 
 
 def write_profile(profile_path: Path, profile_data: dict[str, Any]) -> None:
@@ -217,7 +227,7 @@ def run(args: argparse.Namespace) -> int:
                     logger.error("[%d/%d] Invalid profile JSON object: %s", idx, len(players), profile_path.name)
                     continue
 
-                if has_country_fields(profile_data):
+                if has_country_fields(profile_data) and not args.force:
                     skipped_count += 1
                     logger.info(
                         "[%d/%d] Skip existing country fields: %s (%s) file=%s",
@@ -229,11 +239,23 @@ def run(args: argparse.Namespace) -> int:
                     )
                     continue
 
+                if has_country_fields(profile_data) and args.force:
+                    logger.info(
+                        "[%d/%d] Force re-query existing country fields: %s (%s) file=%s current=%s/%s",
+                        idx,
+                        len(players),
+                        player_name,
+                        player_id,
+                        profile_path.name,
+                        normalize_space(str(profile_data.get("country") or "")),
+                        normalize_space(str(profile_data.get("country_code") or "")),
+                    )
+
                 logger.info("[%d/%d] Query country for %s (%s)", idx, len(players), player_name, player_id)
 
                 try:
                     guarded_goto(page, SEARCH_URL, delay_cfg, f"open profiles search page for {player_name}")
-                    candidate_text = fetch_first_autocomplete_candidate(page, player_name)
+                    candidate_text = fetch_matching_autocomplete_candidate(page, player_name)
 
                     risk = detect_risk(page)
                     if risk:

@@ -28,6 +28,9 @@ function buildCsp() {
 
   const imgSrc = ["'self'", 'data:', 'blob:', 'https://api.dicebear.com'];
   if (sentryDsnOrigin) imgSrc.push(sentryDsnOrigin);
+  if (process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID) {
+    imgSrc.push('https://c.clarity.ms', 'https://c.bing.com');
+  }
 
   const directives = [
     "default-src 'self'",
@@ -51,6 +54,9 @@ function buildCsp() {
 }
 
 const nextConfig: NextConfig = {
+  // standalone 输出：Next.js 通过 output file tracing 只把运行时真正用到的
+  // 依赖打进 .next/standalone/，避免把整个 node_modules（含 dev 依赖）塞进镜像
+  output: 'standalone',
   experimental: {
     typedRoutes: true,
   },
