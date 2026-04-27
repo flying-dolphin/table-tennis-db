@@ -115,7 +115,7 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                               ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     player_id, name, name_zh, slug,
-                    data.get('country'), country_code,
+                    data.get('country_zh'), country_code,
                     data.get('gender'), data.get('birth_year'), data.get('age'),
                     data.get('style'), data.get('style_zh'),
                     data.get('playing_hand'), data.get('playing_hand_zh'),
