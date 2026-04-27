@@ -46,6 +46,10 @@ services:
       TRUSTED_PROXY_IP_HEADER: ${TRUSTED_PROXY_IP_HEADER:-cf-connecting-ip}
       SENTRY_DSN: ${SENTRY_DSN:-}
       SENTRY_ENV: ${SENTRY_ENV:-production}
+      # 前端构建变量需在此处也传递，以供运行时 headers() (如 CSP) 访问
+      NEXT_PUBLIC_UMAMI_URL: ${NEXT_PUBLIC_UMAMI_URL:-}
+      NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${NEXT_PUBLIC_UMAMI_WEBSITE_ID:-}
+      NEXT_PUBLIC_CLARITY_PROJECT_ID: ${NEXT_PUBLIC_CLARITY_PROJECT_ID:-}
     volumes:
       # SQLite 数据库与抓取产物：宿主 /opt/ittf/data ↔ 容器 /app/data
       # （web/lib/paths.ts 里 DB_FILE 是 ../data/db/ittf.db，容器工作目录在 /app/web）

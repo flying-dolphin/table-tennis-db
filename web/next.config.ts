@@ -19,17 +19,17 @@ function buildCsp() {
   const scriptSrc = ["'self'", "'unsafe-inline'"];
   if (!isProduction) scriptSrc.push("'unsafe-eval'");
   if (umamiOrigin) scriptSrc.push(umamiOrigin);
-  if (process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID) scriptSrc.push('https://www.clarity.ms');
+  if (process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID) scriptSrc.push('https://www.clarity.ms', 'https://*.clarity.ms');
 
   const connectSrc = ["'self'"];
   if (umamiOrigin) connectSrc.push(umamiOrigin);
   if (sentryDsnOrigin) connectSrc.push(sentryDsnOrigin);
-  if (process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID) connectSrc.push('https://*.clarity.ms');
+  if (process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID) connectSrc.push('https://*.clarity.ms', 'https://c.bing.com');
 
   const imgSrc = ["'self'", 'data:', 'blob:', 'https://api.dicebear.com'];
   if (sentryDsnOrigin) imgSrc.push(sentryDsnOrigin);
   if (process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID) {
-    imgSrc.push('https://c.clarity.ms', 'https://c.bing.com');
+    imgSrc.push('https://c.clarity.ms', 'https://*.clarity.ms', 'https://c.bing.com');
   }
 
   const directives = [

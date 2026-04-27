@@ -54,6 +54,9 @@ ENV NODE_ENV=production \
 COPY --from=builder /app/web/.next/standalone ./
 COPY --from=builder /app/web/.next/static ./.next/static
 COPY --from=builder /app/web/public ./public
+# 手动赛事覆盖 JSON：被 lib/server/events.ts、lib/server/event-outcomes.ts 通过
+# fs.readFileSync 动态读取，Next standalone 的 file tracing 追不到，需显式拷贝
+COPY --from=builder /app/web/data ./data
 # Schema 文件用于首次 db:migrate（路径与 web/lib/paths.ts 中 SCHEMA_FILE 对齐）
 COPY scripts/db /app/scripts/db
 EXPOSE 3000
