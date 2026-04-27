@@ -8,6 +8,7 @@ export default {
       colors: {
         brand: {
           primary: "#7FA9D9",
+          dark: "#132865",
           strong: "#4F79B3",
           deep: "#6B97CB",
           soft: "#DCEAF8",
