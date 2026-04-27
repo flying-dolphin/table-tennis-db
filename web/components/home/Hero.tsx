@@ -23,7 +23,7 @@ export default function Hero() {
           <h1 className="text-white text-display font-black tracking-tight drop-shadow-md font-heading">
             豆包球谱
           </h1>
-          <p className="text-body font-bold text-white">女单版</p>
+          <p className="text-body font-bold text-white">女乒版</p>
         </div>
         <p className="mt-1 text-body font-medium font-body text-white/78 tracking-[0.01em] drop-shadow-sm">
           国际赛事数据查询

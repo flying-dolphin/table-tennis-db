@@ -22,7 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: `${APP_NAME} · 女子单打`,
+  title: `${APP_NAME}`,
   description: APP_DESCRIPTION,
 };
 
