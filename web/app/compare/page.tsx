@@ -217,14 +217,14 @@ function CompareContent() {
         <div className="flex items-center justify-between px-2">
           <div className={cn(
             "flex-1 text-center text-body-lg font-bold tabular-nums",
-            !isEqual && (isHigherA === higherIsBetter ? "text-brand-deep scale-105" : "text-text-secondary opacity-60")
+            !isEqual && (isHigherA === higherIsBetter ? "text-brand-strong scale-105" : "text-text-secondary opacity-60")
           )}>
             {format(valA)}
           </div>
           <div className="w-[1px] h-4 bg-border-subtle mx-4" />
           <div className={cn(
             "flex-1 text-center text-body-lg font-bold tabular-nums",
-            !isEqual && (isHigherB === higherIsBetter ? "text-brand-deep scale-105" : "text-text-secondary opacity-60")
+            !isEqual && (isHigherB === higherIsBetter ? "text-brand-strong scale-105" : "text-text-secondary opacity-60")
           )}>
             {format(valB)}
           </div>
@@ -259,10 +259,10 @@ function CompareContent() {
             <span className="mt-1 text-micro font-medium text-text-tertiary bg-page-background px-2 py-0.5 rounded-full uppercase tracking-wider">
               {pA.countryCode}
             </span>
-            <span className="mt-3 text-micro font-semibold text-brand-deep">点击更换球员</span>
+            <span className="mt-3 text-micro font-semibold text-brand-strong">点击更换球员</span>
           </button>
 
-          <div className="shrink-0 bg-brand-deep text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10">
+          <div className="shrink-0 bg-brand-strong text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10">
             <ArrowRightLeft size={18} />
           </div>
 
@@ -278,20 +278,20 @@ function CompareContent() {
             <span className="mt-1 text-micro font-medium text-text-tertiary bg-page-background px-2 py-0.5 rounded-full uppercase tracking-wider">
               {pB.countryCode}
             </span>
-            <span className="mt-3 text-micro font-semibold text-brand-deep">点击更换球员</span>
+            <span className="mt-3 text-micro font-semibold text-brand-strong">点击更换球员</span>
           </button>
         </div>
 
         {/* Head to Head Summary */}
         <div className="bg-white rounded-lg p-5 shadow-sm border border-white mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <Zap size={18} className="text-brand-deep" />
+            <Zap size={18} className="text-brand-strong" />
             <h3 className="text-body font-bold text-text-primary">历史交手</h3>
           </div>
 
           <div className="flex items-center justify-between mb-2">
             <div className="flex flex-col items-center flex-1">
-              <span className="text-data-hero font-black text-brand-deep leading-none tabular-nums">{data.headToHeadSummary.playerA.wins}</span>
+              <span className="text-data-hero font-black text-brand-strong leading-none tabular-nums">{data.headToHeadSummary.playerA.wins}</span>
               <span className="text-caption text-text-tertiary mt-1">胜</span>
             </div>
             <div className="px-4 text-micro font-bold text-text-tertiary bg-page-background rounded-full py-1 uppercase tracking-widest">
@@ -305,7 +305,7 @@ function CompareContent() {
 
           <div className="w-full h-2 bg-page-background rounded-full overflow-hidden flex">
             <div
-              className="h-full bg-brand-deep"
+              className="h-full bg-brand-strong"
               style={{ width: `${data.headToHeadSummary.playerA.winRate}%` }}
             />
             <div
@@ -318,7 +318,7 @@ function CompareContent() {
         {/* Stats Metrics */}
         <div className="bg-white rounded-lg p-2 shadow-sm border border-white mb-6">
           <div className="px-3 pt-3 pb-1 flex items-center gap-2">
-            <Globe size={18} className="text-brand-deep" />
+            <Globe size={18} className="text-brand-strong" />
             <h3 className="text-body font-bold text-text-primary">核心指标</h3>
           </div>
 
@@ -367,7 +367,7 @@ function CompareContent() {
           <div className="px-3 pt-3 pb-3 flex items-center gap-2">
             <Trophy size={18} className="text-brand-deep" />
             <h3 className="text-body font-bold text-text-primary">交手记录</h3>
-            <span className="text-micro font-medium text-text-tertiary">仅女单 WS</span>
+            <span className="text-micro font-medium text-text-tertiary">仅女单</span>
           </div>
 
           <div className="flex flex-col">
@@ -393,7 +393,7 @@ function CompareContent() {
                     <div className="flex items-center gap-3">
                       <div className={cn(
                         "w-6 h-6 rounded flex items-center justify-center text-micro font-bold transition-all tabular-nums",
-                        isWinnerA ? "bg-brand-deep text-white" : "bg-page-background text-text-tertiary"
+                        isWinnerA ? "bg-brand-strong text-white" : "bg-page-background text-text-tertiary"
                       )}>
                         {isWinnerA ? "胜" : "负"}
                       </div>
@@ -402,7 +402,7 @@ function CompareContent() {
                       </div>
                       <div className={cn(
                         "w-6 h-6 rounded flex items-center justify-center text-micro font-bold transition-all tabular-nums",
-                        !isWinnerA ? "bg-brand-deep text-white" : "bg-page-background text-text-tertiary"
+                        !isWinnerA ? "bg-brand-strong text-white" : "bg-page-background text-text-tertiary"
                       )}>
                         {!isWinnerA ? "胜" : "负"}
                       </div>

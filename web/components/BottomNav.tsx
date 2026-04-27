@@ -25,7 +25,7 @@ export default function BottomNav() {
   useEffect(() => {
     fetch("/api/v1/auth/me", { credentials: "include", cache: "no-store" })
       .then((res) => { if (res.ok) setProfileHref("/me"); })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   const navItems: Array<{ id: string; label: string; href: Route; icon: React.ComponentType<any> }> = [
@@ -76,13 +76,13 @@ export default function BottomNav() {
                 strokeWidth={1.5}
                 className={cn(
                   "transition-colors duration-200",
-                  isActive ? "text-brand-deep" : "text-text-tertiary"
+                  isActive ? "text-brand-strong" : "text-text-tertiary"
                 )}
               />
               <span
                 className={cn(
                   "text-[10px] font-medium tracking-wide transition-colors duration-200",
-                  isActive ? "text-brand-deep" : "text-text-tertiary"
+                  isActive ? "text-brand-strong" : "text-text-tertiary"
                 )}
               >
                 {item.label}
