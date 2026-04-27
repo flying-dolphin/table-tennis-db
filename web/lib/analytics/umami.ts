@@ -7,12 +7,16 @@
 
 type UmamiPayload = Record<string, string | number | boolean>;
 
+type UmamiPageProps = { url?: string; referrer?: string; title?: string; website?: string };
+
 interface UmamiTracker {
   track: {
     (): void;
     (eventName: string): void;
     (eventName: string, data: UmamiPayload): void;
-    (props: { url?: string; referrer?: string; title?: string; website?: string }): void;
+    (props: UmamiPageProps): void;
+    // umami.js 的 callback 形式：拿到默认 page props，返回改写后的 props 上报
+    (propsTransform: (props: UmamiPageProps) => UmamiPageProps): void;
   };
   identify: (data: UmamiPayload) => void;
 }
@@ -35,7 +39,7 @@ export const isClarityEnabled = (): boolean => Boolean(isProduction && CLARITY_P
 /** 上报页面浏览。url 为站内路径（如 /rankings?week=2026-12）。 */
 export function trackPageview(url: string, referrer?: string): void {
   if (typeof window === 'undefined' || !window.umami) return;
-  window.umami.track((props: { url?: string; referrer?: string; title?: string; website?: string }) => ({
+  window.umami.track((props: UmamiPageProps) => ({
     ...props,
     url,
     referrer: referrer ?? document.referrer ?? '',
