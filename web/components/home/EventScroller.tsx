@@ -236,6 +236,8 @@ function buildMonthWeeks(year: number, month: number, events: EventRange[]): Wee
       }
     }
 
+    if (days.every((d) => d.out)) continue;
+
     const range = ranges[row];
     const chips: EventChip[] = [];
     for (const ev of events) {
@@ -610,21 +612,42 @@ const CarouselTrack = React.memo(function CarouselTrack({ monthData, initialInde
   );
 });
 
-export type EventScrollerProps = {
-  initialEvents: CalendarEvent[];
-};
-
-export default function EventScroller({ initialEvents }: EventScrollerProps) {
+export default function EventScroller() {
   const [expandedMonthId, setExpandedMonthId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const sizerRef = useRef<HTMLDivElement>(null);
-  const monthData = useMemo(() => buildMonthCards(initialEvents), [initialEvents]);
+  const monthData = useMemo(() => buildMonthCards(events), [events]);
   const initialIndex = useMemo(() => {
     const now = new Date();
     const currentMonthId = `${now.getFullYear()}-${now.getMonth() + 1}`;
     const found = monthData.findIndex((month) => month.id === currentMonthId);
     return found >= 0 ? found : 0;
   }, [monthData]);
+
+  useEffect(() => {
+    let canceled = false;
+    async function load() {
+      try {
+        const response = await fetch("/api/v1/home/calendar", { cache: "no-store" });
+        const payload = (await response.json()) as CalendarResponse;
+        if (canceled || payload.code !== 0) return;
+        setEvents(payload.data.events);
+      } catch (err) {
+        if (!canceled) {
+          console.error("Failed to load calendar events:", err);
+          setEvents([]);
+        }
+      } finally {
+        if (!canceled) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      canceled = true;
+    };
+  }, []);
 
   useEffect(() => {
     const el = sizerRef.current;
@@ -643,13 +666,19 @@ export default function EventScroller({ initialEvents }: EventScrollerProps) {
     [expandedMonthId, monthData],
   );
 
-  const canShowCarousel = monthData.length > 0 && carouselWidth > 0;
+  const canShowCarousel = !loading && monthData.length > 0 && carouselWidth > 0;
 
   return (
     <>
       <section className="relative z-10 w-full">
         <div ref={sizerRef} className="w-full">
-          {monthData.length === 0 && (
+          {loading && (
+            <div className="px-5 py-3">
+              <div className="h-[260px] w-[72vw] max-w-[240px] animate-pulse rounded-lg border border-white/50 bg-white/60" />
+            </div>
+          )}
+
+          {!loading && monthData.length === 0 && (
             <div className="w-[78vw] max-w-[280px] rounded-lg bg-white/70 border border-white/60 p-4 text-body text-text-tertiary">
               暂无赛事日程
             </div>
