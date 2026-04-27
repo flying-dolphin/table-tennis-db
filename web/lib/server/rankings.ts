@@ -1,5 +1,4 @@
 import { db } from '@/lib/server/db';
-import { getPlayerAggregateStats } from '@/lib/server/stats';
 
 type SortBy = 'points' | 'win_rate' | 'head_to_head_count';
 
@@ -15,74 +14,13 @@ type RankingRow = {
   countryCode: string;
   avatarFile: string | null;
   avatarUrl: string | null;
-};
-
-type RankingPlayerWithStats = RankingRow & {
   winRate: number;
   headToHeadCount: number;
 };
 
-type CachedStatsEntry = {
-  snapshotId: number;
-  playerCount: number;
-  players: RankingPlayerWithStats[];
-};
-
-let cachedStatsEntry: CachedStatsEntry | null = null;
-
 function resolveSortBy(sortBy?: string): SortBy {
   if (sortBy === 'win_rate' || sortBy === 'head_to_head_count') return sortBy;
   return 'points';
-}
-
-function loadRankingRows(snapshotId: number) {
-  return db
-    .prepare(
-      `
-        SELECT
-          re.player_id AS playerId,
-          re.rank,
-          re.points,
-          re.rank_change AS rankChange,
-          p.slug,
-          p.name,
-          p.name_zh AS nameZh,
-          p.country,
-          p.country_code AS countryCode,
-          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
-          p.avatar_url AS avatarUrl
-        FROM ranking_entries re
-        JOIN players p ON p.player_id = re.player_id
-        WHERE re.snapshot_id = ?
-      `,
-    )
-    .all(snapshotId) as RankingRow[];
-}
-
-function loadRankingRowsWithStats(snapshotId: number) {
-  const rankingRows = loadRankingRows(snapshotId);
-  const cached = cachedStatsEntry;
-  if (cached && cached.snapshotId === snapshotId && cached.playerCount === rankingRows.length) {
-    return cached.players;
-  }
-
-  const statsMap = getPlayerAggregateStats(rankingRows.map((row) => row.playerId));
-  const players = rankingRows.map((row) => {
-    const stats = statsMap.get(row.playerId);
-    return {
-      ...row,
-      winRate: stats?.winRate ?? 0,
-      headToHeadCount: stats?.headToHeadCount ?? 0,
-    };
-  });
-
-  cachedStatsEntry = {
-    snapshotId,
-    playerCount: rankingRows.length,
-    players,
-  };
-
-  return players;
 }
 
 export function getRankings(category = 'women_singles', sortBy?: string, limit = 20, offset = 0) {
@@ -121,76 +59,45 @@ export function getRankings(category = 'women_singles', sortBy?: string, limit =
     .get(snapshot.snapshotId) as { total: number };
   const total = countResult.total;
 
-  if (resolvedSortBy === 'points') {
-    const paginatedPlayers = db
-      .prepare(
-        `
-          SELECT
-            re.player_id AS playerId,
-            re.rank,
-            re.points,
-            re.rank_change AS rankChange,
-            p.slug,
-            p.name,
-            p.name_zh AS nameZh,
-            p.country,
-            p.country_code AS countryCode,
-            REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
-            p.avatar_url AS avatarUrl
-          FROM ranking_entries re
-          JOIN players p ON p.player_id = re.player_id
-          WHERE re.snapshot_id = ?
-          ORDER BY re.points DESC, re.rank ASC
-          LIMIT ? OFFSET ?
-        `,
-      )
-      .all(snapshot.snapshotId, limit, offset)
-      .map((row) => ({
-        ...(row as {
-          playerId: number;
-          rank: number;
-          points: number;
-          rankChange: number;
-          slug: string;
-          name: string;
-          nameZh: string | null;
-          country: string | null;
-          countryCode: string;
-          avatarFile: string | null;
-          avatarUrl: string | null;
-        }),
-        winRate: 0,
-        headToHeadCount: 0,
-      }));
-
-    return {
-      category,
-      sortBy: resolvedSortBy,
-      snapshot,
-      players: paginatedPlayers,
-      hasMore: offset + limit < total,
-      total,
-    };
+  let orderByClause = 'ORDER BY re.points DESC, re.rank ASC';
+  if (resolvedSortBy === 'win_rate') {
+    orderByClause = 'ORDER BY winRate DESC, re.rank ASC';
+  } else if (resolvedSortBy === 'head_to_head_count') {
+    orderByClause = 'ORDER BY headToHeadCount DESC, re.rank ASC';
   }
 
-  const players = loadRankingRowsWithStats(snapshot.snapshotId).slice();
-
-  players.sort((left, right) => {
-    if (resolvedSortBy === 'win_rate') {
-      return right.winRate - left.winRate || left.rank - right.rank;
-    }
-    return right.headToHeadCount - left.headToHeadCount || left.rank - right.rank;
-  });
-
-  const paginatedPlayers = players.slice(offset, offset + limit);
-  const hasMore = offset + limit < total;
+  const paginatedPlayers = db
+    .prepare(
+      `
+        SELECT
+          re.player_id AS playerId,
+          re.rank,
+          re.points,
+          re.rank_change AS rankChange,
+          p.slug,
+          p.name,
+          p.name_zh AS nameZh,
+          p.country,
+          p.country_code AS countryCode,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile,
+          p.avatar_url AS avatarUrl,
+          IFNULL(ROUND((CAST(p.career_wins AS REAL) / NULLIF(p.career_matches, 0)) * 100, 2), 0) AS winRate,
+          IFNULL(p.career_matches, 0) AS headToHeadCount
+        FROM ranking_entries re
+        JOIN players p ON p.player_id = re.player_id
+        WHERE re.snapshot_id = ?
+        ${orderByClause}
+        LIMIT ? OFFSET ?
+      `,
+    )
+    .all(snapshot.snapshotId, limit, offset) as RankingRow[];
 
   return {
     category,
     sortBy: resolvedSortBy,
     snapshot,
     players: paginatedPlayers,
-    hasMore,
+    hasMore: offset + limit < total,
     total,
   };
 }
