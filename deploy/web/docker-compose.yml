@@ -56,7 +56,9 @@ services:
       - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/avatars:/app/web/public/images/avatars:ro
       - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/crops:/app/web/public/images/crops:ro
     ports:
-      - "127.0.0.1:3000:3000"
+      # 左侧是宿主机端口（被占用时通过 ITTF_WEB_HOST_PORT 改，例如 3001）；
+      # 右侧 3000 是容器内 Next.js 监听端口，固定不变（与 Dockerfile 的 PORT、healthcheck 对齐）。
+      - "127.0.0.1:${ITTF_WEB_HOST_PORT:-3000}:3000"
     healthcheck:
       test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:3000').then(r => process.exit(r.ok ? 0 : 1))\""]
       interval: 30s
