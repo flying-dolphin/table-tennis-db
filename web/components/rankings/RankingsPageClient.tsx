@@ -57,30 +57,17 @@ const SORT_OPTIONS: { id: SortField; label: string }[] = [
   { id: "win_rate", label: "胜率" },
 ];
 
-type RankingsPageClientProps = {
-  initialPlayers: RankingPlayer[];
-  initialHasMore: boolean;
-  initialRankingDate: string | null;
-  initialSortBy: SortField;
-};
-
-export default function RankingsPageClient({
-  initialPlayers,
-  initialHasMore,
-  initialRankingDate,
-  initialSortBy,
-}: RankingsPageClientProps) {
-  const [players, setPlayers] = useState<RankingPlayer[]>(initialPlayers);
-  const [loading, setLoading] = useState(false);
+export default function RankingsPageClient() {
+  const [players, setPlayers] = useState<RankingPlayer[]>([]);
+  const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [hasMore, setHasMore] = useState(initialHasMore);
-  const [rankingDate, setRankingDate] = useState<string | null>(initialRankingDate);
-  const [sortBy, setSortBy] = useState<SortField>(initialSortBy);
+  const [hasMore, setHasMore] = useState(true);
+  const [rankingDate, setRankingDate] = useState<string | null>(null);
+  const [sortBy, setSortBy] = useState<SortField>("points");
   const [compareMode, setCompareMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const listScrollRef = useRef<HTMLDivElement>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
-  const didMountRef = useRef(false);
   const isFetchingRef = useRef(false);
 
   const loadPlayers = useCallback(async (offset: number, nextSortBy: SortField, isInitial = false) => {
@@ -113,10 +100,6 @@ export default function RankingsPageClient({
   }, []);
 
   useEffect(() => {
-    if (!didMountRef.current) {
-      didMountRef.current = true;
-      return;
-    }
     setSelectedIds([]);
     setPlayers([]);
     setHasMore(true);
@@ -237,7 +220,18 @@ export default function RankingsPageClient({
 
         <div ref={listScrollRef} className="min-h-0 flex-1 overflow-y-auto px-5 pb-28">
           {loading ? (
-            <div className="flex justify-center py-20 text-text-tertiary text-body">加载中...</div>
+            <div>
+              {Array.from({ length: 12 }).map((_, idx) => (
+                <div key={idx} className="flex items-center gap-3 border-b border-black/[0.06] px-0 py-3.5 last:border-0">
+                  <div className="h-6 w-9 shrink-0 animate-pulse rounded bg-black/[0.06]" />
+                  <div className="h-9 w-9 shrink-0 animate-pulse rounded-full bg-black/[0.06]" />
+                  <div className="flex-1">
+                    <div className="h-4 w-32 animate-pulse rounded bg-black/[0.06]" />
+                  </div>
+                  <div className="h-4 w-14 shrink-0 animate-pulse rounded bg-black/[0.06]" />
+                </div>
+              ))}
+            </div>
           ) : (
             <div>
               {players.map((player) => (

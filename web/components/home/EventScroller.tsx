@@ -674,7 +674,7 @@ export default function EventScroller() {
         <div ref={sizerRef} className="w-full">
           {loading && (
             <div className="px-5 py-3">
-              <div className="h-[260px] w-[72vw] max-w-[240px] animate-pulse rounded-lg border border-white/50 bg-white/60" />
+              <div className="h-[260px] w-full animate-pulse rounded-lg border border-white/50 bg-white/60" />
             </div>
           )}
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useDeferredValue, useState } from "react";
+import React, { useDeferredValue, useEffect, useState } from "react";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, Trophy, X, UsersRound } from "lucide-react";
@@ -891,12 +891,82 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
 }
 
 type PlayerDetailPageClientProps = {
-  initialDetail: PlayerDetail;
+  slug: string;
 };
 
-export default function PlayerDetailPageClient({ initialDetail }: PlayerDetailPageClientProps) {
+function PlayerDetailSkeleton() {
+  return (
+    <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-[linear-gradient(180deg,#f3f6fb_0%,#ffffff_30%,#f8fbff_100%)] pb-12">
+      <div className="px-5 pt-6">
+        <div className="flex items-center gap-4">
+          <div className="h-20 w-20 animate-pulse rounded-full bg-black/[0.06]" />
+          <div className="flex-1 space-y-2">
+            <div className="h-5 w-32 animate-pulse rounded bg-black/[0.06]" />
+            <div className="h-4 w-20 animate-pulse rounded bg-black/[0.06]" />
+          </div>
+        </div>
+        <div className="mt-6 grid grid-cols-2 gap-3">
+          {Array.from({ length: 4 }).map((_, idx) => (
+            <div key={idx} className="h-24 animate-pulse rounded-lg bg-black/[0.06]" />
+          ))}
+        </div>
+        <div className="mt-6 space-y-3">
+          {Array.from({ length: 4 }).map((_, idx) => (
+            <div key={idx} className="h-16 animate-pulse rounded-lg bg-black/[0.06]" />
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export default function PlayerDetailPageClient({ slug }: PlayerDetailPageClientProps) {
   const [recordsTab, setRecordsTab] = React.useState<RecordsTab>("events");
-  const detail = initialDetail;
+  const [detail, setDetail] = useState<PlayerDetail | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [notFoundFlag, setNotFoundFlag] = useState(false);
+
+  useEffect(() => {
+    let canceled = false;
+    async function load() {
+      try {
+        const res = await fetch(`/api/v1/players/${slug}`);
+        const json = await res.json();
+        if (canceled) return;
+        if (json.code === 0) {
+          setDetail(json.data as PlayerDetail);
+        } else {
+          setNotFoundFlag(true);
+        }
+      } catch (err) {
+        if (!canceled) {
+          console.error(err);
+          setNotFoundFlag(true);
+        }
+      } finally {
+        if (!canceled) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      canceled = true;
+    };
+  }, [slug]);
+
+  if (loading) {
+    return <PlayerDetailSkeleton />;
+  }
+
+  if (notFoundFlag || !detail) {
+    return (
+      <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-gray-50/30">
+        <div className="flex flex-col items-center justify-center gap-3 py-24">
+          <span className="text-body text-text-secondary">未找到该球员</span>
+          <PlayerBackButton />
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-[linear-gradient(180deg,#f3f6fb_0%,#ffffff_30%,#f8fbff_100%)] pb-12">

@@ -1,6 +1,8 @@
 import { error, ok } from '@/lib/server/api';
 import { getCompareData } from '@/lib/server/compare';
 
+export const dynamic = 'force-dynamic';
+
 export function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const playerA = searchParams.get('player_a');

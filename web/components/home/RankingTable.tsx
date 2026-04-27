@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
@@ -25,16 +25,75 @@ export type HomeRankingPlayer = {
   avatarFile: string | null;
 };
 
-export type RankingTableProps = {
-  initialPlayers: HomeRankingPlayer[];
+type RankingsResponse = {
+  code: number;
+  message: string;
+  data: {
+    category: string;
+    snapshot: {
+      snapshotId: number;
+      rankingWeek: string;
+      rankingDate: string;
+    } | null;
+    players: HomeRankingPlayer[];
+  };
 };
 
 function displayName(player: HomeRankingPlayer) {
   return player.nameZh?.trim() || player.name;
 }
 
-export default function RankingTable({ initialPlayers }: RankingTableProps) {
-  const players = initialPlayers;
+function RankingTableSkeleton() {
+  return (
+    <div className="flex flex-col gap-2 px-1 py-2">
+      {Array.from({ length: 10 }).map((_, idx) => (
+        <div
+          key={idx}
+          className={cn(
+            "flex items-center gap-3 rounded-md py-2",
+            idx === 0 && "bg-white/60 px-2 py-2 border border-white/50",
+          )}
+        >
+          <div className="h-5 w-6 shrink-0 animate-pulse rounded bg-black/[0.06]" />
+          <div className={cn("shrink-0 animate-pulse rounded-full bg-black/[0.06]", idx === 0 ? "h-10 w-10" : "h-8 w-8")} />
+          <div className="flex-1">
+            <div className="h-4 w-24 animate-pulse rounded bg-black/[0.06]" />
+          </div>
+          <div className="h-4 w-12 shrink-0 animate-pulse rounded bg-black/[0.06]" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default function RankingTable() {
+  const [players, setPlayers] = useState<HomeRankingPlayer[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let canceled = false;
+    async function load() {
+      try {
+        const response = await fetch("/api/v1/home/rankings?limit=10", { cache: "no-store" });
+        const payload = (await response.json()) as RankingsResponse;
+        if (!canceled && payload.code === 0) {
+          setPlayers(payload.data.players);
+        }
+      } catch (err) {
+        if (!canceled) {
+          console.error("Failed to load ranking data:", err);
+          setPlayers([]);
+        }
+      } finally {
+        if (!canceled) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      canceled = true;
+    };
+  }, []);
+
   return (
     <section className="px-5">
       <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
@@ -52,13 +111,15 @@ export default function RankingTable({ initialPlayers }: RankingTableProps) {
         </div>
 
         <div className="flex flex-col w-full relative z-10">
-          {players.length === 0 && (
+          {loading && <RankingTableSkeleton />}
+
+          {!loading && players.length === 0 && (
             <div className="p-4 text-body text-text-tertiary bg-white/60 rounded-md border border-white/60">
               暂无数据
             </div>
           )}
 
-          {players.map((player, idx) => {
+          {!loading && players.map((player, idx) => {
               const isTop1 = idx === 0;
               const changeValue = player.rankChange ?? 0;
 
