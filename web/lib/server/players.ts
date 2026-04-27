@@ -509,14 +509,9 @@ export function getPlayerDetail(slug: string) {
         .map(({ weight: _weight, ...subEvent }) => subEvent),
     }));
 
-  const topOpponents = getPlayerOpponentAggregates(player.playerId)
-    .sort((left, right) => right.matches - left.matches || (right.latestDate ?? '').localeCompare(left.latestDate ?? ''))
-    .slice(0, 3);
-
   return {
     player,
     stats,
     events,
-    topOpponents,
   };
 }

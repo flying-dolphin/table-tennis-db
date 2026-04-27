@@ -1861,7 +1861,7 @@ function EventDetailContent() {
   const currentPresentationMode = currentDetail?.presentationMode ?? data.presentationMode;
   const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === currentSubEvent);
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
-  const showChampionsTab = subEventViews.some((se) => !se.disabled && isMixedTeamSubEvent(se.code));
+  const showChampionsTab = currentSubEventMeta ? !currentSubEventMeta.disabled && isMixedTeamSubEvent(currentSubEventMeta.code) : false;
 
   return (
     <main className="mx-auto min-h-screen max-w-lg bg-[#f8fafc]">

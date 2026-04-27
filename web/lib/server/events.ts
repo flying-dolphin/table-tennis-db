@@ -1157,10 +1157,10 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
     return buildAutoTeamKnockoutView(eventId, subEventCode);
   };
 
-  const subEventDetails = subEvents.map((se) => {
-    const teamKnockoutView = teamKnockoutViewForSubEvent(se.code);
+  const buildSubEventDetail = (subEventCode: string) => {
+    const teamKnockoutView = teamKnockoutViewForSubEvent(subEventCode);
     const presentationMode: EventPresentationMode =
-      override && se.code === override.sub_event_type_code
+      override && subEventCode === override.sub_event_type_code
         ? isRoundRobinOverride(override)
           ? 'staged_round_robin'
           : isTeamKnockoutOverride(override)
@@ -1169,17 +1169,22 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
         : teamKnockoutView
           ? 'team_knockout_with_bronze'
           : 'knockout';
+
     return {
-      code: se.code,
-      champion: championForSubEvent(se.code),
-      bracket: bracketForSubEvent(se.code),
-      roundRobinView: roundRobinViewForSubEvent(se.code),
+      code: subEventCode,
+      champion: championForSubEvent(subEventCode),
+      bracket: bracketForSubEvent(subEventCode),
+      roundRobinView: roundRobinViewForSubEvent(subEventCode),
       teamKnockoutView,
       presentationMode,
     };
-  });
+  };
 
-  const dataForSelected = subEventDetails.find((item) => item.code === selectedSubEvent);
+  const subEventDetails = subEvents
+    .filter((subEvent) => !subEvent.disabled)
+    .map((subEvent) => buildSubEventDetail(subEvent.code));
+  const dataForSelected =
+    subEventDetails.find((detail) => detail.code === selectedSubEvent) ?? buildSubEventDetail(selectedSubEvent);
 
   return {
     event,

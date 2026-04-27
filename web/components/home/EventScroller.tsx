@@ -10,7 +10,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-type CalendarEvent = {
+export type CalendarEvent = {
   calendarId: number;
   year: number;
   name: string;
@@ -610,41 +610,21 @@ const CarouselTrack = React.memo(function CarouselTrack({ monthData, initialInde
   );
 });
 
-export default function EventScroller() {
+export type EventScrollerProps = {
+  initialEvents: CalendarEvent[];
+};
+
+export default function EventScroller({ initialEvents }: EventScrollerProps) {
   const [expandedMonthId, setExpandedMonthId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [monthData, setMonthData] = useState<MonthCard[]>([]);
-  const [initialIndex, setInitialIndex] = useState(0);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const sizerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let canceled = false;
-    async function loadCalendar() {
-      try {
-        const response = await fetch("/api/v1/home/calendar", { cache: "no-store" });
-        const payload = (await response.json()) as CalendarResponse;
-        if (canceled || payload.code !== 0) return;
-        const months = buildMonthCards(payload.data.events);
-        const now = new Date();
-        const currentMonthId = `${now.getFullYear()}-${now.getMonth() + 1}`;
-        const found = months.findIndex((m) => m.id === currentMonthId);
-        setMonthData(months);
-        setInitialIndex(found >= 0 ? found : 0);
-      } catch (error) {
-        if (!canceled) {
-          console.error("Failed to load calendar events:", error);
-          setMonthData([]);
-        }
-      } finally {
-        if (!canceled) setLoading(false);
-      }
-    }
-    loadCalendar();
-    return () => {
-      canceled = true;
-    };
-  }, []);
+  const monthData = useMemo(() => buildMonthCards(initialEvents), [initialEvents]);
+  const initialIndex = useMemo(() => {
+    const now = new Date();
+    const currentMonthId = `${now.getFullYear()}-${now.getMonth() + 1}`;
+    const found = monthData.findIndex((month) => month.id === currentMonthId);
+    return found >= 0 ? found : 0;
+  }, [monthData]);
 
   useEffect(() => {
     const el = sizerRef.current;
@@ -663,19 +643,13 @@ export default function EventScroller() {
     [expandedMonthId, monthData],
   );
 
-  const canShowCarousel = !loading && monthData.length > 0 && carouselWidth > 0;
+  const canShowCarousel = monthData.length > 0 && carouselWidth > 0;
 
   return (
     <>
       <section className="relative z-10 w-full">
         <div ref={sizerRef} className="w-full">
-          {loading && (
-            <div className="w-[78vw] max-w-[280px] rounded-lg bg-white/70 border border-white/60 p-4 text-body text-text-tertiary">
-              日程加载中...
-            </div>
-          )}
-
-          {!loading && monthData.length === 0 && (
+          {monthData.length === 0 && (
             <div className="w-[78vw] max-w-[280px] rounded-lg bg-white/70 border border-white/60 p-4 text-body text-text-tertiary">
               暂无赛事日程
             </div>

@@ -39,7 +39,7 @@ export default function BottomNav() {
     if (item.id === "profile") {
       return pathname === "/auth" || pathname === "/me";
     }
-    return item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`);
+    return pathname === item.href;
   });
 
   const [activeIndex, setActiveIndex] = useState(routeIndex);

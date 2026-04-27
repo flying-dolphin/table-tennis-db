@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
@@ -12,7 +12,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-type HomeRankingPlayer = {
+export type HomeRankingPlayer = {
   rank: number;
   points: number;
   rankChange: number;
@@ -25,55 +25,16 @@ type HomeRankingPlayer = {
   avatarFile: string | null;
 };
 
-type RankingsResponse = {
-  code: number;
-  message: string;
-  data: {
-    category: string;
-    snapshot: {
-      snapshotId: number;
-      rankingWeek: string;
-      rankingDate: string;
-    } | null;
-    players: HomeRankingPlayer[];
-  };
+export type RankingTableProps = {
+  initialPlayers: HomeRankingPlayer[];
 };
 
 function displayName(player: HomeRankingPlayer) {
   return player.nameZh?.trim() || player.name;
 }
 
-export default function RankingTable() {
-  const [players, setPlayers] = useState<HomeRankingPlayer[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let canceled = false;
-    async function load() {
-      try {
-        const response = await fetch("/api/v1/home/rankings?limit=10", { cache: "no-store" });
-        const payload = (await response.json()) as RankingsResponse;
-        if (!canceled && payload.code === 0) {
-          setPlayers(payload.data.players);
-        }
-      } catch (error) {
-        if (!canceled) {
-          console.error("Failed to load ranking data:", error);
-          setPlayers([]);
-        }
-      } finally {
-        if (!canceled) {
-          setLoading(false);
-        }
-      }
-    }
-
-    load();
-    return () => {
-      canceled = true;
-    };
-  }, []);
-
+export default function RankingTable({ initialPlayers }: RankingTableProps) {
+  const players = initialPlayers;
   return (
     <section className="px-5">
       <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
@@ -91,20 +52,13 @@ export default function RankingTable() {
         </div>
 
         <div className="flex flex-col w-full relative z-10">
-          {loading && (
-            <div className="p-4 text-body text-text-tertiary bg-white/60 rounded-md border border-white/60">
-              加载中...
-            </div>
-          )}
-
-          {!loading && players.length === 0 && (
+          {players.length === 0 && (
             <div className="p-4 text-body text-text-tertiary bg-white/60 rounded-md border border-white/60">
               暂无数据
             </div>
           )}
 
-          {!loading &&
-            players.map((player, idx) => {
+          {players.map((player, idx) => {
               const isTop1 = idx === 0;
               const changeValue = player.rankChange ?? 0;
 
