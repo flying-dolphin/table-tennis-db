@@ -64,14 +64,16 @@ def load_event_urls(urls_file: Path | None, urls: list[str]) -> list[str]:
         seen.add(value)
         out.append(value)
 
-    if urls_file is not None:
+    if urls:
+        if urls_file is not None and urls_file.exists():
+            raise ValueError("--url and --urls-file are mutually exclusive; use one or the other, not both")
+        for url in urls:
+            add(url)
+    elif urls_file is not None:
         if not urls_file.exists():
             raise FileNotFoundError(f"urls file not found: {urls_file}")
         for line in urls_file.read_text(encoding="utf-8").splitlines():
             add(line)
-
-    for url in urls:
-        add(url)
 
     return out
 
@@ -592,7 +594,11 @@ def scrape_event_url(
 
 
 def run(args: argparse.Namespace) -> int:
-    urls_file = Path(args.urls_file) if args.urls_file else None
+    urls_file: Path | None = None
+    if args.urls_file:
+        urls_file = Path(args.urls_file)
+    elif not args.url:
+        urls_file = Path(DEFAULT_URLS_FILE)
     urls = load_event_urls(urls_file, args.url)
     if not urls:
         logger.error("No event URLs provided")
@@ -712,7 +718,7 @@ def run(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Scrape ITTF event match-list URLs")
-    parser.add_argument("--urls-file", default=DEFAULT_URLS_FILE, help="Text file with one event match URL per line")
+    parser.add_argument("--urls-file", default=None, help="Text file with one event match URL per line")
     parser.add_argument("--url", action="append", default=[], help="Event match URL. Can be repeated.")
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--storage-state", default="data/session/ittf_storage_state.json")
