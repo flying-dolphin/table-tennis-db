@@ -4,6 +4,13 @@
 #   1. 把 ittf.example.com 改成你的真实域名
 #   2. sudo certbot --nginx -d ittf.example.com  自动签发 + 改写本文件
 #   3. sudo nginx -t && sudo systemctl reload nginx
+#
+# 如果服务器 A 的 3000 端口被占用，需要在 deploy/web/.env 里改 ITTF_WEB_HOST_PORT=3001
+# （或别的空闲端口），并把下面 upstream 里的端口号同步改成同一个值。
+
+upstream ittf_web {
+    server 127.0.0.1:3000;
+}
 
 server {
     listen 80;
@@ -15,9 +22,9 @@ server {
     gzip_types text/plain text/css application/json application/javascript image/svg+xml;
     gzip_min_length 1024;
 
-    # 反代到 docker compose 中的 web 容器（127.0.0.1:3000）
+    # 反代到 docker compose 中的 web 容器
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://ittf_web;
         proxy_http_version 1.1;
         proxy_set_header Host              $host;
         proxy_set_header X-Real-IP         $remote_addr;
@@ -33,14 +40,14 @@ server {
 
     # Next.js 自动指纹的资源（含哈希）→ 浏览器侧长缓存
     location /_next/static/ {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://ittf_web;
         proxy_set_header Host $host;
         add_header Cache-Control "public, max-age=31536000, immutable";
     }
 
     # 公开静态资源：旗帜图标、字体、PWA 图标等
     location /static/ {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://ittf_web;
         proxy_set_header Host $host;
         add_header Cache-Control "public, max-age=86400";
     }
