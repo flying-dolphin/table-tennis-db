@@ -54,13 +54,21 @@ export function getRankings(category = 'women_singles', sortBy?: string, limit =
     };
   }
 
+  const isWinRateSort = resolvedSortBy === 'win_rate';
+  const minMatchesFilter = isWinRateSort ? 'AND p.career_events > 5' : '';
+
   const countResult = db
-    .prepare('SELECT COUNT(*) as total FROM ranking_entries WHERE snapshot_id = ?')
+    .prepare(
+      `SELECT COUNT(*) as total
+       FROM ranking_entries re
+       JOIN players p ON p.player_id = re.player_id
+       WHERE re.snapshot_id = ? ${minMatchesFilter}`
+    )
     .get(snapshot.snapshotId) as { total: number };
   const total = countResult.total;
 
   let orderByClause = 'ORDER BY re.points DESC, re.rank ASC';
-  if (resolvedSortBy === 'win_rate') {
+  if (isWinRateSort) {
     orderByClause = 'ORDER BY winRate DESC, re.rank ASC';
   } else if (resolvedSortBy === 'head_to_head_count') {
     orderByClause = 'ORDER BY headToHeadCount DESC, re.rank ASC';
@@ -85,7 +93,7 @@ export function getRankings(category = 'women_singles', sortBy?: string, limit =
           IFNULL(p.career_matches, 0) AS headToHeadCount
         FROM ranking_entries re
         JOIN players p ON p.player_id = re.player_id
-        WHERE re.snapshot_id = ?
+        WHERE re.snapshot_id = ? ${minMatchesFilter}
         ${orderByClause}
         LIMIT ? OFFSET ?
       `,
