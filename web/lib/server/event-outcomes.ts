@@ -16,6 +16,7 @@ type ChampionRecordInput = {
   round: string | null;
   didWin: boolean;
   playerCountry: string | null;
+  championCountryCode?: string | null;
 };
 
 const manualEventOverrideCache = new Map<number, ManualEventOverride | null>();
@@ -42,8 +43,14 @@ export function readManualEventOverride(eventId: number): ManualEventOverride | 
 }
 
 export function isChampionRecord(input: ChampionRecordInput) {
-  if (input.didWin && input.stage === 'Main Draw' && input.round === 'Final') {
-    return true;
+  if (input.subEventTypeCode?.endsWith('T')) {
+    if (input.playerCountry && input.championCountryCode && input.playerCountry === input.championCountryCode) {
+      return true;
+    }
+  } else {
+    if (input.didWin && input.stage === 'Main Draw' && input.round === 'Final') {
+      return true;
+    }
   }
 
   if (input.eventId == null || !input.playerCountry || !input.subEventTypeCode) {
