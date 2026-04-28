@@ -1,4 +1,5 @@
 import { db } from '@/lib/server/db';
+import { filterAvatarFile } from '@/lib/server/avatarManifest';
 
 type SortBy = 'points' | 'win_rate' | 'head_to_head_count';
 
@@ -104,7 +105,10 @@ export function getRankings(category = 'women_singles', sortBy?: string, limit =
     category,
     sortBy: resolvedSortBy,
     snapshot,
-    players: paginatedPlayers,
+    players: paginatedPlayers.map((player) => ({
+      ...player,
+      avatarFile: filterAvatarFile(player.avatarFile),
+    })),
     hasMore: offset + limit < total,
     total,
   };

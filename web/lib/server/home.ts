@@ -1,4 +1,5 @@
 import { db } from '@/lib/server/db';
+import { filterAvatarFile } from '@/lib/server/avatarManifest';
 
 export function getHomeCalendar(year?: number) {
   const availableYears = db
@@ -97,11 +98,14 @@ export function getHomeRankings(limit = 10, category = 'women_singles') {
         LIMIT ?
       `,
     )
-    .all(snapshot.snapshotId, limit);
+    .all(snapshot.snapshotId, limit) as Array<{ avatarFile: string | null; [key: string]: unknown }>;
 
   return {
     category,
     snapshot,
-    players,
+    players: players.map((player) => ({
+      ...player,
+      avatarFile: filterAvatarFile(player.avatarFile),
+    })),
   };
 }

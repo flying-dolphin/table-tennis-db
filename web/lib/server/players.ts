@@ -1,6 +1,7 @@
 import { db } from '@/lib/server/db';
 import { isChampionRecord } from '@/lib/server/event-outcomes';
 import { getPlayerAggregateStats } from '@/lib/server/stats';
+import { filterAvatarFile } from '@/lib/server/avatarManifest';
 
 type OpponentAggregate = {
   playerId: number | null;
@@ -29,7 +30,7 @@ function roundWeight(round: string | null) {
 }
 
 export function getPlayerBySlug(slug: string) {
-  return db
+  const row = db
     .prepare(
       `
         SELECT
@@ -94,6 +95,9 @@ export function getPlayerBySlug(slug: string) {
         rankChange: number | null;
       }
     | undefined;
+
+  if (!row) return undefined;
+  return { ...row, avatarFile: filterAvatarFile(row.avatarFile) };
 }
 
 export function searchPlayers(query?: string, limit = 12, excludeSlug?: string) {
@@ -187,7 +191,7 @@ export function searchPlayers(query?: string, limit = 12, excludeSlug?: string) 
       points: number | null;
     }>;
 
-  return rows;
+  return rows.map((row) => ({ ...row, avatarFile: filterAvatarFile(row.avatarFile) }));
 }
 
 function getPlayerOpponentAggregates(playerId: number) {

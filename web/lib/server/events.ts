@@ -1,5 +1,6 @@
 import { db } from '@/lib/server/db';
 import { expandEventQuery } from '@/lib/server/query-rewrite';
+import { filterAvatarFile } from '@/lib/server/avatarManifest';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
@@ -45,14 +46,16 @@ function loadPlayersByIds(playerIds: number[]): ChampionPlayer[] {
     )
     .all(...playerIds) as ChampionPlayer[];
 
-  const rowMap = new Map(rows.map((player) => [player.playerId, player]));
+  const rowMap = new Map(
+    rows.map((player) => [player.playerId, { ...player, avatarFile: filterAvatarFile(player.avatarFile) }]),
+  );
   return playerIds.map((playerId) => rowMap.get(playerId)).filter((player): player is ChampionPlayer => Boolean(player));
 }
 
 function loadTeamChampionPlayers(eventId: number, subEventCode: string, championCountryCode: string | null): ChampionPlayer[] {
   if (!championCountryCode) return [];
 
-  return db
+  const rows = db
     .prepare(
       `
         SELECT
@@ -75,6 +78,8 @@ function loadTeamChampionPlayers(eventId: number, subEventCode: string, champion
       `,
     )
     .all(eventId, subEventCode, championCountryCode) as ChampionPlayer[];
+
+  return rows.map((row) => ({ ...row, avatarFile: filterAvatarFile(row.avatarFile) }));
 }
 
 function parseGames(value: string | null) {
@@ -1311,7 +1316,7 @@ export function getMatchDetail(matchId: number) {
       name: row.playerName,
       nameZh: row.playerNameZh,
       countryCode: row.playerCountry,
-      avatarFile: row.avatarFile,
+      avatarFile: filterAvatarFile(row.avatarFile),
     });
     sideMap.set(row.sideNo, current);
   }

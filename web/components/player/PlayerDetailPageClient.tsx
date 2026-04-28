@@ -311,8 +311,9 @@ function EmptyState({ title, action = '想要' }: { title: string; action?: stri
 function HeroPlayerAvatar({ player }: { player: Player }) {
   const [error, setError] = React.useState(false);
   const displayName = displayPlayerName(player);
-  const filename = player.avatarFile || `player_${player.playerId}_${player.name.replace(/ /g, "_")}.png`;
-  const src = `/images/avatars/${filename}`;
+  const src = player.avatarFile
+    ? `/images/avatars/${player.avatarFile}`
+    : "/images/avatars/player_default.png";
 
   if (error) {
     return (

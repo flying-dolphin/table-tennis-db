@@ -20,26 +20,21 @@ type PlayerAvatarProps = {
 };
 
 export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarProps) {
-  const [error, setError] = useState(false);
-
   const displayName = player.nameZh?.trim() || player.name;
 
-  // Construct paths
-  const filename = player.avatarFile || `player_${player.playerId}_${player.name.replace(/ /g, "_")}.png`;
-  const croppedPath = `/images/crops/${filename}`;
-  const originalPath = `/images/avatars/${filename}`;
+  const filename = player.avatarFile;
+  const croppedPath = filename ? `/images/crops/${filename}` : null;
+  const originalPath = filename ? `/images/avatars/${filename}` : null;
 
-  // Image source state - try cropped first
+  const [error, setError] = useState(!filename);
   const [imgSrc, setImgSrc] = useState(croppedPath);
   const [retryCount, setRetryCount] = useState(0);
 
   const handleImageError = () => {
-    if (retryCount === 0) {
-      // First error: fallback from crop to original
+    if (retryCount === 0 && originalPath) {
       setImgSrc(originalPath);
       setRetryCount(1);
     } else {
-      // Second error: fallback to letter placeholder
       setError(true);
     }
   };
@@ -60,7 +55,7 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
     ? "bg-gradient-to-br from-[#8CA8C7] to-[#607D9E]"
     : "bg-gradient-to-br from-brand-primary to-brand-deep";
 
-  if (!error) {
+  if (!error && imgSrc) {
     return (
       <div className={cn(containerClasses, "bg-slate-50")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
