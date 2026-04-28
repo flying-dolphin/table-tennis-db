@@ -449,7 +449,7 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
           {sevenFinalsRate != null ? (
             <div className="mt-2 border-t border-[#edf1f7] pt-2">
               <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
-                <p className="text-xs font-bold text-[#162a67]">决赛进入率 {formatPercent(sevenFinalsRate)}</p>
+                <p className="text-xs font-bold text-[#162a67]">七大赛进决赛率 {formatPercent(sevenFinalsRate)}</p>
                 <div className="h-2 rounded-full bg-[#e8edf8]">
                   <div
                     className="h-full rounded-full bg-[linear-gradient(90deg,#162a67_0%,#2e4aa2_100%)]"
@@ -496,13 +496,13 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
                 <p className="text-sm font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
                 <div className="flex w-full items-center gap-6">
                   <div className="flex flex-col items-center">
-                    <p className="font-numeric text-[1.8rem] font-black leading-none tabular-nums">{stats.allThreeTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">冠军</p>
+                    <p className="font-numeric text-3xl font-black leading-none tabular-nums">{stats.allThreeTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">总数</p>
                   </div>
                   <div className="w-[1px] h-7 bg-[#1d1a12]/15"></div>
                   <div className="flex flex-col items-center min-w-[2.5rem]">
-                    <p className="font-numeric text-[1.6rem] font-black leading-none tabular-nums">{stats.singleThreeTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">单打</p>
+                    <p className="font-numeric text-3xl font-black leading-none tabular-nums">{stats.singleThreeTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">单项</p>
                   </div>
                 </div>
               </div>
@@ -513,13 +513,13 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
                 <p className="text-sm font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
                 <div className="flex items-center gap-6">
                   <div className="flex flex-col items-center min-w-[2.5rem]">
-                    <p className="font-numeric text-[1.8rem] font-black leading-none text-[#ffd36a] tabular-nums">{stats.allSevenTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">冠军</p>
+                    <p className="font-numeric text-3xl font-black leading-none text-[#ffd36a] tabular-nums">{stats.allSevenTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">总数</p>
                   </div>
                   <div className="w-[1px] h-7 bg-white/15"></div>
                   <div className="flex flex-col items-center min-w-[2.5rem]">
-                    <p className="font-numeric text-[1.6rem] font-black leading-none tabular-nums">{stats.singleSevenTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">单打</p>
+                    <p className="font-numeric text-3xl font-black leading-none tabular-nums">{stats.singleSevenTitles}</p>
+                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">单项</p>
                   </div>
                 </div>
               </div>
