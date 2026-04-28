@@ -45,6 +45,7 @@ export function getPlayerBySlug(slug: string) {
           p.style_zh AS styleZh,
           p.career_best_rank AS careerBestRank,
           p.career_best_month AS careerBestMonth,
+          p.career_events AS careerEvents,
           p.career_matches AS careerMatches,
           p.career_wins AS careerWins,
           p.year_events AS yearEvents,

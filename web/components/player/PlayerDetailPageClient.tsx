@@ -47,6 +47,7 @@ export type Player = {
   points: number | null;
   careerBestRank: number | null;
   careerBestMonth?: string | null;
+  careerEvents: number | null;
   yearEvents: number | null;
   yearMatches: number | null;
   yearWins: number | null;
@@ -419,7 +420,7 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
   const sevenFinalsRate = stats.sevenEvents ? (stats.sevenFinals / stats.sevenEvents) * 100 : null;
   const careerWinRate = stats.winRate;
   const summaryItems = [
-    { label: "总赛事", value: stats.eventsTotal },
+    { label: "总赛事", value: player.careerEvents ?? 0 },
     { label: "七大赛出战", value: stats.sevenEvents },
     { label: "今年参赛", value: player.yearEvents ?? 0 },
   ];
