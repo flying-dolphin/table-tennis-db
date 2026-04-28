@@ -164,7 +164,8 @@ export function getPlayerAggregateStats(playerIds: number[]) {
           msp.player_id,
           msp.player_country,
           ms.side_no,
-          opp.player_country AS opponent_country
+          opp.player_country AS opponent_country,
+          se.champion_country_code AS champion_country_code
         FROM matches m
         JOIN match_sides ms ON ms.match_id = m.match_id
         JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
@@ -172,6 +173,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
         LEFT JOIN match_side_players opp ON opp.match_side_id = opps.match_side_id
         LEFT JOIN events e ON e.event_id = m.event_id
         LEFT JOIN event_categories ec ON ec.id = e.event_category_id
+        LEFT JOIN sub_events se ON se.event_id = m.event_id AND se.sub_event_type_code = m.sub_event_type_code
         WHERE msp.player_id IN (${inClause})
       `,
     )
@@ -188,6 +190,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
       player_country: string | null;
       side_no: number;
       opponent_country: string | null;
+      champion_country_code: string | null;
     }>;
 
   const groupedRows = new Map<
@@ -204,6 +207,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
       categoryId: string | null;
       playerCountry: string | null;
       sideNo: number;
+      championCountryCode: string | null;
       opponentCountries: Set<string>;
     }
   >();
@@ -225,6 +229,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
         categoryId: row.category_id,
         playerCountry: row.player_country,
         sideNo: row.side_no,
+        championCountryCode: row.champion_country_code,
         opponentCountries: new Set<string>(),
       };
 
@@ -280,6 +285,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
       round: row.round,
       didWin,
       playerCountry: row.playerCountry,
+      championCountryCode: row.championCountryCode,
     });
 
     if (eventKey && isSevenEvent) {
@@ -303,6 +309,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
     }
 
     if (eventKey && isSevenEvent && isChampion) {
+      stats.sevenFinalEventKeys.add(eventKey);
       stats.allSevenTitleKeys.add(eventKey);
       if (sortOrder != null && sortOrder <= 5) {
         stats.allThreeTitleKeys.add(eventKey);

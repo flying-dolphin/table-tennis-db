@@ -397,7 +397,8 @@ export function getPlayerDetail(slug: string) {
           ms.side_no AS playerSideNo,
           GROUP_CONCAT(DISTINCT opp.player_name) AS opponentNames,
           GROUP_CONCAT(DISTINCT opp.player_country) AS opponentCountries,
-          e.start_date AS startDate
+          e.start_date AS startDate,
+          se.champion_country_code AS championCountryCode
         FROM matches m
         JOIN match_sides ms ON ms.match_id = m.match_id
         JOIN match_side_players self ON self.match_side_id = ms.match_side_id
@@ -406,6 +407,7 @@ export function getPlayerDetail(slug: string) {
         LEFT JOIN events e ON e.event_id = m.event_id
         LEFT JOIN event_categories ec ON ec.id = e.event_category_id
         LEFT JOIN sub_event_types sety ON sety.code = m.sub_event_type_code
+        LEFT JOIN sub_events se ON se.event_id = m.event_id AND se.sub_event_type_code = m.sub_event_type_code
         WHERE self.player_id = ?
         GROUP BY m.match_id, ms.side_no
         ORDER BY COALESCE(e.start_date, '') DESC, COALESCE(m.event_year, 0) DESC, m.match_id DESC
@@ -432,6 +434,7 @@ export function getPlayerDetail(slug: string) {
       opponentNames: string | null;
       opponentCountries: string | null;
       startDate: string | null;
+      championCountryCode: string | null;
     }>;
 
   const eventMap = new Map<
@@ -484,6 +487,7 @@ export function getPlayerDetail(slug: string) {
       round: row.round,
       didWin,
       playerCountry: row.playerCountry,
+      championCountryCode: row.championCountryCode,
     });
 
     if (!currentSubEvent || weight > currentSubEvent.weight || (isChampion && !currentSubEvent.isChampion)) {
