@@ -37,7 +37,7 @@ export function getCompareData(playerASlug: string, playerBSlug: string) {
         LEFT JOIN events e ON e.event_id = m.event_id
         WHERE spa.player_id = ?
           AND spb.player_id = ?
-          AND m.sub_event_type_code = 'WS'
+          AND m.sub_event_type_code IN ('WS', 'JGS')
         ORDER BY COALESCE(e.start_date, '') DESC, COALESCE(m.event_year, 0) DESC, m.match_id DESC
       `,
     )

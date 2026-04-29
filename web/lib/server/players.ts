@@ -213,7 +213,7 @@ function getPlayerOpponentAggregates(playerId: number) {
         LEFT JOIN match_side_players opp ON opp.match_side_id = opps.match_side_id
         LEFT JOIN events e ON e.event_id = m.event_id
         WHERE self.player_id = ?
-          AND m.sub_event_type_code = 'WS'
+          AND m.sub_event_type_code IN ('WS', 'JGS')
       `,
     )
     .all(playerId) as Array<{
