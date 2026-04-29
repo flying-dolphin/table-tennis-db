@@ -551,6 +551,29 @@ function scheduleSideLabel(side: EventScheduleMatch["sides"][number] | undefined
   return "待定";
 }
 
+function parseDisplayMatchScore(matchScore: string | null | undefined) {
+  const raw = matchScore?.trim() ?? "";
+  if (!raw) {
+    return {
+      scoreParts: [] as string[],
+      suffixLabel: null as string | null,
+    };
+  }
+
+  const match = raw.match(/^(\d+)\s*-\s*(\d+)(?:\s+(WO))?$/i);
+  if (match) {
+    return {
+      scoreParts: [match[1], match[2]],
+      suffixLabel: match[3] ? "弃权" : null,
+    };
+  }
+
+  return {
+    scoreParts: raw.split("-").map((part) => part.trim()).filter(Boolean),
+    suffixLabel: /\bWO\b/i.test(raw) ? "弃权" : null,
+  };
+}
+
 function EventHeader({
   data,
   subEvents,
@@ -838,6 +861,7 @@ function LegacyViewTabs({ mode, onChange, showChampionsTab }: { mode: ViewMode; 
 function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; matchIndex: number; isXT?: boolean }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
+  const { scoreParts, suffixLabel } = parseDisplayMatchScore(match.matchScore);
 
   return (
     <Link
@@ -851,7 +875,8 @@ function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; match
       <div className="flex gap-3">
         <div className="flex-1 min-w-0 space-y-2.5">
           {sides.map((side, i) => {
-            const score = match.matchScore?.split("-")[side.sideNo - 1] ?? "-";
+            const score = scoreParts[side.sideNo - 1] ?? "-";
+            const showSuffix = suffixLabel && side.sideNo === 2;
             const flag = dedupeCountries(side.players)[0] ?? null;
             return (
               <div key={side.sideNo} className="flex items-center gap-2">
@@ -862,8 +887,11 @@ function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; match
                 <p className={cn("flex-1 min-w-0 truncate text-[0.98rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-500")}>
                   {sideName(side, isXT)}
                 </p>
-                <span className={cn("font-numeric text-[1.5rem] font-black leading-none tabular-nums ml-1 shrink-0", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-                  {score}
+                <span className="ml-1 shrink-0 flex items-center gap-1.5">
+                  {showSuffix ? <span className="text-[0.7rem] font-black leading-none text-amber-700">{suffixLabel}</span> : null}
+                  <span className={cn("font-numeric text-[1.5rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                    {score}
+                  </span>
                 </span>
                 <span className="w-5 shrink-0 flex items-center justify-center">
                   {side.isWinner ? <CheckCircle2 size={18} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
@@ -976,7 +1004,7 @@ function ScheduleMatchCard({
 }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const meta = scheduleStatusMeta(match.status);
-  const scoreParts = match.matchScore?.split("-") ?? [];
+  const { scoreParts, suffixLabel } = parseDisplayMatchScore(match.matchScore);
   const sideRows = [sideA, sideB].filter(Boolean);
   const beijingTimeLabel = showBeijingTime ? formatBeijingTimeLabel(match.scheduledUtcAt) : null;
 
@@ -1008,6 +1036,7 @@ function ScheduleMatchCard({
       <div className="mt-3 space-y-2.5">
         {sideRows.map((side) => {
           const score = scoreParts[side.sideNo - 1] ?? null;
+          const showSuffix = suffixLabel && side.sideNo === 2;
           const label = scheduleSideLabel(side);
           return (
             <div key={side.sideNo} className="flex items-center gap-2">
@@ -1019,8 +1048,11 @@ function ScheduleMatchCard({
                 {side.seed ? <p className="mt-0.5 text-[0.7rem] font-bold text-slate-400">Seed {side.seed}</p> : null}
               </div>
               {score ? (
-                <span className={cn("font-numeric text-[1.35rem] font-black tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-                  {score}
+                <span className="shrink-0 flex items-center gap-1.5">
+                  {showSuffix ? <span className="text-[0.68rem] font-black leading-none text-amber-700">{suffixLabel}</span> : null}
+                  <span className={cn("font-numeric text-[1.35rem] font-black tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                    {score}
+                  </span>
                 </span>
               ) : null}
             </div>
@@ -1321,6 +1353,7 @@ function DrawMatchCard({
 }) {
   const [sideA, sideB] = [...match.sides].sort((a, b) => a.sideNo - b.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
+  const { scoreParts, suffixLabel } = parseDisplayMatchScore(match.matchScore);
 
   return (
     <div className="relative">
@@ -1338,7 +1371,8 @@ function DrawMatchCard({
       >
         <div className="space-y-1">
           {sides.map((side) => {
-            const score = match.matchScore?.split("-")[side.sideNo - 1] ?? "-";
+            const score = scoreParts[side.sideNo - 1] ?? "-";
+            const showSuffix = suffixLabel && side.sideNo === 2;
             const flag = dedupeCountries(side.players)[0] ?? null;
             return (
               <div key={side.sideNo} className="flex items-center gap-1">
@@ -1346,8 +1380,11 @@ function DrawMatchCard({
                 <p className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-400")}>
                   {sideName(side, isXT)}
                 </p>
-                <span className={cn("font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-                  {score}
+                <span className="shrink-0 flex items-center gap-1">
+                  {showSuffix ? <span className="text-[0.5rem] font-black leading-none text-amber-700">{suffixLabel}</span> : null}
+                  <span className={cn("font-numeric text-[1rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                    {score}
+                  </span>
                 </span>
                 <span className="flex w-3 shrink-0 items-center justify-center">
                   {side.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
