@@ -76,6 +76,9 @@ export default {
         body: ["var(--font-noto-sans-sc)", "Noto Sans SC", "sans-serif"],
         numeric: ["var(--font-inter)", "Inter", "DIN Alternate", "sans-serif"],
       },
+      zIndex: {
+        overlay: '60',
+      },
     },
   },
   plugins: [],

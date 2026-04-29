@@ -557,20 +557,26 @@ function parseDisplayMatchScore(matchScore: string | null | undefined) {
     return {
       scoreParts: [] as string[],
       suffixLabel: null as string | null,
+      suffixSideNo: null as 1 | 2 | null,
     };
   }
 
   const match = raw.match(/^(\d+)\s*-\s*(\d+)(?:\s+(WO))?$/i);
   if (match) {
+    const scoreA = Number(match[1]);
+    const scoreB = Number(match[2]);
+    const hasWalkover = Boolean(match[3]);
     return {
       scoreParts: [match[1], match[2]],
-      suffixLabel: match[3] ? "弃权" : null,
+      suffixLabel: hasWalkover ? "弃权" : null,
+      suffixSideNo: hasWalkover ? (scoreA < scoreB ? 1 : scoreB < scoreA ? 2 : null) : null,
     };
   }
 
   return {
     scoreParts: raw.split("-").map((part) => part.trim()).filter(Boolean),
     suffixLabel: /\bWO\b/i.test(raw) ? "弃权" : null,
+    suffixSideNo: null as 1 | 2 | null,
   };
 }
 
@@ -861,7 +867,7 @@ function LegacyViewTabs({ mode, onChange, showChampionsTab }: { mode: ViewMode; 
 function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; matchIndex: number; isXT?: boolean }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
-  const { scoreParts, suffixLabel } = parseDisplayMatchScore(match.matchScore);
+  const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
 
   return (
     <Link
@@ -876,7 +882,7 @@ function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; match
         <div className="flex-1 min-w-0 space-y-2.5">
           {sides.map((side, i) => {
             const score = scoreParts[side.sideNo - 1] ?? "-";
-            const showSuffix = suffixLabel && side.sideNo === 2;
+            const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
             const flag = dedupeCountries(side.players)[0] ?? null;
             return (
               <div key={side.sideNo} className="flex items-center gap-2">
@@ -1004,12 +1010,12 @@ function ScheduleMatchCard({
 }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const meta = scheduleStatusMeta(match.status);
-  const { scoreParts, suffixLabel } = parseDisplayMatchScore(match.matchScore);
+  const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
   const sideRows = [sideA, sideB].filter(Boolean);
   const beijingTimeLabel = showBeijingTime ? formatBeijingTimeLabel(match.scheduledUtcAt) : null;
 
   return (
-    <Link href={route(`/schedule-matches/${match.scheduleMatchId}`)} className="block rounded-[1.2rem] bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
+    <Link href={route(`/schedule-matches/${match.scheduleMatchId}`)} className="block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
       <div className="flex items-center justify-between gap-2">
         <div className="flex min-w-0 items-center gap-2 text-[0.82rem] font-bold text-slate-500">
           {match.tableNo ? <span className="rounded-full bg-[#f3f6fb] px-2">{match.tableNo}</span> : null}
@@ -1036,7 +1042,7 @@ function ScheduleMatchCard({
       <div className="mt-3 space-y-2.5">
         {sideRows.map((side) => {
           const score = scoreParts[side.sideNo - 1] ?? null;
-          const showSuffix = suffixLabel && side.sideNo === 2;
+          const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
           const label = scheduleSideLabel(side);
           return (
             <div key={side.sideNo} className="flex items-center gap-2">
@@ -1353,7 +1359,7 @@ function DrawMatchCard({
 }) {
   const [sideA, sideB] = [...match.sides].sort((a, b) => a.sideNo - b.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
-  const { scoreParts, suffixLabel } = parseDisplayMatchScore(match.matchScore);
+  const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
 
   return (
     <div className="relative">
@@ -1372,7 +1378,7 @@ function DrawMatchCard({
         <div className="space-y-1">
           {sides.map((side) => {
             const score = scoreParts[side.sideNo - 1] ?? "-";
-            const showSuffix = suffixLabel && side.sideNo === 2;
+            const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
             const flag = dedupeCountries(side.players)[0] ?? null;
             return (
               <div key={side.sideNo} className="flex items-center gap-1">

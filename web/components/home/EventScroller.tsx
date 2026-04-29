@@ -697,7 +697,7 @@ export default function EventScroller() {
 
       {expandedMonth && (
         <div
-          className="fixed inset-0 z-[60] bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
+          className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
           style={{ WebkitBackdropFilter: "blur(24px)" }}
           onClick={(event) => {
             event.stopPropagation();

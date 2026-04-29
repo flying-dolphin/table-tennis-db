@@ -417,7 +417,7 @@ function CompareContent() {
       </div>
 
       {replaceTarget && (
-        <div className="fixed inset-0 z-[70] bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-4">
           <div className="w-full max-w-[420px] rounded-lg bg-white border border-border-subtle shadow-xl overflow-hidden">
             <div className="flex items-center justify-between px-4 py-4 border-b border-border-subtle">
               <div>

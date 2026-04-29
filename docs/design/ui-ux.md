@@ -222,10 +222,12 @@ V1 采用移动端优先的应用式页面骨架，基础结构为：
 #### 桌面端
 
 - 保持移动端信息结构不变
-- 在更大屏幕下增加容器宽度
+- 在更大屏幕下使用 `container-page`（`max-w-lg` / 512px）约束容器宽度
 - 避免演变为传统后台式多栏控制台
 
 桌面端的优化目标是“更从容”，而不是“更复杂”。
+
+具体容器宽度档位见 §4.11.7。
 
 ### 3.4 顶部区域规范
 
@@ -979,7 +981,7 @@ font-variant-numeric: tabular-nums;
 
 | 场景 | 间距 | 说明 |
 |------|------|------|
-| 页面水平内边距 | `px-5`（20px） | 全站统一，不再混用 px-4/px-5/px-6 |
+| 页面水平内边距 | `px-4`（16px）或 `px-5`（20px） | 两档都允许：列表 / 表头紧凑场景用 `px-4`，需要更呼吸感的页面用 `px-5`；同一页面内保持一致，不在同屏混用 |
 | 模块之间垂直间距 | `pt-6`（24px） | 统一模块节奏感 |
 | 卡片内边距 | `p-4`（16px） | 标准内容卡 |
 | 紧凑卡片内边距 | `p-3`（12px） | 列表项、密集数据卡 |
@@ -998,58 +1000,74 @@ font-variant-numeric: tabular-nums;
 
 #### 4.11.2 圆角系统
 
-全站使用 4 级圆角标尺 + `full` 特殊值，消除 22px、26px、32px、34px、40px 等随意中间值。
+全站直接使用 Tailwind 标准类名，不再自创 `radius-*` token。`tailwind.config.mjs` 已覆盖 `sm/md/lg` 三档为产品所需值，配合 `full` 共 4 档对外使用。
 
-| Token | 值 | Tailwind | 适用对象 |
-|-------|-----|----------|---------|
-| `radius-sm` | 8px | `rounded-lg` | 按钮、输入框、Tags、徽标、小控件 |
-| `radius-md` | 16px | `rounded-2xl` | 数据卡片、Bento 卡片、列表项、搜索框 |
-| `radius-lg` | 24px | `rounded-3xl`（需配置） | 模块容器、弹窗、赛事卡、最近比赛卡 |
-| `radius-full` | 9999px | `rounded-full` | 头像、胶囊按钮、底部导航、圆形指示器 |
+| Tailwind 类 | 值 | 适用对象 |
+|-------------|-----|---------|
+| `rounded-sm` | 8px | 按钮、输入框、Tags、徽标、小控件 |
+| `rounded-md` | 16px | 数据卡片、Bento 卡片、列表项、搜索框 |
+| `rounded-lg` | 24px | 模块容器、弹窗、赛事卡、最近比赛卡 |
+| `rounded-full` | 9999px | 头像、胶囊按钮、底部导航、圆形指示器 |
 
-**迁移映射：**
+**Tailwind 默认 `rounded-xl` / `rounded-2xl` / `rounded-3xl` 不在允许范围内：**
+
+虽然 Tailwind 默认 `rounded-2xl=16px` 与 `rounded-md` 同值、`rounded-3xl=24px` 与 `rounded-lg` 同值，但语义混乱。代码中应统一使用 `md` / `lg` 命名，把 `2xl/3xl` 视为待迁移项；`xl=12px` 没有对应档，需就近归类。
+
+**迁移映射（任意值 / Tailwind 默认值就近归类规则）：**
 
 | 当前值 | 归属 | 说明 |
 |--------|------|------|
-| 3px、6px | `radius-sm`（8px） | 过小的圆角统一提升 |
-| 22px | `radius-md`（16px） | Bento 卡片不需要这么大 |
-| 24px | `radius-lg`（24px） | 保持不变 |
-| 32px、34px、40px | `radius-lg`（24px） | 过大值收敛到 24px |
-| full | `radius-full` | 保持不变 |
+| 3px、6px、`rounded-DEFAULT`（4px） | `rounded-sm`（8px） | 过小的圆角统一提升 |
+| 10px、12px、`rounded-xl`（12px） | `rounded-sm`（8px）或 `rounded-md`（16px） | 视组件类型就近归类：按钮/小控件→sm；卡片/输入框→md |
+| `rounded-2xl`（16px）、22px | `rounded-md`（16px） | 直接迁移，零视觉差或一像素差 |
+| `rounded-3xl`（24px） | `rounded-lg`（24px） | 直接迁移，零视觉差 |
+| 32px、34px、40px、`1.25rem`（20px）、`1rem`（16px） | `rounded-lg`（24px）或 `rounded-md`（16px） | 过大值收敛到 24px；接近 16px 的归 md |
+| full | `rounded-full` | 保持不变 |
 
 **规则：**
 
 - 同一屏内只允许出现 2-3 种圆角等级，不得每个组件一个半径
-- 嵌套组件的内层圆角应小于外层（外层 `radius-lg`，内层 `radius-md` 或 `radius-sm`）
-- Hero 区底部圆角使用 `radius-lg`（24px），不再使用 34px 等非标准值
-- Tailwind 配置中 `borderRadius['3xl']` 应设为 `24px`
+- 嵌套组件的内层圆角应小于外层（外层 `rounded-lg`，内层 `rounded-md` 或 `rounded-sm`）
+- Hero 区底部圆角使用 `rounded-lg`（24px），不再使用 34px 等非标准值
+- 任意值（`rounded-[Xpx]`）不允许出现在生产代码中，必须就近归类
 
 #### 4.11.3 阴影系统
 
-全站使用 4 级阴影标尺，统一阴影颜色基底为 `rgba(30, 42, 61, alpha)`（与 `Text Primary` 同色系），保证阴影色调与品牌浅蓝基调协调。
+全站直接使用 Tailwind 默认 `shadow-*` 类名，不自定义阴影颜色基底。
 
-| Token | CSS 值 | 用途 |
-|-------|--------|------|
-| `shadow-subtle` | `0 1px 3px rgba(30,42,61,0.06)` | 卡片静息态、列表项默认态 |
-| `shadow-card` | `0 4px 12px rgba(30,42,61,0.08)` | 交互卡片、hover 提升态 |
-| `shadow-float` | `0 12px 32px rgba(30,42,61,0.12)` | 悬浮元素（对比操作条、搜索聚焦态） |
-| `shadow-nav` | `0 20px 45px rgba(30,42,61,0.16)` | 底部悬浮导航（全站最强阴影） |
+| Tailwind 类 | 用途参考 |
+|-------------|---------|
+| `shadow-sm` | 卡片静息态、列表项默认态、轻微悬浮提示 |
+| `shadow-md` | 交互卡片、hover 提升态、首页搜索框 |
+| `shadow-lg` | 悬浮元素（对比操作条、搜索聚焦态、首页 Hero） |
+| `shadow-xl` | 弹窗、强对比悬浮卡（球员页 Hero 卡片、奖牌卡） |
+| `shadow-2xl` | 模态浮层、底部悬浮导航等需要最强提升感的元素 |
+| `shadow-inner` | 不允许使用；active 状态通过背景色变化表达 |
+
+**任意值阴影迁移规则：**
+
+- 任意 `shadow-[0_Apx_Bpx_rgba(...)]` 不允许出现在生产代码中
+- 现有自定义阴影按数值范围就近归类：
+  - 偏弱（B≤4px）→ `shadow-sm`
+  - 中等（B=8-16px）→ `shadow-md`
+  - 较强（B=20-32px）→ `shadow-lg` 或 `shadow-xl`
+  - 强（B≥40px）→ `shadow-xl` 或 `shadow-2xl`
+- 球员页 Hero 卡 `0 24px 60px rgba(15,36,95,0.12)`、奖牌卡 `0 20px 40px rgba(240,181,44,0.28)`、月历模态 `0 25px 60px rgba(0,0,0,0.3)` 等强阴影迁移后会出现可见但不破坏整体观感的变化（颜色由品牌深蓝/金色变成 Tailwind 默认黑色阴影），属于可接受范围
 
 **规则：**
 
-- 不再使用 Tailwind 默认的 `shadow-sm`/`shadow-md`/`shadow-lg`/`shadow-xl`/`shadow-2xl`，统一使用语义化 token
-- 不再使用 `shadow-inner`，active 状态通过背景色变化而非内阴影表达
-- 卡片 hover 时从 `shadow-subtle` 过渡到 `shadow-card`，配合 `transition-shadow duration-200`
+- 卡片 hover 时使用 `shadow-sm → shadow-md` 的过渡，配合 `transition-shadow duration-200`
 - 模态遮罩层不用阴影，而是用半透明背景 `bg-black/35` + `backdrop-blur-sm`
 
 #### 4.11.4 玻璃效果与透明度系统
 
-当前代码中存在 13 种不同的 `bg-white/XX` 值，必须收敛。
+当前代码中存在 13 种不同的 `bg-white/XX` 值，必须收敛到以下 6 档（4 档浅色 + 2 档深色）。
 
 **浅色玻璃卡片透明度（浅色背景上使用）：**
 
 | Token | 值 | 用途 |
 |-------|-----|------|
+| `glass-opaque` | `bg-white/95` | 接近实色的高可读性卡（排名页主容器、球员页摘要卡） |
 | `glass-solid` | `bg-white/85` | 高可读性内容卡（搜索框、弹窗内容区） |
 | `glass-medium` | `bg-white/70` | 默认玻璃卡片（排名容器、赛事卡） |
 | `glass-light` | `bg-white/50` | 悬浮层背景、hover 提示区 |
@@ -1061,9 +1079,20 @@ font-variant-numeric: tabular-nums;
 | `on-dark-card` | `bg-white/14` | 深色区内的数据卡片（排名卡、积分卡） |
 | `on-dark-hint` | `bg-white/10` | 深色区内的辅助装饰 |
 
-**不允许使用的值：**
+**就近归类规则（不允许使用的中间值）：**
 
-white/12、white/15、white/20、white/30、white/40、white/45、white/55、white/60、white/75、white/80、white/90 — 这些中间值全部归入最近的标准值。
+代码中现存的 `bg-white/{55,60,65,75,80,90,96,98}` 等中间值必须就近归类：
+
+| 当前值 | 归属 | 视觉差异 |
+|--------|------|---------|
+| 96、98 | `glass-opaque`（95） | 1-3% 几乎不可见 |
+| 88、90 | `glass-solid`（85） | 3-5% 轻微可见 |
+| 75、80 | `glass-solid`（85） | 5-10% 轻微可见 |
+| 60、65 | `glass-medium`（70） | 5-10% 轻微可见 |
+| 55 | `glass-light`（50） | 5% 几乎不可见 |
+| 45 | `glass-light`（50） | 5% 几乎不可见 |
+| 12、15 | `on-dark-card`（14） / `on-dark-hint`（10） | 视用途归类 |
+| 20、30、40 | `on-dark-card`（14） | 深色区辅助层不应过强 |
 
 **模糊强度（backdrop-blur）：**
 
@@ -1078,11 +1107,21 @@ white/12、white/15、white/20、white/30、white/40、white/45、white/55、whi
 
 **颜色规则：**
 
-- 浅色卡片边框统一使用 `border-border-subtle`（`#D9E4F2`）
+- 实色卡片边框使用 `border-border-subtle`（`#D9E4F2`）
 - 需要更强边界时使用 `border-border-strong`（`#C7D7EA`）
 - 激活态 / 选中态使用 `border-brand-deep`
-- 不使用 `border-white/XX` 的透明白色边框 — 它在浅色背景上几乎不可见
-- 深色背景上的卡片边框使用 `border-white/14`
+- 玻璃卡片（带 `backdrop-blur-*`）允许使用 `border-white/XX` 制造"浮起来"的视觉效果，这是产品刻意的视觉语言，不是实现失误
+- 深色背景（球员页 Hero 等）上的卡片边框使用 `border-white/14`
+
+**玻璃边框透明度档位（浅色背景上的玻璃卡）：**
+
+| Token | 值 | 用途 |
+|-------|-----|------|
+| `border-glass-strong` | `border-white/40` | 玻璃卡片需要更明显悬浮感（首页 Top1 排名行、月历放大态） |
+| `border-glass-medium` | `border-white/20` | 玻璃卡片默认浮起感（玻璃容器、弹窗描边） |
+| `border-glass-soft` | `border-white/12` | 弱玻璃描边、深色背景上的轻装饰 |
+
+代码中 `border-white/{30,50,60,70}` 等就近归到 `40`；`border-white/{15}` 归到 `12`。这一收敛是纯视觉档位规整，不会破坏"浮起来"的整体感觉。
 
 **宽度规则：**
 
@@ -1091,36 +1130,73 @@ white/12、white/15、white/20、white/30、white/40、white/45、white/55、whi
 
 #### 4.11.6 视觉结构 Token 汇总
 
-以下是所有需要在 Tailwind 配置或 CSS 变量中定义的视觉结构 token：
-
 ```
 间距：基于 Tailwind 默认 4px 栅格，不新增自定义值
 
-圆角：
-  --radius-sm: 8px      (rounded-lg)
-  --radius-md: 16px     (rounded-2xl)
-  --radius-lg: 24px     (rounded-3xl，需覆盖默认值)
-  --radius-full: 9999px (rounded-full)
+圆角：直接使用 Tailwind 类名，tailwind.config.mjs 已覆盖以下三档
+  rounded-sm:   8px
+  rounded-md:   16px
+  rounded-lg:   24px
+  rounded-full: 9999px
+  禁止使用 rounded-xl / rounded-2xl / rounded-3xl 及任意值
 
-阴影：
-  --shadow-subtle: 0 1px 3px rgba(30,42,61,0.06)
-  --shadow-card:   0 4px 12px rgba(30,42,61,0.08)
-  --shadow-float:  0 12px 32px rgba(30,42,61,0.12)
-  --shadow-nav:    0 20px 45px rgba(30,42,61,0.16)
+阴影：直接使用 Tailwind 默认 shadow 类
+  shadow-sm / shadow-md / shadow-lg / shadow-xl / shadow-2xl
+  禁止使用 shadow-inner 与任意值 shadow-[...]
 
-玻璃透明度：
+玻璃透明度（浅色背景）：
+  glass-opaque: white/95
   glass-solid:  white/85
   glass-medium: white/70
   glass-light:  white/50
+
+玻璃透明度（深色背景）：
   on-dark-card: white/14
   on-dark-hint: white/10
+
+玻璃边框（浅色背景）：
+  border-glass-strong: white/40
+  border-glass-medium: white/20
+  border-glass-soft:   white/12
 
 模糊：
   blur-card:  backdrop-blur-md (12px)
   blur-float: backdrop-blur-xl (24px)
+
+容器宽度：
+  container-page:     max-w-lg (512px)
+  container-floating: max-w-[430px]
+  container-alert:    max-w-[320px]
 ```
 
-### 4.12 z-index 层级规范
+#### 4.11.7 容器宽度规范
+
+V1 移动端优先，桌面端通过容器宽度约束保持移动产品观感。全站只允许 3 档容器宽度。
+
+| Token | 值 | Tailwind | 用途 |
+|-------|-----|----------|------|
+| `container-page` | 512px | `max-w-lg` | 所有内容页 main 容器（rankings、events、players、compare 等） |
+| `container-floating` | 430px | `max-w-[430px]` | BottomNav 内部、月历放大态、大弹窗（更换球员、未找到结果等需要承接较多内容的弹窗） |
+| `container-alert` | 320px | `max-w-[320px]` | 小弹窗 / Alert / Confirm（登录提示等仅承载一条信息和 1-2 个按钮） |
+
+**规则：**
+
+- 三档之外的容器宽度（`max-w-md`、`max-w-sm`、`max-w-xs`、`max-w-[420px]`、`max-w-[400px]` 等）一律不允许出现
+- 同一类组件必须使用同一档：所有页面 main 容器必须用 `container-page`；所有月历放大态、大弹窗、BottomNav 必须用 `container-floating`
+- 容器宽度只控制 `max-width`，不控制 `min-width`；移动端实际宽度仍由屏幕宽度和水平内边距决定
+- 桌面端不为获得更多空间而提升档位 — 数据产品观感来自移动端单列，不是后台多栏
+
+**就近归类规则：**
+
+| 当前值 | 归属 | 视觉变化 |
+|--------|------|---------|
+| `max-w-lg`（512px） | `container-page` | 零变化 |
+| `max-w-[430px]` | `container-floating` | 零变化 |
+| `max-w-[420px]` | `container-floating`（430px） | +10px，几乎不可见 |
+| `max-w-[320px]` | `container-alert` | 零变化 |
+| `max-w-sm`（384px） | 视用途归类 — 大弹窗→`container-floating`、小弹窗→`container-alert` | 视情况 |
+| `max-w-md`（448px） | `container-floating`（430px） | -18px |
+| `max-w-xs`（320px） | `container-alert` | 零变化 |
 
 #### 4.12.1 层级标尺
 
@@ -1261,20 +1337,29 @@ Tailwind 实现：直接使用 `duration-100` / `duration-200` / `duration-300` 
 
 ### 4.14A 组件尺寸规范
 
-#### 4.14A.1 图标尺寸（三档标准）
+#### 4.14A.1 图标尺寸（五档标准）
 
-现有代码中图标尺寸散落为 8 种（13/14/15/16/18/20/22/24px），需收敛至以下三档：
+现有代码中图标尺寸散落为 11 种（10/12/13/14/15/16/18/20/22/24/26px），需收敛至以下五档：
 
 | 档位 | 尺寸 | Lucide prop | 用途场景 |
 |------|------|-------------|----------|
-| small | 14px | `size={14}` | 行内辅助图标、标签前缀、Micro 文字旁 |
-| default | 18px | `size={18}` | 卡片标题区、导航图标、Section header |
-| large | 24px | `size={24}` | 顶部 Back 按钮、重要操作入口、空状态插图 |
+| decorative | 12px | `size={12}` | 装饰性小图标，紧贴 ≤12px 字号文字（赛程图胜方对勾、小奖杯、星级、徽标内嵌图标） |
+| small | 14px | `size={14}` | 行内辅助图标、列表跳转 ChevronRight、标签前缀、关闭按钮 X、`micro` 文字旁 |
+| default | 18px | `size={18}` | 卡片标题区、表单输入图标、Section header、Tab 图标、模块图标、关闭按钮 X（弹窗内） |
+| focus | 22px | `size={22}` | **仅** 首屏第一焦点交互场景（首页 SearchBox 搜索图标）。新增 focus 档不得用于其他位置 |
+| large | 24px | `size={24}` | 顶部 Back 按钮、BottomNav 导航图标、空状态插图、重要操作入口 |
 
 **迁移规则**：
-- `size={13}` / `size={15}` / `size={16}` → 统一改为 `size={14}`
-- `size={20}` / `size={22}` → 统一改为 `size={18}`
-- 仅 Back/主操作图标保留 `size={24}`
+- `size={10}` → 12（装饰小图标，+2px）
+- `size={13}` → 14
+- `size={15}` / `size={16}` → 14 或 18，按上下文：行内辅助 / 列表跳转选 14；卡片标题 / Tab 图标选 18
+- `size={20}` → 18（多数场景）或 24（顶部主操作）
+- `size={26}` → 24（顶部 Back 按钮统一到 24，–2px）
+
+**关键约束**：
+- `focus` 档（22px）专属于首页 SearchBox 搜索图标，是产品"首屏第一焦点"的视觉权重补丁。在其他任何位置使用都视为越界
+- `decorative` 档（12px）只允许在 ≤12px 文字旁出现；不允许在普通卡片标题、按钮、列表行使用
+- 不允许出现 11 种现状之外的尺寸，也不允许 `size={11}` / `size={17}` / `size={19}` 等"半步值"
 
 #### 4.14A.2 头像尺寸
 

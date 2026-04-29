@@ -117,7 +117,7 @@ export default function SearchBox() {
       </form>
 
       {showLoginPrompt && (
-        <div className="fixed inset-0 z-[70] bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
+        <div className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
           <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-xl p-5">
             <h3 className="text-heading-2 font-bold text-text-primary">登录后可用搜索</h3>
             <p className="mt-2 text-body text-text-secondary leading-relaxed">
@@ -147,7 +147,7 @@ export default function SearchBox() {
       )}
 
       {showNotFoundPrompt && (
-        <div className="fixed inset-0 z-[70] bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
+        <div className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
           <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-xl p-5">
             <h3 className="text-heading-2 font-bold text-text-primary">未找到结果</h3>
             <p className="mt-2 text-body text-text-secondary leading-relaxed">
