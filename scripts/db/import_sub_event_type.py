@@ -34,7 +34,7 @@ def load_sub_events_from_file(file_path: str) -> list:
 
 
 def import_sub_event_types(db_path: str, txt_path: str) -> bool:
-    """导入项目类别"""
+    """导入项目类别（upsert 模式：存在则更新，不存在则插入）"""
     try:
         sub_events_data = load_sub_events_from_file(txt_path)
 
@@ -42,22 +42,26 @@ def import_sub_event_types(db_path: str, txt_path: str) -> bool:
         cursor = conn.cursor()
         cursor.execute("PRAGMA foreign_keys = ON;")
 
-        # Full refresh mode: clear old dictionary data and reset AUTOINCREMENT.
-        cursor.execute("DELETE FROM sub_event_types")
-        cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'sub_event_types'")
-
+        inserted, updated = 0, 0
         for i, (code, name, name_zh) in enumerate(sub_events_data, 1):
             cursor.execute("""
                 INSERT INTO sub_event_types (code, name, name_zh)
                 VALUES (?, ?, ?)
+                ON CONFLICT(code) DO UPDATE SET
+                    name = excluded.name,
+                    name_zh = excluded.name_zh
             """, (code, name, name_zh))
+            if cursor.lastrowid:
+                inserted += 1
+            else:
+                updated += 1
             print(f"  [{i:2d}] {code:5s} {name:30s} {name_zh}")
 
         conn.commit()
         conn.close()
 
-        print(f"\nFull refresh mode: True")
-        print(f"Inserted sub_event_types: {len(sub_events_data)}")
+        print(f"\nUpsert mode: inserted={inserted}, updated={updated}")
+        print(f"Total sub_event_types processed: {len(sub_events_data)}")
         return True
 
     except Exception as e:
