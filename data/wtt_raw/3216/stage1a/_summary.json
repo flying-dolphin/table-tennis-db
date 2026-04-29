@@ -1,0 +1,159 @@
+{
+  "event_id": 3216,
+  "sub_events": [
+    "MTEAM",
+    "WTEAM"
+  ],
+  "groups": [
+    1,
+    2
+  ],
+  "browser_xhrs": [],
+  "api_probes": [
+    {
+      "sub_event": "MTEAM",
+      "group": 1,
+      "doc_code": "TTEMTEAMGP0100000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEMTEAMGP0100000000----------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "MTEAM",
+      "group": 1,
+      "doc_code": "TTEMTEAMGP0001000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEMTEAMGP0001000000----------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "MTEAM",
+      "group": 1,
+      "doc_code": "TTEMTEAMGP000000000100--------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEMTEAMGP000000000100--------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "MTEAM",
+      "group": 2,
+      "doc_code": "TTEMTEAMGP0200000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEMTEAMGP0200000000----------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "MTEAM",
+      "group": 2,
+      "doc_code": "TTEMTEAMGP0002000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEMTEAMGP0002000000----------------------",
+      "status": -1,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "MTEAM",
+      "group": 2,
+      "doc_code": "TTEMTEAMGP000000000200--------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEMTEAMGP000000000200--------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "WTEAM",
+      "group": 1,
+      "doc_code": "TTEWTEAMGP0100000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEWTEAMGP0100000000----------------------",
+      "status": -1,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "WTEAM",
+      "group": 1,
+      "doc_code": "TTEWTEAMGP0001000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEWTEAMGP0001000000----------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "WTEAM",
+      "group": 1,
+      "doc_code": "TTEWTEAMGP000000000100--------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEWTEAMGP000000000100--------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "WTEAM",
+      "group": 2,
+      "doc_code": "TTEWTEAMGP0200000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEWTEAMGP0200000000----------------------",
+      "status": -1,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "WTEAM",
+      "group": 2,
+      "doc_code": "TTEWTEAMGP0002000000----------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEWTEAMGP0002000000----------------------",
+      "status": 204,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "sub_event": "WTEAM",
+      "group": 2,
+      "doc_code": "TTEWTEAMGP000000000200--------------------",
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetBrackets/3216/TTEWTEAMGP000000000200--------------------",
+      "status": -1,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetSchedule/3216",
+      "status": 404,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetEventSchedule/3216",
+      "status": 200,
+      "size": 1122578,
+      "saved": "probe_extra_3216.json"
+    },
+    {
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetGroupResults?EventId=3216",
+      "status": -1,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetGroups?EventId=3216",
+      "status": -1,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetSubEvents/3216",
+      "status": -1,
+      "size": 0,
+      "saved": null
+    },
+    {
+      "url": "https://liveeventsapi.worldtabletennis.com/api/cms/GetEventInfo/3216",
+      "status": 404,
+      "size": 0,
+      "saved": null
+    }
+  ],
+  "saved_count": 0
+}

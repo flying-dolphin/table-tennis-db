@@ -132,7 +132,11 @@ CREATE TABLE IF NOT EXISTS events (
     start_date          TEXT,
     end_date            TEXT,
     location            TEXT,
+    time_zone           TEXT,                  -- IANA 时区，如 Europe/London
     href                TEXT,
+    lifecycle_status    TEXT NOT NULL DEFAULT 'upcoming',
+                                                -- upcoming / draw_published / in_progress / completed
+    last_synced_at      TEXT,
     scraped_at          TEXT,
     FOREIGN KEY (event_category_id) REFERENCES event_categories(id)
 );
@@ -140,6 +144,7 @@ CREATE TABLE IF NOT EXISTS events (
 CREATE INDEX IF NOT EXISTS idx_events_year ON events(year);
 CREATE INDEX IF NOT EXISTS idx_events_date ON events(start_date);
 CREATE INDEX IF NOT EXISTS idx_events_category ON events(event_category_id);
+CREATE INDEX IF NOT EXISTS idx_events_lifecycle ON events(lifecycle_status);
 
 CREATE TABLE IF NOT EXISTS sub_events (
     sub_event_id        INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -164,8 +169,10 @@ CREATE TABLE IF NOT EXISTS matches (
     sub_event_type_code TEXT NOT NULL,
     stage               TEXT,
     stage_zh            TEXT,
+    stage_code          TEXT,                  -- -> stage_codes.code
     round               TEXT,
     round_zh            TEXT,
+    round_code          TEXT,                  -- -> round_codes.code
     side_a_key          TEXT NOT NULL,
     side_b_key          TEXT NOT NULL,
     match_score         TEXT,
@@ -185,6 +192,8 @@ CREATE INDEX IF NOT EXISTS idx_matches_year ON matches(event_year);
 CREATE INDEX IF NOT EXISTS idx_matches_winner_side ON matches(winner_side);
 CREATE INDEX IF NOT EXISTS idx_matches_event_round_sides
 ON matches(event_id, sub_event_type_code, stage, round, side_a_key, side_b_key);
+CREATE INDEX IF NOT EXISTS idx_matches_stage_code ON matches(stage_code);
+CREATE INDEX IF NOT EXISTS idx_matches_round_code ON matches(round_code);
 
 CREATE TABLE IF NOT EXISTS event_draw_matches (
     draw_match_id       INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -193,6 +202,8 @@ CREATE TABLE IF NOT EXISTS event_draw_matches (
     sub_event_type_code TEXT NOT NULL,
     draw_stage          TEXT NOT NULL DEFAULT 'Main Draw',
     draw_round          TEXT NOT NULL,
+    stage_code          TEXT,                  -- -> stage_codes.code
+    round_code          TEXT,                  -- -> round_codes.code
     round_order         INTEGER NOT NULL,
     source_stage        TEXT,
     source_round        TEXT,
@@ -206,6 +217,8 @@ CREATE TABLE IF NOT EXISTS event_draw_matches (
     CHECK (bronze_verified IN (0, 1)),
     UNIQUE(match_id)
 );
+CREATE INDEX IF NOT EXISTS idx_event_draw_matches_stage_code ON event_draw_matches(stage_code);
+CREATE INDEX IF NOT EXISTS idx_event_draw_matches_round_code ON event_draw_matches(round_code);
 
 CREATE INDEX IF NOT EXISTS idx_event_draw_matches_event
 ON event_draw_matches(event_id, sub_event_type_code, round_order);
@@ -313,6 +326,7 @@ CREATE TABLE IF NOT EXISTS events_calendar (
     status              TEXT,
     href                TEXT,
     event_id            INTEGER,
+    scraped_at          TEXT,
     FOREIGN KEY (event_category_id) REFERENCES event_categories(id),
     FOREIGN KEY (event_id) REFERENCES events(event_id)
 );
@@ -383,3 +397,184 @@ CREATE TABLE IF NOT EXISTS user_sessions (
 CREATE INDEX IF NOT EXISTS idx_user_sessions_token ON user_sessions(token);
 CREATE INDEX IF NOT EXISTS idx_user_sessions_user ON user_sessions(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_sessions_expires ON user_sessions(expires_at);
+
+-- ============================================================================
+-- 阶段/轮次字典（normalize_stage_round.py 维护）
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS stage_codes (
+    code        TEXT PRIMARY KEY,
+    name        TEXT NOT NULL,
+    name_zh     TEXT NOT NULL,
+    sort_order  INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS round_codes (
+    code        TEXT PRIMARY KEY,
+    name        TEXT NOT NULL,
+    name_zh     TEXT NOT NULL,
+    kind        TEXT NOT NULL DEFAULT 'unknown',
+    sort_order  INTEGER NOT NULL DEFAULT 0
+);
+
+-- ============================================================================
+-- 场馆字典（用于时区推断与本地化展示）
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS venues (
+    venue_id        INTEGER PRIMARY KEY AUTOINCREMENT,
+    name            TEXT NOT NULL,             -- 规范英文名（无则用原文）
+    name_zh         TEXT,
+    city            TEXT,
+    country_code    TEXT,                      -- ISO-3
+    time_zone       TEXT NOT NULL,             -- IANA，如 Europe/London
+    aliases         TEXT,                      -- JSON 数组：备用名 / 中文别名
+    UNIQUE(name)
+);
+
+CREATE INDEX IF NOT EXISTS idx_venues_country ON venues(country_code);
+
+-- ============================================================================
+-- 赛事完整日程（手工 JSON：data/event_schedule/{event_id}.json）
+-- 按日纲要：哪天有什么阶段，参赛方可未确定
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS event_session_schedule (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id            INTEGER NOT NULL,
+    day_index           INTEGER NOT NULL,      -- 1-based 日序
+    local_date          TEXT NOT NULL,         -- YYYY-MM-DD（赛事所在地）
+    start_local_time    TEXT,                  -- HH:MM
+    end_local_time      TEXT,
+    venue_raw           TEXT,                  -- 原始场馆文本（中/英）
+    venue_id            INTEGER,
+    table_count         INTEGER,
+    raw_sub_events_text TEXT,                  -- "男团/女团 第1轮"
+    parsed_rounds_json  TEXT,                  -- [{"sub_event_code":"MT","round_code":"R1"},...]
+    updated_at          TEXT DEFAULT (datetime('now')),
+    FOREIGN KEY (event_id) REFERENCES events(event_id),
+    FOREIGN KEY (venue_id) REFERENCES venues(venue_id),
+    UNIQUE(event_id, day_index)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_session_schedule_event ON event_session_schedule(event_id);
+CREATE INDEX IF NOT EXISTS idx_event_session_schedule_date ON event_session_schedule(local_date);
+
+-- ============================================================================
+-- 签表（来自 worldtabletennis.com Draws tab，按签位）
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS event_draw_entries (
+    entry_id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id            INTEGER NOT NULL,
+    sub_event_type_code TEXT NOT NULL,
+    stage_code          TEXT NOT NULL,
+    slot_index          INTEGER NOT NULL,      -- 在签表中的位置
+    seed                INTEGER,
+    group_code          TEXT,                  -- A/B/... 小组阶段
+    team_code           TEXT,                  -- 团体赛 ISO-3
+    placeholder_text    TEXT,                  -- 'Q1' / 'BYE' / 'TBD'
+    created_at          TEXT DEFAULT (datetime('now')),
+    FOREIGN KEY (event_id) REFERENCES events(event_id),
+    FOREIGN KEY (sub_event_type_code) REFERENCES sub_event_types(code),
+    FOREIGN KEY (stage_code) REFERENCES stage_codes(code),
+    UNIQUE(event_id, sub_event_type_code, stage_code, slot_index)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_draw_entries_event
+    ON event_draw_entries(event_id, sub_event_type_code);
+
+CREATE TABLE IF NOT EXISTS event_draw_entry_players (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    entry_id        INTEGER NOT NULL,
+    player_order    INTEGER NOT NULL,
+    player_id       INTEGER,                   -- 可空：未匹配球员
+    player_name     TEXT NOT NULL,
+    player_country  TEXT,
+    FOREIGN KEY (entry_id) REFERENCES event_draw_entries(entry_id) ON DELETE CASCADE,
+    FOREIGN KEY (player_id) REFERENCES players(player_id),
+    UNIQUE(entry_id, player_order)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_draw_entry_players_player
+    ON event_draw_entry_players(player_id);
+
+-- ============================================================================
+-- 赛程（来自 worldtabletennis.com Schedule tab，按场）
+-- 完赛后由 promote 脚本对齐到 matches/event_draw_matches
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS event_schedule_matches (
+    schedule_match_id   INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id            INTEGER NOT NULL,
+    sub_event_type_code TEXT NOT NULL,
+    stage_code          TEXT NOT NULL,
+    round_code          TEXT NOT NULL,
+    group_code          TEXT,                  -- 小组阶段
+    external_match_code TEXT,                  -- WTT documentCode / unit Code
+    scheduled_local_at  TEXT,                  -- ISO 8601（赛事所在地）
+    scheduled_utc_at    TEXT,                  -- ISO 8601 UTC
+    table_no            TEXT,
+    session_label       TEXT,                  -- "Session 1" / "上午场"
+    venue_id            INTEGER,
+    status              TEXT NOT NULL DEFAULT 'scheduled',
+                                                -- scheduled / live / completed / walkover / cancelled
+    raw_schedule_status TEXT,                  -- WTT ScheduleStatus 原文
+    match_score         TEXT,
+    games               TEXT,
+    winner_side         TEXT,
+    promoted_match_id   INTEGER,               -- promote 后回填
+    last_synced_at      TEXT,
+    FOREIGN KEY (event_id) REFERENCES events(event_id),
+    FOREIGN KEY (sub_event_type_code) REFERENCES sub_event_types(code),
+    FOREIGN KEY (stage_code) REFERENCES stage_codes(code),
+    FOREIGN KEY (round_code) REFERENCES round_codes(code),
+    FOREIGN KEY (venue_id) REFERENCES venues(venue_id),
+    FOREIGN KEY (promoted_match_id) REFERENCES matches(match_id) ON DELETE SET NULL,
+    CHECK (status IN ('scheduled', 'live', 'completed', 'walkover', 'cancelled')),
+    CHECK (winner_side IN ('A', 'B') OR winner_side IS NULL)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_schedule_matches_event
+    ON event_schedule_matches(event_id, sub_event_type_code);
+CREATE INDEX IF NOT EXISTS idx_event_schedule_matches_local_at
+    ON event_schedule_matches(scheduled_local_at);
+CREATE INDEX IF NOT EXISTS idx_event_schedule_matches_status
+    ON event_schedule_matches(status);
+CREATE INDEX IF NOT EXISTS idx_event_schedule_matches_external_code
+    ON event_schedule_matches(event_id, external_match_code);
+
+CREATE TABLE IF NOT EXISTS event_schedule_match_sides (
+    schedule_side_id    INTEGER PRIMARY KEY AUTOINCREMENT,
+    schedule_match_id   INTEGER NOT NULL,
+    side_no             INTEGER NOT NULL,      -- 1/2
+    entry_id            INTEGER,                -- ref event_draw_entries
+    placeholder_text    TEXT,                   -- "W of M123" / "Q1" / "TBD"
+    team_code           TEXT,                   -- ISO-3
+    seed                INTEGER,
+    qualifier           INTEGER,
+    is_winner           INTEGER NOT NULL DEFAULT 0,
+    FOREIGN KEY (schedule_match_id) REFERENCES event_schedule_matches(schedule_match_id) ON DELETE CASCADE,
+    FOREIGN KEY (entry_id) REFERENCES event_draw_entries(entry_id) ON DELETE SET NULL,
+    CHECK (side_no IN (1, 2)),
+    CHECK (is_winner IN (0, 1)),
+    UNIQUE(schedule_match_id, side_no)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_schedule_match_sides_match
+    ON event_schedule_match_sides(schedule_match_id);
+
+CREATE TABLE IF NOT EXISTS event_schedule_match_side_players (
+    id                      INTEGER PRIMARY KEY AUTOINCREMENT,
+    schedule_side_id        INTEGER NOT NULL,
+    player_order            INTEGER NOT NULL,
+    player_id               INTEGER,
+    player_name             TEXT NOT NULL,
+    player_country          TEXT,
+    FOREIGN KEY (schedule_side_id) REFERENCES event_schedule_match_sides(schedule_side_id) ON DELETE CASCADE,
+    FOREIGN KEY (player_id) REFERENCES players(player_id),
+    UNIQUE(schedule_side_id, player_order)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_schedule_match_side_players_player
+    ON event_schedule_match_side_players(player_id);

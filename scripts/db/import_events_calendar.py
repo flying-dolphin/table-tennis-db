@@ -464,6 +464,7 @@ def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
 
         year = int(data.get("year", 0))
         events = data.get("events", [])
+        scraped_at = data.get("scraped_at")
         print(f"Processing {json_file.name}: {len(events)} calendar events")
 
         for event in events:
@@ -508,8 +509,8 @@ def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
                     INSERT INTO events_calendar (
                         year, name, name_zh, event_type, event_kind, event_category_id,
                         date_range, date_range_zh, start_date, end_date,
-                        location, location_zh, status, href, event_id
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        location, location_zh, status, href, event_id, scraped_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     year,
                     event_name,
@@ -526,6 +527,7 @@ def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
                     event.get("status"),
                     href,
                     matched_event_id,
+                    scraped_at,
                 ))
                 result["inserted"] += 1
             except sqlite3.Error as exc:

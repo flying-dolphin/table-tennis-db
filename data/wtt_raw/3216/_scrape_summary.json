@@ -1,0 +1,44 @@
+{
+  "event_id": 3216,
+  "files": [
+    {
+      "kind": "event_draws",
+      "file": "GetEventDraws.json",
+      "size": 376
+    },
+    {
+      "kind": "event_schedule",
+      "file": "GetEventSchedule.json",
+      "size": 1332984
+    },
+    {
+      "kind": "live_results",
+      "file": "GetLiveResult.json",
+      "size": 595
+    },
+    {
+      "kind": "brackets_MTEAM",
+      "file": "GetBrackets_MTEAM.json",
+      "size": 85160
+    },
+    {
+      "kind": "brackets_WTEAM",
+      "file": "GetBrackets_WTEAM.json",
+      "size": 85162
+    },
+    {
+      "kind": "official_results",
+      "file": "GetOfficialResult.json",
+      "size": 16348567,
+      "count": 68
+    },
+    {
+      "kind": "official_results_recent",
+      "file": "GetOfficialResult_take10.json",
+      "size": 2748918,
+      "count": 10
+    }
+  ],
+  "errors": [],
+  "fetched_at": "2026-04-29T21:18:14"
+}

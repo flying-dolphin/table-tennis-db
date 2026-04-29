@@ -176,7 +176,69 @@
 
 ---
 
-## 6. 积分规则 (Points Rules / Regulations)
+## 6. 即将开赛 / 进行中赛事
+
+当前这条链路用于补齐 upcoming / in-progress 赛事，不依赖历史 `matches` / `event_draw_matches` 完整落库后才能展示。
+
+### db/backfill_events_calendar_event_id.py
+从 `events_calendar.href` 提取 `event_id`，对 `events` 表里缺失的赛事补 INSERT。
+主要用途：
+- 建立 upcoming 赛事的基础 `events` 记录
+- 初始化 `lifecycle_status='upcoming'`
+
+### db/import_session_schedule.py
+导入人工维护的赛事按日日程。
+输入：`data/event_schedule/{event_id}.json`
+输出：`event_session_schedule`
+
+主要职责：
+- 解析中文日期、时间、项目、阶段、轮次
+- 生成 session 级纲要日程
+- 将 `events.lifecycle_status` 从 `upcoming` 推进到 `draw_published`
+
+### scrape_wtt_event.py
+抓取 WTT 公开 CMS API 的原始赛事 JSON。
+输出目录：`data/wtt_raw/{event_id}/`
+
+当前抓取的主要文件：
+- `GetEventDraws.json`
+- `GetEventSchedule.json`
+- `GetOfficialResult_take10.json`
+- `GetLiveResult.json`
+- `GetBrackets_{sub_event}.json`
+
+### db/import_wtt_event.py
+将 `data/wtt_raw/{event_id}/GetEventSchedule.json` 导入 upcoming-event 专用表。
+
+输出表：
+- `event_draw_entries`
+- `event_draw_entry_players`
+- `event_schedule_matches`
+- `event_schedule_match_sides`
+- `event_schedule_match_side_players`
+
+主要职责：
+- 解析 unit 级比赛赛程
+- 规范化 `Round -> stage_code / round_code / group_code`
+- 计算并保存 `scheduled_local_at / scheduled_utc_at`
+- 按需补 `events.time_zone`
+- 根据赛事时间推进 `events.lifecycle_status`
+
+### scrape_event_results_daily.py
+即将开赛 / 进行中赛事的刷新调度脚本。
+
+当前真实行为：
+- 选择 `lifecycle_status IN ('draw_published', 'in_progress')` 的赛事
+- 调用 `scrape_wtt_event.py` 刷新 raw JSON
+- 调用 `db/import_wtt_event.py` 重导 `GetEventSchedule.json`
+
+注意：
+- 当前不会自动 promote 到 `matches / event_draw_matches`
+- 当前不会把 `GetOfficialResult_take10.json` 系统化落库到独立结果表
+
+---
+
+## 7. 积分规则 (Points Rules / Regulations)
 
 数据来源：https://ittf.com/rankings/（发现 PDF 链接）
 
@@ -193,7 +255,7 @@
 
 ---
 
-## 7. 翻译词典管理
+## 8. 翻译词典管理
 
 ### dict_updator.py
 将 key:value:category 格式的词条文件批量添加到 translation_dict_v2.json。
@@ -214,7 +276,7 @@
 
 ---
 
-## 8. 数据库相关
+## 9. 数据库相关
 
 ### db/config.py
 数据库配置：PROJECT_ROOT、DB_PATH、SCHEMA_PATH。
@@ -231,7 +293,7 @@
 
 ---
 
-## 9. 其他工具脚本
+## 10. 其他工具脚本
 
 ### avatar_crop.py
 裁剪球员头像图片。
@@ -250,7 +312,7 @@
 
 ---
 
-## 10. 已归档脚本 (archive/)
+## 11. 已归档脚本 (archive/)
 
 已废弃或被新版本替代的脚本：
 
@@ -302,4 +364,31 @@ results.ittf.link
                                    translate_events_calendar.py
                                         │
                                    db/import_events_calendar.py
+                                        │
+                                   db/backfill_events_calendar_event_id.py
+                                        │
+                                   SQLite events(upcoming)
+
+人工维护日程
+    │
+    └─ data/event_schedule/{event_id}.json
+            │
+            └─ db/import_session_schedule.py
+                    │
+                    └─ event_session_schedule
+
+WTT CMS API
+    │
+    └─ scrape_wtt_event.py ──→ data/wtt_raw/{event_id}/
+                                │
+                                ├─ db/import_wtt_event.py
+                                │      │
+                                │      ├─ event_draw_entries
+                                │      ├─ event_draw_entry_players
+                                │      ├─ event_schedule_matches
+                                │      ├─ event_schedule_match_sides
+                                │      └─ event_schedule_match_side_players
+                                │
+                                └─ scrape_event_results_daily.py
+                                       └─ upcoming / in_progress 赛事周期刷新
 ```

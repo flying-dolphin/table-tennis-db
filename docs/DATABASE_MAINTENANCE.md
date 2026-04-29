@@ -25,6 +25,7 @@ python scripts/db/import_players.py
 python scripts/db/import_rankings.py
 python scripts/db/import_events.py
 python scripts/db/import_events_calendar.py
+python scripts/db/backfill_events_calendar_event_id.py
 python scripts/fix_special_event_2860_stage_round.py
 python scripts/db/import_matches.py
 python scripts/db/import_event_draw_matches.py
@@ -41,6 +42,110 @@ python scripts/db/import_sub_events.py
 - `import_event_draw_matches.py` 必须在 `import_sub_events.py` 之前执行，冠军统计只读取正赛表里的 `draw_round='Final'`
 - 暂时不要执行 `python scripts/db/import_points_rules.py`
 - 该脚本当前为占位状态，`points_rules` 导入放在后续实现计划
+
+---
+
+## 即将开赛 / 进行中赛事维护链路
+
+这条链路不属于历史赛事的全量重建顺序，而是 upcoming / in-progress 赛事的增量维护流程。
+
+### 1. Schema 升级
+
+如果本地库还没有以下字段/表，需要先执行：
+
+```bash
+python scripts/db/upgrade_schema_event_lifecycle.py
+```
+
+这个脚本会补：
+
+- `events.lifecycle_status`
+- `events.time_zone`
+- `events.last_synced_at`
+- `event_session_schedule`
+- `event_draw_entries`
+- `event_draw_entry_players`
+- `event_schedule_matches`
+- `event_schedule_match_sides`
+- `event_schedule_match_side_players`
+
+### 2. 补 upcoming 赛事基础记录
+
+```bash
+python scripts/db/backfill_events_calendar_event_id.py
+```
+
+用途：
+
+- 从 `events_calendar.href` 提取 `event_id`
+- 对 `events` 表中缺失的赛事补 INSERT
+- 初始化 `lifecycle_status='upcoming'`
+
+### 3. 导入按日日程
+
+```bash
+python scripts/db/import_session_schedule.py --event 3216
+```
+
+用途：
+
+- 读取 `data/event_schedule/{event_id}.json`
+- 写入 `event_session_schedule`
+- 将 `events.lifecycle_status` 从 `upcoming` 推进到 `draw_published`
+
+### 4. 抓取 WTT raw 数据
+
+```bash
+python scripts/scrape_wtt_event.py --event-id 3216 --sub-events MTEAM WTEAM
+```
+
+输出目录：
+
+- `data/wtt_raw/{event_id}/`
+
+当前主要 raw 文件：
+
+- `GetEventDraws.json`
+- `GetEventSchedule.json`
+- `GetOfficialResult_take10.json`
+- `GetLiveResult.json`
+- `GetBrackets_{sub_event}.json`
+
+### 5. 导入按场比赛赛程
+
+```bash
+python scripts/db/import_wtt_event.py --event 3216
+```
+
+用途：
+
+- 把 `GetEventSchedule.json` 解析到：
+  - `event_draw_entries`
+  - `event_draw_entry_players`
+  - `event_schedule_matches`
+  - `event_schedule_match_sides`
+  - `event_schedule_match_side_players`
+- 按需补 `events.time_zone`
+- 根据赛事时间推进 `events.lifecycle_status`
+
+### 6. 日常刷新
+
+```bash
+python scripts/scrape_event_results_daily.py
+python scripts/scrape_event_results_daily.py --event 3216
+python scripts/scrape_event_results_daily.py --event 3216 --skip-scrape
+```
+
+当前真实行为：
+
+- 选择 `lifecycle_status IN ('draw_published', 'in_progress')` 的赛事
+- 刷新 `data/wtt_raw/{event_id}/`
+- 重新执行 `import_wtt_event.py`
+
+注意：
+
+- 当前不会自动 promote 到 `matches / event_draw_matches`
+- 当前不会把 `GetOfficialResult_take10.json` 系统化写回数据库结果表
 
 ---
 
@@ -77,6 +182,8 @@ SELECT COUNT(*) FROM event_categories;
 SELECT COUNT(*) FROM event_type_mapping;
 SELECT COUNT(*) FROM events;
 SELECT COUNT(*) FROM events_calendar;
+SELECT COUNT(*) FROM event_session_schedule;
+SELECT COUNT(*) FROM event_schedule_matches;
 SELECT COUNT(*) FROM matches;
 SELECT COUNT(*) FROM event_draw_matches;
 ```
@@ -97,6 +204,27 @@ SELECT
   SUM(CASE WHEN event_id IS NOT NULL THEN 1 ELSE 0 END) AS linked_event,
   SUM(CASE WHEN event_category_id IS NOT NULL THEN 1 ELSE 0 END) AS linked_category
 FROM events_calendar;
+```
+
+检查 lifecycle 分布：
+
+```sql
+SELECT lifecycle_status, COUNT(*)
+FROM events
+GROUP BY lifecycle_status
+ORDER BY lifecycle_status;
+```
+
+检查某个进行中赛事的 session / schedule 数据量：
+
+```sql
+SELECT COUNT(*) AS session_days
+FROM event_session_schedule
+WHERE event_id = 3216;
+
+SELECT COUNT(*) AS schedule_matches
+FROM event_schedule_matches
+WHERE event_id = 3216;
 ```
 
 ---
