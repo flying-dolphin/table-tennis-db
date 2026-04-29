@@ -121,11 +121,8 @@ export default sentryEnabled
         project: process.env.SENTRY_PROJECT,
         authToken: process.env.SENTRY_AUTH_TOKEN,
         silent: !process.env.CI,
-      },
-      {
         widenClientFileUpload: true,
         tunnelRoute: '/monitoring',
-        disablePrismaInstrumentation: true,
       }
     )
   : nextConfig;
