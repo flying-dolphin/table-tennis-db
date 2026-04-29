@@ -412,7 +412,9 @@
       "original": "Round Robin",
       "translated": "循环赛",
       "categories": [
-        "terms"
+        "terms",
+        "stage",
+        "round"
       ],
       "source": "dict",
       "review_status": "pending",
@@ -5083,6 +5085,32 @@
       },
       "updated_at": "2026-04-15T18:02:51.881319"
     },
+    "wtt feeder senec": {
+      "original": "WTT Feeder Senec",
+      "translated": "WTT支线赛塞内茨站",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-29T18:02:51.881319"
+    },
+    "ittf-americas central american & caribbean championships santo domingo": {
+      "original": "ITTF-Americas Central American & Caribbean Championships Santo Domingo",
+      "translated": "圣多明各国际乒联美洲中美洲及加勒比海锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-04-29T18:02:51.881319"
+    },
     "ittf-oceania cup christchurch": {
       "original": "ITTF-Oceania Cup Christchurch",
       "translated": "基督城国际乒联大洋洲杯赛",
@@ -5488,7 +5516,7 @@
     },
     "wtt youth contender senec": {
       "original": "WTT Youth Contender Senec",
-      "translated": "WTT青少年挑战赛塞内克站",
+      "translated": "WTT青少年挑战赛塞内茨站",
       "categories": [
         "events"
       ],
@@ -11611,7 +11639,7 @@
     },
     "slovak junior open senec": {
       "original": "Slovak Junior Open Senec",
-      "translated": "塞涅茨国际乒联世界青少年巡回赛斯洛伐克青少年公开赛",
+      "translated": "塞内茨国际乒联世界青少年巡回赛斯洛伐克青少年公开赛",
       "categories": [
         "events"
       ],
@@ -14871,6 +14899,45 @@
         "terms": "none"
       },
       "updated_at": "2026-04-16T00:25:07.967104"
+    },
+    "jbd": {
+      "original": "JBD",
+      "translated": "青少年男子双打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-29T00:25:07.967104"
+    },
+    "jbs": {
+      "original": "JBS",
+      "translated": "青少年男子单打",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-29T00:25:07.967104"
+    },
+    "jbt": {
+      "original": "JBT",
+      "translated": "青少年男子团体",
+      "categories": [
+        "terms"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "terms": "none"
+      },
+      "updated_at": "2026-04-29T00:25:07.967104"
     },
     "main": {
       "original": "MAIN",
@@ -61547,6 +61614,21 @@
         "round": "none"
       },
       "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "bronze": {
+      "original": "Bronze",
+      "translated": "铜牌赛",
+      "categories": [
+        "stage",
+        "round"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "stage": "none",
+        "round": "none"
+      },
+      "updated_at": "2026-04-29T23:17:33.499780"
     },
     "main draw - division 1": {
       "original": "Main Draw - Division 1",
