@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -29,6 +29,12 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
   const [error, setError] = useState(!filename);
   const [imgSrc, setImgSrc] = useState(croppedPath);
   const [retryCount, setRetryCount] = useState(0);
+
+  useEffect(() => {
+    setError(!filename);
+    setImgSrc(croppedPath);
+    setRetryCount(0);
+  }, [croppedPath, filename]);
 
   const handleImageError = () => {
     if (retryCount === 0 && originalPath) {
