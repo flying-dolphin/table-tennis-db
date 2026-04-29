@@ -68,6 +68,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.ignoreWarnings = [
+        ...(config.ignoreWarnings || []),
+        { module: /@opentelemetry\/instrumentation/ },
+        { message: /Critical dependency: the request of a dependency is an expression/ },
+      ];
+    }
+    return config;
+  },
   async headers() {
     return [
       {
@@ -99,23 +109,23 @@ const nextConfig: NextConfig = {
   },
 };
 
-const sentryEnabled = Boolean(
-  process.env.SENTRY_AUTH_TOKEN && process.env.SENTRY_ORG && process.env.SENTRY_PROJECT,
-);
+const sentryEnabled =
+  process.env.NODE_ENV === 'production' &&
+  Boolean(process.env.SENTRY_AUTH_TOKEN && process.env.SENTRY_ORG && process.env.SENTRY_PROJECT);
 
 export default sentryEnabled
-  ? withSentryConfig(nextConfig, {
-      org: process.env.SENTRY_ORG,
-      project: process.env.SENTRY_PROJECT,
-      authToken: process.env.SENTRY_AUTH_TOKEN,
-      silent: !process.env.CI,
-      widenClientFileUpload: true,
-      tunnelRoute: '/monitoring',
-      webpack: {
-        treeshake: {
-          removeDebugLogging: true,
-        },
-        automaticVercelMonitors: false,
+  ? withSentryConfig(
+      nextConfig,
+      {
+        org: process.env.SENTRY_ORG,
+        project: process.env.SENTRY_PROJECT,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        silent: !process.env.CI,
       },
-    })
+      {
+        widenClientFileUpload: true,
+        tunnelRoute: '/monitoring',
+        disablePrismaInstrumentation: true,
+      }
+    )
   : nextConfig;
