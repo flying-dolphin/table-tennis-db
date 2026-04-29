@@ -475,10 +475,10 @@ function EventsPageContent() {
                 {hasQuery ? "没有匹配的赛事" : selectedYear === "all" ? "暂无赛事数据" : "这一年还没翻到赛事"}
               </p>
             </div>
-          ) : (
-            <div>
-              {events.map((event) => {
-                const category = getEventCategory(event);
+           ) : (
+             <div>
+               {events.map((event) => {
+                 const category = getEventCategory(event);
 
                 return (
                   <Link

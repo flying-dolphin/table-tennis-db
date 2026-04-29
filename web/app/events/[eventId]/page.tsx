@@ -10,10 +10,14 @@ import {
   List,
   FolderTree,
   Trophy,
+  CalendarDays,
+  Clock3,
+  Table2,
   ChevronLeft,
   ChevronDown,
   ChevronUp,
   CheckCircle2,
+  MapPin,
 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -86,6 +90,12 @@ type StageStanding = {
   teamCode: string;
   teamName: string;
   teamNameZh: string | null;
+  matches?: number;
+  wins?: number;
+  losses?: number;
+  tiePoints?: number;
+  scoreFor?: number;
+  scoreAgainst?: number;
 };
 
 type RoundRobinStage = {
@@ -147,6 +157,8 @@ type EventDetail = {
     startDate: string | null;
     endDate: string | null;
     location: string | null;
+    lifecycleStatus: string | null;
+    timeZone: string | null;
   };
   subEvents: Array<{
     code: string;
@@ -155,7 +167,23 @@ type EventDetail = {
     hasDraw: boolean;
     drawMatches: number;
     importedMatches: number;
+    scheduleMatches: number;
     champion: EventChampion | null;
+  }>;
+  sessionSchedule: Array<{
+    id: number;
+    dayIndex: number;
+    localDate: string;
+    startLocalTime: string | null;
+    endLocalTime: string | null;
+    venueRaw: string | null;
+    tableCount: number | null;
+    rawSubEventsText: string | null;
+    parsedRoundsJson: string | null;
+  }>;
+  scheduleDays: Array<{
+    localDate: string;
+    matches: EventScheduleMatch[];
   }>;
   selectedSubEvent: string;
   subEventDetails: Array<{
@@ -173,12 +201,43 @@ type EventDetail = {
   presentationMode: "knockout" | "staged_round_robin" | "team_knockout_with_bronze";
 };
 
+type EventScheduleMatch = {
+  scheduleMatchId: number;
+  externalMatchCode?: string | null;
+  subEventTypeCode: string;
+  subEventNameZh: string | null;
+  stageCode: string;
+  stageNameZh: string | null;
+  roundCode: string;
+  roundNameZh: string | null;
+  groupCode: string | null;
+  scheduledLocalAt: string | null;
+  scheduledUtcAt: string | null;
+  tableNo: string | null;
+  sessionLabel: string | null;
+  status: string;
+  rawScheduleStatus: string | null;
+  matchScore: string | null;
+  games: Array<{ player: number; opponent: number }>;
+  winnerSide: string | null;
+  sides: Array<{
+    sideNo: number;
+    entryId: number | null;
+    placeholderText: string | null;
+    teamCode: string | null;
+    seed: number | null;
+    qualifier: boolean | null;
+    isWinner: boolean;
+    players: SidePlayer[];
+  }>;
+};
+
 type EventDetailResponse = {
   code: number;
   data: EventDetail;
 };
 
-type ViewMode = "schedule" | "draw" | "champions";
+type ViewMode = "session" | "draw" | "schedule" | "champions";
 
 type EventSubEventView = EventDetail["subEvents"][number] & EventDetail["subEventDetails"][number];
 
@@ -190,6 +249,115 @@ function displayDateRange(startDate: string | null, endDate: string | null) {
   if (!startDate && !endDate) return "时间待补";
   if (startDate && startDate === endDate) return startDate;
   return [startDate, endDate].filter(Boolean).join(" 至 ");
+}
+
+function formatLocalDate(value: string | null) {
+  if (!value || value === "日期待定") return "日期待定";
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("zh-CN", {
+    month: "numeric",
+    day: "numeric",
+    weekday: "short",
+  }).format(date);
+}
+
+function formatLocalTime(value: string | null) {
+  if (!value) return "时间待定";
+  const time = value.includes("T") ? value.split("T")[1]?.slice(0, 5) : value.slice(0, 5);
+  return time || "时间待定";
+}
+
+function formatBeijingTimeLabel(value: string | null) {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+
+  const parts = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const month = parts.find((part) => part.type === "month")?.value;
+  const day = parts.find((part) => part.type === "day")?.value;
+  const hour = parts.find((part) => part.type === "hour")?.value;
+  const minute = parts.find((part) => part.type === "minute")?.value;
+
+  if (!month || !day || !hour || !minute) return null;
+  return `北京时间 ${month}/${day} ${hour}:${minute}`;
+}
+
+function zonedLocalDateTimeToDate(localDate: string, localTime: string, timeZone: string) {
+  const dateMatch = localDate.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const timeMatch = localTime.match(/^(\d{2}):(\d{2})/);
+  if (!dateMatch || !timeMatch) return null;
+
+  const targetUtcMs = Date.UTC(
+    Number(dateMatch[1]),
+    Number(dateMatch[2]) - 1,
+    Number(dateMatch[3]),
+    Number(timeMatch[1]),
+    Number(timeMatch[2]),
+  );
+
+  let guessMs = targetUtcMs;
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+
+  for (let i = 0; i < 3; i += 1) {
+    const parts = formatter.formatToParts(new Date(guessMs));
+    const year = Number(parts.find((part) => part.type === "year")?.value);
+    const month = Number(parts.find((part) => part.type === "month")?.value);
+    const day = Number(parts.find((part) => part.type === "day")?.value);
+    const hour = Number(parts.find((part) => part.type === "hour")?.value);
+    const minute = Number(parts.find((part) => part.type === "minute")?.value);
+    if (![year, month, day, hour, minute].every(Number.isFinite)) return null;
+
+    const zonedUtcMs = Date.UTC(year, month - 1, day, hour, minute);
+    const diffMs = targetUtcMs - zonedUtcMs;
+    if (diffMs === 0) return new Date(guessMs);
+    guessMs += diffMs;
+  }
+
+  return new Date(guessMs);
+}
+
+function formatBeijingSessionRange(
+  localDate: string,
+  startLocalTime: string | null,
+  endLocalTime: string | null,
+  eventTimeZone: string | null,
+) {
+  if (!eventTimeZone || !startLocalTime) return null;
+  const startDate = zonedLocalDateTimeToDate(localDate, startLocalTime, eventTimeZone);
+  if (!startDate) return null;
+
+  const formatDateTime = (date: Date) =>
+    new Intl.DateTimeFormat("zh-CN", {
+      timeZone: "Asia/Shanghai",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(date);
+
+  const startLabel = formatDateTime(startDate);
+  if (!endLocalTime) return `北京时间 ${startLabel}`;
+
+  const endDate = zonedLocalDateTimeToDate(localDate, endLocalTime, eventTimeZone);
+  if (!endDate) return `北京时间 ${startLabel}`;
+  return `北京时间 ${startLabel} - ${formatDateTime(endDate)}`;
 }
 
 function displayPlayerName(player: { name: string; nameZh: string | null }) {
@@ -351,6 +519,38 @@ function sideGamesLabel(games: Array<{ player: number; opponent: number }>) {
   return games.map((game) => `${game.player}-${game.opponent}`).join(", ");
 }
 
+function scheduleStatusMeta(status: string) {
+  const normalized = status.toLowerCase();
+  if (normalized === "completed") {
+    return { label: "已完结", className: "bg-emerald-50 text-emerald-700 ring-emerald-100" };
+  }
+  if (normalized === "live") {
+    return { label: "进行中", className: "bg-rose-50 text-rose-700 ring-rose-100" };
+  }
+  if (normalized === "cancelled") {
+    return { label: "已取消", className: "bg-slate-100 text-slate-500 ring-slate-200" };
+  }
+  if (normalized === "walkover") {
+    return { label: "退赛", className: "bg-amber-50 text-amber-700 ring-amber-100" };
+  }
+  return { label: "未开始", className: "bg-blue-50 text-[#2d6cf6] ring-blue-100" };
+}
+
+function scheduleRoundLabel(match: EventScheduleMatch) {
+  if (match.groupCode) {
+    return `${match.roundNameZh || match.roundCode}${match.groupCode ? ` · ${match.groupCode}` : ""}`;
+  }
+  return match.roundNameZh || match.roundCode || match.sessionLabel || "轮次待定";
+}
+
+function scheduleSideLabel(side: EventScheduleMatch["sides"][number] | undefined) {
+  if (!side) return "待定";
+  if (side.teamCode) return side.teamCode;
+  if (side.placeholderText) return side.placeholderText;
+  if (side.players.length > 0) return side.players.map(displayPlayerName).join(" / ");
+  return "待定";
+}
+
 function EventHeader({
   data,
   subEvents,
@@ -488,6 +688,7 @@ function ChampionBanner({
         <div className="relative flex min-h-[64px] sm:min-h-[72px] items-center gap-3">
           {champion?.players[0] && !isDoubles && !isTeam && !isXT ? (
             <PlayerAvatar
+              key={`${champion.players[0].playerId}-${champion.players[0].avatarFile ?? "no-avatar"}`}
               player={champion.players[0]}
               size="lg"
               className="h-[64px] w-[64px] sm:h-[72px] sm:w-[72px] border-none"
@@ -537,7 +738,41 @@ function ChampionBanner({
   );
 }
 
-function ViewTabs({ mode, onChange, showChampionsTab }: { mode: ViewMode; onChange: (mode: ViewMode) => void; showChampionsTab: boolean }) {
+function LiveViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMode) => void }) {
+  const tabs: Array<{ mode: ViewMode; label: string; icon: React.ReactNode }> = [
+    { mode: "session", label: "日程", icon: <CalendarDays size={16} /> },
+    { mode: "draw", label: "签表", icon: <FolderTree size={16} /> },
+    { mode: "schedule", label: "比赛", icon: <List size={16} /> },
+  ];
+
+  return (
+    <div className="flex justify-around border-b border-slate-200/80 px-1 text-base">
+      {tabs.map((tab) => (
+        <button
+          key={tab.mode}
+          type="button"
+          onClick={() => onChange(tab.mode)}
+          className={cn(
+            "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
+            mode === tab.mode ? "text-[#2d6cf6]" : "text-slate-400 hover:text-slate-700",
+          )}
+        >
+          {tab.icon}
+          {tab.label}
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
+              mode === tab.mode ? "bg-[#2d6cf6]" : "bg-transparent",
+            )}
+          />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function LegacyViewTabs({ mode, onChange, showChampionsTab }: { mode: ViewMode; onChange: (mode: ViewMode) => void; showChampionsTab: boolean }) {
   return (
     <div className="flex justify-around border-b border-slate-200/80 px-1 text-base">
       <button
@@ -567,7 +802,7 @@ function ViewTabs({ mode, onChange, showChampionsTab }: { mode: ViewMode; onChan
         )}
       >
         <FolderTree size={16} />
-        赛事图
+        签表
         <span
           aria-hidden="true"
           className={cn(
@@ -644,6 +879,250 @@ function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; match
         </div>
       </div>
     </Link>
+  );
+}
+
+function SessionScheduleView({
+  sessions,
+  lifecycleStatus,
+  eventTimeZone,
+}: {
+  sessions: EventDetail["sessionSchedule"];
+  lifecycleStatus: string | null;
+  eventTimeZone: string | null;
+}) {
+  if (sessions.length === 0) {
+    return (
+      <div className="pt-5">
+        <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+          赛事日程还没补齐
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="pb-10 pt-4">
+      <div className="space-y-3">
+        {sessions.map((session) => {
+          const beijingTimeLabel =
+            lifecycleStatus === "in_progress"
+              ? formatBeijingSessionRange(
+                session.localDate,
+                session.startLocalTime,
+                session.endLocalTime,
+                eventTimeZone,
+              )
+              : null;
+          const subEventsLines = session.rawSubEventsText
+            ? session.rawSubEventsText.split("|").map((part) => part.trim()).filter(Boolean)
+            : null;
+
+          return (
+            <section
+              key={session.id}
+              className="rounded-[1.35rem] bg-white px-4 py-4 ring-1 ring-[#e8edf8] shadow-sm"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-[0.78rem] font-bold text-[#7d95c7]">DAY {session.dayIndex}</p>
+                  <div className="my-1 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                    <h2 className="text-[1.22rem] font-black leading-none text-slate-950">
+                      {formatLocalDate(session.localDate)}
+                    </h2>
+                  </div>
+                  {beijingTimeLabel ? (
+                    <p className="text-[0.76rem] font-bold text-[#7d95c7]">{beijingTimeLabel}</p>
+                  ) : null}
+                </div>
+                <div className="rounded-full bg-[#f3f6fb] px-3 py-1 text-[0.78rem] font-bold text-slate-500">
+                  {session.startLocalTime || "待定"} - {session.endLocalTime || "待定"}
+                </div>
+
+              </div>
+
+              <div className="mt-2 space-y-1">
+                {subEventsLines ? (
+                  subEventsLines.map((line, i) => (
+                    <p key={i} className="text-[0.98rem] font-bold leading-relaxed text-slate-700">
+                      {line}
+                    </p>
+                  ))
+                ) : (
+                  <p className="text-[0.98rem] font-bold leading-relaxed text-slate-700">
+                    项目安排待补
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-2 flex items-center gap-1.5 text-[0.95rem] font-black text-slate-800">
+                <MapPin size={14} className="shrink-0 text-[#7d95c7]" />
+                <span className="truncate">{session.venueRaw || "待定"}</span>
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function ScheduleMatchCard({
+  match,
+  showBeijingTime,
+}: {
+  match: EventScheduleMatch;
+  showBeijingTime: boolean;
+}) {
+  const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
+  const meta = scheduleStatusMeta(match.status);
+  const scoreParts = match.matchScore?.split("-") ?? [];
+  const sideRows = [sideA, sideB].filter(Boolean);
+  const beijingTimeLabel = showBeijingTime ? formatBeijingTimeLabel(match.scheduledUtcAt) : null;
+
+  return (
+    <Link href={route(`/schedule-matches/${match.scheduleMatchId}`)} className="block rounded-[1.2rem] bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex min-w-0 items-center gap-2 text-[0.82rem] font-bold text-slate-500">
+          {match.tableNo ? <span className="rounded-full bg-[#f3f6fb] px-2">{match.tableNo}</span> : null}
+          <Clock3 size={14} className="shrink-0 text-[#7d95c7]" />
+          <span>{formatLocalTime(match.scheduledLocalAt)}</span>
+          {beijingTimeLabel ? (
+            <p className="text-[0.76rem] font-bold text-[#7d95c7]">({beijingTimeLabel})</p>
+          ) : null}
+        </div>
+        <span className={cn("shrink-0 rounded-full px-2.5 py-1 text-[0.72rem] font-black ring-1", meta.className)}>
+          {meta.label}
+        </span>
+      </div>
+
+      <div className="mt-2 flex items-center justify-between gap-3">
+        <p className="min-w-0 truncate text-[0.8rem] font-bold text-slate-400">
+          {formatSubEventLabel(match.subEventTypeCode, match.subEventNameZh)} · {scheduleRoundLabel(match)}
+        </p>
+        {match.rawScheduleStatus ? (
+          <span className="shrink-0 text-[0.72rem] font-bold text-slate-300">{match.rawScheduleStatus}</span>
+        ) : null}
+      </div>
+
+      <div className="mt-3 space-y-2.5">
+        {sideRows.map((side) => {
+          const score = scoreParts[side.sideNo - 1] ?? null;
+          const label = scheduleSideLabel(side);
+          return (
+            <div key={side.sideNo} className="flex items-center gap-2">
+              <Flag code={side.teamCode || side.players[0]?.countryCode || null} className="shrink-0 scale-[1.18] origin-left" />
+              <div className="min-w-0 flex-1">
+                <p className={cn("truncate text-[1rem] font-black leading-tight", side.isWinner ? "text-slate-950" : "text-slate-700")}>
+                  {label}
+                </p>
+                {side.seed ? <p className="mt-0.5 text-[0.7rem] font-bold text-slate-400">Seed {side.seed}</p> : null}
+              </div>
+              {score ? (
+                <span className={cn("font-numeric text-[1.35rem] font-black tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                  {score}
+                </span>
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+
+      {match.games.length > 0 ? (
+        <p className="mt-3 border-t border-slate-100 pt-2 text-[0.78rem] font-medium text-slate-500">
+          局分：{sideGamesLabel(match.games)}
+        </p>
+      ) : null}
+
+    </Link>
+  );
+}
+
+function ScheduleByDateView({
+  days,
+  selectedSubEvent,
+  lifecycleStatus,
+}: {
+  days: EventDetail["scheduleDays"];
+  selectedSubEvent: string;
+  lifecycleStatus: string | null;
+}) {
+  const filteredDays = days
+    .map((day) => ({
+      ...day,
+      matches: day.matches.filter((match) => match.subEventTypeCode === selectedSubEvent),
+    }))
+    .filter((day) => day.matches.length > 0);
+
+  const [selectedDate, setSelectedDate] = React.useState<string | null>(filteredDays[0]?.localDate ?? null);
+
+  React.useEffect(() => {
+    if (filteredDays.length === 0) {
+      setSelectedDate(null);
+      return;
+    }
+
+    if (!selectedDate || !filteredDays.some((day) => day.localDate === selectedDate)) {
+      setSelectedDate(filteredDays[0].localDate);
+    }
+  }, [filteredDays, selectedDate]);
+
+  if (filteredDays.length === 0) {
+    return (
+      <div className="pt-5">
+        <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+          这项逐场赛程还没发布
+        </div>
+      </div>
+    );
+  }
+
+  const activeDay = filteredDays.find((day) => day.localDate === selectedDate) ?? filteredDays[0];
+  const showBeijingTime = lifecycleStatus === "in_progress";
+
+  return (
+    <div className="pb-10 pt-4">
+      <div className="space-y-4">
+        <div className="sticky top-0 z-10 -mx-2 overflow-x-auto px-2 pb-2 pt-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex min-w-max gap-2">
+            {filteredDays.map((day) => {
+              const isActive = day.localDate === activeDay.localDate;
+              return (
+                <button
+                  key={day.localDate}
+                  type="button"
+                  onClick={() => setSelectedDate(day.localDate)}
+                  className={cn(
+                    "group rounded-2xl border px-4 py-2.5 text-left transition",
+                    isActive
+                      ? "border-brand-primary bg-brand-primary text-white shadow-[0_10px_24px_rgba(45,108,246,0.28)]"
+                      : "border-[#dce7f5] bg-white/92 text-slate-500 shadow-sm hover:border-[#b8ccf1] hover:text-slate-800",
+                  )}
+                >
+                  <p className={cn("text-[0.95rem] font-black leading-none", isActive ? "text-white" : "text-slate-900")}>
+                    {formatLocalDate(day.localDate)}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <section key={activeDay.localDate}>
+          <div className="mb-3 flex items-end justify-between px-1">
+            <h2 className="text-[1.28rem] font-black leading-none text-slate-950">
+              {formatLocalDate(activeDay.localDate)}
+            </h2>
+            <span className="text-[0.85rem] font-bold text-slate-400">{activeDay.matches.length} 场</span>
+          </div>
+          <div className="space-y-3">
+            {activeDay.matches.map((match) => (
+              <ScheduleMatchCard key={match.scheduleMatchId} match={match} showBeijingTime={showBeijingTime} />
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }
 
@@ -1634,6 +2113,8 @@ function TeamTieCard({ tie, title }: { tie: TeamTie; title?: string }) {
 }
 
 function FinalStandingsView({ standings }: { standings: StageStanding[] }) {
+  if (standings.length === 0) return null;
+
   return (
     <div className="rounded-[1.6rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
       <h3 className="text-[1.25rem] font-black text-slate-950">最终排名</h3>
@@ -1652,8 +2133,63 @@ function FinalStandingsView({ standings }: { standings: StageStanding[] }) {
   );
 }
 
-function RoundRobinView({ view }: { view: EventRoundRobinView }) {
+function GroupStandingsTable({ standings }: { standings: StageStanding[] }) {
+  if (standings.length === 0) return null;
+
+  return (
+    <div className="overflow-hidden rounded-[1.2rem] bg-white ring-1 ring-[#e8edf8]">
+      <div className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_3.5rem] gap-2 border-b border-slate-100 px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-slate-400">
+        <span>排名</span>
+        <span>队伍</span>
+        <span className="text-center">赛</span>
+        <span className="text-center">胜</span>
+        <span className="text-center">负</span>
+        <span className="text-center">积分</span>
+        <span className="text-center">局分</span>
+      </div>
+      <div>
+        {standings.map((standing) => (
+          <div
+            key={standing.teamCode}
+            className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_3.5rem] items-center gap-2 px-3 py-3 text-[0.82rem] font-bold text-slate-700 not-last:border-b not-last:border-slate-100"
+          >
+            <span className="text-[#2d6cf6]">{standing.rank}</span>
+            <span className="flex min-w-0 items-center gap-2">
+              <Flag code={standing.teamCode} className="shrink-0" />
+              <span className="truncate">{standing.teamNameZh || standing.teamName}</span>
+            </span>
+            <span className="text-center">{standing.matches ?? 0}</span>
+            <span className="text-center">{standing.wins ?? 0}</span>
+            <span className="text-center">{standing.losses ?? 0}</span>
+            <span className="text-center">{standing.tiePoints ?? 0}</span>
+            <span className="text-center">
+              {standing.scoreFor ?? 0}-{standing.scoreAgainst ?? 0}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function RoundRobinView({ view, defaultCollapsed = false }: { view: EventRoundRobinView; defaultCollapsed?: boolean }) {
+  const [collapsedStages, setCollapsedStages] = React.useState<Set<string>>(
+    defaultCollapsed ? new Set(view.stages.map((stage) => stage.code)) : new Set(),
+  );
   const [collapsedGroups, setCollapsedGroups] = React.useState<Set<string>>(new Set());
+
+  React.useEffect(() => {
+    setCollapsedStages(defaultCollapsed ? new Set(view.stages.map((stage) => stage.code)) : new Set());
+  }, [defaultCollapsed, view.stages]);
+
+  const toggleStage = React.useCallback((key: string) => {
+    setCollapsedStages((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  }, []);
 
   const toggleGroup = React.useCallback((key: string) => {
     setCollapsedGroups((prev) => {
@@ -1666,71 +2202,91 @@ function RoundRobinView({ view }: { view: EventRoundRobinView }) {
 
   return (
     <div className="pb-10 pt-5">
-      <section>
-        <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-        <Podium podium={teamPodiumDisplay(view.podium)} />
-      </section>
+      {(view.podium.champion || view.podium.runnerUp || view.podium.thirdPlace) && (
+        <section>
+          <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+          <Podium podium={teamPodiumDisplay(view.podium)} />
+        </section>
+      )}
 
       <div className="mt-6 space-y-6">
-        {view.stages.map((stage) => (
-          <section key={stage.code}>
-            <div className="mb-3 flex items-center justify-between px-1.5">
-              <h2 className="text-[1.9rem] font-black text-slate-950">{stage.nameZh || stage.name}</h2>
-              <span className="text-[1rem] font-semibold text-slate-500">
-                {stage.format === "group_round_robin" ? "分组循环赛" : "循环赛"}
-              </span>
-            </div>
-            {stage.groups ? (
-              <div className="space-y-4">
-                {stage.groups.map((group) => {
-                  const groupKey = `${stage.code}:${group.code}`;
-                  const isCollapsed = collapsedGroups.has(groupKey);
-                  return (
-                    <div key={group.code} className="rounded-[1.8rem] bg-[#f3f6fb] p-4 ring-1 ring-[#e4ebf8]">
-                      <button
-                        type="button"
-                        onClick={() => toggleGroup(groupKey)}
-                        className="flex w-full justify-between items-center"
-                      >
-                        <h3 className="shrink-0 text-base font-black text-slate-900 whitespace-nowrap">{group.nameZh || group.code}</h3>
-                        <div className="flex min-w-0 flex-1 flex-wrap pt-2 items-center justify-center gap-1 text-[0.72rem] font-bold text-slate-600">
-                          {group.teams.map((team) => (
-                            <span key={team} className="inline-flex items-center gap-0.5 rounded-sm bg-white px-1 py-2 whitespace-nowrap leading-none">
-                              <Flag code={team} />
-                              <span>{team}</span>
+        {view.stages.map((stage) => {
+          const isStageCollapsed = collapsedStages.has(stage.code);
+          return (
+            <section key={stage.code}>
+              <button
+                type="button"
+                onClick={() => toggleStage(stage.code)}
+                className="mb-3 flex w-full items-center justify-between gap-3 px-1.5"
+              >
+                <div className="flex min-w-0 items-center gap-3">
+                  <h2 className="text-[1.25rem] font-black text-slate-950">{stage.nameZh || stage.name}</h2>
+                  <span className="text-[0.92rem] font-semibold text-slate-500">
+                    {stage.format === "group_round_robin" ? "分组循环赛" : "循环赛"}
+                  </span>
+                </div>
+                <span className="shrink-0 flex items-center gap-1 text-[0.86rem] font-bold text-slate-500">
+                  {isStageCollapsed ? "展开" : "收起"}
+                  {isStageCollapsed ? <ChevronDown size={16} strokeWidth={2.5} /> : <ChevronUp size={16} strokeWidth={2.5} />}
+                </span>
+              </button>
+              {!isStageCollapsed ? (
+                stage.groups ? (
+                  <div className="space-y-4">
+                    {stage.groups.map((group) => {
+                      const groupKey = `${stage.code}:${group.code}`;
+                      const isCollapsed = collapsedGroups.has(groupKey);
+                      return (
+                        <div key={group.code} className="rounded-[1.6rem] bg-white p-4 ring-1 ring-[#e8edf8] shadow-sm">
+                          <button
+                            type="button"
+                            onClick={() => toggleGroup(groupKey)}
+                            className="flex w-full justify-between items-center"
+                          >
+                            <h3 className="shrink-0 text-base font-black text-slate-900 whitespace-nowrap">{group.nameZh || group.code}</h3>
+                            <div className="flex min-w-0 flex-1 flex-wrap pt-2 items-center justify-center gap-1 text-[0.72rem] font-bold text-slate-600">
+                              {group.teams.map((team) => (
+                                <span key={team} className="inline-flex items-center gap-0.5 rounded-sm bg-[#f8fafc] px-1 py-2 whitespace-nowrap leading-none">
+                                  <Flag code={team} />
+                                  <span>{team}</span>
+                                </span>
+                              ))}
+                            </div>
+                            <span className="shrink-0 flex items-center gap-0.5 text-[0.8rem] font-medium text-slate-400">
+                              {isCollapsed ? "展开" : "收起"}
+                              {isCollapsed ? <ChevronDown size={14} strokeWidth={2.5} /> : <ChevronUp size={14} strokeWidth={2.5} />}
                             </span>
-                          ))}
+                          </button>
+                          {!isCollapsed && (
+                            <div className="mt-4 space-y-3">
+                              <GroupStandingsTable standings={group.standings ?? []} />
+                              {group.ties.map((tie, index) => (
+                                <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
+                              ))}
+                            </div>
+                          )}
                         </div>
-                        <span className="shrink-0 flex items-center gap-0.5 text-[0.8rem] font-medium text-slate-400">
-                          {isCollapsed ? "展开" : "收起"}
-                          {isCollapsed ? <ChevronDown size={14} strokeWidth={2.5} /> : <ChevronUp size={14} strokeWidth={2.5} />}
-                        </span>
-                      </button>
-                      {!isCollapsed && (
-                        <div className="mt-4 space-y-3">
-                          {group.ties.map((tie, index) => (
-                            <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="space-y-3">
-                {(stage.ties ?? []).map((tie, index) => (
-                  <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
-                ))}
-              </div>
-            )}
-          </section>
-        ))}
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {(stage.ties ?? []).map((tie, index) => (
+                      <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
+                    ))}
+                  </div>
+                )
+              ) : null}
+            </section>
+          );
+        })}
       </div>
 
-      <div className="mt-6">
-        <FinalStandingsView standings={view.finalStandings} />
-      </div>
+      {view.finalStandings.length > 0 ? (
+        <div className="mt-6">
+          <FinalStandingsView standings={view.finalStandings} />
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -1802,7 +2358,7 @@ function EventDetailContent() {
   const urlSubEvent = searchParams.get("sub_event");
   const [data, setData] = React.useState<EventDetail | null>(null);
   const [selectedSubEvent, setSelectedSubEvent] = React.useState<string | null>(urlSubEvent);
-  const [viewMode, setViewMode] = React.useState<ViewMode>("schedule");
+  const [viewMode, setViewMode] = React.useState<ViewMode>("session");
   const [loading, setLoading] = React.useState(true);
   const handleBack = React.useCallback(() => {
     if (window.history.length > 1) {
@@ -1833,6 +2389,21 @@ function EventDetailContent() {
     if (params.eventId) load();
   }, [params.eventId, urlSubEvent]);
 
+  const useNewLiveTabs =
+    data?.event.lifecycleStatus === "in_progress" &&
+    ((data?.sessionSchedule.length ?? 0) > 0 || (data?.scheduleDays.length ?? 0) > 0);
+
+  React.useEffect(() => {
+    if (!data) return;
+
+    setViewMode((current) => {
+      if (useNewLiveTabs) {
+        return current === "session" || current === "draw" || current === "schedule" ? current : "session";
+      }
+      return current === "schedule" || current === "draw" || current === "champions" ? current : "schedule";
+    });
+  }, [data, useNewLiveTabs]);
+
   if (loading || !data) {
     return (
       <main className="mx-auto min-h-screen max-w-lg overflow-hidden pb-20">
@@ -1862,6 +2433,18 @@ function EventDetailContent() {
   const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === currentSubEvent);
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
   const showChampionsTab = currentSubEventMeta ? !currentSubEventMeta.disabled && isMixedTeamSubEvent(currentSubEventMeta.code) : false;
+  const hasKnockoutCompanion = currentBracket.length > 0 || (currentTeamKnockoutView?.rounds.length ?? 0) > 0;
+  const shouldShowRoundRobin = currentRoundRobinView != null;
+  const shouldShowTeamKnockout = currentTeamKnockoutView != null && (currentTeamKnockoutView.rounds.length > 0 || currentTeamKnockoutView.bronzeTie != null);
+  const shouldShowBracket = currentBracket.length > 0;
+
+  const isEventFinished = (() => {
+    if (!data.event.endDate) return false;
+    const now = new Date();
+    const today =
+      now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+    return data.event.endDate <= today;
+  })();
 
   return (
     <main className="mx-auto min-h-screen max-w-lg bg-[#f8fafc]">
@@ -1876,13 +2459,50 @@ function EventDetailContent() {
       </div>
 
       <div className="relative z-10 -mt-3 rounded-t-[1.5rem] bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] pb-4">
-        <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
+        {isEventFinished && (
+          <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
+        )}
         <div className="mt-2">
-          {currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
+          {useNewLiveTabs ? (
+            <>
+              <LiveViewTabs mode={viewMode} onChange={setViewMode} />
+              {viewMode === "session" ? (
+                <SessionScheduleView
+                  sessions={data.sessionSchedule}
+                  lifecycleStatus={data.event.lifecycleStatus}
+                  eventTimeZone={data.event.timeZone}
+                />
+              ) : viewMode === "schedule" ? (
+                <ScheduleByDateView
+                  days={data.scheduleDays}
+                  selectedSubEvent={currentSubEvent}
+                  lifecycleStatus={data.event.lifecycleStatus}
+                />
+              ) : (
+                <div className="space-y-6">
+                  {shouldShowRoundRobin ? (
+                    <RoundRobinView view={currentRoundRobinView} defaultCollapsed={hasKnockoutCompanion} />
+                  ) : null}
+
+                  {shouldShowTeamKnockout ? (
+                    <TeamKnockoutDrawView view={currentTeamKnockoutView} />
+                  ) : shouldShowBracket || currentPresentationMode === "knockout" ? (
+                    <DrawView
+                      rounds={currentBracket}
+                      selectedSubEvent={currentSubEvent}
+                      champion={currentChampion}
+                      isXT={isXT}
+                      teamKnockoutView={currentTeamKnockoutView}
+                    />
+                  ) : null}
+                </div>
+              )}
+            </>
+          ) : currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
             <RoundRobinView view={currentRoundRobinView} />
           ) : currentPresentationMode === "team_knockout_with_bronze" && currentTeamKnockoutView ? (
             <>
-              <ViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
+              <LegacyViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
               {viewMode === "schedule" ? (
                 <TeamKnockoutScheduleView view={currentTeamKnockoutView} />
               ) : viewMode === "draw" ? (
@@ -1893,7 +2513,7 @@ function EventDetailContent() {
             </>
           ) : (
             <>
-              <ViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
+              <LegacyViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
               {viewMode === "schedule" ? (
                 <ScheduleView rounds={currentBracket} isXT={isXT} />
               ) : viewMode === "draw" ? (

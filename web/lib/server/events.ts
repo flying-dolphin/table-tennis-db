@@ -4,7 +4,7 @@ import { filterAvatarFile } from '@/lib/server/avatarManifest';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
-const CORE_SUB_EVENT_CODES = ['WS', 'WD', 'WT', 'XD', 'XT'] as const;
+const CORE_SUB_EVENT_CODES = ['WS', 'MS', 'WD', 'MD', 'WT', 'MT', 'XD', 'XT', 'JWS', 'JWD', 'JWT'] as const;
 
 type SidePlayer = {
   playerId: number | null;
@@ -50,6 +50,40 @@ function loadPlayersByIds(playerIds: number[]): ChampionPlayer[] {
     rows.map((player) => [player.playerId, { ...player, avatarFile: filterAvatarFile(player.avatarFile) }]),
   );
   return playerIds.map((playerId) => rowMap.get(playerId)).filter((player): player is ChampionPlayer => Boolean(player));
+}
+
+function loadPlayerDisplayMap(playerIds: number[]) {
+  if (playerIds.length === 0) return new Map<number, { slug: string | null; nameZh: string | null; avatarFile: string | null }>();
+
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          player_id AS playerId,
+          slug,
+          name_zh AS nameZh,
+          REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+        FROM players
+        WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
+      `,
+    )
+    .all(...playerIds) as Array<{
+    playerId: number;
+    slug: string | null;
+    nameZh: string | null;
+    avatarFile: string | null;
+  }>;
+
+  return new Map(
+    rows.map((row) => [
+      row.playerId,
+      {
+        slug: row.slug,
+        nameZh: row.nameZh,
+        avatarFile: filterAvatarFile(row.avatarFile),
+      },
+    ]),
+  );
 }
 
 function loadTeamChampionPlayers(eventId: number, subEventCode: string, championCountryCode: string | null): ChampionPlayer[] {
@@ -151,6 +185,94 @@ type EventBracketRound = {
   }>;
 };
 
+type EventSessionScheduleRow = {
+  id: number;
+  dayIndex: number;
+  localDate: string;
+  startLocalTime: string | null;
+  endLocalTime: string | null;
+  venueRaw: string | null;
+  tableCount: number | null;
+  rawSubEventsText: string | null;
+  parsedRoundsJson: string | null;
+};
+
+type EventScheduleDay = {
+  localDate: string;
+  matches: EventScheduleMatch[];
+};
+
+type EventScheduleMatch = {
+  scheduleMatchId: number;
+  externalMatchCode: string | null;
+  subEventTypeCode: string;
+  subEventNameZh: string | null;
+  stageCode: string;
+  stageNameZh: string | null;
+  roundCode: string;
+  roundNameZh: string | null;
+  groupCode: string | null;
+  scheduledLocalAt: string | null;
+  scheduledUtcAt: string | null;
+  tableNo: string | null;
+  sessionLabel: string | null;
+  status: string;
+  rawScheduleStatus: string | null;
+  matchScore: string | null;
+  games: Array<{ player: number; opponent: number }>;
+  winnerSide: string | null;
+  sides: Array<{
+    sideNo: number;
+    entryId: number | null;
+    placeholderText: string | null;
+    teamCode: string | null;
+    seed: number | null;
+    qualifier: boolean | null;
+    isWinner: boolean;
+    players: SidePlayer[];
+  }>;
+};
+
+function scheduleMatchStatusPriority(status: string) {
+  switch (status) {
+    case 'completed':
+    case 'walkover':
+      return 4;
+    case 'live':
+      return 3;
+    case 'scheduled':
+      return 2;
+    case 'cancelled':
+      return 1;
+    default:
+      return 0;
+  }
+}
+
+function scheduleSideCompleteness(side: EventScheduleMatch['sides'][number]) {
+  return side.players.length * 10 + (side.teamCode ? 2 : 0) + (side.placeholderText ? 1 : 0);
+}
+
+function scheduleMatchCompleteness(match: EventScheduleMatch) {
+  return (
+    (match.matchScore ? 100 : 0) +
+    match.games.length * 5 +
+    match.sides.reduce((sum, side) => sum + scheduleSideCompleteness(side), 0) +
+    (match.tableNo ? 2 : 0) +
+    (match.sessionLabel ? 1 : 0)
+  );
+}
+
+function pickPreferredScheduleMatch(left: EventScheduleMatch, right: EventScheduleMatch) {
+  const statusDiff = scheduleMatchStatusPriority(left.status) - scheduleMatchStatusPriority(right.status);
+  if (statusDiff !== 0) return statusDiff > 0 ? left : right;
+
+  const completenessDiff = scheduleMatchCompleteness(left) - scheduleMatchCompleteness(right);
+  if (completenessDiff !== 0) return completenessDiff > 0 ? left : right;
+
+  return left.scheduleMatchId >= right.scheduleMatchId ? left : right;
+}
+
 type TeamTie = {
   tieId: string;
   stage: string;
@@ -175,6 +297,12 @@ type StageStanding = {
   teamCode: string;
   teamName: string;
   teamNameZh: string | null;
+  matches?: number;
+  wins?: number;
+  losses?: number;
+  tiePoints?: number;
+  scoreFor?: number;
+  scoreAgainst?: number;
 };
 
 type RoundRobinStageGroup = {
@@ -329,6 +457,249 @@ function buildStageStanding(teamCode: string, rank: number): StageStanding {
     teamName: teamCode,
     teamNameZh: null,
   };
+}
+
+type OfficialScheduleResult = {
+  externalMatchCode: string;
+  teamCodes: [string, string] | null;
+  scoreA: number | null;
+  scoreB: number | null;
+  winnerCode: string | null;
+  matchScore: string | null;
+  games: Array<{ player: number; opponent: number }>;
+  rubbers: Array<{
+    externalMatchCode: string | null;
+    matchScore: string | null;
+    games: Array<{ player: number; opponent: number }>;
+    winnerSide: string | null;
+    sides: Array<{
+      sideNo: number;
+      teamCode: string | null;
+      players: Array<{
+        playerId: number | null;
+        name: string;
+        countryCode: string | null;
+      }>;
+    }>;
+  }>;
+};
+
+function normalizeExternalMatchCode(value: string | null | undefined) {
+  return value?.replace(/-+$/g, '').trim() ?? '';
+}
+
+function parseTieScore(value: string | null | undefined) {
+  if (!value) return null;
+  const match = value.match(/(\d+)\s*-\s*(\d+)/);
+  if (!match) return null;
+  return {
+    scoreA: Number(match[1]),
+    scoreB: Number(match[2]),
+  };
+}
+
+function parseScoreSequence(value: string | null | undefined) {
+  if (!value) return [];
+  return value
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((item) => {
+      const match = item.match(/(-?\d+)\s*-\s*(-?\d+)/);
+      if (!match) return null;
+      return { player: Number(match[1]), opponent: Number(match[2]) };
+    })
+    .filter((item): item is { player: number; opponent: number } => item != null && !(item.player === 0 && item.opponent === 0));
+}
+
+function parseOfficialWinnerSide(score: string | null | undefined) {
+  const parsed = parseTieScore(score);
+  if (!parsed) return null;
+  if (parsed.scoreA === parsed.scoreB) return null;
+  return parsed.scoreA > parsed.scoreB ? 'A' : 'B';
+}
+
+function parseOfficialCompetitorPlayers(
+  competitor: {
+    competitiorId?: string | null;
+    competitiorName?: string | null;
+    competitiorOrg?: string | null;
+    players?: Array<{
+      playerId?: string | null;
+      playerName?: string | null;
+      playerOrgCode?: string | null;
+    }> | null;
+  } | null | undefined,
+) {
+  const players = (competitor?.players ?? [])
+    .map((player) => {
+      const rawId = Number(player.playerId);
+      return {
+        playerId: Number.isFinite(rawId) ? rawId : null,
+        name: player.playerName?.trim() || competitor?.competitiorName?.trim() || 'Unknown',
+        countryCode: player.playerOrgCode?.trim() || competitor?.competitiorOrg?.trim() || null,
+      };
+    })
+    .filter((player) => Boolean(player.name));
+
+  if (players.length > 0) return players;
+
+  return competitor?.competitiorName
+    ? [
+        {
+          playerId: Number.isFinite(Number(competitor.competitiorId)) ? Number(competitor.competitiorId) : null,
+          name: competitor.competitiorName.trim(),
+          countryCode: competitor.competitiorOrg?.trim() || null,
+        },
+      ]
+    : [];
+}
+
+function enrichOfficialPlayers<T extends { playerId: number | null; name: string; countryCode: string | null }>(
+  players: T[],
+  playerMap: Map<number, { slug: string | null; nameZh: string | null; avatarFile: string | null }>,
+) {
+  return players.map((player) => {
+    const meta = player.playerId != null ? playerMap.get(player.playerId) : undefined;
+    return {
+      ...player,
+      slug: meta?.slug ?? null,
+      nameZh: meta?.nameZh ?? null,
+      avatarFile: meta?.avatarFile ?? null,
+    };
+  });
+}
+
+function readOfficialScheduleResults(eventId: number) {
+  const candidateFiles = [
+    path.join(process.cwd(), 'data', 'wtt_raw', String(eventId), 'GetOfficialResult.json'),
+    path.join(process.cwd(), 'data', 'wtt_raw', String(eventId), 'GetOfficialResult_take10.json'),
+    path.join(process.cwd(), '..', 'data', 'wtt_raw', String(eventId), 'GetOfficialResult.json'),
+    path.join(process.cwd(), '..', 'data', 'wtt_raw', String(eventId), 'GetOfficialResult_take10.json'),
+  ];
+  const file = candidateFiles.find((candidate) => existsSync(candidate));
+  if (!file) return new Map<string, OfficialScheduleResult>();
+
+  try {
+    const parsed = JSON.parse(readFileSync(file, 'utf-8')) as unknown;
+    if (!Array.isArray(parsed)) return new Map<string, OfficialScheduleResult>();
+
+    const results = new Map<string, OfficialScheduleResult>();
+    for (const item of parsed) {
+      if (!item || typeof item !== 'object') continue;
+      const record = item as {
+        documentCode?: string | null;
+        match_card?: {
+          documentCode?: string | null;
+          competitiors?: Array<{ competitiorOrg?: string | null }>;
+          overallScores?: string | null;
+          resultOverallScores?: string | null;
+          gameScores?: string | null;
+          resultsGameScores?: string | null;
+          teamParentData?: {
+            extended_info?: {
+              final_result?: Array<{ value?: string | null }>;
+            } | null;
+          } | null;
+        } | null;
+      };
+      const externalMatchCode = normalizeExternalMatchCode(record.documentCode ?? record.match_card?.documentCode ?? null);
+      if (!externalMatchCode) continue;
+
+      const teamCodes = (record.match_card?.competitiors ?? [])
+        .map((competitor) => competitor.competitiorOrg?.trim() ?? '')
+        .filter(Boolean)
+        .slice(0, 2) as string[];
+      const scoreLabel =
+        record.match_card?.teamParentData?.extended_info?.final_result?.[0]?.value ??
+        record.match_card?.overallScores ??
+        record.match_card?.resultOverallScores ??
+        null;
+      const parsedScore = parseTieScore(scoreLabel);
+      const winnerCode =
+        parsedScore && teamCodes.length === 2
+          ? parsedScore.scoreA === parsedScore.scoreB
+            ? null
+            : parsedScore.scoreA > parsedScore.scoreB
+              ? teamCodes[0]
+              : teamCodes[1]
+          : null;
+      const topLevelGames = parseScoreSequence(record.match_card?.resultsGameScores ?? record.match_card?.gameScores ?? null);
+      const rubbers = (((record.match_card?.teamParentData as {
+        extended_info?: {
+          matches?: Array<{
+            match_result?: {
+              documentCode?: string | null;
+              overallScores?: string | null;
+              resultOverallScores?: string | null;
+              gameScores?: string | null;
+              resultsGameScores?: string | null;
+              competitiors?: Array<{
+                competitiorId?: string | null;
+                competitiorName?: string | null;
+                competitiorOrg?: string | null;
+                players?: Array<{
+                  playerId?: string | null;
+                  playerName?: string | null;
+                  playerOrgCode?: string | null;
+                }> | null;
+              }> | null;
+            } | null;
+          }>;
+        };
+      } | null)?.extended_info?.matches) ?? [])
+        .map((item) => {
+          const matchResult = item?.match_result;
+          if (!matchResult) return null;
+          const competitors = (matchResult.competitiors ?? []).slice(0, 2);
+          return {
+            externalMatchCode: normalizeExternalMatchCode(matchResult.documentCode ?? null) || null,
+            matchScore: matchResult.resultOverallScores ?? matchResult.overallScores ?? null,
+            games: parseScoreSequence(matchResult.resultsGameScores ?? matchResult.gameScores ?? null),
+            winnerSide: parseOfficialWinnerSide(matchResult.resultOverallScores ?? matchResult.overallScores ?? null),
+            sides: competitors.map((competitor, index) => ({
+              sideNo: index + 1,
+              teamCode: competitor.competitiorOrg?.trim() || null,
+              players: parseOfficialCompetitorPlayers(competitor),
+            })),
+          };
+        })
+        .filter(
+          (
+            rubber,
+          ): rubber is {
+            externalMatchCode: string | null;
+            matchScore: string | null;
+            games: Array<{ player: number; opponent: number }>;
+            winnerSide: string | null;
+            sides: Array<{
+              sideNo: number;
+              teamCode: string | null;
+              players: Array<{
+                playerId: number | null;
+                name: string;
+                countryCode: string | null;
+              }>;
+            }>;
+          } => rubber != null,
+        );
+
+      results.set(externalMatchCode, {
+        externalMatchCode,
+        teamCodes: teamCodes.length === 2 ? [teamCodes[0], teamCodes[1]] : null,
+        scoreA: parsedScore?.scoreA ?? null,
+        scoreB: parsedScore?.scoreB ?? null,
+        winnerCode,
+        matchScore: scoreLabel,
+        games: topLevelGames,
+        rubbers,
+      });
+    }
+
+    return results;
+  } catch {
+    return new Map<string, OfficialScheduleResult>();
+  }
 }
 
 function isRoundRobinOverride(override: ManualEventOverride): override is RoundRobinEventOverride {
@@ -526,6 +897,207 @@ function buildRoundRobinView(eventId: number, subEventCode: string, override: Ma
   };
 }
 
+export function getScheduleMatchDetail(scheduleMatchId: number) {
+  const match = db
+    .prepare(
+      `
+        SELECT
+          esm.schedule_match_id AS scheduleMatchId,
+          esm.event_id AS eventId,
+          e.name AS eventName,
+          e.name_zh AS eventNameZh,
+          e.year AS eventYear,
+          esm.sub_event_type_code AS subEventTypeCode,
+          st.name_zh AS subEventNameZh,
+          esm.stage_code AS stageCode,
+          sc.name_zh AS stageNameZh,
+          esm.round_code AS roundCode,
+          rc.name_zh AS roundNameZh,
+          esm.group_code AS groupCode,
+          esm.scheduled_local_at AS scheduledLocalAt,
+          esm.scheduled_utc_at AS scheduledUtcAt,
+          esm.table_no AS tableNo,
+          esm.session_label AS sessionLabel,
+          esm.status,
+          esm.raw_schedule_status AS rawScheduleStatus,
+          esm.match_score AS matchScore,
+          esm.games,
+          esm.winner_side AS winnerSide,
+          esm.external_match_code AS externalMatchCode,
+          e.start_date AS startDate,
+          e.end_date AS endDate
+        FROM event_schedule_matches esm
+        LEFT JOIN events e ON e.event_id = esm.event_id
+        LEFT JOIN sub_event_types st ON st.code = esm.sub_event_type_code
+        LEFT JOIN stage_codes sc ON sc.code = esm.stage_code
+        LEFT JOIN round_codes rc ON rc.code = esm.round_code
+        WHERE esm.schedule_match_id = ?
+      `,
+    )
+    .get(scheduleMatchId) as
+    | {
+        scheduleMatchId: number;
+        eventId: number;
+        eventName: string | null;
+        eventNameZh: string | null;
+        eventYear: number | null;
+        subEventTypeCode: string;
+        subEventNameZh: string | null;
+        stageCode: string;
+        stageNameZh: string | null;
+        roundCode: string;
+        roundNameZh: string | null;
+        groupCode: string | null;
+        scheduledLocalAt: string | null;
+        scheduledUtcAt: string | null;
+        tableNo: string | null;
+        sessionLabel: string | null;
+        status: string;
+        rawScheduleStatus: string | null;
+        matchScore: string | null;
+        games: string | null;
+        winnerSide: string | null;
+        externalMatchCode: string | null;
+        startDate: string | null;
+        endDate: string | null;
+      }
+    | undefined;
+
+  if (!match) return null;
+
+  const sideRows = db
+    .prepare(
+      `
+        SELECT
+          esms.side_no AS sideNo,
+          esms.is_winner AS isWinner,
+          esms.team_code AS teamCode,
+          esms.seed,
+          esms.qualifier,
+          esms.placeholder_text AS placeholderText,
+          esmsp.player_order AS playerOrder,
+          esmsp.player_id AS playerId,
+          esmsp.player_name AS playerName,
+          esmsp.player_country AS playerCountry,
+          p.slug,
+          p.name_zh AS playerNameZh,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+        FROM event_schedule_match_sides esms
+        LEFT JOIN event_schedule_match_side_players esmsp ON esmsp.schedule_side_id = esms.schedule_side_id
+        LEFT JOIN players p ON p.player_id = esmsp.player_id
+        WHERE esms.schedule_match_id = ?
+        ORDER BY esms.side_no ASC, esmsp.player_order ASC
+      `,
+    )
+    .all(scheduleMatchId) as Array<{
+    sideNo: number;
+    isWinner: number;
+    teamCode: string | null;
+    seed: number | null;
+    qualifier: number | null;
+    placeholderText: string | null;
+    playerOrder: number | null;
+    playerId: number | null;
+    playerName: string | null;
+    playerCountry: string | null;
+    slug: string | null;
+    playerNameZh: string | null;
+    avatarFile: string | null;
+  }>;
+
+  const sideMap = new Map<
+    number,
+    {
+      sideNo: number;
+      isWinner: boolean;
+      teamCode: string | null;
+      seed: number | null;
+      qualifier: boolean | null;
+      placeholderText: string | null;
+      players: Array<SidePlayer & { avatarFile: string | null }>;
+    }
+  >();
+
+  for (const row of sideRows) {
+    const current = sideMap.get(row.sideNo) ?? {
+      sideNo: row.sideNo,
+      isWinner: row.isWinner === 1,
+      teamCode: row.teamCode,
+      seed: row.seed,
+      qualifier: row.qualifier == null ? null : row.qualifier === 1,
+      placeholderText: row.placeholderText,
+      players: [],
+    };
+    if (row.playerName) {
+      current.players.push({
+        playerId: row.playerId,
+        slug: row.slug,
+        name: row.playerName,
+        nameZh: row.playerNameZh,
+        countryCode: row.playerCountry,
+        avatarFile: filterAvatarFile(row.avatarFile),
+      });
+    }
+    sideMap.set(row.sideNo, current);
+  }
+
+  const official = readOfficialScheduleResults(match.eventId).get(normalizeExternalMatchCode(match.externalMatchCode));
+  const topLevelGames = official?.games.length ? official.games : parseGames(match.games);
+  const topLevelMatchScore = official?.matchScore ?? match.matchScore;
+  const topLevelWinnerSide =
+    official?.winnerCode && official.teamCodes
+      ? sideMap.get(1)?.teamCode === official.winnerCode
+        ? 'A'
+        : sideMap.get(2)?.teamCode === official.winnerCode
+          ? 'B'
+          : match.winnerSide
+      : match.winnerSide;
+  const officialPlayerIds = (official?.rubbers ?? [])
+    .flatMap((rubber) => rubber.sides)
+    .flatMap((side) => side.players)
+    .map((player) => player.playerId)
+    .filter((playerId): playerId is number => playerId != null);
+  const officialPlayerMap = loadPlayerDisplayMap(Array.from(new Set(officialPlayerIds)));
+
+  return {
+    match: {
+      scheduleMatchId: match.scheduleMatchId,
+      eventId: match.eventId,
+      eventName: match.eventName,
+      eventNameZh: match.eventNameZh,
+      eventYear: match.eventYear,
+      subEventTypeCode: match.subEventTypeCode,
+      subEventNameZh: match.subEventNameZh,
+      stageCode: match.stageCode,
+      stageNameZh: match.stageNameZh,
+      roundCode: match.roundCode,
+      roundNameZh: match.roundNameZh,
+      roundLabel: roundLabel(match.roundCode, match.roundNameZh),
+      groupCode: match.groupCode,
+      scheduledLocalAt: match.scheduledLocalAt,
+      scheduledUtcAt: match.scheduledUtcAt,
+      tableNo: match.tableNo,
+      sessionLabel: match.sessionLabel,
+      status: official?.matchScore ? 'completed' : match.status,
+      rawScheduleStatus: official?.matchScore ? 'Official' : match.rawScheduleStatus,
+      matchScore: topLevelMatchScore,
+      games: topLevelGames,
+      winnerSide: topLevelWinnerSide,
+      startDate: match.startDate,
+      endDate: match.endDate,
+      externalMatchCode: match.externalMatchCode,
+    },
+    sides: Array.from(sideMap.values()),
+    rubbers: (official?.rubbers ?? []).map((rubber) => ({
+      ...rubber,
+      sides: rubber.sides.map((side) => ({
+        ...side,
+        players: enrichOfficialPlayers(side.players, officialPlayerMap),
+      })),
+    })),
+  };
+}
+
 function teamCodesMatch(tie: TeamTie, teamCodes: [string, string]) {
   return new Set([tie.teamA.code, tie.teamB.code]).size === new Set(teamCodes).size &&
     teamCodes.every((code) => code === tie.teamA.code || code === tie.teamB.code);
@@ -707,6 +1279,142 @@ function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): Event
   };
 }
 
+function buildLiveGroupStageView(
+  subEventCode: string,
+  scheduleMatches: EventScheduleMatch[],
+  officialResults: Map<string, OfficialScheduleResult>,
+): EventRoundRobinView | null {
+  const groupStageMatches = scheduleMatches.filter(
+    (match) =>
+      match.subEventTypeCode === subEventCode &&
+      (match.groupCode != null || match.stageCode === 'PRELIMINARY' || match.roundCode.startsWith('G')),
+  );
+  if (groupStageMatches.length === 0) return null;
+
+  const tiesByGroup = new Map<string, TeamTie[]>();
+  for (const match of groupStageMatches) {
+    const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
+    if (!sideA?.teamCode || !sideB?.teamCode) continue;
+
+    const official = officialResults.get(normalizeExternalMatchCode(match.externalMatchCode));
+    const officialScores = official?.teamCodes ? new Map([[official.teamCodes[0], official.scoreA], [official.teamCodes[1], official.scoreB]]) : null;
+    const scoreA = officialScores?.get(sideA.teamCode) ?? null;
+    const scoreB = officialScores?.get(sideB.teamCode) ?? null;
+    const winnerCode =
+      official?.winnerCode && (official.winnerCode === sideA.teamCode || official.winnerCode === sideB.teamCode)
+        ? official.winnerCode
+        : null;
+    const tie: TeamTie = {
+      tieId: match.externalMatchCode || String(match.scheduleMatchId),
+      stage: match.stageCode,
+      stageZh: match.stageNameZh,
+      round: match.roundCode,
+      roundZh: match.roundNameZh,
+      teamA: teamLabelFromCode(sideA.teamCode),
+      teamB: teamLabelFromCode(sideB.teamCode),
+      scoreA: scoreA ?? 0,
+      scoreB: scoreB ?? 0,
+      winnerCode,
+      rubbers: [],
+    };
+    const groupCode = match.groupCode ?? match.roundCode;
+    const current = tiesByGroup.get(groupCode) ?? [];
+    current.push(tie);
+    tiesByGroup.set(groupCode, current);
+  }
+
+  if (tiesByGroup.size === 0) return null;
+
+  const groups: RoundRobinStageGroup[] = Array.from(tiesByGroup.entries())
+    .sort((left, right) => left[0].localeCompare(right[0]))
+    .map(([groupCode, ties]) => {
+      const teamCodes = Array.from(new Set(ties.flatMap((tie) => [tie.teamA.code, tie.teamB.code]))).sort((left, right) =>
+        left.localeCompare(right),
+      );
+
+      const standingsMap = new Map<string, StageStanding>();
+      for (const teamCode of teamCodes) {
+        standingsMap.set(teamCode, {
+          ...buildStageStanding(teamCode, 0),
+          matches: 0,
+          wins: 0,
+          losses: 0,
+          tiePoints: 0,
+          scoreFor: 0,
+          scoreAgainst: 0,
+        });
+      }
+
+      for (const tie of ties) {
+        if (!tie.winnerCode) continue;
+        const left = standingsMap.get(tie.teamA.code);
+        const right = standingsMap.get(tie.teamB.code);
+        if (!left || !right) continue;
+
+        left.matches = (left.matches ?? 0) + 1;
+        right.matches = (right.matches ?? 0) + 1;
+        left.scoreFor = (left.scoreFor ?? 0) + tie.scoreA;
+        left.scoreAgainst = (left.scoreAgainst ?? 0) + tie.scoreB;
+        right.scoreFor = (right.scoreFor ?? 0) + tie.scoreB;
+        right.scoreAgainst = (right.scoreAgainst ?? 0) + tie.scoreA;
+
+        if (tie.winnerCode === tie.teamA.code) {
+          left.wins = (left.wins ?? 0) + 1;
+          left.tiePoints = (left.tiePoints ?? 0) + 1;
+          right.losses = (right.losses ?? 0) + 1;
+        } else {
+          right.wins = (right.wins ?? 0) + 1;
+          right.tiePoints = (right.tiePoints ?? 0) + 1;
+          left.losses = (left.losses ?? 0) + 1;
+        }
+      }
+
+      const standings = Array.from(standingsMap.values())
+        .sort((left, right) => {
+          const pointDiff = (right.tiePoints ?? 0) - (left.tiePoints ?? 0);
+          if (pointDiff !== 0) return pointDiff;
+          const winDiff = (right.wins ?? 0) - (left.wins ?? 0);
+          if (winDiff !== 0) return winDiff;
+          const ratioDiff = (right.scoreFor ?? 0) - (right.scoreAgainst ?? 0) - ((left.scoreFor ?? 0) - (left.scoreAgainst ?? 0));
+          if (ratioDiff !== 0) return ratioDiff;
+          const scoreDiff = (right.scoreFor ?? 0) - (left.scoreFor ?? 0);
+          if (scoreDiff !== 0) return scoreDiff;
+          return left.teamCode.localeCompare(right.teamCode);
+        })
+        .map((standing, index) => ({
+          ...standing,
+          rank: index + 1,
+        }));
+
+      return {
+        code: groupCode,
+        nameZh: `第 ${groupCode.replace(/^GP/, '')} 组`,
+        teams: teamCodes,
+        ties,
+        standings,
+      };
+    });
+
+  return {
+    mode: 'staged_round_robin',
+    stages: [
+      {
+        code: 'PRELIMINARY',
+        name: 'PRELIMINARY',
+        nameZh: '小组赛积分表',
+        format: 'group_round_robin',
+        groups,
+      },
+    ],
+    finalStandings: [],
+    podium: {
+      champion: null,
+      runnerUp: null,
+      thirdPlace: null,
+    },
+  };
+}
+
 function buildTeamKnockoutView(eventId: number, subEventCode: string, override: ManualEventOverride): EventTeamKnockoutView {
   if (!isTeamKnockoutOverride(override)) {
     throw new Error(`Expected team_knockout_with_bronze override for event ${eventId}`);
@@ -792,6 +1500,14 @@ export function getEvents(options?: {
   }
 
   where.push(...ageGroupWhere);
+
+  // 过滤尚未开始的赛事（保留 startDate 为空的记录，因为无法判断）
+  where.push("(e.start_date IS NULL OR e.start_date <= date('now'))");
+
+  // 过滤没有比赛记录且没有赛程安排的赛事
+  where.push(
+    "(EXISTS (SELECT 1 FROM matches m WHERE m.event_id = e.event_id) OR EXISTS (SELECT 1 FROM event_session_schedule ess WHERE ess.event_id = e.event_id))"
+  );
 
   where.push(
     "NOT ((LOWER(e.name) LIKE '%男子%' OR LOWER(COALESCE(e.name_zh, '')) LIKE '%男子%') AND NOT (LOWER(e.name) LIKE '%女子%' OR LOWER(COALESCE(e.name_zh, '')) LIKE '%女子%'))"
@@ -893,6 +1609,8 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
           start_date AS startDate,
           end_date AS endDate,
           location,
+          lifecycle_status AS lifecycleStatus,
+          time_zone AS timeZone,
           href
         FROM events
         WHERE event_id = ?
@@ -913,6 +1631,8 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
         startDate: string | null;
         endDate: string | null;
         location: string | null;
+        lifecycleStatus: string | null;
+        timeZone: string | null;
         href: string | null;
       }
     | undefined;
@@ -963,6 +1683,17 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     )
     .all(eventId) as Array<{ code: string; matches: number }>;
 
+  const scheduleCounts = db
+    .prepare(
+      `
+        SELECT sub_event_type_code AS code, COUNT(*) AS matches
+        FROM event_schedule_matches
+        WHERE event_id = ?
+        GROUP BY sub_event_type_code
+      `,
+    )
+    .all(eventId) as Array<{ code: string; matches: number }>;
+
   const subEventNames = db
     .prepare('SELECT code, name_zh AS nameZh FROM sub_event_types')
     .all() as Array<{ code: string; nameZh: string | null }>;
@@ -971,9 +1702,15 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
   const existingMap = new Map(existingSubEvents.map((item) => [item.code, item]));
   const drawCountMap = new Map(drawCounts.map((item) => [item.code, item.matches]));
   const matchCountMap = new Map(matchCounts.map((item) => [item.code, item.matches]));
+  const scheduleCountMap = new Map(scheduleCounts.map((item) => [item.code, item.matches]));
   const validCodes = new Set<string>(CORE_SUB_EVENT_CODES);
   const codesWithData = new Set<string>(
-    [...drawCounts.map((item) => item.code), ...matchCounts.map((item) => item.code), ...existingSubEvents.map((item) => item.code)].filter(
+    [
+      ...drawCounts.map((item) => item.code),
+      ...matchCounts.map((item) => item.code),
+      ...scheduleCounts.map((item) => item.code),
+      ...existingSubEvents.map((item) => item.code),
+    ].filter(
       (code) => validCodes.has(code),
     ),
   );
@@ -987,33 +1724,41 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     return a.localeCompare(b);
   });
 
-  const subEvents = orderedCodes.map((code) => {
-    const record = existingMap.get(code);
-    const drawMatches = drawCountMap.get(code) ?? 0;
-    const importedMatches = matchCountMap.get(code) ?? 0;
-    const playerIds = parseChampionIds(record?.championPlayerIds ?? null);
-    const hasChampion = Boolean(record?.championName || record?.championCountryCode || playerIds.length > 0);
-    const fallbackPlayers = loadPlayersByIds(playerIds);
-    const teamPlayers = code === 'WT' || code === 'XT' ? loadTeamChampionPlayers(eventId, code, record?.championCountryCode ?? null) : [];
-    const players = teamPlayers.length > 0 ? teamPlayers : fallbackPlayers;
+  const subEvents = orderedCodes
+    .map((code) => {
+      const record = existingMap.get(code);
+      const drawMatches = drawCountMap.get(code) ?? 0;
+      const importedMatches = matchCountMap.get(code) ?? 0;
+      const scheduleMatches = scheduleCountMap.get(code) ?? 0;
+      const hasMatchData = drawMatches > 0 || importedMatches > 0 || scheduleMatches > 0;
 
-    return {
-      code,
-      nameZh: nameMap.get(code) ?? code,
-      disabled: drawMatches === 0 && importedMatches === 0,
-      hasDraw: drawMatches > 0,
-      drawMatches,
-      importedMatches,
-      champion:
-        hasChampion
-          ? {
-              championName: record?.championName ?? null,
-              championCountryCode: record?.championCountryCode ?? null,
-              players,
-            }
-          : null,
-    };
-  });
+      if (!hasMatchData) return null;
+
+      const playerIds = parseChampionIds(record?.championPlayerIds ?? null);
+      const hasChampion = Boolean(record?.championName || record?.championCountryCode || playerIds.length > 0);
+      const fallbackPlayers = loadPlayersByIds(playerIds);
+      const teamPlayers = code === 'WT' || code === 'XT' ? loadTeamChampionPlayers(eventId, code, record?.championCountryCode ?? null) : [];
+      const players = teamPlayers.length > 0 ? teamPlayers : fallbackPlayers;
+
+      return {
+        code,
+        nameZh: nameMap.get(code) ?? code,
+        disabled: false,
+        hasDraw: drawMatches > 0,
+        drawMatches,
+        importedMatches,
+        scheduleMatches,
+        champion:
+          hasChampion
+            ? {
+                championName: record?.championName ?? null,
+                championCountryCode: record?.championCountryCode ?? null,
+                players,
+              }
+            : null,
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const override = readManualEventOverride(eventId);
   const preferredDefault = override?.sub_event_type_code ?? 'WS';
@@ -1023,6 +1768,231 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
       : subEvents.find((item) => item.code === preferredDefault && !item.disabled)?.code ??
         subEvents.find((item) => !item.disabled)?.code ??
         preferredDefault;
+
+  const officialScheduleResults = readOfficialScheduleResults(eventId);
+
+  const sessionSchedule = db
+    .prepare(
+      `
+        SELECT
+          id,
+          day_index AS dayIndex,
+          local_date AS localDate,
+          start_local_time AS startLocalTime,
+          end_local_time AS endLocalTime,
+          venue_raw AS venueRaw,
+          table_count AS tableCount,
+          raw_sub_events_text AS rawSubEventsText,
+          parsed_rounds_json AS parsedRoundsJson
+        FROM event_session_schedule
+        WHERE event_id = ?
+        ORDER BY day_index ASC
+      `,
+    )
+    .all(eventId) as EventSessionScheduleRow[];
+
+  const scheduleRows = db
+    .prepare(
+      `
+        SELECT
+          esm.schedule_match_id AS scheduleMatchId,
+          esm.external_match_code AS externalMatchCode,
+          esm.sub_event_type_code AS subEventTypeCode,
+          st.name_zh AS subEventNameZh,
+          esm.stage_code AS stageCode,
+          sc.name_zh AS stageNameZh,
+          esm.round_code AS roundCode,
+          rc.name_zh AS roundNameZh,
+          esm.group_code AS groupCode,
+          esm.scheduled_local_at AS scheduledLocalAt,
+          esm.scheduled_utc_at AS scheduledUtcAt,
+          esm.table_no AS tableNo,
+          esm.session_label AS sessionLabel,
+          esm.status,
+          esm.raw_schedule_status AS rawScheduleStatus,
+          esm.match_score AS matchScore,
+          esm.games,
+          esm.winner_side AS winnerSide,
+          esms.schedule_side_id AS scheduleSideId,
+          esms.side_no AS sideNo,
+          esms.entry_id AS entryId,
+          esms.placeholder_text AS placeholderText,
+          esms.team_code AS teamCode,
+          esms.seed,
+          esms.qualifier,
+          esms.is_winner AS isWinner,
+          esmsp.player_order AS playerOrder,
+          esmsp.player_id AS playerId,
+          esmsp.player_name AS playerName,
+          esmsp.player_country AS playerCountry,
+          p.slug,
+          p.name_zh AS playerNameZh
+        FROM event_schedule_matches esm
+        LEFT JOIN sub_event_types st ON st.code = esm.sub_event_type_code
+        LEFT JOIN stage_codes sc ON sc.code = esm.stage_code
+        LEFT JOIN round_codes rc ON rc.code = esm.round_code
+        LEFT JOIN event_schedule_match_sides esms ON esms.schedule_match_id = esm.schedule_match_id
+        LEFT JOIN event_schedule_match_side_players esmsp ON esmsp.schedule_side_id = esms.schedule_side_id
+        LEFT JOIN players p ON p.player_id = esmsp.player_id
+        WHERE esm.event_id = ?
+        ORDER BY esm.scheduled_local_at ASC, esm.schedule_match_id ASC, esms.side_no ASC, esmsp.player_order ASC
+      `,
+    )
+    .all(eventId) as Array<{
+    scheduleMatchId: number;
+    externalMatchCode: string | null;
+    subEventTypeCode: string;
+    subEventNameZh: string | null;
+    stageCode: string;
+    stageNameZh: string | null;
+    roundCode: string;
+    roundNameZh: string | null;
+    groupCode: string | null;
+    scheduledLocalAt: string | null;
+    scheduledUtcAt: string | null;
+    tableNo: string | null;
+    sessionLabel: string | null;
+    status: string;
+    rawScheduleStatus: string | null;
+    matchScore: string | null;
+    games: string | null;
+    winnerSide: string | null;
+    scheduleSideId: number | null;
+    sideNo: number | null;
+    entryId: number | null;
+    placeholderText: string | null;
+    teamCode: string | null;
+    seed: number | null;
+    qualifier: number | null;
+    isWinner: number | null;
+    playerOrder: number | null;
+    playerId: number | null;
+    playerName: string | null;
+    playerCountry: string | null;
+    slug: string | null;
+    playerNameZh: string | null;
+  }>;
+
+  const scheduleMatchMap = new Map<number, EventScheduleMatch>();
+  for (const row of scheduleRows) {
+    const current =
+      scheduleMatchMap.get(row.scheduleMatchId) ??
+      {
+        scheduleMatchId: row.scheduleMatchId,
+        externalMatchCode: row.externalMatchCode,
+        subEventTypeCode: row.subEventTypeCode,
+        subEventNameZh: row.subEventNameZh,
+        stageCode: row.stageCode,
+        stageNameZh: row.stageNameZh,
+        roundCode: row.roundCode,
+        roundNameZh: row.roundNameZh,
+        groupCode: row.groupCode,
+        scheduledLocalAt: row.scheduledLocalAt,
+        scheduledUtcAt: row.scheduledUtcAt,
+        tableNo: row.tableNo,
+        sessionLabel: row.sessionLabel,
+        status: row.status,
+        rawScheduleStatus: row.rawScheduleStatus,
+        matchScore: row.matchScore,
+        games: parseGames(row.games),
+        winnerSide: row.winnerSide,
+        sides: [],
+      };
+
+    if (row.sideNo != null) {
+      let side = current.sides.find((item) => item.sideNo === row.sideNo);
+      if (!side) {
+        side = {
+          sideNo: row.sideNo,
+          entryId: row.entryId,
+          placeholderText: row.placeholderText,
+          teamCode: row.teamCode,
+          seed: row.seed,
+          qualifier: row.qualifier == null ? null : row.qualifier === 1,
+          isWinner: row.isWinner === 1,
+          players: [],
+        };
+        current.sides.push(side);
+      }
+
+      if (row.playerName) {
+        side.players.push({
+          playerId: row.playerId,
+          slug: row.slug,
+          name: row.playerName,
+          nameZh: row.playerNameZh,
+          countryCode: row.playerCountry,
+        });
+      }
+    }
+
+    scheduleMatchMap.set(row.scheduleMatchId, current);
+  }
+
+  const dedupedScheduleMatches = Array.from(scheduleMatchMap.values()).reduce((matches, match) => {
+    const dedupeKey =
+      match.externalMatchCode?.trim() ||
+      [
+        match.subEventTypeCode,
+        match.groupCode ?? '',
+        match.roundCode,
+        match.scheduledLocalAt ?? '',
+        match.tableNo ?? '',
+        match.sides
+          .map((side) =>
+            [
+              side.sideNo,
+              side.teamCode ?? '',
+              side.placeholderText ?? '',
+              side.players.map((player) => player.playerId ?? player.name).join('/'),
+            ].join(':'),
+          )
+          .join('|'),
+      ].join('#');
+    const current = matches.get(dedupeKey);
+    matches.set(dedupeKey, current ? pickPreferredScheduleMatch(current, match) : match);
+    return matches;
+  }, new Map<string, EventScheduleMatch>());
+
+  const scheduleMatches = Array.from(dedupedScheduleMatches.values()).map((match) => {
+    const official = officialScheduleResults.get(normalizeExternalMatchCode(match.externalMatchCode));
+    if (!official?.teamCodes) {
+      return {
+        ...match,
+        sides: [...match.sides].sort((left, right) => left.sideNo - right.sideNo),
+      };
+    }
+
+    const scoreMap = new Map<string, number | null>([
+      [official.teamCodes[0], official.scoreA],
+      [official.teamCodes[1], official.scoreB],
+    ]);
+    const sides = [...match.sides]
+      .sort((left, right) => left.sideNo - right.sideNo)
+      .map((side) => ({
+        ...side,
+        isWinner: official.winnerCode != null && side.teamCode === official.winnerCode,
+      }));
+    const winnerSide = sides.find((side) => side.teamCode === official.winnerCode)?.sideNo === 1 ? 'A' : sides.find((side) => side.teamCode === official.winnerCode)?.sideNo === 2 ? 'B' : match.winnerSide;
+    const sortedScores = sides.map((side) => scoreMap.get(side.teamCode ?? '')).filter((score): score is number => score != null);
+
+    return {
+      ...match,
+      sides,
+      winnerSide,
+      status: official.matchScore ? 'completed' : match.status,
+      rawScheduleStatus: official.matchScore ? 'Official' : match.rawScheduleStatus,
+      matchScore: official.matchScore ?? (sortedScores.length === 2 ? `${sortedScores[0]}-${sortedScores[1]}` : match.matchScore),
+    };
+  });
+
+  const scheduleDays = scheduleMatches.reduce((days, match) => {
+    const localDate = match.scheduledLocalAt?.slice(0, 10) ?? '日期待定';
+    const current = days.get(localDate) ?? { localDate, matches: [] as EventScheduleMatch[] };
+    current.matches.push(match);
+    days.set(localDate, current);
+    return days;
+  }, new Map<string, EventScheduleDay>());
 
 const championForSubEvent = (subEventCode: string): EventChampion | null => {
     const se = subEvents.find((item) => item.code === subEventCode);
@@ -1149,8 +2119,13 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
   };
 
   const roundRobinViewForSubEvent = (subEventCode: string): EventRoundRobinView | null => {
-    if (!override || !isRoundRobinOverride(override) || subEventCode !== override.sub_event_type_code) return null;
-    return buildRoundRobinView(eventId, subEventCode, override);
+    if (override && isRoundRobinOverride(override) && subEventCode === override.sub_event_type_code) {
+      return buildRoundRobinView(eventId, subEventCode, override);
+    }
+    if (override && subEventCode === override.sub_event_type_code) return null;
+    if (!isAutoTeamSubEvent(subEventCode)) return null;
+    if (event.lifecycleStatus === 'completed') return null;
+    return buildLiveGroupStageView(subEventCode, scheduleMatches, officialScheduleResults);
   };
 
   const teamKnockoutViewForSubEvent = (subEventCode: string): EventTeamKnockoutView | null => {
@@ -1163,6 +2138,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
   };
 
   const buildSubEventDetail = (subEventCode: string) => {
+    const roundRobinView = roundRobinViewForSubEvent(subEventCode);
     const teamKnockoutView = teamKnockoutViewForSubEvent(subEventCode);
     const presentationMode: EventPresentationMode =
       override && subEventCode === override.sub_event_type_code
@@ -1171,6 +2147,8 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
           : isTeamKnockoutOverride(override)
             ? 'team_knockout_with_bronze'
             : 'knockout'
+        : roundRobinView
+          ? 'staged_round_robin'
         : teamKnockoutView
           ? 'team_knockout_with_bronze'
           : 'knockout';
@@ -1179,7 +2157,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
       code: subEventCode,
       champion: championForSubEvent(subEventCode),
       bracket: bracketForSubEvent(subEventCode),
-      roundRobinView: roundRobinViewForSubEvent(subEventCode),
+      roundRobinView,
       teamKnockoutView,
       presentationMode,
     };
@@ -1194,6 +2172,8 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
   return {
     event,
     subEvents,
+    sessionSchedule,
+    scheduleDays: Array.from(scheduleDays.values()),
     selectedSubEvent,
     subEventDetails,
     champion: dataForSelected?.champion ?? null,
