@@ -63,8 +63,10 @@ export type PlayerStats = {
   foreignWinRate: number | null;
   domesticWinRate: number | null;
   allThreeTitles: number;
+  eventThreeTitles: number;
   singleThreeTitles: number;
   allSevenTitles: number;
+  eventSevenTitles: number;
   singleSevenTitles: number;
 };
 
@@ -416,6 +418,33 @@ function StatSectionTitle({ label }: { label: string }) {
   );
 }
 
+function TitleMetric({
+  value,
+  label,
+  dark = false,
+  highlight = false,
+}: {
+  value: number;
+  label: string;
+  dark?: boolean;
+  highlight?: boolean;
+}) {
+  return (
+    <div className="flex min-w-[2.5rem] flex-col items-center">
+      <p
+        className={cn(
+          "font-numeric text-3xl font-black leading-none tabular-nums",
+          dark ? "text-white" : "text-[#1d1a12]",
+          highlight && "text-[#ffd36a]",
+        )}
+      >
+        {value}
+      </p>
+      <p className={cn("mt-1 text-[0.7rem] font-bold", dark ? "text-white/60" : "opacity-75")}>{label}</p>
+    </div>
+  );
+}
+
 function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStats }) {
   const yearWinRate = player.yearMatches ? (player.yearWins ?? 0) / player.yearMatches * 100 : null;
   const sevenFinalsRate = stats.sevenEvents ? (stats.sevenFinals / stats.sevenEvents) * 100 : null;
@@ -494,16 +523,12 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
             <div className="relative overflow-hidden rounded-md bg-[linear-gradient(135deg,#f1b12d_0%,#ffd978_55%,#f9c450_100%)] p-1 text-[#1d1a12] shadow-[0_20px_40px_rgba(240,181,44,0.28)] flex items-center justify-center">
               <div className="flex flex-col items-start ">
                 <p className="text-sm font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
-                <div className="flex w-full items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <p className="font-numeric text-3xl font-black leading-none tabular-nums">{stats.allThreeTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">总数</p>
-                  </div>
+                <div className="flex w-full items-center gap-4">
+                  <TitleMetric value={stats.allThreeTitles} label="总数" />
                   <div className="w-[1px] h-7 bg-[#1d1a12]/15"></div>
-                  <div className="flex flex-col items-center min-w-[2.5rem]">
-                    <p className="font-numeric text-3xl font-black leading-none tabular-nums">{stats.singleThreeTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold opacity-75">单项</p>
-                  </div>
+                  <TitleMetric value={stats.eventThreeTitles} label="单项" />
+                  <div className="w-[1px] h-7 bg-[#1d1a12]/15"></div>
+                  <TitleMetric value={stats.singleThreeTitles} label="单打" />
                 </div>
               </div>
             </div>
@@ -511,16 +536,12 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
             <div className="relative overflow-hidden rounded-[1rem] bg-[linear-gradient(135deg,#10245f_0%,#1e357f_60%,#2f4ea6_100%)] p-4 text-white shadow-[0_20px_40px_rgba(22,42,103,0.26)] flex items-center justify-center min-h-[6.5rem]">
               <div className="flex flex-col items-start w-fit">
                 <p className="text-sm font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
-                <div className="flex items-center gap-6">
-                  <div className="flex flex-col items-center min-w-[2.5rem]">
-                    <p className="font-numeric text-3xl font-black leading-none text-[#ffd36a] tabular-nums">{stats.allSevenTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">总数</p>
-                  </div>
+                <div className="flex items-center gap-4">
+                  <TitleMetric value={stats.allSevenTitles} label="总数" dark={true} highlight={true} />
                   <div className="w-[1px] h-7 bg-white/15"></div>
-                  <div className="flex flex-col items-center min-w-[2.5rem]">
-                    <p className="font-numeric text-3xl font-black leading-none tabular-nums">{stats.singleSevenTitles}</p>
-                    <p className="mt-1 text-[0.7rem] font-bold text-white/60">单项</p>
-                  </div>
+                  <TitleMetric value={stats.eventSevenTitles} label="单项" dark={true} />
+                  <div className="w-[1px] h-7 bg-white/15"></div>
+                  <TitleMetric value={stats.singleSevenTitles} label="单打" dark={true} />
                 </div>
               </div>
             </div>
@@ -922,6 +943,30 @@ function PlayerDetailSkeleton() {
   );
 }
 
+function PlayerComingSoon() {
+  return (
+    <main className="mx-auto min-h-screen max-w-lg overflow-hidden bg-[linear-gradient(180deg,#f3f6fb_0%,#ffffff_30%,#f8fbff_100%)]">
+      <section className="relative overflow-hidden px-5 pb-16 pt-6">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(22,42,103,0.08),transparent_42%)]" />
+        <div className="relative z-10">
+          <PlayerBackButton />
+          <div className="flex min-h-[70vh] flex-col items-center justify-center text-center">
+            <div className="rounded-full border border-[#dbe4f5] bg-white/80 px-3 py-1 text-[0.72rem] font-black uppercase tracking-[0.22em] text-[#5a6f9f] shadow-sm">
+              Coming Soon
+            </div>
+            <h1 className="mt-5 text-3xl font-black tracking-tight text-[#132865]">
+              运动员数据待后续补充
+            </h1>
+            <p className="mt-3 text-base font-medium text-[#617296]">
+              当前页面暂时仅展示女乒选手数据，敬请期待。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
 export default function PlayerDetailPageClient({ slug }: PlayerDetailPageClientProps) {
   const [recordsTab, setRecordsTab] = React.useState<RecordsTab>("events");
   const [detail, setDetail] = useState<PlayerDetail | null>(null);
@@ -968,6 +1013,10 @@ export default function PlayerDetailPageClient({ slug }: PlayerDetailPageClientP
         </div>
       </main>
     );
+  }
+
+  if (detail.player.gender?.toLowerCase() === "male") {
+    return <PlayerComingSoon />;
   }
 
   return (

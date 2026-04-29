@@ -341,12 +341,12 @@ function CompareContent() {
             isPercentage={true}
           />
           <MetricRow
-            label="三大赛冠军"
+            label="三大赛单项冠军"
             valA={pA.stats?.threeTitles ?? 0}
             valB={pB.stats?.threeTitles ?? 0}
           />
           <MetricRow
-            label="七大赛冠军"
+            label="七大赛单项冠军"
             valA={pA.stats?.sevenTitles ?? 0}
             valB={pB.stats?.sevenTitles ?? 0}
           />

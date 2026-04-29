@@ -366,6 +366,8 @@ export function getPlayerDetail(slug: string) {
     eventsTotal: 0,
     threeTitles: 0,
     sevenTitles: 0,
+    eventThreeTitles: 0,
+    eventSevenTitles: 0,
     singleThreeTitles: 0,
     singleSevenTitles: 0,
     allThreeTitles: 0,

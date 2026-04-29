@@ -15,6 +15,8 @@ export type PlayerAggregateStats = {
   eventsTotal: number;
   threeTitles: number;
   sevenTitles: number;
+  eventThreeTitles: number;
+  eventSevenTitles: number;
   singleThreeTitles: number;
   singleSevenTitles: number;
   allThreeTitles: number;
@@ -27,6 +29,8 @@ type MutablePlayerAggregateStats = PlayerAggregateStats & {
   eventIds: Set<number>;
   sevenEventKeys: Set<string>;
   sevenFinalEventKeys: Set<string>;
+  eventThreeTitleKeys: Set<string>;
+  eventSevenTitleKeys: Set<string>;
   singleThreeTitleKeys: Set<string>;
   singleSevenTitleKeys: Set<string>;
   allThreeTitleKeys: Set<string>;
@@ -40,6 +44,10 @@ function placeholders(count: number) {
 function rate(wins: number, total: number) {
   if (!total) return 0;
   return Number(((wins / total) * 100).toFixed(2));
+}
+
+function isIndividualTitle(subEventTypeCode: string | null) {
+  return subEventTypeCode === 'WS' || subEventTypeCode === 'WD' || subEventTypeCode === 'XD';
 }
 
 function createStats(): MutablePlayerAggregateStats {
@@ -57,6 +65,8 @@ function createStats(): MutablePlayerAggregateStats {
     eventsTotal: 0,
     threeTitles: 0,
     sevenTitles: 0,
+    eventThreeTitles: 0,
+    eventSevenTitles: 0,
     singleThreeTitles: 0,
     singleSevenTitles: 0,
     allThreeTitles: 0,
@@ -66,6 +76,8 @@ function createStats(): MutablePlayerAggregateStats {
     eventIds: new Set<number>(),
     sevenEventKeys: new Set<string>(),
     sevenFinalEventKeys: new Set<string>(),
+    eventThreeTitleKeys: new Set<string>(),
+    eventSevenTitleKeys: new Set<string>(),
     singleThreeTitleKeys: new Set<string>(),
     singleSevenTitleKeys: new Set<string>(),
     allThreeTitleKeys: new Set<string>(),
@@ -78,12 +90,14 @@ function finalizeStats(stats: MutablePlayerAggregateStats): PlayerAggregateStats
   stats.winRate = rate(stats.totalWins, stats.totalMatches);
   stats.foreignWinRate = rate(stats.foreignWins, stats.foreignMatches);
   stats.domesticWinRate = rate(stats.domesticWins, stats.domesticMatches);
+  stats.eventThreeTitles = stats.eventThreeTitleKeys.size;
+  stats.eventSevenTitles = stats.eventSevenTitleKeys.size;
   stats.singleThreeTitles = stats.singleThreeTitleKeys.size;
   stats.singleSevenTitles = stats.singleSevenTitleKeys.size;
   stats.allThreeTitles = stats.allThreeTitleKeys.size;
   stats.allSevenTitles = stats.allSevenTitleKeys.size;
-  stats.threeTitles = stats.singleThreeTitles;
-  stats.sevenTitles = stats.singleSevenTitles;
+  stats.threeTitles = stats.eventThreeTitles;
+  stats.sevenTitles = stats.eventSevenTitles;
   stats.sevenEvents = stats.sevenEventKeys.size;
   stats.sevenFinals = stats.sevenFinalEventKeys.size;
 
@@ -101,6 +115,8 @@ function finalizeStats(stats: MutablePlayerAggregateStats): PlayerAggregateStats
     eventsTotal: stats.eventsTotal,
     threeTitles: stats.threeTitles,
     sevenTitles: stats.sevenTitles,
+    eventThreeTitles: stats.eventThreeTitles,
+    eventSevenTitles: stats.eventSevenTitles,
     singleThreeTitles: stats.singleThreeTitles,
     singleSevenTitles: stats.singleSevenTitles,
     allThreeTitles: stats.allThreeTitles,
@@ -299,6 +315,12 @@ export function getPlayerAggregateStats(playerIds: number[]) {
         if (sortOrder != null && sortOrder <= 5) {
           stats.allThreeTitleKeys.add(eventKey);
         }
+        if (isIndividualTitle(row.subEventTypeCode)) {
+          stats.eventSevenTitleKeys.add(eventKey);
+          if (sortOrder != null && sortOrder <= 5) {
+            stats.eventThreeTitleKeys.add(eventKey);
+          }
+        }
         if (row.subEventTypeCode === 'WS') {
           stats.singleSevenTitleKeys.add(eventKey);
           if (sortOrder != null && sortOrder <= 5) {
@@ -313,6 +335,12 @@ export function getPlayerAggregateStats(playerIds: number[]) {
       stats.allSevenTitleKeys.add(eventKey);
       if (sortOrder != null && sortOrder <= 5) {
         stats.allThreeTitleKeys.add(eventKey);
+      }
+      if (isIndividualTitle(row.subEventTypeCode)) {
+        stats.eventSevenTitleKeys.add(eventKey);
+        if (sortOrder != null && sortOrder <= 5) {
+          stats.eventThreeTitleKeys.add(eventKey);
+        }
       }
       if (row.subEventTypeCode === 'WS') {
         stats.singleSevenTitleKeys.add(eventKey);
