@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# 服务器 A 上用 sentry-cli monitors run 包装 event_refresh.sh
+# 复制为 cron_event_refresh_with_sentry.sh 后填写 SENTRY_* 变量
+#
+# Cron 示例（每天北京时间 06:10 跑一次）：
+#   10 6 * * * /opt/ittf-ops/cron_event_refresh_with_sentry.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+
+set -euo pipefail
+
+export SENTRY_AUTH_TOKEN=fill-your-token
+export SENTRY_ORG=your-org-slug
+export SENTRY_PROJECT=ittf
+MONITOR_SLUG=ittf-event-refresh
+
+exec sentry-cli monitors run "${MONITOR_SLUG}" -- \
+    /opt/ittf-ops/event_refresh.sh
