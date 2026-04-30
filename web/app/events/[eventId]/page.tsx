@@ -290,6 +290,49 @@ function formatBeijingTimeLabel(value: string | null) {
   return `北京时间 ${month}/${day} ${hour}:${minute}`;
 }
 
+function getCurrentDateInTimeZone(timeZone: string | null) {
+  const now = new Date();
+  if (!timeZone) {
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  }
+
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const year = parts.find((part) => part.type === "year")?.value;
+  const month = parts.find((part) => part.type === "month")?.value;
+  const day = parts.find((part) => part.type === "day")?.value;
+
+  if (!year || !month || !day) {
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  }
+
+  return `${year}-${month}-${day}`;
+}
+
+function getDefaultScheduleDate(
+  days: Array<{ localDate: string }>,
+  eventTimeZone: string | null,
+) {
+  if (days.length === 0) return null;
+
+  const today = getCurrentDateInTimeZone(eventTimeZone);
+  const firstDate = days[0].localDate;
+  const lastDate = days[days.length - 1].localDate;
+
+  if (today <= firstDate) return firstDate;
+  if (today >= lastDate) return lastDate;
+
+  const todayMatch = days.find((day) => day.localDate === today);
+  if (todayMatch) return todayMatch.localDate;
+
+  const nextAvailableDate = days.find((day) => day.localDate > today);
+  return nextAvailableDate?.localDate ?? lastDate;
+}
+
 function zonedLocalDateTimeToDate(localDate: string, localTime: string, timeZone: string) {
   const dateMatch = localDate.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   const timeMatch = localTime.match(/^(\d{2}):(\d{2})/);
@@ -1080,10 +1123,12 @@ function ScheduleByDateView({
   days,
   selectedSubEvent,
   lifecycleStatus,
+  eventTimeZone,
 }: {
   days: EventDetail["scheduleDays"];
   selectedSubEvent: string;
   lifecycleStatus: string | null;
+  eventTimeZone: string | null;
 }) {
   const filteredDays = days
     .map((day) => ({
@@ -1092,7 +1137,12 @@ function ScheduleByDateView({
     }))
     .filter((day) => day.matches.length > 0);
 
-  const [selectedDate, setSelectedDate] = React.useState<string | null>(filteredDays[0]?.localDate ?? null);
+  const defaultSelectedDate = React.useMemo(
+    () => getDefaultScheduleDate(filteredDays, eventTimeZone),
+    [filteredDays, eventTimeZone],
+  );
+
+  const [selectedDate, setSelectedDate] = React.useState<string | null>(defaultSelectedDate);
 
   React.useEffect(() => {
     if (filteredDays.length === 0) {
@@ -1101,9 +1151,9 @@ function ScheduleByDateView({
     }
 
     if (!selectedDate || !filteredDays.some((day) => day.localDate === selectedDate)) {
-      setSelectedDate(filteredDays[0].localDate);
+      setSelectedDate(defaultSelectedDate);
     }
-  }, [filteredDays, selectedDate]);
+  }, [defaultSelectedDate, filteredDays, selectedDate]);
 
   if (filteredDays.length === 0) {
     return (
@@ -2520,6 +2570,7 @@ function EventDetailContent() {
                   days={data.scheduleDays}
                   selectedSubEvent={currentSubEvent}
                   lifecycleStatus={data.event.lifecycleStatus}
+                  eventTimeZone={data.event.timeZone}
                 />
               ) : (
                 <div className="space-y-6">
