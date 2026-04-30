@@ -4,7 +4,7 @@
 # 复制为 cron_event_refresh_with_sentry.sh 后填写 SENTRY_* 变量
 #
 # Cron 示例（每天北京时间 06:10 跑一次）：
-#   10 6 * * * /opt/ittf-ops/cron_event_refresh_with_sentry.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+#   10 6 * * * PYENV_ENV_NAME=venv /opt/ittf-ops/cron_event_refresh_with_sentry.sh >> /opt/ittf-logs/event-refresh.log 2>&1
 
 set -euo pipefail
 
