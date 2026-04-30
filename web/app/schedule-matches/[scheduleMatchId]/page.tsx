@@ -3,7 +3,7 @@
 import React, { Suspense, useCallback } from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, Goal } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -256,6 +256,8 @@ function RubberCard({
 function ScheduleMatchContent() {
   const params = useParams<{ scheduleMatchId: string }>();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const fromHref = searchParams.get("from");
   const [data, setData] = React.useState<ScheduleMatchDetail | null>(null);
   const [loading, setLoading] = React.useState(true);
 
@@ -279,6 +281,10 @@ function ScheduleMatchContent() {
   }, [params.scheduleMatchId]);
 
   const handleBack = useCallback(() => {
+    if (fromHref) {
+      router.replace(route(fromHref));
+      return;
+    }
     if (window.history.length > 1) {
       router.back();
       return;
@@ -288,7 +294,7 @@ function ScheduleMatchContent() {
       return;
     }
     router.push(route(`/events/${data.match.eventId}?sub_event=${data.match.subEventTypeCode}`));
-  }, [data, router]);
+  }, [data, fromHref, router]);
 
   if (loading || !data) {
     return (
@@ -300,6 +306,14 @@ function ScheduleMatchContent() {
 
   const [sideA, sideB] = [...data.sides].sort((left, right) => left.sideNo - right.sideNo);
   const teamEvent = isTeamSubEvent(data.match.subEventTypeCode);
+
+  const rawScore = data.match.matchScore || "";
+  const isWO = rawScore.toUpperCase().includes("WO");
+  const cleanScore = rawScore.replace(/\s*\(?WO\)?/i, "").trim();
+  const scoreParts = cleanScore.split("-").map((s) => s.trim());
+  const sA = scoreParts[0] || (isWO ? "0" : "-");
+  const sB = scoreParts[1] || (isWO ? "0" : "-");
+
   const winnerName =
     data.match.winnerSide === "A"
       ? sideA
@@ -353,19 +367,44 @@ function ScheduleMatchContent() {
 
       <section className="px-5 pt-4">
         <div className="rounded-lg border border-white/60 bg-white/80 p-5 text-center shadow-sm backdrop-blur-md overflow-hidden">
-          <div className="mb-2 flex items-center justify-center gap-2 text-brand-strong">
+          <div className="mb-4 flex items-center justify-center gap-2 text-brand-strong">
             <Goal size={18} />
             <span className="text-caption font-black uppercase tracking-widest">Match Score</span>
           </div>
-          <p className="font-numeric text-[46px] font-black leading-none text-text-primary tabular-nums">
-            {data.match.matchScore || "-"}
-          </p>
-          <div className="mt-2 flex justify-center w-full overflow-hidden">
-            <p className="max-w-full line-clamp-1 px-2 text-caption font-semibold text-text-tertiary" title={winnerName || ""}>
-              获胜方：{winnerName || "待补"}
-            </p>
+
+          <div className="flex items-center justify-center gap-8">
+            <div className="flex flex-col items-center gap-2">
+              <Flag code={sideA?.teamCode || sideA?.players[0]?.countryCode || null} className="scale-[1.8]" />
+              <span className="text-micro font-black uppercase tracking-widest text-text-tertiary">
+                {sideA?.teamCode || sideA?.players[0]?.countryCode || "TBD"}
+              </span>
+            </div>
+
+            <div className="flex items-start justify-center gap-4 font-numeric text-[46px] font-black leading-none text-text-primary tabular-nums">
+              <div className="flex flex-col items-center">
+                <span>{sA}</span>
+                {isWO && sA === "0" && (
+                  <span className="mt-1.5 text-[12px] font-bold text-text-tertiary">弃权</span>
+                )}
+              </div>
+              <span className="pt-1.5 text-text-tertiary/30">-</span>
+              <div className="flex flex-col items-center">
+                <span>{sB}</span>
+                {isWO && sB === "0" && (
+                  <span className="mt-1.5 text-[12px] font-bold text-text-tertiary">弃权</span>
+                )}
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-2">
+              <Flag code={sideB?.teamCode || sideB?.players[0]?.countryCode || null} className="scale-[1.8]" />
+              <span className="text-micro font-black uppercase tracking-widest text-text-tertiary">
+                {sideB?.teamCode || sideB?.players[0]?.countryCode || "TBD"}
+              </span>
+            </div>
           </div>
-          <p className="mt-2 text-[0.82rem] font-medium text-text-tertiary">
+
+          <p className="mt-4 text-[0.82rem] font-medium text-text-tertiary">
             {data.match.tableNo || "场地待补"} {data.match.sessionLabel ? `· ${data.match.sessionLabel}` : ""}
           </p>
         </div>

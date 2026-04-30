@@ -520,6 +520,33 @@ function parseOfficialWinnerSide(score: string | null | undefined) {
   return parsed.scoreA > parsed.scoreB ? 'A' : 'B';
 }
 
+function flipWinnerSide(winnerSide: string | null | undefined) {
+  if (winnerSide === 'A') return 'B';
+  if (winnerSide === 'B') return 'A';
+  return null;
+}
+
+function reverseScoreLabel(score: string | null | undefined) {
+  const parsed = parseTieScore(score);
+  if (!parsed) return score ?? null;
+  return `${parsed.scoreB}-${parsed.scoreA}`;
+}
+
+function reverseGames(games: Array<{ player: number; opponent: number }>) {
+  return games.map((game) => ({ player: game.opponent, opponent: game.player }));
+}
+
+function shouldFlipTeamOrder(
+  officialTeamCodes: [string, string] | null | undefined,
+  displayTeamCodes: [string | null | undefined, string | null | undefined],
+) {
+  if (!officialTeamCodes) return false;
+  const [officialA, officialB] = officialTeamCodes;
+  const [displayA, displayB] = displayTeamCodes;
+  if (!displayA || !displayB) return false;
+  return officialA === displayB && officialB === displayA;
+}
+
 function parseOfficialCompetitorPlayers(
   competitor: {
     competitiorId?: string | null;
@@ -1043,8 +1070,17 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
   }
 
   const official = readOfficialScheduleResults(match.eventId).get(normalizeExternalMatchCode(match.externalMatchCode));
+  const displayTeamCodes: [string | null | undefined, string | null | undefined] = [
+    sideMap.get(1)?.teamCode,
+    sideMap.get(2)?.teamCode,
+  ];
+  const flipTopLevelScore = shouldFlipTeamOrder(official?.teamCodes, displayTeamCodes);
   const topLevelGames = official?.games.length ? official.games : parseGames(match.games);
-  const topLevelMatchScore = official?.matchScore ?? match.matchScore;
+  const topLevelMatchScore = official?.matchScore
+    ? flipTopLevelScore
+      ? reverseScoreLabel(official.matchScore)
+      : official.matchScore
+    : match.matchScore;
   const topLevelWinnerSide =
     official?.winnerCode && official.teamCodes
       ? sideMap.get(1)?.teamCode === official.winnerCode
@@ -1053,6 +1089,10 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
           ? 'B'
           : match.winnerSide
       : match.winnerSide;
+  const sides = Array.from(sideMap.values()).map((side) => ({
+    ...side,
+    isWinner: official?.winnerCode != null && side.teamCode ? side.teamCode === official.winnerCode : side.isWinner,
+  }));
   const officialPlayerIds = (official?.rubbers ?? [])
     .flatMap((rubber) => rubber.sides)
     .flatMap((side) => side.players)
@@ -1088,14 +1128,25 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
       endDate: match.endDate,
       externalMatchCode: match.externalMatchCode,
     },
-    sides: Array.from(sideMap.values()),
-    rubbers: (official?.rubbers ?? []).map((rubber) => ({
-      ...rubber,
-      sides: rubber.sides.map((side) => ({
-        ...side,
-        players: enrichOfficialPlayers(side.players, officialPlayerMap),
-      })),
-    })),
+    sides,
+    rubbers: (official?.rubbers ?? []).map((rubber) => {
+      const rubberTeamCodes =
+        rubber.sides.length === 2 ? ([rubber.sides[0].teamCode ?? '', rubber.sides[1].teamCode ?? ''] as [string, string]) : null;
+      const flipRubber = shouldFlipTeamOrder(rubberTeamCodes, displayTeamCodes);
+      const orientedSides = flipRubber ? [...rubber.sides].reverse() : rubber.sides;
+
+      return {
+        ...rubber,
+        matchScore: flipRubber ? reverseScoreLabel(rubber.matchScore) : rubber.matchScore,
+        games: flipRubber ? reverseGames(rubber.games) : rubber.games,
+        winnerSide: flipRubber ? flipWinnerSide(rubber.winnerSide) : rubber.winnerSide,
+        sides: orientedSides.map((side, index) => ({
+          ...side,
+          sideNo: index + 1,
+          players: enrichOfficialPlayers(side.players, officialPlayerMap),
+        })),
+      };
+    }),
   };
 }
 
@@ -1965,18 +2016,15 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
       };
     }
 
-    const scoreMap = new Map<string, number | null>([
-      [official.teamCodes[0], official.scoreA],
-      [official.teamCodes[1], official.scoreB],
-    ]);
     const sides = [...match.sides]
       .sort((left, right) => left.sideNo - right.sideNo)
       .map((side) => ({
         ...side,
         isWinner: official.winnerCode != null && side.teamCode === official.winnerCode,
       }));
+    const displayTeamCodes: [string | null | undefined, string | null | undefined] = [sides[0]?.teamCode, sides[1]?.teamCode];
+    const flipScore = shouldFlipTeamOrder(official.teamCodes, displayTeamCodes);
     const winnerSide = sides.find((side) => side.teamCode === official.winnerCode)?.sideNo === 1 ? 'A' : sides.find((side) => side.teamCode === official.winnerCode)?.sideNo === 2 ? 'B' : match.winnerSide;
-    const sortedScores = sides.map((side) => scoreMap.get(side.teamCode ?? '')).filter((score): score is number => score != null);
 
     return {
       ...match,
@@ -1984,7 +2032,11 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
       winnerSide,
       status: official.matchScore ? 'completed' : match.status,
       rawScheduleStatus: official.matchScore ? 'Official' : match.rawScheduleStatus,
-      matchScore: official.matchScore ?? (sortedScores.length === 2 ? `${sortedScores[0]}-${sortedScores[1]}` : match.matchScore),
+      matchScore: official.matchScore
+        ? flipScore
+          ? reverseScoreLabel(official.matchScore)
+          : official.matchScore
+        : match.matchScore,
     };
   });
 

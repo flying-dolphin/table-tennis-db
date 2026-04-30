@@ -245,6 +245,53 @@ function displayName(name: string, nameZh: string | null) {
   return nameZh?.trim() || name;
 }
 
+function normalizeViewMode(value: string | null): ViewMode | null {
+  if (value === "session" || value === "draw" || value === "schedule" || value === "champions") {
+    return value;
+  }
+  return null;
+}
+
+function buildEventDetailQuery({
+  subEvent,
+  view,
+  date,
+}: {
+  subEvent?: string | null;
+  view?: ViewMode | null;
+  date?: string | null;
+}) {
+  const params = new URLSearchParams();
+  if (subEvent) {
+    params.set("sub_event", subEvent);
+  }
+  if (view) {
+    params.set("view", view);
+  }
+  if (date) {
+    params.set("date", date);
+  }
+  return params.toString();
+}
+
+function buildEventDetailHref(
+  eventId: string | number,
+  state: {
+    subEvent?: string | null;
+    view?: ViewMode | null;
+    date?: string | null;
+  },
+) {
+  const query = buildEventDetailQuery(state);
+  return query ? `/events/${eventId}?${query}` : `/events/${eventId}`;
+}
+
+function withFromQuery(path: string, fromHref: string) {
+  const params = new URLSearchParams();
+  params.set("from", fromHref);
+  return `${path}?${params.toString()}`;
+}
+
 function displayDateRange(startDate: string | null, endDate: string | null) {
   if (!startDate && !endDate) return "时间待补";
   if (startDate && startDate === endDate) return startDate;
@@ -331,6 +378,39 @@ function getDefaultScheduleDate(
 
   const nextAvailableDate = days.find((day) => day.localDate > today);
   return nextAvailableDate?.localDate ?? lastDate;
+}
+
+function filterScheduleDaysBySubEvent(
+  days: EventDetail["scheduleDays"],
+  subEventCode: string,
+) {
+  return days
+    .map((day) => ({
+      ...day,
+      matches: day.matches.filter((match) => match.subEventTypeCode === subEventCode),
+    }))
+    .filter((day) => day.matches.length > 0);
+}
+
+function resolveScheduleDateForSubEvent({
+  days,
+  subEventCode,
+  eventTimeZone,
+  preferredDate,
+}: {
+  days: EventDetail["scheduleDays"];
+  subEventCode: string;
+  eventTimeZone: string | null;
+  preferredDate: string | null;
+}) {
+  const filteredDays = filterScheduleDaysBySubEvent(days, subEventCode);
+  if (filteredDays.length === 0) {
+    return null;
+  }
+  if (preferredDate && filteredDays.some((day) => day.localDate === preferredDate)) {
+    return preferredDate;
+  }
+  return getDefaultScheduleDate(filteredDays, eventTimeZone);
 }
 
 function zonedLocalDateTimeToDate(localDate: string, localTime: string, timeZone: string) {
@@ -907,14 +987,24 @@ function LegacyViewTabs({ mode, onChange, showChampionsTab }: { mode: ViewMode; 
   );
 }
 
-function MatchListCard({ match, matchIndex, isXT }: { match: BracketMatch; matchIndex: number; isXT?: boolean }) {
+function MatchListCard({
+  match,
+  matchIndex,
+  isXT,
+  eventReturnHref,
+}: {
+  match: BracketMatch;
+  matchIndex: number;
+  isXT?: boolean;
+  eventReturnHref: string;
+}) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
 
   return (
     <Link
-      href={route(`/matches/${match.matchId}`)}
+      href={route(withFromQuery(`/matches/${match.matchId}`, eventReturnHref))}
       className="block rounded-2xl bg-white px-4 py-3.5 ring-1 ring-slate-100 shadow-sm transition active:scale-[0.99]"
     >
       <div className="mb-2.5 flex items-center justify-between">
@@ -1047,9 +1137,11 @@ function SessionScheduleView({
 function ScheduleMatchCard({
   match,
   showBeijingTime,
+  eventReturnHref,
 }: {
   match: EventScheduleMatch;
   showBeijingTime: boolean;
+  eventReturnHref: string;
 }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const meta = scheduleStatusMeta(match.status);
@@ -1058,7 +1150,7 @@ function ScheduleMatchCard({
   const beijingTimeLabel = showBeijingTime ? formatBeijingTimeLabel(match.scheduledUtcAt) : null;
 
   return (
-    <Link href={route(`/schedule-matches/${match.scheduleMatchId}`)} className="block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
+    <Link href={route(withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref))} className="block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
       <div className="flex items-center justify-between gap-2">
         <div className="flex min-w-0 items-center gap-2 text-[0.82rem] font-bold text-slate-500">
           {match.tableNo ? <span className="rounded-full bg-[#f3f6fb] px-2">{match.tableNo}</span> : null}
@@ -1124,36 +1216,40 @@ function ScheduleByDateView({
   selectedSubEvent,
   lifecycleStatus,
   eventTimeZone,
+  selectedDate,
+  onSelectDate,
+  eventReturnHref,
 }: {
   days: EventDetail["scheduleDays"];
   selectedSubEvent: string;
   lifecycleStatus: string | null;
   eventTimeZone: string | null;
+  selectedDate: string | null;
+  onSelectDate: (date: string | null) => void;
+  eventReturnHref: string;
 }) {
-  const filteredDays = days
-    .map((day) => ({
-      ...day,
-      matches: day.matches.filter((match) => match.subEventTypeCode === selectedSubEvent),
-    }))
-    .filter((day) => day.matches.length > 0);
+  const filteredDays = React.useMemo(
+    () => filterScheduleDaysBySubEvent(days, selectedSubEvent),
+    [days, selectedSubEvent],
+  );
 
   const defaultSelectedDate = React.useMemo(
     () => getDefaultScheduleDate(filteredDays, eventTimeZone),
     [filteredDays, eventTimeZone],
   );
 
-  const [selectedDate, setSelectedDate] = React.useState<string | null>(defaultSelectedDate);
-
   React.useEffect(() => {
     if (filteredDays.length === 0) {
-      setSelectedDate(null);
+      if (selectedDate !== null) {
+        onSelectDate(null);
+      }
       return;
     }
 
     if (!selectedDate || !filteredDays.some((day) => day.localDate === selectedDate)) {
-      setSelectedDate(defaultSelectedDate);
+      onSelectDate(defaultSelectedDate);
     }
-  }, [defaultSelectedDate, filteredDays, selectedDate]);
+  }, [defaultSelectedDate, filteredDays, onSelectDate, selectedDate]);
 
   if (filteredDays.length === 0) {
     return (
@@ -1179,7 +1275,7 @@ function ScheduleByDateView({
                 <button
                   key={day.localDate}
                   type="button"
-                  onClick={() => setSelectedDate(day.localDate)}
+                  onClick={() => onSelectDate(day.localDate)}
                   className={cn(
                     "group rounded-2xl border px-4 py-2.5 text-left transition",
                     isActive
@@ -1205,7 +1301,7 @@ function ScheduleByDateView({
           </div>
           <div className="space-y-3">
             {activeDay.matches.map((match) => (
-              <ScheduleMatchCard key={match.scheduleMatchId} match={match} showBeijingTime={showBeijingTime} />
+              <ScheduleMatchCard key={match.scheduleMatchId} match={match} showBeijingTime={showBeijingTime} eventReturnHref={eventReturnHref} />
             ))}
           </div>
         </section>
@@ -1214,7 +1310,15 @@ function ScheduleByDateView({
   );
 }
 
-function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?: boolean }) {
+function ScheduleView({
+  rounds,
+  isXT,
+  eventReturnHref,
+}: {
+  rounds: EventDetail["bracket"];
+  isXT?: boolean;
+  eventReturnHref: string;
+}) {
   const [collapsed, setCollapsed] = React.useState<Set<string>>(new Set());
 
   const toggle = React.useCallback((code: string) => {
@@ -1258,7 +1362,7 @@ function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?:
                 <>
                   <div className="space-y-3">
                     {round.matches.map((match, index) => (
-                      <MatchListCard key={match.matchId} match={match} matchIndex={index + 1} isXT={isXT} />
+                      <MatchListCard key={match.matchId} match={match} matchIndex={index + 1} isXT={isXT} eventReturnHref={eventReturnHref} />
                     ))}
                   </div>
                   {round.matches.length > 1 && (
@@ -1281,7 +1385,15 @@ function ScheduleView({ rounds, isXT }: { rounds: EventDetail["bracket"]; isXT?:
   );
 }
 
-function TeamTieSummaryCard({ tie, tieIndex }: { tie: TeamTie; tieIndex?: number }) {
+function TeamTieSummaryCard({
+  tie,
+  tieIndex,
+  eventReturnHref,
+}: {
+  tie: TeamTie;
+  tieIndex?: number;
+  eventReturnHref: string;
+}) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
   return (
@@ -1322,7 +1434,7 @@ function TeamTieSummaryCard({ tie, tieIndex }: { tie: TeamTie; tieIndex?: number
         {tie.rubbers.map((rubber, index) => (
           <Link
             key={rubber.matchId}
-            href={route(`/matches/${rubber.matchId}`)}
+            href={route(withFromQuery(`/matches/${rubber.matchId}`, eventReturnHref))}
             className="flex items-start justify-between gap-3 py-2 transition"
           >
             <div className="flex min-w-0 flex-1 items-start gap-2">
@@ -1341,7 +1453,7 @@ function TeamTieSummaryCard({ tie, tieIndex }: { tie: TeamTie; tieIndex?: number
   );
 }
 
-function TeamKnockoutScheduleView({ view }: { view: EventTeamKnockoutView }) {
+function TeamKnockoutScheduleView({ view, eventReturnHref }: { view: EventTeamKnockoutView; eventReturnHref: string }) {
   const [collapsed, setCollapsed] = React.useState<Set<string>>(new Set());
 
   const toggle = React.useCallback((code: string) => {
@@ -1384,7 +1496,7 @@ function TeamKnockoutScheduleView({ view }: { view: EventTeamKnockoutView }) {
               {!isCollapsed && (
                 <div className="space-y-3">
                   {round.ties.map((tie, index) => (
-                    <TeamTieSummaryCard key={tie.tieId} tie={tie} tieIndex={index + 1} />
+                    <TeamTieSummaryCard key={tie.tieId} tie={tie} tieIndex={index + 1} eventReturnHref={eventReturnHref} />
                   ))}
                 </div>
               )}
@@ -1401,11 +1513,13 @@ function DrawMatchCard({
   isChampionPath,
   isXT,
   matchNumber,
+  eventReturnHref,
 }: {
   match: BracketMatch;
   isChampionPath: boolean;
   isXT?: boolean;
   matchNumber?: number;
+  eventReturnHref: string;
 }) {
   const [sideA, sideB] = [...match.sides].sort((a, b) => a.sideNo - b.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
@@ -1419,7 +1533,7 @@ function DrawMatchCard({
         </span>
       )}
       <Link
-        href={route(`/matches/${match.matchId}`)}
+        href={route(withFromQuery(`/matches/${match.matchId}`, eventReturnHref))}
         className={cn(
           "block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm transition active:scale-[0.99]",
           isChampionPath ? "border-[#3a74f2] shadow-[0_2px_8px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
@@ -1465,12 +1579,14 @@ function DrawView({
   champion,
   isXT,
   teamKnockoutView,
+  eventReturnHref,
 }: {
   rounds: EventDetail["bracket"];
   selectedSubEvent: string;
   champion: EventChampion | null;
   isXT?: boolean;
   teamKnockoutView?: EventTeamKnockoutView | null;
+  eventReturnHref: string;
 }) {
   const [search, setSearch] = React.useState("");
   const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
@@ -1568,14 +1684,14 @@ function DrawView({
           {teamKnockoutView.finalTie && (
             <section>
               <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">决赛</h2>
-              <TeamTieCard tie={teamKnockoutView.finalTie} title="冠军战" />
+              <TeamTieCard tie={teamKnockoutView.finalTie} title="冠军战" eventReturnHref={eventReturnHref} />
             </section>
           )}
 
           {teamKnockoutView.bronzeTie && (
             <section>
               <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">铜牌赛</h2>
-              <TeamTieCard tie={teamKnockoutView.bronzeTie} title="铜牌战" />
+              <TeamTieCard tie={teamKnockoutView.bronzeTie} title="铜牌战" eventReturnHref={eventReturnHref} />
             </section>
           )}
         </section>
@@ -1652,6 +1768,7 @@ function DrawView({
                     isChampionPath={isChampionPath}
                     isXT={isXT}
                     matchNumber={rIdx === 0 ? mIdx + 1 : undefined}
+                    eventReturnHref={eventReturnHref}
                   />
                 </div>
               );
@@ -2160,7 +2277,7 @@ function teamPodiumDisplay(podium: {
   };
 }
 
-function TeamTieCard({ tie, title }: { tie: TeamTie; title?: string }) {
+function TeamTieCard({ tie, title, eventReturnHref }: { tie: TeamTie; title?: string; eventReturnHref: string }) {
   const titleText = title || tie.roundZh || tie.round || "循环赛";
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
@@ -2190,7 +2307,7 @@ function TeamTieCard({ tie, title }: { tie: TeamTie; title?: string }) {
         {tie.rubbers.map((rubber, index) => (
           <Link
             key={rubber.matchId}
-            href={route(`/matches/${rubber.matchId}`)}
+            href={route(withFromQuery(`/matches/${rubber.matchId}`, eventReturnHref))}
             className="flex items-start justify-between gap-3 py-2 transition"
           >
             <div className="flex min-w-0 flex-1 items-start gap-2">
@@ -2265,7 +2382,15 @@ function GroupStandingsTable({ standings }: { standings: StageStanding[] }) {
   );
 }
 
-function RoundRobinView({ view, defaultCollapsed = false }: { view: EventRoundRobinView; defaultCollapsed?: boolean }) {
+function RoundRobinView({
+  view,
+  defaultCollapsed = false,
+  eventReturnHref,
+}: {
+  view: EventRoundRobinView;
+  defaultCollapsed?: boolean;
+  eventReturnHref: string;
+}) {
   const [collapsedStages, setCollapsedStages] = React.useState<Set<string>>(
     defaultCollapsed ? new Set(view.stages.map((stage) => stage.code)) : new Set(),
   );
@@ -2354,7 +2479,7 @@ function RoundRobinView({ view, defaultCollapsed = false }: { view: EventRoundRo
                             <div className="mt-4 space-y-3">
                               <GroupStandingsTable standings={group.standings ?? []} />
                               {group.ties.map((tie, index) => (
-                                <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
+                                <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} eventReturnHref={eventReturnHref} />
                               ))}
                             </div>
                           )}
@@ -2365,7 +2490,7 @@ function RoundRobinView({ view, defaultCollapsed = false }: { view: EventRoundRo
                 ) : (
                   <div className="space-y-3">
                     {(stage.ties ?? []).map((tie, index) => (
-                      <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} />
+                      <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} eventReturnHref={eventReturnHref} />
                     ))}
                   </div>
                 )
@@ -2449,10 +2574,15 @@ function EventDetailContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const urlSubEvent = searchParams.get("sub_event");
+  const urlView = normalizeViewMode(searchParams.get("view"));
+  const urlDate = searchParams.get("date");
   const [data, setData] = React.useState<EventDetail | null>(null);
   const [selectedSubEvent, setSelectedSubEvent] = React.useState<string | null>(urlSubEvent);
-  const [viewMode, setViewMode] = React.useState<ViewMode>("session");
+  const [viewMode, setViewMode] = React.useState<ViewMode>(urlView ?? "session");
+  const [selectedDate, setSelectedDate] = React.useState<string | null>(urlDate);
   const [loading, setLoading] = React.useState(true);
+  const initialUrlSubEventRef = React.useRef(urlSubEvent);
+  const shouldSyncUrlRef = React.useRef(Boolean(urlSubEvent || urlView || urlDate));
   const handleBack = React.useCallback(() => {
     if (window.history.length > 1) {
       router.back();
@@ -2465,12 +2595,11 @@ function EventDetailContent() {
     async function load() {
       setLoading(true);
       try {
-        const query = urlSubEvent ? `?sub_event=${encodeURIComponent(urlSubEvent)}` : "";
-        const res = await fetch(`/api/v1/events/${params.eventId}${query}`);
+        const res = await fetch(`/api/v1/events/${params.eventId}`);
         const json = (await res.json()) as EventDetailResponse;
         if (json.code === 0) {
           setData(json.data);
-          setSelectedSubEvent((current) => current ?? urlSubEvent ?? json.data.selectedSubEvent);
+          setSelectedSubEvent((current) => current ?? initialUrlSubEventRef.current ?? json.data.selectedSubEvent);
         }
       } catch (err) {
         console.error(err);
@@ -2480,7 +2609,7 @@ function EventDetailContent() {
     }
 
     if (params.eventId) load();
-  }, [params.eventId, urlSubEvent]);
+  }, [params.eventId]);
 
   const useNewLiveTabs =
     data?.event.lifecycleStatus === "in_progress" &&
@@ -2497,6 +2626,61 @@ function EventDetailContent() {
     });
   }, [data, useNewLiveTabs]);
 
+  const currentSubEvent = selectedSubEvent ?? data?.selectedSubEvent ?? null;
+  const effectiveDate = viewMode === "schedule" ? selectedDate : null;
+
+  React.useEffect(() => {
+    if (!data || !currentSubEvent) return;
+    if (!shouldSyncUrlRef.current) return;
+
+    const nextHref = buildEventDetailHref(params.eventId, {
+      subEvent: currentSubEvent,
+      view: viewMode,
+      date: effectiveDate,
+    });
+    const currentHref = searchParams.toString() ? `/events/${params.eventId}?${searchParams.toString()}` : `/events/${params.eventId}`;
+
+    if (nextHref !== currentHref) {
+      router.replace(route(nextHref), { scroll: false });
+    }
+  }, [currentSubEvent, data, effectiveDate, params.eventId, router, searchParams, viewMode]);
+
+  const handleSelectSubEvent = React.useCallback((value: string | null) => {
+    if (!value) return;
+    shouldSyncUrlRef.current = true;
+    if (data && viewMode === "schedule" && useNewLiveTabs) {
+      setSelectedDate(
+        resolveScheduleDateForSubEvent({
+          days: data.scheduleDays,
+          subEventCode: value,
+          eventTimeZone: data.event.timeZone,
+          preferredDate: selectedDate,
+        }),
+      );
+    }
+    setSelectedSubEvent(value);
+  }, [data, selectedDate, useNewLiveTabs, viewMode]);
+
+  const handleChangeViewMode = React.useCallback((value: ViewMode) => {
+    shouldSyncUrlRef.current = true;
+    if (value === "schedule" && data && currentSubEvent && useNewLiveTabs) {
+      setSelectedDate((current) =>
+        resolveScheduleDateForSubEvent({
+          days: data.scheduleDays,
+          subEventCode: currentSubEvent,
+          eventTimeZone: data.event.timeZone,
+          preferredDate: current,
+        }),
+      );
+    }
+    setViewMode(value);
+  }, [currentSubEvent, data, useNewLiveTabs]);
+
+  const handleSelectDate = React.useCallback((value: string | null) => {
+    shouldSyncUrlRef.current = true;
+    setSelectedDate(value);
+  }, []);
+
   if (loading || !data) {
     return (
       <main className="mx-auto min-h-screen max-w-lg overflow-hidden pb-20">
@@ -2505,7 +2689,7 @@ function EventDetailContent() {
     );
   }
 
-  const currentSubEvent = selectedSubEvent ?? data.selectedSubEvent;
+  const resolvedSubEvent = currentSubEvent ?? data.selectedSubEvent;
   const subEventViews = data.subEvents.map((subEvent) => {
     const detail = data.subEventDetails.find((item) => item.code === subEvent.code);
     return {
@@ -2517,13 +2701,13 @@ function EventDetailContent() {
       presentationMode: detail?.presentationMode ?? data.presentationMode,
     };
   });
-  const currentDetail = subEventViews.find((detail) => detail.code === currentSubEvent);
+  const currentDetail = subEventViews.find((detail) => detail.code === resolvedSubEvent);
   const currentBracket = currentDetail?.bracket ?? [];
   const currentChampion = currentDetail?.champion ?? null;
   const currentRoundRobinView = currentDetail?.roundRobinView ?? data.roundRobinView ?? null;
   const currentTeamKnockoutView = currentDetail?.teamKnockoutView ?? data.teamKnockoutView ?? null;
   const currentPresentationMode = currentDetail?.presentationMode ?? data.presentationMode;
-  const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === currentSubEvent);
+  const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === resolvedSubEvent);
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
   const showChampionsTab = currentSubEventMeta ? !currentSubEventMeta.disabled && isMixedTeamSubEvent(currentSubEventMeta.code) : false;
   const hasKnockoutCompanion = currentBracket.length > 0 || (currentTeamKnockoutView?.rounds.length ?? 0) > 0;
@@ -2539,14 +2723,20 @@ function EventDetailContent() {
     return data.event.endDate <= today;
   })();
 
+  const eventReturnHref = buildEventDetailHref(params.eventId, {
+    subEvent: resolvedSubEvent,
+    view: viewMode,
+    date: effectiveDate,
+  });
+
   return (
     <main className="mx-auto min-h-screen max-w-lg bg-[#f8fafc]">
       <div className="sticky top-0 z-50 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
         <EventHeader
           data={data}
           subEvents={data.subEvents}
-          currentSubEvent={currentSubEvent}
-          onSelect={setSelectedSubEvent}
+          currentSubEvent={resolvedSubEvent}
+          onSelect={handleSelectSubEvent}
           onBack={handleBack}
         />
       </div>
@@ -2558,7 +2748,7 @@ function EventDetailContent() {
         <div className="mt-2">
           {useNewLiveTabs ? (
             <>
-              <LiveViewTabs mode={viewMode} onChange={setViewMode} />
+              <LiveViewTabs mode={viewMode} onChange={handleChangeViewMode} />
               {viewMode === "session" ? (
                 <SessionScheduleView
                   sessions={data.sessionSchedule}
@@ -2568,14 +2758,17 @@ function EventDetailContent() {
               ) : viewMode === "schedule" ? (
                 <ScheduleByDateView
                   days={data.scheduleDays}
-                  selectedSubEvent={currentSubEvent}
+                  selectedSubEvent={resolvedSubEvent}
                   lifecycleStatus={data.event.lifecycleStatus}
                   eventTimeZone={data.event.timeZone}
+                  selectedDate={selectedDate}
+                  onSelectDate={handleSelectDate}
+                  eventReturnHref={eventReturnHref}
                 />
               ) : (
                 <div className="space-y-6">
                   {shouldShowRoundRobin ? (
-                    <RoundRobinView view={currentRoundRobinView} defaultCollapsed={hasKnockoutCompanion} />
+                    <RoundRobinView view={currentRoundRobinView} defaultCollapsed={hasKnockoutCompanion} eventReturnHref={eventReturnHref} />
                   ) : null}
 
                   {shouldShowTeamKnockout ? (
@@ -2583,22 +2776,23 @@ function EventDetailContent() {
                   ) : shouldShowBracket || currentPresentationMode === "knockout" ? (
                     <DrawView
                       rounds={currentBracket}
-                      selectedSubEvent={currentSubEvent}
+                      selectedSubEvent={resolvedSubEvent}
                       champion={currentChampion}
                       isXT={isXT}
                       teamKnockoutView={currentTeamKnockoutView}
+                      eventReturnHref={eventReturnHref}
                     />
                   ) : null}
                 </div>
               )}
             </>
           ) : currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
-            <RoundRobinView view={currentRoundRobinView} />
+            <RoundRobinView view={currentRoundRobinView} eventReturnHref={eventReturnHref} />
           ) : currentPresentationMode === "team_knockout_with_bronze" && currentTeamKnockoutView ? (
             <>
-              <LegacyViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
+              <LegacyViewTabs mode={viewMode} onChange={handleChangeViewMode} showChampionsTab={showChampionsTab} />
               {viewMode === "schedule" ? (
-                <TeamKnockoutScheduleView view={currentTeamKnockoutView} />
+                <TeamKnockoutScheduleView view={currentTeamKnockoutView} eventReturnHref={eventReturnHref} />
               ) : viewMode === "draw" ? (
                 <TeamKnockoutDrawView view={currentTeamKnockoutView} />
               ) : (
@@ -2607,16 +2801,17 @@ function EventDetailContent() {
             </>
           ) : (
             <>
-              <LegacyViewTabs mode={viewMode} onChange={setViewMode} showChampionsTab={showChampionsTab} />
+              <LegacyViewTabs mode={viewMode} onChange={handleChangeViewMode} showChampionsTab={showChampionsTab} />
               {viewMode === "schedule" ? (
-                <ScheduleView rounds={currentBracket} isXT={isXT} />
+                <ScheduleView rounds={currentBracket} isXT={isXT} eventReturnHref={eventReturnHref} />
               ) : viewMode === "draw" ? (
                 <DrawView
                   rounds={currentBracket}
-                  selectedSubEvent={currentSubEvent}
+                  selectedSubEvent={resolvedSubEvent}
                   champion={currentChampion}
                   isXT={isXT}
                   teamKnockoutView={currentTeamKnockoutView}
+                  eventReturnHref={eventReturnHref}
                 />
               ) : (
                 <ChampionsListView subEvents={subEventViews} />

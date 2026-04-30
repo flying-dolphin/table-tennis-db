@@ -3,7 +3,7 @@
 import React, { Suspense, useCallback } from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, CalendarDays, ChevronLeft, ChevronRight, Goal, Trophy } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -160,6 +160,8 @@ function SideCard({ side }: { side: MatchSide }) {
 function MatchContent() {
   const params = useParams<{ matchId: string }>();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const fromHref = searchParams.get("from");
   const [data, setData] = React.useState<MatchDetail | null>(null);
   const [loading, setLoading] = React.useState(true);
 
@@ -183,6 +185,10 @@ function MatchContent() {
   }, [params.matchId]);
 
   const handleBack = useCallback(() => {
+    if (fromHref) {
+      router.replace(route(fromHref));
+      return;
+    }
     if (window.history.length > 1) {
       router.back();
       return;
@@ -192,7 +198,7 @@ function MatchContent() {
       return;
     }
     router.push(route(`/events/${data.match.eventId}?sub_event=${data.match.subEventTypeCode}`));
-  }, [data, router]);
+  }, [data, fromHref, router]);
 
   if (loading || !data) {
     return (
