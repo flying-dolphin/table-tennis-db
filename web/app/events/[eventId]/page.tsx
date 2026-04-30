@@ -551,8 +551,8 @@ function isXTSubEvent(code: string, label: string) {
   return code === "XT";
 }
 
-function isMixedTeamSubEvent(code: string) {
-  return code === "WT" || code === "XT";
+function supportsChampionRosterTab(code: string) {
+  return code === "WT" || code === "MT" || code === "XT";
 }
 
 function isTeamSubEvent(code: string, label: string) {
@@ -2509,62 +2509,54 @@ function RoundRobinView({
   );
 }
 
-function ChampionsListView({ subEvents }: { subEvents: EventSubEventView[] }) {
-  const subEventsWithChampions = subEvents.filter((se) => !se.disabled && isMixedTeamSubEvent(se.code));
-
-  if (subEventsWithChampions.length === 0) {
+function ChampionsListView({ subEvent }: { subEvent: EventSubEventView | undefined }) {
+  if (!subEvent || subEvent.disabled || !supportsChampionRosterTab(subEvent.code)) {
     return (
       <div className="pt-5">
         <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
-          本赛事无{getSubEventShortName("WT") || "WT"}/{getSubEventShortName("XD") || "XD"}项目
+          当前项目无可展示的冠军成员
         </div>
       </div>
     );
   }
 
+  const champion = subEvent.champion;
+  const championNames = normalizeChampionNames(champion);
+  const countries = champion
+    ? dedupeCountries(champion.players).length > 0
+      ? dedupeCountries(champion.players)
+      : champion.championCountryCode
+        ? [champion.championCountryCode]
+        : []
+    : [];
+
   return (
     <div className="pb-10 pt-4">
-      <div className="space-y-6">
-        {subEventsWithChampions.map((se) => {
-          const champion = se.champion;
-          const championNames = normalizeChampionNames(champion);
-          const countries = champion
-            ? dedupeCountries(champion.players).length > 0
-              ? dedupeCountries(champion.players)
-              : champion.championCountryCode
-                ? [champion.championCountryCode]
-                : []
-            : [];
-
-          return (
-            <section key={se.code}>
-              <h2 className="mb-3 text-[1.2rem] font-black text-slate-900">{subEventLabel(se)}</h2>
-              <div className="rounded-[1.6rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
-                <div className="flex items-center gap-2">
-                  <Crown size={18} className="text-[#d4a017]" />
-                  <span className="text-[0.92rem] font-bold text-slate-500">冠军球队</span>
-                </div>
-                {champion && champion.players.length > 0 && (
-                  <div className="mt-4">
-                    <p className="mb-2 text-[0.88rem] font-bold text-slate-500">成员名单</p>
-                    <div className="flex flex-wrap gap-2">
-                      {champion.players.map((player) => (
-                        <Link
-                          key={player.playerId}
-                          href={route(`/players/${player.slug}`)}
-                          className="inline-flex items-center gap-2 rounded-full bg-[#f6f8fd] px-3 py-1.5 transition hover:bg-[#eef4ff]"
-                        >
-                          <span className="text-base font-bold text-slate-700">{displayPlayerName(player)}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+      <section>
+        <h2 className="mb-3 text-[1.2rem] font-black text-slate-900">{subEventLabel(subEvent)}</h2>
+        <div className="rounded-[1.6rem] bg-white p-4 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
+          <div className="flex items-center gap-2">
+            <Crown size={18} className="text-[#d4a017]" />
+            <span className="text-[0.92rem] font-bold text-slate-500">冠军球队</span>
+          </div>
+          {champion && champion.players.length > 0 && (
+            <div className="mt-4">
+              <p className="mb-2 text-[0.88rem] font-bold text-slate-500">成员名单</p>
+              <div className="flex flex-wrap gap-2">
+                {champion.players.map((player) => (
+                  <Link
+                    key={player.playerId}
+                    href={route(`/players/${player.slug}`)}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#f6f8fd] px-3 py-1.5 transition hover:bg-[#eef4ff]"
+                  >
+                    <span className="text-base font-bold text-slate-700">{displayPlayerName(player)}</span>
+                  </Link>
+                ))}
               </div>
-            </section>
-          );
-        })}
-      </div>
+            </div>
+          )}
+        </div>
+      </section>
     </div>
   );
 }
@@ -2709,7 +2701,7 @@ function EventDetailContent() {
   const currentPresentationMode = currentDetail?.presentationMode ?? data.presentationMode;
   const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === resolvedSubEvent);
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
-  const showChampionsTab = currentSubEventMeta ? !currentSubEventMeta.disabled && isMixedTeamSubEvent(currentSubEventMeta.code) : false;
+  const showChampionsTab = currentSubEventMeta ? !currentSubEventMeta.disabled && supportsChampionRosterTab(currentSubEventMeta.code) : false;
   const hasKnockoutCompanion = currentBracket.length > 0 || (currentTeamKnockoutView?.rounds.length ?? 0) > 0;
   const shouldShowRoundRobin = currentRoundRobinView != null;
   const shouldShowTeamKnockout = currentTeamKnockoutView != null && (currentTeamKnockoutView.rounds.length > 0 || currentTeamKnockoutView.bronzeTie != null);
@@ -2796,7 +2788,7 @@ function EventDetailContent() {
               ) : viewMode === "draw" ? (
                 <TeamKnockoutDrawView view={currentTeamKnockoutView} />
               ) : (
-                <ChampionsListView subEvents={subEventViews} />
+                <ChampionsListView subEvent={currentSubEventMeta} />
               )}
             </>
           ) : (
@@ -2814,7 +2806,7 @@ function EventDetailContent() {
                   eventReturnHref={eventReturnHref}
                 />
               ) : (
-                <ChampionsListView subEvents={subEventViews} />
+                <ChampionsListView subEvent={currentSubEventMeta} />
               )}
             </>
           )}

@@ -1790,7 +1790,9 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
       const playerIds = parseChampionIds(record?.championPlayerIds ?? null);
       const hasChampion = Boolean(record?.championName || record?.championCountryCode || playerIds.length > 0);
       const fallbackPlayers = loadPlayersByIds(playerIds);
-      const teamPlayers = code === 'WT' || code === 'XT' ? loadTeamChampionPlayers(eventId, code, record?.championCountryCode ?? null) : [];
+      const teamPlayers = code === 'WT' || code === 'MT' || code === 'XT'
+        ? loadTeamChampionPlayers(eventId, code, record?.championCountryCode ?? null)
+        : [];
       const players = teamPlayers.length > 0 ? teamPlayers : fallbackPlayers;
 
       return {
