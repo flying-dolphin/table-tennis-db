@@ -546,11 +546,10 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 `
 ```bash
 ssh deploy@serverA
 sudo apt install -y sqlite3
-sudo apt install -y python3 python3-venv
 mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/wtt_raw /opt/ittf-data/event_schedule /opt/ittf-logs
-python3 -m venv /opt/ittf-venv
 chmod +x /opt/ittf-ops/event_refresh.sh
-/opt/ittf-venv/bin/python --version
+pyenv activate venv
+python --version
 ```
 
 从零到可跑的顺序建议：
@@ -565,10 +564,11 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 -Ser
 
 ```bash
 ssh deploy@serverA
-sudo apt install -y sqlite3 python3 python3-venv
+sudo apt install -y sqlite3
 mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/wtt_raw /opt/ittf-data/event_schedule /opt/ittf-logs
-python3 -m venv /opt/ittf-venv
 chmod +x /opt/ittf-ops/event_refresh.sh
+pyenv activate venv
+python --version
 ```
 
 3. 确保线上数据库已经放到：
@@ -581,7 +581,7 @@ chmod +x /opt/ittf-ops/event_refresh.sh
 
 ```bash
 ITTF_DATA_DIR=/opt/ittf-data \
-VENV_PATH=/opt/ittf-venv \
+PYENV_ENV_NAME=venv \
 /opt/ittf-ops/event_refresh.sh
 ```
 
@@ -590,20 +590,20 @@ VENV_PATH=/opt/ittf-venv \
 - `/opt/ittf-data/wtt_raw/` 已生成最新赛事 raw 文件
 - `/opt/ittf-data/db/backups/` 已生成备份
 - 命令输出没有 `failed` 或 `Error:`
-- `/opt/ittf-venv/bin/python --version` 至少为 `Python 3.7`
+- `pyenv activate venv && python --version` 至少为 `Python 3.8`
 
 6. 再安装 cron：
 
 ```bash
 crontab -e
-10 6 * * * ITTF_DATA_DIR=/opt/ittf-data VENV_PATH=/opt/ittf-venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+10 6 * * * ITTF_DATA_DIR=/opt/ittf-data PYENV_ENV_NAME=venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
 ```
 
 手动验证：
 
 ```bash
 ITTF_DATA_DIR=/opt/ittf-data \
-VENV_PATH=/opt/ittf-venv \
+PYENV_ENV_NAME=venv \
 /opt/ittf-ops/event_refresh.sh
 ```
 
@@ -611,7 +611,7 @@ VENV_PATH=/opt/ittf-venv \
 
 ```bash
 crontab -e
-10 6 * * * ITTF_DATA_DIR=/opt/ittf-data VENV_PATH=/opt/ittf-venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+10 6 * * * ITTF_DATA_DIR=/opt/ittf-data PYENV_ENV_NAME=venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
 ```
 
 如果要接 Sentry Crons：

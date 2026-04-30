@@ -69,12 +69,12 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 `
 
 ```bash
 ssh deploy@serverA
-sudo apt install -y sqlite3 python3 python3-venv
+sudo apt install -y sqlite3
 
 mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/wtt_raw /opt/ittf-data/event_schedule /opt/ittf-logs
-python3 -m venv /opt/ittf-venv
 chmod +x /opt/ittf-ops/event_refresh.sh
-/opt/ittf-venv/bin/python --version
+pyenv activate venv
+python --version
 ```
 
 说明：
@@ -82,6 +82,8 @@ chmod +x /opt/ittf-ops/event_refresh.sh
 - 这套 runtime 只依赖 Python 标准库，不需要 `pip install -r requirements.txt`
 - 代码文件只上传最小 runtime 包，不上传完整仓库
 - `upload_runtime.ps1` 依赖本机可用的 `ssh` / `scp`
+- 默认推荐通过 `PYENV_ENV_NAME` 让脚本内部执行 `pyenv activate <env>`
+- 不使用 pyenv 时，才需要改回 `VENV_PATH` 方案
 
 ## 从零到可跑
 
@@ -95,10 +97,11 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 -Ser
 
 ```bash
 ssh deploy@serverA
-sudo apt install -y sqlite3 python3 python3-venv
+sudo apt install -y sqlite3
 mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/wtt_raw /opt/ittf-data/event_schedule /opt/ittf-logs
-python3 -m venv /opt/ittf-venv
 chmod +x /opt/ittf-ops/event_refresh.sh
+pyenv activate venv
+python --version
 ```
 
 ### 3. 放好数据库
@@ -119,7 +122,7 @@ scp ittf.db deploy@serverA:/opt/ittf-data/db/ittf.db
 
 ```bash
 ITTF_DATA_DIR=/opt/ittf-data \
-VENV_PATH=/opt/ittf-venv \
+PYENV_ENV_NAME=venv \
 /opt/ittf-ops/event_refresh.sh
 ```
 
@@ -128,13 +131,13 @@ VENV_PATH=/opt/ittf-venv \
 - 命令返回 `完成`
 - `/opt/ittf-data/wtt_raw/` 下出现最新赛事目录
 - `/opt/ittf-data/db/backups/` 下生成备份
-- 实际使用的解释器建议先确认：`/opt/ittf-venv/bin/python --version`
+- 实际使用的解释器建议先确认：`pyenv activate venv && python --version`
 
 ### 5. 安装每日 cron
 
 ```bash
 crontab -e
-10 6 * * * ITTF_DATA_DIR=/opt/ittf-data VENV_PATH=/opt/ittf-venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+10 6 * * * ITTF_DATA_DIR=/opt/ittf-data PYENV_ENV_NAME=venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
 ```
 
 ### 6. 可选：接入 Sentry Crons
@@ -149,14 +152,14 @@ chmod +x /opt/ittf-ops/cron_event_refresh_with_sentry.sh
 然后把 cron 改成：
 
 ```bash
-10 6 * * * /opt/ittf-ops/cron_event_refresh_with_sentry.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+10 6 * * * PYENV_ENV_NAME=venv /opt/ittf-ops/cron_event_refresh_with_sentry.sh >> /opt/ittf-logs/event-refresh.log 2>&1
 ```
 
 ## 手动执行
 
 ```bash
 ITTF_DATA_DIR=/opt/ittf-data \
-VENV_PATH=/opt/ittf-venv \
+PYENV_ENV_NAME=venv \
 /opt/ittf-ops/event_refresh.sh
 ```
 
@@ -173,7 +176,7 @@ VENV_PATH=/opt/ittf-venv \
 
 ```bash
 crontab -e
-10 6 * * * ITTF_DATA_DIR=/opt/ittf-data VENV_PATH=/opt/ittf-venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+10 6 * * * ITTF_DATA_DIR=/opt/ittf-data PYENV_ENV_NAME=venv /opt/ittf-ops/event_refresh.sh >> /opt/ittf-logs/event-refresh.log 2>&1
 ```
 
 ## Sentry Crons（可选）

@@ -6,7 +6,7 @@
 # 运行前提：
 #   - 已上传 deploy/server/event_refresh.sh
 #   - 已上传 deploy/server/runtime/
-#   - 已创建 Python venv
+#   - 已准备好 pyenv 环境（推荐）或传统 venv（兜底）
 #   - sqlite3 命令可用
 #
 # 外部数据目录结构（默认 /opt/ittf-data）：
@@ -20,6 +20,8 @@ SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 RUNTIME_DIR="${SCRIPT_DIR}/runtime"
 ITTF_DATA_DIR=${ITTF_DATA_DIR:-/opt/ittf-data}
 DB_PATH=${DB_PATH:-${ITTF_DATA_DIR}/db/ittf.db}
+PYENV_ROOT=${PYENV_ROOT:-${HOME}/.pyenv}
+PYENV_ENV_NAME=${PYENV_ENV_NAME:-}
 VENV_PATH=${VENV_PATH:-/opt/ittf-venv}
 BACKUP_DIR=${BACKUP_DIR:-${ITTF_DATA_DIR}/db/backups}
 RETENTION_DAYS=${RETENTION_DAYS:-30}
@@ -50,25 +52,39 @@ require_command() {
     fi
 }
 
-require_command python
 require_command sqlite3
 require_file "${RUNTIME_DIR}"
 require_file "${RUNTIME_DIR}/python/refresh_event_results_daily.py"
 require_file "${RUNTIME_DIR}/python/backfill_events_calendar_event_id.py"
 require_file "${RUNTIME_DIR}/python/import_session_schedule.py"
 require_file "${RUNTIME_DIR}/data/stage_round_mapping.json"
-require_file "${VENV_PATH}/bin/activate"
-require_file "${VENV_PATH}/bin/python"
 require_file "${DB_PATH}"
 
 mkdir -p "${BACKUP_DIR}"
 mkdir -p "${RAW_ROOT}"
 
 cd "${SCRIPT_DIR}"
-# shellcheck disable=SC1091
-source "${VENV_PATH}/bin/activate"
 export DB_PATH
-PYTHON_BIN="${VENV_PATH}/bin/python"
+
+if [[ -n "${PYENV_ENV_NAME}" ]]; then
+    require_file "${PYENV_ROOT}/bin/pyenv"
+    export PYENV_ROOT
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+    # shellcheck disable=SC1091
+    eval "$("${PYENV_ROOT}/bin/pyenv" init -)"
+    # shellcheck disable=SC1091
+    eval "$("${PYENV_ROOT}/bin/pyenv" virtualenv-init -)"
+    pyenv activate "${PYENV_ENV_NAME}"
+    PYTHON_BIN="$(pyenv which python)"
+    log "使用 pyenv 环境 ${PYENV_ENV_NAME}: ${PYTHON_BIN}"
+else
+    require_file "${VENV_PATH}/bin/activate"
+    require_file "${VENV_PATH}/bin/python"
+    # shellcheck disable=SC1091
+    source "${VENV_PATH}/bin/activate"
+    PYTHON_BIN="${VENV_PATH}/bin/python"
+    log "使用 venv 解释器: ${PYTHON_BIN}"
+fi
 
 BACKUP_FILE="${BACKUP_DIR}/ittf-pre-event-refresh-$(date +%Y%m%d_%H%M%S).db"
 
