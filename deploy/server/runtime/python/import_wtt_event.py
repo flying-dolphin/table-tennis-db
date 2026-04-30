@@ -12,14 +12,15 @@ Output:
     event_schedule_match_sides
     event_schedule_match_side_players
 
-The import is idempotent per event_id: existing schedule/draw rows for the
-event are deleted before new rows are inserted.
+The import is incremental per event_id: only rows present in the latest raw
+payload are inserted or updated, and older rows are preserved.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import sqlite3
 import sys
 from dataclasses import dataclass
@@ -32,10 +33,17 @@ if sys.platform == "win32":
 
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-RUNTIME_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DB_PATH = RUNTIME_ROOT / "data" / "db" / "ittf.db"
-DEFAULT_RAW_ROOT = RUNTIME_ROOT / "data" / "wtt_raw"
-DEFAULT_MAPPING_PATH = RUNTIME_ROOT / "data" / "stage_round_mapping.json"
+try:
+    import config
+
+    PROJECT_ROOT = Path(config.PROJECT_ROOT)
+    DEFAULT_DB_PATH = Path(config.DB_PATH)
+except ImportError:
+    PROJECT_ROOT = Path(__file__).parent.parent.parent
+    DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
+
+DEFAULT_RAW_ROOT = PROJECT_ROOT / "data" / "wtt_raw"
+DEFAULT_MAPPING_PATH = PROJECT_ROOT / "data" / "stage_round_mapping.json"
 
 SUB_EVENT_MAP = {
     "Men's Teams": "MT",
@@ -386,39 +394,132 @@ def load_player_ids(cursor: sqlite3.Cursor, if_ids: set[int]) -> dict[int, int]:
     return {int(row[0]): int(row[0]) for row in rows}
 
 
-def delete_existing_event_rows(cursor: sqlite3.Cursor, event_id: int) -> None:
+def load_existing_entry_ids(cursor: sqlite3.Cursor, event_id: int) -> dict[tuple[str, str, str], int]:
+    rows = cursor.execute(
+        """
+        SELECT entry_id, sub_event_type_code, stage_code, team_code
+        FROM event_draw_entries
+        WHERE event_id = ?
+          AND team_code IS NOT NULL
+        """,
+        (event_id,),
+    ).fetchall()
+    return {
+        (str(row[1]), str(row[2]), str(row[3])): int(row[0])
+        for row in rows
+    }
+
+
+def next_slot_index(cursor: sqlite3.Cursor, event_id: int, sub_event_type_code: str, stage_code: str) -> int:
+    row = cursor.execute(
+        """
+        SELECT COALESCE(MAX(slot_index), 0)
+        FROM event_draw_entries
+        WHERE event_id = ?
+          AND sub_event_type_code = ?
+          AND stage_code = ?
+        """,
+        (event_id, sub_event_type_code, stage_code),
+    ).fetchone()
+    return int(row[0] or 0) + 1
+
+
+def replace_entry_players(
+    cursor: sqlite3.Cursor,
+    entry_id: int,
+    players: list[dict],
+    player_ids: dict[int, int],
+) -> None:
+    cursor.execute("DELETE FROM event_draw_entry_players WHERE entry_id = ?", (entry_id,))
+    for player_order, player in enumerate(sorted(players, key=lambda p: p["order"]), start=1):
+        if_id = player.get("if_id")
+        cursor.execute(
+            """
+            INSERT INTO event_draw_entry_players (
+                entry_id, player_order, player_id, player_name, player_country
+            ) VALUES (?, ?, ?, ?, ?)
+            """,
+            (
+                entry_id,
+                player_order,
+                player_ids.get(if_id) if if_id is not None else None,
+                player["name"],
+                player["country"],
+            ),
+        )
+
+
+def replace_match_sides(
+    cursor: sqlite3.Cursor,
+    schedule_match_id: int,
+    sub_event: str,
+    round_info: RoundInfo,
+    starts: list[dict],
+    entry_ids: dict[tuple[str, str, str], int],
+    player_ids: dict[int, int],
+) -> tuple[int, int]:
     cursor.execute(
         """
         DELETE FROM event_schedule_match_side_players
         WHERE schedule_side_id IN (
-            SELECT s.schedule_side_id
-            FROM event_schedule_match_sides s
-            JOIN event_schedule_matches m ON m.schedule_match_id = s.schedule_match_id
-            WHERE m.event_id = ?
+            SELECT schedule_side_id
+            FROM event_schedule_match_sides
+            WHERE schedule_match_id = ?
         )
         """,
-        (event_id,),
+        (schedule_match_id,),
     )
-    cursor.execute(
-        """
-        DELETE FROM event_schedule_match_sides
-        WHERE schedule_match_id IN (
-            SELECT schedule_match_id FROM event_schedule_matches WHERE event_id = ?
+    cursor.execute("DELETE FROM event_schedule_match_sides WHERE schedule_match_id = ?", (schedule_match_id,))
+
+    side_count = 0
+    side_player_count = 0
+    for side_no, start in enumerate(starts[:2], start=1):
+        competitor = start.get("Competitor") or {}
+        comp_code = (competitor.get("Code") or "").strip()
+        entry_id = entry_ids.get((sub_event, round_info.stage_code, comp_code))
+        placeholder = None if comp_code else competitor_name(competitor)
+
+        cursor.execute(
+            """
+            INSERT INTO event_schedule_match_sides (
+                schedule_match_id, side_no, entry_id, placeholder_text,
+                team_code, seed, qualifier, is_winner
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, 0)
+            """,
+            (
+                schedule_match_id,
+                side_no,
+                entry_id,
+                placeholder,
+                competitor.get("Organization"),
+                int_or_none(competitor.get("Seed")),
+                bool_to_int(competitor.get("Qualifier")),
+            ),
         )
-        """,
-        (event_id,),
-    )
-    cursor.execute("DELETE FROM event_schedule_matches WHERE event_id = ?", (event_id,))
-    cursor.execute(
-        """
-        DELETE FROM event_draw_entry_players
-        WHERE entry_id IN (
-            SELECT entry_id FROM event_draw_entries WHERE event_id = ?
-        )
-        """,
-        (event_id,),
-    )
-    cursor.execute("DELETE FROM event_draw_entries WHERE event_id = ?", (event_id,))
+        schedule_side_id = int(cursor.lastrowid)
+        side_count += 1
+
+        athletes = (((competitor.get("Composition") or {}).get("Athlete")) or [])
+        for player_order, athlete in enumerate(athletes, start=1):
+            desc = athlete.get("Description") or {}
+            if_id = int_or_none(desc.get("IfId") or athlete.get("Code"))
+            cursor.execute(
+                """
+                INSERT INTO event_schedule_match_side_players (
+                    schedule_side_id, player_order, player_id, player_name, player_country
+                ) VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    schedule_side_id,
+                    player_order,
+                    player_ids.get(if_id) if if_id is not None else None,
+                    athlete_name(athlete),
+                    desc.get("Organization") or competitor.get("Organization"),
+                ),
+            )
+            side_player_count += 1
+
+    return side_count, side_player_count
 
 
 def collect_entries(units: list[dict]) -> dict[tuple[str, str, str], dict]:
@@ -471,50 +572,46 @@ def insert_entries(
     entries: dict[tuple[str, str, str], dict],
     player_ids: dict[int, int],
 ) -> dict[tuple[str, str, str], int]:
-    entry_ids: dict[tuple[str, str, str], int] = {}
+    entry_ids = load_existing_entry_ids(cursor, event_id)
     sorted_items = sorted(entries.items(), key=lambda item: item[0])
-    slot_by_stage: dict[tuple[str, str], int] = {}
 
     for key, entry in sorted_items:
-        slot_key = (entry["sub_event_type_code"], entry["stage_code"])
-        slot_by_stage[slot_key] = slot_by_stage.get(slot_key, 0) + 1
-        slot_index = slot_by_stage[slot_key]
-
-        cursor.execute(
-            """
-            INSERT INTO event_draw_entries (
-                event_id, sub_event_type_code, stage_code, slot_index,
-                seed, group_code, team_code, placeholder_text
-            ) VALUES (?, ?, ?, ?, ?, NULL, ?, NULL)
-            """,
-            (
-                event_id,
-                entry["sub_event_type_code"],
-                entry["stage_code"],
-                slot_index,
-                entry["seed"],
-                entry["team_code"],
-            ),
-        )
-        entry_id = int(cursor.lastrowid)
-        entry_ids[key] = entry_id
-
-        for player_order, player in enumerate(sorted(entry["players"], key=lambda p: p["order"]), start=1):
-            if_id = player.get("if_id")
+        entry_id = entry_ids.get(key)
+        if entry_id is None:
+            slot_index = next_slot_index(cursor, event_id, entry["sub_event_type_code"], entry["stage_code"])
             cursor.execute(
                 """
-                INSERT INTO event_draw_entry_players (
-                    entry_id, player_order, player_id, player_name, player_country
-                ) VALUES (?, ?, ?, ?, ?)
+                INSERT INTO event_draw_entries (
+                    event_id, sub_event_type_code, stage_code, slot_index,
+                    seed, group_code, team_code, placeholder_text
+                ) VALUES (?, ?, ?, ?, ?, NULL, ?, NULL)
                 """,
                 (
-                    entry_id,
-                    player_order,
-                    player_ids.get(if_id) if if_id is not None else None,
-                    player["name"],
-                    player["country"],
+                    event_id,
+                    entry["sub_event_type_code"],
+                    entry["stage_code"],
+                    slot_index,
+                    entry["seed"],
+                    entry["team_code"],
                 ),
             )
+            entry_id = int(cursor.lastrowid)
+            entry_ids[key] = entry_id
+        else:
+            cursor.execute(
+                """
+                UPDATE event_draw_entries
+                SET seed = ?, team_code = ?, placeholder_text = NULL
+                WHERE entry_id = ?
+                """,
+                (
+                    entry["seed"],
+                    entry["team_code"],
+                    entry_id,
+                ),
+            )
+
+        replace_entry_players(cursor, entry_id, entry["players"], player_ids)
 
     return entry_ids
 
@@ -528,6 +625,19 @@ def insert_matches(
     tz_name: str | None,
     official_result_codes: set[str],
 ) -> dict:
+    existing_match_ids = {
+        normalize_external_match_code(row[0]): int(row[1])
+        for row in cursor.execute(
+            """
+            SELECT external_match_code, schedule_match_id
+            FROM event_schedule_matches
+            WHERE event_id = ?
+              AND external_match_code IS NOT NULL
+            """,
+            (event_id,),
+        ).fetchall()
+        if normalize_external_match_code(row[0])
+    }
     match_count = 0
     side_count = 0
     side_player_count = 0
@@ -547,82 +657,85 @@ def insert_matches(
         table_no = unit.get("Location")
         session_label = text_value(unit.get("ItemName")) or text_value(unit.get("ItemDescription"))
 
-        cursor.execute(
-            """
-            INSERT INTO event_schedule_matches (
-                event_id, sub_event_type_code, stage_code, round_code, group_code,
-                external_match_code, scheduled_local_at, scheduled_utc_at, table_no,
-                session_label, venue_id, status, raw_schedule_status, match_score,
-                games, winner_side, promoted_match_id, last_synced_at
-            ) VALUES (
-                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, NULL, NULL, NULL, NULL,
-                datetime('now')
+        schedule_match_id = existing_match_ids.get(code) if code else None
+        if schedule_match_id is None:
+            cursor.execute(
+                """
+                INSERT INTO event_schedule_matches (
+                    event_id, sub_event_type_code, stage_code, round_code, group_code,
+                    external_match_code, scheduled_local_at, scheduled_utc_at, table_no,
+                    session_label, venue_id, status, raw_schedule_status, match_score,
+                    games, winner_side, promoted_match_id, last_synced_at
+                ) VALUES (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, NULL, NULL, NULL, NULL,
+                    datetime('now')
+                )
+                """,
+                (
+                    event_id,
+                    sub_event,
+                    round_info.stage_code,
+                    round_info.round_code,
+                    round_info.group_code,
+                    unit.get("Code"),
+                    local_at,
+                    utc_at,
+                    table_no,
+                    session_label,
+                    status,
+                    raw_status,
+                ),
             )
-            """,
-            (
-                event_id,
-                sub_event,
-                round_info.stage_code,
-                round_info.round_code,
-                round_info.group_code,
-                unit.get("Code"),
-                local_at,
-                utc_at,
-                table_no,
-                session_label,
-                status,
-                raw_status,
-            ),
-        )
-        schedule_match_id = int(cursor.lastrowid)
+            schedule_match_id = int(cursor.lastrowid)
+            if code:
+                existing_match_ids[code] = schedule_match_id
+        else:
+            cursor.execute(
+                """
+                UPDATE event_schedule_matches
+                SET sub_event_type_code = ?,
+                    stage_code = ?,
+                    round_code = ?,
+                    group_code = ?,
+                    external_match_code = ?,
+                    scheduled_local_at = ?,
+                    scheduled_utc_at = ?,
+                    table_no = ?,
+                    session_label = ?,
+                    status = ?,
+                    raw_schedule_status = ?,
+                    last_synced_at = datetime('now')
+                WHERE schedule_match_id = ?
+                """,
+                (
+                    sub_event,
+                    round_info.stage_code,
+                    round_info.round_code,
+                    round_info.group_code,
+                    unit.get("Code"),
+                    local_at,
+                    utc_at,
+                    table_no,
+                    session_label,
+                    status,
+                    raw_status,
+                    schedule_match_id,
+                ),
+            )
         match_count += 1
 
         starts = ((unit.get("StartList") or {}).get("Start") or [])
-        for side_no, start in enumerate(starts[:2], start=1):
-            competitor = start.get("Competitor") or {}
-            comp_code = (competitor.get("Code") or "").strip()
-            entry_id = entry_ids.get((sub_event, round_info.stage_code, comp_code))
-            placeholder = None if comp_code else competitor_name(competitor)
-
-            cursor.execute(
-                """
-                INSERT INTO event_schedule_match_sides (
-                    schedule_match_id, side_no, entry_id, placeholder_text,
-                    team_code, seed, qualifier, is_winner
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, 0)
-                """,
-                (
-                    schedule_match_id,
-                    side_no,
-                    entry_id,
-                    placeholder,
-                    competitor.get("Organization"),
-                    int_or_none(competitor.get("Seed")),
-                    bool_to_int(competitor.get("Qualifier")),
-                ),
-            )
-            schedule_side_id = int(cursor.lastrowid)
-            side_count += 1
-
-            athletes = (((competitor.get("Composition") or {}).get("Athlete")) or [])
-            for player_order, athlete in enumerate(athletes, start=1):
-                desc = athlete.get("Description") or {}
-                if_id = int_or_none(desc.get("IfId") or athlete.get("Code"))
-                cursor.execute(
-                    """
-                    INSERT INTO event_schedule_match_side_players (
-                        schedule_side_id, player_order, player_id, player_name, player_country
-                    ) VALUES (?, ?, ?, ?, ?)
-                    """,
-                    (
-                        schedule_side_id,
-                        player_order,
-                        player_ids.get(if_id) if if_id is not None else None,
-                        athlete_name(athlete),
-                        desc.get("Organization") or competitor.get("Organization"),
-                    ),
-                )
-                side_player_count += 1
+        inserted_sides, inserted_side_players = replace_match_sides(
+            cursor,
+            schedule_match_id,
+            sub_event,
+            round_info,
+            starts,
+            entry_ids,
+            player_ids,
+        )
+        side_count += inserted_sides
+        side_player_count += inserted_side_players
 
     return {
         "matches": match_count,
@@ -639,6 +752,16 @@ def collect_player_if_ids(entries: dict[tuple[str, str, str], dict]) -> set[int]
             if player.get("if_id") is not None:
                 ids.add(player["if_id"])
     return ids
+
+
+def snapshot_raw_files(raw_root: Path, event_id: int) -> Path:
+    event_dir = raw_root / str(event_id)
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    snapshot_dir = event_dir / "snapshots" / timestamp
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    for path in event_dir.glob("*.json"):
+        shutil.copy2(path, snapshot_dir / path.name)
+    return snapshot_dir
 
 
 def maybe_advance_lifecycle(cursor: sqlite3.Cursor, event_id: int) -> None:
@@ -698,7 +821,7 @@ def import_event(
     player_ids = load_player_ids(cursor, collect_player_if_ids(entries))
     tz_name = infer_time_zone(event)
 
-    delete_existing_event_rows(cursor, event_id)
+    snapshot_dir = snapshot_raw_files(raw_root, event_id)
     entry_ids = insert_entries(cursor, event_id, entries, player_ids)
     match_stats = insert_matches(
         cursor,
@@ -719,6 +842,7 @@ def import_event(
         "event_id": event_id,
         "name": event["name"],
         "time_zone": tz_name,
+        "snapshot_dir": str(snapshot_dir),
         "units": len(units),
         "deduped_units": len(deduped_units),
         "entries": len(entry_ids),
