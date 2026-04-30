@@ -40,6 +40,7 @@ type EventListItem = {
   startDate: string | null;
   endDate: string | null;
   location: string | null;
+  lifecycleStatus: string | null;
   drawMatches: number;
   importedMatches: number;
   presentationMode: "knockout" | "staged_round_robin" | null;
@@ -180,6 +181,10 @@ function EventsPageContent() {
   const historyKeyRef = React.useRef<string | null>(null);
   const restoredFromSnapshotRef = React.useRef(false);
   const loadedQuerySignatureRef = React.useRef<string | null>(null);
+
+  const todayStr = React.useMemo(() => {
+    return new Date().toISOString().split("T")[0];
+  }, []);
 
   const persistSnapshot = React.useCallback(() => {
     const currentSignature = buildQuerySignature({
@@ -477,50 +482,72 @@ function EventsPageContent() {
             </div>
            ) : (
              <div>
-               {events.map((event) => {
-                 const category = getEventCategory(event);
+               {(() => {
+                 let hasMetFinished = false;
 
-                return (
-                  <Link
-                    key={event.eventId}
-                    href={route(`/events/${event.eventId}`)}
-                    onClick={() => {
-                      persistSnapshot();
-                    }}
-                    className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
-                  >
-                    <EventCategoryIcon category={category} className="mr-3 h-10 w-10 rounded-[10px]" />
-                    <div className="min-w-0 flex-1">
-                      <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
-                        <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-micro font-bold text-text-primary">
-                          {event.year}
-                        </span>
-                        <span className="rounded-full bg-brand-soft/60 px-2 py-0.5 text-micro font-bold text-text-primary">
-                          {compactCategory(event)}
-                        </span>
-                        {/* <span className={badge.className}>{badge.label}</span> */}
+                 return events.map((event) => {
+                   const category = getEventCategory(event);
+                   
+                   // 判断当前赛事是否已结束
+                   const isFinished = event.lifecycleStatus === "completed" || (event.endDate && event.endDate < todayStr);
+                   
+                   // 如果之前还没遇到过结束的赛事，且当前赛事也没结束，则视为进行中
+                   // 一旦遇到过结束的赛事，后续所有赛事都不再显示“进行中”
+                   const isOngoing = !hasMetFinished && !isFinished && 
+                                   (event.lifecycleStatus === "in_progress" || 
+                                   (event.startDate && event.startDate <= todayStr));
+                   
+                   if (isFinished) {
+                     hasMetFinished = true;
+                   }
+
+                  return (
+                    <Link
+                      key={event.eventId}
+                      href={route(`/events/${event.eventId}`)}
+                      onClick={() => {
+                        persistSnapshot();
+                      }}
+                      className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
+                    >
+                      <EventCategoryIcon category={category} className="mr-3 h-10 w-10 rounded-[10px]" />
+                      <div className="min-w-0 flex-1">
+                        <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
+                          <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-micro font-bold text-text-primary">
+                            {event.year}
+                          </span>
+                          <span className="rounded-full bg-brand-soft/60 px-2 py-0.5 text-micro font-bold text-text-primary">
+                            {compactCategory(event)}
+                          </span>
+                          {/* <span className={badge.className}>{badge.label}</span> */}
+                        </div>
+                        <h2 className="line-clamp-2 text-body-lg font-bold leading-tight text-text-primary transition-colors group-hover:text-brand-strong">
+                          {displayEventName(event)}
+                        </h2>
+                        <p className="mt-1 text-caption font-semibold text-text-tertiary">
+                          {displayDateRange(event.startDate, event.endDate)}
+                          {event.location ? ` · ${event.location}` : ""}
+                        </p>
                       </div>
-                      <h2 className="line-clamp-2 text-body-lg font-bold leading-tight text-text-primary transition-colors group-hover:text-brand-strong">
-                        {displayEventName(event)}
-                      </h2>
-                      <p className="mt-1 text-caption font-semibold text-text-tertiary">
-                        {displayDateRange(event.startDate, event.endDate)}
-                        {event.location ? ` · ${event.location}` : ""}
-                      </p>
-                    </div>
-                    <div className="ml-2 min-w-[58px] shrink-0 text-right">
-                      <div className="flex flex-col items-end">
-                        <span className="text-body-lg font-bold tabular-nums text-text-primary">
-                          {event.importedMatches || event.totalMatches || 0}
-                        </span>
-                        <span className="text-micro text-text-tertiary">场</span>
+                      <div className="ml-2 min-w-[58px] shrink-0 text-right">
+                        {isOngoing ? (
+                          <div className="flex flex-col items-end">
+                            <span className="text-body-lg font-bold text-state-success-text">进行中</span>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col items-end">
+                            <span className="text-body-lg font-bold tabular-nums text-text-primary">
+                              {event.importedMatches || event.totalMatches || 0}
+                            </span>
+                            <span className="text-micro text-text-tertiary">场</span>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  </Link>
-                );
-              })}
-              <div ref={loadMoreRef} className="py-4 text-center">
-                {loadingMore ? (
+                    </Link>
+                  );
+                });
+              })()}
+               <div ref={loadMoreRef} className="py-4 text-center">                {loadingMore ? (
                   <span className="text-body text-text-tertiary">加载中...</span>
                 ) : !hasMore ? (
                   <span className="text-body text-text-tertiary">已加载全部</span>

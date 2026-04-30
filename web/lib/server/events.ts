@@ -423,6 +423,7 @@ type EventListRow = {
   startDate: string | null;
   endDate: string | null;
   location: string | null;
+  lifecycleStatus: string | null;
   drawMatches: number;
   importedMatches: number;
 };
@@ -1545,6 +1546,7 @@ export function getEvents(options?: {
           e.start_date AS startDate,
           e.end_date AS endDate,
           e.location,
+          e.lifecycle_status AS lifecycleStatus,
           (
             SELECT COUNT(*)
             FROM event_draw_matches edm
