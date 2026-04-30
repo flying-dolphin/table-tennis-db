@@ -155,7 +155,7 @@ export default function AuthPage() {
     }
   }
 
-  const inputWrapperCls = "relative flex items-center border-b border-gray-100 py-4 focus-within:border-brand-primary transition-all";
+  const inputWrapperCls = "relative flex items-center border-b border-border-subtle py-4 focus-within:border-brand-deep transition-colors";
   const inputIconCls = "text-text-primary mr-3 opacity-70 shrink-0";
   const inputBaseCls = "flex-1 bg-transparent outline-none text-[16px] text-text-primary placeholder:text-text-tertiary min-w-0";
 
@@ -246,9 +246,9 @@ export default function AuthPage() {
                   <button
                     type="submit"
                     disabled={formState === "loading"}
-                    className="w-full py-4 bg-brand-deep text-white rounded-2xl font-bold text-[17px] shadow-[0_12px_24px_rgba(107,151,203,0.3)] hover:bg-brand-strong hover:-translate-y-0.5 transition-all active:scale-[0.98] disabled:opacity-70 flex justify-center items-center"
+                    className="w-full py-4 bg-brand-deep text-white rounded-lg font-bold text-heading-2 shadow-lg hover:bg-brand-strong hover:-translate-y-0.5 transition-[background-color,transform] active:scale-[0.98] disabled:opacity-70 flex justify-center items-center"
                   >
-                    {formState === "loading" ? <Loader2 className="animate-spin" size={20} /> : "登 录"}
+                    {formState === "loading" ? <Loader2 className="animate-spin" size={18} /> : "登 录"}
                   </button>
                   <div className="text-center text-text-secondary text-[14px]">
                     还没有账号? <button type="button" onClick={() => switchTab("register")} className="text-brand-deep font-bold hover:underline">立即注册</button>
@@ -361,9 +361,9 @@ export default function AuthPage() {
                   <button
                     type="submit"
                     disabled={formState === "loading" || passwordMismatch}
-                    className="w-full py-4 bg-brand-deep text-white rounded-2xl font-bold text-[17px] shadow-[0_12px_24px_rgba(107,151,203,0.3)] hover:bg-brand-strong hover:-translate-y-0.5 transition-all active:scale-[0.98] disabled:opacity-70 flex justify-center items-center"
+                    className="w-full py-4 bg-brand-deep text-white rounded-lg font-bold text-heading-2 shadow-lg hover:bg-brand-strong hover:-translate-y-0.5 transition-[background-color,transform] active:scale-[0.98] disabled:opacity-70 flex justify-center items-center"
                   >
-                    {formState === "loading" ? <Loader2 className="animate-spin" size={20} /> : "注 册"}
+                    {formState === "loading" ? <Loader2 className="animate-spin" size={18} /> : "注 册"}
                   </button>
                   <div className="text-center text-text-secondary text-[14px]">
                     已有账号? <button type="button" onClick={() => switchTab("login")} className="text-brand-deep font-bold hover:underline">去登录</button>

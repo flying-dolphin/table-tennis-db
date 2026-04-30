@@ -376,10 +376,10 @@ function EventsPageContent() {
 
   return (
     <main
-      className="mx-auto flex max-w-lg flex-col overflow-hidden bg-gray-50/30"
+      className="mx-auto flex max-w-lg flex-col overflow-hidden bg-page-background"
       style={{ height: "calc(100dvh - (4rem + env(safe-area-inset-bottom)))" }}
     >
-      <section className="relative overflow-hidden bg-[#f0f4ff] px-4 pb-3 pt-4">
+      <section className="relative overflow-hidden bg-surface-tinted px-4 pb-3 pt-4">
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -390,26 +390,26 @@ function EventsPageContent() {
           }}
         />
         <div className="relative z-10 flex items-end gap-x-4 mb-8 mt-2">
-          <h1 className="text-3xl font-bold leading-tight text-slate-950">赛事</h1>
-          <p className="text-[0.9rem] font-medium text-slate-500">
+          <h1 className="text-heading-1 font-bold leading-tight text-text-primary">赛事</h1>
+          <p className="text-body font-medium text-text-secondary">
             {subtitle} · {total} 场
           </p>
         </div>
       </section>
 
-      <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-[22px] bg-white/96">
-        <div className="z-20 border-b border-black/[0.06] bg-white/90 px-5 py-3.5 backdrop-blur-md">
+      <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-lg bg-white/95">
+        <div className="z-sticky border-b border-border-subtle bg-white/90 px-5 py-3 backdrop-blur-md">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2.5">
               <div className="relative flex-1">
                 <CalendarDays
-                  size={15}
+                  size={14}
                   className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary"
                 />
                 <select
                   value={selectedYear}
                   onChange={(event) => setSelectedYear(event.target.value)}
-                  className="min-h-9 w-full appearance-none rounded-[10px] border border-black/[0.08] bg-white pl-8 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
+                  className="min-h-9 w-full appearance-none rounded-sm border border-border-subtle bg-white pl-8 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
                 >
                   <option value="all">全部年份</option>
                   {years.map((year) => (
@@ -426,7 +426,7 @@ function EventsPageContent() {
                 <select
                   value={selectedAgeGroup}
                   onChange={(event) => setSelectedAgeGroup(event.target.value as AgeGroupFilter)}
-                  className="min-h-9 w-full appearance-none rounded-[10px] border border-black/[0.08] bg-white px-3 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
+                  className="min-h-9 w-full appearance-none rounded-sm border border-border-subtle bg-white px-3 pr-8 text-body font-semibold text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors focus:border-brand-deep/50"
                 >
                   {AGE_GROUP_OPTIONS.map((item) => (
                     <option key={item.value} value={item.value}>
@@ -441,20 +441,20 @@ function EventsPageContent() {
             </div>
             <div className="relative w-full">
               <Search
-                size={15}
+                size={14}
                 className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary"
               />
               <input
                 value={keyword}
                 onChange={(event) => setKeyword(event.target.value)}
                 placeholder="搜索赛事名称"
-                className="min-h-9 w-full rounded-[10px] border border-black/[0.08] bg-white pl-8 pr-8 text-body text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors placeholder:text-text-tertiary focus:border-brand-deep/50"
+                className="min-h-9 w-full rounded-sm border border-border-subtle bg-white pl-8 pr-8 text-body text-text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)] outline-none transition-colors placeholder:text-text-tertiary focus:border-brand-deep/50"
               />
               {keyword && (
                 <button
                   type="button"
                   onClick={() => setKeyword("")}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 flex h-5 w-5 items-center justify-center rounded-full text-text-tertiary transition-colors hover:bg-black/[0.06] hover:text-text-secondary"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 flex h-5 w-5 items-center justify-center rounded-full text-text-tertiary transition-colors hover:bg-surface-secondary hover:text-text-secondary"
                 >
                   <X size={14} />
                 </button>
@@ -508,12 +508,12 @@ function EventsPageContent() {
                       onClick={() => {
                         persistSnapshot();
                       }}
-                      className="group flex items-center border-b border-black/[0.06] py-3.5 transition-colors last:border-0 hover:bg-black/[0.02]"
+                      className="group flex items-center border-b border-border-subtle py-3 transition-colors last:border-0 hover:bg-surface-secondary"
                     >
-                      <EventCategoryIcon category={category} className="mr-3 h-10 w-10 rounded-[10px]" />
+                      <EventCategoryIcon category={category} className="mr-3 h-10 w-10 rounded-sm" />
                       <div className="min-w-0 flex-1">
                         <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
-                          <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-micro font-bold text-text-primary">
+                          <span className="rounded-full bg-surface-tinted px-2 py-0.5 text-micro font-bold text-text-primary">
                             {event.year}
                           </span>
                           <span className="rounded-full bg-brand-soft/60 px-2 py-0.5 text-micro font-bold text-text-primary">

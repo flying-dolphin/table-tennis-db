@@ -254,22 +254,22 @@ type RecordsTab = "events" | "opponents";
 
 function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange: (tab: RecordsTab) => void }) {
   return (
-    <div className="flex justify-around border-b border-slate-200/80 px-1 text-base">
+    <div className="flex justify-around border-b border-border-subtle px-1">
       <button
         type="button"
         onClick={() => onChange("events")}
         className={cn(
           "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
-          activeTab === "events" ? "text-[#162a67]" : "text-slate-400 hover:text-slate-700",
+          activeTab === "events" ? "text-brand-dark" : "text-text-tertiary hover:text-text-primary",
         )}
       >
-        <List size={16} />
+        <List size={18} />
         比赛记录
         <span
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
-            activeTab === "events" ? "bg-[#162a67]" : "bg-transparent",
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-colors",
+            activeTab === "events" ? "bg-brand-dark" : "bg-transparent",
           )}
         />
       </button>
@@ -278,7 +278,7 @@ function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange:
         onClick={() => onChange("opponents")}
         className={cn(
           "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
-          activeTab === "opponents" ? "text-[#162a67]" : "text-slate-400 hover:text-slate-700",
+          activeTab === "opponents" ? "text-brand-dark" : "text-text-tertiary hover:text-text-primary",
         )}
       >
         <UsersRound size={18} />
@@ -286,8 +286,8 @@ function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange:
         <span
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-all",
-            activeTab === "opponents" ? "bg-[#162a67]" : "bg-transparent",
+            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-colors",
+            activeTab === "opponents" ? "bg-brand-dark" : "bg-transparent",
           )}
         />
       </button>
@@ -458,30 +458,30 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
   return (
     <section className="relative z-20 -mt-5 px-5 pt-0">
       <div className="flex flex-col gap-3">
-        <div className="rounded-md border border-white/70 bg-white/98 backdrop-blur- px-5 py-2 shadow-[0_24px_60px_rgba(15,36,95,0.12)]">
+        <div className="rounded-md border border-white/40 bg-white/95 backdrop-blur-md px-5 py-2 shadow-xl">
           <div className="grid grid-cols-3 gap-3">
             {summaryItems.map((item, index) => (
               <div
                 key={item.label}
                 className={cn(
                   "text-center",
-                  index !== 0 && "border-l border-[#edf1f7]",
+                  index !== 0 && "border-l border-border-subtle",
                 )}
               >
-                <p className="font-numeric text-xl font-black leading-none text-[#132865] tabular-nums">
+                <p className="font-numeric text-heading-2 font-black leading-none text-brand-dark tabular-nums">
                   {item.value}
                 </p>
-                <p className="mt-1 text-xs font-semibold text-[#68789e]">{item.label}</p>
+                <p className="mt-1 text-caption font-semibold text-text-secondary">{item.label}</p>
               </div>
             ))}
           </div>
           {sevenFinalsRate != null ? (
-            <div className="mt-2 border-t border-[#edf1f7] pt-2">
+            <div className="mt-2 border-t border-border-subtle pt-2">
               <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
-                <p className="text-xs font-bold text-[#162a67]">七大赛进决赛率 {formatPercent(sevenFinalsRate)}</p>
-                <div className="h-2 rounded-full bg-[#e8edf8]">
+                <p className="text-caption font-bold text-brand-dark">七大赛进决赛率 {formatPercent(sevenFinalsRate)}</p>
+                <div className="h-2 rounded-full bg-brand-fog">
                   <div
-                    className="h-full rounded-full bg-[linear-gradient(90deg,#162a67_0%,#2e4aa2_100%)]"
+                    className="h-full rounded-full bg-gradient-to-r from-brand-dark to-brand-deep"
                     style={{ width: `${Math.max(0, Math.min(100, sevenFinalsRate))}%` }}
                   />
                 </div>
@@ -490,7 +490,7 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
           ) : null}
         </div>
 
-        <div className="relative overflow-hidden rounded-md border border-white/70 bg-[linear-gradient(135deg,#ffffff_0%,#f8fbff_100%)] p-5 shadow-[0_24px_60px_rgba(15,36,95,0.1)]">
+        <div className="relative overflow-hidden rounded-md border border-white/40 bg-gradient-to-br from-white to-surface-secondary p-5 shadow-lg">
           <div className="absolute right-[-0.5rem] top-2 opacity-[0.14]">
             <div className="relative h-36 w-36">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -505,7 +505,7 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
           <div className="relative z-10">
             <StatSectionTitle label="生涯胜率" />
             <div className="mb-4">
-              <p className="font-numeric text-4xl font-black leading-none tracking-[-0.05em] text-[#132865] tabular-nums">
+              <p className="font-numeric text-data-hero font-black leading-none tracking-[-0.05em] text-brand-dark tabular-nums">
                 {formatPercent(careerWinRate)}
               </p>
             </div>
@@ -520,23 +520,23 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
         <div>
           <SectionHeader title="世界冠军" />
           <div className="grid grid-cols-2 gap-3">
-            <div className="relative overflow-hidden rounded-md bg-[linear-gradient(135deg,#f1b12d_0%,#ffd978_55%,#f9c450_100%)] p-1 text-[#1d1a12] shadow-[0_20px_40px_rgba(240,181,44,0.28)] flex items-center justify-center">
+            <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-gold to-yellow-200 p-1 text-text-primary shadow-xl flex items-center justify-center">
               <div className="flex flex-col items-start ">
-                <p className="text-sm font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
-                <div className="flex w-full items-center gap-4">
+                <p className="text-caption font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
+                <div className="flex w-full items-center gap-3">
                   <TitleMetric value={stats.allThreeTitles} label="总数" />
-                  <div className="w-[1px] h-7 bg-[#1d1a12]/15"></div>
+                  <div className="w-[1px] h-7 bg-text-primary/15"></div>
                   <TitleMetric value={stats.eventThreeTitles} label="单项" />
-                  <div className="w-[1px] h-7 bg-[#1d1a12]/15"></div>
+                  <div className="w-[1px] h-7 bg-text-primary/15"></div>
                   <TitleMetric value={stats.singleThreeTitles} label="单打" />
                 </div>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[1rem] bg-[linear-gradient(135deg,#10245f_0%,#1e357f_60%,#2f4ea6_100%)] p-4 text-white shadow-[0_20px_40px_rgba(22,42,103,0.26)] flex items-center justify-center min-h-[6.5rem]">
+            <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-brand-dark via-brand-strong to-brand-deep p-4 text-white shadow-xl flex items-center justify-center min-h-[6.5rem]">
               <div className="flex flex-col items-start w-fit">
-                <p className="text-sm font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
-                <div className="flex items-center gap-4">
+                <p className="text-caption font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
+                <div className="flex items-center gap-3">
                   <TitleMetric value={stats.allSevenTitles} label="总数" dark={true} highlight={true} />
                   <div className="w-[1px] h-7 bg-white/15"></div>
                   <TitleMetric value={stats.eventSevenTitles} label="单项" dark={true} />
@@ -572,9 +572,9 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
   const displayEvents = expanded ? filteredEvents : filteredEvents.slice(0, 10);
   const hasMore = filteredEvents.length > 10;
   const filterButtonClass =
-    "rounded-full border px-3.5 py-1.5 text-[0.82rem] font-bold transition-all";
-  const activeFilterButtonClass = "border-[#162a67] bg-[#162a67] text-white shadow-[0_10px_18px_rgba(22,42,103,0.14)]";
-  const inactiveFilterButtonClass = "border-[#e5eaf4] bg-[#f7f9fd] text-[#607095] hover:border-[#cbd6ef] hover:text-[#162a67]";
+    "rounded-full border px-3 py-1 text-caption font-bold transition-colors";
+  const activeFilterButtonClass = "border-brand-dark bg-brand-dark text-white shadow-md";
+  const inactiveFilterButtonClass = "border-border-subtle bg-surface-secondary text-text-secondary hover:border-border-strong hover:text-brand-dark";
 
   if (events.length === 0) {
     return <EmptyState title="赛事记录暂无数据" />;
@@ -582,7 +582,7 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="mb-2 flex flex-col gap-2.5 border-b border-[#edf1f7] px-1 pb-3">
+      <div className="mb-2 flex flex-col gap-2 border-b border-border-subtle px-1 pb-3">
         <div className="flex flex-wrap items-center gap-2">
           {[
             { value: "all", label: "全部" },
@@ -648,11 +648,11 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
           key={event.eventId}
           href={route(`/events/${event.eventId}`)}
           className={cn(
-            "grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-[1.25rem] px-2 py-2.5 transition-colors group hover:bg-[#f7f9fe]",
+            "grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-md px-2 py-2 transition-colors group hover:bg-surface-secondary",
             idx !== displayEvents.length - 1 && "mb-1"
           )}
         >
-          <EventCategoryIcon category={getEventCategory(event)} className="h-10 w-10 rounded-2xl" />
+          <EventCategoryIcon category={getEventCategory(event)} className="h-10 w-10 rounded-md" />
           <div className="min-w-0">
             <h3 className="truncate text-body font-bold text-text-primary group-hover:text-brand-strong transition-colors">{displayEventName(event)}</h3>
             <p className="mt-0.5 text-caption font-medium text-text-tertiary">
@@ -661,9 +661,9 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
           </div>
           <div className="flex items-center gap-2">
             <span className={cn(
-              "rounded-full px-3 py-1 text-[0.82rem] font-bold uppercase tracking-wider",
+              "rounded-full px-3 py-1 text-caption font-bold",
               getIsChampion(event, subEventFilter)
-                ? "bg-[#fff3d9] text-[#d39200]"
+                ? "bg-gold-bg text-gold"
                 : "bg-brand-soft/60 text-brand-strong"
             )}>
               {getDisplayResult(event, subEventFilter)}
@@ -817,20 +817,20 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
 
   return (
     <div className="flex flex-col">
-      <div className="border-b border-slate-200/80 pb-3">
+      <div className="border-b border-border-subtle pb-3">
         <div className="relative">
-          <Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <Search size={14} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-text-tertiary" />
           <input
             value={keyword}
             onChange={(event) => setKeyword(event.target.value)}
             placeholder="搜索对手姓名"
-            className="h-11 w-full rounded-full border border-slate-200 bg-white pl-10 pr-11 text-[0.95rem] font-medium text-slate-900 outline-none transition focus:border-[#2d6cf6]"
+            className="h-10 w-full rounded-full border border-border-subtle bg-white pl-10 pr-11 text-body font-medium text-text-primary outline-none transition-colors focus:border-brand-deep"
           />
           {keyword ? (
             <button
               type="button"
               onClick={() => setKeyword("")}
-              className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-full bg-slate-100 text-slate-500 transition hover:bg-slate-200"
+              className="absolute right-2 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-full bg-surface-secondary text-text-tertiary transition-colors hover:bg-surface-tinted"
               aria-label="清空搜索"
             >
               <X size={14} />
@@ -839,8 +839,8 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
         </div>
       </div>
 
-      <div className="grid grid-cols-[minmax(0,1fr)_4.25rem_4.25rem] items-center gap-3 border-b border-slate-200/80 px-1 py-3">
-        <p className="text-[0.76rem] font-black uppercase tracking-[0.18em] text-slate-400">对手</p>
+      <div className="grid grid-cols-[minmax(0,1fr)_4.25rem_4.25rem] items-center gap-3 border-b border-border-subtle px-1 py-2">
+        <p className="text-micro font-black uppercase tracking-[0.18em] text-text-tertiary">对手</p>
         {sortLabel("matches", "交手次数")}
         {sortLabel("winRate", "胜率")}
       </div>
@@ -862,33 +862,33 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
                 <div
                   className={cn(
                     "grid grid-cols-[minmax(0,1fr)_4.25rem_4.25rem_auto] items-center gap-3 px-1 py-3 transition-colors group",
-                    "hover:bg-[#f6f8fd]",
-                    index !== opponents.length - 1 && "border-b border-slate-100",
+                    "hover:bg-surface-secondary",
+                    index !== opponents.length - 1 && "border-b border-border-subtle",
                   )}
                 >
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="w-6 shrink-0 text-[0.82rem] font-bold text-[#9bb3e0]">{rank}</span>
+                      <span className="w-6 shrink-0 text-caption font-bold text-brand-primary">{rank}</span>
                       {opponent.countryCode ? (
                         <Flag code={opponent.countryCode} className="shrink-0 scale-[1.05]" />
                       ) : null}
                       <div className="min-w-0">
-                        <h3 className="truncate text-[0.98rem] font-bold leading-tight text-slate-900 group-hover:text-[#2d6cf6]">
+                        <h3 className="truncate text-body-lg font-bold leading-tight text-text-primary group-hover:text-brand-strong transition-colors">
                           {opponent.nameZh?.trim() || opponent.name}
                         </h3>
-                        <p className="mt-1 truncate text-[0.8rem] font-medium text-slate-400">
+                        <p className="mt-1 truncate text-caption font-medium text-text-tertiary">
                           {opponent.latestDate ? `最近 ${displayDate(opponent.latestDate)}` : ""}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <strong className="text-center font-numeric text-[1.2rem] font-black leading-none text-slate-900 tabular-nums">
+                  <strong className="text-center font-numeric text-body-lg font-black leading-none text-text-primary tabular-nums">
                     {opponent.matches}
                   </strong>
-                  <strong className="text-center font-numeric text-[1.2rem] font-black leading-none text-[#2d6cf6] tabular-nums">
+                  <strong className="text-center font-numeric text-body-lg font-black leading-none text-brand-strong tabular-nums">
                     {formatPercent(opponent.winRate)}
                   </strong>
-                  <ChevronRight size={15} className="text-slate-300 group-hover:text-[#2d6cf6]" />
+                  <ChevronRight size={14} className="text-text-tertiary group-hover:text-brand-strong transition-colors" />
                 </div>
               );
 

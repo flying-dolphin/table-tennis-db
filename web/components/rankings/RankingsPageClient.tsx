@@ -161,10 +161,10 @@ export default function RankingsPageClient() {
 
   return (
     <main
-      className="mx-auto flex max-w-lg flex-col overflow-hidden bg-gray-50/30"
+      className="mx-auto flex max-w-lg flex-col overflow-hidden bg-page-background"
       style={{ height: "calc(100dvh - (4rem + env(safe-area-inset-bottom)))" }}
     >
-      <section className="relative overflow-hidden bg-[#f0f4ff] px-4 pb-3 pt-4">
+      <section className="relative overflow-hidden bg-surface-tinted px-4 pb-3 pt-4">
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -175,25 +175,25 @@ export default function RankingsPageClient() {
           }}
         />
         <div className="relative z-10 flex items-end gap-x-4 mb-8 mt-2">
-          <h1 className="text-3xl font-bold leading-tight text-slate-950">世界排名</h1>
-          <p className="text-[0.9rem] font-medium text-slate-500">
+          <h1 className="text-heading-1 font-bold leading-tight text-text-primary">世界排名</h1>
+          <p className="text-body font-medium text-text-secondary">
             {subtitle}
           </p>
         </div>
       </section>
 
-      <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-[22px] bg-white/96">
-        <div className="z-20 border-b border-black/[0.06] bg-white/90 px-5 py-3.5 backdrop-blur-md">
+      <div className="-mt-6 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-lg bg-white/95">
+        <div className="z-sticky border-b border-border-subtle bg-white/90 px-5 py-3 backdrop-blur-md">
           <div className="flex items-center justify-between gap-3">
-            <div className="flex shrink-0 items-center rounded-[12px] bg-black/[0.06] p-1">
+            <div className="flex shrink-0 items-center rounded-sm bg-black/[0.06] p-1">
               {SORT_OPTIONS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setSortBy(item.id)}
                   className={cn(
-                    "min-h-9 rounded-[8px] px-5 text-body font-bold transition-all active:scale-95",
+                    "min-h-9 rounded-sm px-5 text-body font-bold transition-colors active:scale-95",
                     sortBy === item.id
-                      ? "bg-white text-text-primary shadow-[0_2px_8px_rgba(17,24,39,0.12)]"
+                      ? "bg-white text-text-primary shadow-md"
                       : "text-text-secondary hover:text-text-primary"
                   )}
                 >
@@ -206,7 +206,7 @@ export default function RankingsPageClient() {
               onClick={toggleCompareMode}
               aria-pressed={compareMode}
               className={cn(
-                "inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3.5 text-[13px] font-bold transition-all active:scale-95",
+                "inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-body font-bold transition-colors active:scale-95",
                 compareMode
                   ? "border-brand-deep bg-brand-deep text-white shadow-sm"
                   : "border-brand-deep/40 bg-white text-brand-deep hover:bg-brand-mist/30"
@@ -222,7 +222,7 @@ export default function RankingsPageClient() {
           {loading ? (
             <div>
               {Array.from({ length: 12 }).map((_, idx) => (
-                <div key={idx} className="flex items-center gap-3 border-b border-black/[0.06] px-0 py-3.5 last:border-0">
+                <div key={idx} className="flex items-center gap-3 border-b border-border-subtle px-0 py-3.5 last:border-0">
                   <div className="h-6 w-9 shrink-0 animate-pulse rounded bg-black/[0.06]" />
                   <div className="h-9 w-9 shrink-0 animate-pulse rounded-full bg-black/[0.06]" />
                   <div className="flex-1">
@@ -238,8 +238,8 @@ export default function RankingsPageClient() {
                 <div
                   key={player.playerId}
                   className={cn(
-                    "flex items-center border-b border-black/[0.06] px-0 py-3.5 transition-colors last:border-0",
-                    selectedIds.includes(player.playerId) ? "bg-brand-mist/15" : "hover:bg-black/[0.02]"
+                    "flex items-center border-b border-border-subtle px-0 py-3 transition-colors last:border-0",
+                    selectedIds.includes(player.playerId) ? "bg-brand-mist/15" : "hover:bg-surface-secondary"
                   )}
                 >
                   {compareMode && (
@@ -253,7 +253,7 @@ export default function RankingsPageClient() {
                       />
                       <span
                         className={cn(
-                          "grid h-6 w-6 place-items-center rounded-full border-2 transition-all",
+                          "grid h-6 w-6 place-items-center rounded-full border-2 transition-colors",
                           selectedIds.includes(player.playerId)
                             ? "border-brand-deep bg-brand-deep text-white shadow-sm"
                             : "border-border-strong bg-white/80 text-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] peer-focus-visible:border-brand-deep peer-focus-visible:ring-2 peer-focus-visible:ring-brand-deep peer-focus-visible:ring-offset-2"
@@ -361,7 +361,7 @@ export default function RankingsPageClient() {
 
       {compareMode && selectedIds.length > 0 && (
         <div className="fixed bottom-[84px] inset-x-0 z-40 px-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="bg-brand-deep/95 backdrop-blur-md text-white rounded-lg py-2.5 px-4 shadow-[0_8px_32px_rgba(30,42,61,0.24)] flex items-center justify-between border border-white/20">
+          <div className="bg-brand-deep/95 backdrop-blur-md text-white rounded-lg py-3 px-4 shadow-xl flex items-center justify-between border border-white/20">
             <div className="flex items-center gap-3 overflow-hidden">
               <div className="flex -space-x-2 shrink-0">
                 {selectedPlayers.map((p) => (
@@ -381,7 +381,7 @@ export default function RankingsPageClient() {
             {selectedIds.length === 2 ? (
               <Link
                 href={`/compare?player_a=${selectedPlayers[0].slug}&player_b=${selectedPlayers[1].slug}`}
-                className="bg-white text-brand-deep px-5 py-2 rounded-full text-body font-bold hover:bg-brand-mist active:scale-95 transition-all shrink-0 shadow-sm"
+                className="bg-white text-brand-deep px-5 py-2 rounded-full text-body font-bold hover:bg-brand-mist active:scale-95 transition-colors shrink-0 shadow-sm"
               >
                 开始对比
               </Link>

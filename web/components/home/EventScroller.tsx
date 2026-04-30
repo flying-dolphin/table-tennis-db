@@ -697,7 +697,7 @@ export default function EventScroller() {
 
       {expandedMonth && (
         <div
-          className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-all duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
+          className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.4] backdrop-blur-xl transition-[opacity,backdrop-filter] duration-300 flex items-center justify-center px-5 opacity-100 pointer-events-auto transform-gpu"
           style={{ WebkitBackdropFilter: "blur(24px)" }}
           onClick={(event) => {
             event.stopPropagation();
@@ -708,7 +708,7 @@ export default function EventScroller() {
         >
           <button
             type="button"
-            className="w-full max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-white/60 backdrop-blur-2xl rounded-lg overflow-hidden bg-white/80 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
+            className="w-full max-w-[430px] shadow-2xl border border-white/40 backdrop-blur-xl rounded-lg overflow-hidden bg-white/85 animate-in zoom-in-95 duration-300 transform-gpu cursor-pointer text-left"
             style={{ WebkitBackdropFilter: "blur(40px)" }}
             onClick={(event) => {
               event.stopPropagation();

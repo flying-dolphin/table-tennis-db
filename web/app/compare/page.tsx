@@ -217,14 +217,14 @@ function CompareContent() {
         <div className="flex items-center justify-between px-2">
           <div className={cn(
             "flex-1 text-center text-body-lg font-bold tabular-nums",
-            !isEqual && (isHigherA === higherIsBetter ? "text-brand-strong scale-105" : "text-text-secondary opacity-60")
+            !isEqual && (isHigherA === higherIsBetter ? "text-state-success" : "text-text-secondary opacity-60")
           )}>
             {format(valA)}
           </div>
           <div className="w-[1px] h-4 bg-border-subtle mx-4" />
           <div className={cn(
             "flex-1 text-center text-body-lg font-bold tabular-nums",
-            !isEqual && (isHigherB === higherIsBetter ? "text-brand-strong scale-105" : "text-text-secondary opacity-60")
+            !isEqual && (isHigherB === higherIsBetter ? "text-state-success" : "text-text-secondary opacity-60")
           )}>
             {format(valB)}
           </div>
@@ -250,7 +250,7 @@ function CompareContent() {
           <button
             type="button"
             onClick={() => openReplaceModal("A")}
-            className="flex-1 bg-white rounded-lg p-4 flex flex-col items-center shadow-sm border border-white transition-colors hover:bg-brand-mist/20"
+            className="flex-1 bg-white rounded-lg p-4 flex flex-col items-center shadow-sm border border-border-subtle transition-colors hover:bg-brand-mist/20"
           >
             <PlayerAvatar player={pA} size="lg" />
             <h2 className="mt-3 text-body font-bold text-text-primary text-center leading-tight">
@@ -269,7 +269,7 @@ function CompareContent() {
           <button
             type="button"
             onClick={() => openReplaceModal("B")}
-            className="flex-1 bg-white rounded-lg p-4 flex flex-col items-center shadow-sm border border-white transition-colors hover:bg-brand-mist/20"
+            className="flex-1 bg-white rounded-lg p-4 flex flex-col items-center shadow-sm border border-border-subtle transition-colors hover:bg-brand-mist/20"
           >
             <PlayerAvatar player={pB} size="lg" />
             <h2 className="mt-3 text-body font-bold text-text-primary text-center leading-tight">
@@ -283,7 +283,7 @@ function CompareContent() {
         </div>
 
         {/* Head to Head Summary */}
-        <div className="bg-white rounded-lg p-5 shadow-sm border border-white mb-6">
+        <div className="bg-white rounded-lg p-5 shadow-sm border border-border-subtle mb-6">
           <div className="flex items-center gap-2 mb-4">
             <Zap size={18} className="text-brand-strong" />
             <h3 className="text-body font-bold text-text-primary">历史交手</h3>
@@ -316,7 +316,7 @@ function CompareContent() {
         </div>
 
         {/* Stats Metrics */}
-        <div className="bg-white rounded-lg p-2 shadow-sm border border-white mb-6">
+        <div className="bg-white rounded-lg p-2 shadow-sm border border-border-subtle mb-6">
           <div className="px-3 pt-3 pb-1 flex items-center gap-2">
             <Globe size={18} className="text-brand-strong" />
             <h3 className="text-body font-bold text-text-primary">核心指标</h3>
@@ -363,7 +363,7 @@ function CompareContent() {
         </div>
 
         {/* H2H Match List */}
-        <div className="bg-white rounded-lg p-2 shadow-sm border border-white">
+        <div className="bg-white rounded-lg p-2 shadow-sm border border-border-subtle">
           <div className="px-3 pt-3 pb-3 flex items-center gap-2">
             <Trophy size={18} className="text-brand-deep" />
             <h3 className="text-body font-bold text-text-primary">交手记录</h3>
@@ -392,8 +392,8 @@ function CompareContent() {
                     </div>
                     <div className="flex items-center gap-3">
                       <div className={cn(
-                        "w-6 h-6 rounded flex items-center justify-center text-micro font-bold transition-all tabular-nums",
-                        isWinnerA ? "bg-brand-strong text-white" : "bg-page-background text-text-tertiary"
+                        "w-6 h-6 rounded flex items-center justify-center text-micro font-bold transition-colors tabular-nums",
+                        isWinnerA ? "bg-state-success text-white" : "bg-state-danger text-white"
                       )}>
                         {isWinnerA ? "胜" : "负"}
                       </div>
@@ -401,8 +401,8 @@ function CompareContent() {
                         {match.matchScore}
                       </div>
                       <div className={cn(
-                        "w-6 h-6 rounded flex items-center justify-center text-micro font-bold transition-all tabular-nums",
-                        !isWinnerA ? "bg-brand-strong text-white" : "bg-page-background text-text-tertiary"
+                        "w-6 h-6 rounded flex items-center justify-center text-micro font-bold transition-colors tabular-nums",
+                        !isWinnerA ? "bg-state-success text-white" : "bg-state-danger text-white"
                       )}>
                         {!isWinnerA ? "胜" : "负"}
                       </div>

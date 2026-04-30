@@ -74,7 +74,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-md;
   }
 
   .section-container {
@@ -95,7 +95,7 @@
   }
 
   .bento-card {
-    @apply rounded-md border border-white/60 bg-white/75 p-4 shadow-sm backdrop-blur-md transition-all duration-200;
+    @apply rounded-md border border-white/40 bg-white/75 p-4 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-200;
   }
 
   .bento-card-hover {

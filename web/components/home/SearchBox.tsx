@@ -93,7 +93,7 @@ export default function SearchBox() {
   return (
     <div className="relative -mt-4 px-5 z-20">
       <form className="group w-full" onSubmit={handleSubmit}>
-        <div className="flex items-center bg-white rounded-md h-14 px-5 gap-3 shadow-md border border-border-subtle transition-all duration-300 group-hover:shadow-lg">
+        <div className="flex items-center bg-white rounded-lg h-14 px-5 gap-3 shadow-md border border-border-subtle transition-shadow duration-300 group-hover:shadow-lg">
           <Search className="text-brand-strong" size={22} />
           <input
             ref={inputRef}
@@ -109,7 +109,7 @@ export default function SearchBox() {
           <button
             type="submit"
             disabled={isSearching}
-            className="shrink-0 px-2 py-1 text-caption font-medium text-brand-deep hover:text-brand-strong transition-colors disabled:opacity-50"
+            className="shrink-0 px-2 py-1 text-caption font-medium text-brand-strong hover:text-brand-deep transition-colors disabled:opacity-50"
           >
             {isSearching ? "搜索中" : "搜索"}
           </button>
@@ -118,7 +118,7 @@ export default function SearchBox() {
 
       {showLoginPrompt && (
         <div className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
-          <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-xl p-5">
+          <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-2xl p-5">
             <h3 className="text-heading-2 font-bold text-text-primary">登录后可用搜索</h3>
             <p className="mt-2 text-body text-text-secondary leading-relaxed">
               当前搜索功能需要登录后使用。是否前往登录页？
@@ -127,7 +127,7 @@ export default function SearchBox() {
               <button
                 type="button"
                 onClick={() => setShowLoginPrompt(false)}
-                className="px-3 py-1.5 rounded-sm text-body font-medium text-text-secondary hover:bg-surface-secondary transition-colors"
+                className="px-3 py-2 rounded-sm text-body font-medium text-text-secondary hover:bg-surface-secondary transition-colors"
               >
                 取消
               </button>
@@ -137,7 +137,7 @@ export default function SearchBox() {
                   setShowLoginPrompt(false);
                   window.location.href = "/auth";
                 }}
-                className="px-3 py-1.5 rounded-sm text-body font-semibold text-white bg-brand-deep hover:bg-brand-strong transition-colors"
+                className="px-3 py-2 rounded-sm text-body font-semibold text-white bg-brand-deep hover:bg-brand-strong transition-colors"
               >
                 去登录
               </button>
@@ -148,7 +148,7 @@ export default function SearchBox() {
 
       {showNotFoundPrompt && (
         <div className="fixed inset-0 z-overlay bg-[rgb(var(--overlay-dark))/0.35] backdrop-blur-sm flex items-center justify-center px-5">
-          <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-xl p-5">
+          <div className="w-full max-w-[320px] rounded-lg bg-white border border-border-subtle shadow-2xl p-5">
             <h3 className="text-heading-2 font-bold text-text-primary">未找到结果</h3>
             <p className="mt-2 text-body text-text-secondary leading-relaxed">
               目前仅支持人名和赛事搜索，未找到匹配的结果，请换个词试试。
@@ -157,7 +157,7 @@ export default function SearchBox() {
               <button
                 type="button"
                 onClick={() => setShowNotFoundPrompt(false)}
-                className="px-3 py-1.5 rounded-sm text-body font-semibold text-white bg-brand-deep hover:bg-brand-strong transition-colors"
+                className="px-3 py-2 rounded-sm text-body font-semibold text-white bg-brand-deep hover:bg-brand-strong transition-colors"
               >
                 我知道了
               </button>

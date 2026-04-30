@@ -15,7 +15,7 @@ export default function TermsPage() {
             href="/"
             className="flex items-center gap-1 text-text-secondary hover:text-text-primary transition-colors"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={18} />
             <span className="text-body">返回</span>
           </Link>
           <h1 className="ml-2 text-body font-semibold text-text-primary">用户协议</h1>

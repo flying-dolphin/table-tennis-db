@@ -25,12 +25,12 @@ export default function Hero() {
           </h1>
           <p className="text-body font-bold text-white">女乒版</p>
         </div>
-        <p className="mt-1 text-body font-medium font-body text-white/78 tracking-[0.01em] drop-shadow-sm">
+        <p className="mt-1 text-body font-medium font-body text-white/80 tracking-[0.01em] drop-shadow-sm">
           国际赛事数据查询
         </p>
 
         {/* Profile Circle Mockup */}
-        <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/30 overflow-hidden bg-white/10 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-105">
+        <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/20 overflow-hidden bg-white/10 backdrop-blur-sm shadow-md transition-transform duration-150 hover:scale-105">
           <Image
             src="/images/logo.png"
             alt="ITTF Logo"

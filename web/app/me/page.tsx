@@ -58,7 +58,7 @@ export default function MePage() {
           href="/"
           className="flex items-center gap-1 text-text-secondary hover:text-text-primary transition-colors"
         >
-          <ChevronLeft size={20} />
+          <ChevronLeft size={18} />
           <span className="text-body">首页</span>
         </Link>
       </div>

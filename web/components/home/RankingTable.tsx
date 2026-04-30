@@ -96,14 +96,14 @@ export default function RankingTable() {
 
   return (
     <section className="px-5">
-      <div className="bg-white/60 backdrop-blur-md rounded-lg p-4 shadow-[0_1px_0_rgba(255,255,255,0.5)] border border-white/50 relative overflow-hidden">
-        <div className="flex justify-between items-end mb-2.5 px-2 relative z-10">
-          <h2 className="text-heading-2 font-bold text-text-secondary tracking-tight">
-            世界排名 <span className="text-brand-deep/80 font-medium ml-1 text-body">Top 10</span>
+      <div className="bg-white/70 backdrop-blur-md rounded-lg p-4 shadow-md border border-white/40 relative overflow-hidden">
+        <div className="flex justify-between items-end mb-2 px-2 relative z-10">
+          <h2 className="text-heading-2 font-bold text-text-primary tracking-tight">
+            世界排名 <span className="text-brand-deep font-medium ml-1 text-body">Top 10</span>
           </h2>
           <a
             href="/rankings"
-            className="flex items-center text-caption font-medium text-text-tertiary hover:text-brand-deep transition-all pb-1"
+            className="flex items-center text-caption font-medium text-text-secondary hover:text-brand-strong transition-colors pb-1"
           >
             更多
             <ChevronRight size={14} className="ml-0.5 relative top-px" strokeWidth={1.5} />
@@ -128,7 +128,7 @@ export default function RankingTable() {
                   <Link
                     key={player.playerId}
                     href={`/players/${player.slug}`}
-                    className="flex items-center bg-white/80 px-2 py-2 border border-white shadow-sm rounded-lg relative overflow-hidden mb-2 transition-colors hover:bg-white"
+                    className="flex items-center bg-white/85 px-2 py-2 border border-white/40 shadow-sm rounded-lg relative overflow-hidden mb-2 transition-colors hover:bg-white/95"
                   >
                     <div className="w-9 shrink-0 text-center mr-1">
                       <span className="text-heading-1 font-bold text-brand-strong pr-1 leading-none tabular-nums">{player.rank}</span>
@@ -177,7 +177,7 @@ export default function RankingTable() {
                 <Link
                   key={player.playerId}
                   href={`/players/${player.slug}`}
-                  className="flex items-center py-2.5 px-1 hover:bg-white/30 transition-colors rounded-sm"
+                  className="flex items-center py-2 px-1 hover:bg-white/50 transition-colors rounded-sm"
                 >
                   <div className="w-8 shrink-0 text-center mr-1">
                     <span className="text-body-lg font-medium text-text-tertiary pr-0.5 tabular-nums">{player.rank}</span>
