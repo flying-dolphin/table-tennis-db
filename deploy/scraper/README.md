@@ -125,7 +125,8 @@ ssh deploy@serverA "ls /opt/ittf/data/db/backups/" | tail
 - 修复：`sudo usermod -aG docker deploy && newgrp docker`
 
 **Sentry 没收到 check-in**
-- `sentry-cli` 没装，或 `SENTRY_AUTH_TOKEN` 错
+- `sentry-cli` 没装，或 `SENTRY_AUTH_TOKEN` / `SENTRY_DSN` 配置不完整
+- 新版 `sentry-cli monitors run` 需要 `SENTRY_DSN`
 - 验证：`sentry-cli info`
 
 **Web 容器起来但读到旧数据**
