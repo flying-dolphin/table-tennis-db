@@ -23,6 +23,7 @@ set -euo pipefail
 export SENTRY_AUTH_TOKEN=填你的 token
 export SENTRY_ORG=你的 org slug
 export SENTRY_PROJECT=ittf
+export SENTRY_DSN=https://<key>@o<orgid>.ingest.sentry.io/<projectid>
 MONITOR_SLUG=ittf-data-sync
 
 # sentry-cli monitors run 自动：
