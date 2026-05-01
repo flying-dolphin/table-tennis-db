@@ -11,6 +11,7 @@ set -euo pipefail
 export SENTRY_AUTH_TOKEN=fill-your-token
 export SENTRY_ORG=your-org-slug
 export SENTRY_PROJECT=ittf
+export SENTRY_DSN=https://<key>@o<orgid>.ingest.sentry.io/<projectid>
 MONITOR_SLUG=ittf-event-refresh
 
 exec sentry-cli monitors run "${MONITOR_SLUG}" -- \
