@@ -28,38 +28,6 @@ export function getExpiredSessionCookieOptions() {
   };
 }
 
-// Ensure auth tables exist at module load time
-db.exec(`
-  CREATE TABLE IF NOT EXISTS users (
-    user_id       INTEGER PRIMARY KEY AUTOINCREMENT,
-    username      TEXT NOT NULL UNIQUE COLLATE NOCASE,
-    email         TEXT NOT NULL UNIQUE COLLATE NOCASE,
-    password_hash TEXT NOT NULL,
-    salt          TEXT NOT NULL,
-    created_at    TEXT DEFAULT (datetime('now')),
-    updated_at    TEXT DEFAULT (datetime('now'))
-  );
-  CREATE TABLE IF NOT EXISTS user_sessions (
-    session_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id    INTEGER NOT NULL,
-    token      TEXT NOT NULL UNIQUE,
-    expires_at TEXT NOT NULL,
-    created_at TEXT DEFAULT (datetime('now')),
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
-  );
-  CREATE INDEX IF NOT EXISTS idx_user_sessions_token ON user_sessions(token);
-  CREATE INDEX IF NOT EXISTS idx_user_sessions_expires ON user_sessions(expires_at);
-  CREATE TABLE IF NOT EXISTS email_verifications (
-    id         INTEGER PRIMARY KEY AUTOINCREMENT,
-    email      TEXT NOT NULL COLLATE NOCASE,
-    code       TEXT NOT NULL,
-    expires_at TEXT NOT NULL,
-    used       INTEGER NOT NULL DEFAULT 0,
-    created_at TEXT DEFAULT (datetime('now'))
-  );
-  CREATE INDEX IF NOT EXISTS idx_email_verifications_email ON email_verifications(email);
-`);
-
 export function hashPassword(password: string): { hash: string; salt: string } {
   const salt = crypto.randomBytes(16).toString('hex');
   const hash = crypto.scryptSync(password, salt, 64).toString('hex');
