@@ -241,11 +241,13 @@ def main() -> int:
                     help="WTT sub-event codes（5 字符），默认 MTEAM WTEAM")
     ap.add_argument("--out-root", default=str(RUNTIME_ROOT / "data" / "wtt_raw"),
                     help="raw JSON 落地根目录")
+    ap.add_argument("--out-dir", default=None,
+                    help="指定本次抓取输出目录；设置后优先于 --out-root")
     ap.add_argument("--print-stage1a", nargs="*", type=int, default=None,
                     help="抓完后打印 Stage 1A 指定 Group 列表，例如 --print-stage1a 1 2")
     args = ap.parse_args()
 
-    out_dir = Path(args.out_root) / str(args.event_id)
+    out_dir = Path(args.out_dir) if args.out_dir else Path(args.out_root) / str(args.event_id)
     print(f"Scrape WTT event {args.event_id} -> {out_dir}")
     summary = scrape_event(args.event_id, args.sub_events, out_dir)
     print()

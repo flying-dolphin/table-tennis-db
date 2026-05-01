@@ -1348,12 +1348,17 @@ function buildLiveGroupStageView(
     const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
     if (!sideA?.teamCode || !sideB?.teamCode) continue;
 
+    const scheduleScore = parseTieScore(match.matchScore);
     const official = officialResults.get(normalizeExternalMatchCode(match.externalMatchCode));
     const officialScores = official?.teamCodes ? new Map([[official.teamCodes[0], official.scoreA], [official.teamCodes[1], official.scoreB]]) : null;
-    const scoreA = officialScores?.get(sideA.teamCode) ?? null;
-    const scoreB = officialScores?.get(sideB.teamCode) ?? null;
+    const scoreA = scheduleScore?.scoreA ?? officialScores?.get(sideA.teamCode) ?? null;
+    const scoreB = scheduleScore?.scoreB ?? officialScores?.get(sideB.teamCode) ?? null;
     const winnerCode =
-      official?.winnerCode && (official.winnerCode === sideA.teamCode || official.winnerCode === sideB.teamCode)
+      match.winnerSide === 'A'
+        ? sideA.teamCode
+        : match.winnerSide === 'B'
+          ? sideB.teamCode
+          : official?.winnerCode && (official.winnerCode === sideA.teamCode || official.winnerCode === sideB.teamCode)
         ? official.winnerCode
         : null;
     const tie: TeamTie = {

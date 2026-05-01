@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sqlite3
 import sys
@@ -150,8 +151,7 @@ def load_units(path: Path) -> list[dict]:
     return [u for u in units if isinstance(u, dict)]
 
 
-def load_official_result_codes(raw_root: Path, event_id: int) -> set[str]:
-    event_dir = raw_root / str(event_id)
+def load_official_result_codes(event_dir: Path) -> set[str]:
     for filename in ("GetOfficialResult.json", "GetOfficialResult_take10.json"):
         path = event_dir / filename
         if not path.exists():
@@ -171,6 +171,50 @@ def load_official_result_codes(raw_root: Path, event_id: int) -> set[str]:
                 codes.add(code)
         return codes
     return set()
+
+
+def load_official_results(event_dir: Path) -> dict[str, dict]:
+    for filename in ("GetOfficialResult.json", "GetOfficialResult_take10.json"):
+        path = event_dir / filename
+        if not path.exists():
+            continue
+        with path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        if not isinstance(data, list):
+            return {}
+
+        results: dict[str, dict] = {}
+        for item in data:
+            if not isinstance(item, dict):
+                continue
+            match_card = item.get("match_card") or {}
+            code = normalize_external_match_code(item.get("documentCode") or match_card.get("documentCode"))
+            if not code:
+                continue
+
+            competitors = match_card.get("competitiors") or []
+            team_codes = tuple(
+                competitor.get("competitiorOrg")
+                for competitor in competitors[:2]
+                if isinstance(competitor, dict) and competitor.get("competitiorOrg")
+            )
+            score = official_match_score(match_card)
+            parsed = parse_tie_score(score)
+            winner_code = None
+            if parsed and len(team_codes) == 2:
+                if parsed[0] > parsed[1]:
+                    winner_code = team_codes[0]
+                elif parsed[1] > parsed[0]:
+                    winner_code = team_codes[1]
+
+            results[code] = {
+                "team_codes": team_codes if len(team_codes) == 2 else None,
+                "match_score": score,
+                "games": match_card.get("resultsGameScores") or match_card.get("gameScores"),
+                "winner_code": winner_code,
+            }
+        return results
+    return {}
 
 
 def normalize_round(raw_round: str | None) -> RoundInfo:
@@ -203,17 +247,74 @@ def normalize_status(raw_status: str | None) -> str:
     return STATUS_MAP.get(key, "scheduled")
 
 
+def official_match_score(match_card: dict) -> str | None:
+    team_parent = match_card.get("teamParentData") or {}
+    extended_info = team_parent.get("extended_info") or {}
+    final_result = extended_info.get("final_result") or []
+    if final_result and isinstance(final_result[0], dict):
+        value = (final_result[0].get("value") or "").strip()
+        if value:
+            return value
+
+    for value in (match_card.get("overallScores"), match_card.get("resultOverallScores")):
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return None
+
+
+def parse_tie_score(value: str | None) -> tuple[int, int] | None:
+    if not value:
+        return None
+    match = re.search(r"(\d+)\s*-\s*(\d+)", value)
+    if not match:
+        return None
+    return int(match.group(1)), int(match.group(2))
+
+
+def reverse_score_label(value: str | None) -> str | None:
+    parsed = parse_tie_score(value)
+    if not parsed:
+        return value
+    return f"{parsed[1]}-{parsed[0]}"
+
+
+def reverse_games_label(value: str | None) -> str | None:
+    if not value:
+        return value
+    parts: list[str] = []
+    for item in value.split(","):
+        parsed = parse_tie_score(item.strip())
+        if not parsed:
+            parts.append(item.strip())
+            continue
+        parts.append(f"{parsed[1]}-{parsed[0]}")
+    return ", ".join(parts)
+
+
+def should_flip_official_team_order(
+    official_team_codes: tuple[str, str] | None,
+    display_team_codes: tuple[str | None, str | None],
+) -> bool:
+    if official_team_codes is None:
+        return False
+    display_left, display_right = display_team_codes
+    if not display_left or not display_right:
+        return False
+    return official_team_codes[0] == display_right and official_team_codes[1] == display_left
+
+
 def unit_status_priority(unit: dict, official_result_codes: set[str]) -> int:
+    base_priority = {
+        "completed": 40,
+        "walkover": 40,
+        "live": 30,
+        "scheduled": 20,
+        "cancelled": 10,
+    }.get(normalize_status(unit.get("ScheduleStatus")), 0)
     code = normalize_external_match_code(unit.get("Code"))
     if code and code in official_result_codes:
-        return 5
-    return {
-        "completed": 4,
-        "walkover": 4,
-        "live": 3,
-        "scheduled": 2,
-        "cancelled": 1,
-    }.get(normalize_status(unit.get("ScheduleStatus")), 0)
+        base_priority += 1
+    return base_priority
 
 
 def unit_completeness(unit: dict) -> int:
@@ -457,6 +558,7 @@ def replace_match_sides(
     starts: list[dict],
     entry_ids: dict[tuple[str, str, str], int],
     player_ids: dict[int, int],
+    winner_side: str | None,
 ) -> tuple[int, int]:
     cursor.execute(
         """
@@ -484,7 +586,7 @@ def replace_match_sides(
             INSERT INTO event_schedule_match_sides (
                 schedule_match_id, side_no, entry_id, placeholder_text,
                 team_code, seed, qualifier, is_winner
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, 0)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 schedule_match_id,
@@ -494,6 +596,7 @@ def replace_match_sides(
                 competitor.get("Organization"),
                 int_or_none(competitor.get("Seed")),
                 bool_to_int(competitor.get("Qualifier")),
+                1 if winner_side == ("A" if side_no == 1 else "B") else 0,
             ),
         )
         schedule_side_id = int(cursor.lastrowid)
@@ -623,13 +726,20 @@ def insert_matches(
     entry_ids: dict[tuple[str, str, str], int],
     player_ids: dict[int, int],
     tz_name: str | None,
-    official_result_codes: set[str],
+    official_results: dict[str, dict],
 ) -> dict:
-    existing_match_ids = {
-        normalize_external_match_code(row[0]): int(row[1])
+    official_result_codes = set(official_results)
+    existing_matches = {
+        normalize_external_match_code(row[0]): {
+            "schedule_match_id": int(row[1]),
+            "status": row[2],
+            "match_score": row[3],
+            "games": row[4],
+            "winner_side": row[5],
+        }
         for row in cursor.execute(
             """
-            SELECT external_match_code, schedule_match_id
+            SELECT external_match_code, schedule_match_id, status, match_score, games, winner_side
             FROM event_schedule_matches
             WHERE event_id = ?
               AND external_match_code IS NOT NULL
@@ -653,11 +763,43 @@ def insert_matches(
         local_at, utc_at = to_local_and_utc(unit.get("StartDate"), tz_name)
         raw_status = unit.get("ScheduleStatus")
         code = normalize_external_match_code(unit.get("Code"))
-        status = "completed" if code and code in official_result_codes else normalize_status(raw_status)
+        official = official_results.get(code)
+        status = "completed" if official else normalize_status(raw_status)
         table_no = unit.get("Location")
         session_label = text_value(unit.get("ItemName")) or text_value(unit.get("ItemDescription"))
+        starts = ((unit.get("StartList") or {}).get("Start") or [])
+        side_team_codes = tuple(
+            ((start.get("Competitor") or {}).get("Organization") if isinstance(start, dict) else None)
+            for start in starts[:2]
+        )
+        flip_score = (
+            should_flip_official_team_order(official.get("team_codes"), side_team_codes)
+            if official
+            else False
+        )
+        match_score = reverse_score_label(official.get("match_score")) if official and flip_score else (official.get("match_score") if official else None)
+        games = reverse_games_label(official.get("games")) if official and flip_score else (official.get("games") if official else None)
+        winner_side = None
+        if official and official.get("winner_code"):
+            winner_code = official["winner_code"]
+            if len(side_team_codes) >= 1 and winner_code == side_team_codes[0]:
+                winner_side = "A"
+            elif len(side_team_codes) >= 2 and winner_code == side_team_codes[1]:
+                winner_side = "B"
 
-        schedule_match_id = existing_match_ids.get(code) if code else None
+        existing = existing_matches.get(code) if code else None
+        if (
+            existing
+            and not official
+            and existing["status"] in {"completed", "walkover"}
+            and status not in {"completed", "walkover", "cancelled"}
+        ):
+            status = existing["status"]
+            match_score = existing["match_score"]
+            games = existing["games"]
+            winner_side = existing["winner_side"]
+
+        schedule_match_id = existing["schedule_match_id"] if existing else None
         if schedule_match_id is None:
             cursor.execute(
                 """
@@ -667,7 +809,7 @@ def insert_matches(
                     session_label, venue_id, status, raw_schedule_status, match_score,
                     games, winner_side, promoted_match_id, last_synced_at
                 ) VALUES (
-                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, NULL, NULL, NULL, NULL,
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, NULL,
                     datetime('now')
                 )
                 """,
@@ -684,11 +826,20 @@ def insert_matches(
                     session_label,
                     status,
                     raw_status,
+                    match_score,
+                    games,
+                    winner_side,
                 ),
             )
             schedule_match_id = int(cursor.lastrowid)
             if code:
-                existing_match_ids[code] = schedule_match_id
+                existing_matches[code] = {
+                    "schedule_match_id": schedule_match_id,
+                    "status": status,
+                    "match_score": match_score,
+                    "games": games,
+                    "winner_side": winner_side,
+                }
         else:
             cursor.execute(
                 """
@@ -704,6 +855,9 @@ def insert_matches(
                     session_label = ?,
                     status = ?,
                     raw_schedule_status = ?,
+                    match_score = ?,
+                    games = ?,
+                    winner_side = ?,
                     last_synced_at = datetime('now')
                 WHERE schedule_match_id = ?
                 """,
@@ -719,12 +873,22 @@ def insert_matches(
                     session_label,
                     status,
                     raw_status,
+                    match_score,
+                    games,
+                    winner_side,
                     schedule_match_id,
                 ),
             )
+            if code:
+                existing_matches[code] = {
+                    "schedule_match_id": schedule_match_id,
+                    "status": status,
+                    "match_score": match_score,
+                    "games": games,
+                    "winner_side": winner_side,
+                }
         match_count += 1
 
-        starts = ((unit.get("StartList") or {}).get("Start") or [])
         inserted_sides, inserted_side_players = replace_match_sides(
             cursor,
             schedule_match_id,
@@ -733,6 +897,7 @@ def insert_matches(
             starts,
             entry_ids,
             player_ids,
+            winner_side,
         )
         side_count += inserted_sides
         side_player_count += inserted_side_players
@@ -754,8 +919,7 @@ def collect_player_if_ids(entries: dict[tuple[str, str, str], dict]) -> set[int]
     return ids
 
 
-def snapshot_raw_files(raw_root: Path, event_id: int) -> Path:
-    event_dir = raw_root / str(event_id)
+def snapshot_raw_files(event_dir: Path) -> Path:
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     snapshot_dir = event_dir / "snapshots" / timestamp
     snapshot_dir.mkdir(parents=True, exist_ok=True)
@@ -803,25 +967,30 @@ def import_event(
     raw_root: Path,
     mapping: dict,
     *,
+    event_dir: Path | None,
     dry_run: bool,
 ) -> dict:
     event = get_event(cursor, event_id)
     if event is None:
         return {"event_id": event_id, "error": "events row not found"}
 
-    schedule_path = raw_root / str(event_id) / "GetEventSchedule.json"
+    resolved_event_dir = event_dir or (raw_root / str(event_id))
+    schedule_path = resolved_event_dir / "GetEventSchedule.json"
     if not schedule_path.exists():
         return {"event_id": event_id, "error": f"missing {schedule_path}"}
 
     ensure_import_schema(cursor, mapping)
     units = load_units(schedule_path)
-    official_result_codes = load_official_result_codes(raw_root, event_id)
+    official_results = load_official_results(resolved_event_dir)
+    official_result_codes = set(official_results)
     deduped_units = dedupe_units(units, official_result_codes)
     entries = collect_entries(deduped_units)
     player_ids = load_player_ids(cursor, collect_player_if_ids(entries))
     tz_name = infer_time_zone(event)
 
-    snapshot_dir = snapshot_raw_files(raw_root, event_id)
+    snapshot_dir = None
+    if event_dir is None:
+        snapshot_dir = snapshot_raw_files(resolved_event_dir)
     entry_ids = insert_entries(cursor, event_id, entries, player_ids)
     match_stats = insert_matches(
         cursor,
@@ -830,7 +999,7 @@ def import_event(
         entry_ids,
         player_ids,
         tz_name,
-        official_result_codes,
+        official_results,
     )
     maybe_set_event_time_zone(cursor, event_id, tz_name)
     maybe_advance_lifecycle(cursor, event_id)
@@ -842,7 +1011,8 @@ def import_event(
         "event_id": event_id,
         "name": event["name"],
         "time_zone": tz_name,
-        "snapshot_dir": str(snapshot_dir),
+        "source_dir": str(resolved_event_dir),
+        "snapshot_dir": str(snapshot_dir) if snapshot_dir else None,
         "units": len(units),
         "deduped_units": len(deduped_units),
         "entries": len(entry_ids),
@@ -858,6 +1028,7 @@ def main() -> int:
     parser.add_argument("--raw-root", type=Path, default=DEFAULT_RAW_ROOT)
     parser.add_argument("--mapping", type=Path, default=DEFAULT_MAPPING_PATH)
     parser.add_argument("--event", type=int, required=True)
+    parser.add_argument("--event-dir", type=Path, default=None, help="Import from an explicit raw JSON directory.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
@@ -880,6 +1051,7 @@ def main() -> int:
             args.event,
             args.raw_root,
             mapping,
+            event_dir=args.event_dir,
             dry_run=args.dry_run,
         )
         if "error" in result:

@@ -19,6 +19,7 @@ import sqlite3
 import subprocess
 import sys
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 
 if sys.platform == "win32":
@@ -29,6 +30,7 @@ RUNTIME_ROOT = Path(__file__).resolve().parents[1]
 PYTHON_ROOT = Path(__file__).resolve().parent
 DEFAULT_DB_PATH = RUNTIME_ROOT / "data" / "db" / "ittf.db"
 DEFAULT_RAW_ROOT = RUNTIME_ROOT / "data" / "wtt_raw"
+DEFAULT_MAPPING_PATH = RUNTIME_ROOT / "data" / "stage_round_mapping.json"
 SCRAPE_SCRIPT = PYTHON_ROOT / "scrape_wtt_event.py"
 IMPORT_SCRIPT = PYTHON_ROOT / "import_wtt_event.py"
 
@@ -132,10 +134,15 @@ def run_command(cmd: list[str], *, cwd: Path, verbose: bool) -> subprocess.Compl
     )
 
 
+def build_run_dir(raw_root: Path, event_id: int) -> Path:
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    return raw_root / str(event_id) / "runs" / timestamp
+
+
 def scrape_event(
     event: EventRow,
     *,
-    raw_root: Path,
+    run_dir: Path,
     sub_events: list[str],
     verbose: bool,
 ) -> tuple[bool, str | None]:
@@ -144,8 +151,8 @@ def scrape_event(
         str(SCRAPE_SCRIPT),
         "--event-id",
         str(event.event_id),
-        "--out-root",
-        str(raw_root),
+        "--out-dir",
+        str(run_dir),
         "--sub-events",
         *sub_events,
     ]
@@ -160,6 +167,8 @@ def import_event(
     *,
     db_path: Path,
     raw_root: Path,
+    mapping_path: Path,
+    event_dir: Path | None,
     dry_run: bool,
     verbose: bool,
 ) -> tuple[bool, str | None]:
@@ -172,7 +181,11 @@ def import_event(
         str(db_path),
         "--raw-root",
         str(raw_root),
+        "--mapping",
+        str(mapping_path),
     ]
+    if event_dir is not None:
+        cmd.extend(["--event-dir", str(event_dir)])
     if dry_run:
         cmd.append("--dry-run")
     if verbose:
@@ -189,6 +202,7 @@ def refresh_event(
     *,
     db_path: Path,
     raw_root: Path,
+    mapping_path: Path,
     sub_events: list[str],
     skip_scrape: bool,
     dry_run: bool,
@@ -200,14 +214,17 @@ def refresh_event(
         print("  dry-run: scrape/import commands will not change persisted data")
 
     scrape_ok: bool | None = None
+    event_dir: Path | None = None
     if skip_scrape:
         print("  scrape: skipped")
     elif dry_run:
         print("  scrape: dry-run skipped")
         scrape_ok = None
     else:
+        event_dir = build_run_dir(raw_root, event.event_id)
+        print(f"  scrape dir: {event_dir}")
         print("  scrape: running")
-        scrape_ok, err = scrape_event(event, raw_root=raw_root, sub_events=sub_events, verbose=verbose)
+        scrape_ok, err = scrape_event(event, run_dir=event_dir, sub_events=sub_events, verbose=verbose)
         if not scrape_ok:
             print("  scrape: failed")
             return EventResult(event.event_id, event.name, scrape_ok, None, error=err)
@@ -218,6 +235,8 @@ def refresh_event(
         event,
         db_path=db_path,
         raw_root=raw_root,
+        mapping_path=mapping_path,
+        event_dir=event_dir,
         dry_run=dry_run,
         verbose=verbose,
     )
@@ -259,6 +278,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Daily refresh for WTT upcoming event schedules.")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--raw-root", type=Path, default=DEFAULT_RAW_ROOT)
+    parser.add_argument("--mapping", type=Path, default=DEFAULT_MAPPING_PATH)
     parser.add_argument("--event", type=int, default=None, help="Refresh one event_id only.")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--skip-scrape", action="store_true", help="Reuse existing data/wtt_raw JSON.")
@@ -281,6 +301,9 @@ def main() -> int:
     if not IMPORT_SCRIPT.exists():
         print(f"Import script not found: {IMPORT_SCRIPT}", file=sys.stderr)
         return 1
+    if not args.mapping.exists():
+        print(f"Mapping file not found: {args.mapping}", file=sys.stderr)
+        return 1
 
     events = get_events(args.db, event_id=args.event, limit=args.limit)
     if not events:
@@ -294,6 +317,7 @@ def main() -> int:
             event,
             db_path=args.db,
             raw_root=args.raw_root,
+            mapping_path=args.mapping,
             sub_events=args.sub_events,
             skip_scrape=args.skip_scrape,
             dry_run=args.dry_run,
