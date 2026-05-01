@@ -86,10 +86,15 @@ else
     log "使用 venv 解释器: ${PYTHON_BIN}"
 fi
 
-BACKUP_FILE="${BACKUP_DIR}/ittf-pre-event-refresh-$(date +%Y%m%d_%H%M%S).db"
+BACKUP_DATE="$(date +%Y%m%d)"
+BACKUP_FILE="${BACKUP_DIR}/ittf-pre-event-refresh-${BACKUP_DATE}.db"
 
-log "生成刷新前 SQLite 备份"
-sqlite3 "${DB_PATH}" ".backup ${BACKUP_FILE}"
+if [[ -f "${BACKUP_FILE}" ]]; then
+    log "跳过 SQLite 备份（今日已存在 ${BACKUP_FILE}）"
+else
+    log "生成刷新前 SQLite 备份"
+    sqlite3 "${DB_PATH}" ".backup ${BACKUP_FILE}"
+fi
 find "${BACKUP_DIR}" -name 'ittf-pre-event-refresh-*.db' -mtime +"${RETENTION_DAYS}" -delete
 
 log "回填 events_calendar.event_id 并补齐 events"
