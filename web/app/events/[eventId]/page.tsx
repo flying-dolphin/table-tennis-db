@@ -650,6 +650,9 @@ function scheduleStatusMeta(status: string) {
   if (normalized === "live") {
     return { label: "进行中", className: "bg-rose-50 text-rose-700 ring-rose-100" };
   }
+  if (normalized === "pending_update") {
+    return { label: "待更新", className: "bg-amber-50 text-amber-700 ring-amber-100" };
+  }
   if (normalized === "cancelled") {
     return { label: "已取消", className: "bg-slate-100 text-slate-500 ring-slate-200" };
   }
@@ -657,6 +660,26 @@ function scheduleStatusMeta(status: string) {
     return { label: "退赛", className: "bg-amber-50 text-amber-700 ring-amber-100" };
   }
   return { label: "未开始", className: "bg-blue-50 text-[#2d6cf6] ring-blue-100" };
+}
+
+function resolveScheduleDisplayStatus(match: EventScheduleMatch) {
+  const normalized = match.status.toLowerCase();
+  const isNotStarted =
+    normalized === "scheduled" ||
+    normalized === "not_started" ||
+    normalized === "pending" ||
+    normalized === "upcoming";
+
+  if (!isNotStarted || !match.scheduledUtcAt) {
+    return match.status;
+  }
+
+  const scheduledAt = new Date(match.scheduledUtcAt);
+  if (Number.isNaN(scheduledAt.getTime())) {
+    return match.status;
+  }
+
+  return scheduledAt.getTime() < Date.now() ? "pending_update" : match.status;
 }
 
 function scheduleRoundLabel(match: EventScheduleMatch) {
@@ -1144,7 +1167,7 @@ function ScheduleMatchCard({
   eventReturnHref: string;
 }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
-  const meta = scheduleStatusMeta(match.status);
+  const meta = scheduleStatusMeta(resolveScheduleDisplayStatus(match));
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
   const sideRows = [sideA, sideB].filter(Boolean);
   const beijingTimeLabel = showBeijingTime ? formatBeijingTimeLabel(match.scheduledUtcAt) : null;
