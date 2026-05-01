@@ -921,10 +921,9 @@ def collect_player_if_ids(entries: dict[tuple[str, str, str], dict]) -> set[int]
     return ids
 
 
-def snapshot_raw_files(raw_root: Path, event_id: int) -> Path:
-    event_dir = raw_root / str(event_id)
+def snapshot_raw_files(event_dir: Path, snapshots_dir: Path) -> Path:
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    snapshot_dir = event_dir / "snapshots" / timestamp
+    snapshot_dir = snapshots_dir / timestamp
     snapshot_dir.mkdir(parents=True, exist_ok=True)
     for path in event_dir.glob("*.json"):
         shutil.copy2(path, snapshot_dir / path.name)
@@ -970,13 +969,15 @@ def import_event(
     raw_root: Path,
     mapping: dict,
     *,
+    snapshots_dir: Path | None,
     dry_run: bool,
 ) -> dict:
     event = get_event(cursor, event_id)
     if event is None:
         return {"event_id": event_id, "error": "events row not found"}
 
-    schedule_path = raw_root / str(event_id) / "GetEventSchedule.json"
+    event_dir = raw_root / str(event_id)
+    schedule_path = event_dir / "GetEventSchedule.json"
     if not schedule_path.exists():
         return {"event_id": event_id, "error": f"missing {schedule_path}"}
 
@@ -989,7 +990,7 @@ def import_event(
     player_ids = load_player_ids(cursor, collect_player_if_ids(entries))
     tz_name = infer_time_zone(event)
 
-    snapshot_dir = snapshot_raw_files(raw_root, event_id)
+    snapshot_dir = snapshot_raw_files(event_dir, snapshots_dir) if snapshots_dir else None
     entry_ids = insert_entries(cursor, event_id, entries, player_ids)
     match_stats = insert_matches(
         cursor,
@@ -1010,7 +1011,7 @@ def import_event(
         "event_id": event_id,
         "name": event["name"],
         "time_zone": tz_name,
-        "snapshot_dir": str(snapshot_dir),
+        "snapshot_dir": str(snapshot_dir) if snapshot_dir else None,
         "units": len(units),
         "deduped_units": len(deduped_units),
         "entries": len(entry_ids),
@@ -1026,6 +1027,7 @@ def main() -> int:
     parser.add_argument("--raw-root", type=Path, default=DEFAULT_RAW_ROOT)
     parser.add_argument("--mapping", type=Path, default=DEFAULT_MAPPING_PATH)
     parser.add_argument("--event", type=int, required=True)
+    parser.add_argument("--snapshots-dir", type=Path, default=None, help="Write raw JSON snapshots into this directory.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
@@ -1048,6 +1050,7 @@ def main() -> int:
             args.event,
             args.raw_root,
             mapping,
+            snapshots_dir=args.snapshots_dir,
             dry_run=args.dry_run,
         )
         if "error" in result:

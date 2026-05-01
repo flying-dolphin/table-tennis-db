@@ -919,9 +919,9 @@ def collect_player_if_ids(entries: dict[tuple[str, str, str], dict]) -> set[int]
     return ids
 
 
-def snapshot_raw_files(event_dir: Path) -> Path:
+def snapshot_raw_files(event_dir: Path, snapshots_dir: Path) -> Path:
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    snapshot_dir = event_dir / "snapshots" / timestamp
+    snapshot_dir = snapshots_dir / timestamp
     snapshot_dir.mkdir(parents=True, exist_ok=True)
     for path in event_dir.glob("*.json"):
         shutil.copy2(path, snapshot_dir / path.name)
@@ -968,6 +968,7 @@ def import_event(
     mapping: dict,
     *,
     event_dir: Path | None,
+    snapshots_dir: Path | None,
     dry_run: bool,
 ) -> dict:
     event = get_event(cursor, event_id)
@@ -988,9 +989,7 @@ def import_event(
     player_ids = load_player_ids(cursor, collect_player_if_ids(entries))
     tz_name = infer_time_zone(event)
 
-    snapshot_dir = None
-    if event_dir is None:
-        snapshot_dir = snapshot_raw_files(resolved_event_dir)
+    snapshot_dir = snapshot_raw_files(resolved_event_dir, snapshots_dir) if snapshots_dir else None
     entry_ids = insert_entries(cursor, event_id, entries, player_ids)
     match_stats = insert_matches(
         cursor,
@@ -1029,6 +1028,7 @@ def main() -> int:
     parser.add_argument("--mapping", type=Path, default=DEFAULT_MAPPING_PATH)
     parser.add_argument("--event", type=int, required=True)
     parser.add_argument("--event-dir", type=Path, default=None, help="Import from an explicit raw JSON directory.")
+    parser.add_argument("--snapshots-dir", type=Path, default=None, help="Write raw JSON snapshots into this directory.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
@@ -1052,6 +1052,7 @@ def main() -> int:
             args.raw_root,
             mapping,
             event_dir=args.event_dir,
+            snapshots_dir=args.snapshots_dir,
             dry_run=args.dry_run,
         )
         if "error" in result:
