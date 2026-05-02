@@ -9,6 +9,8 @@
 - `scripts/migrate.ts`：按 `scripts/db/schema.sql` 初始化数据库
 - `scripts/seed.ts`：已废弃，正式入库请使用 `scripts/db/import*.py`
 
+当前赛事页小组积分表会优先读取数据库中的 `event_group_standings`，缺失时才回退到按 `event_schedule_matches` 现场重算。
+
 ## 页面规划
 
 - `/`：女子单打 TOP 50 榜单，带移动端卡片式展示
@@ -29,6 +31,18 @@ npm run dev
 ```
 
 数据库正式初始化与导入请使用 `scripts/db/*.py`。
+
+如果近期新增了赛事积分表相关字段或表，先重新执行：
+
+```bash
+npm run db:migrate
+```
+
+WTT 团体赛官方积分表导入脚本：
+
+```bash
+python scripts/db/import_wtt_pool_standings.py --input-dir data/live_event_data/<eventId>/group_standings/<stage_slug>
+```
 
 ## 环境变量
 

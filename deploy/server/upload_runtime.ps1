@@ -27,29 +27,41 @@ $files = @(
         Remote = "$RemoteOpsDir/runtime/data/stage_round_mapping.json"
     },
     @{
-        Local  = (Join-Path $RepoRoot "deploy\server\runtime\python\backfill_events_calendar_event_id.py")
+        Local  = (Join-Path $RepoRoot "scripts\runtime\backfill_events_calendar_event_id.py")
         Remote = "$RemoteOpsDir/runtime/python/backfill_events_calendar_event_id.py"
     },
     @{
-        Local  = (Join-Path $RepoRoot "deploy\server\runtime\python\import_session_schedule.py")
+        Local  = (Join-Path $RepoRoot "scripts\runtime\import_session_schedule.py")
         Remote = "$RemoteOpsDir/runtime/python/import_session_schedule.py"
     },
     @{
-        Local  = (Join-Path $RepoRoot "deploy\server\runtime\python\import_wtt_event.py")
+        Local  = (Join-Path $RepoRoot "scripts\runtime\import_wtt_event.py")
         Remote = "$RemoteOpsDir/runtime/python/import_wtt_event.py"
     },
     @{
-        Local  = (Join-Path $RepoRoot "deploy\server\runtime\python\refresh_event_results_daily.py")
-        Remote = "$RemoteOpsDir/runtime/python/refresh_event_results_daily.py"
+        Local  = (Join-Path $RepoRoot "scripts\runtime\event_refresh.py")
+        Remote = "$RemoteOpsDir/runtime/python/event_refresh.py"
     },
     @{
-        Local  = (Join-Path $RepoRoot "deploy\server\runtime\python\scrape_wtt_event.py")
+        Local  = (Join-Path $RepoRoot "scripts\runtime\scrape_wtt_event.py")
         Remote = "$RemoteOpsDir/runtime/python/scrape_wtt_event.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\runtime\scrape_wtt_pool_standings.py")
+        Remote = "$RemoteOpsDir/runtime/python/scrape_wtt_pool_standings.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\runtime\import_wtt_pool_standings.py")
+        Remote = "$RemoteOpsDir/runtime/python/import_wtt_pool_standings.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\runtime\lib\browser_runtime.py")
+        Remote = "$RemoteOpsDir/runtime/python/lib/browser_runtime.py"
     }
 )
 
 Write-Host "Creating remote directories on $ServerHost ..."
-& ssh $ServerHost "mkdir -p '$RemoteOpsDir' '$RemoteOpsDir/runtime' '$RemoteOpsDir/runtime/data' '$RemoteOpsDir/runtime/python'"
+& ssh $ServerHost "mkdir -p '$RemoteOpsDir' '$RemoteOpsDir/runtime' '$RemoteOpsDir/runtime/data' '$RemoteOpsDir/runtime/python' '$RemoteOpsDir/runtime/python/lib'"
 
 foreach ($file in $files) {
     if (-not (Test-Path -LiteralPath $file.Local)) {

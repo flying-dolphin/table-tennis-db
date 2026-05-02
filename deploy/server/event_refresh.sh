@@ -11,7 +11,7 @@
 #
 # 外部数据目录结构（默认 /opt/ittf-data）：
 #   /opt/ittf-data/db/ittf.db
-#   /opt/ittf-data/wtt_raw/
+#   /opt/ittf-data/live_event_data/
 #   /opt/ittf-data/event_schedule/   (可选)
 
 set -euo pipefail
@@ -26,7 +26,7 @@ VENV_PATH=${VENV_PATH:-/opt/ittf-venv}
 BACKUP_DIR=${BACKUP_DIR:-${ITTF_DATA_DIR}/db/backups}
 RETENTION_DAYS=${RETENTION_DAYS:-30}
 EVENT_SCHEDULE_DIR=${EVENT_SCHEDULE_DIR:-${ITTF_DATA_DIR}/event_schedule}
-RAW_ROOT=${RAW_ROOT:-${ITTF_DATA_DIR}/wtt_raw}
+LIVE_EVENT_DATA_DIR=${LIVE_EVENT_DATA_DIR:-${ITTF_DATA_DIR}/live_event_data}
 
 timestamp() {
     date '+%F %T'
@@ -54,14 +54,14 @@ require_command() {
 
 require_command sqlite3
 require_file "${RUNTIME_DIR}"
-require_file "${RUNTIME_DIR}/python/refresh_event_results_daily.py"
+require_file "${RUNTIME_DIR}/python/event_refresh.py"
 require_file "${RUNTIME_DIR}/python/backfill_events_calendar_event_id.py"
 require_file "${RUNTIME_DIR}/python/import_session_schedule.py"
 require_file "${RUNTIME_DIR}/data/stage_round_mapping.json"
 require_file "${DB_PATH}"
 
 mkdir -p "${BACKUP_DIR}"
-mkdir -p "${RAW_ROOT}"
+mkdir -p "${LIVE_EVENT_DATA_DIR}"
 
 cd "${SCRIPT_DIR}"
 export DB_PATH
@@ -108,6 +108,6 @@ else
 fi
 
 log "刷新进行中 / 已发布签表赛事"
-"${PYTHON_BIN}" "${RUNTIME_DIR}/python/refresh_event_results_daily.py" --db "${DB_PATH}" --raw-root "${RAW_ROOT}"
+"${PYTHON_BIN}" "${RUNTIME_DIR}/python/event_refresh.py" --db "${DB_PATH}" --live-event-data-root "${LIVE_EVENT_DATA_DIR}"
 
 log "完成"

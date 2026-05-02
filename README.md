@@ -4,6 +4,8 @@
 
 第一期仅限女子单打
 
+当前赛事链路已包含 WTT 团体赛进行中的赛程导入，以及 Stage Groups 页官方积分表导入。
+
 ## 产品功能
 
 - 首页：展示世界排名、赛事日程，以及暂未开放的搜索入口（首页弹框提示“稍后开放，敬请期待”）
@@ -58,6 +60,25 @@ python scripts/scrape_matches.py --players-file data/women_singles_top50.json
 ```bash
 python scripts/ittf_rankings_updater.py
 ```
+
+### 5. 抓取团体赛官方积分表
+
+独立无头分析抓取：
+
+```bash
+python scripts/scrape_wtt_pool_standings.py --event-id 3216 --stage-label "Stage 1B(Groups)" --verbose
+```
+
+导入到 SQLite 当前积分表：
+
+```bash
+python scripts/db/import_wtt_pool_standings.py --input-dir data/live_event_data/3216/group_standings/<stage_slug>
+```
+
+如果需要走完整的赛事刷新链路，`scripts/runtime/event_refresh.py` 现在会在赛程导入后自动追加：
+
+- `Stage 1B(Groups)` 官方积分表抓取与导入
+- `Stage 1A(Groups)` 官方积分表抓取与导入
 
 ## 依赖
 

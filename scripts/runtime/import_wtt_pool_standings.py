@@ -55,15 +55,22 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def canonical_stage_label(stage_label: str) -> str:
+    normalized = stage_label.strip()
+    if "groups" in normalized.lower():
+        return "Groups"
+    return normalized
+
+
 def infer_stage_label(input_dir: Path, explicit: str | None) -> str:
     if explicit:
-        return explicit
+        return canonical_stage_label(explicit)
     summary_path = input_dir / "capture_summary.json"
     if summary_path.exists():
         summary = load_json(summary_path)
         stage_label = summary.get("stage_label")
         if isinstance(stage_label, str) and stage_label.strip():
-            return stage_label.strip()
+            return canonical_stage_label(stage_label)
     raise ValueError("stage_label is required when capture_summary.json is missing or incomplete")
 
 

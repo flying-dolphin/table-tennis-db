@@ -22,8 +22,8 @@ from lib.browser_runtime import close_browser_page, open_browser_page
 
 logger = logging.getLogger(__name__)
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_OUTPUT_ROOT = PROJECT_ROOT / "data" / "wtt_pool_standings_analysis"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
 GROUPS_URL_TEMPLATE = (
     "https://www.worldtabletennis.com/teamseventInfo"
     "?selectedTab={stage_label}&eventId={event_id}"
@@ -33,6 +33,20 @@ TARGET_CODES = ("MTEAM", "WTEAM")
 
 def utc_now_compact() -> str:
     return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def stage_slug(stage_label: str) -> str:
+    slug = "".join(ch.lower() if ch.isalnum() else "_" for ch in stage_label).strip("_")
+    while "__" in slug:
+        slug = slug.replace("__", "_")
+    return slug or "unknown_stage"
+
+
+def canonical_stage_label(stage_label: str) -> str:
+    normalized = stage_label.strip()
+    if "groups" in normalized.lower():
+        return "Groups"
+    return normalized
 
 
 def configure_logging(verbose: bool) -> None:
@@ -247,15 +261,16 @@ def write_outputs(run_dir: Path, captures: dict[str, dict[str, Any]], meta: dict
 
 def analyze_event(
     event_id: int,
-    output_root: Path,
+    live_event_data_root: Path,
     *,
     stage_label: str,
     headless: bool,
     cdp_port: int,
     use_cdp: bool,
 ) -> int:
-    run_dir = output_root / str(event_id) / utc_now_compact()
-    run_dir.mkdir(parents=True, exist_ok=True)
+    canonical_label = canonical_stage_label(stage_label)
+    output_dir = live_event_data_root / str(event_id) / "group_standings" / stage_slug(canonical_label)
+    output_dir.mkdir(parents=True, exist_ok=True)
     url = GROUPS_URL_TEMPLATE.format(event_id=event_id, stage_label=stage_label)
 
     try:
@@ -300,13 +315,14 @@ def analyze_event(
 
             meta = {
                 "event_id": event_id,
-                "stage_label": stage_label,
+                "stage_label": canonical_label,
                 "page_url": url,
+                "output_dir": str(output_dir),
                 "captured_codes": sorted(captures.keys()),
                 "captured_urls": {code: captures[code]["requested_url"] for code in sorted(captures)},
             }
-            write_outputs(run_dir, captures, meta)
-            logger.info("Saved pool standings analysis to %s", run_dir)
+            write_outputs(output_dir, captures, meta)
+            logger.info("Saved pool standings analysis to %s", output_dir)
         finally:
             close_browser_page(via_cdp, browser, page)
 
@@ -316,8 +332,9 @@ def analyze_event(
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Capture WTT pool standings via Stage Groups page.")
     parser.add_argument("--event-id", type=int, required=True)
-    parser.add_argument("--stage-label", default="Stage 1B(Groups)", help="Page tab label, e.g. 'Stage 1B(Groups)' or 'Stage 1A(Groups)'.")
-    parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
+    parser.add_argument("--stage-label", default="Groups", help="Page tab label for group standings capture. Stored stage label is normalized to 'Groups'.")
+    parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
+    parser.add_argument("--output-root", dest="legacy_output_root", type=Path, default=None, help=argparse.SUPPRESS)
     parser.add_argument("--headless", action="store_true", default=True)
     parser.add_argument("--cdp-port", type=int, default=9222)
     parser.add_argument("--use-cdp", action="store_true", help="Reuse existing Chrome via CDP instead of launching a fresh browser.")
@@ -331,7 +348,7 @@ def main() -> int:
     configure_logging(args.verbose)
     return analyze_event(
         args.event_id,
-        args.output_root.resolve(),
+        (args.legacy_output_root.resolve() if args.legacy_output_root else args.live_event_data_root.resolve()),
         stage_label=str(args.stage_label),
         headless=bool(args.headless),
         cdp_port=args.cdp_port,

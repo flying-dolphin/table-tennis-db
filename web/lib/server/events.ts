@@ -303,6 +303,25 @@ type StageStanding = {
   tiePoints?: number;
   scoreFor?: number;
   scoreAgainst?: number;
+  qualificationMark?: string | null;
+};
+
+type ImportedGroupStandingRow = {
+  stageLabel: string;
+  teamCode: string;
+  groupCode: string;
+  organizationCode: string;
+  qualificationMark: string | null;
+  played: number | null;
+  won: number | null;
+  lost: number | null;
+  result: number | null;
+  rank: number | null;
+  scoreFor: number | null;
+  scoreAgainst: number | null;
+  gamesWon: number | null;
+  gamesLost: number | null;
+  playersJson: string | null;
 };
 
 type RoundRobinStageGroup = {
@@ -457,7 +476,66 @@ function buildStageStanding(teamCode: string, rank: number): StageStanding {
     teamCode,
     teamName: teamCode,
     teamNameZh: null,
+    qualificationMark: null,
   };
+}
+
+function hasEventGroupStandingsTable() {
+  const row = db
+    .prepare(
+      `
+        SELECT 1
+        FROM sqlite_master
+        WHERE type = 'table' AND name = 'event_group_standings'
+        LIMIT 1
+      `,
+    )
+    .get() as { 1?: number } | undefined;
+  return Boolean(row);
+}
+
+function eventTeamCodeFromSubEventCode(subEventCode: string) {
+  switch (subEventCode) {
+    case 'MT':
+      return 'MTEAM';
+    case 'WT':
+      return 'WTEAM';
+    default:
+      return null;
+  }
+}
+
+function loadImportedGroupStandings(eventId: number, subEventCode: string) {
+  const teamCode = eventTeamCodeFromSubEventCode(subEventCode);
+  if (!teamCode || !hasEventGroupStandingsTable()) return [] as ImportedGroupStandingRow[];
+
+  return db
+    .prepare(
+      `
+        SELECT
+          stage_label AS stageLabel,
+          team_code AS teamCode,
+          group_code AS groupCode,
+          organization_code AS organizationCode,
+          qualification_mark AS qualificationMark,
+          qualification_mark AS qualification_mark,
+          played,
+          won,
+          lost,
+          result,
+          rank,
+          score_for AS scoreFor,
+          score_against AS scoreAgainst,
+          games_won AS gamesWon,
+          games_lost AS gamesLost,
+          players_json AS playersJson
+        FROM event_group_standings
+        WHERE event_id = ?
+          AND team_code = ?
+        ORDER BY stage_label ASC, group_code ASC, rank ASC, organization_code ASC
+      `,
+    )
+    .all(eventId, teamCode) as ImportedGroupStandingRow[];
 }
 
 type OfficialScheduleResult = {
@@ -1332,16 +1410,18 @@ function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): Event
 }
 
 function buildLiveGroupStageView(
+  eventId: number,
   subEventCode: string,
   scheduleMatches: EventScheduleMatch[],
   officialResults: Map<string, OfficialScheduleResult>,
 ): EventRoundRobinView | null {
+  const importedRows = loadImportedGroupStandings(eventId, subEventCode);
   const groupStageMatches = scheduleMatches.filter(
     (match) =>
       match.subEventTypeCode === subEventCode &&
       (match.groupCode != null || match.stageCode === 'PRELIMINARY' || match.roundCode.startsWith('G')),
   );
-  if (groupStageMatches.length === 0) return null;
+  if (groupStageMatches.length === 0 && importedRows.length === 0) return null;
 
   const tiesByGroup = new Map<string, TeamTie[]>();
   for (const match of groupStageMatches) {
@@ -1378,6 +1458,63 @@ function buildLiveGroupStageView(
     const current = tiesByGroup.get(groupCode) ?? [];
     current.push(tie);
     tiesByGroup.set(groupCode, current);
+  }
+
+  if (importedRows.length > 0) {
+    const rowsByStage = new Map<string, Map<string, ImportedGroupStandingRow[]>>();
+    for (const row of importedRows) {
+      const stageGroups = rowsByStage.get(row.stageLabel) ?? new Map<string, ImportedGroupStandingRow[]>();
+      const groupRows = stageGroups.get(row.groupCode) ?? [];
+      groupRows.push(row);
+      stageGroups.set(row.groupCode, groupRows);
+      rowsByStage.set(row.stageLabel, stageGroups);
+    }
+
+    const stages: RoundRobinStage[] = Array.from(rowsByStage.entries()).map(([stageLabel, groupRows], stageIndex) => ({
+      code:
+        stageLabel.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toUpperCase() ||
+        `PRELIMINARY_${stageIndex + 1}`,
+      name: stageLabel,
+      nameZh: stageLabel,
+      format: 'group_round_robin',
+      groups: Array.from(groupRows.entries())
+        .sort((left, right) => left[0].localeCompare(right[0]))
+        .map(([groupCode, rows]) => {
+          const standings = rows
+            .slice()
+            .sort((left, right) => (left.rank ?? 999) - (right.rank ?? 999) || left.organizationCode.localeCompare(right.organizationCode))
+            .map((row) => ({
+              ...buildStageStanding(row.organizationCode, row.rank ?? 0),
+              rank: row.rank ?? 0,
+              matches: row.played ?? 0,
+              wins: row.won ?? 0,
+              losses: row.lost ?? 0,
+              tiePoints: row.result ?? 0,
+              scoreFor: row.scoreFor ?? 0,
+              scoreAgainst: row.scoreAgainst ?? 0,
+              qualificationMark: row.qualificationMark ?? (row as any).qualification_mark ?? null,
+            }));
+
+          return {
+            code: groupCode,
+            nameZh: `第 ${groupCode.replace(/^GP/, '')} 组`,
+            teams: standings.map((standing) => standing.teamCode),
+            ties: tiesByGroup.get(groupCode) ?? [],
+            standings,
+          };
+        }),
+    }));
+
+    return {
+      mode: 'staged_round_robin',
+      stages,
+      finalStandings: [],
+      podium: {
+        champion: null,
+        runnerUp: null,
+        thirdPlace: null,
+      },
+    };
   }
 
   if (tiesByGroup.size === 0) return null;
@@ -2186,7 +2323,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
     if (override && subEventCode === override.sub_event_type_code) return null;
     if (!isAutoTeamSubEvent(subEventCode)) return null;
     if (event.lifecycleStatus === 'completed') return null;
-    return buildLiveGroupStageView(subEventCode, scheduleMatches, officialScheduleResults);
+    return buildLiveGroupStageView(eventId, subEventCode, scheduleMatches, officialScheduleResults);
   };
 
   const teamKnockoutViewForSubEvent = (subEventCode: string): EventTeamKnockoutView | null => {

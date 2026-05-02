@@ -3,7 +3,9 @@
 """Import WTT event schedule JSON into upcoming-event tables.
 
 Input:
-    data/wtt_raw/{event_id}/GetEventSchedule.json
+    data/live_event_data/{event_id}/schedule/GetEventSchedule.json
+    data/live_event_data/{event_id}/match_results/GetOfficialResult.json
+    data/live_event_data/{event_id}/match_results/GetLiveResult.json
 
 Output:
     event_draw_entries
@@ -40,10 +42,10 @@ try:
     PROJECT_ROOT = Path(config.PROJECT_ROOT)
     DEFAULT_DB_PATH = Path(config.DB_PATH)
 except ImportError:
-    PROJECT_ROOT = Path(__file__).parent.parent.parent
+    PROJECT_ROOT = Path(__file__).resolve().parents[2]
     DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 
-DEFAULT_RAW_ROOT = PROJECT_ROOT / "data" / "wtt_raw"
+DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
 DEFAULT_MAPPING_PATH = PROJECT_ROOT / "data" / "stage_round_mapping.json"
 
 SUB_EVENT_MAP = {
@@ -151,10 +153,9 @@ def load_units(path: Path) -> list[dict]:
     return [u for u in units if isinstance(u, dict)]
 
 
-def load_official_result_codes(raw_root: Path, event_id: int) -> set[str]:
-    event_dir = raw_root / str(event_id)
+def load_official_result_codes(match_results_dir: Path) -> set[str]:
     for filename in ("GetOfficialResult.json", "GetOfficialResult_take10.json"):
-        path = event_dir / filename
+        path = match_results_dir / filename
         if not path.exists():
             continue
         with path.open("r", encoding="utf-8") as f:
@@ -174,10 +175,9 @@ def load_official_result_codes(raw_root: Path, event_id: int) -> set[str]:
     return set()
 
 
-def load_official_results(raw_root: Path, event_id: int) -> dict[str, dict]:
-    event_dir = raw_root / str(event_id)
+def load_official_results(match_results_dir: Path) -> dict[str, dict]:
     for filename in ("GetOfficialResult.json", "GetOfficialResult_take10.json"):
-        path = event_dir / filename
+        path = match_results_dir / filename
         if not path.exists():
             continue
         with path.open("r", encoding="utf-8") as f:
@@ -217,6 +217,43 @@ def load_official_results(raw_root: Path, event_id: int) -> dict[str, dict]:
             }
         return results
     return {}
+
+
+def load_live_results(match_results_dir: Path) -> dict[str, dict]:
+    path = match_results_dir / "GetLiveResult.json"
+    if not path.exists():
+        return {}
+
+    with path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    matches = data.get("matches") if isinstance(data, dict) else None
+    if not isinstance(matches, list):
+        return {}
+
+    results: dict[str, dict] = {}
+    for item in matches:
+        if not isinstance(item, dict):
+            continue
+        code = normalize_external_match_code(item.get("match_code"))
+        if not code:
+            continue
+
+        sides = item.get("sides") or []
+        team_codes = tuple(
+            side.get("organization")
+            for side in sides[:2]
+            if isinstance(side, dict) and side.get("organization")
+        )
+        results[code] = {
+            "team_codes": team_codes if len(team_codes) == 2 else None,
+            "match_score": item.get("score"),
+            "games": item.get("games"),
+            "winner_side": item.get("winner_side"),
+            "source_status": item.get("source_status"),
+            "sides": sides if isinstance(sides, list) else [],
+        }
+    return results
 
 
 def normalize_round(raw_round: str | None) -> RoundInfo:
@@ -448,6 +485,15 @@ def athlete_name(athlete: dict) -> str:
     return " ".join(part for part in (family, given) if part) or (athlete.get("Code") or "Unknown")
 
 
+def display_name_from_live_side(side: dict) -> str:
+    return (
+        side.get("display_name")
+        or side.get("organization")
+        or side.get("competitor_code")
+        or "TBD"
+    )
+
+
 def int_or_none(value: object) -> int | None:
     if value is None or value == "":
         return None
@@ -561,6 +607,7 @@ def replace_match_sides(
     entry_ids: dict[tuple[str, str, str], int],
     player_ids: dict[int, int],
     winner_side: str | None,
+    live_sides: list[dict] | None = None,
 ) -> tuple[int, int]:
     cursor.execute(
         """
@@ -577,11 +624,29 @@ def replace_match_sides(
 
     side_count = 0
     side_player_count = 0
-    for side_no, start in enumerate(starts[:2], start=1):
+    for side_no in range(1, 3):
+        start = starts[side_no - 1] if len(starts) >= side_no else {}
         competitor = start.get("Competitor") or {}
+        live_side = (
+            live_sides[side_no - 1]
+            if live_sides and len(live_sides) >= side_no and isinstance(live_sides[side_no - 1], dict)
+            else {}
+        )
+
         comp_code = (competitor.get("Code") or "").strip()
-        entry_id = entry_ids.get((sub_event, round_info.stage_code, comp_code))
-        placeholder = None if comp_code else competitor_name(competitor)
+        live_comp_code = (live_side.get("competitor_code") or "").strip()
+        effective_comp_code = comp_code or live_comp_code
+        entry_id = entry_ids.get((sub_event, round_info.stage_code, effective_comp_code))
+        placeholder = None if effective_comp_code else (
+            competitor_name(competitor) if competitor else display_name_from_live_side(live_side)
+        )
+        team_code = competitor.get("Organization") or live_side.get("organization")
+        seed = int_or_none(competitor.get("Seed"))
+        if seed is None:
+            seed = int_or_none(live_side.get("seed"))
+        qualifier = bool_to_int(competitor.get("Qualifier"))
+        if qualifier is None and live_side.get("qualifier") is not None:
+            qualifier = bool_to_int(live_side.get("qualifier"))
 
         cursor.execute(
             """
@@ -595,9 +660,9 @@ def replace_match_sides(
                 side_no,
                 entry_id,
                 placeholder,
-                competitor.get("Organization"),
-                int_or_none(competitor.get("Seed")),
-                bool_to_int(competitor.get("Qualifier")),
+                team_code,
+                seed,
+                qualifier,
                 1 if winner_side == ("A" if side_no == 1 else "B") else 0,
             ),
         )
@@ -605,24 +670,46 @@ def replace_match_sides(
         side_count += 1
 
         athletes = (((competitor.get("Composition") or {}).get("Athlete")) or [])
-        for player_order, athlete in enumerate(athletes, start=1):
-            desc = athlete.get("Description") or {}
-            if_id = int_or_none(desc.get("IfId") or athlete.get("Code"))
-            cursor.execute(
-                """
-                INSERT INTO event_schedule_match_side_players (
-                    schedule_side_id, player_order, player_id, player_name, player_country
-                ) VALUES (?, ?, ?, ?, ?)
-                """,
-                (
-                    schedule_side_id,
-                    player_order,
-                    player_ids.get(if_id) if if_id is not None else None,
-                    athlete_name(athlete),
-                    desc.get("Organization") or competitor.get("Organization"),
-                ),
-            )
-            side_player_count += 1
+        live_players = live_side.get("players") if isinstance(live_side, dict) else None
+        if athletes:
+            for player_order, athlete in enumerate(athletes, start=1):
+                desc = athlete.get("Description") or {}
+                if_id = int_or_none(desc.get("IfId") or athlete.get("Code"))
+                cursor.execute(
+                    """
+                    INSERT INTO event_schedule_match_side_players (
+                        schedule_side_id, player_order, player_id, player_name, player_country
+                    ) VALUES (?, ?, ?, ?, ?)
+                    """,
+                    (
+                        schedule_side_id,
+                        player_order,
+                        player_ids.get(if_id) if if_id is not None else None,
+                        athlete_name(athlete),
+                        desc.get("Organization") or team_code,
+                    ),
+                )
+                side_player_count += 1
+        elif isinstance(live_players, list):
+            for player_order, athlete in enumerate(live_players, start=1):
+                if not isinstance(athlete, dict):
+                    continue
+                if_id = int_or_none(athlete.get("if_id") or athlete.get("code"))
+                cursor.execute(
+                    """
+                    INSERT INTO event_schedule_match_side_players (
+                        schedule_side_id, player_order, player_id, player_name, player_country
+                    ) VALUES (?, ?, ?, ?, ?)
+                    """,
+                    (
+                        schedule_side_id,
+                        player_order,
+                        player_ids.get(if_id) if if_id is not None else None,
+                        athlete.get("name") or athlete.get("code") or "Unknown",
+                        athlete.get("organization") or team_code,
+                    ),
+                )
+                side_player_count += 1
 
     return side_count, side_player_count
 
@@ -729,6 +816,8 @@ def insert_matches(
     player_ids: dict[int, int],
     tz_name: str | None,
     official_results: dict[str, dict],
+    live_results: dict[str, dict],
+    result_sources: set[str],
 ) -> dict:
     official_result_codes = set(official_results)
     existing_matches = {
@@ -765,8 +854,9 @@ def insert_matches(
         local_at, utc_at = to_local_and_utc(unit.get("StartDate"), tz_name)
         raw_status = unit.get("ScheduleStatus")
         code = normalize_external_match_code(unit.get("Code"))
-        official = official_results.get(code)
-        status = "completed" if official else normalize_status(raw_status)
+        official = official_results.get(code) if "completed" in result_sources else None
+        live = live_results.get(code) if "live" in result_sources else None
+        status = "completed" if official else normalize_status(raw_status or (live.get("source_status") if live else None))
         table_no = unit.get("Location")
         session_label = text_value(unit.get("ItemName")) or text_value(unit.get("ItemDescription"))
         starts = ((unit.get("StartList") or {}).get("Start") or [])
@@ -779,9 +869,15 @@ def insert_matches(
             if official
             else False
         )
-        match_score = reverse_score_label(official.get("match_score")) if official and flip_score else (official.get("match_score") if official else None)
-        games = reverse_games_label(official.get("games")) if official and flip_score else (official.get("games") if official else None)
-        winner_side = None
+        if official:
+            match_score = reverse_score_label(official.get("match_score")) if flip_score else official.get("match_score")
+            games = reverse_games_label(official.get("games")) if flip_score else official.get("games")
+        else:
+            match_score = live.get("match_score") if live else None
+            live_games = live.get("games") if live else None
+            games = ", ".join(live_games) if isinstance(live_games, list) else live_games
+
+        winner_side = live.get("winner_side") if live else None
         if official and official.get("winner_code"):
             winner_code = official["winner_code"]
             if len(side_team_codes) >= 1 and winner_code == side_team_codes[0]:
@@ -795,6 +891,7 @@ def insert_matches(
             and not official
             and existing["status"] in {"completed", "walkover"}
             and status not in {"completed", "walkover", "cancelled"}
+            and "completed" not in result_sources
         ):
             status = existing["status"]
             match_score = existing["match_score"]
@@ -900,6 +997,7 @@ def insert_matches(
             entry_ids,
             player_ids,
             winner_side,
+            live.get("sides") if live else None,
         )
         side_count += inserted_sides
         side_player_count += inserted_side_players
@@ -966,9 +1064,10 @@ def maybe_set_event_time_zone(cursor: sqlite3.Cursor, event_id: int, tz_name: st
 def import_event(
     cursor: sqlite3.Cursor,
     event_id: int,
-    raw_root: Path,
+    live_event_data_root: Path,
     mapping: dict,
     *,
+    result_sources: set[str],
     snapshots_dir: Path | None,
     dry_run: bool,
 ) -> dict:
@@ -976,21 +1075,32 @@ def import_event(
     if event is None:
         return {"event_id": event_id, "error": "events row not found"}
 
-    event_dir = raw_root / str(event_id)
-    schedule_path = event_dir / "GetEventSchedule.json"
+    event_dir = live_event_data_root / str(event_id)
+    schedule_dir = event_dir / "schedule"
+    match_results_dir = event_dir / "match_results"
+    schedule_path = schedule_dir / "GetEventSchedule.json"
+    legacy_event_dir = live_event_data_root.parent / "wtt_raw" / str(event_id)
     if not schedule_path.exists():
-        return {"event_id": event_id, "error": f"missing {schedule_path}"}
+        legacy_schedule_path = legacy_event_dir / "GetEventSchedule.json"
+        if legacy_schedule_path.exists():
+            event_dir = legacy_event_dir
+            schedule_dir = legacy_event_dir
+            match_results_dir = legacy_event_dir
+            schedule_path = legacy_schedule_path
+        else:
+            return {"event_id": event_id, "error": f"missing {schedule_path}"}
 
     ensure_import_schema(cursor, mapping)
     units = load_units(schedule_path)
-    official_results = load_official_results(raw_root, event_id)
+    official_results = load_official_results(match_results_dir) if "completed" in result_sources else {}
+    live_results = load_live_results(match_results_dir) if "live" in result_sources else {}
     official_result_codes = set(official_results)
     deduped_units = dedupe_units(units, official_result_codes)
     entries = collect_entries(deduped_units)
     player_ids = load_player_ids(cursor, collect_player_if_ids(entries))
     tz_name = infer_time_zone(event)
 
-    snapshot_dir = snapshot_raw_files(event_dir, snapshots_dir) if snapshots_dir else None
+    snapshot_dir = snapshot_raw_files(schedule_dir, snapshots_dir) if snapshots_dir else None
     entry_ids = insert_entries(cursor, event_id, entries, player_ids)
     match_stats = insert_matches(
         cursor,
@@ -1000,6 +1110,8 @@ def import_event(
         player_ids,
         tz_name,
         official_results,
+        live_results,
+        result_sources,
     )
     maybe_set_event_time_zone(cursor, event_id, tz_name)
     maybe_advance_lifecycle(cursor, event_id)
@@ -1024,9 +1136,17 @@ def import_event(
 def main() -> int:
     parser = argparse.ArgumentParser(description="Import WTT event schedule JSON.")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
-    parser.add_argument("--raw-root", type=Path, default=DEFAULT_RAW_ROOT)
+    parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
+    parser.add_argument("--raw-root", dest="legacy_live_event_data_root", type=Path, default=None, help=argparse.SUPPRESS)
     parser.add_argument("--mapping", type=Path, default=DEFAULT_MAPPING_PATH)
     parser.add_argument("--event", type=int, required=True)
+    parser.add_argument(
+        "--result-sources",
+        nargs="+",
+        choices=("live", "completed"),
+        default=["live", "completed"],
+        help="导入结果数据源：live / completed；默认同时导入两者",
+    )
     parser.add_argument("--snapshots-dir", type=Path, default=None, help="Write raw JSON snapshots into this directory.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--verbose", action="store_true")
@@ -1048,8 +1168,9 @@ def main() -> int:
         result = import_event(
             cursor,
             args.event,
-            args.raw_root,
+            args.legacy_live_event_data_root or args.live_event_data_root,
             mapping,
+            result_sources=set(args.result_sources),
             snapshots_dir=args.snapshots_dir,
             dry_run=args.dry_run,
         )

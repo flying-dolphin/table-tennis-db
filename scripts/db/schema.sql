@@ -578,3 +578,38 @@ CREATE TABLE IF NOT EXISTS event_schedule_match_side_players (
 
 CREATE INDEX IF NOT EXISTS idx_event_schedule_match_side_players_player
     ON event_schedule_match_side_players(player_id);
+
+-- ============================================================================
+-- 小组积分表（来自 worldtabletennis.com Stage Groups 页，当前最新值）
+-- 用于前端优先显示官方积分表，缺失时回退到赛程重算
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS event_group_standings (
+    standing_id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id             INTEGER NOT NULL,
+    stage_label          TEXT NOT NULL,
+    team_code            TEXT NOT NULL,       -- MTEAM / WTEAM
+    group_code           TEXT NOT NULL,
+    organization_code    TEXT NOT NULL,       -- ISO-3
+    team_name            TEXT,
+    qualification_mark   TEXT,
+    played               INTEGER,
+    won                  INTEGER,
+    lost                 INTEGER,
+    result               INTEGER,
+    rank                 INTEGER,
+    score_for            INTEGER,
+    score_against        INTEGER,
+    games_won            INTEGER,
+    games_lost           INTEGER,
+    players_json         TEXT,
+    source_url           TEXT,
+    updated_at           TEXT NOT NULL,
+    FOREIGN KEY (event_id) REFERENCES events(event_id),
+    UNIQUE(event_id, stage_label, team_code, group_code, organization_code)
+);
+
+CREATE INDEX IF NOT EXISTS idx_event_group_standings_event_team
+    ON event_group_standings(event_id, team_code);
+CREATE INDEX IF NOT EXISTS idx_event_group_standings_stage
+    ON event_group_standings(event_id, stage_label, group_code, rank);

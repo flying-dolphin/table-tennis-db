@@ -3,7 +3,7 @@
 适用场景：
 
 - 进行中 / 已发布签表赛事的日常自动刷新
-- 直接在 Linux 服务器上跑，不依赖浏览器、CDP 或人工过 Cloudflare
+- 直接在 Linux 服务器上跑，赛程抓取走纯 HTTP；积分表抓取走无头浏览器
 
 不适用场景：
 
@@ -23,8 +23,11 @@
 - `runtime/python/backfill_events_calendar_event_id.py`
 - `runtime/python/import_session_schedule.py`
 - `runtime/python/import_wtt_event.py`
-- `runtime/python/refresh_event_results_daily.py`
+- `runtime/python/import_wtt_pool_standings.py`
+- `runtime/python/event_refresh.py`
 - `runtime/python/scrape_wtt_event.py`
+- `runtime/python/scrape_wtt_pool_standings.py`
+- `runtime/python/lib/browser_runtime.py`
 
 推荐部署到：
 
@@ -39,7 +42,7 @@
 ```text
 /opt/ittf-data/
   db/ittf.db
-  wtt_raw/
+  live_event_data/
   event_schedule/   # 可选
 ```
 
@@ -61,7 +64,7 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 `
 
 这个脚本会：
 
-1. 在服务器上创建 `runtime/data` 和 `runtime/python`
+1. 在服务器上创建 `runtime/data`、`runtime/python` 和 `runtime/python/lib`
 2. 精确上传最小运行包所需文件
 3. 给 `event_refresh.sh` 加执行权限
 
@@ -71,7 +74,7 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 `
 ssh deploy@serverA
 sudo apt install -y sqlite3
 
-mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/wtt_raw /opt/ittf-data/event_schedule /opt/ittf-logs
+mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/live_event_data /opt/ittf-data/event_schedule /opt/ittf-logs
 chmod +x /opt/ittf-ops/event_refresh.sh
 pyenv activate venv
 python --version
@@ -79,7 +82,7 @@ python --version
 
 说明：
 
-- 这套 runtime 只依赖 Python 标准库，不需要 `pip install -r requirements.txt`
+- 这套 runtime 除赛程纯 HTTP 脚本外，还包含小组积分表无头抓取；需要 Playwright/Patchright 与 Chromium
 - 代码文件只上传最小 runtime 包，不上传完整仓库
 - `upload_runtime.ps1` 依赖本机可用的 `ssh` / `scp`
 - 默认推荐通过 `PYENV_ENV_NAME` 让脚本内部执行 `pyenv activate <env>`
@@ -98,7 +101,7 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 -Ser
 ```bash
 ssh deploy@serverA
 sudo apt install -y sqlite3
-mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/wtt_raw /opt/ittf-data/event_schedule /opt/ittf-logs
+mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/live_event_data /opt/ittf-data/event_schedule /opt/ittf-logs
 chmod +x /opt/ittf-ops/event_refresh.sh
 pyenv activate venv
 python --version
@@ -129,7 +132,7 @@ PYENV_ENV_NAME=venv \
 验证点：
 
 - 命令返回 `完成`
-- `/opt/ittf-data/wtt_raw/` 下出现最新赛事目录
+- `/opt/ittf-data/live_event_data/` 下出现最新赛事目录
 - `/opt/ittf-data/db/backups/` 下生成备份
 - 实际使用的解释器建议先确认：`pyenv activate venv && python --version`
 
@@ -168,7 +171,7 @@ PYENV_ENV_NAME=venv \
 1. 备份 `/opt/ittf-data/db/ittf.db`
 2. 回填 `events_calendar.event_id` 并 seed 缺失的 `events`
 3. 导入 `/opt/ittf-data/event_schedule/*.json`（如果存在）
-4. 刷新 `draw_published` / `in_progress` 赛事的 WTT raw 与 `event_schedule_*` 表
+4. 刷新 `draw_published` / `in_progress` 赛事的赛程、比赛结果和小组积分表
 
 ## Cron
 
