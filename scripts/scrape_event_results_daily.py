@@ -6,6 +6,7 @@ Task C.1 orchestration:
   1. Select events with lifecycle_status in ('draw_published', 'in_progress').
   2. Scrape WTT raw JSON into data/wtt_raw/{event_id}/.
   3. Re-import GetEventSchedule.json via scripts/db/import_wtt_event.py.
+  4. Capture/import Stage Groups pool standings into event_group_standings.
 
 This script intentionally does not promote rows to historical tables and does
 not parse detailed score cards yet.
@@ -35,8 +36,11 @@ except ImportError:
     DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 
 DEFAULT_RAW_ROOT = PROJECT_ROOT / "data" / "wtt_raw"
+DEFAULT_STANDINGS_ROOT = PROJECT_ROOT / "data" / "wtt_pool_standings_analysis"
 SCRAPE_SCRIPT = PROJECT_ROOT / "scripts" / "scrape_wtt_event.py"
 IMPORT_SCRIPT = PROJECT_ROOT / "scripts" / "db" / "import_wtt_event.py"
+POOL_STANDINGS_SCRAPE_SCRIPT = PROJECT_ROOT / "scripts" / "scrape_wtt_pool_standings.py"
+POOL_STANDINGS_IMPORT_SCRIPT = PROJECT_ROOT / "scripts" / "db" / "import_wtt_pool_standings.py"
 
 
 @dataclass
@@ -138,6 +142,13 @@ def run_command(cmd: list[str], *, cwd: Path, verbose: bool) -> subprocess.Compl
     )
 
 
+def list_analysis_run_dirs(output_root: Path, event_id: int) -> dict[str, Path]:
+    event_root = output_root / str(event_id)
+    if not event_root.exists():
+        return {}
+    return {child.name: child for child in event_root.iterdir() if child.is_dir()}
+
+
 def scrape_event(
     event: EventRow,
     *,
@@ -190,12 +201,69 @@ def import_event(
     return False, (completed.stderr or completed.stdout or "").strip() or f"exit {completed.returncode}"
 
 
+def scrape_pool_standings(
+    event: EventRow,
+    *,
+    output_root: Path,
+    stage_label: str,
+    verbose: bool,
+) -> tuple[bool, Path | None, str | None]:
+    before = list_analysis_run_dirs(output_root, event.event_id)
+    cmd = [
+        sys.executable,
+        str(POOL_STANDINGS_SCRAPE_SCRIPT),
+        "--event-id",
+        str(event.event_id),
+        "--stage-label",
+        stage_label,
+        "--output-root",
+        str(output_root),
+    ]
+    if verbose:
+        cmd.append("--verbose")
+
+    completed = run_command(cmd, cwd=PROJECT_ROOT, verbose=verbose)
+    if completed.returncode != 0:
+        return False, None, (completed.stderr or completed.stdout or "").strip() or f"exit {completed.returncode}"
+
+    after = list_analysis_run_dirs(output_root, event.event_id)
+    new_names = sorted(set(after) - set(before))
+    if new_names:
+        return True, after[new_names[-1]], None
+    if after:
+        latest_name = sorted(after)[-1]
+        return True, after[latest_name], None
+    return False, None, "pool standings scrape completed but produced no output directory"
+
+
+def import_pool_standings(
+    *,
+    db_path: Path,
+    input_dir: Path,
+    verbose: bool,
+) -> tuple[bool, str | None]:
+    cmd = [
+        sys.executable,
+        str(POOL_STANDINGS_IMPORT_SCRIPT),
+        "--input-dir",
+        str(input_dir),
+        "--db-path",
+        str(db_path),
+    ]
+    completed = run_command(cmd, cwd=PROJECT_ROOT, verbose=verbose)
+    if completed.returncode == 0:
+        return True, None
+    return False, (completed.stderr or completed.stdout or "").strip() or f"exit {completed.returncode}"
+
+
 def refresh_event(
     event: EventRow,
     *,
     db_path: Path,
     raw_root: Path,
+    standings_root: Path,
     sub_events: list[str],
+    standings_stages: list[str],
     skip_scrape: bool,
     dry_run: bool,
     verbose: bool,
@@ -233,6 +301,40 @@ def refresh_event(
 
     matches = None if dry_run else count_schedule_matches(db_path, event.event_id)
     print(f"  import: ok" + (f" ({matches} matches)" if matches is not None else ""))
+
+    if skip_scrape:
+        print("  standings: skipped (skip-scrape)")
+    elif dry_run:
+        print("  standings: skipped (dry-run)")
+    else:
+        for stage_label in standings_stages:
+            print(f"  standings [{stage_label}]: running")
+            scrape_ok, input_dir, scrape_err = scrape_pool_standings(
+                event,
+                output_root=standings_root,
+                stage_label=stage_label,
+                verbose=verbose,
+            )
+            if not scrape_ok or input_dir is None:
+                print(f"  standings [{stage_label}]: scrape failed")
+                if scrape_err:
+                    first_line = scrape_err.splitlines()[0]
+                    print(f"    warning: {first_line}")
+                continue
+
+            standings_import_ok, import_err = import_pool_standings(
+                db_path=db_path,
+                input_dir=input_dir,
+                verbose=verbose,
+            )
+            if not standings_import_ok:
+                print(f"  standings [{stage_label}]: import failed")
+                if import_err:
+                    first_line = import_err.splitlines()[0]
+                    print(f"    warning: {first_line}")
+                continue
+
+            print(f"  standings [{stage_label}]: ok")
     return EventResult(event.event_id, event.name, scrape_ok, import_ok, matches=matches)
 
 
@@ -265,6 +367,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Daily refresh for WTT upcoming event schedules.")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--raw-root", type=Path, default=DEFAULT_RAW_ROOT)
+    parser.add_argument("--standings-root", type=Path, default=DEFAULT_STANDINGS_ROOT)
     parser.add_argument("--event", type=int, default=None, help="Refresh one event_id only.")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--skip-scrape", action="store_true", help="Reuse existing data/wtt_raw JSON.")
@@ -274,6 +377,12 @@ def main() -> int:
         nargs="+",
         default=["MTEAM", "WTEAM"],
         help="WTT bracket document sub-events for scrape_wtt_event.py.",
+    )
+    parser.add_argument(
+        "--standings-stages",
+        nargs="+",
+        default=["Stage 1B(Groups)", "Stage 1A(Groups)"],
+        help="Stage Groups tabs to capture/import as official pool standings.",
     )
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
@@ -286,6 +395,12 @@ def main() -> int:
         return 1
     if not IMPORT_SCRIPT.exists():
         print(f"Import script not found: {IMPORT_SCRIPT}", file=sys.stderr)
+        return 1
+    if not POOL_STANDINGS_SCRAPE_SCRIPT.exists():
+        print(f"Pool standings scrape script not found: {POOL_STANDINGS_SCRAPE_SCRIPT}", file=sys.stderr)
+        return 1
+    if not POOL_STANDINGS_IMPORT_SCRIPT.exists():
+        print(f"Pool standings import script not found: {POOL_STANDINGS_IMPORT_SCRIPT}", file=sys.stderr)
         return 1
 
     events = get_events(args.db, event_id=args.event, limit=args.limit)
@@ -300,7 +415,9 @@ def main() -> int:
             event,
             db_path=args.db,
             raw_root=args.raw_root,
+            standings_root=args.standings_root,
             sub_events=args.sub_events,
+            standings_stages=args.standings_stages,
             skip_scrape=args.skip_scrape,
             dry_run=args.dry_run,
             verbose=args.verbose,
