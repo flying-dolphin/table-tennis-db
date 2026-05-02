@@ -2781,6 +2781,68 @@ function ChampionsListView({ subEvent }: { subEvent: EventSubEventView | undefin
   );
 }
 
+function EventDetailSkeleton() {
+  return (
+    <div className="mx-auto min-h-screen max-w-lg bg-[#f8fafc]">
+      <div className="animate-pulse">
+        {/* Header Skeleton */}
+        <section className="relative overflow-hidden bg-[#f0f4ff] px-4 pb-4 pt-4">
+          <div className="relative z-10">
+            <div className="flex items-start justify-between gap-2">
+              <div className="mt-0.5 h-8 w-8 rounded-full bg-slate-200/60" />
+              <div className="min-w-0 flex-1 px-4 pt-1.5 flex flex-col items-center">
+                <div className="h-6 w-3/4 rounded bg-slate-200/60" />
+                <div className="mt-2 h-4 w-1/2 rounded bg-slate-200/60" />
+              </div>
+              <div className="mt-0.5 h-8 w-8 rounded-full bg-slate-200/60" />
+            </div>
+
+            <div className="mt-7 flex gap-1.5 overflow-hidden rounded-full bg-white/80 px-1 py-[3px]">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="h-[28px] w-20 rounded-full bg-slate-100/80" />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Content Skeleton */}
+        <div className="relative z-10 -mt-3 rounded-t-[1.5rem] bg-white px-5 pt-3 pb-4 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02]">
+          <div className="flex justify-around border-b border-slate-100 px-1">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex h-14 items-center gap-2 px-4">
+                <div className="h-4 w-12 rounded bg-slate-100" />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 space-y-4">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="h-3 w-16 rounded bg-slate-50" />
+                  <div className="h-5 w-12 rounded-full bg-slate-50" />
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="h-6 w-6 rounded-full bg-slate-100" />
+                    <div className="h-4 flex-1 rounded bg-slate-100" />
+                    <div className="h-6 w-8 rounded bg-slate-100" />
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="h-6 w-6 rounded-full bg-slate-100" />
+                    <div className="h-4 flex-1 rounded bg-slate-100" />
+                    <div className="h-6 w-8 rounded bg-slate-100" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function EventDetailContent() {
   const params = useParams<{ eventId: string }>();
   const router = useRouter();
@@ -2900,11 +2962,7 @@ function EventDetailContent() {
   }, []);
 
   if (loading || !data) {
-    return (
-      <main className="mx-auto min-h-screen max-w-lg overflow-hidden pb-20">
-        <div className="flex justify-center py-20 text-body text-text-tertiary">加载中...</div>
-      </main>
-    );
+    return <EventDetailSkeleton />;
   }
 
   const resolvedSubEvent = currentSubEvent ?? data.selectedSubEvent;
@@ -3073,7 +3131,7 @@ function EventDetailContent() {
 
 export default function EventDetailPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-page-background py-20 text-center text-text-tertiary">页面加载中...</div>}>
+    <Suspense fallback={<EventDetailSkeleton />}>
       <EventDetailContent />
     </Suspense>
   );
