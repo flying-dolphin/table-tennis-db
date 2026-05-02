@@ -324,6 +324,26 @@ type ImportedGroupStandingRow = {
   playersJson: string | null;
 };
 
+type TeamRosterPlayer = {
+  playerId: number | null;
+  slug: string | null;
+  name: string;
+  nameZh: string | null;
+  countryCode: string | null;
+  avatarFile: string | null;
+  order: number | null;
+};
+
+type TeamRoster = {
+  eventId: number;
+  subEventCode: string;
+  teamCode: string;
+  teamName: string;
+  teamNameZh: string | null;
+  source: 'group_standings' | 'draw_entries' | 'historical_matches';
+  players: TeamRosterPlayer[];
+};
+
 type RoundRobinStageGroup = {
   code: string;
   nameZh: string | null;
@@ -480,6 +500,109 @@ function buildStageStanding(teamCode: string, rank: number): StageStanding {
   };
 }
 
+function loadRosterPlayerDisplayMap(playerIds: number[]) {
+  if (playerIds.length === 0) return new Map<number, { slug: string | null; nameZh: string | null; avatarFile: string | null }>();
+
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          player_id AS playerId,
+          slug,
+          name_zh AS nameZh,
+          REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+        FROM players
+        WHERE player_id IN (${playerIds.map(() => '?').join(', ')})
+      `,
+    )
+    .all(...playerIds) as Array<{
+    playerId: number;
+    slug: string | null;
+    nameZh: string | null;
+    avatarFile: string | null;
+  }>;
+
+  return new Map(
+    rows.map((row) => [
+      row.playerId,
+      {
+        slug: row.slug,
+        nameZh: row.nameZh,
+        avatarFile: filterAvatarFile(row.avatarFile),
+      },
+    ]),
+  );
+}
+
+function parseRosterPlayersJson(value: string | null) {
+  if (!value) return [] as Array<{ playerId: number | null; name: string; countryCode: string | null; order: number | null }>;
+  try {
+    const parsed = JSON.parse(value) as unknown;
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map((item) => {
+        if (!item || typeof item !== 'object') return null;
+        const record = item as {
+          if_id?: unknown;
+          code?: unknown;
+          name?: unknown;
+          organization?: unknown;
+          order?: unknown;
+        };
+        const playerIdSource = record.if_id ?? record.code;
+        const playerId = Number(playerIdSource);
+        const name = typeof record.name === 'string' ? record.name.trim() : '';
+        if (!name) return null;
+        const order = Number(record.order);
+        return {
+          playerId: Number.isFinite(playerId) ? playerId : null,
+          name,
+          countryCode: typeof record.organization === 'string' && record.organization.trim() ? record.organization.trim() : null,
+          order: Number.isFinite(order) ? order : null,
+        };
+      })
+      .filter((item): item is { playerId: number | null; name: string; countryCode: string | null; order: number | null } => item != null);
+  } catch {
+    return [];
+  }
+}
+
+function buildRosterPlayers(
+  players: Array<{ playerId: number | null; name: string; countryCode: string | null; order: number | null }>,
+): TeamRosterPlayer[] {
+  const displayMap = loadRosterPlayerDisplayMap(
+    Array.from(new Set(players.map((player) => player.playerId).filter((playerId): playerId is number => playerId != null))),
+  );
+
+  return players
+    .map((player) => {
+      const display = player.playerId != null ? displayMap.get(player.playerId) : null;
+      return {
+        playerId: player.playerId,
+        slug: display?.slug ?? null,
+        name: player.name,
+        nameZh: display?.nameZh ?? null,
+        countryCode: player.countryCode,
+        avatarFile: display?.avatarFile ?? null,
+        order: player.order,
+      };
+    })
+    .sort((left, right) => {
+      const orderDiff = (left.order ?? 999) - (right.order ?? 999);
+      if (orderDiff !== 0) return orderDiff;
+      if (left.playerId != null && right.playerId != null) return left.playerId - right.playerId;
+      return left.name.localeCompare(right.name);
+    });
+}
+
+function normalizeImportedGroupStageLabel(stageLabel: string) {
+  return /groups/i.test(stageLabel) ? 'Groups' : stageLabel;
+}
+
+function displayImportedGroupStageLabel(stageLabel: string) {
+  return stageLabel === 'Groups' ? '小组赛' : stageLabel;
+}
+
 function hasEventGroupStandingsTable() {
   const row = db
     .prepare(
@@ -536,6 +659,126 @@ function loadImportedGroupStandings(eventId: number, subEventCode: string) {
       `,
     )
     .all(eventId, teamCode) as ImportedGroupStandingRow[];
+}
+
+function loadTeamRosterFromGroupStandings(eventId: number, subEventCode: string, teamCode: string): TeamRoster | null {
+  const standings = loadImportedGroupStandings(eventId, subEventCode);
+  const matched = standings.find((row) => row.organizationCode === teamCode && parseRosterPlayersJson(row.playersJson).length > 0);
+  if (!matched) return null;
+
+  return {
+    eventId,
+    subEventCode,
+    teamCode,
+    teamName: matched.organizationCode,
+    teamNameZh: null,
+    source: 'group_standings',
+    players: buildRosterPlayers(parseRosterPlayersJson(matched.playersJson)),
+  };
+}
+
+function loadTeamRosterFromDrawEntries(eventId: number, subEventCode: string, teamCode: string): TeamRoster | null {
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          ede.team_code AS teamCode,
+          edep.player_order AS playerOrder,
+          edep.player_id AS playerId,
+          edep.player_name AS playerName,
+          edep.player_country AS playerCountry
+        FROM event_draw_entries ede
+        JOIN event_draw_entry_players edep ON edep.entry_id = ede.entry_id
+        WHERE ede.event_id = ?
+          AND ede.sub_event_type_code = ?
+          AND ede.team_code = ?
+        ORDER BY edep.player_order ASC, edep.player_id ASC, edep.player_name ASC
+      `,
+    )
+    .all(eventId, subEventCode, teamCode) as Array<{
+    teamCode: string;
+    playerOrder: number | null;
+    playerId: number | null;
+    playerName: string;
+    playerCountry: string | null;
+  }>;
+
+  if (rows.length === 0) return null;
+
+  return {
+    eventId,
+    subEventCode,
+    teamCode,
+    teamName: teamCode,
+    teamNameZh: null,
+    source: 'draw_entries',
+    players: buildRosterPlayers(
+      rows.map((row) => ({
+        playerId: row.playerId,
+        name: row.playerName,
+        countryCode: row.playerCountry,
+        order: row.playerOrder,
+      })),
+    ),
+  };
+}
+
+function isHistoricalEvent(endDate: string | null) {
+  if (!endDate) return false;
+  const today = new Date();
+  const todayIso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  return endDate < todayIso;
+}
+
+function loadTeamRosterFromHistoricalMatches(eventId: number, subEventCode: string, teamCode: string): TeamRoster | null {
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          COALESCE(p.player_id, msp.player_id) AS playerId,
+          msp.player_name AS playerName,
+          COALESCE(p.name_zh, NULL) AS playerNameZh,
+          COALESCE(p.country_code, msp.player_country) AS countryCode,
+          MIN(msp.player_order) AS firstOrder,
+          COUNT(*) AS appearances
+        FROM matches m
+        JOIN match_sides ms ON ms.match_id = m.match_id
+        JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
+        LEFT JOIN players p ON p.player_id = msp.player_id
+        WHERE m.event_id = ?
+          AND m.sub_event_type_code = ?
+          AND COALESCE(p.country_code, msp.player_country) = ?
+        GROUP BY COALESCE(p.player_id, msp.player_id), msp.player_name, COALESCE(p.name_zh, NULL), COALESCE(p.country_code, msp.player_country)
+        ORDER BY firstOrder ASC, appearances DESC, playerId ASC, playerName ASC
+      `,
+    )
+    .all(eventId, subEventCode, teamCode) as Array<{
+    playerId: number | null;
+    playerName: string;
+    playerNameZh: string | null;
+    countryCode: string | null;
+    firstOrder: number | null;
+    appearances: number;
+  }>;
+
+  if (rows.length === 0) return null;
+
+  return {
+    eventId,
+    subEventCode,
+    teamCode,
+    teamName: teamCode,
+    teamNameZh: null,
+    source: 'historical_matches',
+    players: buildRosterPlayers(
+      rows.map((row) => ({
+        playerId: row.playerId,
+        name: row.playerName,
+        countryCode: row.countryCode,
+        order: row.firstOrder,
+      })),
+    ),
+  };
 }
 
 type OfficialScheduleResult = {
@@ -1463,11 +1706,12 @@ function buildLiveGroupStageView(
   if (importedRows.length > 0) {
     const rowsByStage = new Map<string, Map<string, ImportedGroupStandingRow[]>>();
     for (const row of importedRows) {
-      const stageGroups = rowsByStage.get(row.stageLabel) ?? new Map<string, ImportedGroupStandingRow[]>();
+      const normalizedStageLabel = normalizeImportedGroupStageLabel(row.stageLabel);
+      const stageGroups = rowsByStage.get(normalizedStageLabel) ?? new Map<string, ImportedGroupStandingRow[]>();
       const groupRows = stageGroups.get(row.groupCode) ?? [];
       groupRows.push(row);
       stageGroups.set(row.groupCode, groupRows);
-      rowsByStage.set(row.stageLabel, stageGroups);
+      rowsByStage.set(normalizedStageLabel, stageGroups);
     }
 
     const stages: RoundRobinStage[] = Array.from(rowsByStage.entries()).map(([stageLabel, groupRows], stageIndex) => ({
@@ -1475,7 +1719,7 @@ function buildLiveGroupStageView(
         stageLabel.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toUpperCase() ||
         `PRELIMINARY_${stageIndex + 1}`,
       name: stageLabel,
-      nameZh: stageLabel,
+      nameZh: displayImportedGroupStageLabel(stageLabel),
       format: 'group_round_robin',
       groups: Array.from(groupRows.entries())
         .sort((left, right) => left[0].localeCompare(right[0]))
@@ -1492,7 +1736,7 @@ function buildLiveGroupStageView(
               tiePoints: row.result ?? 0,
               scoreFor: row.scoreFor ?? 0,
               scoreAgainst: row.scoreAgainst ?? 0,
-              qualificationMark: row.qualificationMark ?? (row as any).qualification_mark ?? null,
+              qualificationMark: (row.rank ?? 0) === 0 ? null : row.qualificationMark ?? (row as any).qualification_mark ?? null,
             }));
 
           return {
@@ -2379,6 +2623,55 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
     roundRobinView: dataForSelected?.roundRobinView ?? null,
     teamKnockoutView: dataForSelected?.teamKnockoutView ?? null,
     presentationMode: dataForSelected?.presentationMode ?? 'knockout',
+  };
+}
+
+export function getEventTeamRoster(eventId: number, subEventCode: string, teamCode: string) {
+  const event = db
+    .prepare(
+      `
+        SELECT
+          event_id AS eventId,
+          name,
+          name_zh AS nameZh,
+          end_date AS endDate,
+          lifecycle_status AS lifecycleStatus
+        FROM events
+        WHERE event_id = ?
+      `,
+    )
+    .get(eventId) as
+    | {
+        eventId: number;
+        name: string;
+        nameZh: string | null;
+        endDate: string | null;
+        lifecycleStatus: string;
+      }
+    | undefined;
+
+  if (!event) return null;
+
+  const normalizedTeamCode = teamCode.trim().toUpperCase();
+  const normalizedSubEventCode = subEventCode.trim().toUpperCase();
+  const fromGroupStandings =
+    event.lifecycleStatus === 'in_progress'
+      ? loadTeamRosterFromGroupStandings(eventId, normalizedSubEventCode, normalizedTeamCode)
+      : null;
+  const fromDrawEntries = loadTeamRosterFromDrawEntries(eventId, normalizedSubEventCode, normalizedTeamCode);
+  const fromHistoricalMatches = fromGroupStandings || fromDrawEntries ? null : isHistoricalEvent(event.endDate) ? loadTeamRosterFromHistoricalMatches(eventId, normalizedSubEventCode, normalizedTeamCode) : null;
+  const roster = fromGroupStandings ?? fromDrawEntries ?? fromHistoricalMatches;
+
+  if (!roster) return null;
+
+  return {
+    event: {
+      eventId: event.eventId,
+      name: event.name,
+      nameZh: event.nameZh,
+      lifecycleStatus: event.lifecycleStatus,
+    },
+    roster,
   };
 }
 

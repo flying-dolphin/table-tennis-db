@@ -96,6 +96,7 @@ type StageStanding = {
   tiePoints?: number;
   scoreFor?: number;
   scoreAgainst?: number;
+  qualificationMark?: string | null;
 };
 
 type RoundRobinStage = {
@@ -256,10 +257,12 @@ function buildEventDetailQuery({
   subEvent,
   view,
   date,
+  from,
 }: {
   subEvent?: string | null;
   view?: ViewMode | null;
   date?: string | null;
+  from?: string | null;
 }) {
   const params = new URLSearchParams();
   if (subEvent) {
@@ -271,6 +274,9 @@ function buildEventDetailQuery({
   if (date) {
     params.set("date", date);
   }
+  if (from) {
+    params.set("from", from);
+  }
   return params.toString();
 }
 
@@ -280,6 +286,7 @@ function buildEventDetailHref(
     subEvent?: string | null;
     view?: ViewMode | null;
     date?: string | null;
+    from?: string | null;
   },
 ) {
   const query = buildEventDetailQuery(state);
@@ -290,6 +297,13 @@ function withFromQuery(path: string, fromHref: string) {
   const params = new URLSearchParams();
   params.set("from", fromHref);
   return `${path}?${params.toString()}`;
+}
+
+function buildTeamRosterHref(eventId: string, subEventCode: string, teamCode: string, fromHref: string) {
+  const params = new URLSearchParams();
+  params.set("sub_event", subEventCode);
+  params.set("from", fromHref);
+  return `/events/${eventId}/teams/${teamCode}?${params.toString()}`;
 }
 
 function displayDateRange(startDate: string | null, endDate: string | null) {
@@ -1192,9 +1206,6 @@ function ScheduleMatchCard({
         <p className="min-w-0 truncate text-[0.8rem] font-bold text-slate-400">
           {formatSubEventLabel(match.subEventTypeCode, match.subEventNameZh)} · {scheduleRoundLabel(match)}
         </p>
-        {match.rawScheduleStatus ? (
-          <span className="shrink-0 text-[0.72rem] font-bold text-slate-300">{match.rawScheduleStatus}</span>
-        ) : null}
       </div>
 
       <div className="mt-3 space-y-2.5">
@@ -1274,6 +1285,33 @@ function ScheduleByDateView({
     }
   }, [defaultSelectedDate, filteredDays, onSelectDate, selectedDate]);
 
+  const activeDay = filteredDays.find((day) => day.localDate === selectedDate) ?? filteredDays[0];
+  const tabListRef = React.useRef<HTMLDivElement | null>(null);
+  const activeTabRef = React.useRef<HTMLButtonElement | null>(null);
+
+  React.useEffect(() => {
+    const container = tabListRef.current;
+    const activeTab = activeTabRef.current;
+
+    if (!container || !activeTab) return;
+
+    const containerWidth = container.clientWidth;
+    const containerScrollLeft = container.scrollLeft;
+    const tabLeft = activeTab.offsetLeft;
+    const tabRight = tabLeft + activeTab.offsetWidth;
+    const visibleLeft = containerScrollLeft;
+    const visibleRight = containerScrollLeft + containerWidth;
+    const isFullyVisible = tabLeft >= visibleLeft && tabRight <= visibleRight;
+
+    if (isFullyVisible) return;
+
+    const targetScrollLeft = Math.max(0, tabLeft - (containerWidth - activeTab.offsetWidth) / 2);
+    container.scrollTo({
+      left: targetScrollLeft,
+      behavior: "smooth",
+    });
+  }, [activeDay.localDate]);
+
   if (filteredDays.length === 0) {
     return (
       <div className="pt-5">
@@ -1283,20 +1321,22 @@ function ScheduleByDateView({
       </div>
     );
   }
-
-  const activeDay = filteredDays.find((day) => day.localDate === selectedDate) ?? filteredDays[0];
   const showBeijingTime = lifecycleStatus === "in_progress";
 
   return (
     <div className="pb-10 pt-4">
       <div className="space-y-4">
-        <div className="sticky top-0 z-10 -mx-2 overflow-x-auto px-2 pb-2 pt-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={tabListRef}
+          className="sticky top-0 z-10 -mx-2 overflow-x-auto px-2 pb-2 pt-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           <div className="flex min-w-max gap-2">
             {filteredDays.map((day) => {
               const isActive = day.localDate === activeDay.localDate;
               return (
                 <button
                   key={day.localDate}
+                  ref={isActive ? activeTabRef : null}
                   type="button"
                   onClick={() => onSelectDate(day.localDate)}
                   className={cn(
@@ -1412,10 +1452,14 @@ function TeamTieSummaryCard({
   tie,
   tieIndex,
   eventReturnHref,
+  eventId,
+  subEventCode,
 }: {
   tie: TeamTie;
   tieIndex?: number;
   eventReturnHref: string;
+  eventId: string;
+  subEventCode: string;
 }) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
@@ -1426,10 +1470,12 @@ function TeamTieSummaryCard({
           {tieIndex !== undefined ? `第 ${tieIndex} 场` : "已结束"}
         </span>
         <div className="flex items-center gap-1.5 min-w-0">
-          <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
-          <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
-            {tie.teamA.code}
-          </span>
+          <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamA.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
+            <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
+            <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
+              {tie.teamA.code}
+            </span>
+          </Link>
           <span
             className={cn(
               "font-numeric ml-0.5 text-[1.25rem] font-black leading-none tabular-nums",
@@ -1447,10 +1493,12 @@ function TeamTieSummaryCard({
           >
             {tie.scoreB}
           </span>
-          <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
-            {tie.teamB.code}
-          </span>
-          <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
+          <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamB.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
+            <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
+              {tie.teamB.code}
+            </span>
+            <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
+          </Link>
         </div>
       </div>
       <div className="mt-2 divide-y divide-slate-100">
@@ -1476,7 +1524,17 @@ function TeamTieSummaryCard({
   );
 }
 
-function TeamKnockoutScheduleView({ view, eventReturnHref }: { view: EventTeamKnockoutView; eventReturnHref: string }) {
+function TeamKnockoutScheduleView({
+  view,
+  eventReturnHref,
+  eventId,
+  subEventCode,
+}: {
+  view: EventTeamKnockoutView;
+  eventReturnHref: string;
+  eventId: string;
+  subEventCode: string;
+}) {
   const [collapsed, setCollapsed] = React.useState<Set<string>>(new Set());
 
   const toggle = React.useCallback((code: string) => {
@@ -1519,7 +1577,14 @@ function TeamKnockoutScheduleView({ view, eventReturnHref }: { view: EventTeamKn
               {!isCollapsed && (
                 <div className="space-y-3">
                   {round.ties.map((tie, index) => (
-                    <TeamTieSummaryCard key={tie.tieId} tie={tie} tieIndex={index + 1} eventReturnHref={eventReturnHref} />
+                    <TeamTieSummaryCard
+                      key={tie.tieId}
+                      tie={tie}
+                      tieIndex={index + 1}
+                      eventReturnHref={eventReturnHref}
+                      eventId={eventId}
+                      subEventCode={subEventCode}
+                    />
                   ))}
                 </div>
               )}
@@ -1603,6 +1668,7 @@ function DrawView({
   isXT,
   teamKnockoutView,
   eventReturnHref,
+  eventId,
 }: {
   rounds: EventDetail["bracket"];
   selectedSubEvent: string;
@@ -1610,6 +1676,7 @@ function DrawView({
   isXT?: boolean;
   teamKnockoutView?: EventTeamKnockoutView | null;
   eventReturnHref: string;
+  eventId: string;
 }) {
   const [search, setSearch] = React.useState("");
   const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
@@ -1707,14 +1774,26 @@ function DrawView({
           {teamKnockoutView.finalTie && (
             <section>
               <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">决赛</h2>
-              <TeamTieCard tie={teamKnockoutView.finalTie} title="冠军战" eventReturnHref={eventReturnHref} />
+              <TeamTieCard
+                tie={teamKnockoutView.finalTie}
+                title="冠军战"
+                eventReturnHref={eventReturnHref}
+                eventId={eventId}
+                subEventCode={selectedSubEvent}
+              />
             </section>
           )}
 
           {teamKnockoutView.bronzeTie && (
             <section>
               <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">铜牌赛</h2>
-              <TeamTieCard tie={teamKnockoutView.bronzeTie} title="铜牌战" eventReturnHref={eventReturnHref} />
+              <TeamTieCard
+                tie={teamKnockoutView.bronzeTie}
+                title="铜牌战"
+                eventReturnHref={eventReturnHref}
+                eventId={eventId}
+                subEventCode={selectedSubEvent}
+              />
             </section>
           )}
         </section>
@@ -1847,7 +1926,19 @@ function DrawView({
   );
 }
 
-function TeamTieNodeCard({ tie, title }: { tie: TeamTie; title?: string }) {
+function TeamTieNodeCard({
+  tie,
+  title,
+  eventId,
+  subEventCode,
+  eventReturnHref,
+}: {
+  tie: TeamTie;
+  title?: string;
+  eventId: string;
+  subEventCode: string;
+  eventReturnHref: string;
+}) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
   return (
@@ -1859,10 +1950,12 @@ function TeamTieNodeCard({ tie, title }: { tie: TeamTie; title?: string }) {
           { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
         ].map((item) => (
           <div key={item.team.code} className="flex items-center gap-2">
-            <Flag code={item.team.code} className="shrink-0 scale-[1.0]" />
-            <span className={cn("flex-1 text-[0.88rem] font-black leading-none", item.isWinner ? "text-slate-950" : "text-slate-500")}>
-              {item.team.code}
-            </span>
+            <Link href={route(buildTeamRosterHref(eventId, subEventCode, item.team.code, eventReturnHref))} className="flex min-w-0 flex-1 items-center gap-2">
+              <Flag code={item.team.code} className="shrink-0 scale-[1.0]" />
+              <span className={cn("truncate text-[0.88rem] font-black leading-none", item.isWinner ? "text-slate-950" : "text-slate-500")}>
+                {item.team.code}
+              </span>
+            </Link>
             <span className={cn("font-numeric shrink-0 text-[1.12rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
               {item.score}
             </span>
@@ -1873,7 +1966,17 @@ function TeamTieNodeCard({ tie, title }: { tie: TeamTie; title?: string }) {
   );
 }
 
-function DrawTeamTieCard({ tie }: { tie: TeamTie }) {
+function DrawTeamTieCard({
+  tie,
+  eventId,
+  subEventCode,
+  eventReturnHref,
+}: {
+  tie: TeamTie;
+  eventId: string;
+  subEventCode: string;
+  eventReturnHref: string;
+}) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
   return (
@@ -1884,10 +1987,12 @@ function DrawTeamTieCard({ tie }: { tie: TeamTie }) {
           { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
         ].map((item) => (
           <div key={item.team.code} className="flex items-center gap-1">
-            <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
-            <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
-              {item.team.code}
-            </span>
+            <Link href={route(buildTeamRosterHref(eventId, subEventCode, item.team.code, eventReturnHref))} className="flex min-w-0 flex-1 items-center gap-1">
+              <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
+              <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
+                {item.team.code}
+              </span>
+            </Link>
             <span className={cn("font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
               {item.score}
             </span>
@@ -1938,7 +2043,17 @@ function orderTeamRoundsByFeeders(rounds: TeamKnockoutRound[]): TeamKnockoutRoun
   return result;
 }
 
-function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
+function TeamKnockoutDrawView({
+  view,
+  eventId,
+  subEventCode,
+  eventReturnHref,
+}: {
+  view: EventTeamKnockoutView;
+  eventId: string;
+  subEventCode: string;
+  eventReturnHref: string;
+}) {
   const mainRounds = React.useMemo(
     () => {
       const filtered = view.rounds
@@ -2052,7 +2167,7 @@ function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
                     className="absolute"
                     style={{ top, left, width: TEAM_DRAW_CARD_W }}
                   >
-                    <DrawTeamTieCard tie={tie} />
+                    <DrawTeamTieCard tie={tie} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
                   </div>
                 );
               }),
@@ -2064,7 +2179,7 @@ function TeamKnockoutDrawView({ view }: { view: EventTeamKnockoutView }) {
       {bronzeTie && (
         <section className="mt-6">
           <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">铜牌赛</h2>
-          <TeamTieNodeCard tie={bronzeTie} />
+          <TeamTieNodeCard tie={bronzeTie} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
         </section>
       )}
 
@@ -2300,7 +2415,21 @@ function teamPodiumDisplay(podium: {
   };
 }
 
-function TeamTieCard({ tie, title, eventReturnHref }: { tie: TeamTie; title?: string; eventReturnHref: string }) {
+function TeamTieCard({
+  tie,
+  title,
+  eventReturnHref,
+  eventId,
+  subEventCode,
+  showTeamLinks = true,
+}: {
+  tie: TeamTie;
+  title?: string;
+  eventReturnHref: string;
+  eventId: string;
+  subEventCode: string;
+  showTeamLinks?: boolean;
+}) {
   const titleText = title || tie.roundZh || tie.round || "循环赛";
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
@@ -2309,10 +2438,21 @@ function TeamTieCard({ tie, title, eventReturnHref }: { tie: TeamTie; title?: st
       <div className="flex items-center justify-between gap-2">
         <span className="shrink-0 text-[0.85rem] font-bold text-slate-500">{titleText}</span>
         <div className="flex items-center gap-1.5 min-w-0">
-          <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
-          <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
-            {tie.teamA.code}
-          </span>
+          {showTeamLinks ? (
+            <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamA.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
+              <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
+              <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
+                {tie.teamA.code}
+              </span>
+            </Link>
+          ) : (
+            <>
+              <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
+              <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
+                {tie.teamA.code}
+              </span>
+            </>
+          )}
           <span className={cn("font-numeric ml-0.5 text-[1.25rem] font-black leading-none tabular-nums", winnerA ? "text-[#2d6cf6]" : "text-slate-400")}>
             {tie.scoreA}
           </span>
@@ -2320,10 +2460,21 @@ function TeamTieCard({ tie, title, eventReturnHref }: { tie: TeamTie; title?: st
           <span className={cn("font-numeric text-[1.25rem] font-black leading-none tabular-nums", winnerB ? "text-[#2d6cf6]" : "text-slate-400")}>
             {tie.scoreB}
           </span>
-          <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
-            {tie.teamB.code}
-          </span>
-          <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
+          {showTeamLinks ? (
+            <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamB.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
+              <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
+                {tie.teamB.code}
+              </span>
+              <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
+            </Link>
+          ) : (
+            <>
+              <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
+                {tie.teamB.code}
+              </span>
+              <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
+            </>
+          )}
         </div>
       </div>
       <div className="mt-2 divide-y divide-slate-100">
@@ -2366,25 +2517,47 @@ function FinalStandingsView({ standings }: { standings: StageStanding[] }) {
   );
 }
 
-function GroupStandingsTable({ standings }: { standings: StageStanding[] }) {
+function formatQualificationMark(mark: string | null | undefined, rank?: number | null): string {
+  if ((rank ?? 0) === 0) return "-";
+  if (!mark) return "-";
+  const map: Record<string, string> = {
+    "Q-MD": "晋级",
+    "Q-PR": "预选赛",
+    "NQ": "淘汰",
+  };
+  return map[mark] ?? mark;
+}
+
+function GroupStandingsTable({
+  standings,
+  eventId,
+  subEventCode,
+  eventReturnHref,
+}: {
+  standings: StageStanding[];
+  eventId: string;
+  subEventCode: string;
+  eventReturnHref: string;
+}) {
   if (standings.length === 0) return null;
 
   return (
     <div className="overflow-hidden rounded-[1.2rem] bg-white ring-1 ring-[#e8edf8]">
-      <div className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_3.5rem] gap-2 border-b border-slate-100 px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-slate-400">
+      <div className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_4rem] gap-2 border-b border-slate-100 px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-slate-400">
         <span>排名</span>
         <span>队伍</span>
         <span className="text-center">赛</span>
         <span className="text-center">胜</span>
         <span className="text-center">负</span>
         <span className="text-center">积分</span>
-        <span className="text-center">局分</span>
+        <span className="text-center">晋级状态</span>
       </div>
       <div>
         {standings.map((standing) => (
-          <div
+          <Link
             key={standing.teamCode}
-            className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_3.5rem] items-center gap-2 px-3 py-3 text-[0.82rem] font-bold text-slate-700 not-last:border-b not-last:border-slate-100"
+            href={route(buildTeamRosterHref(eventId, subEventCode, standing.teamCode, eventReturnHref))}
+            className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_4rem] items-center gap-2 px-3 py-3 text-[0.82rem] font-bold text-slate-700 not-last:border-b not-last:border-slate-100 transition hover:bg-[#f7faff]"
           >
             <span className="text-[#2d6cf6]">{standing.rank}</span>
             <span className="flex min-w-0 items-center gap-2">
@@ -2395,10 +2568,10 @@ function GroupStandingsTable({ standings }: { standings: StageStanding[] }) {
             <span className="text-center">{standing.wins ?? 0}</span>
             <span className="text-center">{standing.losses ?? 0}</span>
             <span className="text-center">{standing.tiePoints ?? 0}</span>
-            <span className="text-center">
-              {standing.scoreFor ?? 0}-{standing.scoreAgainst ?? 0}
+            <span className="text-center text-[0.78rem]">
+              {formatQualificationMark(standing.qualificationMark, standing.rank)}
             </span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
@@ -2409,10 +2582,14 @@ function RoundRobinView({
   view,
   defaultCollapsed = false,
   eventReturnHref,
+  eventId,
+  subEventCode,
 }: {
   view: EventRoundRobinView;
   defaultCollapsed?: boolean;
   eventReturnHref: string;
+  eventId: string;
+  subEventCode: string;
 }) {
   const [collapsedStages, setCollapsedStages] = React.useState<Set<string>>(
     defaultCollapsed ? new Set(view.stages.map((stage) => stage.code)) : new Set(),
@@ -2500,9 +2677,22 @@ function RoundRobinView({
                           </button>
                           {!isCollapsed && (
                             <div className="mt-4 space-y-3">
-                              <GroupStandingsTable standings={group.standings ?? []} />
+                              <GroupStandingsTable
+                                standings={group.standings ?? []}
+                                eventId={eventId}
+                                subEventCode={subEventCode}
+                                eventReturnHref={eventReturnHref}
+                              />
                               {group.ties.map((tie, index) => (
-                                <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} eventReturnHref={eventReturnHref} />
+                                <TeamTieCard
+                                  key={tie.tieId}
+                                  tie={tie}
+                                  title={`第${index + 1}场`}
+                                  eventReturnHref={eventReturnHref}
+                                  eventId={eventId}
+                                  subEventCode={subEventCode}
+                                  showTeamLinks={false}
+                                />
                               ))}
                             </div>
                           )}
@@ -2513,7 +2703,14 @@ function RoundRobinView({
                 ) : (
                   <div className="space-y-3">
                     {(stage.ties ?? []).map((tie, index) => (
-                      <TeamTieCard key={tie.tieId} tie={tie} title={`第${index + 1}场`} eventReturnHref={eventReturnHref} />
+                      <TeamTieCard
+                        key={tie.tieId}
+                        tie={tie}
+                        title={`第${index + 1}场`}
+                        eventReturnHref={eventReturnHref}
+                        eventId={eventId}
+                        subEventCode={subEventCode}
+                      />
                     ))}
                   </div>
                 )
@@ -2591,6 +2788,7 @@ function EventDetailContent() {
   const urlSubEvent = searchParams.get("sub_event");
   const urlView = normalizeViewMode(searchParams.get("view"));
   const urlDate = searchParams.get("date");
+  const from = searchParams.get("from");
   const [data, setData] = React.useState<EventDetail | null>(null);
   const [selectedSubEvent, setSelectedSubEvent] = React.useState<string | null>(urlSubEvent);
   const [viewMode, setViewMode] = React.useState<ViewMode>(urlView ?? "session");
@@ -2599,12 +2797,16 @@ function EventDetailContent() {
   const initialUrlSubEventRef = React.useRef(urlSubEvent);
   const shouldSyncUrlRef = React.useRef(Boolean(urlSubEvent || urlView || urlDate));
   const handleBack = React.useCallback(() => {
+    if (from) {
+      router.push(from as Route);
+      return;
+    }
     if (window.history.length > 1) {
       router.back();
       return;
     }
     router.push("/events");
-  }, [router]);
+  }, [router, from]);
 
   React.useEffect(() => {
     async function load() {
@@ -2652,13 +2854,14 @@ function EventDetailContent() {
       subEvent: currentSubEvent,
       view: viewMode,
       date: effectiveDate,
+      from: from,
     });
     const currentHref = searchParams.toString() ? `/events/${params.eventId}?${searchParams.toString()}` : `/events/${params.eventId}`;
 
     if (nextHref !== currentHref) {
       router.replace(route(nextHref), { scroll: false });
     }
-  }, [currentSubEvent, data, effectiveDate, params.eventId, router, searchParams, viewMode]);
+  }, [currentSubEvent, data, effectiveDate, from, params.eventId, router, searchParams, viewMode]);
 
   const handleSelectSubEvent = React.useCallback((value: string | null) => {
     if (!value) return;
@@ -2742,6 +2945,7 @@ function EventDetailContent() {
     subEvent: resolvedSubEvent,
     view: viewMode,
     date: effectiveDate,
+    from: from,
   });
 
   return (
@@ -2783,11 +2987,22 @@ function EventDetailContent() {
               ) : (
                 <div className="space-y-6">
                   {shouldShowRoundRobin ? (
-                    <RoundRobinView view={currentRoundRobinView} defaultCollapsed={hasKnockoutCompanion} eventReturnHref={eventReturnHref} />
+                    <RoundRobinView
+                      view={currentRoundRobinView}
+                      defaultCollapsed={hasKnockoutCompanion}
+                      eventReturnHref={eventReturnHref}
+                      eventId={params.eventId}
+                      subEventCode={resolvedSubEvent}
+                    />
                   ) : null}
 
                   {shouldShowTeamKnockout ? (
-                    <TeamKnockoutDrawView view={currentTeamKnockoutView} />
+                    <TeamKnockoutDrawView
+                      view={currentTeamKnockoutView}
+                      eventId={params.eventId}
+                      subEventCode={resolvedSubEvent}
+                      eventReturnHref={eventReturnHref}
+                    />
                   ) : shouldShowBracket || currentPresentationMode === "knockout" ? (
                     <DrawView
                       rounds={currentBracket}
@@ -2796,20 +3011,36 @@ function EventDetailContent() {
                       isXT={isXT}
                       teamKnockoutView={currentTeamKnockoutView}
                       eventReturnHref={eventReturnHref}
+                      eventId={params.eventId}
                     />
                   ) : null}
                 </div>
               )}
             </>
           ) : currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
-            <RoundRobinView view={currentRoundRobinView} eventReturnHref={eventReturnHref} />
+            <RoundRobinView
+              view={currentRoundRobinView}
+              eventReturnHref={eventReturnHref}
+              eventId={params.eventId}
+              subEventCode={resolvedSubEvent}
+            />
           ) : currentPresentationMode === "team_knockout_with_bronze" && currentTeamKnockoutView ? (
             <>
               <LegacyViewTabs mode={viewMode} onChange={handleChangeViewMode} showChampionsTab={showChampionsTab} />
               {viewMode === "schedule" ? (
-                <TeamKnockoutScheduleView view={currentTeamKnockoutView} eventReturnHref={eventReturnHref} />
+                <TeamKnockoutScheduleView
+                  view={currentTeamKnockoutView}
+                  eventReturnHref={eventReturnHref}
+                  eventId={params.eventId}
+                  subEventCode={resolvedSubEvent}
+                />
               ) : viewMode === "draw" ? (
-                <TeamKnockoutDrawView view={currentTeamKnockoutView} />
+                <TeamKnockoutDrawView
+                  view={currentTeamKnockoutView}
+                  eventId={params.eventId}
+                  subEventCode={resolvedSubEvent}
+                  eventReturnHref={eventReturnHref}
+                />
               ) : (
                 <ChampionsListView subEvent={currentSubEventMeta} />
               )}
@@ -2827,6 +3058,7 @@ function EventDetailContent() {
                   isXT={isXT}
                   teamKnockoutView={currentTeamKnockoutView}
                   eventReturnHref={eventReturnHref}
+                  eventId={params.eventId}
                 />
               ) : (
                 <ChampionsListView subEvent={currentSubEventMeta} />

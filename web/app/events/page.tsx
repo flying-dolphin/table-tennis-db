@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import type { Route } from "next";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { CalendarDays, Search, Trophy, Medal, X } from "lucide-react";
 import { Outfit } from "next/font/google";
 import {
@@ -163,7 +163,14 @@ import { EventCategoryIcon, getEventCategory } from "@/components/events/EventCa
 
 function EventsPageContent() {
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const currentUrl = React.useMemo(() => {
+    const s = searchParams.toString();
+    return s ? `${pathname}?${s}` : pathname;
+  }, [pathname, searchParams]);
+
   const initialQueryRef = React.useRef<EventsQueryState>(readQueryState(searchParams));
   const [selectedYear, setSelectedYear] = React.useState<string>(initialQueryRef.current.selectedYear);
   const [selectedAgeGroup, setSelectedAgeGroup] = React.useState<AgeGroupFilter>(initialQueryRef.current.selectedAgeGroup);
@@ -504,12 +511,13 @@ function EventsPageContent() {
                   return (
                     <Link
                       key={event.eventId}
-                      href={route(`/events/${event.eventId}`)}
+                      href={route(`/events/${event.eventId}?from=${encodeURIComponent(currentUrl)}`)}
                       onClick={() => {
                         persistSnapshot();
                       }}
                       className="group flex items-center border-b border-border-subtle py-3 transition-colors last:border-0 hover:bg-surface-secondary"
                     >
+
                       <EventCategoryIcon category={category} className="mr-3 h-10 w-10 rounded-sm" />
                       <div className="min-w-0 flex-1">
                         <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
