@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Import captured WTT pool standings into event_group_standings."""
+"""Import captured WTT pool standings into current_event_group_standings."""
 
 from __future__ import annotations
 
@@ -14,37 +14,6 @@ from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
-
-CREATE_TABLE_SQL = """
-CREATE TABLE IF NOT EXISTS event_group_standings (
-    standing_id          INTEGER PRIMARY KEY AUTOINCREMENT,
-    event_id             INTEGER NOT NULL,
-    stage_label          TEXT NOT NULL,
-    team_code            TEXT NOT NULL,
-    group_code           TEXT NOT NULL,
-    organization_code    TEXT NOT NULL,
-    team_name            TEXT,
-    qualification_mark   TEXT,
-    played               INTEGER,
-    won                  INTEGER,
-    lost                 INTEGER,
-    result               INTEGER,
-    rank                 INTEGER,
-    score_for            INTEGER,
-    score_against        INTEGER,
-    games_won            INTEGER,
-    games_lost           INTEGER,
-    players_json         TEXT,
-    source_url           TEXT,
-    updated_at           TEXT NOT NULL,
-    UNIQUE(event_id, stage_label, team_code, group_code, organization_code)
-);
-
-CREATE INDEX IF NOT EXISTS idx_event_group_standings_event_team
-    ON event_group_standings(event_id, team_code);
-CREATE INDEX IF NOT EXISTS idx_event_group_standings_stage
-    ON event_group_standings(event_id, stage_label, group_code, rank);
-"""
 
 
 def utc_now_iso() -> str:
@@ -65,13 +34,13 @@ def canonical_stage_label(stage_label: str) -> str:
 def infer_stage_label(input_dir: Path, explicit: str | None) -> str:
     if explicit:
         return canonical_stage_label(explicit)
-    summary_path = input_dir / "capture_summary.json"
+    summary_path = input_dir / "standings_capture_summary.json"
     if summary_path.exists():
         summary = load_json(summary_path)
         stage_label = summary.get("stage_label")
         if isinstance(stage_label, str) and stage_label.strip():
             return canonical_stage_label(stage_label)
-    raise ValueError("stage_label is required when capture_summary.json is missing or incomplete")
+    raise ValueError("stage_label is required when standings_capture_summary.json is missing or incomplete")
 
 
 def infer_event_id(files: list[Path], explicit: int | None) -> int:
@@ -88,7 +57,7 @@ def infer_event_id(files: list[Path], explicit: int | None) -> int:
 
 
 def load_source_urls(input_dir: Path) -> dict[str, str]:
-    summary_path = input_dir / "capture_summary.json"
+    summary_path = input_dir / "standings_capture_summary.json"
     if not summary_path.exists():
         return {}
     summary = load_json(summary_path)
@@ -111,14 +80,14 @@ def import_file(
 
     conn.execute(
         """
-        DELETE FROM event_group_standings
+        DELETE FROM current_event_group_standings
         WHERE event_id = ? AND stage_label = ? AND team_code = ?
         """,
         (event_id, stage_label, team_code),
     )
 
     insert_sql = """
-        INSERT INTO event_group_standings (
+        INSERT INTO current_event_group_standings (
             event_id,
             stage_label,
             team_code,
@@ -172,7 +141,7 @@ def import_file(
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Import WTT pool standings JSON into SQLite.")
+    parser = argparse.ArgumentParser(description="Import WTT pool standings JSON into current_event_group_standings.")
     parser.add_argument("--input-dir", type=Path, required=True, help="Directory containing MTEAM_standings.json / WTEAM_standings.json")
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--event-id", type=int)
@@ -197,7 +166,6 @@ def main() -> int:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(str(db_path))
     try:
-        conn.executescript(CREATE_TABLE_SQL)
         conn.execute("BEGIN")
         imported: list[tuple[str, int]] = []
         for path in files:
@@ -219,7 +187,7 @@ def main() -> int:
         conn.close()
 
     for team_code, count in imported:
-        print(f"Imported {count} rows for {team_code} ({stage_label}) into {db_path}")
+        print(f"Imported {count} rows for {team_code} ({stage_label}) into current_event_group_standings")
     return 0
 
 

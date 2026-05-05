@@ -3,7 +3,7 @@
 """Scrape WTT live team-match details from the rendered Live Matches page DOM.
 
 This script is the browser-based live pipeline. It does not fetch schedule data
-from the network, but it can read a local `schedule/GetEventSchedule.json`
+from the network, but it can read a local `GetEventSchedule.json`
 cache to map DOM cards back to schedule match codes for downstream importing.
 """
 
@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Any
 
 from lib.browser_runtime import close_browser_page, open_browser_page
-from scrape_wtt_event import DEFAULT_LIVE_EVENT_DATA_DIR, build_schedule_unit_index, load_local_schedule_payload
+from wtt_scrape_shared import DEFAULT_LIVE_EVENT_DATA_DIR, build_schedule_unit_index, load_local_schedule_payload
 
 logger = logging.getLogger(__name__)
 
@@ -173,22 +173,37 @@ def extract_live_cards(page: Any) -> list[dict[str, Any]]:
     if (!holder) return [];
     const blocks = Array.from(holder.children)
       .filter(el => text(el))
-      .map(el => text(el).replace(/\\s+/g, ' '));
+      .map(el => text(el).replace(/\\s+/g, ' ').trim());
     const out = [];
-    const pattern = /^(.*?)\\s+(\\d+\\s*-\\s*\\d+)\\s+(.*?)\\s+((?:\\d+\\s*-\\s*\\d+(?:\\s*,\\s*|$))+)/;
+    // Live DOM concatenates player B's name directly with the first game score
+    // (no space), e.g. "MATSUSHIMA Sora11-9,4-11,...". Anchor games to end and
+    // let player B be a lazy run that stops at the first digit/game token.
+    const withGames = /^(.+?)\\s+(\\d+\\s*-\\s*\\d+)\\s+(.+?)((?:\\d+-\\d+)(?:\\s*,\\s*\\d+-\\d+)*)$/;
+    const withoutGames = /^(.+?)\\s+(\\d+\\s*-\\s*\\d+)\\s+(.+)$/;
     for (const block of blocks) {
-      const match = block.match(pattern);
-      if (!match) {
-        out.push({ raw_text: block });
+      let m = block.match(withGames);
+      if (m) {
+        out.push({
+          player_a: m[1].trim(),
+          match_score: m[2].replace(/\\s+/g, ''),
+          player_b: m[3].trim(),
+          games: m[4].split(',').map(x => x.trim()).filter(Boolean),
+          raw_text: block,
+        });
         continue;
       }
-      out.push({
-        player_a: match[1].trim(),
-        match_score: match[2].replace(/\\s+/g, ''),
-        player_b: match[3].trim(),
-        games: match[4].split(',').map(x => x.trim()).filter(Boolean),
-        raw_text: block,
-      });
+      m = block.match(withoutGames);
+      if (m) {
+        out.push({
+          player_a: m[1].trim(),
+          match_score: m[2].replace(/\\s+/g, ''),
+          player_b: m[3].trim(),
+          games: [],
+          raw_text: block,
+        });
+        continue;
+      }
+      out.push({ raw_text: block });
     }
     return out;
   }
@@ -393,17 +408,9 @@ def write_outputs(
     page_html: str,
     *,
     schedule_cache_used: bool,
+    with_debug_files: bool,
 ) -> dict[str, Any]:
-    match_results_dir = event_dir / "match_results"
-    match_results_dir.mkdir(parents=True, exist_ok=True)
-
-    raw_payload = {
-        "event_id": event_id,
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
-        "cards": cards,
-    }
-    raw_path = match_results_dir / "GetLiveResult_dom.json"
-    raw_path.write_text(json.dumps(raw_payload, ensure_ascii=False, indent=2), encoding="utf-8", newline="")
+    event_dir.mkdir(parents=True, exist_ok=True)
 
     summary = {
         "event_id": event_id,
@@ -420,22 +427,35 @@ def write_outputs(
         "schedule_cache_used": schedule_cache_used,
     }
     normalized_payload = {"summary": summary, "matches": normalized}
-    normalized_path = match_results_dir / "GetLiveResult.json"
+    normalized_path = event_dir / "GetLiveResult.json"
     normalized_path.write_text(json.dumps(normalized_payload, ensure_ascii=False, indent=2), encoding="utf-8", newline="")
-
-    html_path = match_results_dir / "GetLiveResult_page.html"
-    html_path.write_text(page_html, encoding="utf-8", newline="")
 
     script_summary = {
         "event_id": event_id,
         "files": [
-            {"kind": "live_results_dom_raw", "file": raw_path.name, "size": raw_path.stat().st_size, "count": len(cards)},
             {"kind": "live_results_normalized", "file": normalized_path.name, "size": normalized_path.stat().st_size, "count": len(normalized)},
-            {"kind": "live_results_page_html", "file": html_path.name, "size": html_path.stat().st_size},
         ],
         "errors": [],
         "fetched_at": summary["fetched_at"],
     }
+
+    if with_debug_files:
+        raw_payload = {
+            "event_id": event_id,
+            "fetched_at": datetime.now(timezone.utc).isoformat(),
+            "cards": cards,
+        }
+        raw_path = event_dir / "GetLiveResult_dom.json"
+        raw_path.write_text(json.dumps(raw_payload, ensure_ascii=False, indent=2), encoding="utf-8", newline="")
+        html_path = event_dir / "GetLiveResult_page.html"
+        html_path.write_text(page_html, encoding="utf-8", newline="")
+        script_summary["files"].extend(
+            [
+                {"kind": "live_results_dom_raw", "file": raw_path.name, "size": raw_path.stat().st_size, "count": len(cards)},
+                {"kind": "live_results_page_html", "file": html_path.name, "size": html_path.stat().st_size},
+            ]
+        )
+
     (event_dir / "_scrape_summary_live.json").write_text(
         json.dumps(script_summary, ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -455,6 +475,7 @@ def main() -> int:
     ap.add_argument("--cdp-port", type=int, default=9222)
     ap.add_argument("--use-cdp", action="store_true", help="Reuse existing Chrome via CDP.")
     ap.add_argument("--headless", action="store_true", help="Launch a headless browser when not using CDP.")
+    ap.add_argument("--with-debug-files", action="store_true", help="额外输出 DOM 原始 JSON 和页面 HTML 调试文件。")
     ap.add_argument("--timeout-ms", type=int, default=30000)
     ap.add_argument("--verbose", action="store_true")
     args = ap.parse_args()
@@ -485,6 +506,7 @@ def main() -> int:
         normalized,
         page_html,
         schedule_cache_used=bool(schedule_payload),
+        with_debug_files=bool(args.with_debug_files),
     )
     print(f"  [live_results_dom] ✓ {len(normalized)} matches ({sum(1 for item in normalized if item.get('individual_matches'))} with detailed boards)")
     print()

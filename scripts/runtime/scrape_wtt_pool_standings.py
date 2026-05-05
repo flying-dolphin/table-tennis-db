@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Capture WTT team-event pool standings via the Stage Groups page.
+"""Capture WTT team-event pool standings for all groups (Stage 1A + 1B).
 
-This script is intentionally standalone and does not affect the existing
-scrape/import pipeline. It opens the public groups-stage page in a headless
-browser, listens for poolstandings network responses, and saves both the raw
-response wrapper and a normalized standings snapshot for MTEAM/WTEAM.
+The page-level standings data comes from the cached frontdoor endpoint:
+`websitecacheddata/{event_id}/poolstandings/{team_code}.json`.
+Each team file contains multiple wrappers (per-group intermediates plus an
+official aggregate). Per (gender, group) we keep the row from the wrapper with
+the newest `(LocalDate, LocalTime)` timestamp so the freshest intermediate wins
+over a stale aggregate.
 """
 
 from __future__ import annotations
@@ -14,32 +16,33 @@ import argparse
 import json
 import logging
 import sys
+import time
+import urllib.error
+import urllib.request
+from urllib.parse import quote
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
-
-from lib.browser_runtime import close_browser_page, open_browser_page
 
 logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
-GROUPS_URL_TEMPLATE = (
-    "https://www.worldtabletennis.com/teamseventInfo"
-    "?selectedTab={stage_label}&eventId={event_id}"
-)
+API_BASE = "https://liveeventsapi.worldtabletennis.com/api/cms"
+WTT_CACHEDDATA_BASE = "https://wtt-web-frontdoor-withoutcache-cqakg0andqf5hchn.a01.azurefd.net/websitecacheddata"
 TARGET_CODES = ("MTEAM", "WTEAM")
 
-
-def utc_now_compact() -> str:
-    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-
-
-def stage_slug(stage_label: str) -> str:
-    slug = "".join(ch.lower() if ch.isalnum() else "_" for ch in stage_label).strip("_")
-    while "__" in slug:
-        slug = slug.replace("__", "_")
-    return slug or "unknown_stage"
+REQ_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json,text/plain,*/*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Origin": "https://www.worldtabletennis.com",
+    "Referer": "https://www.worldtabletennis.com/",
+}
 
 
 def canonical_stage_label(stage_label: str) -> str:
@@ -110,150 +113,199 @@ def normalize_team_row(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_standings_snapshot(wrapper: dict[str, Any]) -> dict[str, Any]:
-    payload = normalize_payload(wrapper.get("MessagePayload"))
-    competition = (payload or {}).get("Competition") or {}
-    results = competition.get("Result") or []
-    normalized_rows = [normalize_team_row(row) for row in results]
+def fetch_pool_standings(event_id: int, retries: int = 4, backoff: float = 1.5) -> list[dict[str, Any]]:
+    url = f"{API_BASE}/GetPoolStandings/{event_id}"
+    last_err: Exception | None = None
+    for attempt in range(1, retries + 1):
+        try:
+            req = urllib.request.Request(url, headers=REQ_HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                if resp.status == 204:
+                    return []
+                body = resp.read()
+                data = json.loads(body.decode("utf-8"))
+                if not isinstance(data, list):
+                    raise ValueError(f"unexpected response type: {type(data).__name__}")
+                return data
+        except urllib.error.HTTPError as exc:
+            raise RuntimeError(f"HTTP {exc.code} fetching {url}") from exc
+        except Exception as exc:
+            last_err = exc
+            if attempt < retries:
+                time.sleep(backoff ** attempt)
+                continue
+            raise RuntimeError(f"failed after {retries} attempts: {last_err}") from last_err
+    return []
 
-    groups: dict[str, list[dict[str, Any]]] = {}
-    for row in normalized_rows:
-        groups.setdefault(row["group"] or "", []).append(row)
 
-    for rows in groups.values():
-        rows.sort(key=lambda item: (str(item.get("rank") or ""), item.get("organization") or ""))
+def fetch_cached_pool_standings(event_id: int, team_code: str, retries: int = 4, backoff: float = 1.5) -> list[dict[str, Any]]:
+    q = datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    url = f"{WTT_CACHEDDATA_BASE}/{event_id}/poolstandings/{team_code}.json?q={quote(q)}"
+    last_err: Exception | None = None
+    for attempt in range(1, retries + 1):
+        try:
+            req = urllib.request.Request(url, headers=REQ_HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                if resp.status == 204:
+                    return []
+                body = resp.read()
+                data = json.loads(body.decode("utf-8"))
+            if not isinstance(data, list):
+                raise ValueError(f"unexpected response type: {type(data).__name__}")
+            return data
+        except urllib.error.HTTPError as exc:
+            raise RuntimeError(f"HTTP {exc.code} fetching {url}") from exc
+        except Exception as exc:
+            last_err = exc
+            if attempt < retries:
+                time.sleep(backoff ** attempt)
+                continue
+            raise RuntimeError(f"failed after {retries} attempts: {last_err}") from last_err
+    return []
 
-    extended_infos = competition.get("ExtendedInfos") or {}
+
+def classify_team_code(document_code: str | None) -> str | None:
+    if not document_code:
+        return None
+    code = document_code.strip()
+    if code.startswith("TTEMTEAM"):
+        return "MTEAM"
+    if code.startswith("TTEWTEAM"):
+        return "WTEAM"
+    return None
+
+
+def wrapper_timestamp_key(payload: dict[str, Any]) -> tuple[str, int]:
+    """Sortable key — newer wrappers compare greater."""
+    date = (payload.get("UtcDate") or payload.get("LocalDate") or "")
+    raw_time = payload.get("UtcTime") or payload.get("LocalTime") or "0"
+    try:
+        time_val = int(str(raw_time))
+    except (TypeError, ValueError):
+        time_val = 0
+    return (str(date), time_val)
+
+
+def build_meta_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    extended_infos = (payload.get("Competition") or {}).get("ExtendedInfos") or {}
     return {
-        "competition_meta": {
-            "event_id": payload.get("EventId"),
-            "competition_code": payload.get("CompetitionCode"),
-            "document_code": payload.get("DocumentCode"),
-            "document_type": payload.get("DocumentType"),
-            "result_status": payload.get("ResultStatus"),
-            "source": payload.get("Source"),
-            "local_date": payload.get("LocalDate"),
-            "local_time": payload.get("LocalTime"),
-            "utc_date": payload.get("UtcDate"),
-            "utc_time": payload.get("UtcTime"),
-            "sport_description": extended_infos.get("SportDescription"),
-            "venue_description": extended_infos.get("VenueDescription"),
-            "progress": extended_infos.get("Progress"),
-        },
-        "rows": normalized_rows,
-        "groups": groups,
+        "event_id": payload.get("EventId"),
+        "competition_code": payload.get("CompetitionCode"),
+        "document_code": payload.get("DocumentCode"),
+        "document_type": payload.get("DocumentType"),
+        "result_status": payload.get("ResultStatus"),
+        "source": payload.get("Source"),
+        "local_date": payload.get("LocalDate"),
+        "local_time": payload.get("LocalTime"),
+        "utc_date": payload.get("UtcDate"),
+        "utc_time": payload.get("UtcTime"),
+        "sport_description": extended_infos.get("SportDescription"),
+        "venue_description": extended_infos.get("VenueDescription"),
+        "progress": extended_infos.get("Progress"),
     }
 
 
-def capture_pool_standings(page: Any, event_id: int) -> dict[str, dict[str, Any]]:
-    captures: dict[str, dict[str, Any]] = {}
+def aggregate_by_team(wrappers: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Merge wrappers into per-team-code snapshots covering every group seen.
 
-    def on_response(resp: Any) -> None:
-        try:
-            url = resp.url
-            if f"/websitecacheddata/{event_id}/poolstandings/" not in url:
-                return
-            status = int(resp.status)
-            if status != 200:
-                return
-            payload = resp.json()
-            if not isinstance(payload, list) or not payload:
-                return
+    For each (team_code, group) we keep the row from the wrapper with the newest
+    timestamp, so a fresh per-group intermediate overrides a stale aggregate row.
+    """
+    # Sort wrappers oldest -> newest so later writes win on ties.
+    enriched: list[tuple[tuple[str, int], str, dict[str, Any]]] = []
+    for wrapper in wrappers:
+        payload = normalize_payload(wrapper.get("MessagePayload"))
+        if not isinstance(payload, dict):
+            continue
+        team_code = classify_team_code(payload.get("DocumentCode"))
+        if team_code not in TARGET_CODES:
+            continue
+        enriched.append((wrapper_timestamp_key(payload), team_code, payload))
+    enriched.sort(key=lambda item: item[0])
 
-            wrapper = payload[0]
-            team_code = None
-            if "/MTEAM.json" in url:
-                team_code = "MTEAM"
-            elif "/WTEAM.json" in url:
-                team_code = "WTEAM"
-            if team_code not in TARGET_CODES:
-                return
+    by_team: dict[str, dict[str, Any]] = {}
+    for _key, team_code, payload in enriched:
+        slot = by_team.setdefault(
+            team_code,
+            {
+                "rows_by_group_org": {},  # (group, org) -> normalized row
+                "group_sources": {},       # group -> {document_code, status, ...}
+                "latest_meta": None,
+                "latest_key": ("", 0),
+                "wrapper_count": 0,
+                "document_codes": [],
+            },
+        )
+        slot["wrapper_count"] += 1
+        doc_code = payload.get("DocumentCode")
+        if doc_code and doc_code not in slot["document_codes"]:
+            slot["document_codes"].append(doc_code)
 
-            captures[team_code] = {
-                "requested_url": url,
-                "status": status,
-                "captured_at": datetime.now(timezone.utc).isoformat(),
-                "wrapper": wrapper,
-                "normalized": build_standings_snapshot(wrapper),
+        ts_key = wrapper_timestamp_key(payload)
+        if ts_key >= slot["latest_key"]:
+            slot["latest_key"] = ts_key
+            slot["latest_meta"] = build_meta_from_payload(payload)
+
+        results = (payload.get("Competition") or {}).get("Result") or []
+        for raw_row in results:
+            normalized = normalize_team_row(raw_row)
+            group = normalized.get("group") or ""
+            org = normalized.get("organization") or normalized.get("competitor_code") or ""
+            slot["rows_by_group_org"][(group, org)] = normalized
+            slot["group_sources"][group] = {
+                "document_code": payload.get("DocumentCode"),
+                "result_status": payload.get("ResultStatus"),
+                "local_date": payload.get("LocalDate"),
+                "local_time": payload.get("LocalTime"),
+                "utc_date": payload.get("UtcDate"),
+                "utc_time": payload.get("UtcTime"),
             }
-            logger.info("Captured %s standings from %s", team_code, url)
-        except Exception as exc:
-            logger.warning("Failed to process pool standings response: %s", exc)
-
-    page.on("response", on_response)
-    return captures
+    return by_team
 
 
-def click_team_tab(page: Any, label: str) -> bool:
-    try:
-        locator = page.get_by_role("button", name=label).first
-        if locator.count() and locator.is_visible():
-            locator.click(timeout=5000)
-            return True
-    except Exception:
-        pass
+def build_team_snapshot(slot: dict[str, Any]) -> dict[str, Any]:
+    rows = list(slot["rows_by_group_org"].values())
 
-    try:
-        locator = page.get_by_text(label, exact=True).first
-        if locator.count() and locator.is_visible():
-            locator.click(timeout=5000)
-            return True
-    except Exception:
-        pass
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        groups.setdefault(row.get("group") or "", []).append(row)
 
-    return False
+    def rank_sort_key(item: dict[str, Any]) -> tuple[int, str]:
+        rank_raw = item.get("rank")
+        try:
+            rank_int = int(rank_raw) if rank_raw not in (None, "") else 9999
+        except (TypeError, ValueError):
+            rank_int = 9999
+        return (rank_int, item.get("organization") or "")
 
+    for grp_rows in groups.values():
+        grp_rows.sort(key=rank_sort_key)
 
-def install_seen_marker(page: Any, event_id: int) -> None:
-    page.add_init_script(
-        f"""
-        (() => {{
-          window.__codexPoolStandingSeen = window.__codexPoolStandingSeen || {{}};
-          const open = XMLHttpRequest.prototype.open;
-          XMLHttpRequest.prototype.open = function(method, url, ...rest) {{
-            try {{
-              if (String(url).includes('/websitecacheddata/{event_id}/poolstandings/MTEAM.json')) {{
-                window.__codexPoolStandingSeen.MTEAM = true;
-              }}
-              if (String(url).includes('/websitecacheddata/{event_id}/poolstandings/WTEAM.json')) {{
-                window.__codexPoolStandingSeen.WTEAM = true;
-              }}
-            }} catch (err) {{}}
-            return open.call(this, method, url, ...rest);
-          }};
-          const fetchRef = window.fetch;
-          window.fetch = async (...args) => {{
-            try {{
-              const url = String(args[0] && args[0].url ? args[0].url : args[0]);
-              if (url.includes('/websitecacheddata/{event_id}/poolstandings/MTEAM.json')) {{
-                window.__codexPoolStandingSeen.MTEAM = true;
-              }}
-              if (url.includes('/websitecacheddata/{event_id}/poolstandings/WTEAM.json')) {{
-                window.__codexPoolStandingSeen.WTEAM = true;
-              }}
-            }} catch (err) {{}}
-            return fetchRef(...args);
-          }};
-        }})();
-        """
+    rows_sorted = sorted(
+        rows,
+        key=lambda r: (r.get("group") or "", rank_sort_key(r)[0], r.get("organization") or ""),
     )
 
+    return {
+        "competition_meta": slot["latest_meta"] or {},
+        "rows": rows_sorted,
+        "groups": dict(sorted(groups.items())),
+        "group_sources": dict(sorted(slot["group_sources"].items())),
+        "source_document_codes": slot["document_codes"],
+        "wrapper_count": slot["wrapper_count"],
+    }
 
-def write_outputs(run_dir: Path, captures: dict[str, dict[str, Any]], meta: dict[str, Any]) -> None:
-    (run_dir / "capture_summary.json").write_text(
+
+def write_outputs(event_dir: Path, snapshots: dict[str, dict[str, Any]], meta: dict[str, Any]) -> None:
+    event_dir.mkdir(parents=True, exist_ok=True)
+    (event_dir / "standings_capture_summary.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2),
         encoding="utf-8",
         newline="",
     )
-
-    for code, captured in sorted(captures.items()):
-        (run_dir / f"{code}_raw_wrapper.json").write_text(
-            json.dumps(captured["wrapper"], ensure_ascii=False, indent=2),
-            encoding="utf-8",
-            newline="",
-        )
-        (run_dir / f"{code}_standings.json").write_text(
-            json.dumps(captured["normalized"], ensure_ascii=False, indent=2),
+    for code, snapshot in sorted(snapshots.items()):
+        (event_dir / f"{code}_standings.json").write_text(
+            json.dumps(snapshot, ensure_ascii=False, indent=2),
             encoding="utf-8",
             newline="",
         )
@@ -264,81 +316,93 @@ def analyze_event(
     live_event_data_root: Path,
     *,
     stage_label: str,
-    headless: bool,
-    cdp_port: int,
-    use_cdp: bool,
 ) -> int:
     canonical_label = canonical_stage_label(stage_label)
-    output_dir = live_event_data_root / str(event_id) / "group_standings" / stage_slug(canonical_label)
+    output_dir = live_event_data_root / str(event_id)
     output_dir.mkdir(parents=True, exist_ok=True)
-    url = GROUPS_URL_TEMPLATE.format(event_id=event_id, stage_label=stage_label)
 
-    try:
-        from patchright.sync_api import sync_playwright
-    except ImportError:
+    snapshots: dict[str, dict[str, Any]] = {}
+    captured_urls: dict[str, str] = {}
+    for team_code in TARGET_CODES:
+        cached_url = f"{WTT_CACHEDDATA_BASE}/{event_id}/poolstandings/{team_code}.json"
+        logger.info("Fetching %s", cached_url)
         try:
-            from playwright.sync_api import sync_playwright
-        except ImportError:
-            logger.error("patchright/playwright not installed")
-            return 2
+            wrappers = fetch_cached_pool_standings(event_id, team_code)
+            source_url = cached_url
+        except Exception as cached_exc:
+            live_url = f"{API_BASE}/GetPoolStandings/{event_id}"
+            logger.warning("Cached standings fetch failed for %s: %s; falling back to %s", team_code, cached_exc, live_url)
+            try:
+                wrappers = fetch_pool_standings(event_id)
+                source_url = live_url
+            except Exception as exc:
+                logger.error("Failed to fetch pool standings for %s: %s", team_code, exc)
+                return 2
 
-    with sync_playwright() as p:
-        via_cdp, browser, _, page = open_browser_page(
-            p,
-            use_cdp=use_cdp,
-            cdp_port=cdp_port,
-            cdp_only=False,
-            launch_kwargs={"headless": headless},
-            context_kwargs={"viewport": {"width": 1440, "height": 2000}, "locale": "en-US", "timezone_id": "Asia/Shanghai"},
-            log_prefix="wtt-pool-standings",
+        if not wrappers:
+            logger.error("Pool standings response was empty for event %s team %s", event_id, team_code)
+            return 1
+
+        by_team = aggregate_by_team(wrappers)
+        snapshot = build_team_snapshot(by_team[team_code]) if team_code in by_team else None
+        if snapshot is None:
+            logger.error("Missing pool standings snapshot for team %s (available: %s)", team_code, ", ".join(sorted(by_team.keys())) or "none")
+            return 1
+        snapshots[team_code] = snapshot
+        captured_urls[team_code] = source_url
+
+    missing = [code for code in TARGET_CODES if code not in snapshots]
+    if missing:
+        logger.error(
+            "Missing pool standings for: %s (available: %s)",
+            ", ".join(missing),
+            ", ".join(sorted(snapshots.keys())) or "none",
+        )
+        return 1
+
+    for code, snapshot in sorted(snapshots.items()):
+        groups = snapshot.get("groups") or {}
+        logger.info(
+            "Captured %s standings: %d groups (%s) from %d wrapper(s)",
+            code,
+            len(groups),
+            ", ".join(sorted(groups.keys())) or "-",
+            snapshot.get("wrapper_count", 0),
         )
 
-        captures = capture_pool_standings(page, event_id)
-        try:
-            logger.info("Opening %s", url)
-            install_seen_marker(page, event_id)
-            page.goto(url, wait_until="networkidle", timeout=60000)
-            page.wait_for_timeout(6000)
-
-            if "WTEAM" not in captures:
-                if click_team_tab(page, "Women's Teams"):
-                    logger.info("Switched to Women's Teams tab")
-                    page.wait_for_timeout(5000)
-
-            if "WTEAM" not in captures:
-                page.wait_for_timeout(4000)
-
-            missing = [code for code in TARGET_CODES if code not in captures]
-            if missing:
-                logger.error("Missing pool standings captures for: %s", ", ".join(missing))
-                return 1
-
-            meta = {
-                "event_id": event_id,
-                "stage_label": canonical_label,
-                "page_url": url,
-                "output_dir": str(output_dir),
-                "captured_codes": sorted(captures.keys()),
-                "captured_urls": {code: captures[code]["requested_url"] for code in sorted(captures)},
-            }
-            write_outputs(output_dir, captures, meta)
-            logger.info("Saved pool standings analysis to %s", output_dir)
-        finally:
-            close_browser_page(via_cdp, browser, page)
-
+    meta = {
+        "event_id": event_id,
+        "stage_label": canonical_label,
+        "api_url": f"{WTT_CACHEDDATA_BASE}/{event_id}/poolstandings/{{team_code}}.json",
+        "output_dir": str(output_dir),
+        "captured_codes": sorted(snapshots.keys()),
+        "captured_urls": captured_urls,
+        "captured_at": datetime.now(timezone.utc).isoformat(),
+        "group_summary": {
+            code: sorted((snapshot.get("groups") or {}).keys())
+            for code, snapshot in sorted(snapshots.items())
+        },
+    }
+    write_outputs(output_dir, snapshots, meta)
+    logger.info("Saved pool standings analysis to %s", output_dir)
     return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Capture WTT pool standings via Stage Groups page.")
+    parser = argparse.ArgumentParser(description="Capture WTT pool standings for all groups via the live API.")
     parser.add_argument("--event-id", type=int, required=True)
-    parser.add_argument("--stage-label", default="Groups", help="Page tab label for group standings capture. Stored stage label is normalized to 'Groups'.")
+    parser.add_argument(
+        "--stage-label",
+        default="Groups",
+        help="Stored stage label is normalized to 'Groups'. Kept for orchestrator compatibility.",
+    )
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
-    parser.add_argument("--output-root", dest="legacy_output_root", type=Path, default=None, help=argparse.SUPPRESS)
-    parser.add_argument("--headless", action="store_true", default=True)
-    parser.add_argument("--cdp-port", type=int, default=9222)
-    parser.add_argument("--use-cdp", action="store_true", help="Reuse existing Chrome via CDP instead of launching a fresh browser.")
     parser.add_argument("--verbose", action="store_true")
+    # Browser-related flags retained as no-ops so the existing orchestrator (`scrape_current_event.py`)
+    # can keep passing them without modification.
+    parser.add_argument("--headless", action="store_true", default=True, help=argparse.SUPPRESS)
+    parser.add_argument("--cdp-port", type=int, default=9222, help=argparse.SUPPRESS)
+    parser.add_argument("--use-cdp", action="store_true", help=argparse.SUPPRESS)
     return parser
 
 
@@ -348,11 +412,8 @@ def main() -> int:
     configure_logging(args.verbose)
     return analyze_event(
         args.event_id,
-        (args.legacy_output_root.resolve() if args.legacy_output_root else args.live_event_data_root.resolve()),
+        args.live_event_data_root.resolve(),
         stage_label=str(args.stage_label),
-        headless=bool(args.headless),
-        cdp_port=args.cdp_port,
-        use_cdp=bool(args.use_cdp),
     )
 
 
