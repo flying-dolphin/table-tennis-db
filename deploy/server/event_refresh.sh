@@ -54,10 +54,10 @@ require_command() {
 
 require_command sqlite3
 require_file "${RUNTIME_DIR}"
-require_file "${RUNTIME_DIR}/python/event_refresh.py"
 require_file "${RUNTIME_DIR}/python/backfill_events_calendar_event_id.py"
-require_file "${RUNTIME_DIR}/python/import_session_schedule.py"
-require_file "${RUNTIME_DIR}/data/stage_round_mapping.json"
+require_file "${RUNTIME_DIR}/python/scrape_current_event.py"
+require_file "${RUNTIME_DIR}/python/import_current_event.py"
+require_file "${RUNTIME_DIR}/python/import_current_event_session_schedule.py"
 require_file "${DB_PATH}"
 
 mkdir -p "${BACKUP_DIR}"
@@ -100,14 +100,32 @@ find "${BACKUP_DIR}" -name 'ittf-pre-event-refresh-*.db' -mtime +"${RETENTION_DA
 log "回填 events_calendar.event_id 并补齐 events"
 "${PYTHON_BIN}" "${RUNTIME_DIR}/python/backfill_events_calendar_event_id.py" --db "${DB_PATH}"
 
-if [[ -d "${EVENT_SCHEDULE_DIR}" ]] && compgen -G "${EVENT_SCHEDULE_DIR}/*.json" > /dev/null; then
-    log "导入 data/event_schedule/*.json"
-    "${PYTHON_BIN}" "${RUNTIME_DIR}/python/import_session_schedule.py" --db "${DB_PATH}" --dir "${EVENT_SCHEDULE_DIR}"
+if [[ -n "${EVENT_ID:-}" ]]; then
+    EVENT_IDS="${EVENT_ID}"
 else
-    log "跳过 event_schedule 导入（未发现 ${EVENT_SCHEDULE_DIR}/*.json）"
+    EVENT_IDS="$(sqlite3 -noheader -batch "${DB_PATH}" \
+        "SELECT event_id FROM events WHERE lifecycle_status IN ('draw_published', 'in_progress') ORDER BY event_id")"
 fi
 
-log "刷新进行中 / 已发布签表赛事"
-"${PYTHON_BIN}" "${RUNTIME_DIR}/python/event_refresh.py" --db "${DB_PATH}" --live-event-data-root "${LIVE_EVENT_DATA_DIR}"
+if [[ -z "${EVENT_IDS}" ]]; then
+    log "跳过当前赛事刷新（未找到 draw_published / in_progress 赛事）"
+    log "完成"
+    exit 0
+fi
+
+while IFS= read -r CURRENT_EVENT_ID; do
+    [[ -z "${CURRENT_EVENT_ID}" ]] && continue
+    log "刷新当前赛事 ${CURRENT_EVENT_ID}"
+    "${PYTHON_BIN}" "${RUNTIME_DIR}/python/scrape_current_event.py" \
+        --event-id "${CURRENT_EVENT_ID}" \
+        --live-event-data-root "${LIVE_EVENT_DATA_DIR}" \
+        --headless
+
+    "${PYTHON_BIN}" "${RUNTIME_DIR}/python/import_current_event.py" \
+        --event-id "${CURRENT_EVENT_ID}" \
+        --db-path "${DB_PATH}" \
+        --live-event-data-root "${LIVE_EVENT_DATA_DIR}" \
+        --event-schedule-dir "${EVENT_SCHEDULE_DIR}"
+done <<< "${EVENT_IDS}"
 
 log "完成"

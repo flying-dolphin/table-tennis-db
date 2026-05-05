@@ -141,6 +141,7 @@ python scripts/runtime/generate_current_event_crontab.py \
   --event-id 3216 \
   --db-path /opt/ittf/data/db/ittf.db \
   --project-root /opt/ittf \
+  --runtime-python-dir /opt/ittf/scripts/runtime \
   --python-bin /opt/ittf-venv/bin/python \
   --live-event-data-root /opt/ittf/data/live_event_data \
   --headless

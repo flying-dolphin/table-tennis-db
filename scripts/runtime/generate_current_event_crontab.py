@@ -75,6 +75,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--event-id", type=int, required=True)
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--project-root", default=str(PROJECT_ROOT))
+    parser.add_argument(
+        "--runtime-python-dir",
+        default="scripts/runtime",
+        help="Directory containing scrape/import runtime scripts in generated commands.",
+    )
     parser.add_argument("--python-bin", default=sys.executable)
     parser.add_argument("--live-event-data-root", default=str(PROJECT_ROOT / "data" / "live_event_data"))
     parser.add_argument(
@@ -304,11 +309,12 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
     project_root = str(args.project_root)
     live_root = str(args.live_event_data_root)
     command_db_path = str(args.emit_db_path or args.db_path)
+    runtime_python_dir = str(args.runtime_python_dir).rstrip("/")
     event_id = str(args.event_id)
 
     scrape_cmd = [
         python_bin,
-        "scripts/runtime/scrape_current_event.py",
+        f"{runtime_python_dir}/scrape_current_event.py",
         "--event-id",
         event_id,
         "--sources",
@@ -328,7 +334,7 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
 
     import_cmd = [
         python_bin,
-        "scripts/runtime/import_current_event.py",
+        f"{runtime_python_dir}/import_current_event.py",
         "--event-id",
         event_id,
         "--sources",
