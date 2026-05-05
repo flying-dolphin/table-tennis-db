@@ -13,16 +13,20 @@ over a stale aggregate.
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import logging
 import sys
 import time
 import urllib.error
 import urllib.request
+import zlib
 from urllib.parse import quote
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+import brotli
 
 logger = logging.getLogger(__name__)
 
@@ -63,10 +67,43 @@ def normalize_payload(payload: Any) -> Any:
     return payload
 
 
+def decode_response_body(body: bytes, content_encoding: str | None) -> str:
+    encoding = (content_encoding or "").lower().strip()
+    if encoding == "br":
+        body = brotli.decompress(body)
+    elif encoding == "gzip":
+        body = gzip.decompress(body)
+    elif encoding == "deflate":
+        body = zlib.decompress(body)
+    elif encoding not in ("", "identity"):
+        raise ValueError(f"unsupported content encoding: {content_encoding}")
+    return body.decode("utf-8")
+
+
+def loads_response_json(body: bytes, content_encoding: str | None) -> Any:
+    return json.loads(decode_response_body(body, content_encoding))
+
+
+def repair_cp936_mojibake(value: Any) -> Any:
+    if not isinstance(value, str):
+        return value
+    try:
+        repaired = value.encode("cp936").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return value
+
+    def cjk_count(text: str) -> int:
+        return sum(1 for ch in text if "\u4e00" <= ch <= "\u9fff")
+
+    if cjk_count(value) == 0 or cjk_count(repaired) >= cjk_count(value):
+        return value
+    return repaired
+
+
 def athlete_name(athlete: dict[str, Any]) -> str:
     desc = athlete.get("Description") or {}
-    given = (desc.get("GivenName") or "").strip()
-    family = (desc.get("FamilyName") or "").strip()
+    given = (repair_cp936_mojibake(desc.get("GivenName")) or "").strip()
+    family = (repair_cp936_mojibake(desc.get("FamilyName")) or "").strip()
     return f"{given} {family}".strip()
 
 
@@ -79,7 +116,7 @@ def normalize_team_row(row: dict[str, Any]) -> dict[str, Any]:
         "group": row.get("Group"),
         "organization": competitor.get("Organization"),
         "competitor_code": competitor.get("Code"),
-        "team_name": ((competitor.get("Description") or {}).get("TeamName")),
+        "team_name": repair_cp936_mojibake(((competitor.get("Description") or {}).get("TeamName"))),
         "qualification_mark": row.get("QualificationMark"),
         "played": row.get("Played"),
         "won": row.get("Won"),
@@ -102,9 +139,9 @@ def normalize_team_row(row: dict[str, Any]) -> dict[str, Any]:
                 "code": athlete.get("Code"),
                 "order": athlete.get("Order"),
                 "if_id": ((athlete.get("Description") or {}).get("IfId")),
-                "organization": ((athlete.get("Description") or {}).get("Organization")),
-                "gender": ((athlete.get("Description") or {}).get("Gender")),
-                "birth_date": ((athlete.get("Description") or {}).get("BirthDate")),
+                "organization": repair_cp936_mojibake(((athlete.get("Description") or {}).get("Organization"))),
+                "gender": repair_cp936_mojibake(((athlete.get("Description") or {}).get("Gender"))),
+                "birth_date": repair_cp936_mojibake(((athlete.get("Description") or {}).get("BirthDate"))),
                 "name": athlete_name(athlete),
             }
             for athlete in athletes
@@ -123,7 +160,7 @@ def fetch_pool_standings(event_id: int, retries: int = 4, backoff: float = 1.5) 
                 if resp.status == 204:
                     return []
                 body = resp.read()
-                data = json.loads(body.decode("utf-8"))
+                data = loads_response_json(body, resp.headers.get("Content-Encoding"))
                 if not isinstance(data, list):
                     raise ValueError(f"unexpected response type: {type(data).__name__}")
                 return data
@@ -149,7 +186,7 @@ def fetch_cached_pool_standings(event_id: int, team_code: str, retries: int = 4,
                 if resp.status == 204:
                     return []
                 body = resp.read()
-                data = json.loads(body.decode("utf-8"))
+                data = loads_response_json(body, resp.headers.get("Content-Encoding"))
             if not isinstance(data, list):
                 raise ValueError(f"unexpected response type: {type(data).__name__}")
             return data
