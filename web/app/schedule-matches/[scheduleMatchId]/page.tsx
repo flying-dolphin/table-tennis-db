@@ -247,9 +247,10 @@ function RubberCard({
                   <p className={cn("line-clamp-1 text-body font-black", isWinner ? "text-text-primary" : "text-text-secondary")} title={sideTitle(side)}>
                     {sideTitle(side)}
                   </p>
-                  <p className="mt-0.5 line-clamp-1 text-micro font-bold uppercase tracking-wider text-text-tertiary">
-                    {sideCountries(side) || side.teamCode || "国家待补"}
-                  </p>
+                  <div className="mt-0.5 flex items-center gap-1.5 line-clamp-1 text-micro font-bold uppercase tracking-wider text-text-tertiary">
+                    <Flag code={side.teamCode || side.players[0]?.countryCode || null} />
+                    <span>{sideCountries(side) || side.teamCode || "国家待补"}</span>
+                  </div>
                 </div>
                 <span className={cn("font-numeric text-[1.15rem] font-black tabular-nums", isWinner ? "text-brand-deep" : "text-text-tertiary")}>{score}</span>
               </div>
