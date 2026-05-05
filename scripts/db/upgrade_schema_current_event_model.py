@@ -135,8 +135,8 @@ def create_current_tables(cursor: sqlite3.Cursor) -> None:
             event_id            INTEGER NOT NULL,
             day_index           INTEGER NOT NULL,
             local_date          TEXT NOT NULL,
-            start_local_time    TEXT,
-            end_local_time      TEXT,
+            morning_session_start TEXT,
+            afternoon_session_start TEXT,
             venue_raw           TEXT,
             venue_id            INTEGER,
             table_count         INTEGER,
@@ -371,6 +371,23 @@ def create_current_tables(cursor: sqlite3.Cursor) -> None:
     )
 
 
+def ensure_session_schedule_new_fields(cursor: sqlite3.Cursor) -> None:
+    """Rename start_local_time/end_local_time if they exist."""
+    table = "current_event_session_schedule"
+    if column_exists(cursor, table, "start_local_time") and not column_exists(
+        cursor, table, "morning_session_start"
+    ):
+        cursor.execute(
+            f"ALTER TABLE {table} RENAME COLUMN start_local_time TO morning_session_start"
+        )
+    if column_exists(cursor, table, "end_local_time") and not column_exists(
+        cursor, table, "afternoon_session_start"
+    ):
+        cursor.execute(
+            f"ALTER TABLE {table} RENAME COLUMN end_local_time TO afternoon_session_start"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Schema migration: current event model + historical team ties.")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB_PATH)
@@ -393,6 +410,7 @@ def main() -> int:
         ensure_matches_team_tie_id(cursor)
         create_team_ties_tables(cursor)
         create_current_tables(cursor)
+        ensure_session_schedule_new_fields(cursor)
         conn.commit()
         print("Committed.")
 
