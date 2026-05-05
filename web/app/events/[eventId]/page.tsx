@@ -2030,6 +2030,150 @@ const TEAM_DRAW_CARD_H = 52;
 const TEAM_DRAW_COL_GAP = 16;
 
 type TeamKnockoutRound = EventTeamKnockoutView["rounds"][number];
+type TeamBracketTeam = TeamTie["teamA"] | null;
+type TeamBracketNode = {
+  key: string;
+  tie: TeamTie | null;
+  teamA: TeamBracketTeam;
+  teamB: TeamBracketTeam;
+};
+type TeamBracketRound = {
+  code: string;
+  label: string;
+  order: number;
+  nodes: TeamBracketNode[];
+};
+
+const TEAM_MAIN_DRAW_SEQUENCE: Array<{ code: string; label: string; order: number; size: number }> = [
+  { code: "R128", label: "128 强", order: 10, size: 64 },
+  { code: "R64", label: "64 强", order: 20, size: 32 },
+  { code: "R32", label: "32 强", order: 30, size: 16 },
+  { code: "R16", label: "16 强", order: 40, size: 8 },
+  { code: "QuarterFinal", label: "四分之一决赛", order: 50, size: 4 },
+  { code: "SemiFinal", label: "半决赛", order: 60, size: 2 },
+  { code: "Final", label: "决赛", order: 80, size: 1 },
+];
+
+const TEAM_ROUND_ALIASES: Record<string, string> = {
+  F: "Final",
+  Final: "Final",
+  SF: "SemiFinal",
+  SemiFinal: "SemiFinal",
+  QF: "QuarterFinal",
+  QuarterFinal: "QuarterFinal",
+  R16: "R16",
+  R32: "R32",
+  R64: "R64",
+  R128: "R128",
+};
+
+function normalizeTeamRoundCode(code: string) {
+  return TEAM_ROUND_ALIASES[code] ?? code;
+}
+
+function teamTieWinner(tie: TeamTie | null): TeamBracketTeam {
+  if (!tie?.winnerCode) return null;
+  if (tie.winnerCode === tie.teamA.code) return tie.teamA;
+  if (tie.winnerCode === tie.teamB.code) return tie.teamB;
+  return { code: tie.winnerCode, name: tie.winnerCode, nameZh: null };
+}
+
+function teamTiePosition(tie: TeamTie) {
+  const text = `${tie.roundZh ?? ""} ${tie.round ?? ""}`;
+  const match = text.match(/Match\s+(\d+)/i) ?? text.match(/第\s*(\d+)\s*场/);
+  return match ? Number(match[1]) : Number.POSITIVE_INFINITY;
+}
+
+function sortTeamTiesByBracketPosition(ties: TeamTie[]) {
+  return [...ties].sort((left, right) => {
+    const positionDiff = teamTiePosition(left) - teamTiePosition(right);
+    if (Number.isFinite(positionDiff) && positionDiff !== 0) return positionDiff;
+    return Number(left.tieId) - Number(right.tieId);
+  });
+}
+
+function cleanTeamRoundLabel(label: string, fallback: string) {
+  return /Match\s+\d+/i.test(label) || /第\s*\d+\s*场/.test(label) ? fallback : label;
+}
+
+function buildCompleteTeamBracketRounds(rounds: TeamKnockoutRound[]): TeamBracketRound[] {
+  const roundMap = new Map(
+    rounds
+      .filter((round) => round.code !== "Bronze" && round.ties.length > 0)
+      .map((round) => [normalizeTeamRoundCode(round.code), round]),
+  );
+  const earliestRound = TEAM_MAIN_DRAW_SEQUENCE.find((meta) => roundMap.has(meta.code));
+  if (!earliestRound) return [];
+
+  const sequence = TEAM_MAIN_DRAW_SEQUENCE.filter((meta) => meta.order >= earliestRound.order);
+  const completed: TeamBracketRound[] = [];
+
+  sequence.forEach((meta, roundIndex) => {
+    const sourceRound = roundMap.get(meta.code);
+    const realTies = sourceRound ? sortTeamTiesByBracketPosition(sourceRound.ties) : [];
+    const previousRound = completed[roundIndex - 1];
+    const nodes: TeamBracketNode[] = Array.from({ length: meta.size }, (_, nodeIndex) => {
+      const tie = realTies[nodeIndex] ?? null;
+      const feederA = previousRound?.nodes[nodeIndex * 2] ?? null;
+      const feederB = previousRound?.nodes[nodeIndex * 2 + 1] ?? null;
+      return {
+        key: tie?.tieId ?? `${meta.code}-placeholder-${nodeIndex}`,
+        tie,
+        teamA: tie?.teamA ?? teamTieWinner(feederA?.tie ?? null),
+        teamB: tie?.teamB ?? teamTieWinner(feederB?.tie ?? null),
+      };
+    });
+
+    completed.push({
+      code: meta.code,
+      label: sourceRound ? cleanTeamRoundLabel(sourceRound.label, meta.label) : meta.label,
+      order: sourceRound?.order ?? meta.order,
+      nodes,
+    });
+  });
+
+  return completed;
+}
+
+function DrawTeamPlaceholderCard({
+  node,
+  eventId,
+  subEventCode,
+  eventReturnHref,
+}: {
+  node: TeamBracketNode;
+  eventId: string;
+  subEventCode: string;
+  eventReturnHref: string;
+}) {
+  return (
+    <div className="rounded-[0.6rem] border border-dashed border-[#cbd8ea] bg-[#f8fbff] px-1.5 py-1 shadow-sm">
+      <div className="space-y-1">
+        {[node.teamA, node.teamB].map((team, index) => (
+          <div key={`${node.key}-${index}`} className="flex items-center gap-1">
+            {team?.code ? (
+              <Link href={route(buildTeamRosterHref(eventId, subEventCode, team.code, eventReturnHref))} className="flex min-w-0 flex-1 items-center gap-1">
+                <Flag code={team.code} className="shrink-0 scale-[0.85] origin-left" />
+                <span className="min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight text-slate-700">
+                  {team.code}
+                </span>
+              </Link>
+            ) : (
+              <div className="flex min-w-0 flex-1 items-center gap-1">
+                <span className="h-2.5 w-3.5 shrink-0 rounded-[0.15rem] bg-slate-200" />
+                <span className="min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight text-slate-300">
+                  待定
+                </span>
+              </div>
+            )}
+            <span className="font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums text-slate-200">-</span>
+            <span className="w-3 shrink-0" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function orderTeamRoundsByFeeders(rounds: TeamKnockoutRound[]): TeamKnockoutRound[] {
   if (rounds.length <= 1) return rounds;
@@ -2073,19 +2217,20 @@ function TeamKnockoutDrawView({
   subEventCode: string;
   eventReturnHref: string;
 }) {
-  const mainRounds = React.useMemo(
+  const bracketRounds = React.useMemo(
     () => {
       const filtered = view.rounds
         .filter((round) => round.code !== "Bronze" && round.ties.length > 0)
         .slice()
-        .sort((a, b) => a.order - b.order);
-      return orderTeamRoundsByFeeders(filtered);
+        .sort((a, b) => a.order - b.order)
+        .map((round) => ({ ...round, code: normalizeTeamRoundCode(round.code) }));
+      return buildCompleteTeamBracketRounds(orderTeamRoundsByFeeders(filtered));
     },
     [view.rounds],
   );
   const bronzeTie = view.bronzeTie ?? view.rounds.find((round) => round.code === "Bronze")?.ties[0] ?? null;
 
-  if (mainRounds.length === 0 && !bronzeTie) {
+  if (bracketRounds.length === 0 && !bronzeTie) {
     return (
       <div className="pt-5">
         <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
@@ -2095,12 +2240,12 @@ function TeamKnockoutDrawView({
     );
   }
 
-  const firstRoundCount = mainRounds[0]?.ties.length ?? 1;
+  const firstRoundCount = bracketRounds[0]?.nodes.length ?? 1;
   const slotH0 = Math.max(TEAM_DRAW_CARD_H + 12, 72);
   const totalH = firstRoundCount * slotH0;
 
   const getCardInfo = (rIdx: number, mIdx: number) => {
-    const count = mainRounds[rIdx]?.ties.length ?? 1;
+    const count = bracketRounds[rIdx]?.nodes.length ?? 1;
     const slotH = totalH / count;
     return {
       top: mIdx * slotH + (slotH - TEAM_DRAW_CARD_H) / 2,
@@ -2109,7 +2254,7 @@ function TeamKnockoutDrawView({
     };
   };
 
-  const totalW = mainRounds.length * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP);
+  const totalW = bracketRounds.length * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP);
 
   return (
     <div className="pb-10 pt-5">
@@ -2120,17 +2265,19 @@ function TeamKnockoutDrawView({
         </section>
       ) : null}
 
-      {mainRounds.length > 0 && (
+      {bracketRounds.length > 0 && (
         <div className="overflow-x-auto pb-2">
           <div className="mb-3 flex" style={{ minWidth: totalW }}>
-            {mainRounds.map((round) => (
+            {bracketRounds.map((round) => (
               <div
                 key={round.code}
                 className="shrink-0 text-center"
                 style={{ width: TEAM_DRAW_CARD_W, marginRight: TEAM_DRAW_COL_GAP }}
               >
                 <p className="text-[0.78rem] font-black text-slate-900">{round.label}</p>
-                <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{round.ties.length} 场</p>
+                <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">
+                  {round.nodes.filter((node) => node.tie).length}/{round.nodes.length} 场
+                </p>
               </div>
             ))}
           </div>
@@ -2140,25 +2287,14 @@ function TeamKnockoutDrawView({
               className="pointer-events-none absolute inset-0 overflow-visible"
               style={{ width: totalW, height: totalH }}
             >
-              {mainRounds.map((_, rIdx) => {
-                if (rIdx >= mainRounds.length - 1) return null;
-                const currentRound = mainRounds[rIdx];
-                const nextRound = mainRounds[rIdx + 1];
-                return nextRound.ties.map((nt, nMIdx) => {
+              {bracketRounds.map((_, rIdx) => {
+                if (rIdx >= bracketRounds.length - 1) return null;
+                const currentRound = bracketRounds[rIdx];
+                const nextRound = bracketRounds[rIdx + 1];
+                return nextRound.nodes.map((__, nMIdx) => {
                   const f1Idx = nMIdx * 2;
                   const f2Idx = nMIdx * 2 + 1;
-                  if (f2Idx >= currentRound.ties.length) return null;
-                  const f1Tie = currentRound.ties[f1Idx];
-                  const f2Tie = currentRound.ties[f2Idx];
-                  const teams = new Set([nt.teamA.code, nt.teamB.code]);
-                  if (
-                    !f1Tie.winnerCode ||
-                    !f2Tie.winnerCode ||
-                    !teams.has(f1Tie.winnerCode) ||
-                    !teams.has(f2Tie.winnerCode)
-                  ) {
-                    return null;
-                  }
+                  if (f2Idx >= currentRound.nodes.length) return null;
                   const f1 = getCardInfo(rIdx, f1Idx);
                   const f2 = getCardInfo(rIdx, f2Idx);
                   const fn = getCardInfo(rIdx + 1, nMIdx);
@@ -2179,16 +2315,20 @@ function TeamKnockoutDrawView({
               })}
             </svg>
 
-            {mainRounds.map((round, rIdx) =>
-              round.ties.map((tie, mIdx) => {
+            {bracketRounds.map((round, rIdx) =>
+              round.nodes.map((node, mIdx) => {
                 const { top, left } = getCardInfo(rIdx, mIdx);
                 return (
                   <div
-                    key={tie.tieId}
+                    key={node.key}
                     className="absolute"
                     style={{ top, left, width: TEAM_DRAW_CARD_W }}
                   >
-                    <DrawTeamTieCard tie={tie} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
+                    {node.tie ? (
+                      <DrawTeamTieCard tie={node.tie} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
+                    ) : (
+                      <DrawTeamPlaceholderCard node={node} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
+                    )}
                   </div>
                 );
               }),
@@ -2659,6 +2799,12 @@ function RoundRobinView({
         </section>
       )}
 
+      {view.finalStandings.length > 0 ? (
+        <div className="mt-6">
+          <FinalStandingsView standings={view.finalStandings} />
+        </div>
+      ) : null}
+
       <div className="mt-6 space-y-6">
         {view.stages.map((stage) => {
           const isStageCollapsed = collapsedStages.has(stage.code);
@@ -2752,11 +2898,6 @@ function RoundRobinView({
         })}
       </div>
 
-      {view.finalStandings.length > 0 ? (
-        <div className="mt-6">
-          <FinalStandingsView standings={view.finalStandings} />
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -3076,16 +3217,6 @@ function EventDetailContent() {
                 />
               ) : (
                 <div className="space-y-6">
-                  {shouldShowRoundRobin ? (
-                    <RoundRobinView
-                      view={currentRoundRobinView}
-                      defaultCollapsed={hasKnockoutCompanion}
-                      eventReturnHref={eventReturnHref}
-                      eventId={params.eventId}
-                      subEventCode={resolvedSubEvent}
-                    />
-                  ) : null}
-
                   {shouldShowTeamKnockout ? (
                     <TeamKnockoutDrawView
                       view={currentTeamKnockoutView}
@@ -3102,6 +3233,16 @@ function EventDetailContent() {
                       teamKnockoutView={currentTeamKnockoutView}
                       eventReturnHref={eventReturnHref}
                       eventId={params.eventId}
+                    />
+                  ) : null}
+
+                  {shouldShowRoundRobin ? (
+                    <RoundRobinView
+                      view={currentRoundRobinView}
+                      defaultCollapsed={hasKnockoutCompanion}
+                      eventReturnHref={eventReturnHref}
+                      eventId={params.eventId}
+                      subEventCode={resolvedSubEvent}
                     />
                   ) : null}
                 </div>
