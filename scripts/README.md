@@ -112,6 +112,41 @@ python scripts/runtime/import_current_event_group_standings.py --input-dir data/
 
 旧的 WTT 当前赛事脚本已经归档到 `tmp/scripts/`，不再作为主入口使用。
 
+## 历史团体赛 team_ties 回填
+
+历史团体赛的顶层对阵从 `matches / match_sides / match_side_players` 离线构建，前端不再实时聚合。
+
+预览回填结果：
+
+```bash
+python scripts/db/backfill_historical_team_ties.py --dry-run
+```
+
+执行全量回填：
+
+```bash
+python scripts/db/backfill_historical_team_ties.py
+```
+
+只回填单个赛事：
+
+```bash
+python scripts/db/backfill_historical_team_ties.py --event-id 250
+```
+
+脚本会写入 `team_ties / team_tie_sides / team_tie_side_players`，并回填 `matches.team_tie_id`。重跑时按 `source_key` 更新既有记录，保留 `team_tie_id` 稳定。
+
+## 旧 event_schedule 表清理
+
+确认前端与导入链路不再使用旧表后，可删除旧的 `event_schedule_*` 和 `event_session_schedule` 表：
+
+```bash
+python scripts/db/drop_legacy_event_schedule_tables.py --dry-run
+python scripts/db/drop_legacy_event_schedule_tables.py
+```
+
+默认执行前会备份数据库。旧表已由 `current_event_*` 与历史 `team_ties / matches` 替代。
+
 ## 特殊赛事修复
 
 ### 修复 `event_id=2860` 的 stage/round
