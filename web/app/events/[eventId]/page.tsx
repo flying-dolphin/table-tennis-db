@@ -329,10 +329,14 @@ function formatLocalTime(value: string | null) {
   return time || "时间待定";
 }
 
-function formatBeijingTimeLabel(value: string | null) {
-  if (!value) return null;
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return null;
+function formatBeijingTimeLabel(value: string | null, scheduledLocalAt?: string | null, eventTimeZone?: string | null) {
+  const date =
+    value
+      ? new Date(value)
+      : scheduledLocalAt && eventTimeZone
+        ? zonedLocalDateTimeToDate(scheduledLocalAt.slice(0, 10), scheduledLocalAt.slice(11, 16), eventTimeZone)
+        : null;
+  if (!date || Number.isNaN(date.getTime())) return null;
 
   const parts = new Intl.DateTimeFormat("zh-CN", {
     timeZone: "Asia/Shanghai",
@@ -1174,17 +1178,22 @@ function SessionScheduleView({
 function ScheduleMatchCard({
   match,
   showBeijingTime,
+  eventTimeZone,
   eventReturnHref,
 }: {
   match: EventScheduleMatch;
   showBeijingTime: boolean;
+  eventTimeZone: string | null;
   eventReturnHref: string;
 }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
   const meta = scheduleStatusMeta(resolveScheduleDisplayStatus(match));
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
   const sideRows = [sideA, sideB].filter(Boolean);
-  const beijingTimeLabel = showBeijingTime ? formatBeijingTimeLabel(match.scheduledUtcAt) : null;
+  const shouldShowLiveScore = match.status === "live" && scoreParts.some(Boolean);
+  const beijingTimeLabel = showBeijingTime
+    ? formatBeijingTimeLabel(match.scheduledUtcAt, match.scheduledLocalAt, eventTimeZone)
+    : null;
 
   return (
     <Link href={route(withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref))} className="block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
@@ -1222,11 +1231,11 @@ function ScheduleMatchCard({
                 </p>
                 {side.seed ? <p className="mt-0.5 text-[0.7rem] font-bold text-slate-400">Seed {side.seed}</p> : null}
               </div>
-              {score ? (
+              {score || shouldShowLiveScore ? (
                 <span className="shrink-0 flex items-center gap-1.5">
                   {showSuffix ? <span className="text-[0.68rem] font-black leading-none text-amber-700">{suffixLabel}</span> : null}
                   <span className={cn("font-numeric text-[1.35rem] font-black tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-                    {score}
+                    {score ?? "0"}
                   </span>
                 </span>
               ) : null}
@@ -1364,7 +1373,13 @@ function ScheduleByDateView({
           </div>
           <div className="space-y-3">
             {activeDay.matches.map((match) => (
-              <ScheduleMatchCard key={match.scheduleMatchId} match={match} showBeijingTime={showBeijingTime} eventReturnHref={eventReturnHref} />
+              <ScheduleMatchCard
+                key={match.scheduleMatchId}
+                match={match}
+                showBeijingTime={showBeijingTime}
+                eventTimeZone={eventTimeZone}
+                eventReturnHref={eventReturnHref}
+              />
             ))}
           </div>
         </section>
@@ -1754,10 +1769,12 @@ function DrawView({
     DRAW_NUM_SPACE +
     displayRounds.length * (DRAW_CARD_W + DRAW_COL_GAP) +
     (champVisible ? champBoxW + 8 : 0);
+  const showBracketPodium = Boolean(bracketPodium) && hasCompletedBracketFinal(rounds);
+  const showTeamPodium = teamKnockoutView ? isTeamTieCompleted(teamKnockoutView.finalTie) : false;
 
   return (
     <div className="pb-10 pt-5">
-      {!teamKnockoutView && bracketPodium && (
+      {!teamKnockoutView && showBracketPodium && bracketPodium && (
         <section className="mb-6">
           <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
           <Podium podium={bracketPodium} />
@@ -1766,10 +1783,12 @@ function DrawView({
 
       {teamKnockoutView && (
         <section className="mb-6 space-y-6">
-          <div>
-            <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-            <Podium podium={teamPodiumDisplay(teamKnockoutView.podium)} />
-          </div>
+          {showTeamPodium ? (
+            <div>
+              <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+              <Podium podium={teamPodiumDisplay(teamKnockoutView.podium)} />
+            </div>
+          ) : null}
 
           {teamKnockoutView.finalTie && (
             <section>
@@ -2094,10 +2113,12 @@ function TeamKnockoutDrawView({
 
   return (
     <div className="pb-10 pt-5">
-      <section className="mb-6">
-        <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
-        <Podium podium={teamPodiumDisplay(view.podium)} />
-      </section>
+      {isTeamTieCompleted(view.finalTie) ? (
+        <section className="mb-6">
+          <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">领奖台</h2>
+          <Podium podium={teamPodiumDisplay(view.podium)} />
+        </section>
+      ) : null}
 
       {mainRounds.length > 0 && (
         <div className="overflow-x-auto pb-2">
@@ -2413,6 +2434,17 @@ function teamPodiumDisplay(podium: {
     thirdPlace: standingToPodiumEntry(podium.thirdPlace),
     thirdPlaceSecond: standingToPodiumEntry(podium.thirdPlaceSecond ?? null),
   };
+}
+
+function isTeamTieCompleted(tie: TeamTie | null | undefined) {
+  if (!tie?.winnerCode) return false;
+  return tie.scoreA >= 3 || tie.scoreB >= 3;
+}
+
+function hasCompletedBracketFinal(rounds: EventDetail["bracket"]) {
+  const finalRound = rounds.find((round) => round.code === "Final" || round.code === "F");
+  if (!finalRound || finalRound.matches.length === 0) return true;
+  return finalRound.matches.some((match) => Boolean(match.matchScore?.trim()));
 }
 
 function TeamTieCard({

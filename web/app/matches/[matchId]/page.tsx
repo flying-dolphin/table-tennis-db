@@ -88,14 +88,14 @@ function sideCountries(side: MatchSide) {
   return Array.from(new Set(side.players.map((player) => player.countryCode).filter(Boolean))).join(" / ");
 }
 
-function SideCard({ side }: { side: MatchSide }) {
+function SideCard({ side, hasResult }: { side: MatchSide; hasResult: boolean }) {
   const firstPlayer = side.players[0];
 
   return (
     <section
       className={cn(
         "rounded-lg border p-4 shadow-sm overflow-hidden",
-        side.isWinner ? "border-brand-deep bg-brand-mist" : "border-white/60 bg-white/75",
+        hasResult && side.isWinner ? "border-brand-deep bg-brand-mist" : "border-white/60 bg-white/75",
       )}
     >
       <div className="mb-3 flex items-center justify-between gap-3">
@@ -116,14 +116,16 @@ function SideCard({ side }: { side: MatchSide }) {
             </p>
           </div>
         </div>
-        <span
-          className={cn(
-            "grid h-9 w-9 shrink-0 place-items-center rounded-full text-caption font-black",
-            side.isWinner ? "bg-brand-deep text-white" : "bg-surface-secondary text-text-tertiary",
-          )}
-        >
-          {side.isWinner ? "胜" : "负"}
-        </span>
+        {hasResult && (
+          <span
+            className={cn(
+              "grid h-9 w-9 shrink-0 place-items-center rounded-full text-caption font-black",
+              side.isWinner ? "bg-brand-deep text-white" : "bg-surface-secondary text-text-tertiary",
+            )}
+          >
+            {side.isWinner ? "胜" : "负"}
+          </span>
+        )}
       </div>
 
       <div className="grid gap-2">
@@ -209,6 +211,7 @@ function MatchContent() {
   }
 
   const [sideA, sideB] = [...data.sides].sort((left, right) => left.sideNo - right.sideNo);
+  const hasResult = data.match.winnerSide !== null;
 
   const winnerName = (() => {
     const score = data.match.matchScore;
@@ -278,8 +281,8 @@ function MatchContent() {
       </section>
 
       <section className="grid gap-3 px-5 pt-4">
-        {sideA ? <SideCard side={sideA} /> : null}
-        {sideB ? <SideCard side={sideB} /> : null}
+        {sideA ? <SideCard side={sideA} hasResult={hasResult} /> : null}
+        {sideB ? <SideCard side={sideB} hasResult={hasResult} /> : null}
       </section>
 
       <section className="px-5 pt-5">

@@ -102,7 +102,17 @@ function limitName(name: string, maxChars: number = 18) {
 }
 
 function displayDate(value: string | null) {
-  return value || "日期待补";
+  if (!value) return "日期待补";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+}
+
+function displayDateTime(value: string | null) {
+  if (!value) return "时间待补";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
 }
 
 function sideTitle(side: ScheduleMatchSide | ScheduleMatchRubber["sides"][number]) {
@@ -124,14 +134,14 @@ function isTeamSubEvent(subEventTypeCode: string) {
   return subEventTypeCode === "MT" || subEventTypeCode === "WT" || subEventTypeCode === "XT";
 }
 
-function SideCard({ side, teamEvent }: { side: ScheduleMatchSide; teamEvent: boolean }) {
+function SideCard({ side, teamEvent, hasResult }: { side: ScheduleMatchSide; teamEvent: boolean; hasResult: boolean }) {
   const firstPlayer = side.players[0];
 
   return (
     <section
       className={cn(
         "rounded-lg border p-4 shadow-sm overflow-hidden",
-        side.isWinner ? "border-brand-deep bg-brand-mist" : "border-white/60 bg-white/75",
+        hasResult && side.isWinner ? "border-brand-deep bg-brand-mist" : "border-white/60 bg-white/75",
       )}
     >
       <div className="mb-3 flex items-center justify-between gap-3">
@@ -164,14 +174,16 @@ function SideCard({ side, teamEvent }: { side: ScheduleMatchSide; teamEvent: boo
             )}
           </div>
         </div>
-        <span
-          className={cn(
-            "grid h-9 w-9 shrink-0 place-items-center rounded-full text-caption font-black",
-            side.isWinner ? "bg-brand-deep text-white" : "bg-surface-secondary text-text-tertiary",
-          )}
-        >
-          {side.isWinner ? "胜" : "负"}
-        </span>
+        {hasResult && (
+          <span
+            className={cn(
+              "grid h-9 w-9 shrink-0 place-items-center rounded-full text-caption font-black",
+              side.isWinner ? "bg-brand-deep text-white" : "bg-surface-secondary text-text-tertiary",
+            )}
+          >
+            {side.isWinner ? "胜" : "负"}
+          </span>
+        )}
       </div>
 
       <div className="grid gap-2">
@@ -351,13 +363,6 @@ function ScheduleMatchContent() {
               <h1 className="line-clamp-2 text-[1.2rem] font-bold leading-snug text-slate-950">
                 {displayName(data.match.eventName, data.match.eventNameZh)}
               </h1>
-              <div className="mt-2 flex items-center justify-center gap-3">
-                <span className="text-[0.88rem] font-medium text-[#7d8fae]">{displayDate(data.match.startDate)}</span>
-                <span className="text-[0.88rem] text-[#c5cddc]">·</span>
-                <span className="text-[0.88rem] font-medium text-[#7d8fae]">
-                  {formatSubEventLabel(data.match.subEventTypeCode, data.match.subEventNameZh)} · {data.match.roundLabel}
-                </span>
-              </div>
             </div>
 
             <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" />
@@ -405,14 +410,9 @@ function ScheduleMatchContent() {
           </div>
 
           <p className="mt-4 text-[0.82rem] font-medium text-text-tertiary">
-            {data.match.tableNo || "场地待补"} {data.match.sessionLabel ? `· ${data.match.sessionLabel}` : ""}
+            {displayDateTime(data.match.scheduledLocalAt)} · {data.match.tableNo || "场地待补"} | {formatSubEventLabel(data.match.subEventTypeCode, data.match.subEventNameZh)} · {data.match.roundLabel}
           </p>
         </div>
-      </section>
-
-      <section className="grid gap-3 px-5 pt-4">
-        {sideA ? <SideCard side={sideA} teamEvent={teamEvent} /> : null}
-        {sideB ? <SideCard side={sideB} teamEvent={teamEvent} /> : null}
       </section>
 
       {data.rubbers.length > 0 ? (
