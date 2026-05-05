@@ -20,6 +20,10 @@ const EVENT_REWRITE_RULES: RewriteRule[] = [
     canonical: "亚洲团体锦标赛",
     aliases: ["亚锦赛"],
   },
+  {
+    canonical: "国际乒联世界团体锦标赛",
+    aliases: ["世乒赛团体"],
+  },
 ];
 
 export function normalizeQuery(query: string) {

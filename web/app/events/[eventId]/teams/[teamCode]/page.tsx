@@ -45,7 +45,7 @@ export default async function TeamRosterPage({
         className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-[0.9rem] font-semibold text-slate-600 ring-1 ring-[#e8edf8]"
       >
         <ChevronLeft size={16} />
-        返回签表
+        返回
       </Link>
 
       <section className="mt-4 overflow-hidden rounded-[1.6rem] bg-white shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">

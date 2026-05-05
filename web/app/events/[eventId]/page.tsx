@@ -175,8 +175,8 @@ type EventDetail = {
     id: number;
     dayIndex: number;
     localDate: string;
-    startLocalTime: string | null;
-    endLocalTime: string | null;
+    morningSessionStart: string | null;
+    afternoonSessionStart: string | null;
     venueRaw: string | null;
     tableCount: number | null;
     rawSubEventsText: string | null;
@@ -475,12 +475,12 @@ function zonedLocalDateTimeToDate(localDate: string, localTime: string, timeZone
 
 function formatBeijingSessionRange(
   localDate: string,
-  startLocalTime: string | null,
-  endLocalTime: string | null,
+  morningSessionStart: string | null,
+  afternoonSessionStart: string | null,
   eventTimeZone: string | null,
 ) {
-  if (!eventTimeZone || !startLocalTime) return null;
-  const startDate = zonedLocalDateTimeToDate(localDate, startLocalTime, eventTimeZone);
+  if (!eventTimeZone || !morningSessionStart) return null;
+  const startDate = zonedLocalDateTimeToDate(localDate, morningSessionStart, eventTimeZone);
   if (!startDate) return null;
 
   const formatDateTime = (date: Date) =>
@@ -494,11 +494,11 @@ function formatBeijingSessionRange(
     }).format(date);
 
   const startLabel = formatDateTime(startDate);
-  if (!endLocalTime) return `北京时间 ${startLabel}`;
+  if (!afternoonSessionStart) return `北京时间 ${startLabel}`;
 
-  const endDate = zonedLocalDateTimeToDate(localDate, endLocalTime, eventTimeZone);
+  const endDate = zonedLocalDateTimeToDate(localDate, afternoonSessionStart, eventTimeZone);
   if (!endDate) return `北京时间 ${startLabel}`;
-  return `北京时间 ${startLabel} - ${formatDateTime(endDate)}`;
+  return `北京时间 ${startLabel} / ${formatDateTime(endDate)}`;
 }
 
 function displayPlayerName(player: { name: string; nameZh: string | null }) {
@@ -1117,8 +1117,8 @@ function SessionScheduleView({
             lifecycleStatus === "in_progress"
               ? formatBeijingSessionRange(
                 session.localDate,
-                session.startLocalTime,
-                session.endLocalTime,
+                session.morningSessionStart,
+                session.afternoonSessionStart,
                 eventTimeZone,
               )
               : null;
@@ -1144,7 +1144,7 @@ function SessionScheduleView({
                   ) : null}
                 </div>
                 <div className="rounded-full bg-[#f3f6fb] px-3 py-1 text-[0.78rem] font-bold text-slate-500">
-                  {session.startLocalTime || "待定"} - {session.endLocalTime || "待定"}
+                  {session.morningSessionStart || "待定"} / {session.afternoonSessionStart || "待定"}
                 </div>
 
               </div>
@@ -1222,11 +1222,12 @@ function ScheduleMatchCard({
           const score = scoreParts[side.sideNo - 1] ?? null;
           const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
           const label = scheduleSideLabel(side);
+          const isWinner = side.isWinner || (match.winnerSide === (side.sideNo === 1 ? 'A' : 'B'));
           return (
             <div key={side.sideNo} className="flex items-center gap-2">
               <Flag code={side.teamCode || side.players[0]?.countryCode || null} className="shrink-0 scale-[1.18] origin-left" />
               <div className="min-w-0 flex-1">
-                <p className={cn("truncate text-[1rem] font-black leading-tight", side.isWinner ? "text-slate-950" : "text-slate-700")}>
+                <p className={cn("truncate text-[1rem] font-black leading-tight", isWinner ? "text-slate-950" : "text-slate-700")}>
                   {label}
                 </p>
                 {side.seed ? <p className="mt-0.5 text-[0.7rem] font-bold text-slate-400">Seed {side.seed}</p> : null}
@@ -1234,7 +1235,7 @@ function ScheduleMatchCard({
               {score || shouldShowLiveScore ? (
                 <span className="shrink-0 flex items-center gap-1.5">
                   {showSuffix ? <span className="text-[0.68rem] font-black leading-none text-amber-700">{suffixLabel}</span> : null}
-                  <span className={cn("font-numeric text-[1.35rem] font-black tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                  <span className={cn("font-numeric text-[1.35rem] font-black tabular-nums", isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
                     {score ?? "0"}
                   </span>
                 </span>
@@ -2869,7 +2870,6 @@ function RoundRobinView({
                                   eventReturnHref={eventReturnHref}
                                   eventId={eventId}
                                   subEventCode={subEventCode}
-                                  showTeamLinks={false}
                                 />
                               ))}
                             </div>
