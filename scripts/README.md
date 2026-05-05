@@ -88,6 +88,30 @@ python scripts/scrape_matches.py
 python scripts/translate_matches.py --file data/matches_complete/xxx.json
 ```
 
+## WTT 当前赛事流水线
+
+当前进行中的赛事统一使用 `scripts/runtime/` 下的新入口：
+
+抓取当前赛事数据：
+
+```bash
+python scripts/runtime/scrape_current_event.py --event-id 3216
+```
+
+导入当前赛事数据：
+
+```bash
+python scripts/runtime/import_current_event.py --event-id 3216
+```
+
+当前赛事积分表单独导入：
+
+```bash
+python scripts/runtime/import_current_event_group_standings.py --input-dir data/live_event_data/3216 --event-id 3216
+```
+
+旧的 WTT 当前赛事脚本已经归档到 `tmp/scripts/`，不再作为主入口使用。
+
 ## 特殊赛事修复
 
 ### 修复 `event_id=2860` 的 stage/round

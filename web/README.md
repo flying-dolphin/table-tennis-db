@@ -9,7 +9,7 @@
 - `scripts/migrate.ts`：按 `scripts/db/schema.sql` 初始化数据库
 - `scripts/seed.ts`：已废弃，正式入库请使用 `scripts/db/import*.py`
 
-当前赛事页小组积分表会优先读取数据库中的 `event_group_standings`，缺失时才回退到按 `event_schedule_matches` 现场重算。
+当前赛事页小组积分表优先读取数据库中的 `current_event_group_standings`，比赛详情与签表则读取 `current_event_*` 运行态表。
 
 ## 页面规划
 
@@ -38,10 +38,10 @@ npm run dev
 npm run db:migrate
 ```
 
-WTT 团体赛官方积分表导入脚本：
+WTT 团体赛当前赛事积分表导入脚本：
 
 ```bash
-python scripts/db/import_wtt_pool_standings.py --input-dir data/live_event_data/<eventId>/group_standings/<stage_slug>
+python scripts/runtime/import_current_event_group_standings.py --input-dir data/live_event_data/<eventId> --event-id <eventId>
 ```
 
 ## 环境变量
