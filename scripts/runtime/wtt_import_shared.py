@@ -70,6 +70,7 @@ STATUS_MAP = {
     "start list": "scheduled",
     "intermediate": "live",
     "live": "live",
+    "displayed": "completed",
     "official": "completed",
     "completed": "completed",
     "walkover": "walkover",

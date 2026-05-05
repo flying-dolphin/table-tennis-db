@@ -21,11 +21,11 @@ def upsert_session_rows(cursor: sqlite3.Cursor, event_id: int, sessions: list[di
     cursor.executemany(
         """
         INSERT INTO current_event_session_schedule (
-            event_id, day_index, local_date, start_local_time, end_local_time,
+            event_id, day_index, local_date, morning_session_start, afternoon_session_start,
             venue_raw, table_count, raw_sub_events_text, parsed_rounds_json,
             updated_at
         ) VALUES (
-            :event_id, :day_index, :local_date, :start_local_time, :end_local_time,
+            :event_id, :day_index, :local_date, :morning_session_start, :afternoon_session_start,
             :venue_raw, :table_count, :raw_sub_events_text, :parsed_rounds_json,
             datetime('now')
         )
@@ -80,8 +80,8 @@ def import_one_file(
                 "event_id": event_id,
                 "day_index": idx,
                 "local_date": local_date.isoformat(),
-                "start_local_time": start_t,
-                "end_local_time": end_t,
+                "morning_session_start": start_t,
+                "afternoon_session_start": end_t,
                 "venue_raw": venue_raw,
                 "table_count": table_count,
                 "raw_sub_events_text": " | ".join(raw_segments) if raw_segments else None,
@@ -96,7 +96,7 @@ def import_one_file(
         for session in sessions:
             print(
                 f"    day#{session['day_index']:>2} {session['local_date']} "
-                f"{session['start_local_time']}-{session['end_local_time']} "
+                f"{session['morning_session_start']}-{session['afternoon_session_start']} "
                 f"@{session['venue_raw']!r} tables={session['table_count']}"
             )
 

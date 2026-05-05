@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Import completed team-event rubbers into current_event_matches tables."""
+"""Import completed team ties and rubbers from completed_matches.json."""
 
 from __future__ import annotations
 
@@ -178,10 +178,9 @@ def parse_scheduled_local_at(match_info: str | None, event_year: int | None) -> 
     if len(parts) < 2 or not parts[1]:
         return None
     value = parts[1]
-    for fmt in ("%d %b, %H:%M", "%d %B, %H:%M"):
+    for fmt in ("%Y %d %b, %H:%M", "%Y %d %B, %H:%M"):
         try:
-            parsed = datetime.strptime(value, fmt)
-            parsed = parsed.replace(year=event_year)
+            parsed = datetime.strptime(f"{event_year} {value}", fmt)
             return parsed.strftime("%Y-%m-%dT%H:%M:%S")
         except ValueError:
             continue
@@ -532,7 +531,7 @@ def upsert_completed_rubber(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Import completed rubbers into current_event_matches.")
+    parser = argparse.ArgumentParser(description="Import completed team ties and rubbers from completed_matches.json.")
     parser.add_argument("--event-id", type=int, required=True)
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
@@ -617,6 +616,16 @@ def main() -> int:
                     int(tie_row["current_team_tie_id"]),
                 ),
             )
+            for side_no in (1, 2):
+                is_winner = 1 if winner_side == ("A" if side_no == 1 else "B") else 0
+                cursor.execute(
+                    """
+                    UPDATE current_event_team_tie_sides
+                    SET is_winner = ?
+                    WHERE current_team_tie_id = ? AND side_no = ?
+                    """,
+                    (is_winner, int(tie_row["current_team_tie_id"]), side_no),
+                )
             for game_order, game in enumerate(match.get("games") or [], start=1):
                 upsert_completed_rubber(
                     cursor,
@@ -634,7 +643,7 @@ def main() -> int:
     finally:
         conn.close()
 
-    print(f"Imported {imported} completed rubbers for event {args.event_id}; unmatched ties: {unmatched}")
+    print(f"Imported completed team ties and {imported} completed rubbers for event {args.event_id}; unmatched ties: {unmatched}")
     return 0
 
 

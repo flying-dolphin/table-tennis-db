@@ -28,9 +28,9 @@ def main() -> int:
     parser.add_argument(
         "--sources",
         nargs="+",
-        choices=("session_schedule", "standings", "brackets", "team_ties", "matches"),
-        default=["session_schedule", "standings", "brackets", "team_ties", "matches"],
-        help="导入源列表，默认全部执行",
+        choices=("session_schedule", "standings", "brackets", "live", "completed", "team_ties", "matches"),
+        default=["session_schedule", "standings", "brackets", "live", "completed"],
+        help="导入源列表，默认全部执行；team_ties/matches 为兼容别名，会执行 live 和 completed",
     )
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
@@ -86,25 +86,35 @@ def main() -> int:
         if rc != 0:
             return rc
 
-    if "team_ties" in args.sources:
-        for script_name in (
-            "import_current_event_team_ties_from_schedule.py",
-            "import_current_event_team_ties_from_live.py",
-        ):
-            cmd = [py, str(SCRIPT_DIR / script_name), "--event-id", str(args.event_id), *db_args, *live_args]
-            rc = run_step(cmd)
-            if rc != 0:
-                return rc
+    sources = set(args.sources)
+    if "team_ties" in sources or "matches" in sources:
+        sources.update({"live", "completed"})
 
-    if "matches" in args.sources:
-        for script_name in (
-            "import_current_event_matches_from_live.py",
-            "import_current_event_matches_from_completed.py",
-        ):
-            cmd = [py, str(SCRIPT_DIR / script_name), "--event-id", str(args.event_id), *db_args, *live_args]
-            rc = run_step(cmd)
-            if rc != 0:
-                return rc
+    if "live" in sources:
+        cmd = [
+            py,
+            str(SCRIPT_DIR / "import_current_event_live.py"),
+            "--event-id",
+            str(args.event_id),
+            *db_args,
+            *live_args,
+        ]
+        rc = run_step(cmd)
+        if rc != 0:
+            return rc
+
+    if "completed" in sources:
+        cmd = [
+            py,
+            str(SCRIPT_DIR / "import_current_event_completed.py"),
+            "--event-id",
+            str(args.event_id),
+            *db_args,
+            *live_args,
+        ]
+        rc = run_step(cmd)
+        if rc != 0:
+            return rc
 
     return 0
 
