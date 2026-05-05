@@ -221,6 +221,7 @@ type EventBracketRound = {
   order: number;
   matches: Array<{
     matchId: number;
+    scheduleMatchId: number | null;
     drawRound: string;
     roundLabel: string;
     roundOrder: number;
@@ -624,6 +625,7 @@ function buildHistoricalTeamTieScheduleMatches(eventId: number) {
 
 type TeamTie = {
   tieId: string;
+  scheduleMatchId: number | null;
   stage: string;
   stageZh: string | null;
   round: string;
@@ -1176,23 +1178,26 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
     .prepare(
       `
         SELECT
-          current_bracket_id AS matchId,
-          COALESCE(round_code, bracket_code, 'UNKNOWN') AS drawRound,
-          COALESCE(round_order, 0) AS roundOrder,
-          match_score AS matchScore,
-          winner_side AS winnerSide,
-          side_a_team_code AS sideATeamCode,
-          side_b_team_code AS sideBTeamCode,
-          side_a_placeholder AS sideAPlaceholder,
-          side_b_placeholder AS sideBPlaceholder
-        FROM current_event_brackets
-        WHERE event_id = ?
-          AND sub_event_type_code = ?
-        ORDER BY COALESCE(round_order, 9999) ASC, bracket_position ASC, current_bracket_id ASC
+          b.current_bracket_id AS matchId,
+          t.current_team_tie_id AS scheduleMatchId,
+          COALESCE(b.round_code, b.bracket_code, 'UNKNOWN') AS drawRound,
+          COALESCE(b.round_order, 0) AS roundOrder,
+          b.match_score AS matchScore,
+          b.winner_side AS winnerSide,
+          b.side_a_team_code AS sideATeamCode,
+          b.side_b_team_code AS sideBTeamCode,
+          b.side_a_placeholder AS sideAPlaceholder,
+          b.side_b_placeholder AS sideBPlaceholder
+        FROM current_event_brackets b
+        LEFT JOIN current_event_team_ties t ON t.event_id = b.event_id AND t.external_match_code = b.external_unit_code
+        WHERE b.event_id = ?
+          AND b.sub_event_type_code = ?
+        ORDER BY COALESCE(b.round_order, 9999) ASC, b.bracket_position ASC, b.current_bracket_id ASC
       `,
     )
     .all(eventId, subEventCode) as Array<{
     matchId: number;
+    scheduleMatchId: number | null;
     drawRound: string;
     roundOrder: number;
     matchScore: string | null;
@@ -1214,6 +1219,7 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
       };
       current.matches.push({
         matchId: row.matchId,
+        scheduleMatchId: row.scheduleMatchId,
         drawRound: row.drawRound,
         roundLabel: meta.label,
         roundOrder: row.roundOrder || meta.order,
@@ -1655,6 +1661,7 @@ function buildTeamTiesForSubEvent(eventId: number, subEventCode: string): TeamTi
       ties.get(key) ??
       {
         tieId: key,
+        scheduleMatchId: -row.tieId,
         stage: row.stage,
         stageZh: row.stageZh,
         round: row.round,
@@ -1826,6 +1833,7 @@ function buildCurrentTeamTiesForSubEvent(eventId: number, subEventCode: string):
       ties.get(key) ??
       {
         tieId: key,
+        scheduleMatchId: row.tieId,
         stage: row.stage,
         stageZh: row.stageZh,
         round: row.round,
@@ -2704,6 +2712,7 @@ function buildLiveGroupStageView(
         : null;
     const tie: TeamTie = {
       tieId: match.externalMatchCode || String(match.scheduleMatchId),
+      scheduleMatchId: match.scheduleMatchId,
       stage: match.stageCode,
       stageZh: match.stageNameZh,
       round: match.roundCode,
@@ -3301,6 +3310,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
         `
           SELECT
             edm.match_id AS matchId,
+            m.team_tie_id AS scheduleMatchId,
             edm.draw_round AS drawRound,
             edm.round_order AS roundOrder,
             m.round AS sourceRound,
@@ -3327,6 +3337,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
       )
       .all(eventId, subEventCode) as Array<{
       matchId: number;
+      scheduleMatchId: number | null;
       drawRound: string;
       roundOrder: number;
       sourceRound: string | null;
@@ -3347,6 +3358,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
       number,
       {
         matchId: number;
+        scheduleMatchId: number | null;
         drawRound: string;
         roundLabel: string;
         roundOrder: number;
@@ -3361,6 +3373,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
         matchMap.get(row.matchId) ??
         {
           matchId: row.matchId,
+          scheduleMatchId: row.scheduleMatchId,
           drawRound: row.drawRound,
           roundLabel: roundLabel(row.drawRound ?? row.sourceRound, row.sourceRoundZh),
           roundOrder: row.roundOrder,

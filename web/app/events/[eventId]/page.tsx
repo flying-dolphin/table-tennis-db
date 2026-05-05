@@ -43,6 +43,7 @@ type SidePlayer = {
 
 type BracketMatch = {
   matchId: number;
+  scheduleMatchId: number | null;
   drawRound: string;
   roundLabel: string;
   roundOrder: number;
@@ -68,6 +69,7 @@ type EventChampion = {
 
 type TeamTie = {
   tieId: string;
+  scheduleMatchId: number | null;
   stage: string;
   stageZh: string | null;
   round: string;
@@ -1628,6 +1630,11 @@ function DrawMatchCard({
   const [sideA, sideB] = [...match.sides].sort((a, b) => a.sideNo - b.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
+  const hasScore = Boolean(match.matchScore?.trim());
+  const matchHref =
+    hasScore && match.scheduleMatchId
+      ? withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref)
+      : withFromQuery(`/matches/${match.matchId}`, eventReturnHref);
 
   return (
     <div className="relative">
@@ -1637,7 +1644,7 @@ function DrawMatchCard({
         </span>
       )}
       <Link
-        href={route(withFromQuery(`/matches/${match.matchId}`, eventReturnHref))}
+        href={route(matchHref)}
         className={cn(
           "block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm transition active:scale-[0.99]",
           isChampionPath ? "border-[#3a74f2] shadow-[0_2px_8px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
@@ -1949,79 +1956,126 @@ function DrawView({
 function TeamTieNodeCard({
   tie,
   title,
-  eventId,
-  subEventCode,
   eventReturnHref,
 }: {
   tie: TeamTie;
   title?: string;
-  eventId: string;
-  subEventCode: string;
   eventReturnHref: string;
 }) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
+  const hasScore = tie.scoreA > 0 || tie.scoreB > 0;
+  const tieHref =
+    hasScore && tie.scheduleMatchId != null
+      ? withFromQuery(`/schedule-matches/${tie.scheduleMatchId}`, eventReturnHref)
+      : null;
   return (
     <div className="rounded-[1rem] border border-[#dce7f5] bg-white px-3 py-3 shadow-sm">
       {title ? <p className="mb-2 text-[0.72rem] font-bold uppercase tracking-[0.08em] text-[#7d95c7]">{title}</p> : null}
-      <div className="space-y-2">
-        {[
-          { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
-          { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
-        ].map((item) => (
-          <div key={item.team.code} className="flex items-center gap-2">
-            <Link href={route(buildTeamRosterHref(eventId, subEventCode, item.team.code, eventReturnHref))} className="flex min-w-0 flex-1 items-center gap-2">
-              <Flag code={item.team.code} className="shrink-0 scale-[1.0]" />
-              <span className={cn("truncate text-[0.88rem] font-black leading-none", item.isWinner ? "text-slate-950" : "text-slate-500")}>
-                {item.team.code}
+      {tieHref ? (
+        <Link href={route(tieHref)} className="block space-y-2">
+          {[
+            { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
+            { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
+          ].map((item) => (
+            <div key={item.team.code} className="flex items-center gap-2">
+              <div className="flex min-w-0 flex-1 items-center gap-2">
+                <Flag code={item.team.code} className="shrink-0 scale-[1.0]" />
+                <span className={cn("truncate text-[0.88rem] font-black leading-none", item.isWinner ? "text-slate-950" : "text-slate-500")}>
+                  {item.team.code}
+                </span>
+              </div>
+              <span className={cn("font-numeric shrink-0 text-[1.12rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                {item.score}
               </span>
-            </Link>
-            <span className={cn("font-numeric shrink-0 text-[1.12rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-              {item.score}
-            </span>
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </Link>
+      ) : (
+        <div className="space-y-2">
+          {[
+            { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
+            { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
+          ].map((item) => (
+            <div key={item.team.code} className="flex items-center gap-2">
+              <div className="flex min-w-0 flex-1 items-center gap-2">
+                <Flag code={item.team.code} className="shrink-0 scale-[1.0]" />
+                <span className={cn("truncate text-[0.88rem] font-black leading-none", item.isWinner ? "text-slate-950" : "text-slate-500")}>
+                  {item.team.code}
+                </span>
+              </div>
+              <span className={cn("font-numeric shrink-0 text-[1.12rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                {item.score}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
 function DrawTeamTieCard({
   tie,
-  eventId,
-  subEventCode,
   eventReturnHref,
 }: {
   tie: TeamTie;
-  eventId: string;
-  subEventCode: string;
   eventReturnHref: string;
 }) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
+  const hasScore = tie.scoreA > 0 || tie.scoreB > 0;
+  const tieHref =
+    hasScore && tie.scheduleMatchId != null
+      ? withFromQuery(`/schedule-matches/${tie.scheduleMatchId}`, eventReturnHref)
+      : null;
   return (
     <div className="rounded-[0.6rem] border border-[#dce7f5] bg-white px-1.5 py-1 shadow-sm">
-      <div className="space-y-1">
-        {[
-          { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
-          { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
-        ].map((item) => (
-          <div key={item.team.code} className="flex items-center gap-1">
-            <Link href={route(buildTeamRosterHref(eventId, subEventCode, item.team.code, eventReturnHref))} className="flex min-w-0 flex-1 items-center gap-1">
-              <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
-              <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
-                {item.team.code}
+      {tieHref ? (
+        <Link href={route(tieHref)} className="block space-y-1">
+          {[
+            { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
+            { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
+          ].map((item) => (
+            <div key={item.team.code} className="flex items-center gap-1">
+              <div className="flex min-w-0 flex-1 items-center gap-1">
+                <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
+                <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
+                  {item.team.code}
+                </span>
+              </div>
+              <span className={cn("font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                {item.score}
               </span>
-            </Link>
-            <span className={cn("font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-              {item.score}
-            </span>
-            <span className="flex w-3 shrink-0 items-center justify-center">
-              {item.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
-            </span>
-          </div>
-        ))}
-      </div>
+              <span className="flex w-3 shrink-0 items-center justify-center">
+                {item.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+              </span>
+            </div>
+          ))}
+        </Link>
+      ) : (
+        <div className="space-y-1">
+          {[
+            { team: tie.teamA, score: tie.scoreA, isWinner: winnerA },
+            { team: tie.teamB, score: tie.scoreB, isWinner: winnerB },
+          ].map((item) => (
+            <div key={item.team.code} className="flex items-center gap-1">
+              <div className="flex min-w-0 flex-1 items-center gap-1">
+                <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
+                <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
+                  {item.team.code}
+                </span>
+              </div>
+              <span className={cn("font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums", item.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                {item.score}
+              </span>
+              <span className="flex w-3 shrink-0 items-center justify-center">
+                {item.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -2326,7 +2380,7 @@ function TeamKnockoutDrawView({
                     style={{ top, left, width: TEAM_DRAW_CARD_W }}
                   >
                     {node.tie ? (
-                      <DrawTeamTieCard tie={node.tie} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
+                      <DrawTeamTieCard tie={node.tie} eventReturnHref={eventReturnHref} />
                     ) : (
                       <DrawTeamPlaceholderCard node={node} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
                     )}
@@ -2341,7 +2395,7 @@ function TeamKnockoutDrawView({
       {bronzeTie && (
         <section className="mt-6">
           <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">铜牌赛</h2>
-          <TeamTieNodeCard tie={bronzeTie} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
+          <TeamTieNodeCard tie={bronzeTie} eventReturnHref={eventReturnHref} />
         </section>
       )}
 
