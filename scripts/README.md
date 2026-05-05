@@ -104,13 +104,58 @@ python scripts/runtime/scrape_current_event.py --event-id 3216
 python scripts/runtime/import_current_event.py --event-id 3216
 ```
 
+默认导入顺序：
+
+1. `session_schedule`：导入人工维护的按日日程到 `current_event_session_schedule`
+2. `standings`：导入小组积分到 `current_event_group_standings`
+3. `brackets`：导入淘汰赛签表到 `current_event_brackets`
+4. `live`：从 `GetLiveResult.json` 同步进行中 team tie 和 rubber
+5. `completed`：从 `completed_matches.json` 同步已完结 team tie 和 rubber
+
+可只导入当前比赛结果：
+
+```bash
+python scripts/runtime/import_current_event.py --event-id 3216 --sources live completed
+python scripts/runtime/import_current_event_live.py --event-id 3216
+python scripts/runtime/import_current_event_completed.py --event-id 3216
+```
+
+`current_event_team_ties` 现在由 live/completed 导入器随 `current_event_matches` 一起维护。`GetEventSchedule.json` 只作为抓取和导入时的补充信息来源，不再通过单独的 team_ties skeleton 导入脚本重建 `current_event_team_ties`。
+
 当前赛事积分表单独导入：
 
 ```bash
 python scripts/runtime/import_current_event_group_standings.py --input-dir data/live_event_data/3216 --event-id 3216
 ```
 
-旧的 WTT 当前赛事脚本已经归档到 `tmp/scripts/`，不再作为主入口使用。
+生成当前赛事刷新 crontab：
+
+```bash
+python scripts/runtime/generate_current_event_crontab.py --event-id 3216 --headless
+```
+
+脚本会读取 `events.time_zone` 和 `current_event_session_schedule`，把赛事当地时间转换成 `Asia/Shanghai` 后输出 crontab 内容；不会自动安装到系统 crontab。生产服务器上应显式传入服务器路径，例如：
+
+```bash
+python scripts/runtime/generate_current_event_crontab.py \
+  --event-id 3216 \
+  --db-path /opt/ittf/data/db/ittf.db \
+  --project-root /opt/ittf \
+  --python-bin /opt/ittf-venv/bin/python \
+  --live-event-data-root /opt/ittf/data/live_event_data \
+  --headless
+```
+
+如果在本机读取本地 SQLite、但要输出服务器 crontab 命令，可用 `--emit-db-path` 指定写入 cron 命令的服务器 DB 路径。
+
+如果 `events.time_zone` 为空或不是 IANA 时区名，脚本会直接失败。不要用本机时区代替赛事时区。
+
+旧的 WTT 当前赛事脚本已经归档到 `tmp/scripts/`，不再作为主入口使用。以下旧底层导入脚本已移除或合并：
+
+- `import_current_event_matches_from_live.py`
+- `import_current_event_team_ties_from_live.py`
+- `import_current_event_team_ties_from_schedule.py`
+- `import_current_event_matches_from_completed.py`，已更名为 `import_current_event_completed.py`
 
 ## 历史团体赛 team_ties 回填
 

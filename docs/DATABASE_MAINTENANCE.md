@@ -147,6 +147,42 @@ python scripts/scrape_event_results_daily.py --event 3216 --skip-scrape
 - 当前不会自动 promote 到 `matches / event_draw_matches`
 - 当前不会把 `GetOfficialResult_take10.json` 系统化写回数据库结果表
 
+### 7. 当前赛事 runtime 刷新
+
+当前 WTT 团体赛事使用 `scripts/runtime/` 下的独立链路，数据落在 `current_event_*` 表，不写入历史 `matches / event_draw_matches`。
+
+抓取：
+
+```bash
+python scripts/runtime/scrape_current_event.py --event-id 3216
+```
+
+导入：
+
+```bash
+python scripts/runtime/import_current_event.py --event-id 3216
+```
+
+只刷新 live/completed 比赛结果：
+
+```bash
+python scripts/runtime/import_current_event.py --event-id 3216 --sources live completed
+```
+
+默认导入顺序：
+
+1. `session_schedule` -> `current_event_session_schedule`
+2. `standings` -> `current_event_group_standings`
+3. `brackets` -> `current_event_brackets`
+4. `live` -> `current_event_team_ties` + `current_event_matches`
+5. `completed` -> `current_event_team_ties` + `current_event_matches`
+
+数据源边界：
+
+- `completed_matches.json` 是已完结 team tie 和 rubber 的主数据源
+- `GetLiveResult.json` 是进行中 team tie 和 rubber 的主数据源
+- `GetEventSchedule.json` 只作为 match code、赛程时间、台号、队伍 roster 等补充信息，不再单独重建 `current_event_team_ties`
+
 ---
 
 ## 何时需要重建数据库

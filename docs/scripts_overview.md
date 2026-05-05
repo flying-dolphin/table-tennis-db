@@ -196,6 +196,64 @@
 - 生成 session 级纲要日程
 - 将 `events.lifecycle_status` 从 `upcoming` 推进到 `draw_published`
 
+### runtime/scrape_current_event.py
+当前 WTT 团体赛事抓取总入口。
+
+输出目录：`data/live_event_data/{event_id}/`
+
+默认抓取：
+- `GetEventSchedule.json`：官方基础赛程，用于补充 match code、时间、台号、队伍 roster
+- `MTEAM_standings.json` / `WTEAM_standings.json`：小组积分
+- `GetBrackets_{sub_event}.json`：淘汰赛签表
+- `GetLiveResult.json`：进行中比赛 DOM 结果
+- `completed_matches.json`：Completed 页面上的已完结 team tie 和 individual rubber 明细
+
+用法：
+`python scripts/runtime/scrape_current_event.py --event-id 3216`
+
+### runtime/import_current_event.py
+当前 WTT 团体赛事导入总入口。
+
+默认 sources：
+- `session_schedule` -> `current_event_session_schedule`
+- `standings` -> `current_event_group_standings`
+- `brackets` -> `current_event_brackets`
+- `live` -> `current_event_team_ties` + `current_event_matches`
+- `completed` -> `current_event_team_ties` + `current_event_matches`
+
+用法：
+`python scripts/runtime/import_current_event.py --event-id 3216`
+
+只刷新比赛结果：
+`python scripts/runtime/import_current_event.py --event-id 3216 --sources live completed`
+
+兼容说明：
+- `--sources team_ties` 和 `--sources matches` 仍可用，但会映射为 `live + completed`
+- `current_event_team_ties` 由 live/completed 导入器随 `current_event_matches` 一起维护
+- `GetEventSchedule.json` 不再通过单独 skeleton importer 重建 `current_event_team_ties`
+- `completed_matches.json` 是已完结 team tie 和 rubber 的主数据源
+
+### runtime/import_current_event_live.py
+从 `data/live_event_data/{event_id}/GetLiveResult.json` 导入进行中比赛。
+
+写入：
+- `current_event_team_ties`
+- `current_event_team_tie_sides`
+- `current_event_team_tie_side_players`
+- `current_event_matches`
+- `current_event_match_sides`
+- `current_event_match_side_players`
+
+### runtime/import_current_event_completed.py
+从 `data/live_event_data/{event_id}/completed_matches.json` 导入已完结比赛。
+
+写入：
+- `current_event_team_ties`
+- `current_event_team_tie_sides`
+- `current_event_matches`
+- `current_event_match_sides`
+- `current_event_match_side_players`
+
 ### scrape_wtt_event.py
 抓取 WTT 公开 CMS API 的原始赛事 JSON。
 输出目录：`data/wtt_raw/{event_id}/`

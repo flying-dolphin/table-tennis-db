@@ -1,6 +1,6 @@
 # 赛事数据更新流程
 
-最后更新：2026-04-29
+最后更新：2026-05-05
 
 ---
 
@@ -39,6 +39,15 @@
 - `event_schedule_matches`
 - `event_schedule_match_sides`
 - `event_schedule_match_side_players`
+- `current_event_session_schedule`
+- `current_event_group_standings`
+- `current_event_brackets`
+- `current_event_team_ties`
+- `current_event_team_tie_sides`
+- `current_event_team_tie_side_players`
+- `current_event_matches`
+- `current_event_match_sides`
+- `current_event_match_side_players`
 
 适用场景：
 
@@ -97,6 +106,38 @@
 - 按场比赛赛程
 - 小组赛 / 淘汰赛结构信息
 - 官方最近完赛结果补充
+
+### 2.4 WTT 当前赛事 runtime 数据
+
+来源：
+
+- WTT 公开 CMS API
+- WTT 团体赛事页面 DOM，包括 Live Matches、Completed、Standings 页面
+
+主要文件：
+
+- `GetEventSchedule.json`
+- `MTEAM_standings.json`
+- `WTEAM_standings.json`
+- `GetBrackets_{sub_event}.json`
+- `GetLiveResult.json`
+- `completed_matches.json`
+
+落地目录：
+
+- `data/live_event_data/{event_id}/`
+
+用途：
+
+- 当前赛事的 session 赛程、小组积分、淘汰赛签表
+- 进行中 team tie / individual rubber
+- 已完结 team tie / individual rubber
+
+数据源优先级：
+
+- `completed_matches.json` 是已完结 team tie 和 rubber 的主数据源
+- `GetLiveResult.json` 是进行中 team tie 和 rubber 的主数据源
+- `GetEventSchedule.json` 只作为补充来源，用于 match code、赛程时间、台号、队伍 roster 等信息，不再单独重建 `current_event_team_ties`
 
 ---
 
@@ -225,7 +266,57 @@ python scripts/scrape_wtt_event.py --event-id 3216 --sub-events MTEAM WTEAM
 python scripts/db/import_wtt_event.py --event 3216
 ```
 
-### 4.5 日常刷新进行中赛事
+### 4.5 抓取当前赛事 runtime 数据
+
+脚本：
+
+- `scripts/runtime/scrape_current_event.py`
+
+输出：
+
+- `data/live_event_data/{event_id}/GetEventSchedule.json`
+- `data/live_event_data/{event_id}/MTEAM_standings.json`
+- `data/live_event_data/{event_id}/WTEAM_standings.json`
+- `data/live_event_data/{event_id}/GetBrackets_{sub_event}.json`
+- `data/live_event_data/{event_id}/GetLiveResult.json`
+- `data/live_event_data/{event_id}/completed_matches.json`
+
+常用命令：
+
+```bash
+python scripts/runtime/scrape_current_event.py --event-id 3216
+```
+
+### 4.6 导入当前赛事 runtime 数据
+
+脚本：
+
+- `scripts/runtime/import_current_event.py`
+
+默认导入顺序：
+
+1. `session_schedule` -> `current_event_session_schedule`
+2. `standings` -> `current_event_group_standings`
+3. `brackets` -> `current_event_brackets`
+4. `live` -> `current_event_team_ties` + `current_event_matches`
+5. `completed` -> `current_event_team_ties` + `current_event_matches`
+
+常用命令：
+
+```bash
+python scripts/runtime/import_current_event.py --event-id 3216
+python scripts/runtime/import_current_event.py --event-id 3216 --sources live completed
+python scripts/runtime/import_current_event_live.py --event-id 3216
+python scripts/runtime/import_current_event_completed.py --event-id 3216
+```
+
+注意：
+
+- `current_event_team_ties` 由 `import_current_event_live.py` 和 `import_current_event_completed.py` 随 `current_event_matches` 一起维护
+- `--sources team_ties` 和 `--sources matches` 是兼容别名，会执行 `live + completed`
+- 不再运行 schedule-only team tie skeleton 导入；`GetEventSchedule.json` 只做补充数据
+
+### 4.7 日常刷新进行中赛事
 
 脚本：
 

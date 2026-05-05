@@ -66,19 +66,23 @@ python scripts/ittf_rankings_updater.py
 独立无头分析抓取：
 
 ```bash
-python scripts/scrape_wtt_pool_standings.py --event-id 3216 --stage-label "Stage 1B(Groups)" --verbose
+python scripts/runtime/scrape_wtt_pool_standings.py --event-id 3216 --stage-label "Groups" --verbose
 ```
 
 导入到 SQLite 当前积分表：
 
 ```bash
-python scripts/db/import_wtt_pool_standings.py --input-dir data/live_event_data/3216/group_standings/<stage_slug>
+python scripts/runtime/import_current_event_group_standings.py --input-dir data/live_event_data/3216 --event-id 3216
 ```
 
-如果需要走完整的赛事刷新链路，`scripts/runtime/event_refresh.py` 现在会在赛程导入后自动追加：
+如果需要走完整的当前赛事刷新链路，使用 runtime 总入口：
 
-- `Stage 1B(Groups)` 官方积分表抓取与导入
-- `Stage 1A(Groups)` 官方积分表抓取与导入
+```bash
+python scripts/runtime/scrape_current_event.py --event-id 3216
+python scripts/runtime/import_current_event.py --event-id 3216
+```
+
+导入总入口默认写入 session 赛程、小组积分、淘汰赛签表、live 比赛和 completed 比赛。`current_event_team_ties` 由 live/completed 导入器随 `current_event_matches` 一起维护。
 
 ## 依赖
 
