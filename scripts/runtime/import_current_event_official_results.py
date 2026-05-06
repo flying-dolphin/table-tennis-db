@@ -74,11 +74,6 @@ def parse_match_info(match_number: int | None, start_local: str | None) -> str |
     return f"Match {match_number}"
 
 
-def column_exists(cursor: sqlite3.Cursor, table: str, column: str) -> bool:
-    rows = cursor.execute(f"PRAGMA table_info({table})").fetchall()
-    return any(row[1] == column for row in rows)
-
-
 def parse_scheduled_local_at(start_local: str | None) -> str | None:
     if not start_local:
         return None
@@ -222,8 +217,8 @@ def ensure_official_team_tie(
             event_id, sub_event_type_code, stage_label, stage_code, round_label, round_code, group_code,
             external_match_code, session_label, scheduled_local_at, scheduled_utc_at, table_no,
             status, source_status, source_schedule_status, match_score, winner_side, winner_team_code,
-            raw_source_payload, last_synced_at, created_at, updated_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, 'completed', 'Official', NULL, ?, ?, ?, NULL, datetime('now'), datetime('now'), datetime('now'))
+            last_synced_at, created_at, updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, 'completed', 'Official', NULL, ?, ?, ?, datetime('now'), datetime('now'), datetime('now'))
         """,
         (
             event_id,
@@ -287,7 +282,6 @@ def main() -> int:
     try:
         cursor = conn.cursor()
         conn.execute("BEGIN")
-        tie_has_raw_source_payload = column_exists(cursor, "current_event_team_ties", "raw_source_payload")
         imported_ties = 0
         imported_rubbers = 0
 
@@ -338,56 +332,29 @@ def main() -> int:
             else:
                 winner_team_code = None
 
-            if tie_has_raw_source_payload:
-                cursor.execute(
-                    """
-                    UPDATE current_event_team_ties
-                    SET status = 'completed',
-                        source_status = 'Official',
-                        table_no = COALESCE(?, table_no),
-                        session_label = COALESCE(?, session_label),
-                        match_score = ?,
-                        winner_side = ?,
-                        winner_team_code = ?,
-                        raw_source_payload = ?,
-                        last_synced_at = datetime('now'),
-                        updated_at = datetime('now')
-                    WHERE current_team_tie_id = ?
-                    """,
-                    (
-                        parse_table_name(match_card),
-                        match_info,
-                        match_score,
-                        winner_side,
-                        winner_team_code,
-                        json.dumps(item, ensure_ascii=False),
-                        int(tie_row["current_team_tie_id"]),
-                    ),
-                )
-            else:
-                cursor.execute(
-                    """
-                    UPDATE current_event_team_ties
-                    SET status = 'completed',
-                        source_status = 'Official',
-                        table_no = COALESCE(?, table_no),
-                        session_label = COALESCE(?, session_label),
-                        match_score = ?,
-                        winner_side = ?,
-                        winner_team_code = ?,
-                        last_synced_at = datetime('now'),
-                        updated_at = datetime('now')
-                    WHERE current_team_tie_id = ?
-                    """,
-                    (
-                        parse_table_name(match_card),
-                        match_info,
-                        match_score,
-                        winner_side,
-                        winner_team_code,
-                        int(tie_row["current_team_tie_id"]),
-                    ),
-                )
+            cursor.execute(
+                """
+                UPDATE current_event_team_ties
+                SET status = 'completed',
+                    source_status = 'Official',
+                    table_no = COALESCE(?, table_no),
+                    session_label = COALESCE(?, session_label),
+                    match_score = ?,
+                    winner_side = ?,
+                    winner_team_code = ?,
+                    last_synced_at = datetime('now'),
+                    updated_at = datetime('now')
+                WHERE current_team_tie_id = ?
+                """,
+                (
+                    parse_table_name(match_card),
+                    match_info,
+                    match_score,
+                    winner_side,
+                    winner_team_code,
+                    int(tie_row["current_team_tie_id"]),
+                ),
+            )
             for side_no in (1, 2):
                 is_winner = 1 if winner_side == ("A" if side_no == 1 else "B") else 0
                 cursor.execute(
