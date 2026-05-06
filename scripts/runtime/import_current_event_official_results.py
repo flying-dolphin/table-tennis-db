@@ -12,6 +12,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import wtt_import_shared as shared
 from import_current_event_completed import (
     DEFAULT_DB_PATH,
     DEFAULT_LIVE_EVENT_DATA_DIR,
@@ -63,8 +64,14 @@ def parse_match_number(description: str | None) -> int | None:
 
 
 def parse_match_info(match_number: int | None, start_local: str | None) -> str | None:
-    if match_number is None or not start_local:
+    if match_number is None:
         return None
+    scheduled_local_at = parse_scheduled_local_at(start_local)
+    label = shared.format_session_label(match_number, scheduled_local_at)
+    if label:
+        return label
+    if not start_local:
+        return f"Match {match_number}"
     for fmt in ("%m/%d/%Y %H:%M:%S", "%m/%d/%Y %H:%M"):
         try:
             parsed = datetime.strptime(start_local.strip(), fmt)
@@ -106,7 +113,7 @@ def parse_table_name(match_card: dict) -> str | None:
     for key in ("tableName", "tableNumber"):
         value = match_card.get(key)
         if isinstance(value, str) and value.strip():
-            return value.strip()
+            return shared.normalize_table_label(value.strip())
     return None
 
 

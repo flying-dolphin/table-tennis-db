@@ -12,6 +12,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import wtt_import_shared as shared
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
@@ -474,7 +476,7 @@ def upsert_completed_rubber(
         tie_row["scheduled_local_at"],
         tie_row["scheduled_utc_at"],
         tie_row["table_no"],
-        f"{tie_row['session_label']} / Rubber {game_order}",
+        shared.rubber_session_label(tie_row["session_label"], game_order),
         "completed",
         "Completed",
         tie_row["source_schedule_status"],

@@ -128,7 +128,7 @@ def normalize_round(raw_round: str | None) -> RoundInfo:
         "R32-": "R32",
         "R32": "R32",
         "R16": "R16",
-        "8FNL": "QF",
+        "8FNL": "R16",
         "QFNL": "QF",
         "SFNL": "SF",
         "FNL-": "F",
@@ -199,6 +199,58 @@ def text_value(items: list[dict] | None) -> str | None:
         if item.get("Value"):
             return item["Value"]
     return None
+
+
+def parse_match_number(value: str | None) -> int | None:
+    raw = (value or "").strip()
+    if not raw:
+        return None
+    match = re.search(r"\b(?:Match|M)\s*(\d+)\b", raw, re.IGNORECASE)
+    return int(match.group(1)) if match else None
+
+
+def format_session_label(match_number: int | None, scheduled_local_at: str | None) -> str | None:
+    if match_number is None:
+        return None
+    if not scheduled_local_at:
+        return f"Match {match_number}"
+
+    parsed = parse_local_datetime(scheduled_local_at)
+    if parsed is None:
+        return f"Match {match_number}"
+
+    day = str(parsed.day)
+    return f"Match {match_number} | {day} {parsed.strftime('%b, %H:%M')}"
+
+
+def canonical_session_label(
+    *candidates: str | None,
+    scheduled_local_at: str | None = None,
+) -> str | None:
+    for candidate in candidates:
+        match_number = parse_match_number(candidate)
+        if match_number is not None:
+            return format_session_label(match_number, scheduled_local_at) or candidate
+    for candidate in candidates:
+        raw = (candidate or "").strip()
+        if raw:
+            return raw
+    return None
+
+
+def rubber_session_label(base_session_label: str | None, rubber_order: int) -> str:
+    base = (base_session_label or "").strip() or "Match TBD"
+    return f"{base} / Rubber {rubber_order}"
+
+
+def normalize_table_label(value: str | None) -> str | None:
+    raw = (value or "").strip()
+    if not raw:
+        return None
+    match = re.search(r"\b(?:Table|T)\s*0*(\d+)\b", raw, re.IGNORECASE)
+    if match:
+        return f"T{int(match.group(1)):02d}"
+    return raw.upper()
 
 
 def competitor_name(competitor: dict) -> str:

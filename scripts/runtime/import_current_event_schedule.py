@@ -200,7 +200,8 @@ def upsert_schedule_unit(
     scheduled_local_at, scheduled_utc_at = shared.to_local_and_utc(unit.get("StartDate"), event_time_zone)
     source_schedule_status = (unit.get("ScheduleStatus") or "").strip() or None
     incoming_status = shared.normalize_status(source_schedule_status)
-    session_label = shared.text_value(unit.get("ItemName")) or shared.text_value(unit.get("ItemDescription"))
+    raw_session_label = shared.text_value(unit.get("ItemName")) or shared.text_value(unit.get("ItemDescription"))
+    session_label = shared.canonical_session_label(raw_session_label, scheduled_local_at=scheduled_local_at)
     starts = ((unit.get("StartList") or {}).get("Start") or [])
     existing = existing_rows.get(external_match_code)
 
@@ -215,7 +216,7 @@ def upsert_schedule_unit(
         "session_label": session_label,
         "scheduled_local_at": scheduled_local_at,
         "scheduled_utc_at": scheduled_utc_at,
-        "table_no": unit.get("Location"),
+        "table_no": shared.normalize_table_label(unit.get("Location")),
         "source_schedule_status": source_schedule_status,
     }
 

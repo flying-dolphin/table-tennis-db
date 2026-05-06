@@ -114,16 +114,6 @@ def parse_live_session_label(item: dict) -> str | None:
     return None
 
 
-def parse_live_match_number(value: str | None) -> int | None:
-    raw = (value or "").strip()
-    if not raw:
-        return None
-    match = re.search(r"\b(?:Match|M)\s*(\d+)\b", raw, re.IGNORECASE)
-    if match:
-        return int(match.group(1))
-    return None
-
-
 def build_live_external_match_code(item: dict, sub_event_type_code: str, round_info: legacy.RoundInfo) -> str:
     external_match_code = legacy.normalize_external_match_code(item.get("match_code"))
     if external_match_code:
@@ -149,8 +139,12 @@ def find_existing_live_team_tie(
     round_info: legacy.RoundInfo,
 ) -> sqlite3.Row | None:
     session_label = parse_live_session_label(item)
-    table_no = (item.get("table_no") or "").strip() or None
-    match_no = parse_live_match_number(session_label) or parse_live_match_number(item.get("sub_event_name")) or parse_live_match_number(item.get("raw_title"))
+    table_no = legacy.normalize_table_label(item.get("table_no"))
+    match_no = (
+        legacy.parse_match_number(session_label)
+        or legacy.parse_match_number(item.get("sub_event_name"))
+        or legacy.parse_match_number(item.get("raw_title"))
+    )
 
     sides = item.get("sides") if isinstance(item.get("sides"), list) else []
     side_codes = [
@@ -190,11 +184,11 @@ def find_existing_live_team_tie(
         if row_side_codes not in ([side_codes[0], side_codes[1]], [side_codes[1], side_codes[0]]):
             continue
 
-        row_table_no = (row["table_no"] or "").strip() if row["table_no"] else None
+        row_table_no = legacy.normalize_table_label(row["table_no"])
         if table_no and row_table_no and row_table_no == table_no:
             return row
 
-        row_match_no = parse_live_match_number(row["session_label"])
+        row_match_no = legacy.parse_match_number(row["session_label"])
         if match_no and row_match_no and row_match_no == match_no:
             return row
 
@@ -360,6 +354,14 @@ def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, n
     winner_team_code = winner_team_code_for_side(sides, winner_side)
     round_info = parse_live_round_info(item)
     external_match_code = build_live_external_match_code(item, sub_event_type_code, round_info)
+    scheduled_start = item.get("scheduled_start")
+    session_label = legacy.canonical_session_label(
+        item.get("session_label"),
+        item.get("sub_event_name"),
+        item.get("raw_title"),
+        scheduled_local_at=scheduled_start,
+    )
+    table_no = legacy.normalize_table_label(item.get("table_no"))
 
     existing = cursor.execute(
         """
@@ -419,7 +421,7 @@ def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, n
                 (
                     event_id,
                     sub_event_type_code,
-                    (item.get("table_no") or "").strip() or None,
+                    table_no,
                     side_codes[0],
                     side_codes[1],
                 ),
@@ -444,8 +446,8 @@ def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, n
             WHERE current_team_tie_id = ?
             """,
             (
-                item.get("session_label"),
-                item.get("table_no"),
+                session_label,
+                table_no,
                 round_info.stage_code,
                 round_info.round_code,
                 round_info.group_code,
@@ -476,9 +478,9 @@ def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, n
                 round_info.round_code,
                 round_info.group_code,
                 external_match_code,
-                item.get("session_label"),
-                item.get("scheduled_start_local") or item.get("scheduled_start"),
-                item.get("table_no"),
+                session_label,
+                scheduled_start,
+                table_no,
                 status,
                 item.get("source_status"),
                 item.get("score"),
@@ -626,8 +628,17 @@ def upsert_live_rubber(
         external_match_code,
         tie_row["scheduled_local_at"],
         tie_row["scheduled_utc_at"],
-        live_match.get("table_no") or tie_row["table_no"],
-        f"{live_match.get('session_label') or tie_row['session_label']} / Rubber {rubber_order}",
+        legacy.normalize_table_label(live_match.get("table_no")) or tie_row["table_no"],
+        legacy.rubber_session_label(
+            legacy.canonical_session_label(
+                tie_row["session_label"],
+                live_match.get("session_label"),
+                live_match.get("sub_event_name"),
+                live_match.get("raw_title"),
+                scheduled_local_at=tie_row["scheduled_local_at"],
+            ),
+            rubber_order,
+        ),
         status,
         live_match.get("source_status"),
         tie_row["source_schedule_status"],
