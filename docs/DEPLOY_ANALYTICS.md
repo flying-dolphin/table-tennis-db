@@ -636,6 +636,15 @@ PYENV_ENV_NAME=venv \
 
 安装脚本会调用 `generate_current_event_crontab.py`，先删除 crontab 中唯一的 `# ITTF current-event refresh begin/end` 托管区块，再写入新赛事任务；后续换赛事时重复执行同一命令即可，不会累积历史赛事 cron。生成器会输出 `CRON_TZ=Asia/Shanghai`，并为每条 cron 加 `date +%Y-%m-%d` 守卫。每日保底 cron 不放进这个动态区块，应单独保留。
 
+每条高频 cron 任务的 stdout+stderr 默认追加写入 `${ITTF_DATA_DIR}/logs/event_<id>_YYYYMMDD.log`，日志目录不存在时自动创建。如需修改日志路径，通过 `LOG_DIR` 环境变量覆盖：
+
+```bash
+ITTF_DATA_DIR=/opt/ittf-data \
+LOG_DIR=/var/log/ittf \
+PYENV_ENV_NAME=venv \
+/opt/ittf-ops/install_current_event_crontab.sh 3216
+```
+
 如果要接 Sentry Crons：
 
 ```bash

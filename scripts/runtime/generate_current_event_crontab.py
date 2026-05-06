@@ -97,6 +97,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Include cron entries whose Beijing run time is already in the past.",
     )
+    parser.add_argument(
+        "--log-dir",
+        default=None,
+        help="Directory for cron job log files (e.g. /opt/ittf-data/logs). "
+             "If omitted, cron output is not redirected and may be silently discarded.",
+    )
     return parser.parse_args()
 
 
@@ -349,7 +355,13 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         live_root,
     ]
 
-    return f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && {shell_join(import_cmd)}"
+    cmd = f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && {shell_join(import_cmd)}"
+
+    if args.log_dir:
+        log_file = f"{args.log_dir}/event_{event_id}_$(date +\\%Y\\%m\\%d).log"
+        cmd = f"mkdir -p {shlex.quote(args.log_dir)} && {cmd} >> {log_file} 2>&1"
+
+    return cmd
 
 
 def cron_line(job: CronJob, command: str) -> str:

@@ -140,13 +140,16 @@ python scripts/runtime/generate_current_event_crontab.py --event-id 3216 --headl
 ```bash
 python scripts/runtime/generate_current_event_crontab.py \
   --event-id 3216 \
-  --db-path /opt/ittf/data/db/ittf.db \
-  --project-root /opt/ittf \
-  --runtime-python-dir /opt/ittf/scripts/runtime \
+  --db-path /opt/ittf-data/db/ittf.db \
+  --project-root /opt/ittf-ops \
+  --runtime-python-dir /opt/ittf-ops/runtime/python \
   --python-bin /opt/ittf-venv/bin/python \
-  --live-event-data-root /opt/ittf/data/live_event_data \
+  --live-event-data-root /opt/ittf-data/live_event_data \
+  --log-dir /opt/ittf-data/logs \
   --headless
 ```
+
+`--log-dir` 指定日志输出目录。每条 cron 任务会将 stdout+stderr 追加写入 `<log-dir>/event_<event_id>_YYYYMMDD.log`（日期为 cron 运行当天），目录不存在时自动创建。若省略此参数，cron 输出将被 mail 或静默丢弃，无法事后排查。
 
 如果在本机读取本地 SQLite、但要输出服务器 crontab 命令，可用 `--emit-db-path` 指定写入 cron 命令的服务器 DB 路径。
 

@@ -12,6 +12,7 @@ RUNTIME_DIR="${SCRIPT_DIR}/runtime"
 ITTF_DATA_DIR=${ITTF_DATA_DIR:-/opt/ittf-data}
 DB_PATH=${DB_PATH:-${ITTF_DATA_DIR}/db/ittf.db}
 LIVE_EVENT_DATA_DIR=${LIVE_EVENT_DATA_DIR:-${ITTF_DATA_DIR}/live_event_data}
+LOG_DIR=${LOG_DIR:-${ITTF_DATA_DIR}/logs}
 PYENV_ROOT=${PYENV_ROOT:-${HOME}/.pyenv}
 PYENV_ENV_NAME=${PYENV_ENV_NAME:-}
 VENV_PATH=${VENV_PATH:-/opt/ittf-venv}
@@ -71,6 +72,7 @@ trap 'rm -f "${GENERATED_FILE}" "${CURRENT_FILE}" "${NEXT_FILE}"' EXIT
     --runtime-python-dir "${RUNTIME_DIR}/python" \
     --python-bin "${PYTHON_BIN}" \
     --live-event-data-root "${LIVE_EVENT_DATA_DIR}" \
+    --log-dir "${LOG_DIR}" \
     --headless > "${GENERATED_FILE}"
 
 crontab -l 2>/dev/null | sed "/${BLOCK_BEGIN}/,/${BLOCK_END}/d" > "${CURRENT_FILE}" || true
