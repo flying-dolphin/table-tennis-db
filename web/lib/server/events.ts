@@ -186,9 +186,14 @@ function roundLabel(round: string | null, roundZh: string | null) {
   const normalizedRoundZh = roundZh?.trim() ?? '';
   const labels: Record<string, string> = {
     Final: '决赛',
+    FNL: '决赛',
+    'FNL-': '决赛',
     Bronze: '铜牌赛',
     SemiFinal: '半决赛',
+    SFNL: '半决赛',
     QuarterFinal: '四分之一决赛',
+    QFNL: '四分之一决赛',
+    '8FNL': '16 强',
     R16: '16 强',
     R32: '32 强',
     R64: '64 强',
@@ -2473,7 +2478,14 @@ const TEAM_BRACKET_STAGES = new Set(['Main Draw', 'MAIN']);
 
 function teamTieRoundMeta(round: string, roundZh: string | null) {
   const trimmed = round?.trim() ?? '';
-  const normalized = NUMERIC_TEAM_ROUND_ALIAS[trimmed] ?? trimmed;
+  const rawRoundAliases: Record<string, string> = {
+    FNL: 'Final',
+    'FNL-': 'Final',
+    SFNL: 'SemiFinal',
+    QFNL: 'QuarterFinal',
+    '8FNL': 'R16',
+  };
+  const normalized = rawRoundAliases[trimmed] ?? NUMERIC_TEAM_ROUND_ALIAS[trimmed] ?? trimmed;
   const meta = TEAM_ROUND_META[normalized];
   if (meta) {
     const trimmedZh = roundZh?.trim() ?? '';

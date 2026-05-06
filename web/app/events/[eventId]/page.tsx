@@ -2112,11 +2112,16 @@ const TEAM_MAIN_DRAW_SEQUENCE: Array<{ code: string; label: string; order: numbe
 
 const TEAM_ROUND_ALIASES: Record<string, string> = {
   F: "Final",
+  FNL: "Final",
+  "FNL-": "Final",
   Final: "Final",
   SF: "SemiFinal",
+  SFNL: "SemiFinal",
   SemiFinal: "SemiFinal",
   QF: "QuarterFinal",
+  QFNL: "QuarterFinal",
   QuarterFinal: "QuarterFinal",
+  "8FNL": "R16",
   R16: "R16",
   R32: "R32",
   R64: "R64",
