@@ -626,6 +626,7 @@ function buildHistoricalTeamTieScheduleMatches(eventId: number) {
 type TeamTie = {
   tieId: string;
   scheduleMatchId: number | null;
+  externalMatchCode: string | null;
   stage: string;
   stageZh: string | null;
   round: string;
@@ -1662,6 +1663,7 @@ function buildTeamTiesForSubEvent(eventId: number, subEventCode: string): TeamTi
       {
         tieId: key,
         scheduleMatchId: -row.tieId,
+        externalMatchCode: null,
         stage: row.stage,
         stageZh: row.stageZh,
         round: row.round,
@@ -1693,6 +1695,7 @@ function buildCurrentTeamTiesForSubEvent(eventId: number, subEventCode: string):
       `
         SELECT
           t.current_team_tie_id AS tieId,
+          t.external_match_code AS externalMatchCode,
           COALESCE(t.stage_code, t.stage_label, '') AS stage,
           t.stage_label AS stageZh,
           COALESCE(t.round_code, t.round_label, '') AS round,
@@ -1713,6 +1716,7 @@ function buildCurrentTeamTiesForSubEvent(eventId: number, subEventCode: string):
     )
     .all(eventId, subEventCode) as Array<{
     tieId: number;
+    externalMatchCode: string | null;
     stage: string;
     stageZh: string | null;
     round: string;
@@ -1834,6 +1838,7 @@ function buildCurrentTeamTiesForSubEvent(eventId: number, subEventCode: string):
       {
         tieId: key,
         scheduleMatchId: row.tieId,
+        externalMatchCode: row.externalMatchCode,
         stage: row.stage,
         stageZh: row.stageZh,
         round: row.round,
@@ -2713,6 +2718,7 @@ function buildLiveGroupStageView(
     const tie: TeamTie = {
       tieId: match.externalMatchCode || String(match.scheduleMatchId),
       scheduleMatchId: match.scheduleMatchId,
+      externalMatchCode: null,
       stage: match.stageCode,
       stageZh: match.stageNameZh,
       round: match.roundCode,

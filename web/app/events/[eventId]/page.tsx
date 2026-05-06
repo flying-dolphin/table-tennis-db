@@ -70,6 +70,7 @@ type EventChampion = {
 type TeamTie = {
   tieId: string;
   scheduleMatchId: number | null;
+  externalMatchCode: string | null;
   stage: string;
   stageZh: string | null;
   round: string;
@@ -2134,6 +2135,13 @@ function teamTieWinner(tie: TeamTie | null): TeamBracketTeam {
 }
 
 function teamTiePosition(tie: TeamTie) {
+  // Extract bracket slot from external_match_code (e.g. "...R32-00050000" → 5).
+  // The code ends with 8 digits: [4-digit match no][4-digit rubber no].
+  if (tie.externalMatchCode) {
+    const m = tie.externalMatchCode.match(/(\d{4})(\d{4})$/);
+    if (m) return parseInt(m[1], 10);
+  }
+  // Fallback: parse "Match N" from round label (legacy / non-current-model events)
   const text = `${tie.roundZh ?? ""} ${tie.round ?? ""}`;
   const match = text.match(/Match\s+(\d+)/i) ?? text.match(/第\s*(\d+)\s*场/);
   return match ? Number(match[1]) : Number.POSITIVE_INFINITY;
