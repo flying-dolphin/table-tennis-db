@@ -8,6 +8,8 @@
 #   - 已上传 deploy/server/runtime/
 #   - 已准备好 pyenv 环境（推荐）或传统 venv（兜底）
 #   - sqlite3 命令可用
+#   - 若使用默认 sources（含 completed/live/standings），还需：
+#       patchright/playwright + chromium（例如 python -m patchright install chromium）
 #
 # 外部数据目录结构（默认 /opt/ittf-data）：
 #   /opt/ittf-data/db/ittf.db

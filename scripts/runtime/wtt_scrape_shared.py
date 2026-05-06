@@ -15,6 +15,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
 DEFAULT_SUB_EVENTS = ["MTEAM", "WTEAM"]
+OFFICIAL_RESULTS_PAGE_SIZE = 100
 
 API_BASE = "https://liveeventsapi.worldtabletennis.com/api/cms"
 LIVE_MATCH_STATIC_BASE = "https://wtt-web-frontdoor-withoutcache-cqakg0andqf5hchn.a01.azurefd.net"
@@ -301,6 +302,65 @@ def fetch_live_matches_api(event_id: int):
     return url, fetch_json_value(url)
 
 
+def fetch_all_official_results(event_id: int, page_size: int = OFFICIAL_RESULTS_PAGE_SIZE) -> tuple[dict, list[dict]]:
+    results: list[dict] = []
+    seen_keys: set[str] = set()
+    skip = 0
+    pages = 0
+
+    while True:
+        url = (
+            f"{API_BASE}/GetOfficialResult?EventId={event_id}"
+            f"&include_match_card=true&take={page_size}&skip={skip}"
+        )
+        page = fetch_json_value(url)
+        if page is None:
+            if pages == 0:
+                return {"url": url, "ok": False, "count": 0, "pages": pages}, []
+            break
+        if not isinstance(page, list):
+            if pages == 0:
+                return {"url": url, "ok": False, "count": 0, "pages": pages}, []
+            break
+        if not page:
+            break
+
+        pages += 1
+        new_count = 0
+        for item in page:
+            if not isinstance(item, dict):
+                continue
+            match_card = item.get("match_card") or {}
+            key = json.dumps(
+                {
+                    "documentCode": item.get("documentCode") or match_card.get("documentCode"),
+                    "resultOverallScores": match_card.get("resultOverallScores"),
+                    "overallScores": match_card.get("overallScores"),
+                },
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            results.append(item)
+            new_count += 1
+
+        if len(page) < page_size or new_count == 0:
+            break
+        skip += page_size
+
+    return {
+        "url": (
+            f"{API_BASE}/GetOfficialResult?EventId={event_id}"
+            f"&include_match_card=true&take={page_size}"
+        ),
+        "ok": True,
+        "count": len(results),
+        "pages": pages,
+    }, results
+
+
 def build_live_results_snapshot(
     event_id: int,
     schedule_payload,
@@ -379,6 +439,43 @@ def build_live_results_snapshot(
     return summary, normalized, [raw_sources]
 
 
+def scrape_official_results_only(
+    event_id: int,
+    event_dir: Path,
+    *,
+    page_size: int = OFFICIAL_RESULTS_PAGE_SIZE,
+) -> dict:
+    event_dir.mkdir(parents=True, exist_ok=True)
+    summary: dict = {"event_id": event_id, "files": [], "errors": []}
+    source_meta, official_results = fetch_all_official_results(event_id, page_size=page_size)
+
+    if not source_meta.get("ok"):
+        summary["errors"].append(
+            {
+                "kind": "official_results",
+                "url": source_meta.get("url"),
+                "message": "failed to fetch official results",
+            }
+        )
+        _write_summary(event_dir / "_scrape_summary_official_results.json", summary)
+        return summary
+
+    payload = json.dumps(official_results, ensure_ascii=False, indent=2).encode("utf-8")
+    size = save_json(event_dir / "GetOfficialResult.json", payload)
+    summary["files"].append(
+        {
+            "kind": "official_results",
+            "file": "GetOfficialResult.json",
+            "size": size,
+            "count": len(official_results),
+            "pages": source_meta.get("pages", 0),
+        }
+    )
+    summary["sources"] = {"official_results": source_meta}
+    _write_summary(event_dir / "_scrape_summary_official_results.json", summary)
+    return summary
+
+
 def extract_match_score(payload: dict) -> str | None:
     for key in ("overallScores", "resultOverallScores", "result", "score", "finalScore"):
         value = payload.get(key)
@@ -447,4 +544,3 @@ def print_stage1a_groups(event_dir: Path, groups: list[int]) -> None:
     for group in groups:
         code = f"GP{group:02d}"
         print(f"[{code}] {len([u for u in units.values() if (u.get('Round') or '').strip().upper() == code])} unit(s)")
-

@@ -47,7 +47,6 @@ def main() -> int:
     ap.add_argument("--headless", action="store_true")
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--with-debug-files", action="store_true", help="live 抓取时输出调试文件")
-    ap.add_argument("--max-load-more", type=int, default=50, help="completed 页面最多点击 LOAD MORE 次数")
     args = ap.parse_args()
 
     base = [
@@ -79,7 +78,7 @@ def main() -> int:
             if args.with_debug_files:
                 cmd.append("--with-debug-files")
         elif source == "completed":
-            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_matches.py")] + root_args + ["--max-load-more", str(args.max_load_more)]
+            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_official_results.py")] + root_args
         else:
             cmd = (
                 base

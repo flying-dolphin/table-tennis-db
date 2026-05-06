@@ -554,10 +554,14 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 `
 
 ```bash
 ssh deploy@serverA
-sudo apt install -y sqlite3
+sudo apt install -y sqlite3 nodejs npm
 mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/live_event_data /opt/ittf-data/event_schedule /opt/ittf-logs
 chmod +x /opt/ittf-ops/event_refresh.sh
 pyenv activate venv
+pip install patchright playwright beautifulsoup4 brotli python-dotenv requests pypdf
+npm i -g agent-browser
+python -m patchright install chromium
+agent-browser --version
 python --version
 ```
 
@@ -573,10 +577,14 @@ powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 -Ser
 
 ```bash
 ssh deploy@serverA
-sudo apt install -y sqlite3
+sudo apt install -y sqlite3 nodejs npm
 mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/live_event_data /opt/ittf-data/event_schedule /opt/ittf-logs
 chmod +x /opt/ittf-ops/event_refresh.sh
 pyenv activate venv
+pip install patchright playwright beautifulsoup4 brotli python-dotenv requests pypdf
+npm i -g agent-browser
+python -m patchright install chromium
+agent-browser --version
 python --version
 ```
 
@@ -609,6 +617,7 @@ EVENT_ID=3216 \
 - `/opt/ittf-data/db/backups/` 已生成备份
 - 命令输出没有 `failed` 或 `Error:`
 - `pyenv activate venv && python --version` 至少为 `Python 3.8`
+- `agent-browser --version` 能正常返回版本号
 
 6. 安装每日保底 cron：
 

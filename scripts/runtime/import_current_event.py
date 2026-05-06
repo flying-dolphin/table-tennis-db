@@ -28,8 +28,8 @@ def main() -> int:
     parser.add_argument(
         "--sources",
         nargs="+",
-        choices=("session_schedule", "standings", "brackets", "live", "completed", "team_ties", "matches"),
-        default=["session_schedule", "standings", "brackets", "live", "completed"],
+        choices=("session_schedule", "schedule", "standings", "brackets", "live", "completed", "team_ties", "matches"),
+        default=["session_schedule", "schedule", "standings", "brackets", "live", "completed"],
         help="导入源列表，默认全部执行；team_ties/matches 为兼容别名，会执行 live 和 completed",
     )
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
@@ -51,6 +51,19 @@ def main() -> int:
             str(args.event_schedule_dir.resolve()),
             "--event",
             str(args.event_id),
+        ]
+        rc = run_step(cmd)
+        if rc != 0:
+            return rc
+
+    if "schedule" in args.sources:
+        cmd = [
+            py,
+            str(SCRIPT_DIR / "import_current_event_schedule.py"),
+            "--event-id",
+            str(args.event_id),
+            *db_args,
+            *live_args,
         ]
         rc = run_step(cmd)
         if rc != 0:
@@ -106,7 +119,7 @@ def main() -> int:
     if "completed" in sources:
         cmd = [
             py,
-            str(SCRIPT_DIR / "import_current_event_completed.py"),
+            str(SCRIPT_DIR / "import_current_event_official_results.py"),
             "--event-id",
             str(args.event_id),
             *db_args,

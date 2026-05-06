@@ -51,6 +51,14 @@ $files = @(
         Remote = "$RemoteOpsDir/runtime/python/import_current_event_completed.py"
     },
     @{
+        Local  = (Join-Path $RepoRoot "scripts\runtime\import_current_event_official_results.py")
+        Remote = "$RemoteOpsDir/runtime/python/import_current_event_official_results.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\runtime\import_current_event_schedule.py")
+        Remote = "$RemoteOpsDir/runtime/python/import_current_event_schedule.py"
+    },
+    @{
         Local  = (Join-Path $RepoRoot "scripts\runtime\import_current_event_group_standings.py")
         Remote = "$RemoteOpsDir/runtime/python/import_current_event_group_standings.py"
     },
@@ -77,6 +85,10 @@ $files = @(
     @{
         Local  = (Join-Path $RepoRoot "scripts\runtime\scrape_wtt_matches.py")
         Remote = "$RemoteOpsDir/runtime/python/scrape_wtt_matches.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\runtime\scrape_wtt_official_results.py")
+        Remote = "$RemoteOpsDir/runtime/python/scrape_wtt_official_results.py"
     },
     @{
         Local  = (Join-Path $RepoRoot "scripts\runtime\scrape_wtt_pool_standings.py")
@@ -145,4 +157,3 @@ Remove-Item -Recurse -Force $StagingDir
 Remove-Item $ArchivePath
 
 Write-Host "Upload complete."
-

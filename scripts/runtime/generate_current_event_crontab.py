@@ -19,13 +19,14 @@ DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 TARGET_TIME_ZONE = "Asia/Shanghai"
 
 SCRAPE_IMPORT_SOURCES = {
+    "schedule": ("schedule", "schedule"),
     "standings": ("standings", "standings"),
     "brackets": ("brackets", "brackets"),
     "live": ("live", "live"),
     "completed": ("completed", "completed"),
 }
 
-SOURCE_ORDER = ["standings", "brackets", "live", "completed"]
+SOURCE_ORDER = ["schedule", "standings", "brackets", "live", "completed"]
 MAIN_DRAW_ROUNDS = {
     "R256",
     "R128",
@@ -68,8 +69,8 @@ class CronJob:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Generate crontab lines for current-event standings, brackets, "
-            "live matches, and completed matches. Times are emitted for Asia/Shanghai."
+            "Generate crontab lines for current-event schedule, standings, brackets, "
+            "live matches, and official completed results. Times are emitted for Asia/Shanghai."
         )
     )
     parser.add_argument("--event-id", type=int, required=True)
@@ -91,7 +92,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--headless", action="store_true", help="Pass --headless to browser-backed scrape sources.")
     parser.add_argument("--use-cdp", action="store_true", help="Pass --use-cdp to browser-backed scrape sources.")
     parser.add_argument("--cdp-port", type=int, default=9222)
-    parser.add_argument("--max-load-more", type=int, default=50)
     parser.add_argument(
         "--include-past",
         action="store_true",
@@ -265,6 +265,12 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
     jobs: dict[datetime, CronJob] = {}
 
     for day in schedule:
+        evening_start = second_session_or_fallback(day)
+        if evening_start:
+            run_at = to_target_datetime(day.local_date, evening_start, event_tz, target_tz) + timedelta(hours=5)
+            add_job(jobs, run_at, "schedule", "daily-schedule")
+
+    for day in schedule:
         second_start = second_session_or_fallback(day)
         if second_start and day.local_date < main_draw_start:
             run_at = to_target_datetime(day.local_date, second_start, event_tz, target_tz) + timedelta(hours=3)
@@ -321,8 +327,6 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         *scrape_sources,
         "--live-event-data-root",
         live_root,
-        "--max-load-more",
-        str(args.max_load_more),
     ]
     browser_sources = {"standings", "live"}
     if browser_sources.intersection(sources):

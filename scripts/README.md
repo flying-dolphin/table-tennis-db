@@ -107,10 +107,11 @@ python scripts/runtime/import_current_event.py --event-id 3216
 默认导入顺序：
 
 1. `session_schedule`：导入人工维护的按日日程到 `current_event_session_schedule`
-2. `standings`：导入小组积分到 `current_event_group_standings`
-3. `brackets`：导入淘汰赛签表到 `current_event_brackets`
-4. `live`：从 `GetLiveResult.json` 同步进行中 team tie 和 rubber
-5. `completed`：从 `completed_matches.json` 同步已完结 team tie 和 rubber
+2. `schedule`：从 `GetEventSchedule.json` 同步比赛 tab 的 team tie 基础赛程到 `current_event_team_ties`
+3. `standings`：导入小组积分到 `current_event_group_standings`
+4. `brackets`：导入淘汰赛签表到 `current_event_brackets`
+5. `live`：从 `GetLiveResult.json` 同步进行中 team tie 和 rubber
+6. `completed`：从 `completed_matches.json` 同步已完结 team tie 和 rubber
 
 可只导入当前比赛结果：
 
@@ -120,7 +121,7 @@ python scripts/runtime/import_current_event_live.py --event-id 3216
 python scripts/runtime/import_current_event_completed.py --event-id 3216
 ```
 
-`current_event_team_ties` 现在由 live/completed 导入器随 `current_event_matches` 一起维护。`GetEventSchedule.json` 只作为抓取和导入时的补充信息来源，不再通过单独的 team_ties skeleton 导入脚本重建 `current_event_team_ties`。
+`current_event_team_ties` 现在由 `schedule / live / completed` 共同维护：`schedule` 负责导入 team tie 基础赛程，`live / completed` 再补齐状态、比分和 rubber。`GetEventSchedule.json` 不会直接写入 `current_event_matches`。
 
 当前赛事积分表单独导入：
 
@@ -150,6 +151,8 @@ python scripts/runtime/generate_current_event_crontab.py \
 如果在本机读取本地 SQLite、但要输出服务器 crontab 命令，可用 `--emit-db-path` 指定写入 cron 命令的服务器 DB 路径。
 
 如果 `events.time_zone` 为空或不是 IANA 时区名，脚本会直接失败。不要用本机时区代替赛事时区。
+
+当前 cron 策略中，`schedule` 源每天只更新 1 次：按赛事当地时间在当天第 2 个 session 开始后 5 小时执行；若当天只有 1 个 session，则回退到当天最后一个 session 开始后 5 小时。`brackets / live / completed / standings` 仍按各自原有频率生成。
 
 旧的 WTT 当前赛事脚本已经归档到 `tmp/scripts/`，不再作为主入口使用。以下旧底层导入脚本已移除或合并：
 
