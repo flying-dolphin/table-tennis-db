@@ -273,7 +273,7 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
     for day in schedule:
         evening_start = second_session_or_fallback(day)
         if evening_start:
-            run_at = to_target_datetime(day.local_date, evening_start, event_tz, target_tz) + timedelta(hours=5)
+            run_at = to_target_datetime(day.local_date, evening_start, event_tz, target_tz) + timedelta(hours=7)
             add_job(jobs, run_at, "schedule", "daily-schedule")
 
     for day in schedule:
@@ -298,10 +298,10 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
 
         for session_label, start in starts:
             session_start = to_target_datetime(day.local_date, start, event_tz, target_tz)
-            for idx in range(1, 7):
+            for idx in range(1, 11):
                 run_at = session_start + timedelta(minutes=30 * idx)
                 add_job(jobs, run_at, "live", f"{session_label}-live-{idx}")
-            for idx in range(1, 3):
+            for idx in range(1, 4):
                 run_at = session_start + timedelta(hours=2 * idx)
                 add_job(jobs, run_at, "completed", f"{session_label}-completed-{idx}")
 

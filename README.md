@@ -95,6 +95,8 @@ playwright install chromium
 
 - [数据库设计](docs/design/database.md) — 表结构、关系、数据来源
 - [数据库使用与维护](docs/DATABASE_MAINTENANCE.md) — 部署、查询、更新、备份
+- [脚本总览](docs/scripts_overview.md) — `scripts/` 与 `scripts/runtime/` 的入口和用途
+- [部署与运维](docs/DEPLOY_ANALYTICS.md) — 生产部署、current-event cron、Umami、运维手册
 - [ITTF 排名规则](data/point_rules/ITTF-Ranking-Regulations-20260127.md) — 官方积分规则
 
 ## 数据来源

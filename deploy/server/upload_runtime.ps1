@@ -19,14 +19,6 @@ $files = @(
         Remote = "$RemoteOpsDir/install_current_event_crontab.sh"
     },
     @{
-        Local  = (Join-Path $RepoRoot "deploy\server\cron_event_refresh_with_sentry.sh.example")
-        Remote = "$RemoteOpsDir/cron_event_refresh_with_sentry.sh.example"
-    },
-    @{
-        Local  = (Join-Path $RepoRoot "deploy\server\runtime\README.md")
-        Remote = "$RemoteOpsDir/runtime/README.md"
-    },
-    @{
         Local  = (Join-Path $RepoRoot "deploy\server\runtime\data\stage_round_mapping.json")
         Remote = "$RemoteOpsDir/runtime/data/stage_round_mapping.json"
     },
