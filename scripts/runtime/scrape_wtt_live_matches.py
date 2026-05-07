@@ -67,6 +67,19 @@ def parse_round_code(title: str | None) -> str | None:
         return f"GP{int(group_match.group(1)):02d}"
     if "Preliminary Round" in raw:
         return "RND1"
+    if "Quarterfinal" in raw:
+        return "QFNL"
+    if "Semifinal" in raw:
+        return "SFNL"
+    if re.search(r"\bFinal\b", raw, flags=re.IGNORECASE):
+        return "FNL"
+    round_of_match = re.search(r"Round of\s+(\d+)", raw, flags=re.IGNORECASE)
+    if round_of_match:
+        round_size = int(round_of_match.group(1))
+        if round_size == 16:
+            return "8FNL"
+        if round_size == 32:
+            return "R32-"
     return None
 
 
@@ -96,16 +109,36 @@ def location_label(unit: dict[str, Any]) -> str | None:
     )
 
 
+def parse_live_title_parts(title: str | None) -> dict[str, str | None]:
+    raw_title = re.sub(r"\s+", " ", (title or "").replace("\xa0", " ")).strip()
+    cleaned_title = re.sub(r"\s*LIVE\s*", " ", raw_title, flags=re.IGNORECASE).strip()
+
+    sub_event_label = None
+    round_label = None
+    match = re.match(r"^(Men's Teams|Women's Teams|Mixed Teams)\s*-\s*(.+?)$", cleaned_title, flags=re.IGNORECASE)
+    if match:
+        sub_event_label = match.group(1).strip()
+        round_label = match.group(2).strip() or None
+    elif cleaned_title:
+        sub_event_label = cleaned_title
+
+    return {
+        "display_title": cleaned_title or None,
+        "sub_event_label": sub_event_label,
+        "round_label": round_label,
+    }
+
+
 def match_dom_card_to_schedule_unit(card: dict[str, Any], schedule_units: list[dict[str, Any]]) -> dict[str, Any] | None:
     side_orgs = tuple(
         side.get("organization")
         for side in (card.get("sides") or [])[:2]
         if isinstance(side, dict) and side.get("organization")
     )
-    round_code = parse_round_code(card.get("sub_event"))
+    round_code = parse_round_code(card.get("round_label") or card.get("display_title"))
     match_no = parse_match_no(card.get("match_label"))
     table_no = (card.get("table_no") or "").strip().lower()
-    sub_event = (card.get("sub_event_name") or "").strip().lower()
+    sub_event = (card.get("sub_event_label") or "").strip().lower()
 
     candidates: list[tuple[int, dict[str, Any]]] = []
     for unit in schedule_units:
@@ -117,11 +150,13 @@ def match_dom_card_to_schedule_unit(card: dict[str, Any], schedule_units: list[d
         )
         if len(unit_orgs) != 2 or unit_orgs != side_orgs:
             continue
+        if sub_event and (unit.get("SubEvent") or "").strip().lower() != sub_event:
+            continue
 
         score = 0
         if round_code and (unit.get("Round") or "").strip().upper() == round_code:
             score += 6
-        if sub_event and (unit.get("SubEvent") or "").strip().lower() == sub_event:
+        if sub_event:
             score += 4
         if table_no and table_no in ((location_label(unit) or "").strip().lower()):
             score += 3
@@ -145,6 +180,8 @@ def match_dom_card_to_schedule_unit(card: dict[str, Any], schedule_units: list[d
         return None
     candidates.sort(key=lambda item: (item[0], item[1].get("ActualEndDate") or item[1].get("ActualStartDate") or item[1].get("StartDate") or ""), reverse=True)
     best_score, best_unit = candidates[0]
+    if sub_event and (best_unit.get("SubEvent") or "").strip().lower() != sub_event:
+        return None
     return best_unit if best_score > 0 else None
 
 
@@ -220,7 +257,6 @@ def extract_live_cards(page: Any) -> list[dict[str, Any]]:
     return {
       index,
       raw_title: title,
-      sub_event: title.replace(/\\s*LIVE\\s*/i, '').trim(),
       match_label: schedule.split('|')[0]?.trim() || schedule || null,
       scheduled_label: schedule.includes('|') ? schedule.split('|').slice(1).join('|').trim() : null,
       score,
@@ -364,6 +400,10 @@ def normalize_live_cards(
     for card in cards:
         if not isinstance(card, dict):
             continue
+        title_parts = parse_live_title_parts(card.get("raw_title"))
+        card["display_title"] = title_parts["display_title"]
+        card["sub_event_label"] = title_parts["sub_event_label"]
+        card["round_label"] = title_parts["round_label"]
         score = (card.get("score") or "").strip() or None
         sides = card.get("sides") if isinstance(card.get("sides"), list) else []
         individual_matches = card.get("individual_matches") if isinstance(card.get("individual_matches"), list) else []
@@ -379,9 +419,17 @@ def normalize_live_cards(
             {
                 "match_code": match_code,
                 "source_status": "Live" if card.get("is_live") else "Displayed",
-                "sub_event": schedule_unit.get("SubEvent") if isinstance(schedule_unit, dict) else None,
-                "sub_event_name": card.get("sub_event"),
-                "round": schedule_unit.get("Round") if isinstance(schedule_unit, dict) else parse_round_code(card.get("sub_event")),
+                "sub_event": (
+                    schedule_unit.get("SubEvent")
+                    if isinstance(schedule_unit, dict)
+                    else card.get("sub_event_label")
+                ),
+                "sub_event_name": card.get("display_title"),
+                "round": (
+                    schedule_unit.get("Round")
+                    if isinstance(schedule_unit, dict)
+                    else parse_round_code(card.get("round_label") or card.get("display_title"))
+                ),
                 "scheduled_start": schedule_unit.get("StartDate") if isinstance(schedule_unit, dict) else None,
                 "scheduled_start_local": card.get("scheduled_label"),
                 "table_no": card.get("table_no"),

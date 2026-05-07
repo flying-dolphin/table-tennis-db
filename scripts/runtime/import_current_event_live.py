@@ -76,6 +76,18 @@ def parse_live_sub_event(item: dict) -> str | None:
     return None
 
 
+def parse_live_sub_event_prefix(item: dict) -> str | None:
+    for key in ("sub_event_name", "raw_title"):
+        name = (item.get(key) or "").strip().lower()
+        if name.startswith("men's teams"):
+            return "MT"
+        if name.startswith("women's teams"):
+            return "WT"
+        if name.startswith("mixed teams"):
+            return "XT"
+    return None
+
+
 def parse_live_round_info(item: dict) -> legacy.RoundInfo:
     round_info = legacy.normalize_round(item.get("round"))
     if round_info.stage_code != "UNKNOWN":
@@ -340,6 +352,16 @@ def sync_child_matches(cursor: sqlite3.Cursor, current_team_tie_id: int, status:
 
 def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, now: str) -> sqlite3.Row | None:
     sub_event_type_code = parse_live_sub_event(item)
+    prefix_sub_event_type_code = parse_live_sub_event_prefix(item)
+    if sub_event_type_code and prefix_sub_event_type_code and sub_event_type_code != prefix_sub_event_type_code:
+        print(
+            "skip live tie due to sub_event mismatch: "
+            f"sub_event={item.get('sub_event')!r}, sub_event_name={item.get('sub_event_name')!r}, raw_title={item.get('raw_title')!r}",
+            file=sys.stderr,
+        )
+        return None
+    if not sub_event_type_code:
+        sub_event_type_code = prefix_sub_event_type_code
     if sub_event_type_code not in TEAM_SUB_EVENTS:
         return None
 
