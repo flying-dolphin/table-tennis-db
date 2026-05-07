@@ -2489,7 +2489,10 @@ function teamTieRoundMeta(round: string, roundZh: string | null) {
   const meta = TEAM_ROUND_META[normalized];
   if (meta) {
     const trimmedZh = roundZh?.trim() ?? '';
-    const useStandardLabel = !trimmedZh || /^\d+$/.test(trimmedZh);
+    const useStandardLabel =
+      !trimmedZh ||
+      /^\d+$/.test(trimmedZh) ||
+      Boolean(rawRoundAliases[trimmedZh.toUpperCase()]);
     return { code: meta.code, label: useStandardLabel ? meta.label : trimmedZh, order: meta.order };
   }
   return { code: round || 'unknown', label: roundZh?.trim() || round || '轮次待补', order: 0 };
