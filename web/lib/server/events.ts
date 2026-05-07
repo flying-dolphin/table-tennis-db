@@ -2479,9 +2479,12 @@ const TEAM_BRACKET_STAGES = new Set(['Main Draw', 'MAIN']);
 function teamTieRoundMeta(round: string, roundZh: string | null) {
   const trimmed = round?.trim() ?? '';
   const rawRoundAliases: Record<string, string> = {
+    F: 'Final',
     FNL: 'Final',
     'FNL-': 'Final',
+    SF: 'SemiFinal',
     SFNL: 'SemiFinal',
+    QF: 'QuarterFinal',
     QFNL: 'QuarterFinal',
     '8FNL': 'R16',
   };
@@ -3472,10 +3475,10 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
           : isTeamKnockoutOverride(override)
             ? 'team_knockout_with_bronze'
             : 'knockout'
-        : roundRobinView
-          ? 'staged_round_robin'
         : teamKnockoutView
           ? 'team_knockout_with_bronze'
+        : roundRobinView
+          ? 'staged_round_robin'
           : 'knockout';
 
     return {
