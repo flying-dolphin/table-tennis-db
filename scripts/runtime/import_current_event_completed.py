@@ -194,10 +194,31 @@ def find_team_tie(
     *,
     event_id: int,
     sub_event_type_code: str,
+    external_match_code: str | None = None,
+    stage_code: str | None = None,
+    round_code: str | None = None,
     group_code: str | None,
     team1: str,
     team2: str,
+    scheduled_local_at: str | None = None,
+    match_info: str | None = None,
+    table_no: str | None = None,
 ) -> sqlite3.Row | None:
+    normalized_external_match_code = shared.normalize_external_match_code(external_match_code)
+    if normalized_external_match_code:
+        rows = cursor.execute(
+            """
+            SELECT *
+            FROM current_event_team_ties
+            WHERE event_id = ?
+            ORDER BY current_team_tie_id
+            """,
+            (event_id,),
+        ).fetchall()
+        for row in rows:
+            if shared.normalize_external_match_code(row["external_match_code"]) == normalized_external_match_code:
+                return row
+
     sql = """
         SELECT t.*
         FROM current_event_team_ties t
@@ -213,12 +234,57 @@ def find_team_tie(
             OR (s1.team_code = ? AND s2.team_code = ?)
           )
         ORDER BY t.current_team_tie_id
-        LIMIT 1
     """
-    return cursor.execute(
+    candidates = cursor.execute(
         sql,
         (event_id, sub_event_type_code, group_code, group_code, team1, team2, team2, team1),
-    ).fetchone()
+    ).fetchall()
+    if not candidates:
+        return None
+
+    def filter_unique(rows: list[sqlite3.Row], predicate) -> list[sqlite3.Row]:
+        filtered = [row for row in rows if predicate(row)]
+        return filtered if filtered else rows
+
+    if group_code:
+        grouped = [row for row in candidates if (row["group_code"] or "") == group_code]
+        candidates = grouped or candidates
+    elif stage_code and round_code:
+        stage_round_rows = [
+            row
+            for row in candidates
+            if (row["stage_code"] or "") == stage_code and (row["round_code"] or "") == round_code
+        ]
+        candidates = stage_round_rows or candidates
+
+    if len(candidates) > 1 and scheduled_local_at:
+        candidates = filter_unique(candidates, lambda row: (row["scheduled_local_at"] or "") == scheduled_local_at)
+
+    match_no = shared.parse_match_number(match_info)
+    if len(candidates) > 1 and match_no is not None:
+        candidates = filter_unique(
+            candidates,
+            lambda row: shared.parse_match_number(row["session_label"]) == match_no,
+        )
+
+    normalized_table_no = shared.normalize_table_label(table_no)
+    if len(candidates) > 1 and normalized_table_no:
+        candidates = filter_unique(
+            candidates,
+            lambda row: shared.normalize_table_label(row["table_no"]) == normalized_table_no,
+        )
+
+    if len(candidates) > 1:
+        print(
+            "ambiguous current_event_team_tie match for completed import: "
+            f"event_id={event_id}, sub_event_type_code={sub_event_type_code}, "
+            f"stage_code={stage_code}, round_code={round_code}, group_code={group_code}, "
+            f"teams={team1}/{team2}, candidates={[int(row['current_team_tie_id']) for row in candidates]}",
+            file=sys.stderr,
+        )
+        return None
+
+    return candidates[0]
 
 
 def find_bracket_round(
@@ -292,9 +358,14 @@ def ensure_team_tie(
         cursor,
         event_id=event_id,
         sub_event_type_code=sub_event_type_code,
+        stage_code=stage_code,
+        round_code=round_code,
         group_code=group_code,
         team1=team1,
         team2=team2,
+        scheduled_local_at=scheduled_local_at,
+        match_info=match_info,
+        table_no=table_no,
     )
     if existing:
         if stage_code or round_code or group_code:

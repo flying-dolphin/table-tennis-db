@@ -186,9 +186,15 @@ def ensure_official_team_tie(
         cursor,
         event_id=event_id,
         sub_event_type_code=sub_event_type_code,
+        external_match_code=external_match_code,
+        stage_code=stage_code,
+        round_code=round_code,
         group_code=group_code,
         team1=team1,
         team2=team2,
+        scheduled_local_at=scheduled_local_at,
+        match_info=match_info,
+        table_no=table_no,
     )
     if existing:
         cursor.execute(
