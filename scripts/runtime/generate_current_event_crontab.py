@@ -298,7 +298,7 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
 
         for session_label, start in starts:
             session_start = to_target_datetime(day.local_date, start, event_tz, target_tz)
-            for idx in range(1, 11):
+            for idx in range(1, 12):
                 run_at = session_start + timedelta(minutes=30 * idx)
                 add_job(jobs, run_at, "live", f"{session_label}-live-{idx}")
             for idx in range(1, 4):
