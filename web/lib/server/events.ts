@@ -1735,6 +1735,35 @@ function buildCurrentTeamTiesForSubEvent(eventId: number, subEventCode: string):
     isWinner: number;
   }>;
 
+  const bracketSideMap = new Map(
+    (
+      db
+        .prepare(
+          `
+            SELECT
+              external_unit_code AS externalMatchCode,
+              side_a_team_code AS sideATeamCode,
+              side_b_team_code AS sideBTeamCode
+            FROM current_event_brackets
+            WHERE event_id = ?
+              AND sub_event_type_code = ?
+              AND external_unit_code IS NOT NULL
+          `,
+        )
+        .all(eventId, subEventCode) as Array<{
+        externalMatchCode: string;
+        sideATeamCode: string | null;
+        sideBTeamCode: string | null;
+      }>
+    ).map((row) => [
+      row.externalMatchCode,
+      {
+        sideATeamCode: row.sideATeamCode,
+        sideBTeamCode: row.sideBTeamCode,
+      },
+    ]),
+  );
+
   const rubberRows = db
     .prepare(
       `
@@ -1855,10 +1884,13 @@ function buildCurrentTeamTiesForSubEvent(eventId: number, subEventCode: string):
         winnerCode: row.winnerTeamCode,
         rubbers: rubberMap.get(row.tieId) ?? [],
       };
+    const bracketSide = row.externalMatchCode ? bracketSideMap.get(row.externalMatchCode) : null;
     if (row.sideNo === 1) {
-      current.teamA = { code: row.teamCode ?? 'TBD', name: row.teamName ?? row.teamCode ?? 'TBD', nameZh: null };
+      const teamCode = row.teamCode ?? bracketSide?.sideATeamCode ?? 'TBD';
+      current.teamA = { code: teamCode, name: row.teamName ?? teamCode, nameZh: null };
     } else if (row.sideNo === 2) {
-      current.teamB = { code: row.teamCode ?? 'TBD', name: row.teamName ?? row.teamCode ?? 'TBD', nameZh: null };
+      const teamCode = row.teamCode ?? bracketSide?.sideBTeamCode ?? 'TBD';
+      current.teamB = { code: teamCode, name: row.teamName ?? teamCode, nameZh: null };
     }
     const parsed = parseTieScore(row.matchScore);
     current.scoreA = parsed?.scoreA ?? 0;
