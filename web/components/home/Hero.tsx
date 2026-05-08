@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="relative z-10 h-full flex flex-col justify-end p-5 pb-6">
         <div className="flex items-end gap-x-2">
           <h1 className="text-white text-display font-black tracking-tight drop-shadow-md font-heading">
-            豆包球谱
+            拾球记
           </h1>
           <p className="text-body font-bold text-white">女乒版</p>
         </div>
@@ -30,12 +30,12 @@ export default function Hero() {
         </p>
 
         {/* Profile Circle Mockup */}
-        <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/20 overflow-hidden bg-white/10 backdrop-blur-sm shadow-md transition-transform duration-150 hover:scale-105">
+        <div className="absolute top-4 right-4 w-16 h-16 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm shadow-md transition-transform duration-150 hover:scale-105">
           <Image
             src="/images/logo.png"
             alt="ITTF Logo"
             fill
-            className="object-contain scale-195"
+            className="object-contain scale-110"
           />
         </div>
       </div>

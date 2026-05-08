@@ -182,7 +182,7 @@ export default function AuthPage() {
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-center">
             <h1 className="text-[28px] font-bold text-text-primary tracking-tight">
-              {tab === "login" ? "豆包球谱" : `加入${APP_NAME}`}
+              {tab === "login" ? "拾球记" : `加入${APP_NAME}`}
             </h1>
             <p className="mt-2 text-body text-text-secondary opacity-70">
               {tab === "login" ? "登录以继续探索精彩内容" : "开启您的乒乓数据洞察之旅"}
