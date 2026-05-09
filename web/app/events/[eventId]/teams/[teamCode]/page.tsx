@@ -79,7 +79,7 @@ export default async function TeamRosterPage({
                 const content = (
                   <div className="flex items-center gap-3 rounded-[1.2rem] bg-[#f6f8fd] px-3.5 py-3 transition hover:bg-[#eef4ff]">
                     <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#dbeafe] text-[0.95rem] font-black text-[#1d4ed8]">
-                      {player.order ?? index + 1}
+                      {index + 1}
                     </div>
                     <PlayerAvatar
                       player={{
