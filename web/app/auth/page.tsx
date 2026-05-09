@@ -176,8 +176,8 @@ export default function AuthPage() {
             className="relative mb-6"
           >
             <div className="absolute inset-0 bg-brand-primary/20 blur-3xl rounded-full scale-150" />
-            <div className="relative z-10 w-24 h-24 overflow-hidden">
-              <Image src="/images/logo.png" alt="Logo" className="object-cover drop-shadow-sm scale-[1.6]" fill />
+            <div className="relative z-10 w-24 h-24 rounded-md overflow-hidden">
+              <Image src="/images/logo_cleanup.png" alt="Logo" className="object-cover drop-shadow-sm " fill />
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-center">

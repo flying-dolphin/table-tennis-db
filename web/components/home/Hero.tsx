@@ -32,7 +32,7 @@ export default function Hero() {
         {/* Profile Circle Mockup */}
         <div className="absolute top-4 right-4 w-16 h-16 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm shadow-md transition-transform duration-150 hover:scale-105">
           <Image
-            src="/images/logo.png"
+            src="/images/logo_cleanup.png"
             alt="ITTF Logo"
             fill
             className="object-contain scale-110"
