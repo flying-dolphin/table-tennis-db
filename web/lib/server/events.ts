@@ -1052,7 +1052,7 @@ function loadTeamRosterFromCurrentTeamTies(eventId: number, subEventCode: string
       `
         SELECT
           MIN(p.player_order) AS playerOrder,
-          p.player_id AS playerId,
+          MAX(p.player_id) AS playerId,
           p.player_name AS playerName,
           p.player_country AS playerCountry
         FROM current_event_team_ties t
@@ -1061,12 +1061,8 @@ function loadTeamRosterFromCurrentTeamTies(eventId: number, subEventCode: string
         WHERE t.event_id = ?
           AND t.sub_event_type_code = ?
           AND s.team_code = ?
-        GROUP BY
-          COALESCE(CAST(p.player_id AS TEXT), p.player_name || ':' || COALESCE(p.player_country, '')),
-          p.player_id,
-          p.player_name,
-          p.player_country
-        ORDER BY playerOrder ASC, p.player_id ASC, p.player_name ASC
+        GROUP BY p.player_name, p.player_country
+        ORDER BY playerOrder ASC
       `,
     )
     .all(eventId, subEventCode, teamCode) as Array<{
