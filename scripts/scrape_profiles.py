@@ -782,10 +782,10 @@ def run(args: argparse.Namespace) -> int:
     _bootstrap_profiles_checkpoint_from_orig(checkpoint, args.category, profile_orig_dir)
 
     delay_cfg = DelayConfig(
-        min_request_sec=3.0,
-        max_request_sec=8.0,
-        min_player_gap_sec=5.0,
-        max_player_gap_sec=10.0,
+        min_request_sec=2.0,
+        max_request_sec=5.0,
+        min_player_gap_sec=2.0,
+        max_player_gap_sec=5.0,
     )
 
     player_id_arg = getattr(args, "player_id", None)
