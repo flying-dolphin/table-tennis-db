@@ -26,8 +26,11 @@ CLI:
 from __future__ import annotations
 
 import argparse
+import json
 import sqlite3
 import sys
+from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -587,13 +590,20 @@ def promote(db_path: str, event_id: int, *, dry_run: bool, replace: bool, force:
         report["matches_skipped_no_winner"] = skipped_no_winner
         report["matches_skipped_walkover"] = skipped_walkover
 
-        # 去重后报告未匹配球员
-        unique_misses = sorted({(name, country) for name, country in miss_log})
+        # 报告未匹配球员（main() 据此决定是否写文件）
+        counter = Counter((name, country) for name, country in miss_log)
+        unique_misses = sorted(counter.keys())
         report["player_id_unmatched"] = len(unique_misses)
+        report["player_id_unmatched_rows"] = sum(counter.values())
         if unique_misses:
             report["player_id_unmatched_samples"] = [
                 f"{name} ({country})" for name, country in unique_misses[:10]
             ]
+        # 私有键：完整未匹配明细，main() 写文件用，普通报告里不打印
+        report["_player_id_misses"] = [
+            {"name": name, "country": country, "occurrences": count}
+            for (name, country), count in sorted(counter.items(), key=lambda x: (-x[1], x[0]))
+        ]
 
         draw_stats = import_event_draw_matches.rebuild_for_event(cursor, event_id)
         report["draw_matches_rebuilt"] = draw_stats["draw_rows"]
@@ -628,6 +638,15 @@ def main() -> int:
                         help="Purge existing historical rows for this event and rebuild.")
     parser.add_argument("--force", action="store_true",
                         help="Skip lifecycle_status check.")
+    parser.add_argument(
+        "--unmatched-out",
+        default=None,
+        help=(
+            "Optional path to write JSON of players whose player_id could not be "
+            "resolved during promote. Used as input for follow-up profile scraping. "
+            "Pass 'auto' to write to data/promote_unmatched/event_<id>_<ts>.json."
+        ),
+    )
     args = parser.parse_args()
 
     if not Path(args.db_path).exists():
@@ -655,6 +674,9 @@ def main() -> int:
         traceback.print_exc()
         return 2
 
+    # 拆出私有 keys：不在普通报告里打印，但供文件持久化用
+    misses_detail = report.pop("_player_id_misses", [])
+
     print()
     print("Report:")
     for k, v in report.items():
@@ -666,6 +688,28 @@ def main() -> int:
                 print(f"    ... and {len(v) - 5} more")
         else:
             print(f"  {k}: {v}")
+
+    # 写未匹配名单
+    if args.unmatched_out and misses_detail:
+        if args.unmatched_out == "auto":
+            ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+            out_dir = Path("data") / "promote_unmatched"
+            out_path = out_dir / f"event_{args.event_id}_{ts}.json"
+        else:
+            out_path = Path(args.unmatched_out)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "event_id": args.event_id,
+            "promoted_at": datetime.now(timezone.utc).isoformat(),
+            "total_unmatched_rows": report.get("player_id_unmatched_rows", 0),
+            "total_unique_players": report.get("player_id_unmatched", 0),
+            "players": misses_detail,
+        }
+        out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"\n[unmatched] wrote {len(misses_detail)} entries to {out_path}")
+    elif args.unmatched_out and not misses_detail:
+        print(f"\n[unmatched] nothing to write (all player_id resolved)")
+
     return 0
 
 

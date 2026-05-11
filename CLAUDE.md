@@ -80,6 +80,9 @@ python scripts/db/promote_current_event.py --event-id <ID> --dry-run
 python scripts/db/promote_current_event.py --event-id <ID>            # 默认增量；已 promote 直接跳过
 python scripts/db/promote_current_event.py --event-id <ID> --replace  # 删旧 promote 数据后重建
 python scripts/db/promote_current_event.py --event-id <ID> --force    # 跳过 lifecycle_status 校验
+python scripts/db/promote_current_event.py --event-id <ID> --unmatched-out auto
+                                                                      # 把 player_id 没匹配上的球员写 JSON，
+                                                                      # 路径 data/promote_unmatched/event_<id>_<ts>.json
 ```
 
 The script is idempotent and is the **only** entry that flips
