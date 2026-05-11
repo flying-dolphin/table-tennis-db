@@ -66,6 +66,27 @@ python scripts/db/import_sub_events.py
 
 For schema upgrades on an existing DB: `scripts/db/upgrade_schema*.py` (e.g. `upgrade_schema_event_lifecycle.py`, `upgrade_schema_current_event_model.py`). See `docs/DATABASE_MAINTENANCE.md` for the full procedure.
 
+### Promote completed live events into historical facts
+
+After a `lifecycle_status='in_progress'` event finishes, run promote to copy
+`current_event_*` data into `matches` / `team_ties` / `event_draw_matches` /
+`sub_events` so that player stats, H2H, and champion counts include it. The
+`current_event_*` rows are intentionally **kept** afterwards — the event detail
+page continues reading them for the richer presentation (session, table no,
+scheduled times). See `docs/design/promote_current_event.md` for the design.
+
+```bash
+python scripts/db/promote_current_event.py --event-id <ID> --dry-run
+python scripts/db/promote_current_event.py --event-id <ID>            # 默认增量；已 promote 直接跳过
+python scripts/db/promote_current_event.py --event-id <ID> --replace  # 删旧 promote 数据后重建
+python scripts/db/promote_current_event.py --event-id <ID> --force    # 跳过 lifecycle_status 校验
+```
+
+The script is idempotent and is the **only** entry that flips
+`events.lifecycle_status` to `completed`. `scripts/runtime/generate_current_event_crontab.py`
+emits one `sources=promote` cron entry at `last_session_start + 24h` per event,
+so promote runs automatically after the event ends.
+
 ## Code architecture
 
 ### Two event data lifecycles

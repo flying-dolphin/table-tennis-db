@@ -38,6 +38,13 @@ except ImportError:
     PROJECT_ROOT = Path(__file__).parent.parent.parent
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
+from _match_keys import (  # noqa: E402  抽出公共，promote 也复用
+    make_dedup_key,
+    make_side_key,
+    normalize_event_name,
+    normalize_name_key,
+)
+
 
 PLAYER_TOKEN_RE = re.compile(r"^(.+?)\s*\((\w+)\)$")
 
@@ -48,17 +55,7 @@ EVENT_ID_YEAR_MISMATCH_WHITELIST: set[int] = {
 }
 
 
-def normalize_event_name(name: str) -> str:
-    s = name.strip().lower()
-    s = re.sub(r"\s+presented\s+by\s+.*$", "", s)
-    s = re.sub(r"[,.]", "", s)
-    s = re.sub(r"\s+", " ", s)
-    return s.strip()
-
-
-def normalize_name_key(name: str) -> str:
-    parts = sorted(name.lower().split())
-    return " ".join(parts)
+# normalize_event_name / normalize_name_key 抽出至 _match_keys.py（顶部已 import）
 
 
 def parse_player_str(player_str: str):
@@ -103,19 +100,7 @@ def parse_sides(match: dict, raw_row_text: str):
     return side_a, side_b
 
 
-def make_side_key(side: list[tuple[str, Optional[str]]]) -> str:
-    keys = []
-    for name, country in side:
-        n = (name or "").strip().lower()
-        c = (country or "").strip().lower()
-        keys.append(f"{n}|{c}")
-    keys.sort()
-    return "||".join(keys)
-
-
-def make_dedup_key(event_name: str, sub_event: str, stage: str, round_: str, side_a_key: str, side_b_key: str) -> str:
-    pair = sorted([side_a_key, side_b_key])
-    return f"{normalize_event_name(event_name)}|{sub_event}|{stage}|{round_}|{pair[0]}|{pair[1]}"
+# make_side_key / make_dedup_key 抽出至 _match_keys.py（顶部已 import）
 
 
 def build_event_index(cursor):

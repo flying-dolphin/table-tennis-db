@@ -2060,6 +2060,7 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
           SELECT
             m.current_match_id AS matchId,
             m.external_match_code AS externalMatchCode,
+            m.status,
             m.match_score AS matchScore,
             m.games,
             m.winner_side AS winnerSide,
@@ -2082,6 +2083,7 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
       .all(scheduleMatchId) as Array<{
       matchId: number;
       externalMatchCode: string | null;
+      status: string;
       matchScore: string | null;
       games: string | null;
       winnerSide: string | null;
@@ -2095,10 +2097,16 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
       avatarFile: string | null;
     }>;
 
+    const finalRubberStatuses = new Set(['completed', 'walkover', 'cancelled']);
+    const filteredRubberRows =
+      finalRubberStatuses.has(currentMatch.status)
+        ? rubberRows.filter((row) => finalRubberStatuses.has(row.status))
+        : rubberRows;
+
     const fallbackPlayerDisplayMap = loadPlayerDisplayMapByNames(
       [
         ...sideRows.map((row) => row.playerName ?? ''),
-        ...rubberRows.map((row) => row.playerName ?? ''),
+        ...filteredRubberRows.map((row) => row.playerName ?? ''),
       ].filter(Boolean),
     );
 
@@ -2151,7 +2159,7 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
         }>;
       }
     >();
-    for (const row of rubberRows) {
+    for (const row of filteredRubberRows) {
       const current =
         rubberMap.get(row.matchId) ??
         {
@@ -2614,6 +2622,66 @@ function isAutoTeamSubEvent(code: string) {
   return AUTO_TEAM_SUB_EVENT_CODES.has(code);
 }
 
+function buildCurrentBracketTeamTiesForSubEvent(eventId: number, subEventCode: string): TeamTie[] {
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          current_bracket_id AS tieId,
+          external_unit_code AS externalMatchCode,
+          COALESCE(stage_code, 'MAIN_DRAW') AS stage,
+          COALESCE(round_code, bracket_code, '') AS round,
+          match_score AS matchScore,
+          winner_side AS winnerSide,
+          side_a_team_code AS sideATeamCode,
+          side_b_team_code AS sideBTeamCode
+        FROM current_event_brackets
+        WHERE event_id = ?
+          AND sub_event_type_code = ?
+          AND external_unit_code IS NOT NULL
+          AND external_unit_code LIKE '%0000'
+        ORDER BY COALESCE(round_order, 9999) ASC, bracket_position ASC, current_bracket_id ASC
+      `,
+    )
+    .all(eventId, subEventCode) as Array<{
+    tieId: number;
+    externalMatchCode: string | null;
+    stage: string;
+    round: string;
+    matchScore: string | null;
+    winnerSide: string | null;
+    sideATeamCode: string | null;
+    sideBTeamCode: string | null;
+  }>;
+
+  return rows
+    .map((row): TeamTie | null => {
+      const meta = teamTieRoundMeta(row.round, null);
+      if (meta.order <= 0 || !row.sideATeamCode || !row.sideBTeamCode) return null;
+
+      const parsed = parseTieScore(row.matchScore);
+      const winnerCode =
+        row.winnerSide === 'A' ? row.sideATeamCode : row.winnerSide === 'B' ? row.sideBTeamCode : null;
+
+      return {
+        tieId: `bracket:${row.tieId}`,
+        scheduleMatchId: null,
+        externalMatchCode: row.externalMatchCode,
+        stage: row.stage,
+        stageZh: row.stage,
+        round: row.round,
+        roundZh: meta.label,
+        teamA: teamLabelFromCode(row.sideATeamCode),
+        teamB: teamLabelFromCode(row.sideBTeamCode),
+        scoreA: parsed?.scoreA ?? 0,
+        scoreB: parsed?.scoreB ?? 0,
+        winnerCode,
+        rubbers: [],
+      };
+    })
+    .filter((tie): tie is TeamTie => tie != null);
+}
+
 function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): EventTeamKnockoutView | null {
   const ties = buildTeamTiesForSubEvent(eventId, subEventCode);
   if (ties.length === 0) return null;
@@ -2671,7 +2739,14 @@ function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): Event
 }
 
 function buildCurrentTeamKnockoutView(eventId: number, subEventCode: string): EventTeamKnockoutView | null {
-  const ties = buildCurrentTeamTiesForSubEvent(eventId, subEventCode).filter((tie) => !/^GP\d+/i.test(tie.round));
+  const importedTies = buildCurrentTeamTiesForSubEvent(eventId, subEventCode).filter((tie) => !/^GP\d+/i.test(tie.round));
+  const importedExternalCodes = new Set(
+    importedTies.map((tie) => normalizeExternalMatchCode(tie.externalMatchCode)).filter(Boolean),
+  );
+  const bracketFallbackTies = buildCurrentBracketTeamTiesForSubEvent(eventId, subEventCode).filter(
+    (tie) => !importedExternalCodes.has(normalizeExternalMatchCode(tie.externalMatchCode)),
+  );
+  const ties = [...importedTies, ...bracketFallbackTies];
   if (ties.length === 0) return null;
 
   const rounds = Array.from(
@@ -2712,8 +2787,17 @@ function buildCurrentTeamKnockoutView(eventId: number, subEventCode: string): Ev
     const fourth = third === bronzeTie.teamA.code ? bronzeTie.teamB.code : bronzeTie.teamA.code;
     pushStanding(third, 3);
     pushStanding(fourth, 4);
+  } else if (!bronzeTie) {
+    const semiFinalTies = rounds.find((r) => r.code === 'SemiFinal')?.ties ?? [];
+    for (const tie of semiFinalTies) {
+      if (!tie.winnerCode) continue;
+      const loser = tie.winnerCode === tie.teamA.code ? tie.teamB.code : tie.teamA.code;
+      if (loser === finalTie?.teamA.code || loser === finalTie?.teamB.code) continue;
+      pushStanding(loser, 3);
+    }
   }
 
+  const thirdPlaces = standings.filter((s) => s.rank === 3);
   return {
     mode: 'team_knockout_with_bronze',
     rounds,
@@ -2721,8 +2805,8 @@ function buildCurrentTeamKnockoutView(eventId: number, subEventCode: string): Ev
     podium: {
       champion: standings.find((s) => s.rank === 1) ?? null,
       runnerUp: standings.find((s) => s.rank === 2) ?? null,
-      thirdPlace: standings.find((s) => s.rank === 3) ?? null,
-      thirdPlaceSecond: null,
+      thirdPlace: thirdPlaces[0] ?? null,
+      thirdPlaceSecond: !bronzeTie ? thirdPlaces[1] ?? null : null,
     },
     finalTie,
     bronzeTie,
@@ -3114,6 +3198,35 @@ export function getEvents(options?: {
   };
 }
 
+/**
+ * 判断当前赛事在 current_event_* 表里是否还有展示态数据。
+ *
+ * 用于决定详情页是否继续走 "current" 数据源：
+ * - 比赛进行中 → 必然为 true
+ * - 比赛已完结 → 看 promote 之后 current 表是否被清理（目前策略是保留不动）
+ * - 历史赛事（从未进过 current 流水线）→ false，详情页落回 historical 数据源
+ */
+function hasCurrentEventPresentationData(eventId: number): boolean {
+  const row = db
+    .prepare(
+      `
+        SELECT 1 AS present
+        FROM (
+          SELECT 1 FROM current_event_matches WHERE event_id = ?
+          UNION ALL
+          SELECT 1 FROM current_event_team_ties WHERE event_id = ?
+          UNION ALL
+          SELECT 1 FROM current_event_brackets WHERE event_id = ?
+          UNION ALL
+          SELECT 1 FROM current_event_session_schedule WHERE event_id = ?
+        )
+        LIMIT 1
+      `,
+    )
+    .get(eventId, eventId, eventId, eventId) as { present: number } | undefined;
+  return Boolean(row);
+}
+
 export function getEventDetail(eventId: number, requestedSubEvent?: string | null) {
   const event = db
     .prepare(
@@ -3161,7 +3274,11 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     | undefined;
 
   if (!event) return null;
-  const useCurrentEventModel = event.lifecycleStatus === 'in_progress';
+  // 详情页数据源选择：in_progress 必读 current；其它状态（含 completed）
+  // 只要 current_event_* 还有数据就继续用，以保留 session/台号/scheduled_utc_at 等
+  // 历史表没有的字段。promote 后两套数据并存，此处保持 current 优先。
+  const useCurrentEventModel =
+    event.lifecycleStatus === 'in_progress' || hasCurrentEventPresentationData(eventId);
 
   const existingSubEvents = db
     .prepare(
@@ -3334,20 +3451,27 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     return days;
   }, new Map<string, EventScheduleDay>());
 
-const championForSubEvent = (subEventCode: string): EventChampion | null => {
+  const championForSubEvent = (
+    subEventCode: string,
+    teamKnockoutView: EventTeamKnockoutView | null,
+  ): EventChampion | null => {
     const se = subEvents.find((item) => item.code === subEventCode);
     const champion = se?.champion;
     const players = champion?.players ?? [];
 
     const overrideChampionCountry =
       override && subEventCode === override.sub_event_type_code ? override.podium.champion : null;
+    const inferredTeamChampion =
+      useCurrentEventModel && isAutoTeamSubEvent(subEventCode) ? teamKnockoutView?.podium.champion ?? null : null;
+    const inferredChampionCountry = inferredTeamChampion?.teamCode ?? null;
+    const inferredChampionName = inferredTeamChampion?.teamNameZh ?? inferredTeamChampion?.teamName ?? inferredChampionCountry;
 
-    if (!se && !overrideChampionCountry) return null;
-    if (!champion?.championName && players.length === 0 && !overrideChampionCountry) return null;
+    if (!se && !overrideChampionCountry && !inferredChampionCountry) return null;
+    if (!champion?.championName && players.length === 0 && !overrideChampionCountry && !inferredChampionCountry) return null;
 
     return {
-      championName: champion?.championName ?? overrideChampionCountry,
-      championCountryCode: champion?.championCountryCode ?? overrideChampionCountry,
+      championName: champion?.championName ?? overrideChampionCountry ?? inferredChampionName,
+      championCountryCode: champion?.championCountryCode ?? overrideChampionCountry ?? inferredChampionCountry,
       players,
     };
   };
@@ -3472,7 +3596,9 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
     }
     if (override && subEventCode === override.sub_event_type_code) return null;
     if (!isAutoTeamSubEvent(subEventCode)) return null;
-    if (event.lifecycleStatus === 'completed') return null;
+    // 之前：completed 直接隐藏小组赛视图。现在改成根据 current 数据是否存在判定，
+    // 这样 promote 后已完结赛事仍能展示完整小组赛分组。
+    if (!useCurrentEventModel) return null;
     return buildLiveGroupStageView(
       eventId,
       subEventCode,
@@ -3511,7 +3637,7 @@ const championForSubEvent = (subEventCode: string): EventChampion | null => {
 
     return {
       code: subEventCode,
-      champion: championForSubEvent(subEventCode),
+      champion: championForSubEvent(subEventCode, teamKnockoutView),
       bracket: bracketForSubEvent(subEventCode),
       roundRobinView,
       teamKnockoutView,

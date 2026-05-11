@@ -26,7 +26,10 @@ SCRAPE_IMPORT_SOURCES = {
     "completed": ("completed", "completed"),
 }
 
-SOURCE_ORDER = ["schedule", "standings", "brackets", "live", "completed"]
+# 不经过 scrape/import 流水线、独立命令的 source。
+SPECIAL_SOURCES = {"promote"}
+
+SOURCE_ORDER = ["schedule", "standings", "brackets", "live", "completed", "promote"]
 MAIN_DRAW_ROUNDS = {
     "R256",
     "R128",
@@ -305,6 +308,14 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
                 run_at = session_start + timedelta(hours=2 * idx)
                 add_job(jobs, run_at, "completed", f"{session_label}-completed-{idx}")
 
+    # 在最后一个比赛日的最后一个 session 起点 + 24h 后跑 promote：
+    # 把 current_event_* 复制到历史事实表，并将 lifecycle_status 翻为 completed。
+    # 这是 lifecycle 切换的唯一入口；脚本自身幂等，cron 多跑也无害。
+    last_day = schedule[-1]
+    last_session = second_session_or_fallback(last_day) or time(12, 0)
+    promote_at = to_target_datetime(last_day.local_date, last_session, event_tz, target_tz) + timedelta(hours=24)
+    add_job(jobs, promote_at, "promote", "post-event-promote")
+
     return main_draw_start, sorted(jobs.values(), key=lambda item: item.run_at)
 
 
@@ -312,8 +323,32 @@ def shell_join(parts: list[str]) -> str:
     return " ".join(shlex.quote(part) for part in parts)
 
 
+def build_promote_command(args: argparse.Namespace) -> str:
+    """`promote` source 对应的独立命令。"""
+    python_bin = str(args.python_bin)
+    project_root = str(args.project_root)
+    command_db_path = str(args.emit_db_path or args.db_path)
+    event_id = str(args.event_id)
+    promote_cmd = [
+        python_bin,
+        "scripts/db/promote_current_event.py",
+        "--event-id",
+        event_id,
+        "--db-path",
+        command_db_path,
+    ]
+    cmd = f"cd {shlex.quote(project_root)} && {shell_join(promote_cmd)}"
+    if args.log_dir:
+        log_file = f"{args.log_dir}/event_{event_id}_promote_$(date +\\%Y\\%m\\%d).log"
+        cmd = f"mkdir -p {shlex.quote(args.log_dir)} && {cmd} >> {log_file} 2>&1"
+    return cmd
+
+
 def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
-    ordered_sources = [source for source in SOURCE_ORDER if source in sources]
+    if sources == {"promote"}:
+        return build_promote_command(args)
+    # promote 不会和其它 source 合并到同一个分钟点（晚于所有 session 24h），保险起见忽略
+    ordered_sources = [source for source in SOURCE_ORDER if source in sources and source not in SPECIAL_SOURCES]
     scrape_sources = [SCRAPE_IMPORT_SOURCES[source][0] for source in ordered_sources]
     import_sources = [SCRAPE_IMPORT_SOURCES[source][1] for source in ordered_sources]
 

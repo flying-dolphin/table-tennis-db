@@ -500,6 +500,16 @@ def replace_match_children(
         )
 
 
+def reset_tie_matches(cursor: sqlite3.Cursor, current_team_tie_id: int) -> None:
+    cursor.execute(
+        """
+        DELETE FROM current_event_matches
+        WHERE current_team_tie_id = ?
+        """,
+        (current_team_tie_id,),
+    )
+
+
 def upsert_completed_rubber(
     cursor: sqlite3.Cursor,
     *,
@@ -699,6 +709,7 @@ def main() -> int:
                     """,
                     (is_winner, int(tie_row["current_team_tie_id"]), side_no),
                 )
+            reset_tie_matches(cursor, int(tie_row["current_team_tie_id"]))
             for game_order, game in enumerate(match.get("games") or [], start=1):
                 upsert_completed_rubber(
                     cursor,

@@ -20,6 +20,7 @@ from import_current_event_completed import (
     find_team_tie,
     normalize_round_from_category,
     parse_group_code,
+    reset_tie_matches,
     side_team_codes,
     upsert_completed_rubber,
 )
@@ -381,6 +382,7 @@ def main() -> int:
             imported_ties += 1
 
             rubbers = iter_rubbers(match_card)
+            reset_tie_matches(cursor, int(tie_row["current_team_tie_id"]))
             for game_order, game in enumerate(rubbers, start=1):
                 upsert_completed_rubber(
                     cursor,

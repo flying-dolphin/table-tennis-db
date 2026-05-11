@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-if sys.platform == "win32":
+if sys.platform == "win32" and getattr(sys.stdout, "encoding", "").lower() != "utf-8":
     import io
 
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
@@ -666,10 +666,24 @@ def build_non_team_championship_final_pairs(cursor) -> dict[Tuple[int, str], set
     return championship_pairs_by_event
 
 
-def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
+def import_sub_events(
+    db_path: str,
+    dry_run: bool = False,
+    event_id: Optional[int] = None,
+    conn: Optional[sqlite3.Connection] = None,
+) -> dict:
+    """
+    导入 sub_events。
+
+    - 传 `conn` 时：使用调用方的事务，不 commit、不 close（供 promote_current_event 复用）。
+    - 不传 `conn` 时：内部 open + commit + close。
+    """
+    target_event_id = int(event_id) if event_id is not None else None
+    full_refresh = target_event_id is None
     result = {
-        "full_refresh": True,
+        "full_refresh": full_refresh,
         "dry_run": dry_run,
+        "event_id": target_event_id,
         "final_matches": 0,
         "sub_events_inserted": 0,
         "duplicate_finals": 0,
@@ -684,21 +698,27 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
         "problem_events": [],
     }
 
-    conn = sqlite3.connect(str(db_path))
+    owns_conn = conn is None
+    if owns_conn:
+        conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
     player_index = build_player_index(cursor)
+    # 跨 event 的预聚合：单 event 模式下也按 (event_id, sub_event_type_code) 索引返回，
+    # 性能成本可接受，逻辑零分叉。
     team_semifinal_winner_pairs = build_team_semifinal_winner_pairs(cursor)
     non_team_championship_final_pairs = build_non_team_championship_final_pairs(cursor)
     manual_override_champion_teams = load_manual_event_overrides()
     override_team_champion_rosters = collect_override_team_champion_rosters(cursor, manual_override_champion_teams)
 
-    # Full refresh mode: clear previous sub_events and reset AUTOINCREMENT.
+    # Clear previous rows (full refresh: 全表；per-event: 只删该 event)
     if not dry_run:
-        cursor.execute("DELETE FROM sub_events")
-        cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'sub_events'")
+        if full_refresh:
+            cursor.execute("DELETE FROM sub_events")
+            cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'sub_events'")
+        else:
+            cursor.execute("DELETE FROM sub_events WHERE event_id = ?", (target_event_id,))
 
-    cursor.execute(
-        """
+    sql = """
         SELECT
             m.match_id,
             edm.event_id,
@@ -719,9 +739,13 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
           AND edm.draw_round = 'Final'
           AND edm.event_id IS NOT NULL
           AND COALESCE(ec.points_eligible, 0) = 1
-        ORDER BY edm.event_id, edm.sub_event_type_code, m.match_id, ms.side_no, msp.player_order
-        """
-    )
+    """
+    params: tuple = ()
+    if target_event_id is not None:
+        sql += " AND edm.event_id = ?"
+        params = (target_event_id,)
+    sql += " ORDER BY edm.event_id, edm.sub_event_type_code, m.match_id, ms.side_no, msp.player_order"
+    cursor.execute(sql, params)
     rows = cursor.fetchall()
     match_map = {}
     for (
@@ -940,6 +964,10 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
         }
 
     for (event_id, sub_event_type_code), (champion_roster, champion_country_override) in override_team_champion_rosters.items():
+        # 单 event 模式：跳过不属于目标 event 的 manual override
+        if target_event_id is not None and int(event_id) != target_event_id:
+            continue
+
         champion_names: List[str] = []
         champion_ids: List[str] = []
 
@@ -979,10 +1007,26 @@ def import_sub_events(db_path: str, dry_run: bool = False) -> dict:
             )
             result["sub_events_inserted"] += 1
 
-    if not dry_run:
-        conn.commit()
-    conn.close()
+    if owns_conn:
+        if not dry_run:
+            conn.commit()
+        conn.close()
     return result
+
+
+def rebuild_for_event(cursor: sqlite3.Cursor, event_id: int) -> dict:
+    """供 promote_current_event 使用：在调用方事务内重建该 event 的 sub_events。
+
+    内部包装 import_sub_events 并使用 cursor 所在的 connection，
+    不 commit、不 close。
+    """
+    conn = cursor.connection
+    return import_sub_events(
+        db_path="",
+        dry_run=False,
+        event_id=int(event_id),
+        conn=conn,
+    )
 
 
 def print_problem_events(result: dict) -> None:
@@ -1042,6 +1086,12 @@ def verify_sub_events(db_path: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Import sub_events from final matches")
     parser.add_argument("--dry-run", action="store_true", help="Scan only, do not write sub_events")
+    parser.add_argument(
+        "--event-id",
+        type=int,
+        default=None,
+        help="Only rebuild a single event's sub_events (DELETE+INSERT scoped to event_id). Default: full refresh.",
+    )
     cli_args = parser.parse_args()
 
     print("=" * 70)
@@ -1049,17 +1099,20 @@ if __name__ == "__main__":
     print("=" * 70)
     print(f"Database: {DB_PATH}")
     print(f"Dry run:  {cli_args.dry_run}")
+    print(f"Event id: {cli_args.event_id if cli_args.event_id is not None else '(full refresh)'}")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
         print(f"[ERROR] Database not found: {DB_PATH}")
         sys.exit(1)
 
-    result = import_sub_events(str(DB_PATH), dry_run=cli_args.dry_run)
+    result = import_sub_events(str(DB_PATH), dry_run=cli_args.dry_run, event_id=cli_args.event_id)
 
     print("Results:")
     print(f"  Full refresh mode:            {result['full_refresh']}")
     print(f"  Dry run mode:                 {result['dry_run']}")
+    if not result["full_refresh"]:
+        print(f"  Event id:                     {result['event_id']}")
     print(f"  Final matches scanned:        {result['final_matches']}")
     print(f"  sub_events inserted:          {result['sub_events_inserted']}")
     print(f"  duplicate finals skipped:     {result['duplicate_finals']}")
@@ -1080,6 +1133,6 @@ if __name__ == "__main__":
         if len(unmatched) > 20:
             print(f"    ... and {len(unmatched) - 20} more")
 
-    if not cli_args.dry_run:
+    if not cli_args.dry_run and result["full_refresh"]:
         verify_sub_events(str(DB_PATH))
     sys.exit(0)

@@ -3130,20 +3130,23 @@ function EventDetailContent() {
     if (params.eventId) load();
   }, [params.eventId]);
 
-  const useNewLiveTabs =
-    data?.event.lifecycleStatus === "in_progress" &&
-    ((data?.sessionSchedule.length ?? 0) > 0 || (data?.scheduleDays.length ?? 0) > 0);
+  // 改名：useNewLiveTabs → useScheduleTabs。
+  // 之前条件硬绑定 lifecycle='in_progress'，导致赛事完结后即使保留了 session/schedule
+  // 数据也会回退到旧 tab。现在只看数据是否存在；进行中 vs 已完结的语义差异
+  // 由 showBeijingTime 等其他标记承担。
+  const useScheduleTabs =
+    (data?.sessionSchedule.length ?? 0) > 0 || (data?.scheduleDays.length ?? 0) > 0;
 
   React.useEffect(() => {
     if (!data) return;
 
     setViewMode((current) => {
-      if (useNewLiveTabs) {
+      if (useScheduleTabs) {
         return current === "session" || current === "draw" || current === "schedule" ? current : "session";
       }
       return current === "schedule" || current === "draw" || current === "champions" ? current : "schedule";
     });
-  }, [data, useNewLiveTabs]);
+  }, [data, useScheduleTabs]);
 
   const currentSubEvent = selectedSubEvent ?? data?.selectedSubEvent ?? null;
   const effectiveDate = viewMode === "schedule" ? selectedDate : null;
@@ -3168,7 +3171,7 @@ function EventDetailContent() {
   const handleSelectSubEvent = React.useCallback((value: string | null) => {
     if (!value) return;
     shouldSyncUrlRef.current = true;
-    if (data && viewMode === "schedule" && useNewLiveTabs) {
+    if (data && viewMode === "schedule" && useScheduleTabs) {
       setSelectedDate(
         resolveScheduleDateForSubEvent({
           days: data.scheduleDays,
@@ -3179,11 +3182,11 @@ function EventDetailContent() {
       );
     }
     setSelectedSubEvent(value);
-  }, [data, selectedDate, useNewLiveTabs, viewMode]);
+  }, [data, selectedDate, useScheduleTabs, viewMode]);
 
   const handleChangeViewMode = React.useCallback((value: ViewMode) => {
     shouldSyncUrlRef.current = true;
-    if (value === "schedule" && data && currentSubEvent && useNewLiveTabs) {
+    if (value === "schedule" && data && currentSubEvent && useScheduleTabs) {
       setSelectedDate((current) =>
         resolveScheduleDateForSubEvent({
           days: data.scheduleDays,
@@ -3194,7 +3197,7 @@ function EventDetailContent() {
       );
     }
     setViewMode(value);
-  }, [currentSubEvent, data, useNewLiveTabs]);
+  }, [currentSubEvent, data, useScheduleTabs]);
 
   const handleSelectDate = React.useCallback((value: string | null) => {
     shouldSyncUrlRef.current = true;
@@ -3263,7 +3266,7 @@ function EventDetailContent() {
           <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
         )}
         <div className="mt-2">
-          {useNewLiveTabs ? (
+          {useScheduleTabs ? (
             <>
               <LiveViewTabs mode={viewMode} onChange={handleChangeViewMode} />
               {viewMode === "session" ? (

@@ -21,7 +21,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
-if sys.platform == "win32":
+if sys.platform == "win32" and getattr(sys.stdout, "encoding", "").lower() != "utf-8":
     import io
 
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
@@ -174,9 +174,8 @@ def is_position_round_2(match: MatchRow) -> bool:
     return stage == "Position Draw" and round_name in {"2", "Round 2"}
 
 
-def load_matches(cursor) -> List[MatchRow]:
-    cursor.execute(
-        """
+def load_matches(cursor, event_id_filter: Optional[int] = None) -> List[MatchRow]:
+    sql = """
         SELECT
             m.match_id,
             m.event_id,
@@ -189,9 +188,14 @@ def load_matches(cursor) -> List[MatchRow]:
             m.winner_side
         FROM matches m
         JOIN events e ON e.event_id = m.event_id
-        ORDER BY m.event_id, m.sub_event_type_code, m.match_id
-        """
-    )
+    """
+    params: tuple = ()
+    if event_id_filter is not None:
+        sql += " WHERE m.event_id = ?"
+        params = (int(event_id_filter),)
+    sql += " ORDER BY m.event_id, m.sub_event_type_code, m.match_id"
+
+    cursor.execute(sql, params)
     rows = []
     for (
         match_id,
@@ -358,11 +362,96 @@ def ensure_table(cursor) -> None:
         cursor.execute(stmt)
 
 
-def import_event_draw_matches(db_path: str, dry_run: bool = False) -> dict:
+INSERT_DRAW_SQL = """
+    INSERT INTO event_draw_matches (
+        match_id,
+        event_id,
+        sub_event_type_code,
+        draw_stage,
+        draw_round,
+        round_order,
+        source_stage,
+        source_round,
+        bronze_source,
+        bronze_verified,
+        validation_note
+    ) VALUES (?, ?, ?, 'Main Draw', ?, ?, ?, ?, ?, ?, ?)
+"""
+
+
+def _draw_row_to_tuple(row: DrawRow) -> tuple:
+    return (
+        row.match_id,
+        row.event_id,
+        row.sub_event_type_code,
+        row.draw_round,
+        row.round_order,
+        row.source_stage,
+        row.source_round,
+        row.bronze_source,
+        row.bronze_verified,
+        row.validation_note,
+    )
+
+
+def rebuild_for_event(cursor, event_id: int) -> dict:
+    """Per-event rebuild used by promote_current_event.
+
+    Uses the caller's transaction; does NOT commit.
+    Only touches rows for the given event_id.
+    """
+    matches = load_matches(cursor, event_id_filter=int(event_id))
+    draw_rows, result = classify_draw_rows(matches)
+
+    cursor.execute("DELETE FROM event_draw_matches WHERE event_id = ?", (int(event_id),))
+    if draw_rows:
+        cursor.executemany(INSERT_DRAW_SQL, [_draw_row_to_tuple(r) for r in draw_rows])
+
+    result.update(
+        {
+            "full_refresh": False,
+            "event_id": int(event_id),
+            "matches_scanned": len(matches),
+            "draw_rows": len(draw_rows),
+        }
+    )
+    return result
+
+
+def import_event_draw_matches(
+    db_path: str,
+    dry_run: bool = False,
+    event_id: Optional[int] = None,
+) -> dict:
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
     cursor.execute("PRAGMA foreign_keys = ON;")
 
+    if event_id is not None:
+        # Per-event mode: 不动其它 event 的数据
+        matches = load_matches(cursor, event_id_filter=int(event_id))
+        draw_rows, result = classify_draw_rows(matches)
+        result.update(
+            {
+                "full_refresh": False,
+                "event_id": int(event_id),
+                "dry_run": dry_run,
+                "matches_scanned": len(matches),
+                "draw_rows": len(draw_rows),
+            }
+        )
+        if dry_run:
+            conn.close()
+            return result
+        ensure_table(cursor)
+        cursor.execute("DELETE FROM event_draw_matches WHERE event_id = ?", (int(event_id),))
+        if draw_rows:
+            cursor.executemany(INSERT_DRAW_SQL, [_draw_row_to_tuple(r) for r in draw_rows])
+        conn.commit()
+        conn.close()
+        return result
+
+    # Full refresh
     matches = load_matches(cursor)
     draw_rows, result = classify_draw_rows(matches)
     result.update(
@@ -382,38 +471,8 @@ def import_event_draw_matches(db_path: str, dry_run: bool = False) -> dict:
     cursor.execute("DELETE FROM event_draw_matches")
     cursor.execute("DELETE FROM sqlite_sequence WHERE name = 'event_draw_matches'")
 
-    cursor.executemany(
-        """
-        INSERT INTO event_draw_matches (
-            match_id,
-            event_id,
-            sub_event_type_code,
-            draw_stage,
-            draw_round,
-            round_order,
-            source_stage,
-            source_round,
-            bronze_source,
-            bronze_verified,
-            validation_note
-        ) VALUES (?, ?, ?, 'Main Draw', ?, ?, ?, ?, ?, ?, ?)
-        """,
-        [
-            (
-                row.match_id,
-                row.event_id,
-                row.sub_event_type_code,
-                row.draw_round,
-                row.round_order,
-                row.source_stage,
-                row.source_round,
-                row.bronze_source,
-                row.bronze_verified,
-                row.validation_note,
-            )
-            for row in draw_rows
-        ],
-    )
+    if draw_rows:
+        cursor.executemany(INSERT_DRAW_SQL, [_draw_row_to_tuple(r) for r in draw_rows])
     conn.commit()
     conn.close()
     return result
@@ -472,6 +531,12 @@ def verify_event_draw_matches(db_path: str) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Import derived main-draw match table")
     parser.add_argument("--dry-run", action="store_true", help="Scan only, do not write event_draw_matches")
+    parser.add_argument(
+        "--event-id",
+        type=int,
+        default=None,
+        help="Only rebuild a single event's rows (DELETE+INSERT scoped to event_id). Default: full refresh.",
+    )
     args = parser.parse_args()
 
     print("=" * 70)
@@ -479,17 +544,20 @@ if __name__ == "__main__":
     print("=" * 70)
     print(f"Database: {DB_PATH}")
     print(f"Dry run:  {args.dry_run}")
+    print(f"Event id: {args.event_id if args.event_id is not None else '(full refresh)'}")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
         print(f"[ERROR] Database not found: {DB_PATH}")
         sys.exit(1)
 
-    stats = import_event_draw_matches(str(DB_PATH), dry_run=args.dry_run)
+    stats = import_event_draw_matches(str(DB_PATH), dry_run=args.dry_run, event_id=args.event_id)
 
     print("Results:")
     print(f"  Full refresh mode:            {stats['full_refresh']}")
     print(f"  Dry run mode:                 {stats['dry_run']}")
+    if not stats["full_refresh"]:
+        print(f"  Event id:                     {stats['event_id']}")
     print(f"  Matches scanned:              {stats['matches_scanned']}")
     print(f"  Draw rows:                    {stats['draw_rows']}")
     print(f"  Main draw rows considered:    {stats['main_draw_inserted']}")
@@ -501,7 +569,7 @@ if __name__ == "__main__":
     print(f"  Unsupported main rounds:      {stats['unsupported_main_round']}")
     print(f"  Duplicate match IDs skipped:  {stats['duplicate_match_ids']}")
 
-    if not args.dry_run:
+    if not args.dry_run and stats["full_refresh"]:
         verify_event_draw_matches(str(DB_PATH))
 
     sys.exit(0)
