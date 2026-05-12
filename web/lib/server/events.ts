@@ -1,6 +1,7 @@
 import { db } from '@/lib/server/db';
 import { expandEventQuery } from '@/lib/server/query-rewrite';
 import { filterAvatarFile } from '@/lib/server/avatarManifest';
+import { DATA_DIR } from '@/lib/paths';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
@@ -13,6 +14,57 @@ type SidePlayer = {
   nameZh: string | null;
   countryCode: string | null;
 };
+
+type PlayerCountryHistoryEntry = {
+  player_name: string;
+  current_country: string;
+  historical_country: string;
+};
+
+let cachedPlayerCountryHistory: Map<string, PlayerCountryHistoryEntry> | null = null;
+
+function normalizePlayerCountryHistoryKey(playerName: string, currentCountry: string | null | undefined) {
+  return `${playerName.trim().toLowerCase()}|${(currentCountry ?? '').trim().toUpperCase()}`;
+}
+
+function loadPlayerCountryHistory() {
+  if (cachedPlayerCountryHistory) return cachedPlayerCountryHistory;
+
+  const filePath = path.join(DATA_DIR, 'player_country_history.json');
+  const history = new Map<string, PlayerCountryHistoryEntry>();
+  if (!existsSync(filePath)) {
+    cachedPlayerCountryHistory = history;
+    return history;
+  }
+
+  try {
+    const payload = JSON.parse(readFileSync(filePath, 'utf8')) as unknown;
+    if (Array.isArray(payload)) {
+      for (const item of payload) {
+        if (!item || typeof item !== 'object') continue;
+        const entry = item as Partial<PlayerCountryHistoryEntry>;
+        const playerName = entry.player_name?.trim();
+        const currentCountry = entry.current_country?.trim().toUpperCase();
+        const historicalCountry = entry.historical_country?.trim().toUpperCase();
+        if (!playerName || !currentCountry || !historicalCountry) continue;
+        history.set(normalizePlayerCountryHistoryKey(playerName, currentCountry), {
+          player_name: playerName,
+          current_country: currentCountry,
+          historical_country: historicalCountry,
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('Failed to load player country history:', err);
+  }
+
+  cachedPlayerCountryHistory = history;
+  return history;
+}
+
+function historicalCountryForPlayer(playerName: string, countryCode: string | null | undefined) {
+  return loadPlayerCountryHistory().get(normalizePlayerCountryHistoryKey(playerName, countryCode))?.historical_country ?? null;
+}
 
 function isTeamEvent(event: { name: string; nameZh: string | null; eventKind: string | null; eventKindZh: string | null }) {
   const text = [event.name, event.nameZh, event.eventKind, event.eventKindZh].filter(Boolean).join(' ').toLowerCase();
@@ -324,9 +376,53 @@ function pickPreferredScheduleMatch(left: EventScheduleMatch, right: EventSchedu
   return left.scheduleMatchId >= right.scheduleMatchId ? left : right;
 }
 
+function scheduleStagePriority(match: EventScheduleMatch) {
+  const text = `${match.stageCode ?? ''} ${match.stageNameZh ?? ''}`.trim();
+  const lower = text.toLowerCase();
+  const divisionMatch = text.match(/Division\s*(\d+)|第([一二三四五六七八九十\d]+)级别/i);
+  const zhDigits: Record<string, number> = {
+    一: 1,
+    二: 2,
+    三: 3,
+    四: 4,
+    五: 5,
+    六: 6,
+    七: 7,
+    八: 8,
+    九: 9,
+    十: 10,
+  };
+  const divisionValue = divisionMatch?.[1] ?? divisionMatch?.[2] ?? '';
+  const division = /^\d+$/.test(divisionValue) ? Number(divisionValue) : zhDigits[divisionValue] ?? 99;
+  const stageType = lower.includes('main draw') || text.includes('正赛') || text.includes('主赛')
+    ? 0
+    : lower.includes('position') || text.includes('排位赛')
+      ? 1
+      : lower.includes('qualification') || text.includes('资格赛')
+        ? 2
+        : 3;
+  return stageType * 100 + division;
+}
+
+function scheduleRoundPriority(match: EventScheduleMatch) {
+  const meta = teamTieRoundMeta(match.roundCode, match.roundNameZh);
+  return meta.order > 0 ? -meta.order : 0;
+}
+
 function compareScheduleMatches(left: EventScheduleMatch, right: EventScheduleMatch) {
+  if (!left.scheduledLocalAt && !right.scheduledLocalAt) {
+    const stageDiff = scheduleStagePriority(left) - scheduleStagePriority(right);
+    if (stageDiff !== 0) return stageDiff;
+    const roundDiff = scheduleRoundPriority(left) - scheduleRoundPriority(right);
+    if (roundDiff !== 0) return roundDiff;
+  }
+
   const timeDiff = (left.scheduledLocalAt ?? '').localeCompare(right.scheduledLocalAt ?? '');
   if (timeDiff !== 0) return timeDiff;
+  const stageDiff = scheduleStagePriority(left) - scheduleStagePriority(right);
+  if (stageDiff !== 0) return stageDiff;
+  const roundDiff = scheduleRoundPriority(left) - scheduleRoundPriority(right);
+  if (roundDiff !== 0) return roundDiff;
   const groupDiff = (left.groupCode ?? '').localeCompare(right.groupCode ?? '');
   if (groupDiff !== 0) return groupDiff;
   const tableDiff = (left.tableNo ?? '').localeCompare(right.tableNo ?? '');
@@ -334,6 +430,143 @@ function compareScheduleMatches(left: EventScheduleMatch, right: EventScheduleMa
   const sessionDiff = (left.sessionLabel ?? '').localeCompare(right.sessionLabel ?? '');
   if (sessionDiff !== 0) return sessionDiff;
   return left.scheduleMatchId - right.scheduleMatchId;
+}
+
+function normalizeHistoricalSidePlayerCountry(player: SidePlayer): { player: SidePlayer; changed: boolean } {
+  const historicalCountry = historicalCountryForPlayer(player.name, player.countryCode);
+  if (!historicalCountry || historicalCountry === player.countryCode) {
+    return { player, changed: false };
+  }
+  return { player: { ...player, countryCode: historicalCountry }, changed: true };
+}
+
+function normalizeHistoricalTeamSide(
+  side: EventScheduleMatch['sides'][number],
+): { side: EventScheduleMatch['sides'][number]; changed: boolean } {
+  let changed = false;
+  const players = side.players.map((player) => {
+    const normalized = normalizeHistoricalSidePlayerCountry(player);
+    changed ||= normalized.changed;
+    return normalized.player;
+  });
+  const mappedCountries = Array.from(new Set(players.map((player) => player.countryCode).filter(Boolean))) as string[];
+  const teamCode = changed && mappedCountries.length === 1 ? mappedCountries[0] : side.teamCode;
+  return {
+    side: {
+      ...side,
+      teamCode,
+      players,
+    },
+    changed: changed || teamCode !== side.teamCode,
+  };
+}
+
+function scheduleTeamPairKey(match: EventScheduleMatch) {
+  const teamCodes = match.sides.map((side) => side.teamCode).filter((code): code is string => Boolean(code));
+  if (teamCodes.length < 2) return null;
+  return teamCodes.slice().sort().join('|');
+}
+
+function scheduleMatchMergeKey(match: EventScheduleMatch) {
+  const teamPair = scheduleTeamPairKey(match);
+  if (!teamPair) return null;
+  return [
+    match.subEventTypeCode,
+    match.stageCode,
+    match.roundCode,
+    match.groupCode ?? '',
+    match.scheduledLocalAt ?? '',
+    teamPair,
+  ].join('::');
+}
+
+function mergeHistoricalScheduleMatches(matches: EventScheduleMatch[]) {
+  const normalized = matches.map((match) => {
+    let changed = false;
+    const sides = match.sides.map((side) => {
+      const normalizedSide = normalizeHistoricalTeamSide(side);
+      changed ||= normalizedSide.changed;
+      return normalizedSide.side;
+    });
+    return { match: { ...match, sides }, changed };
+  });
+
+  const groups = new Map<string, Array<{ match: EventScheduleMatch; changed: boolean }>>();
+  const passthrough: EventScheduleMatch[] = [];
+  for (const item of normalized) {
+    const key = scheduleMatchMergeKey(item.match);
+    if (!key) {
+      passthrough.push(item.match);
+      continue;
+    }
+    const current = groups.get(key) ?? [];
+    current.push(item);
+    groups.set(key, current);
+  }
+
+  const merged: EventScheduleMatch[] = [...passthrough];
+  for (const group of groups.values()) {
+    if (group.length === 1 || !group.some((item) => item.changed)) {
+      merged.push(...group.map((item) => item.match));
+      continue;
+    }
+
+    const base = group
+      .map((item) => item.match)
+      .sort((left, right) => Math.abs(left.scheduleMatchId) - Math.abs(right.scheduleMatchId))[0];
+    const sideMap = new Map<string, EventScheduleMatch['sides'][number]>();
+    for (const item of group) {
+      for (const side of item.match.sides) {
+        const key = side.teamCode ?? String(side.sideNo);
+        const current = sideMap.get(key) ?? { ...side, players: [] };
+        const seen = new Set(current.players.map((player) => `${player.name}|${player.countryCode ?? ''}`));
+        for (const player of side.players) {
+          const playerKey = `${player.name}|${player.countryCode ?? ''}`;
+          if (seen.has(playerKey)) continue;
+          seen.add(playerKey);
+          current.players.push(player);
+        }
+        current.isWinner ||= side.isWinner;
+        sideMap.set(key, current);
+      }
+    }
+    const baseTeamOrder = base.sides.map((side) => side.teamCode).filter((code): code is string => Boolean(code));
+    const sides = Array.from(sideMap.values())
+      .sort((left, right) => {
+        const leftIdx = baseTeamOrder.indexOf(left.teamCode ?? '');
+        const rightIdx = baseTeamOrder.indexOf(right.teamCode ?? '');
+        return (leftIdx < 0 ? 99 : leftIdx) - (rightIdx < 0 ? 99 : rightIdx);
+      })
+      .slice(0, 2)
+      .map((side, index) => ({ ...side, sideNo: index + 1 }))
+      .sort((left, right) => left.sideNo - right.sideNo);
+    const scoreByTeam = new Map(sides.map((side) => [side.teamCode ?? String(side.sideNo), 0]));
+    for (const item of group) {
+      const parsed = parseTieScore(item.match.matchScore);
+      if (!parsed) continue;
+      const [sideA, sideB] = [...item.match.sides].sort((left, right) => left.sideNo - right.sideNo);
+      if (sideA?.teamCode && scoreByTeam.has(sideA.teamCode)) {
+        scoreByTeam.set(sideA.teamCode, (scoreByTeam.get(sideA.teamCode) ?? 0) + parsed.scoreA);
+      }
+      if (sideB?.teamCode && scoreByTeam.has(sideB.teamCode)) {
+        scoreByTeam.set(sideB.teamCode, (scoreByTeam.get(sideB.teamCode) ?? 0) + parsed.scoreB);
+      }
+    }
+    const [mergedSideA, mergedSideB] = sides;
+    const scoreA = mergedSideA?.teamCode ? scoreByTeam.get(mergedSideA.teamCode) ?? 0 : 0;
+    const scoreB = mergedSideB?.teamCode ? scoreByTeam.get(mergedSideB.teamCode) ?? 0 : 0;
+    const matchScore = scoreA || scoreB ? `${scoreA}-${scoreB}` : base.matchScore;
+    const winnerSide = scoreA === scoreB ? base.winnerSide : scoreA > scoreB ? 'A' : 'B';
+    merged.push({
+      ...base,
+      scheduleMatchId: base.scheduleMatchId,
+      matchScore,
+      winnerSide,
+      sides: sides.map((side) => ({ ...side, isWinner: side.sideNo === (winnerSide === 'A' ? 1 : winnerSide === 'B' ? 2 : -1) })),
+    });
+  }
+
+  return merged.sort(compareScheduleMatches);
 }
 
 function buildCurrentScheduleMatches(eventId: number) {
@@ -620,17 +853,324 @@ function buildHistoricalTeamTieScheduleMatches(eventId: number) {
     scheduleMatchMap.set(row.scheduleMatchId, current);
   }
 
-  return Array.from(scheduleMatchMap.values())
+  return mergeHistoricalScheduleMatches(Array.from(scheduleMatchMap.values())
     .map((match) => ({
       ...match,
       sides: [...match.sides].sort((left, right) => left.sideNo - right.sideNo),
     }))
-    .sort(compareScheduleMatches);
+    .sort(compareScheduleMatches));
+}
+
+function buildHistoricalMergedScheduleMatchDetail(match: {
+  scheduleMatchId: number;
+  eventId: number;
+  eventName: string | null;
+  eventNameZh: string | null;
+  eventYear: number | null;
+  subEventTypeCode: string;
+  startDate: string | null;
+  endDate: string | null;
+}) {
+  const mergedMatch = buildHistoricalTeamTieScheduleMatches(match.eventId).find((item) => item.scheduleMatchId === match.scheduleMatchId);
+  const mergedTie = buildTeamTiesForSubEvent(match.eventId, match.subEventTypeCode).find((item) => item.scheduleMatchId === match.scheduleMatchId);
+  if (!mergedMatch || !mergedTie) return null;
+
+  const playerIds = [
+    ...mergedMatch.sides.flatMap((side) => side.players.map((player) => player.playerId)),
+    ...mergedTie.rubbers.flatMap((rubber) => rubber.sides.flatMap((side) => side.players.map((player) => player.playerId))),
+  ].filter((playerId): playerId is number => playerId != null);
+  const playerDisplayMap = loadRosterPlayerDisplayMap(Array.from(new Set(playerIds)));
+  const teamCodeBySideNo = new Map(mergedMatch.sides.map((side) => [side.sideNo, side.teamCode ?? null]));
+
+  return {
+    match: {
+      scheduleMatchId: mergedMatch.scheduleMatchId,
+      eventId: match.eventId,
+      eventName: match.eventName,
+      eventNameZh: match.eventNameZh,
+      eventYear: match.eventYear,
+      subEventTypeCode: mergedMatch.subEventTypeCode,
+      subEventNameZh: mergedMatch.subEventNameZh,
+      stageCode: mergedMatch.stageCode,
+      stageNameZh: mergedMatch.stageNameZh,
+      roundCode: mergedMatch.roundCode,
+      roundNameZh: mergedMatch.roundNameZh,
+      roundLabel: roundLabel(mergedMatch.roundCode, mergedMatch.roundNameZh),
+      groupCode: mergedMatch.groupCode,
+      scheduledLocalAt: mergedMatch.scheduledLocalAt,
+      scheduledUtcAt: mergedMatch.scheduledUtcAt,
+      tableNo: mergedMatch.tableNo,
+      sessionLabel: mergedMatch.sessionLabel,
+      status: mergedMatch.status,
+      rawScheduleStatus: mergedMatch.rawScheduleStatus,
+      matchScore: mergedMatch.matchScore,
+      games: parseGames(null),
+      winnerSide: mergedMatch.winnerSide,
+      startDate: match.startDate,
+      endDate: match.endDate,
+      externalMatchCode: mergedMatch.externalMatchCode,
+    },
+    sides: mergedMatch.sides
+      .map((side) => ({
+        sideNo: side.sideNo,
+        isWinner: side.isWinner,
+        teamCode: side.teamCode,
+        seed: side.seed,
+        qualifier: side.qualifier,
+        placeholderText: side.placeholderText,
+        players: side.players.map((player) => {
+          const display = player.playerId == null ? null : playerDisplayMap.get(player.playerId);
+          return {
+            ...player,
+            avatarFile: display?.avatarFile ?? null,
+          };
+        }),
+      }))
+      .sort((left, right) => left.sideNo - right.sideNo),
+    rubbers: mergedTie.rubbers.map((rubber) => ({
+      matchId: rubber.matchId,
+      matchScore: rubber.matchScore,
+      games: parseGames(null),
+      winnerSide: rubber.winnerSide,
+      sides: rubber.sides
+        .map((side) => ({
+          sideNo: side.sideNo,
+          teamCode: teamCodeBySideNo.get(side.sideNo) ?? null,
+          players: side.players.map((player) => {
+            const display = player.playerId == null ? null : playerDisplayMap.get(player.playerId);
+            return {
+              ...player,
+              avatarFile: display?.avatarFile ?? null,
+            };
+          }),
+        }))
+        .sort((left, right) => left.sideNo - right.sideNo),
+    })),
+  };
+}
+
+function buildTeamTieScheduleMatchDetail(
+  matchMeta: {
+    scheduleMatchId: number | string;
+    eventId: number;
+    eventName: string | null;
+    eventNameZh: string | null;
+    eventYear: number | null;
+    subEventTypeCode: string;
+    subEventNameZh: string | null;
+    stageCode: string;
+    stageNameZh: string | null;
+    roundCode: string;
+    roundNameZh: string | null;
+    groupCode: string | null;
+    status: string;
+    rawScheduleStatus: string | null;
+    startDate: string | null;
+    endDate: string | null;
+    externalMatchCode: string | null;
+  },
+  tie: TeamTie,
+) {
+  const rosterPlayerIds = [
+    ...tie.rubbers.flatMap((rubber) => rubber.sides.flatMap((side) => side.players.map((player) => player.playerId))),
+  ].filter((playerId): playerId is number => playerId != null);
+  const playerDisplayMap = loadRosterPlayerDisplayMap(Array.from(new Set(rosterPlayerIds)));
+
+  const sides = [
+    {
+      sideNo: 1,
+      isWinner: tie.winnerCode === tie.teamA.code,
+      teamCode: tie.teamA.code,
+      seed: null,
+      qualifier: null,
+      placeholderText: null,
+      players: Array.from(
+        new Map(
+          tie.rubbers
+            .flatMap((rubber) => rubber.sides.find((side) => side.sideNo === 1)?.players ?? [])
+            .map((player) => {
+              const display = player.playerId == null ? null : playerDisplayMap.get(player.playerId);
+              return [
+                `${player.name}|${player.countryCode ?? ''}`,
+                {
+                  ...player,
+                  avatarFile: display?.avatarFile ?? null,
+                },
+              ];
+            }),
+        ).values(),
+      ),
+    },
+    {
+      sideNo: 2,
+      isWinner: tie.winnerCode === tie.teamB.code,
+      teamCode: tie.teamB.code,
+      seed: null,
+      qualifier: null,
+      placeholderText: null,
+      players: Array.from(
+        new Map(
+          tie.rubbers
+            .flatMap((rubber) => rubber.sides.find((side) => side.sideNo === 2)?.players ?? [])
+            .map((player) => {
+              const display = player.playerId == null ? null : playerDisplayMap.get(player.playerId);
+              return [
+                `${player.name}|${player.countryCode ?? ''}`,
+                {
+                  ...player,
+                  avatarFile: display?.avatarFile ?? null,
+                },
+              ];
+            }),
+        ).values(),
+      ),
+    },
+  ];
+
+  return {
+    match: {
+      scheduleMatchId: matchMeta.scheduleMatchId,
+      eventId: matchMeta.eventId,
+      eventName: matchMeta.eventName,
+      eventNameZh: matchMeta.eventNameZh,
+      eventYear: matchMeta.eventYear,
+      subEventTypeCode: matchMeta.subEventTypeCode,
+      subEventNameZh: matchMeta.subEventNameZh,
+      stageCode: matchMeta.stageCode,
+      stageNameZh: matchMeta.stageNameZh,
+      roundCode: matchMeta.roundCode,
+      roundNameZh: matchMeta.roundNameZh,
+      roundLabel: roundLabel(matchMeta.roundCode, matchMeta.roundNameZh),
+      groupCode: matchMeta.groupCode,
+      scheduledLocalAt: null,
+      scheduledUtcAt: null,
+      tableNo: null,
+      sessionLabel: null,
+      status: matchMeta.status,
+      rawScheduleStatus: matchMeta.rawScheduleStatus,
+      matchScore: `${tie.scoreA}-${tie.scoreB}`,
+      games: parseGames(null),
+      winnerSide: tie.winnerCode === tie.teamA.code ? 'A' : tie.winnerCode === tie.teamB.code ? 'B' : null,
+      startDate: matchMeta.startDate,
+      endDate: matchMeta.endDate,
+      externalMatchCode: matchMeta.externalMatchCode,
+    },
+    sides,
+    rubbers: tie.rubbers.map((rubber) => ({
+      matchId: rubber.matchId,
+      externalMatchCode: null,
+      matchScore: rubber.matchScore,
+      games: parseGames(null),
+      winnerSide: rubber.winnerSide,
+      sides: rubber.sides
+        .map((side) => ({
+          sideNo: side.sideNo,
+          teamCode: side.sideNo === 1 ? tie.teamA.code : side.sideNo === 2 ? tie.teamB.code : null,
+          players: side.players.map((player) => {
+            const display = player.playerId == null ? null : playerDisplayMap.get(player.playerId);
+            return {
+              ...player,
+              avatarFile: display?.avatarFile ?? null,
+            };
+          }),
+        }))
+        .sort((left, right) => left.sideNo - right.sideNo),
+    })),
+  };
+}
+
+function buildOverrideScheduleMatchDetail(scheduleMatchId: string) {
+  const parts = scheduleMatchId.split(':');
+  if (parts.length < 4 || parts[0] !== 'override') return null;
+  const eventId = Number(parts[1]);
+  const subEventTypeCode = parts[2];
+  if (!Number.isFinite(eventId)) return null;
+
+  const override = readManualEventOverride(eventId);
+  if (!override || !isTeamKnockoutOverride(override) || override.sub_event_type_code !== subEventTypeCode) {
+    return null;
+  }
+
+  const overrideRoundTie = override.display_rounds
+    ?.flatMap((round) =>
+      round.ties.map((tie) => ({
+        round,
+        tie,
+      })),
+    )
+    .find((item) => item.tie.schedule_match_id === scheduleMatchId);
+  if (!overrideRoundTie) return null;
+
+  const eventRow = db
+    .prepare(
+      `
+        SELECT
+          event_id AS eventId,
+          name AS eventName,
+          name_zh AS eventNameZh,
+          year AS eventYear,
+          start_date AS startDate,
+          end_date AS endDate
+        FROM events
+        WHERE event_id = ?
+      `,
+    )
+    .get(eventId) as
+    | {
+        eventId: number;
+        eventName: string | null;
+        eventNameZh: string | null;
+        eventYear: number | null;
+        startDate: string | null;
+        endDate: string | null;
+      }
+    | undefined;
+  if (!eventRow) return null;
+
+  const subEventNameZh = db
+    .prepare(
+      `
+        SELECT name_zh AS nameZh
+        FROM sub_event_types
+        WHERE code = ?
+      `,
+    )
+    .get(subEventTypeCode) as { nameZh: string | null } | undefined;
+
+  const ties = buildTeamTiesForSubEvent(eventId, subEventTypeCode);
+  const tieById = new Map(ties.map((tie) => [String(tie.tieId), tie]));
+  const syntheticTie = buildOverrideTeamTie(overrideRoundTie.tie, tieById);
+  if (!syntheticTie) return null;
+
+  return buildTeamTieScheduleMatchDetail(
+    {
+      scheduleMatchId,
+      eventId: eventRow.eventId,
+      eventName: eventRow.eventName,
+      eventNameZh: eventRow.eventNameZh,
+      eventYear: eventRow.eventYear,
+      subEventTypeCode,
+      subEventNameZh: subEventNameZh?.nameZh ?? null,
+      stageCode: syntheticTie.stage,
+      stageNameZh: syntheticTie.stageZh,
+      roundCode: overrideRoundTie.round.code.includes(':')
+        ? overrideRoundTie.round.code.slice(overrideRoundTie.round.code.lastIndexOf(':') + 1)
+        : overrideRoundTie.round.code,
+      roundNameZh: syntheticTie.roundZh,
+      groupCode: null,
+      status: 'finished',
+      rawScheduleStatus: 'override_aggregate',
+      startDate: eventRow.startDate,
+      endDate: eventRow.endDate,
+      externalMatchCode: syntheticTie.externalMatchCode,
+    },
+    syntheticTie,
+  );
 }
 
 type TeamTie = {
   tieId: string;
-  scheduleMatchId: number | null;
+  scheduleMatchId: number | string | null;
   externalMatchCode: string | null;
   stage: string;
   stageZh: string | null;
@@ -788,15 +1328,34 @@ type TeamKnockoutEventOverride = {
     champion: string;
     runner_up: string;
     third_place: string;
+    third_place_second?: string | null;
   };
   ties: {
     final: {
       team_codes: [string, string];
     };
-    bronze: {
+    bronze?: {
       team_codes: [string, string];
-    };
+    } | null;
   };
+  display_rounds?: Array<{
+    code: string;
+    label?: string;
+    order?: number;
+    ties: Array<{
+      source_tie_ids: Array<number | string>;
+      tie_id?: string;
+      schedule_match_id?: number | string | null;
+      team_a_code?: string;
+      team_b_code?: string;
+      team_a_name?: string;
+      team_b_name?: string;
+      score_a?: number;
+      score_b?: number;
+      winner_code?: string | null;
+      side_code_map?: Record<string, string>;
+    }>;
+  }>;
 };
 
 type ManualEventOverride = RoundRobinEventOverride | TeamKnockoutEventOverride;
@@ -1687,7 +2246,108 @@ function buildTeamTiesForSubEvent(eventId: number, subEventCode: string): TeamTi
     ties.set(key, current);
   }
 
-  return Array.from(ties.values()).sort((left, right) => Number(left.tieId) - Number(right.tieId));
+  return mergeHistoricalTeamTies(Array.from(ties.values()).sort((left, right) => Number(left.tieId) - Number(right.tieId)));
+}
+
+function normalizeHistoricalTeamTieCountries(tie: TeamTie): { tie: TeamTie; changed: boolean } {
+  let changed = false;
+  const sideCountryCandidates = new Map<number, string[]>();
+  const rubbers = tie.rubbers.map((rubber) => ({
+    ...rubber,
+    sides: rubber.sides.map((side) => {
+      const players = side.players.map((player) => {
+        const normalized = normalizeHistoricalSidePlayerCountry(player);
+        changed ||= normalized.changed;
+        if (normalized.player.countryCode) {
+          const countries = sideCountryCandidates.get(side.sideNo) ?? [];
+          countries.push(normalized.player.countryCode);
+          sideCountryCandidates.set(side.sideNo, countries);
+        }
+        return normalized.player;
+      });
+      return { ...side, players };
+    }),
+  }));
+
+  const teamForSide = (sideNo: number, team: TeamTie['teamA']) => {
+    const countries = Array.from(new Set(sideCountryCandidates.get(sideNo) ?? []));
+    if (changed && countries.length === 1 && countries[0] !== team.code) {
+      return { code: countries[0], name: countries[0], nameZh: team.nameZh };
+    }
+    return team;
+  };
+  const teamA = teamForSide(1, tie.teamA);
+  const teamB = teamForSide(2, tie.teamB);
+
+  return {
+    tie: {
+      ...tie,
+      teamA,
+      teamB,
+      winnerCode: tie.winnerCode === tie.teamA.code ? teamA.code : tie.winnerCode === tie.teamB.code ? teamB.code : tie.winnerCode,
+      rubbers,
+    },
+    changed: changed || teamA.code !== tie.teamA.code || teamB.code !== tie.teamB.code,
+  };
+}
+
+function teamTieMergeKey(tie: TeamTie) {
+  const teamPair = [tie.teamA.code, tie.teamB.code].filter(Boolean).sort().join('|');
+  if (!teamPair) return null;
+  return [tie.stage, tie.round, teamPair].join('::');
+}
+
+function mergeHistoricalTeamTies(ties: TeamTie[]) {
+  const normalized = ties.map((tie) => normalizeHistoricalTeamTieCountries(tie));
+  const groups = new Map<string, Array<{ tie: TeamTie; changed: boolean }>>();
+  const passthrough: TeamTie[] = [];
+  for (const item of normalized) {
+    const key = teamTieMergeKey(item.tie);
+    if (!key) {
+      passthrough.push(item.tie);
+      continue;
+    }
+    const current = groups.get(key) ?? [];
+    current.push(item);
+    groups.set(key, current);
+  }
+
+  const merged: TeamTie[] = [...passthrough];
+  for (const group of groups.values()) {
+    if (group.length === 1 || !group.some((item) => item.changed)) {
+      merged.push(...group.map((item) => item.tie));
+      continue;
+    }
+
+    const base = group
+      .map((item) => item.tie)
+      .sort((left, right) => Math.abs(Number(left.tieId)) - Math.abs(Number(right.tieId)))[0];
+    const teamOrder = [base.teamA.code, base.teamB.code];
+    const scoreByTeam = new Map(teamOrder.map((code) => [code, 0]));
+    const rubbersById = new Map<number, TeamTie['rubbers'][number]>();
+
+    for (const item of group) {
+      scoreByTeam.set(item.tie.teamA.code, (scoreByTeam.get(item.tie.teamA.code) ?? 0) + item.tie.scoreA);
+      scoreByTeam.set(item.tie.teamB.code, (scoreByTeam.get(item.tie.teamB.code) ?? 0) + item.tie.scoreB);
+      for (const rubber of item.tie.rubbers) {
+        rubbersById.set(rubber.matchId, rubber);
+      }
+    }
+
+    const scoreA = scoreByTeam.get(base.teamA.code) ?? 0;
+    const scoreB = scoreByTeam.get(base.teamB.code) ?? 0;
+    const winnerCode = scoreA === scoreB ? base.winnerCode : scoreA > scoreB ? base.teamA.code : base.teamB.code;
+
+    merged.push({
+      ...base,
+      scoreA,
+      scoreB,
+      winnerCode,
+      rubbers: Array.from(rubbersById.values()).sort((left, right) => left.matchId - right.matchId),
+    });
+  }
+
+  return merged.sort((left, right) => Number(left.tieId) - Number(right.tieId));
 }
 
 function buildCurrentTeamTiesForSubEvent(eventId: number, subEventCode: string): TeamTie[] {
@@ -1947,7 +2607,15 @@ function buildRoundRobinView(eventId: number, subEventCode: string, override: Ma
   };
 }
 
-export function getScheduleMatchDetail(scheduleMatchId: number) {
+export function getScheduleMatchDetail(scheduleMatchId: number | string) {
+  if (typeof scheduleMatchId === 'string') {
+    const parsedScheduleMatchId = Number(scheduleMatchId);
+    if (Number.isFinite(parsedScheduleMatchId) && String(parsedScheduleMatchId) === scheduleMatchId) {
+      return getScheduleMatchDetail(parsedScheduleMatchId);
+    }
+    return buildOverrideScheduleMatchDetail(scheduleMatchId);
+  }
+
   const currentMatch = db
     .prepare(
       `
@@ -2293,6 +2961,11 @@ export function getScheduleMatchDetail(scheduleMatchId: number) {
 
   if (!match) return null;
 
+  const mergedHistoricalDetail = buildHistoricalMergedScheduleMatchDetail(match);
+  if (mergedHistoricalDetail) {
+    return mergedHistoricalDetail;
+  }
+
   const sideRows = db
     .prepare(
       `
@@ -2510,7 +3183,66 @@ const NUMERIC_TEAM_ROUND_ALIAS: Record<string, string> = {
   '128': 'R128',
 };
 
-const TEAM_BRACKET_STAGES = new Set(['Main Draw', 'MAIN']);
+function normalizeTeamStageToken(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function displayTeamStageQualifier(value: string | null) {
+  const trimmed = value?.trim() ?? '';
+  if (!trimmed) return '';
+
+  const divisionMatch = trimmed.match(/^Division\s+(\d+)$/i);
+  if (divisionMatch) return `第${divisionMatch[1]}级别`;
+
+  return trimmed;
+}
+
+function teamTieBracketStageMeta(stage: string, stageZh: string | null) {
+  const trimmed = stage.trim();
+  if (trimmed === 'MAIN') {
+    return { codePrefix: 'main', labelPrefix: '', orderOffset: 0 };
+  }
+
+  const mainDrawMatch = trimmed.match(/^Main Draw(?:\s*-\s*(.+))?$/i);
+  if (mainDrawMatch) {
+    const qualifier = displayTeamStageQualifier(stageZh?.replace(/^(主赛|正赛)\s*-\s*/u, '') ?? mainDrawMatch[1] ?? null);
+    return {
+      codePrefix: qualifier ? `main-${normalizeTeamStageToken(mainDrawMatch[1] ?? qualifier)}` : 'main',
+      labelPrefix: qualifier,
+      orderOffset: 0,
+    };
+  }
+
+  if (/^Position matches\b/i.test(trimmed)) {
+    const rest = trimmed.replace(/^Position matches/i, '').trim();
+    const restMatch = rest.match(/^(.*?)\s*-\s*(Division\s+\d+)$/i);
+    const range = restMatch?.[1]?.trim() ?? rest;
+    const division = displayTeamStageQualifier(restMatch?.[2] ?? null);
+    const labelParts = ['排位赛', range, division].filter(Boolean);
+    const codeParts = ['position', range ? normalizeTeamStageToken(range) : '', division ? normalizeTeamStageToken(restMatch?.[2] ?? division) : '']
+      .filter(Boolean)
+      .join('-');
+    return {
+      codePrefix: codeParts,
+      labelPrefix: labelParts.join(' '),
+      orderOffset: -1000,
+    };
+  }
+
+  return null;
+}
+
+function baseTeamRoundCode(code: string) {
+  return code.includes(':') ? code.slice(code.lastIndexOf(':') + 1) : code;
+}
+
+function isMainTeamRoundCode(code: string) {
+  return !code.includes(':') || code.startsWith('main:') || code.startsWith('main-');
+}
 
 function teamTieRoundMeta(round: string, roundZh: string | null) {
   const trimmed = round?.trim() ?? '';
@@ -2590,9 +3322,17 @@ function resolveTeamTieRoundMeta(tie: TeamTie, drawRoundMap: Map<number, TeamDra
     return teamTieRoundMetaFromDrawRound(resolved[0], resolved[1].roundOrder);
   }
 
-  if (!TEAM_BRACKET_STAGES.has(tie.stage)) return null;
+  const stageMeta = teamTieBracketStageMeta(tie.stage, tie.stageZh);
+  if (!stageMeta) return null;
+
   const fallback = teamTieRoundMeta(tie.round, tie.roundZh);
-  return fallback.order > 0 ? fallback : null;
+  if (fallback.order <= 0) return null;
+
+  return {
+    code: stageMeta.codePrefix ? `${stageMeta.codePrefix}:${fallback.code}` : fallback.code,
+    label: [stageMeta.labelPrefix, fallback.label].filter(Boolean).join(' '),
+    order: fallback.order + stageMeta.orderOffset,
+  };
 }
 
 function buildTeamKnockoutRounds(eventId: number, subEventCode: string, ties: TeamTie[]) {
@@ -2614,6 +3354,83 @@ function buildTeamKnockoutRounds(eventId: number, subEventCode: string, ties: Te
       }, new Map<string, { code: string; label: string; order: number; ties: TeamTie[] }>())
       .values(),
   ).sort((left, right) => right.order - left.order);
+}
+
+function buildOverrideTeamTie(
+  overrideTie: NonNullable<TeamKnockoutEventOverride['display_rounds']>[number]['ties'][number],
+  tieById: Map<string, TeamTie>,
+): TeamTie | null {
+  const sourceTies = overrideTie.source_tie_ids
+    .map((tieId) => tieById.get(String(tieId)))
+    .filter((tie): tie is TeamTie => tie != null);
+  if (sourceTies.length === 0) return null;
+
+  const base = sourceTies[0];
+  const codeMap = new Map(Object.entries(overrideTie.side_code_map ?? {}));
+  const mapTeamCode = (code: string) => codeMap.get(code) ?? code;
+  const teamA: TeamTie['teamA'] = {
+    code: overrideTie.team_a_code ?? mapTeamCode(base.teamA.code),
+    name: overrideTie.team_a_name ?? overrideTie.team_a_code ?? mapTeamCode(base.teamA.name),
+    nameZh: null,
+  };
+  const teamB: TeamTie['teamB'] = {
+    code: overrideTie.team_b_code ?? mapTeamCode(base.teamB.code),
+    name: overrideTie.team_b_name ?? overrideTie.team_b_code ?? mapTeamCode(base.teamB.name),
+    nameZh: null,
+  };
+
+  return {
+    ...base,
+    tieId: overrideTie.tie_id ?? (sourceTies.length === 1 ? base.tieId : `${base.tieId}:${sourceTies[sourceTies.length - 1].tieId}`),
+    scheduleMatchId: overrideTie.schedule_match_id === undefined ? (sourceTies.length === 1 ? base.scheduleMatchId : null) : overrideTie.schedule_match_id,
+    teamA,
+    teamB,
+    scoreA: overrideTie.score_a ?? base.scoreA,
+    scoreB: overrideTie.score_b ?? base.scoreB,
+    winnerCode: overrideTie.winner_code === undefined ? base.winnerCode : overrideTie.winner_code,
+    rubbers: sourceTies.flatMap((tie) =>
+      tie.rubbers.map((rubber) => ({
+        ...rubber,
+        sides: rubber.sides.map((side) => {
+          const sourceCode = side.sideNo === 1 ? tie.teamA.code : tie.teamB.code;
+          const mappedCode = mapTeamCode(sourceCode);
+          return {
+            ...side,
+            players: side.players,
+            sideNo: mappedCode === teamA.code ? 1 : mappedCode === teamB.code ? 2 : side.sideNo,
+          };
+        }),
+      })),
+    ),
+  };
+}
+
+function buildOverrideTeamKnockoutRounds(
+  override: TeamKnockoutEventOverride,
+  defaultRounds: EventTeamKnockoutView['rounds'],
+  ties: TeamTie[],
+): EventTeamKnockoutView['rounds'] {
+  if (!override.display_rounds?.length) return defaultRounds;
+
+  const defaultRoundByCode = new Map(defaultRounds.map((round) => [round.code, round]));
+  const tieById = new Map(ties.map((tie) => [String(tie.tieId), tie]));
+
+  return override.display_rounds
+    .map((round) => {
+      const fallback = defaultRoundByCode.get(round.code);
+      const tiesForRound = round.ties
+        .map((overrideTie) => buildOverrideTeamTie(overrideTie, tieById))
+        .filter((tie): tie is TeamTie => tie != null);
+      if (tiesForRound.length === 0) return null;
+      return {
+        code: round.code,
+        label: round.label ?? fallback?.label ?? round.code,
+        order: round.order ?? fallback?.order ?? 0,
+        ties: tiesForRound,
+      };
+    })
+    .filter((round): round is EventTeamKnockoutView['rounds'][number] => round != null)
+    .sort((left, right) => right.order - left.order);
 }
 
 const AUTO_TEAM_SUB_EVENT_CODES = new Set(['WT', 'MT', 'XT']);
@@ -2689,9 +3506,10 @@ function buildAutoTeamKnockoutView(eventId: number, subEventCode: string): Event
   const rounds = buildTeamKnockoutRounds(eventId, subEventCode, ties);
   if (rounds.length === 0) return null;
 
-  const finalTie = rounds.find((r) => r.code === 'Final')?.ties[0] ?? null;
-  const bronzeTie = rounds.find((r) => r.code === 'Bronze')?.ties[0] ?? null;
-  const semiFinalTies = rounds.find((r) => r.code === 'SemiFinal')?.ties ?? [];
+  const finalTie = rounds.find((r) => baseTeamRoundCode(r.code) === 'Final' && isMainTeamRoundCode(r.code))?.ties[0] ?? null;
+  const bronzeTie = rounds.find((r) => baseTeamRoundCode(r.code) === 'Bronze' && isMainTeamRoundCode(r.code))?.ties[0] ?? null;
+  const semiFinalTies =
+    rounds.find((r) => baseTeamRoundCode(r.code) === 'SemiFinal' && isMainTeamRoundCode(r.code))?.ties ?? [];
 
   const standings: StageStanding[] = [];
   const seen = new Set<string>();
@@ -3022,12 +3840,13 @@ function buildTeamKnockoutView(eventId: number, subEventCode: string, override: 
   }
 
   const ties = buildTeamTiesForSubEvent(eventId, subEventCode);
-  const rounds = buildTeamKnockoutRounds(eventId, subEventCode, ties);
+  const rounds = buildOverrideTeamKnockoutRounds(override, buildTeamKnockoutRounds(eventId, subEventCode, ties), ties);
   const finalStandings = override.final_standings
     .slice()
     .sort((left, right) => left.rank - right.rank)
     .map((item) => buildStageStanding(item.team_code, item.rank));
   const podiumByCode = new Map(finalStandings.map((item) => [item.teamCode, item]));
+  const bronzeTie = override.ties.bronze ? ties.find((tie) => teamCodesMatch(tie, override.ties.bronze!.team_codes)) ?? null : null;
 
   return {
     mode: 'team_knockout_with_bronze',
@@ -3037,10 +3856,10 @@ function buildTeamKnockoutView(eventId: number, subEventCode: string, override: 
       champion: podiumByCode.get(override.podium.champion) ?? null,
       runnerUp: podiumByCode.get(override.podium.runner_up) ?? null,
       thirdPlace: podiumByCode.get(override.podium.third_place) ?? null,
-      thirdPlaceSecond: null,
+      thirdPlaceSecond: override.podium.third_place_second ? podiumByCode.get(override.podium.third_place_second) ?? null : null,
     },
     finalTie: ties.find((tie) => teamCodesMatch(tie, override.ties.final.team_codes)) ?? null,
-    bronzeTie: ties.find((tie) => teamCodesMatch(tie, override.ties.bronze.team_codes)) ?? null,
+    bronzeTie,
   };
 }
 
@@ -3462,7 +4281,7 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     const overrideChampionCountry =
       override && subEventCode === override.sub_event_type_code ? override.podium.champion : null;
     const inferredTeamChampion =
-      useCurrentEventModel && isAutoTeamSubEvent(subEventCode) ? teamKnockoutView?.podium.champion ?? null : null;
+      isAutoTeamSubEvent(subEventCode) ? teamKnockoutView?.podium.champion ?? null : null;
     const inferredChampionCountry = inferredTeamChampion?.teamCode ?? null;
     const inferredChampionName = inferredTeamChampion?.teamNameZh ?? inferredTeamChampion?.teamName ?? inferredChampionCountry;
 

@@ -52,7 +52,7 @@ type ScheduleMatchRubber = {
 
 type ScheduleMatchDetail = {
   match: {
-    scheduleMatchId: number;
+    scheduleMatchId: number | string;
     eventId: number;
     eventName: string | null;
     eventNameZh: string | null;
@@ -134,6 +134,10 @@ function isTeamSubEvent(subEventTypeCode: string) {
   return subEventTypeCode === "MT" || subEventTypeCode === "WT" || subEventTypeCode === "XT";
 }
 
+function isStandardTeamCode(teamCode: string | null | undefined) {
+  return typeof teamCode === "string" && /^[A-Z]{3}$/.test(teamCode);
+}
+
 function SideCard({ side, teamEvent, hasResult }: { side: ScheduleMatchSide; teamEvent: boolean; hasResult: boolean }) {
   const firstPlayer = side.players[0];
 
@@ -148,7 +152,9 @@ function SideCard({ side, teamEvent, hasResult }: { side: ScheduleMatchSide; tea
         <div className="flex min-w-0 flex-1 items-center gap-3">
           {teamEvent ? (
             <div className="flex w-6 shrink-0 justify-start">
-              <Flag code={side.teamCode || firstPlayer?.countryCode || null} className="scale-[1.2]" />
+              {isStandardTeamCode(side.teamCode || firstPlayer?.countryCode || null) ? (
+                <Flag code={side.teamCode || firstPlayer?.countryCode || null} className="scale-[1.2]" />
+              ) : null}
             </div>
           ) : firstPlayer ? (
             <div className="shrink-0">
@@ -248,7 +254,9 @@ function RubberCard({
                     {sideTitle(side)}
                   </p>
                   <div className="mt-0.5 flex items-center gap-1.5 line-clamp-1 text-micro font-bold uppercase tracking-wider text-text-tertiary">
-                    <Flag code={side.teamCode || side.players[0]?.countryCode || null} />
+                    {isStandardTeamCode(side.teamCode || side.players[0]?.countryCode || null) ? (
+                      <Flag code={side.teamCode || side.players[0]?.countryCode || null} />
+                    ) : null}
                     <span>{sideCountries(side) || side.teamCode || "国家待补"}</span>
                   </div>
                 </div>
@@ -380,7 +388,9 @@ function ScheduleMatchContent() {
 
           <div className="flex items-center justify-center gap-8">
             <div className="flex flex-col items-center gap-2">
-              <Flag code={sideA?.teamCode || sideA?.players[0]?.countryCode || null} className="scale-[1.8]" />
+              {isStandardTeamCode(sideA?.teamCode || sideA?.players[0]?.countryCode || null) ? (
+                <Flag code={sideA?.teamCode || sideA?.players[0]?.countryCode || null} className="scale-[1.8]" />
+              ) : null}
               <span className="text-micro font-black uppercase tracking-widest text-text-tertiary">
                 {sideA?.teamCode || sideA?.players[0]?.countryCode || "TBD"}
               </span>
@@ -403,7 +413,9 @@ function ScheduleMatchContent() {
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <Flag code={sideB?.teamCode || sideB?.players[0]?.countryCode || null} className="scale-[1.8]" />
+              {isStandardTeamCode(sideB?.teamCode || sideB?.players[0]?.countryCode || null) ? (
+                <Flag code={sideB?.teamCode || sideB?.players[0]?.countryCode || null} className="scale-[1.8]" />
+              ) : null}
               <span className="text-micro font-black uppercase tracking-widest text-text-tertiary">
                 {sideB?.teamCode || sideB?.players[0]?.countryCode || "TBD"}
               </span>

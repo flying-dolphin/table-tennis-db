@@ -1,0 +1,124 @@
+{
+  "event_id": 896,
+  "presentation_mode": "team_knockout_with_bronze",
+  "sub_event_type_code": "WT",
+  "title": "2018 ITTF Team World Cup",
+  "podium": {
+    "champion": "CHN",
+    "runner_up": "JPN",
+    "third_place": "KOR/PRK",
+    "third_place_second": "HKG"
+  },
+  "final_standings": [
+    {
+      "rank": 1,
+      "team_code": "CHN"
+    },
+    {
+      "rank": 2,
+      "team_code": "JPN"
+    },
+    {
+      "rank": 3,
+      "team_code": "KOR/PRK"
+    },
+    {
+      "rank": 3,
+      "team_code": "HKG"
+    }
+  ],
+  "ties": {
+    "final": {
+      "team_codes": [
+        "CHN",
+        "JPN"
+      ]
+    }
+  },
+  "display_rounds": [
+    {
+      "code": "main-division-1:Final",
+      "ties": [
+        {
+          "source_tie_ids": [
+            2925
+          ]
+        }
+      ]
+    },
+    {
+      "code": "main-division-1:SemiFinal",
+      "ties": [
+        {
+          "source_tie_ids": [
+            2929
+          ]
+        },
+        {
+          "source_tie_ids": [
+            2927,
+            2928
+          ],
+          "tie_id": "override:896:WT:KOR-PRK-JPN",
+          "team_a_code": "KOR/PRK",
+          "team_a_name": "KOR/PRK",
+          "team_b_code": "JPN",
+          "team_b_name": "JPN",
+          "score_a": 0,
+          "score_b": 3,
+          "winner_code": "JPN",
+          "schedule_match_id": "override:896:WT:KOR-PRK-JPN",
+          "side_code_map": {
+            "KOR": "KOR/PRK",
+            "PRK": "KOR/PRK"
+          }
+        }
+      ]
+    },
+    {
+      "code": "main-division-1:QuarterFinal",
+      "ties": [
+        {
+          "source_tie_ids": [
+            2931
+          ]
+        },
+        {
+          "source_tie_ids": [
+            2933
+          ]
+        },
+        {
+          "source_tie_ids": [
+            2932
+          ]
+        }
+      ]
+    },
+    {
+      "code": "main-division-1:R16",
+      "ties": [
+        {
+          "source_tie_ids": [
+            2923
+          ]
+        },
+        {
+          "source_tie_ids": [
+            2920
+          ]
+        },
+        {
+          "source_tie_ids": [
+            2921
+          ]
+        },
+        {
+          "source_tie_ids": [
+            2924
+          ]
+        }
+      ]
+    }
+  ]
+}

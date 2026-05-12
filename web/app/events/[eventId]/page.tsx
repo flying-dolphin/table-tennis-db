@@ -23,6 +23,12 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { Flag } from "@/components/Flag";
+import {
+  buildTeamBracketRounds,
+  buildTeamRoundFeeders,
+  orderTeamRoundsByFeeders,
+  type TeamBracketRound as DisplayTeamBracketRound,
+} from "@/lib/team-knockout-bracket";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 
 function cn(...inputs: ClassValue[]) {
@@ -69,7 +75,7 @@ type EventChampion = {
 
 type TeamTie = {
   tieId: string;
-  scheduleMatchId: number | null;
+  scheduleMatchId: number | string | null;
   externalMatchCode: string | null;
   stage: string;
   stageZh: string | null;
@@ -307,6 +313,10 @@ function buildTeamRosterHref(eventId: string, subEventCode: string, teamCode: st
   params.set("sub_event", subEventCode);
   params.set("from", fromHref);
   return `/events/${eventId}/teams/${teamCode}?${params.toString()}`;
+}
+
+function isStandardTeamCode(teamCode: string | null | undefined) {
+  return typeof teamCode === "string" && /^[A-Z]{3}$/.test(teamCode);
 }
 
 function displayDateRange(startDate: string | null, endDate: string | null) {
@@ -1299,6 +1309,7 @@ function ScheduleByDateView({
   }, [defaultSelectedDate, filteredDays, onSelectDate, selectedDate]);
 
   const activeDay = filteredDays.find((day) => day.localDate === selectedDate) ?? filteredDays[0];
+  const activeDayLocalDate = activeDay?.localDate;
   const tabListRef = React.useRef<HTMLDivElement | null>(null);
   const activeTabRef = React.useRef<HTMLButtonElement | null>(null);
 
@@ -1306,7 +1317,7 @@ function ScheduleByDateView({
     const container = tabListRef.current;
     const activeTab = activeTabRef.current;
 
-    if (!container || !activeTab) return;
+    if (!container || !activeTab || !activeDayLocalDate) return;
 
     const containerWidth = container.clientWidth;
     const containerScrollLeft = container.scrollLeft;
@@ -1323,7 +1334,7 @@ function ScheduleByDateView({
       left: targetScrollLeft,
       behavior: "smooth",
     });
-  }, [activeDay.localDate]);
+  }, [activeDayLocalDate]);
 
   if (filteredDays.length === 0) {
     return (
@@ -1489,12 +1500,18 @@ function TeamTieSummaryCard({
           {tieIndex !== undefined ? `第 ${tieIndex} 场` : "已结束"}
         </span>
         <div className="flex items-center gap-1.5 min-w-0">
-          <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamA.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
-            <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
-            <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
+          {isStandardTeamCode(tie.teamA.code) ? (
+            <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamA.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
+              <Flag code={tie.teamA.code} className="shrink-0 scale-[1.05]" />
+              <span className={cn("text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
+                {tie.teamA.code}
+              </span>
+            </Link>
+          ) : (
+            <span className={cn("inline-flex items-center gap-1 shrink-0 text-[0.95rem] font-black leading-none", winnerA ? "text-slate-950" : "text-slate-500")}>
               {tie.teamA.code}
             </span>
-          </Link>
+          )}
           <span
             className={cn(
               "font-numeric ml-0.5 text-[1.25rem] font-black leading-none tabular-nums",
@@ -1512,12 +1529,18 @@ function TeamTieSummaryCard({
           >
             {tie.scoreB}
           </span>
-          <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamB.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
-            <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
+          {isStandardTeamCode(tie.teamB.code) ? (
+            <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamB.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
+              <span className={cn("ml-0.5 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
+                {tie.teamB.code}
+              </span>
+              <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
+            </Link>
+          ) : (
+            <span className={cn("ml-0.5 inline-flex items-center gap-1 shrink-0 text-[0.95rem] font-black leading-none", winnerB ? "text-slate-950" : "text-slate-500")}>
               {tie.teamB.code}
             </span>
-            <Flag code={tie.teamB.code} className="shrink-0 scale-[1.05]" />
-          </Link>
+          )}
         </div>
       </div>
       <div className="mt-2 divide-y divide-slate-100">
@@ -1758,7 +1781,7 @@ function DrawView({
 
   const displayRounds = filteredRounds;
 
-  const firstRoundCount = displayRounds[0]?.matches.length ?? 1;
+  const firstRoundCount = Math.max(1, ...displayRounds.map((round) => round.matches.length));
   const slotH0 = Math.max(DRAW_CARD_H + 8, 60);
   const totalH = firstRoundCount * slotH0;
 
@@ -1851,26 +1874,32 @@ function DrawView({
           >
             {displayRounds.map((_, rIdx) => {
               if (rIdx >= displayRounds.length - 1) return null;
+              const prevRound = displayRounds[rIdx];
               const nextRound = displayRounds[rIdx + 1];
-              return nextRound.matches.map((__, nMIdx) => {
-                const f1 = getCardInfo(rIdx, nMIdx * 2);
-                const f2 =
-                  nMIdx * 2 + 1 < (displayRounds[rIdx]?.matches.length ?? 0)
-                    ? getCardInfo(rIdx, nMIdx * 2 + 1)
-                    : null;
+              return nextRound.matches.map((nextMatch, nMIdx) => {
+                const feeders = findBracketFeederIndices(prevRound.matches, nextMatch);
+                if (feeders.length === 0) return null;
+
+                const feederPositions = feeders.map((feeder) => getCardInfo(rIdx, feeder.matchIndex));
                 const fn = getCardInfo(rIdx + 1, nMIdx);
-                const xR = f1.left + DRAW_CARD_W;
-                const xM = xR + DRAW_COL_GAP / 2;
+                const xM = feederPositions[0].left + DRAW_CARD_W + DRAW_COL_GAP / 2;
                 const xL = fn.left;
+                const yTop = Math.min(...feederPositions.map((pos) => pos.centerY), fn.centerY);
+                const yBottom = Math.max(...feederPositions.map((pos) => pos.centerY), fn.centerY);
                 return (
                   <g key={`conn-${rIdx}-${nMIdx}`}>
-                    <line x1={xR} y1={f1.centerY} x2={xM} y2={f1.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
-                    {f2 && (
-                      <>
-                        <line x1={xR} y1={f2.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
-                        <line x1={xM} y1={f1.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
-                      </>
-                    )}
+                    {feederPositions.map((pos, feederIdx) => (
+                      <line
+                        key={`feeder-${feederIdx}`}
+                        x1={pos.left + DRAW_CARD_W}
+                        y1={pos.centerY}
+                        x2={xM}
+                        y2={pos.centerY}
+                        stroke="#c5d8f2"
+                        strokeWidth={1.5}
+                      />
+                    ))}
+                    {yTop !== yBottom && <line x1={xM} y1={yTop} x2={xM} y2={yBottom} stroke="#c5d8f2" strokeWidth={1.5} />}
                     <line x1={xM} y1={fn.centerY} x2={xL} y2={fn.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
                   </g>
                 );
@@ -2040,7 +2069,7 @@ function DrawTeamTieCard({
           ].map((item) => (
             <div key={item.team.code} className="flex items-center gap-1">
               <div className="flex min-w-0 flex-1 items-center gap-1">
-                <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
+                {isStandardTeamCode(item.team.code) ? <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" /> : null}
                 <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
                   {item.team.code}
                 </span>
@@ -2062,7 +2091,7 @@ function DrawTeamTieCard({
           ].map((item) => (
             <div key={item.team.code} className="flex items-center gap-1">
               <div className="flex min-w-0 flex-1 items-center gap-1">
-                <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" />
+                {isStandardTeamCode(item.team.code) ? <Flag code={item.team.code} className="shrink-0 scale-[0.85] origin-left" /> : null}
                 <span className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", item.isWinner ? "text-slate-900" : "text-slate-400")}>
                   {item.team.code}
                 </span>
@@ -2086,19 +2115,6 @@ const TEAM_DRAW_CARD_H = 52;
 const TEAM_DRAW_COL_GAP = 16;
 
 type TeamKnockoutRound = EventTeamKnockoutView["rounds"][number];
-type TeamBracketTeam = TeamTie["teamA"] | null;
-type TeamBracketNode = {
-  key: string;
-  tie: TeamTie | null;
-  teamA: TeamBracketTeam;
-  teamB: TeamBracketTeam;
-};
-type TeamBracketRound = {
-  code: string;
-  label: string;
-  order: number;
-  nodes: TeamBracketNode[];
-};
 
 const TEAM_MAIN_DRAW_SEQUENCE: Array<{ code: string; label: string; order: number; size: number }> = [
   { code: "R128", label: "128 强", order: 10, size: 64 },
@@ -2129,14 +2145,32 @@ const TEAM_ROUND_ALIASES: Record<string, string> = {
 };
 
 function normalizeTeamRoundCode(code: string) {
-  return TEAM_ROUND_ALIASES[code] ?? code;
+  const rawCode = code.includes(":") ? code.slice(code.lastIndexOf(":") + 1) : code;
+  return TEAM_ROUND_ALIASES[rawCode] ?? rawCode;
 }
 
-function teamTieWinner(tie: TeamTie | null): TeamBracketTeam {
-  if (!tie?.winnerCode) return null;
-  if (tie.winnerCode === tie.teamA.code) return tie.teamA;
-  if (tie.winnerCode === tie.teamB.code) return tie.teamB;
-  return { code: tie.winnerCode, name: tie.winnerCode, nameZh: null };
+function teamRoundGroupKey(code: string) {
+  return code.includes(":") ? code.slice(0, code.lastIndexOf(":")) : "main";
+}
+
+function teamRoundBaseMeta(code: string) {
+  const normalizedCode = normalizeTeamRoundCode(code);
+  return TEAM_MAIN_DRAW_SEQUENCE.find((item) => item.code === normalizedCode);
+}
+
+function teamRoundGroupLabel(round: TeamKnockoutRound) {
+  const groupKey = teamRoundGroupKey(round.code);
+  const baseMeta = teamRoundBaseMeta(round.code);
+  if (baseMeta && round.label.endsWith(baseMeta.label)) {
+    const label = round.label.slice(0, -baseMeta.label.length).trim();
+    if (label) return groupKey.startsWith("main") && !label.startsWith("正赛") ? `正赛 ${label}` : label;
+  }
+  if (groupKey === "main") return "正赛";
+  return round.label;
+}
+
+function isTeamBronzeRound(code: string) {
+  return normalizeTeamRoundCode(code) === "Bronze";
 }
 
 function teamTiePosition(tie: TeamTie) {
@@ -2164,114 +2198,168 @@ function cleanTeamRoundLabel(label: string, fallback: string) {
   return /Match\s+\d+/i.test(label) || /第\s*\d+\s*场/.test(label) ? fallback : label;
 }
 
-function buildCompleteTeamBracketRounds(rounds: TeamKnockoutRound[]): TeamBracketRound[] {
-  const roundMap = new Map(
-    rounds
-      .filter((round) => round.code !== "Bronze" && round.ties.length > 0)
-      .map((round) => [normalizeTeamRoundCode(round.code), round]),
-  );
-  const earliestRound = TEAM_MAIN_DRAW_SEQUENCE.find((meta) => roundMap.has(meta.code));
-  if (!earliestRound) return [];
+function findBracketFeederIndices(prevRound: BracketMatch[], nextMatch: BracketMatch) {
+  const used = new Set<number>();
+  const feeders: Array<{ sideNo: number; matchIndex: number }> = [];
+  const sortedSides = [...nextMatch.sides].sort((a, b) => a.sideNo - b.sideNo);
 
-  const sequence = TEAM_MAIN_DRAW_SEQUENCE.filter((meta) => meta.order >= earliestRound.order);
-  const completed: TeamBracketRound[] = [];
+  for (const side of sortedSides) {
+    const sideKey = makeSidePlayerKey(side);
+    if (!sideKey) continue;
 
-  sequence.forEach((meta, roundIndex) => {
-    const sourceRound = roundMap.get(meta.code);
-    const realTies = sourceRound ? sortTeamTiesByBracketPosition(sourceRound.ties) : [];
-    const previousRound = completed[roundIndex - 1];
-    const nodes: TeamBracketNode[] = Array.from({ length: meta.size }, (_, nodeIndex) => {
-      const tie = realTies[nodeIndex] ?? null;
-      const feederA = previousRound?.nodes[nodeIndex * 2] ?? null;
-      const feederB = previousRound?.nodes[nodeIndex * 2 + 1] ?? null;
-      return {
-        key: tie?.tieId ?? `${meta.code}-placeholder-${nodeIndex}`,
-        tie,
-        teamA: tie?.teamA ?? teamTieWinner(feederA?.tie ?? null),
-        teamB: tie?.teamB ?? teamTieWinner(feederB?.tie ?? null),
-      };
+    let matchIndex = prevRound.findIndex((match, index) => {
+      if (used.has(index)) return false;
+      const winningSide = match.sides.find((candidate) => candidate.isWinner);
+      return winningSide ? makeSidePlayerKey(winningSide) === sideKey : false;
     });
 
-    completed.push({
-      code: meta.code,
-      label: sourceRound ? cleanTeamRoundLabel(sourceRound.label, meta.label) : meta.label,
-      order: sourceRound?.order ?? meta.order,
-      nodes,
-    });
-  });
+    if (matchIndex === -1) {
+      matchIndex = prevRound.findIndex(
+        (match, index) => !used.has(index) && match.sides.some((candidate) => makeSidePlayerKey(candidate) === sideKey),
+      );
+    }
 
-  return completed;
+    if (matchIndex !== -1) {
+      used.add(matchIndex);
+      feeders.push({ sideNo: side.sideNo, matchIndex });
+    }
+  }
+
+  return feeders;
 }
 
-function DrawTeamPlaceholderCard({
-  node,
+function TeamKnockoutBracketGroup({
+  label,
+  bracketRounds,
   eventId,
   subEventCode,
   eventReturnHref,
 }: {
-  node: TeamBracketNode;
+  label: string;
+  bracketRounds: DisplayTeamBracketRound<TeamTie>[];
   eventId: string;
   subEventCode: string;
   eventReturnHref: string;
 }) {
+  const firstRoundCount = Math.max(1, ...bracketRounds.map((round) => round.nodes.length));
+  const slotH0 = Math.max(TEAM_DRAW_CARD_H + 12, 72);
+  const totalH = firstRoundCount * slotH0;
+  const totalW = bracketRounds.length * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP);
+
+  const getCardInfo = (rIdx: number, mIdx: number) => {
+    const count = bracketRounds[rIdx]?.nodes.length ?? 1;
+    const slotH = totalH / count;
+    return {
+      top: mIdx * slotH + (slotH - TEAM_DRAW_CARD_H) / 2,
+      centerY: mIdx * slotH + slotH / 2,
+      left: rIdx * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP),
+    };
+  };
+
   return (
-    <div className="rounded-[0.6rem] border border-dashed border-[#cbd8ea] bg-[#f8fbff] px-1.5 py-1 shadow-sm">
-      <div className="space-y-1">
-        {[node.teamA, node.teamB].map((team, index) => (
-          <div key={`${node.key}-${index}`} className="flex items-center gap-1">
-            {team?.code ? (
-              <Link href={route(buildTeamRosterHref(eventId, subEventCode, team.code, eventReturnHref))} className="flex min-w-0 flex-1 items-center gap-1">
-                <Flag code={team.code} className="shrink-0 scale-[0.85] origin-left" />
-                <span className="min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight text-slate-700">
-                  {team.code}
-                </span>
-              </Link>
-            ) : (
-              <div className="flex min-w-0 flex-1 items-center gap-1">
-                <span className="h-2.5 w-3.5 shrink-0 rounded-[0.15rem] bg-slate-200" />
-                <span className="min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight text-slate-300">
-                  待定
-                </span>
-              </div>
-            )}
-            <span className="font-numeric shrink-0 text-[1rem] font-black leading-none tabular-nums text-slate-200">-</span>
-            <span className="w-3 shrink-0" />
-          </div>
-        ))}
+    <section className="mb-7">
+      <h2 className="mb-3 text-[1.2rem] font-black text-slate-950">{label}</h2>
+      <div className="overflow-x-auto pb-2">
+        <div className="mb-3 flex" style={{ minWidth: totalW }}>
+          {bracketRounds.map((round) => (
+            <div
+              key={round.code}
+              className="shrink-0 text-center"
+              style={{ width: TEAM_DRAW_CARD_W, marginRight: TEAM_DRAW_COL_GAP }}
+            >
+              <p className="text-[0.78rem] font-black text-slate-900">{round.label}</p>
+              <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">
+                {round.nodes.filter((node) => node.tie).length}/{round.nodes.length} 场
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="relative" style={{ height: totalH, minWidth: totalW }}>
+          <svg
+            className="pointer-events-none absolute inset-0 overflow-visible"
+            style={{ width: totalW, height: totalH }}
+          >
+            {bracketRounds.map((_, rIdx) => {
+              if (rIdx >= bracketRounds.length - 1) return null;
+              const currentRound = bracketRounds[rIdx];
+              const nextRound = bracketRounds[rIdx + 1];
+              const feedersByNode = buildTeamRoundFeeders(currentRound, nextRound);
+              return nextRound.nodes.map((__, nMIdx) => {
+                const feeders = feedersByNode[nMIdx] ?? [];
+                if (feeders.length === 0) return null;
+                const feederPositions = feeders.map((feeder) => getCardInfo(rIdx, feeder.nodeIndex));
+                const nextPosition = getCardInfo(rIdx + 1, nMIdx);
+                const xR = feederPositions[0].left + TEAM_DRAW_CARD_W;
+                const xL = nextPosition.left;
+                if (feeders.length === 1) {
+                  const feederPosition = feederPositions[0];
+                  const xM = xR + TEAM_DRAW_COL_GAP * (0.28 + 0.18 * (nMIdx % 3));
+                  return (
+                    <g key={`team-conn-${label}-${rIdx}-${nMIdx}`}>
+                      <line
+                        x1={feederPosition.left + TEAM_DRAW_CARD_W}
+                        y1={feederPosition.centerY}
+                        x2={xM}
+                        y2={feederPosition.centerY}
+                        stroke="#c5d8f2"
+                        strokeWidth={1.5}
+                      />
+                      <path
+                        d={`M ${xM} ${feederPosition.centerY} C ${xM} ${feederPosition.centerY}, ${xM} ${nextPosition.centerY}, ${xL} ${nextPosition.centerY}`}
+                        fill="none"
+                        stroke="#c5d8f2"
+                        strokeWidth={1.5}
+                      />
+                    </g>
+                  );
+                }
+
+                const xM = xR + TEAM_DRAW_COL_GAP / 2;
+                const yTop = Math.min(...feederPositions.map((position) => position.centerY), nextPosition.centerY);
+                const yBottom = Math.max(...feederPositions.map((position) => position.centerY), nextPosition.centerY);
+                return (
+                  <g key={`team-conn-${label}-${rIdx}-${nMIdx}`}>
+                    {feeders.map((feeder, feederIndex) => {
+                      const position = feederPositions[feederIndex];
+                      return (
+                        <line
+                          key={`team-conn-branch-${label}-${rIdx}-${nMIdx}-${feeder.sideNo}`}
+                          x1={position.left + TEAM_DRAW_CARD_W}
+                          y1={position.centerY}
+                          x2={xM}
+                          y2={position.centerY}
+                          stroke="#c5d8f2"
+                          strokeWidth={1.5}
+                        />
+                      );
+                    })}
+                    <line x1={xM} y1={yTop} x2={xM} y2={yBottom} stroke="#c5d8f2" strokeWidth={1.5} />
+                    <line x1={xM} y1={nextPosition.centerY} x2={xL} y2={nextPosition.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
+                  </g>
+                );
+              });
+            })}
+          </svg>
+
+          {bracketRounds.map((round, rIdx) =>
+            round.nodes.map((node, mIdx) => {
+              const { top, left } = getCardInfo(rIdx, mIdx);
+              return (
+                <div
+                  key={node.key}
+                  className="absolute"
+                  style={{ top, left, width: TEAM_DRAW_CARD_W }}
+                >
+                  <DrawTeamTieCard tie={node.tie} eventReturnHref={eventReturnHref} />
+                </div>
+              );
+            }),
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
-
-function orderTeamRoundsByFeeders(rounds: TeamKnockoutRound[]): TeamKnockoutRound[] {
-  if (rounds.length <= 1) return rounds;
-  const result = rounds.map((round) => ({ ...round, ties: [...round.ties] }));
-
-  for (let r = result.length - 1; r > 0; r--) {
-    const nextRound = result[r];
-    const prevRound = result[r - 1];
-    const used = new Set<string>();
-    const ordered: TeamTie[] = [];
-
-    for (const nt of nextRound.ties) {
-      for (const teamCode of [nt.teamA.code, nt.teamB.code]) {
-        const feeder = prevRound.ties.find(
-          (pt) => !used.has(pt.tieId) && pt.winnerCode === teamCode,
-        );
-        if (feeder) {
-          ordered.push(feeder);
-          used.add(feeder.tieId);
-        }
-      }
-    }
-    for (const pt of prevRound.ties) {
-      if (!used.has(pt.tieId)) ordered.push(pt);
-    }
-
-    result[r - 1] = { ...prevRound, ties: ordered };
-  }
-
-  return result;
 }
 
 function TeamKnockoutDrawView({
@@ -2285,20 +2373,37 @@ function TeamKnockoutDrawView({
   subEventCode: string;
   eventReturnHref: string;
 }) {
-  const bracketRounds = React.useMemo(
-    () => {
-      const filtered = view.rounds
-        .filter((round) => round.code !== "Bronze" && round.ties.length > 0)
-        .slice()
-        .sort((a, b) => a.order - b.order)
-        .map((round) => ({ ...round, code: normalizeTeamRoundCode(round.code) }));
-      return buildCompleteTeamBracketRounds(orderTeamRoundsByFeeders(filtered));
-    },
-    [view.rounds],
-  );
-  const bronzeTie = view.bronzeTie ?? view.rounds.find((round) => round.code === "Bronze")?.ties[0] ?? null;
+  const bracketGroups = React.useMemo(() => {
+    const groups = new Map<string, { key: string; label: string; order: number; rounds: TeamKnockoutRound[] }>();
+    for (const round of view.rounds) {
+      if (isTeamBronzeRound(round.code) || round.ties.length === 0) continue;
+      const key = teamRoundGroupKey(round.code);
+      const current = groups.get(key) ?? {
+        key,
+        label: teamRoundGroupLabel(round),
+        order: round.order,
+        rounds: [],
+      };
+      current.order = Math.max(current.order, round.order);
+      current.rounds.push({
+        ...round,
+        code: normalizeTeamRoundCode(round.code),
+        label: teamRoundBaseMeta(round.code)?.label ?? round.label,
+      });
+      groups.set(key, current);
+    }
 
-  if (bracketRounds.length === 0 && !bronzeTie) {
+    return Array.from(groups.values())
+      .map((group) => ({
+        ...group,
+        bracketRounds: buildTeamBracketRounds(orderTeamRoundsByFeeders(group.rounds.slice().sort((a, b) => a.order - b.order))),
+      }))
+      .filter((group) => group.bracketRounds.length > 0)
+      .sort((left, right) => right.order - left.order);
+  }, [view.rounds]);
+  const bronzeTie = view.bronzeTie ?? view.rounds.find((round) => isTeamBronzeRound(round.code))?.ties[0] ?? null;
+
+  if (bracketGroups.length === 0 && !bronzeTie) {
     return (
       <div className="pt-5">
         <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
@@ -2307,22 +2412,6 @@ function TeamKnockoutDrawView({
       </div>
     );
   }
-
-  const firstRoundCount = bracketRounds[0]?.nodes.length ?? 1;
-  const slotH0 = Math.max(TEAM_DRAW_CARD_H + 12, 72);
-  const totalH = firstRoundCount * slotH0;
-
-  const getCardInfo = (rIdx: number, mIdx: number) => {
-    const count = bracketRounds[rIdx]?.nodes.length ?? 1;
-    const slotH = totalH / count;
-    return {
-      top: mIdx * slotH + (slotH - TEAM_DRAW_CARD_H) / 2,
-      centerY: mIdx * slotH + slotH / 2,
-      left: rIdx * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP),
-    };
-  };
-
-  const totalW = bracketRounds.length * (TEAM_DRAW_CARD_W + TEAM_DRAW_COL_GAP);
 
   return (
     <div className="pb-10 pt-5">
@@ -2333,77 +2422,16 @@ function TeamKnockoutDrawView({
         </section>
       ) : null}
 
-      {bracketRounds.length > 0 && (
-        <div className="overflow-x-auto pb-2">
-          <div className="mb-3 flex" style={{ minWidth: totalW }}>
-            {bracketRounds.map((round) => (
-              <div
-                key={round.code}
-                className="shrink-0 text-center"
-                style={{ width: TEAM_DRAW_CARD_W, marginRight: TEAM_DRAW_COL_GAP }}
-              >
-                <p className="text-[0.78rem] font-black text-slate-900">{round.label}</p>
-                <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">
-                  {round.nodes.filter((node) => node.tie).length}/{round.nodes.length} 场
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="relative" style={{ height: totalH, minWidth: totalW }}>
-            <svg
-              className="pointer-events-none absolute inset-0 overflow-visible"
-              style={{ width: totalW, height: totalH }}
-            >
-              {bracketRounds.map((_, rIdx) => {
-                if (rIdx >= bracketRounds.length - 1) return null;
-                const currentRound = bracketRounds[rIdx];
-                const nextRound = bracketRounds[rIdx + 1];
-                return nextRound.nodes.map((__, nMIdx) => {
-                  const f1Idx = nMIdx * 2;
-                  const f2Idx = nMIdx * 2 + 1;
-                  if (f2Idx >= currentRound.nodes.length) return null;
-                  const f1 = getCardInfo(rIdx, f1Idx);
-                  const f2 = getCardInfo(rIdx, f2Idx);
-                  const fn = getCardInfo(rIdx + 1, nMIdx);
-                  const xR = f1.left + TEAM_DRAW_CARD_W;
-                  const xM = xR + TEAM_DRAW_COL_GAP / 2;
-                  const xL = fn.left;
-                  const yTop = Math.min(f1.centerY, f2.centerY, fn.centerY);
-                  const yBottom = Math.max(f1.centerY, f2.centerY, fn.centerY);
-                  return (
-                    <g key={`team-conn-${rIdx}-${nMIdx}`}>
-                      <line x1={xR} y1={f1.centerY} x2={xM} y2={f1.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
-                      <line x1={xR} y1={f2.centerY} x2={xM} y2={f2.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
-                      <line x1={xM} y1={yTop} x2={xM} y2={yBottom} stroke="#c5d8f2" strokeWidth={1.5} />
-                      <line x1={xM} y1={fn.centerY} x2={xL} y2={fn.centerY} stroke="#c5d8f2" strokeWidth={1.5} />
-                    </g>
-                  );
-                });
-              })}
-            </svg>
-
-            {bracketRounds.map((round, rIdx) =>
-              round.nodes.map((node, mIdx) => {
-                const { top, left } = getCardInfo(rIdx, mIdx);
-                return (
-                  <div
-                    key={node.key}
-                    className="absolute"
-                    style={{ top, left, width: TEAM_DRAW_CARD_W }}
-                  >
-                    {node.tie ? (
-                      <DrawTeamTieCard tie={node.tie} eventReturnHref={eventReturnHref} />
-                    ) : (
-                      <DrawTeamPlaceholderCard node={node} eventId={eventId} subEventCode={subEventCode} eventReturnHref={eventReturnHref} />
-                    )}
-                  </div>
-                );
-              }),
-            )}
-          </div>
-        </div>
-      )}
+      {bracketGroups.map((group) => (
+        <TeamKnockoutBracketGroup
+          key={group.key}
+          label={group.label}
+          bracketRounds={group.bracketRounds}
+          eventId={eventId}
+          subEventCode={subEventCode}
+          eventReturnHref={eventReturnHref}
+        />
+      ))}
 
       {bronzeTie && (
         <section className="mt-6">
@@ -2436,7 +2464,7 @@ type PodiumDisplay = {
 function standingToPodiumEntry(standing: StageStanding | null): PodiumEntry | null {
   if (!standing) return null;
   const name = standing.teamNameZh || standing.teamName || standing.teamCode || "待补";
-  return { flagCode: standing.teamCode ?? null, lines: [name] };
+  return { flagCode: isStandardTeamCode(standing.teamCode) ? standing.teamCode : null, lines: [name] };
 }
 
 function sideToPodiumEntry(
@@ -2748,7 +2776,7 @@ function FinalStandingsView({ standings }: { standings: StageStanding[] }) {
             <div className="grid h-9 w-9 place-items-center rounded-full bg-[#2d6cf6] text-[1rem] font-black text-white">
               {standing.rank}
             </div>
-            <Flag code={standing.teamCode} className="scale-[1.35]" />
+            {isStandardTeamCode(standing.teamCode) ? <Flag code={standing.teamCode} className="scale-[1.35]" /> : null}
             <p className="text-[1.02rem] font-black text-slate-900">{standing.teamNameZh || standing.teamName}</p>
           </div>
         ))}
@@ -2794,24 +2822,43 @@ function GroupStandingsTable({
       </div>
       <div>
         {standings.map((standing) => (
-          <Link
-            key={standing.teamCode}
-            href={route(buildTeamRosterHref(eventId, subEventCode, standing.teamCode, eventReturnHref))}
-            className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_4rem] items-center gap-2 px-3 py-3 text-[0.82rem] font-bold text-slate-700 not-last:border-b not-last:border-slate-100 transition hover:bg-[#f7faff]"
-          >
-            <span className="text-[#2d6cf6]">{standing.rank}</span>
-            <span className="flex min-w-0 items-center gap-2">
-              <Flag code={standing.teamCode} className="shrink-0" />
-              <span className="truncate">{standing.teamNameZh || standing.teamName}</span>
-            </span>
-            <span className="text-center">{standing.matches ?? 0}</span>
-            <span className="text-center">{standing.wins ?? 0}</span>
-            <span className="text-center">{standing.losses ?? 0}</span>
-            <span className="text-center">{standing.tiePoints ?? 0}</span>
-            <span className="text-center text-[0.78rem]">
-              {formatQualificationMark(standing.qualificationMark, standing.rank)}
-            </span>
-          </Link>
+          isStandardTeamCode(standing.teamCode) ? (
+            <Link
+              key={standing.teamCode}
+              href={route(buildTeamRosterHref(eventId, subEventCode, standing.teamCode, eventReturnHref))}
+              className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_4rem] items-center gap-2 px-3 py-3 text-[0.82rem] font-bold text-slate-700 not-last:border-b not-last:border-slate-100 transition hover:bg-[#f7faff]"
+            >
+              <span className="text-[#2d6cf6]">{standing.rank}</span>
+              <span className="flex min-w-0 items-center gap-2">
+                <Flag code={standing.teamCode} className="shrink-0" />
+                <span className="truncate">{standing.teamNameZh || standing.teamName}</span>
+              </span>
+              <span className="text-center">{standing.matches ?? 0}</span>
+              <span className="text-center">{standing.wins ?? 0}</span>
+              <span className="text-center">{standing.losses ?? 0}</span>
+              <span className="text-center">{standing.tiePoints ?? 0}</span>
+              <span className="text-center text-[0.78rem]">
+                {formatQualificationMark(standing.qualificationMark, standing.rank)}
+              </span>
+            </Link>
+          ) : (
+            <div
+              key={standing.teamCode}
+              className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_4rem] items-center gap-2 px-3 py-3 text-[0.82rem] font-bold text-slate-700 not-last:border-b not-last:border-slate-100"
+            >
+              <span className="text-[#2d6cf6]">{standing.rank}</span>
+              <span className="flex min-w-0 items-center gap-2">
+                <span className="truncate">{standing.teamNameZh || standing.teamName}</span>
+              </span>
+              <span className="text-center">{standing.matches ?? 0}</span>
+              <span className="text-center">{standing.wins ?? 0}</span>
+              <span className="text-center">{standing.losses ?? 0}</span>
+              <span className="text-center">{standing.tiePoints ?? 0}</span>
+              <span className="text-center text-[0.78rem]">
+                {formatQualificationMark(standing.qualificationMark, standing.rank)}
+              </span>
+            </div>
+          )
         ))}
       </div>
     </div>
@@ -3118,7 +3165,12 @@ function EventDetailContent() {
         const json = (await res.json()) as EventDetailResponse;
         if (json.code === 0) {
           setData(json.data);
-          setSelectedSubEvent((current) => current ?? initialUrlSubEventRef.current ?? json.data.selectedSubEvent);
+          setSelectedSubEvent((current) => {
+            const next = current ?? initialUrlSubEventRef.current ?? json.data.selectedSubEvent;
+            return json.data.subEvents.some((subEvent) => subEvent.code === next)
+              ? next
+              : json.data.selectedSubEvent;
+          });
         }
       } catch (err) {
         console.error(err);
@@ -3130,12 +3182,11 @@ function EventDetailContent() {
     if (params.eventId) load();
   }, [params.eventId]);
 
-  // 改名：useNewLiveTabs → useScheduleTabs。
-  // 之前条件硬绑定 lifecycle='in_progress'，导致赛事完结后即使保留了 session/schedule
-  // 数据也会回退到旧 tab。现在只看数据是否存在；进行中 vs 已完结的语义差异
-  // 由 showBeijingTime 等其他标记承担。
+  // 只有进行中赛事使用“日程 / 签表 / 比赛”三段式。
+  // 历史表回填出的 scheduleDays 可能只有“日期待定”，不能作为 live UI 的判断依据。
   const useScheduleTabs =
-    (data?.sessionSchedule.length ?? 0) > 0 || (data?.scheduleDays.length ?? 0) > 0;
+    data?.event.lifecycleStatus === "in_progress" &&
+    ((data?.sessionSchedule.length ?? 0) > 0 || (data?.scheduleDays.length ?? 0) > 0);
 
   React.useEffect(() => {
     if (!data) return;
@@ -3144,7 +3195,7 @@ function EventDetailContent() {
       if (useScheduleTabs) {
         return current === "session" || current === "draw" || current === "schedule" ? current : "session";
       }
-      return current === "schedule" || current === "draw" || current === "champions" ? current : "schedule";
+      return current === "schedule" || current === "draw" ? current : "schedule";
     });
   }, [data, useScheduleTabs]);
 
@@ -3228,7 +3279,6 @@ function EventDetailContent() {
   const currentPresentationMode = currentDetail?.presentationMode ?? data.presentationMode;
   const currentSubEventMeta = subEventViews.find((subEvent) => subEvent.code === resolvedSubEvent);
   const isXT = currentSubEventMeta ? isXTSubEvent(currentSubEventMeta.code, currentSubEventMeta.nameZh || "") : false;
-  const showChampionsTab = currentSubEventMeta ? !currentSubEventMeta.disabled && supportsChampionRosterTab(currentSubEventMeta.code) : false;
   const hasKnockoutCompanion = currentBracket.length > 0 || (currentTeamKnockoutView?.rounds.length ?? 0) > 0;
   const shouldShowRoundRobin = currentRoundRobinView != null;
   const shouldShowTeamKnockout = currentTeamKnockoutView != null && (currentTeamKnockoutView.rounds.length > 0 || currentTeamKnockoutView.bronzeTie != null);
@@ -3327,7 +3377,7 @@ function EventDetailContent() {
             />
           ) : currentPresentationMode === "team_knockout_with_bronze" && currentTeamKnockoutView ? (
             <>
-              <LegacyViewTabs mode={viewMode} onChange={handleChangeViewMode} showChampionsTab={showChampionsTab} />
+              <LegacyViewTabs mode={viewMode} onChange={handleChangeViewMode} showChampionsTab={false} />
               {viewMode === "schedule" ? (
                 <TeamKnockoutScheduleView
                   view={currentTeamKnockoutView}
@@ -3348,7 +3398,7 @@ function EventDetailContent() {
             </>
           ) : (
             <>
-              <LegacyViewTabs mode={viewMode} onChange={handleChangeViewMode} showChampionsTab={showChampionsTab} />
+              <LegacyViewTabs mode={viewMode} onChange={handleChangeViewMode} showChampionsTab={false} />
               {viewMode === "schedule" ? (
                 <ScheduleView rounds={currentBracket} isXT={isXT} eventReturnHref={eventReturnHref} />
               ) : viewMode === "draw" ? (
