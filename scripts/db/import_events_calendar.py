@@ -29,6 +29,12 @@ except ImportError:
     PROJECT_ROOT = Path(__file__).parent.parent.parent
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from event_classification_overrides import override_event_type
+
 
 def load_category_mapping():
     """加载 event_category_mapping.json，返回 {(event_type, event_kind): category_id} 映射"""
@@ -306,7 +312,7 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
 
     # Multi-sport events
     elif 'Asian Games' in name or 'Asian Para Games' in name:
-        return 'Multi sport events', '--'
+        return override_event_type(name, 'Multi sport events', '--')
     elif 'Pan American Games' in name:
         return 'Continental Games', '--'
     elif 'South American Games' in name or 'South American Youth Games' in name:
@@ -390,7 +396,8 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         return 'Regional', 'Senior Championships'
 
     # Catch all
-    return 'Continental', 'Senior Championships'
+    event_type, event_kind = 'Continental', 'Senior Championships'
+    return override_event_type(name, event_type, event_kind)
 
 
 def resolve_event_v2(calendar_event: dict, event_lookup: dict, year: int):
@@ -488,10 +495,17 @@ def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
 
             # 获取 event_type, event_kind, category_id
             if matched_event:
-                event_type = matched_event["event_type"]
-                event_kind = matched_event["event_kind"]
+                event_type, event_kind = override_event_type(
+                    event_name,
+                    matched_event["event_type"],
+                    matched_event["event_kind"],
+                )
                 # events.event_category_id 已是数字外键，直接使用
-                event_category_id = matched_event["event_category_id"]
+                if (event_type, event_kind) == (matched_event["event_type"], matched_event["event_kind"]):
+                    event_category_id = matched_event["event_category_id"]
+                else:
+                    cat_id_str = CATEGORY_MAPPING.get((event_type or '', event_kind or '--'))
+                    event_category_id = cat_id_lookup.get(cat_id_str) if cat_id_str else None
                 result["matched_events"] += 1
             else:
                 # 通过名称自动分类

@@ -22,6 +22,12 @@ except ImportError:
     PROJECT_ROOT = Path(__file__).parent.parent.parent
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from event_classification_overrides import override_event_type
+
 
 def resolve_event_category(cursor, event_type: str, event_kind: str | None):
     """根据 event_type + event_kind 匹配标准赛事分类。"""
@@ -79,8 +85,11 @@ def import_events(db_path: str, events_dir: str) -> dict:
                 result['skipped'] += 1
                 continue
 
-            event_type_name = event.get('event_type', '')
-            event_kind = event.get('event_kind')
+            event_type_name, event_kind = override_event_type(
+                name,
+                event.get('event_type', ''),
+                event.get('event_kind'),
+            )
             category_info = resolve_event_category(cursor, event_type_name, event_kind)
 
             # 解析 matches 数量
