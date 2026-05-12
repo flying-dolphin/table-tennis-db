@@ -15,11 +15,12 @@ Bronze rules:
 """
 
 import argparse
+import re
 import sqlite3
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Set, Tuple
+from typing import Dict, Iterable, List, Optional, Pattern, Set, Tuple
 
 if sys.platform == "win32" and getattr(sys.stdout, "encoding", "").lower() != "utf-8":
     import io
@@ -111,40 +112,131 @@ class DrawRow:
     validation_note: Optional[str]
 
 
-def normalize_round(stage: str, round_name: str) -> Optional[str]:
-    stage_key = (stage or "").strip().lower()
-    round_key = (round_name or "").strip().lower()
+@dataclass(frozen=True)
+class DrawRule:
+    event_ids: Optional[Set[int]]
+    stage_pattern: Pattern[str]
+    round_pattern: Optional[Pattern[str]]
+    draw_round: Optional[str]
+    note: str
+
+
+ROUND_ALIASES = {
+    "final": "Final",
+    "f": "Final",
+    "semifinal": "SemiFinal",
+    "semi final": "SemiFinal",
+    "sf": "SemiFinal",
+    "quarterfinal": "QuarterFinal",
+    "quarter final": "QuarterFinal",
+    "qf": "QuarterFinal",
+    "r16": "R16",
+    "round of 16": "R16",
+    "round 16": "R16",
+    "r32": "R32",
+    "round of 32": "R32",
+    "round 32": "R32",
+    "r64": "R64",
+    "round of 64": "R64",
+    "round 64": "R64",
+    "r128": "R128",
+    "round of 128": "R128",
+    "round 128": "R128",
+    "r256": "R256",
+    "256": "R256",
+    "round of 256": "R256",
+    "round 256": "R256",
+}
+
+
+DRAW_RULES: List[DrawRule] = [
+    DrawRule(
+        event_ids={910},
+        stage_pattern=re.compile(r"^Main Draw - Stage 2 \(5-8th place\)$", re.IGNORECASE),
+        round_pattern=None,
+        draw_round=None,
+        note="exclude placement classification block",
+    ),
+    DrawRule(
+        event_ids={910},
+        stage_pattern=re.compile(r"^Main Draw - Stage 2 \(7th place\)$", re.IGNORECASE),
+        round_pattern=None,
+        draw_round=None,
+        note="exclude placement final",
+    ),
+    DrawRule(
+        event_ids={910},
+        stage_pattern=re.compile(r"^Main Draw - Stage 2 \(5th place\)$", re.IGNORECASE),
+        round_pattern=None,
+        draw_round=None,
+        note="exclude placement final",
+    ),
+    DrawRule(
+        event_ids={910},
+        stage_pattern=re.compile(r"^Main Draw - Stage 2 \(Bronze Match\)$", re.IGNORECASE),
+        round_pattern=re.compile(r"^2$", re.IGNORECASE),
+        draw_round="Bronze",
+        note="asian cup stage-2 bronze naming",
+    ),
+    DrawRule(
+        event_ids={910},
+        stage_pattern=re.compile(r"^Main Draw - Stage 2$", re.IGNORECASE),
+        round_pattern=re.compile(r"^8$", re.IGNORECASE),
+        draw_round="QuarterFinal",
+        note="asian cup stage-2 quarterfinal naming",
+    ),
+    DrawRule(
+        event_ids={910},
+        stage_pattern=re.compile(r"^Main Draw - Stage 2$", re.IGNORECASE),
+        round_pattern=re.compile(r"^4$", re.IGNORECASE),
+        draw_round="SemiFinal",
+        note="asian cup stage-2 semifinal naming",
+    ),
+    DrawRule(
+        event_ids={910},
+        stage_pattern=re.compile(r"^Main Draw - Stage 2$", re.IGNORECASE),
+        round_pattern=re.compile(r"^2$", re.IGNORECASE),
+        draw_round="Final",
+        note="asian cup stage-2 final naming",
+    ),
+    DrawRule(
+        event_ids=None,
+        stage_pattern=re.compile(r"^Main Draw$", re.IGNORECASE),
+        round_pattern=re.compile(r"^bronze$", re.IGNORECASE),
+        draw_round="Bronze",
+        note="standard explicit bronze",
+    ),
+    DrawRule(
+        event_ids=None,
+        stage_pattern=re.compile(r"^Main Draw$", re.IGNORECASE),
+        round_pattern=None,
+        draw_round="__ROUND_ALIAS__",
+        note="standard knockout aliases",
+    ),
+]
+
+
+def normalize_round(match: MatchRow) -> Optional[str]:
+    stage = (match.stage or "").strip()
+    round_name = (match.round or "").strip()
+    stage_key = stage.lower()
+    round_key = round_name.lower()
 
     if "bronze" in stage_key or "bronze" in round_key:
         return "Bronze"
 
-    aliases = {
-        "final": "Final",
-        "f": "Final",
-        "semifinal": "SemiFinal",
-        "semi final": "SemiFinal",
-        "sf": "SemiFinal",
-        "quarterfinal": "QuarterFinal",
-        "quarter final": "QuarterFinal",
-        "qf": "QuarterFinal",
-        "r16": "R16",
-        "round of 16": "R16",
-        "round 16": "R16",
-        "r32": "R32",
-        "round of 32": "R32",
-        "round 32": "R32",
-        "r64": "R64",
-        "round of 64": "R64",
-        "round 64": "R64",
-        "r128": "R128",
-        "round of 128": "R128",
-        "round 128": "R128",
-        "r256": "R256",
-        "256": "R256",
-        "round of 256": "R256",
-        "round 256": "R256",
-    }
-    return aliases.get(round_key)
+    for rule in DRAW_RULES:
+        if rule.event_ids is not None and match.event_id not in rule.event_ids:
+            continue
+        if not rule.stage_pattern.match(stage):
+            continue
+        if rule.round_pattern is not None and not rule.round_pattern.match(round_name):
+            continue
+        if rule.draw_round == "__ROUND_ALIAS__":
+            return ROUND_ALIASES.get(round_key)
+        return rule.draw_round
+
+    return None
 
 
 def pair_key(side_a_key: str, side_b_key: str) -> Tuple[str, str]:
@@ -164,8 +256,8 @@ def is_non_wtt(category_code: Optional[str]) -> bool:
     return category_code is not None and not category_code.startswith("WTT_")
 
 
-def is_main_draw_stage(stage: str) -> bool:
-    return (stage or "").strip() == "Main Draw"
+def is_main_draw_stage(match: MatchRow) -> bool:
+    return normalize_round(match) is not None
 
 
 def is_position_round_2(match: MatchRow) -> bool:
@@ -227,8 +319,8 @@ def load_matches(cursor, event_id_filter: Optional[int] = None) -> List[MatchRow
 def build_semifinal_loser_pairs(matches: Iterable[MatchRow]) -> Dict[Tuple[int, str], Set[Tuple[str, str]]]:
     losers_by_event: Dict[Tuple[int, str], List[str]] = {}
     for match in matches:
-        normalized_round = normalize_round(match.stage, match.round)
-        if not is_main_draw_stage(match.stage) or normalized_round != "SemiFinal":
+        normalized_round = normalize_round(match)
+        if not is_main_draw_stage(match) or normalized_round != "SemiFinal":
             continue
         loser_key = loser_side_key(match)
         if loser_key:
@@ -249,7 +341,7 @@ def build_semifinal_loser_pairs(matches: Iterable[MatchRow]) -> Dict[Tuple[int, 
 def build_final_counts(matches: Iterable[MatchRow]) -> Dict[Tuple[int, str], int]:
     counts: Dict[Tuple[int, str], int] = {}
     for match in matches:
-        if is_main_draw_stage(match.stage) and normalize_round(match.stage, match.round) == "Final":
+        if is_main_draw_stage(match) and normalize_round(match) == "Final":
             key = (match.event_id, match.sub_event_type_code)
             counts[key] = counts.get(key, 0) + 1
     return counts
@@ -278,12 +370,12 @@ def classify_draw_rows(matches: List[MatchRow]) -> Tuple[List[DrawRow], dict]:
         draw_rows_by_match_id[row.match_id] = row
 
     for match in matches:
-        normalized_round = normalize_round(match.stage, match.round)
+        normalized_round = normalize_round(match)
         event_key = (match.event_id, match.sub_event_type_code)
         sides_pair = pair_key(match.side_a_key, match.side_b_key)
         bronze_pairs = semifinal_loser_pairs.get(event_key, set())
 
-        if is_main_draw_stage(match.stage):
+        if is_main_draw_stage(match):
             if normalized_round is None:
                 result["unsupported_main_round"] += 1
                 continue
