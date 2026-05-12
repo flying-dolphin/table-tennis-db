@@ -82,6 +82,17 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                 name = data.get('name') or data.get('english_name')
                 name_zh = data.get('name_zh')
                 country_code = data.get('country_code')
+                country = data.get('country_zh')
+
+                existing_player = None
+                if player_id and (not country_code or not country):
+                    existing_player = cursor.execute(
+                        "SELECT country_code, country FROM players WHERE player_id = ?",
+                        (player_id,),
+                    ).fetchone()
+                    if existing_player:
+                        country_code = country_code or existing_player[0]
+                        country = country or existing_player[1]
 
                 if not player_id or not name or not country_code:
                     skipped += 1
@@ -115,7 +126,7 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                               ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     player_id, name, name_zh, slug,
-                    data.get('country_zh'), country_code,
+                    country, country_code,
                     data.get('gender'), data.get('birth_year'), data.get('age'),
                     data.get('style'), data.get('style_zh'),
                     data.get('playing_hand'), data.get('playing_hand_zh'),
