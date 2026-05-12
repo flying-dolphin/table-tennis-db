@@ -10,6 +10,7 @@
 
 - `web/db` 和 `web/scripts/sync-to-db.ts` 已退出正式链路
 - 前端和 `/api/v1` 只读取 `data/db/ittf.db`
+- `data/player_country_history.json` 是运行时辅助数据，不进 SQLite；部署时要和 `ITTF_DATA_DIR` 一起同步到服务器数据卷
 
 ---
 
