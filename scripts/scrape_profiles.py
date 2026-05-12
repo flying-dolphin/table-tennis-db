@@ -561,6 +561,7 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
             except Exception:
                 continue
 
+        profile_cell_raw_text = ""
         profile_cell_text = ""
         career_cell_text = ""
         current_year_cell_text = ""
@@ -571,18 +572,29 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
                 if cells.count() >= 5:
                     name_cell = normalize_space(cells.nth(1).inner_text())
                     if player_info.get("player_id") and player_info["player_id"] in name_cell:
-                        profile_cell_text = normalize_space(cells.nth(2).inner_text())
+                        profile_cell_raw_text = cells.nth(2).inner_text()
+                        profile_cell_text = normalize_space(profile_cell_raw_text)
                         career_cell_text = normalize_space(cells.nth(3).inner_text())
                         current_year_cell_text = normalize_space(cells.nth(4).inner_text())
                         break
+        if not profile_cell_raw_text:
+            try:
+                profile_cell = page.locator("td.vw_profiles___profile").first
+                if profile_cell.count() > 0:
+                    profile_cell_raw_text = profile_cell.inner_text()
+                    profile_cell_text = normalize_space(profile_cell_raw_text)
+            except Exception:
+                profile_cell_raw_text = ""
 
         text_content = profile_cell_text or main_content
 
-        profile_lines = [normalize_space(line) for line in profile_cell_text.splitlines() if normalize_space(line)]
+        profile_lines = [normalize_space(line) for line in profile_cell_raw_text.splitlines() if normalize_space(line)]
         if profile_lines:
             first_line = profile_lines[0]
             if re.fullmatch(r'[A-Z ]+', first_line):
-                profile_data["country_en"] = first_line.strip()
+                country_en = first_line.strip()
+                profile_data["country"] = country_en
+                profile_data["country_en"] = country_en
 
         gender_match = re.search(r'Gender:\s*(\w+)', text_content, re.IGNORECASE)
         if gender_match:
