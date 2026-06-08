@@ -430,10 +430,10 @@ function TitleMetric({
   highlight?: boolean;
 }) {
   return (
-    <div className="flex min-w-[2.5rem] flex-col items-center">
+    <div className="flex flex-col items-center">
       <p
         className={cn(
-          "font-numeric text-3xl font-black leading-none tabular-nums",
+          "font-numeric text-3xl px-2 font-black leading-none tabular-nums",
           dark ? "text-white" : "text-[#1d1a12]",
           highlight && "text-[#ffd36a]",
         )}

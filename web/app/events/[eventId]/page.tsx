@@ -30,6 +30,7 @@ import {
   type TeamBracketRound as DisplayTeamBracketRound,
 } from "@/lib/team-knockout-bracket";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
+import { shouldUseScheduleTabs } from "@/lib/event-view-mode";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -3182,11 +3183,13 @@ function EventDetailContent() {
     if (params.eventId) load();
   }, [params.eventId]);
 
-  // 只有进行中赛事使用“日程 / 签表 / 比赛”三段式。
-  // 历史表回填出的 scheduleDays 可能只有“日期待定”，不能作为 live UI 的判断依据。
-  const useScheduleTabs =
-    data?.event.lifecycleStatus === "in_progress" &&
-    ((data?.sessionSchedule.length ?? 0) > 0 || (data?.scheduleDays.length ?? 0) > 0);
+  // Promote 后已完结赛事仍保留 current_event_* 展示数据；只有历史低保真“日期待定”
+  // scheduleDays 不应触发“日程 / 签表 / 比赛”三段式。
+  const useScheduleTabs = shouldUseScheduleTabs({
+    lifecycleStatus: data?.event.lifecycleStatus ?? null,
+    sessionScheduleCount: data?.sessionSchedule.length ?? 0,
+    scheduleDays: data?.scheduleDays ?? [],
+  });
 
   React.useEffect(() => {
     if (!data) return;
