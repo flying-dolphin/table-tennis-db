@@ -880,6 +880,118 @@ docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env up -d
 
 ---
 
+### 11.5 Umami 迁移到新服务器
+
+把 Umami 从老服务器 B 迁到一台新服务器，目标是**主站零改动、历史数据零丢失**。
+
+#### 必须保住的三样东西
+
+| 要保留的 | 为什么 | 在哪里 |
+|---|---|---|
+| PostgreSQL 全量数据 | 历史统计、`website_id`、登录账号都在库里 | 老服务器 `umami-db` 卷 |
+| `UMAMI_APP_SECRET` | 访客哈希盐 + 登录 token 签名密钥；变了会导致迁移当天回访被当新访客、所有人需重新登录 | 老服务器 `/opt/umami/.env` |
+| 域名 `analytics.your-domain.com` | `NEXT_PUBLIC_UMAMI_URL` / `NEXT_PUBLIC_UMAMI_WEBSITE_ID` 是 **build-time 内联**进 web 镜像的 | `deploy/web/.env` / 已发版镜像 |
+
+**核心结论：新服务器沿用同一域名 + 同一份数据库，`website_id` 不变（存在库里），web 镜像完全不用重新 build。** 换域名才需要重 build，见本节末尾。
+
+#### 步骤（域名不变，推荐）
+
+**0. 提前降低 DNS TTL（提前 1 天）**
+把 `analytics.your-domain.com` 的 TTL 调到 60s，切换生效快、回切也快。
+
+**1. 新服务器装环境**
+```bash
+ssh user@serverB-new
+sudo apt update
+sudo apt install -y docker.io docker-compose-plugin nginx certbot python3-certbot-nginx
+sudo systemctl enable --now docker
+```
+
+**2. 老服务器取密钥 + 做一致性备份**
+```bash
+ssh user@serverB-old
+cd /opt/umami
+grep -E 'UMAMI_APP_SECRET|UMAMI_DB_PASSWORD' .env          # 记下这两个值
+docker exec umami-db pg_dump -U umami -Fc umami > /tmp/umami-final.dump
+```
+用 `-Fc`（custom format），恢复更快更稳。
+
+**3. 备份 + 部署文件送到新服务器**
+```bash
+scp /tmp/umami-final.dump user@serverB-new:/tmp/
+scp -r deploy/umami user@serverB-new:/opt/                 # 仓库里的 deploy/umami（开发机执行）
+```
+
+**4. 新服务器写 `.env`，复用老的两个密钥**
+```bash
+ssh user@serverB-new
+cd /opt/umami
+cat > .env <<'EOF'
+UMAMI_DB_PASSWORD=<老服务器同一个值>
+UMAMI_APP_SECRET=<老服务器同一个值>
+EOF
+chmod 600 .env
+```
+⚠️ 两个值必须与老服务器**完全一致**：`APP_SECRET` 不一致 → 统计盐变、要重登；`DB_PASSWORD` 不一致 → 恢复后的库角色密码与 `DATABASE_URL` 对不上，umami 连不上库。
+
+**5. 先只起数据库，恢复数据，再起 umami**
+顺序关键 —— 必须在 umami 跑 prisma 迁移之前把数据灌进去，否则与空库自动建的 schema 打架。
+```bash
+cd /opt/umami
+docker compose up -d umami-db
+docker compose exec umami-db pg_isready -U umami -d umami           # 等到 accepting connections
+
+docker cp /tmp/umami-final.dump umami-db:/tmp/umami-final.dump
+docker compose exec umami-db pg_restore -U umami -d umami --clean --if-exists /tmp/umami-final.dump
+
+docker compose up -d umami                                          # 见到 _prisma_migrations 已存在，不重建表
+docker compose logs -f umami
+```
+
+**6. nginx + 证书**
+```bash
+sudo cp /opt/umami/nginx.conf.example /etc/nginx/conf.d/umami.conf
+sudo sed -i 's/analytics.example.com/analytics.your-domain.com/g' /etc/nginx/conf.d/umami.conf
+sudo nginx -t && sudo systemctl reload nginx
+# 证书在第 7 步切 DNS 后再签：sudo certbot --nginx -d analytics.your-domain.com
+# 若 analytics 走 Cloudflare 橙云：用 Origin Certificate，或先灰云直连签 LE 再转橙云
+```
+
+**7. 切流量（最小数据缺口）**
+做一次收尾增量，避免第 2 步之后老库又收的数据丢失：
+```bash
+ssh user@serverB-old 'cd /opt/umami && docker compose stop umami'   # 停止再写库（db 仍在）
+# 重做第 2.2 / 3 / 5 步的 dump+restore，--clean --if-exists 可安全重灌
+# 改 DNS：analytics.your-domain.com A 记录 → 新服务器 IP
+```
+
+**8. 验证**
+```bash
+curl -I https://analytics.your-domain.com/script.js                 # 期望 200
+```
+浏览器：主站切路由可见 `POST /api/send` 200；Umami 后台 **Settings → Websites** 里 Website ID 与老的一致；Realtime 有访问；历史数据条数对得上。
+
+**9. 下线老服务器**
+新站稳定跑 1～2 天（覆盖 DNS 缓存过期）后：
+```bash
+ssh user@serverB-old
+cd /opt/umami
+docker exec umami-db pg_dump -U umami -Fc umami > /tmp/umami-archive-$(date +%F).dump   # 归档
+docker compose down                  # 保留卷；确认无误后再 down -v 删卷
+```
+别忘了在新服务器重建第 11.3 节的每日 PG 备份 cron。
+
+#### 如果顺便换域名
+
+域名变了，`NEXT_PUBLIC_UMAMI_URL` 编进了镜像，必须重 build 重发版：
+
+1. 上面步骤照做，nginx/证书用新域名；
+2. 改 `deploy/web/.env` 的 `NEXT_PUBLIC_UMAMI_URL`（`NEXT_PUBLIC_UMAMI_WEBSITE_ID` **不用改**，website_id 跟着库走没变）；
+3. `./deploy/web/build-and-push.sh` 重 build → 服务器 A 改 `ITTF_WEB_IMAGE` → `pull + up -d`；
+4. `web/next.config.ts` 的 `buildCsp()` 会自动把新域名加进 `script-src` / `connect-src` 白名单，无需手改 CSP。
+
+---
+
 ## 十二、常见疑问（FAQ）
 
 **Q: 浏览器跨域请求服务器 B 的 `/api/send` 会被 CORS 拦吗？**
