@@ -464,32 +464,29 @@ def _parse_breakdown_table(drow: Any) -> list[dict[str, Any]]:
 
 def extract_ranking_meta(page: Any) -> tuple[str, str]:
     """Extract ranking week and date from the current page."""
-    ranking_week = ""
-    ranking_date = ""
-
     try:
-        page_html = page.content()
+        try:
+            page_text = page.locator("body").inner_text(timeout=5000)
+        except Exception:
+            page_text = page.content()
 
-        week_match = re.search(r'"fab_rank_ws___Week"\s*:\s*(\d+)', page_html)
-        if week_match:
-            week_num = week_match.group(1)
-            ranking_week = f"Week {week_num}, {datetime.now().year}"
-
-        date_match = re.search(
-            r"(20\d{2}[-/.]\d{1,2}[-/.]\d{1,2}|\d{1,2}\s+\w+\s+20\d{2}|\w+\s+\d{1,2},?\s+20\d{2})",
-            page_html,
+        meta_match = re.search(
+            r"\b(20\d{2})\s+Week\s*#?\s*(\d{1,2})\s*[-–—]\s*"
+            r"([A-Za-z]+)\s+(\d{1,2})(?:st|nd|rd|th)?\b",
+            _normalize_space(page_text),
+            flags=re.IGNORECASE,
         )
-        if date_match:
-            ranking_date = date_match.group(1).strip()
+        if not meta_match:
+            raise ValueError("ranking metadata not found in page content")
+
+        year, week_num, month_name, day = meta_match.groups()
+        parsed_date = datetime.strptime(
+            f"{year}-{month_name}-{day}",
+            "%Y-%B-%d",
+        )
+        return f"Week {int(week_num)}, {year}", parsed_date.strftime("%Y-%m-%d")
     except Exception as exc:
-        logger.warning("Failed to extract ranking meta: %s", exc)
-
-    if not ranking_week:
-        ranking_week = f"Week {datetime.now().isocalendar()[1]}, {datetime.now().year}"
-    if not ranking_date:
-        ranking_date = datetime.now().strftime("%Y-%m-%d")
-
-    return ranking_week, ranking_date
+        raise ValueError(f"Failed to extract ranking metadata: {exc}") from exc
 
 
 # ---------------------------------------------------------------------------
@@ -579,6 +576,9 @@ def run(args: argparse.Namespace) -> int:
             logger.error("Risk control triggered: %s", exc)
             close_browser_page(via_cdp, browser, page)
             return 4
+        except ValueError as exc:
+            logger.error("%s", exc)
+            return 6
         finally:
             close_browser_page(via_cdp, browser, page)
 
