@@ -310,24 +310,6 @@ export function getPlayerAggregateStats(playerIds: number[]) {
 
     if (eventKey && row.stage === 'Main Draw' && row.round === 'Final' && isSevenEvent) {
       stats.sevenFinalEventKeys.add(eventKey);
-      if (didWin) {
-        stats.allSevenTitleKeys.add(eventKey);
-        if (sortOrder != null && sortOrder <= 5) {
-          stats.allThreeTitleKeys.add(eventKey);
-        }
-        if (isIndividualTitle(row.subEventTypeCode)) {
-          stats.eventSevenTitleKeys.add(eventKey);
-          if (sortOrder != null && sortOrder <= 5) {
-            stats.eventThreeTitleKeys.add(eventKey);
-          }
-        }
-        if (row.subEventTypeCode === 'WS') {
-          stats.singleSevenTitleKeys.add(eventKey);
-          if (sortOrder != null && sortOrder <= 5) {
-            stats.singleThreeTitleKeys.add(eventKey);
-          }
-        }
-      }
     }
 
     if (eventKey && isSevenEvent && isChampion) {
