@@ -430,10 +430,10 @@ function TitleMetric({
   highlight?: boolean;
 }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex shrink-0 flex-col items-center">
       <p
         className={cn(
-          "font-numeric text-3xl px-2 font-black leading-none tabular-nums",
+          "font-numeric text-3xl font-black leading-none tabular-nums",
           dark ? "text-white" : "text-[#1d1a12]",
           highlight && "text-[#ffd36a]",
         )}
@@ -519,28 +519,28 @@ function PlayerStatsBento({ player, stats }: { player: Player; stats: PlayerStat
 
         <div>
           <SectionHeader title="世界冠军" />
-          <div className="grid grid-cols-2 gap-3">
-            <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-gold to-yellow-200 p-1 text-text-primary shadow-xl flex items-center justify-center">
-              <div className="flex flex-col items-start ">
-                <p className="text-caption font-black tracking-[0.02em] mb-2 opacity-90">三大赛</p>
-                <div className="flex w-full items-center gap-3">
+          <div className="grid grid-cols-2 gap-2">
+            <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-gold to-yellow-200 px-2 py-4 text-text-primary shadow-xl flex items-center justify-center">
+              <div className="flex w-full flex-col items-start">
+                <p className="text-caption font-black tracking-[0.02em] mb-2 opacity-90 px-2">三大赛</p>
+                <div className="flex w-full items-center justify-between px-3">
                   <TitleMetric value={stats.allThreeTitles} label="总数" />
-                  <div className="w-[1px] h-7 bg-text-primary/15"></div>
+                  <div className="h-7 w-px shrink-0 bg-text-primary/15"></div>
                   <TitleMetric value={stats.eventThreeTitles} label="单项" />
-                  <div className="w-[1px] h-7 bg-text-primary/15"></div>
+                  <div className="h-7 w-px shrink-0 bg-text-primary/15"></div>
                   <TitleMetric value={stats.singleThreeTitles} label="单打" />
                 </div>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-brand-dark via-brand-strong to-brand-deep p-4 text-white shadow-xl flex items-center justify-center min-h-[6.5rem]">
-              <div className="flex flex-col items-start w-fit">
-                <p className="text-caption font-black tracking-[0.02em] text-white/80 mb-2">七大赛</p>
-                <div className="flex items-center gap-3">
+            <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-brand-dark via-brand-strong to-brand-deep px-2 py-4 text-white shadow-xl flex items-center justify-center">
+              <div className="flex w-full flex-col items-start">
+                <p className="text-caption font-black tracking-[0.02em] text-white/80 mb-2 px-2">七大赛</p>
+                <div className="flex w-full items-center justify-between px-3">
                   <TitleMetric value={stats.allSevenTitles} label="总数" dark={true} highlight={true} />
-                  <div className="w-[1px] h-7 bg-white/15"></div>
+                  <div className="h-7 w-px shrink-0 bg-white/15"></div>
                   <TitleMetric value={stats.eventSevenTitles} label="单项" dark={true} />
-                  <div className="w-[1px] h-7 bg-white/15"></div>
+                  <div className="h-7 w-px shrink-0 bg-white/15"></div>
                   <TitleMetric value={stats.singleSevenTitles} label="单打" dark={true} />
                 </div>
               </div>
