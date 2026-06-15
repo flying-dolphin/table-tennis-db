@@ -293,6 +293,7 @@ def main() -> int:
 
     conn = sqlite3.connect(str(args.db_path.resolve()))
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON")
     try:
         cursor = conn.cursor()
         conn.execute("BEGIN")

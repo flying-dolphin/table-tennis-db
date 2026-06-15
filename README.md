@@ -61,28 +61,9 @@ python scripts/scrape_matches.py --players-file data/women_singles_top50.json
 python scripts/ittf_rankings_updater.py
 ```
 
-### 5. 抓取团体赛官方积分表
+### 5. 更新赛事数据
 
-独立无头分析抓取：
-
-```bash
-python scripts/runtime/scrape_wtt_pool_standings.py --event-id 3216 --stage-label "Groups" --verbose
-```
-
-导入到 SQLite 当前积分表：
-
-```bash
-python scripts/runtime/import_current_event_group_standings.py --input-dir data/live_event_data/3216 --event-id 3216
-```
-
-如果需要走完整的当前赛事刷新链路，使用 runtime 总入口：
-
-```bash
-python scripts/runtime/scrape_current_event.py --event-id 3216
-python scripts/runtime/import_current_event.py --event-id 3216
-```
-
-导入总入口默认写入 session 赛程、小组积分、淘汰赛签表、live 比赛和 completed 比赛。`current_event_team_ties` 由 live/completed 导入器随 `current_event_matches` 一起维护。
+赛事数据根据接入时间和年份选择不同链路。不要直接根据单个脚本名称推断操作顺序，统一按 [赛事数据日常更新流程](docs/event-data-update-workflow.md) 执行。
 
 ## 依赖
 
@@ -94,6 +75,7 @@ playwright install chromium
 ## 文档
 
 - [数据库设计](docs/design/database.md) — 表结构、关系、数据来源
+- [赛事数据日常更新流程](docs/event-data-update-workflow.md) — 新赛事、赛后补抓、历史补录、cron 与 promote
 - [数据库使用与维护](docs/DATABASE_MAINTENANCE.md) — 部署、查询、更新、备份
 - [脚本总览](docs/scripts_overview.md) — `scripts/` 与 `scripts/runtime/` 的入口和用途
 - [部署与运维](docs/DEPLOY_ANALYTICS.md) — 生产部署、current-event cron、Umami、运维手册

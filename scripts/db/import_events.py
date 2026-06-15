@@ -101,7 +101,7 @@ def import_events(db_path: str, events_dir: str) -> dict:
 
             try:
                 cursor.execute("""
-                    INSERT OR REPLACE INTO events (
+                    INSERT INTO events (
                         event_id, year, name, name_zh,
                         event_type_name,
                         event_kind, event_kind_zh,
@@ -109,6 +109,22 @@ def import_events(db_path: str, events_dir: str) -> dict:
                         total_matches, start_date, end_date, location,
                         href, scraped_at
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(event_id) DO UPDATE SET
+                        year = excluded.year,
+                        name = excluded.name,
+                        name_zh = excluded.name_zh,
+                        event_type_name = excluded.event_type_name,
+                        event_kind = excluded.event_kind,
+                        event_kind_zh = excluded.event_kind_zh,
+                        event_category_id = excluded.event_category_id,
+                        category_code = excluded.category_code,
+                        category_name_zh = excluded.category_name_zh,
+                        total_matches = excluded.total_matches,
+                        start_date = excluded.start_date,
+                        end_date = excluded.end_date,
+                        location = excluded.location,
+                        href = excluded.href,
+                        scraped_at = excluded.scraped_at
                 """, (
                     event_id,
                     int(event.get('year', 0)),

@@ -79,6 +79,83 @@ class EventClassificationOverrideTests(unittest.TestCase):
 
             self.assertEqual(("Continental Games", "CONTINENTAL_GAMES"), row)
 
+    def test_event_import_preserves_runtime_fields_on_update(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            db_path = temp_dir / "ittf.db"
+            events_dir = temp_dir / "events"
+            events_dir.mkdir()
+            self._init_events_schema(db_path)
+            self._seed_event_mappings(db_path)
+
+            conn = sqlite3.connect(db_path)
+            try:
+                conn.execute(
+                    """
+                    INSERT INTO events (
+                        event_id, year, name, event_type_name, event_kind,
+                        lifecycle_status, time_zone, last_synced_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        9002,
+                        2026,
+                        "Old Event Name",
+                        "Multi sport events",
+                        "--",
+                        "completed",
+                        "Asia/Shanghai",
+                        "2026-06-15T00:00:00Z",
+                    ),
+                )
+                conn.commit()
+            finally:
+                conn.close()
+
+            payload = {
+                "scraped_at": "2026-06-16T00:00:00Z",
+                "events": [
+                    {
+                        "event_id": 9002,
+                        "year": 2026,
+                        "name": "Updated Event Name",
+                        "event_type": "Multi sport events",
+                        "event_kind": "--",
+                        "matches": "42",
+                    }
+                ],
+            }
+            (events_dir / "events.json").write_text(json.dumps(payload), encoding="utf-8")
+
+            with redirect_stdout(io.StringIO()):
+                IMPORT_EVENTS.import_events(str(db_path), str(events_dir))
+
+            conn = sqlite3.connect(db_path)
+            try:
+                row = conn.execute(
+                    """
+                    SELECT name, total_matches, scraped_at,
+                           lifecycle_status, time_zone, last_synced_at
+                    FROM events
+                    WHERE event_id = ?
+                    """,
+                    (9002,),
+                ).fetchone()
+            finally:
+                conn.close()
+
+            self.assertEqual(
+                (
+                    "Updated Event Name",
+                    42,
+                    "2026-06-16T00:00:00Z",
+                    "completed",
+                    "Asia/Shanghai",
+                    "2026-06-15T00:00:00Z",
+                ),
+                row,
+            )
+
     def _init_events_schema(self, db_path: Path) -> None:
         conn = sqlite3.connect(db_path)
         try:
@@ -115,7 +192,10 @@ class EventClassificationOverrideTests(unittest.TestCase):
                     start_date TEXT,
                     end_date TEXT,
                     location TEXT,
+                    time_zone TEXT,
                     href TEXT,
+                    lifecycle_status TEXT NOT NULL DEFAULT 'upcoming',
+                    last_synced_at TEXT,
                     scraped_at TEXT
                 );
                 """

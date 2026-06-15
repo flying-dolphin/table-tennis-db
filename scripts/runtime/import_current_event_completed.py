@@ -503,6 +503,30 @@ def replace_match_children(
 def reset_tie_matches(cursor: sqlite3.Cursor, current_team_tie_id: int) -> None:
     cursor.execute(
         """
+        DELETE FROM current_event_match_side_players
+        WHERE current_match_side_id IN (
+            SELECT s.current_match_side_id
+            FROM current_event_match_sides s
+            JOIN current_event_matches m
+              ON m.current_match_id = s.current_match_id
+            WHERE m.current_team_tie_id = ?
+        )
+        """,
+        (current_team_tie_id,),
+    )
+    cursor.execute(
+        """
+        DELETE FROM current_event_match_sides
+        WHERE current_match_id IN (
+            SELECT current_match_id
+            FROM current_event_matches
+            WHERE current_team_tie_id = ?
+        )
+        """,
+        (current_team_tie_id,),
+    )
+    cursor.execute(
+        """
         DELETE FROM current_event_matches
         WHERE current_team_tie_id = ?
         """,
@@ -631,6 +655,7 @@ def main() -> int:
 
     conn = sqlite3.connect(str(args.db_path.resolve()))
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON")
     try:
         cursor = conn.cursor()
         event_year = load_event_year(cursor, args.event_id)

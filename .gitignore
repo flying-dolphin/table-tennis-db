@@ -16,6 +16,7 @@ scripts/.*
 scripts/logs
 tmp/
 .env
+.venv
 .vscode
 .claude
 .agents

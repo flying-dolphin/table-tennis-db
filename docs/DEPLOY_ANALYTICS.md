@@ -524,16 +524,7 @@ docker compose -f deploy/web/docker-compose.yml logs --tail=80 web
 
 ### 8.2 服务器 A 自动赛事刷新
 
-数据流：
-
-```
-服务器 A：
-  cron
-    └─► runtime/python/scrape_current_event.py --event-id <event_id> --sources ...
-    └─► runtime/python/import_current_event.py --event-id <event_id> --sources ...
-          ├─ 写入 /opt/ittf-data/live_event_data/{event_id}/
-          └─ 更新 /opt/ittf-data/db/ittf.db 的 current_event_* 表
-```
+赛事接入、赛中刷新、2026 年及以后赛事的赛后补抓、cron 安装时机和完赛 promote，统一见 [赛事数据日常更新流程](event-data-update-workflow.md)。本节只说明服务器运行环境和最小部署包。
 
 最小部署包：
 
@@ -569,6 +560,7 @@ docker compose -f deploy/web/docker-compose.yml logs --tail=80 web
 - 数据库、人工维护赛程和抓取产物单独放在 `ITTF_DATA_DIR` 指向的数据目录
 - 赛事当地时区必须维护在 `events.time_zone`，值必须是 IANA 时区名，例如 `Europe/London`
 - `current_event_session_schedule` 必须已有当前赛事日程，生成 cron 前先导入 `/opt/ittf-data/event_schedule/{event_id}.json`
+- 当前最小部署包不包含 promote 脚本及其依赖，不能把生成的自动 promote 任务视为已可靠部署；具体缺口和临时操作要求见赛事流程文档
 
 Windows 开发机可直接执行的上传命令：
 
@@ -605,53 +597,22 @@ agent-browser --version
 python --version
 ```
 
-从零到可跑的顺序建议：
-
-1. Windows 上传最小运行包
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\deploy\server\upload_runtime.ps1 -ServerHost deploy@serverA
-```
-
-2. 服务器安装运行时并建目录
-
-```bash
-ssh deploy@serverA
-sudo apt install -y sqlite3 nodejs npm
-mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/live_event_data /opt/ittf-data/event_schedule /opt/ittf-logs
-chmod +x /opt/ittf-ops/event_refresh.sh
-pyenv activate venv
-pip install patchright playwright beautifulsoup4 brotli python-dotenv requests pypdf
-npm i -g agent-browser
-python -m patchright install chromium
-agent-browser --version
-python --version
-```
-
-3. 确保线上数据库已经放到：
+线上数据库放在：
 
 ```text
 /opt/ittf-data/db/ittf.db
 ```
 
-4. 手动跑一次：
+部署后可用单个赛事验证运行环境：
 
 ```bash
 ITTF_DATA_DIR=/opt/ittf-data \
 PYENV_ENV_NAME=venv \
+EVENT_ID=<event_id> \
 /opt/ittf-ops/event_refresh.sh
 ```
 
-只验证单个赛事时可加 `EVENT_ID`：
-
-```bash
-ITTF_DATA_DIR=/opt/ittf-data \
-PYENV_ENV_NAME=venv \
-EVENT_ID=3216 \
-/opt/ittf-ops/event_refresh.sh
-```
-
-5. 确认：
+确认：
 
 - `/opt/ittf-data/live_event_data/` 已生成最新赛事目录
 - `/opt/ittf-data/db/backups/` 已生成备份
@@ -659,36 +620,7 @@ EVENT_ID=3216 \
 - `pyenv activate venv && python --version` 至少为 `Python 3.8`
 - `agent-browser --version` 能正常返回版本号
 
-6. 安装当前赛事动态高频 cron：
-
-```bash
-ITTF_DATA_DIR=/opt/ittf-data \
-PYENV_ENV_NAME=venv \
-/opt/ittf-ops/install_current_event_crontab.sh 3216
-```
-
-安装脚本会调用 `generate_current_event_crontab.py`，先删除 crontab 中唯一的 `# ITTF current-event refresh begin/end` 托管区块，再写入新赛事任务；后续换赛事时重复执行同一命令即可，不会累积历史赛事 cron。线上当前只使用这套动态任务，不再安装 `event_refresh.sh` 的保底 cron。
-
-当前生成频率：
-
-- `schedule`：按赛事当地时间每天第 2 个 session 开始后 7 小时执行 1 次；若当天只有 1 个 session，则回退到当天最后一个 session 开始后 7 小时
-- `standings`：Main Draw 开始前，每天第 2 个 session 开始后 3 小时执行 1 次
-- `brackets`：Main Draw 前一天第 2 个 session 开始后 3 小时执行 1 次；Main Draw 开始后每天每个 session 开始后 3 小时执行 1 次
-- `live`：每个 session 开始后每 30 分钟执行 1 次，共 10 次
-- `completed`：每个 session 开始后每 2 小时执行 1 次，共 3 次
-
-生成器会输出 `CRON_TZ=Asia/Shanghai`，并为每条 cron 加 `date +%Y-%m-%d` 守卫。
-
-每条高频 cron 任务的 stdout+stderr 默认追加写入 `${ITTF_DATA_DIR}/logs/event_<id>_YYYYMMDD.log`，日志目录不存在时自动创建。如需修改日志路径，通过 `LOG_DIR` 环境变量覆盖：
-
-```bash
-ITTF_DATA_DIR=/opt/ittf-data \
-LOG_DIR=/var/log/ittf \
-PYENV_ENV_NAME=venv \
-/opt/ittf-ops/install_current_event_crontab.sh 3216
-```
-
-如果当前没有未来任务，安装脚本会只删除旧托管区块，不写入新任务。
+`install_current_event_crontab.sh` 会替换唯一的 `# ITTF current-event refresh begin/end` 托管区块。具体安装命令、更新频率、日志检查和完赛后的操作以赛事流程文档为准。
 
 ### 8.3 Windows 开发机手动 rankings 更新
 

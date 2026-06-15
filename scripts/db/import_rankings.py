@@ -155,10 +155,14 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
         'career_best_updates': 0,
         'replaced_snapshots': 0,
         'unmatched_players': [],
+        'players_without_name_zh': [],
+        'duplicate_players': [],
+        'total_in_file': 0,
         'errors': [],
     }
 
     conn = sqlite3.connect(str(db_path))
+    conn.execute("PRAGMA foreign_keys = ON")
     cursor = conn.cursor()
 
     player_index = build_player_index(cursor)
@@ -209,14 +213,26 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
 
         # 2. 插入 ranking_entries 和 points_breakdown
         rankings = data.get('rankings', [])
+        result['total_in_file'] = len(rankings)
         entries_count = 0
         bd_count = 0
         best_updates_count = 0
         unmatched_in_file = set()
+        seen_player_ids = set()
+        duplicate_in_file = set()
 
         for r in rankings:
             name = r.get('name', '')
             country_code = r.get('country_code', '')
+            name_zh = r.get('name_zh')
+
+            # 检测无 name_zh 的条目
+            if not name_zh:
+                result['players_without_name_zh'].append({
+                    'rank': r.get('rank'),
+                    'name': name,
+                    'country_code': country_code,
+                })
 
             # 匹配 player_id
             player_id = lookup_player(player_index, name, country_code)
@@ -227,8 +243,22 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
                         'name': name,
                         'country_code': country_code,
                         'rank': r.get('rank'),
+                        'name_zh': name_zh,
                     })
                 continue  # 跳过无法匹配的球员
+
+            # 检测重复 player_id
+            if player_id in seen_player_ids:
+                if player_id not in duplicate_in_file:
+                    duplicate_in_file.add(player_id)
+                result['duplicate_players'].append({
+                    'rank': r.get('rank'),
+                    'name': name,
+                    'country_code': country_code,
+                    'name_zh': name_zh,
+                    'player_id': player_id,
+                })
+            seen_player_ids.add(player_id)
 
             rank = r.get('rank')
             points = r.get('points', 0)
@@ -282,11 +312,14 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
         result['breakdowns'] += bd_count
         result['career_best_updates'] += best_updates_count
 
-        print(f"  Entries: {entries_count}/{len(rankings)}")
+        unique_count = len(seen_player_ids)
+        print(f"  Entries: {entries_count}/{len(rankings)} (unique: {unique_count})")
         print(f"  Breakdowns: {bd_count}")
         print(f"  Career best updates: {best_updates_count}")
         if unmatched_in_file:
             print(f"  Unmatched players: {len(unmatched_in_file)}")
+        if duplicate_in_file:
+            print(f"  Duplicate player_ids: {len(duplicate_in_file)}")
 
     conn.commit()
     conn.close()
@@ -356,10 +389,55 @@ if __name__ == '__main__':
     print(f"  Career best updates: {result['career_best_updates']}")
     print(f"  Replaced snapshots: {result['replaced_snapshots']}")
 
+    print(f"\n{'='*70}")
+    print("DATA INTEGRITY REPORT — 需人工修补的问题")
+    print(f"{'='*70}")
+    total_issues = 0
+
+    # 1. 无 name_zh 的条目
+    if result['players_without_name_zh']:
+        print(f"\n  1. 缺少中文名 (name_zh) 的条目：{len(result['players_without_name_zh'])} 条")
+        print(f"     {'Rank':>5}  {'Name':30s} {'Country'}")
+        print(f"     {'-'*48}")
+        for p in result['players_without_name_zh']:
+            print(f"     #{p['rank']:>4d}  {p['name']:30s} {p['country_code']}")
+            total_issues += 1
+        print(f"     → 需要补充中文名翻译后重新导入")
+
+    # 2. 不在 players 表的条目
     if result['unmatched_players']:
-        print(f"\n  Unmatched players ({len(result['unmatched_players'])}):")
-        for p in result['unmatched_players'][:20]:
-            print(f"    #{p['rank']:3d} {p['name']:30s} ({p['country_code']})")
+        print(f"\n  2. 不在 players 表中的条目（无法匹配）：{len(result['unmatched_players'])} 条")
+        print(f"     {'Rank':>5}  {'Name':30s} {'Country'} {'name_zh'}")
+        print(f"     {'-'*60}")
+        for p in result['unmatched_players']:
+            zh = p.get('name_zh') or '(无)'
+            print(f"     #{p['rank']:>4d}  {p['name']:30s} {p['country_code']:7s} {zh}")
+            total_issues += 1
+        print(f"     → 需要先将这些选手导入 players 表，再重新导入排名")
+
+    # 3. 重复的 player_id
+    if result['duplicate_players']:
+        print(f"\n  3. 重复 player_id 的条目（同一选手多次出现）：{len(result['duplicate_players'])} 条")
+        print(f"     {'Rank':>5}  {'Name':30s} {'Country'} {'player_id':>10s} {'name_zh'}")
+        print(f"     {'-'*65}")
+        for p in result['duplicate_players']:
+            zh = p.get('name_zh') or '(无)'
+            print(f"     #{p['rank']:>4d}  {p['name']:30s} {p['country_code']:7s} {p['player_id']:>10d} {zh}")
+            total_issues += 1
+        print(f"     → 需要确认是否应该去重，或修正排名数据后重新导入")
+
+    # 汇总
+    need_reimport = bool(result['unmatched_players'] or result['duplicate_players'])
+    print(f"\n{'='*70}")
+    print(f"  汇总: JSON 中共 {result['total_in_file']} 条排名")
+    print(f"        实际插入 {result['entries']} 条（含重复覆盖）")
+    print(f"        待修补问题 {total_issues} 条")
+    if need_reimport:
+        print(f"  [需要重新导入] 请修复上述问题后重新运行导入：--file <文件名>")
+        print(f"     导入会自动清理旧 snapshot 并重新插入")
+    else:
+        print(f"  ✓  无需修补，数据完整")
+    print(f"{'='*70}")
 
     if result['errors']:
         print(f"\n  Errors ({len(result['errors'])}):")

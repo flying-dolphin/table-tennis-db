@@ -134,7 +134,7 @@
 提取字段：event_id、year、name、event_type、event_kind、matches 数量、start_date、end_date。
 支持分页翻页，基于 from_date 截止日期停止。
 输入：--from-date 参数（默认 2024-01-01）
-输出：`data/events_list/events_from_{date}.json`
+输出目录由 `--output-dir` 指定；历史赛事流程使用 `data/events_list/orig/`
 
 ### translate_events.py
 翻译赛事列表中的字段（LLM 翻译，词典兜底）。
@@ -176,25 +176,15 @@
 
 ---
 
-## 6. 即将开赛 / 进行中赛事
+## 6. 当前赛事运行态
 
-当前这条链路用于补齐 upcoming / in-progress 赛事，不依赖历史 `matches` / `event_draw_matches` 完整落库后才能展示。
+本节只说明脚本职责。新增赛事、赛后补抓、cron 和 promote 的操作顺序统一见 [赛事数据日常更新流程](event-data-update-workflow.md)。
 
-### db/backfill_events_calendar_event_id.py
+### runtime/backfill_events_calendar_event_id.py
 从 `events_calendar.href` 提取 `event_id`，对 `events` 表里缺失的赛事补 INSERT。
 主要用途：
 - 建立 upcoming 赛事的基础 `events` 记录
 - 初始化 `lifecycle_status='upcoming'`
-
-### db/import_session_schedule.py
-导入人工维护的赛事按日日程。
-输入：`data/event_schedule/{event_id}.json`
-输出：`event_session_schedule`
-
-主要职责：
-- 解析中文日期、时间、项目、阶段、轮次
-- 生成 session 级纲要日程
-- 将 `events.lifecycle_status` 从 `upcoming` 推进到 `draw_published`
 
 ### runtime/scrape_current_event.py
 当前 WTT 团体赛事抓取总入口。
@@ -206,7 +196,7 @@
 - `MTEAM_standings.json` / `WTEAM_standings.json`：小组积分
 - `GetBrackets_{sub_event}.json`：淘汰赛签表
 - `GetLiveResult.json`：进行中比赛 DOM 结果
-- `completed_matches.json`：Completed 页面上的已完结 team tie 和 individual rubber 明细
+- `GetOfficialResult.json`：官方已完结 team tie 和 individual rubber 明细
 
 用法：
 `python scripts/runtime/scrape_current_event.py --event-id 3216`
@@ -216,6 +206,7 @@
 
 默认 sources：
 - `session_schedule` -> `current_event_session_schedule`
+- `schedule` -> 当前赛事赛程相关表
 - `standings` -> `current_event_group_standings`
 - `brackets` -> `current_event_brackets`
 - `live` -> `current_event_team_ties` + `current_event_matches`
@@ -231,7 +222,13 @@
 - `--sources team_ties` 和 `--sources matches` 仍可用，但会映射为 `live + completed`
 - `current_event_team_ties` 由 live/completed 导入器随 `current_event_matches` 一起维护
 - `GetEventSchedule.json` 不再通过单独 skeleton importer 重建 `current_event_team_ties`
-- `completed_matches.json` 是已完结 team tie 和 rubber 的主数据源
+- `GetOfficialResult.json` 是当前总入口的已完结 team tie 和 rubber 数据源
+
+### runtime/import_current_event_session_schedule.py
+将 `data/event_schedule/{event_id}.json` 导入 `current_event_session_schedule`。
+
+### runtime/import_current_event_schedule.py
+将 WTT 官方赛程导入当前赛事赛程相关表，补充比赛编号、时间、台号和 roster。
 
 ### runtime/import_current_event_live.py
 从 `data/live_event_data/{event_id}/GetLiveResult.json` 导入进行中比赛。
@@ -244,8 +241,8 @@
 - `current_event_match_sides`
 - `current_event_match_side_players`
 
-### runtime/import_current_event_completed.py
-从 `data/live_event_data/{event_id}/completed_matches.json` 导入已完结比赛。
+### runtime/import_current_event_official_results.py
+从当前赛事官方结果文件导入已完结比赛。`import_current_event.py` 的 `completed` source 实际调用该脚本。
 
 写入：
 - `current_event_team_ties`
@@ -254,45 +251,11 @@
 - `current_event_match_sides`
 - `current_event_match_side_players`
 
-### scrape_wtt_event.py
-抓取 WTT 公开 CMS API 的原始赛事 JSON。
-输出目录：`data/wtt_raw/{event_id}/`
+### runtime/generate_current_event_crontab.py
+根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron，包括 schedule、standings、brackets、live、completed 和赛后 promote 任务。
 
-当前抓取的主要文件：
-- `GetEventDraws.json`
-- `GetEventSchedule.json`
-- `GetOfficialResult_take10.json`
-- `GetLiveResult.json`
-- `GetBrackets_{sub_event}.json`
-
-### db/import_wtt_event.py
-将 `data/wtt_raw/{event_id}/GetEventSchedule.json` 导入 upcoming-event 专用表。
-
-输出表：
-- `event_draw_entries`
-- `event_draw_entry_players`
-- `event_schedule_matches`
-- `event_schedule_match_sides`
-- `event_schedule_match_side_players`
-
-主要职责：
-- 解析 unit 级比赛赛程
-- 规范化 `Round -> stage_code / round_code / group_code`
-- 计算并保存 `scheduled_local_at / scheduled_utc_at`
-- 按需补 `events.time_zone`
-- 根据赛事时间推进 `events.lifecycle_status`
-
-### scrape_event_results_daily.py
-即将开赛 / 进行中赛事的刷新调度脚本。
-
-当前真实行为：
-- 选择 `lifecycle_status IN ('draw_published', 'in_progress')` 的赛事
-- 调用 `scrape_wtt_event.py` 刷新 raw JSON
-- 调用 `db/import_wtt_event.py` 重导 `GetEventSchedule.json`
-
-注意：
-- 当前不会自动 promote 到 `matches / event_draw_matches`
-- 当前不会把 `GetOfficialResult_take10.json` 系统化落库到独立结果表
+### db/promote_current_event.py
+将 `current_event_*` 数据写入历史事实表，重建签表与冠军，并把赛事 lifecycle 更新为 `completed`。
 
 ---
 
@@ -423,7 +386,7 @@ results.ittf.link
                                         │
                                    db/import_events_calendar.py
                                         │
-                                   db/backfill_events_calendar_event_id.py
+                                   runtime/backfill_events_calendar_event_id.py
                                         │
                                    SQLite events(upcoming)
 
@@ -431,22 +394,21 @@ results.ittf.link
     │
     └─ data/event_schedule/{event_id}.json
             │
-            └─ db/import_session_schedule.py
+            └─ runtime/import_current_event_session_schedule.py
                     │
-                    └─ event_session_schedule
+                    └─ current_event_session_schedule
 
-WTT CMS API
+WTT 当前赛事数据
     │
-    └─ scrape_wtt_event.py ──→ data/wtt_raw/{event_id}/
-                                │
-                                ├─ db/import_wtt_event.py
-                                │      │
-                                │      ├─ event_draw_entries
-                                │      ├─ event_draw_entry_players
-                                │      ├─ event_schedule_matches
-                                │      ├─ event_schedule_match_sides
-                                │      └─ event_schedule_match_side_players
-                                │
-                                └─ scrape_event_results_daily.py
-                                       └─ upcoming / in_progress 赛事周期刷新
+    └─ runtime/scrape_current_event.py ──→ data/live_event_data/{event_id}/
+                                             │
+                                        runtime/import_current_event.py
+                                             │
+                                        current_event_*
+                                             │
+                                        db/promote_current_event.py
+                                             │
+                                        历史事实表
 ```
+
+完整操作流程见 [赛事数据日常更新流程](event-data-update-workflow.md)。

@@ -1,44 +1,44 @@
-# 赛事数据更新流程
+# 赛事数据日常更新流程
 
-最后更新：2026-05-05
+最后核对：2026-06-15
 
----
+本文档是赛事数据更新的唯一操作说明。数据库维护、部署和脚本总览文档只保留职责说明，并链接到本文档。
 
-## 0. 目的
+本文记录当前代码库实际存在的入口。以下旧入口已经不存在，不应再使用：
 
-本文档描述当前代码库中“即将开赛 / 进行中赛事”的实际数据更新流程。  
-这里写的是当前真实可运行链路，不是理想态设计。
+- `scripts/scrape_event_results_daily.py`
+- `scripts/scrape_wtt_event.py`
+- `scripts/db/import_wtt_event.py`
 
----
+## 1. 链路选择
 
-## 1. 当前数据分层
+系统有两套赛事数据链路，但日常操作分为三个场景。
 
-系统现在有两套赛事数据链路：
+| 场景 | 使用链路 | 是否安装 cron |
+| --- | --- | --- |
+| 2026 年及以后的赛事，在赛前或赛中接入 | 当前赛事主链路 | 是 |
+| 2026 年及以后的赛事，在完赛后才接入或需要补抓 | 当前赛事主链路 | 否 |
+| 补全 2026 年以前的历史赛事 | ITTF Results 历史链路 | 否 |
 
-### 1.1 历史赛事链路
+选择原则：
 
-主要表：
+1. 新增赛事默认使用当前赛事主链路。
+2. 即使赛事已经结束，只要是 2026 年及以后的赛事，也应先抓取 WTT 当前赛事数据，导入 `current_event_*`，再 promote 到历史事实表。
+3. 只有补全 2026 年以前的历史赛事时，才从 `results.ittf.link` 的历史赛事页面抓取。
+4. 不应为了省略初始化步骤，直接把 2026 年及以后的赛事导入历史表。当前赛事数据包含更完整的 session、台号、签表、小组积分和外部比赛编号。
 
-- `matches`
-- `event_draw_matches`
-- `sub_events`
+## 2. 两套数据模型
 
-适用场景：
+### 2.1 当前赛事主链路
 
-- 已完赛赛事
-- 已有完整结果、签表、冠军数据的赛事
+抓取结果目录：
 
-### 1.2 即将开赛 / 进行中赛事链路
+```text
+data/live_event_data/{event_id}/
+```
 
-主要表：
+主要运行态表：
 
-- `events`
-- `event_session_schedule`
-- `event_draw_entries`
-- `event_draw_entry_players`
-- `event_schedule_matches`
-- `event_schedule_match_sides`
-- `event_schedule_match_side_players`
 - `current_event_session_schedule`
 - `current_event_group_standings`
 - `current_event_brackets`
@@ -49,427 +49,493 @@
 - `current_event_match_sides`
 - `current_event_match_side_players`
 
-适用场景：
+完赛后由 `scripts/db/promote_current_event.py` 写入：
 
-- 即将开赛
-- 已开赛但仍在进行中
-- 历史表尚未完整落库的赛事
+- `team_ties`
+- `team_tie_sides`
+- `team_tie_side_players`
+- `matches`
+- `match_sides`
+- `match_side_players`
+- `event_draw_matches`
+- `sub_events`
 
----
+promote 后保留 `current_event_*`。赛事详情页可继续使用信息更丰富的运行态数据，球员统计、H2H 和冠军统计使用历史事实表。
 
-## 2. 数据源
+### 2.2 ITTF Results 历史链路
 
-### 2.1 赛事基础信息
+数据来源：
 
-来源：
-
-- `events_calendar`
-- `data/events_list/...`
-
-用途：
-
-- 建立 `events` 基础行
-- 补 `event_id`
-- 初始化 `lifecycle_status`
-
-### 2.2 人工维护的按日日程
-
-来源：
-
-- `data/event_schedule/{event_id}.json`
-
-用途：
-
-- 提供赛事每天的纲要式日程
-- 驱动赛事详情页的 `日程` tab
-
-### 2.3 WTT raw 数据
-
-来源：
-
-- `https://liveeventsapi.worldtabletennis.com/api/cms`
-
-主要 raw 文件：
-
-- `GetEventDraws.json`
-- `GetEventSchedule.json`
-- `GetOfficialResult_take10.json`
-- `GetLiveResult.json`
-- `GetBrackets_{sub_event}.json`
-
-落地目录：
-
-- `data/wtt_raw/{event_id}/`
-
-用途：
-
-- 按场比赛赛程
-- 小组赛 / 淘汰赛结构信息
-- 官方最近完赛结果补充
-
-### 2.4 WTT 当前赛事 runtime 数据
-
-来源：
-
-- WTT 公开 CMS API
-- WTT 团体赛事页面 DOM，包括 Live Matches、Completed、Standings 页面
+- `https://results.ittf.link/index.php/events`
+- 对应赛事的 event matches 页面
 
 主要文件：
 
-- `GetEventSchedule.json`
-- `MTEAM_standings.json`
-- `WTEAM_standings.json`
-- `GetBrackets_{sub_event}.json`
-- `GetLiveResult.json`
-- `completed_matches.json`
-
-落地目录：
-
-- `data/live_event_data/{event_id}/`
-
-用途：
-
-- 当前赛事的 session 赛程、小组积分、淘汰赛签表
-- 进行中 team tie / individual rubber
-- 已完结 team tie / individual rubber
-
-数据源优先级：
-
-- `completed_matches.json` 是已完结 team tie 和 rubber 的主数据源
-- `GetLiveResult.json` 是进行中 team tie 和 rubber 的主数据源
-- `GetEventSchedule.json` 只作为补充来源，用于 match code、赛程时间、台号、队伍 roster 等信息，不再单独重建 `current_event_team_ties`
-
----
-
-## 3. 生命周期字段
-
-当前主要使用 `events.lifecycle_status`：
-
-- `upcoming`
-- `draw_published`
-- `in_progress`
-- `completed`
-
-实际推进方式：
-
-1. `backfill_events_calendar_event_id.py`
-   - 新建赛事时通常为 `upcoming`
-
-2. `import_session_schedule.py`
-   - 导入日程后把 `upcoming` 推进到 `draw_published`
-
-3. `import_wtt_event.py`
-   - 导入 WTT 赛程后，根据开赛时间推进到 `in_progress`
-
-4. `completed`
-   - 当前还没有完整自动晋升链路统一维护
-
----
-
-## 4. 实际更新步骤
-
-### 4.1 建立 / 补齐 events 基础记录
-
-脚本：
-
-- `scripts/db/backfill_events_calendar_event_id.py`
-
-职责：
-
-- 从 `events_calendar.href` 提取 `event_id`
-- 对 `events` 中缺失的赛事插入基础记录
-
-建议运行时机：
-
-- 新抓完赛事日历后
-- 发现某些 upcoming 赛事还没进入 `events` 时
-
-### 4.2 导入按日日程
-
-脚本：
-
-- `scripts/db/import_session_schedule.py`
-
-输入：
-
-- `data/event_schedule/{event_id}.json`
-
-输出：
-
-- `event_session_schedule`
-
-职责：
-
-- 解析中文日期、时间、赛事项目、阶段、轮次
-- 写入按天 session 纲要
-- 把 `events.lifecycle_status` 从 `upcoming` 推到 `draw_published`
-
-常用命令：
-
-```bash
-python scripts/db/import_session_schedule.py --event 3216
+```text
+data/events_list/orig/
+data/events_list/cn/
+data/event_matches/orig/
+data/event_matches/cn/
 ```
 
-### 4.3 抓取 WTT raw 数据
+主要目标表：
 
-脚本：
+- `events`
+- `matches`
+- `event_draw_matches`
+- `sub_events`
 
-- `scripts/scrape_wtt_event.py`
+这条链路只用于补全 2026 年以前的历史赛事。
 
-输入：
+## 3. 主链路的共同前置条件
 
-- `event_id`
-- sub-event 列表，当前默认 `MTEAM WTEAM`
+以下命令均在仓库根目录执行。
 
-输出：
+### 3.1 确认赛事基础记录
 
-- `data/wtt_raw/{event_id}/*.json`
-
-常用命令：
-
-```bash
-python scripts/scrape_wtt_event.py --event-id 3216 --sub-events MTEAM WTEAM
-```
-
-### 4.4 导入按场比赛赛程
-
-脚本：
-
-- `scripts/db/import_wtt_event.py`
-
-输入：
-
-- `data/wtt_raw/{event_id}/GetEventSchedule.json`
-
-输出：
-
-- `event_draw_entries`
-- `event_draw_entry_players`
-- `event_schedule_matches`
-- `event_schedule_match_sides`
-- `event_schedule_match_side_players`
-
-职责：
-
-- 解析每个 unit
-- 规范化 `Round -> stage_code / round_code / group_code`
-- 生成 entry 与 side/player 结构
-- 计算并保存：
-  - `scheduled_local_at`
-  - `scheduled_utc_at`
-- 按需补 `events.time_zone`
-- 根据赛事时间推进 `events.lifecycle_status`
-
-常用命令：
+先检查：
 
 ```bash
-python scripts/db/import_wtt_event.py --event 3216
+sqlite3 data/db/ittf.db "
+SELECT event_id, year, name, start_date, end_date, time_zone, lifecycle_status
+FROM events
+WHERE event_id = <event_id>;
+"
 ```
 
-### 4.5 抓取当前赛事 runtime 数据
-
-脚本：
-
-- `scripts/runtime/scrape_current_event.py`
-
-输出：
-
-- `data/live_event_data/{event_id}/GetEventSchedule.json`
-- `data/live_event_data/{event_id}/MTEAM_standings.json`
-- `data/live_event_data/{event_id}/WTEAM_standings.json`
-- `data/live_event_data/{event_id}/GetBrackets_{sub_event}.json`
-- `data/live_event_data/{event_id}/GetLiveResult.json`
-- `data/live_event_data/{event_id}/completed_matches.json`
-
-常用命令：
+如果赛事已经存在于 `events_calendar`，但尚未进入 `events`：
 
 ```bash
-python scripts/runtime/scrape_current_event.py --event-id 3216
+python scripts/runtime/backfill_events_calendar_event_id.py
 ```
 
-### 4.6 导入当前赛事 runtime 数据
+该脚本会从 `events_calendar.href` 提取 `event_id`，并为缺失赛事建立 `lifecycle_status='upcoming'` 的基础记录。
 
-脚本：
+如果日历数据本身尚未更新，先执行赛历抓取、翻译和导入，再执行上述 backfill：
 
-- `scripts/runtime/import_current_event.py`
+```bash
+python scripts/run_events_calendar.py --year 2026
+python scripts/db/import_events_calendar.py
+python scripts/runtime/backfill_events_calendar_event_id.py
+```
+
+`run_events_calendar.py` 已包含抓取和翻译，不需要再单独运行 `translate_events_calendar.py`。
+
+### 3.2 核对时区和生命周期
+
+cron 生成器要求 `events.time_zone` 是有效的 IANA 时区，例如 `Europe/London`。promote 默认要求赛事状态为 `in_progress` 或 `completed`。
+
+当前代码没有统一的 lifecycle 自动推进器。开始抓取前必须核对，必要时更新：
+
+```bash
+sqlite3 data/db/ittf.db "
+UPDATE events
+SET time_zone = '<IANA time zone>',
+    lifecycle_status = 'in_progress'
+WHERE event_id = <event_id>;
+"
+```
+
+赛前准备但尚未开赛时可以暂时保留 `upcoming`；安装 cron 前至少要确保基础记录、时区和 session 日程完整。进入实际比赛更新阶段后，将状态设为 `in_progress`。
+
+## 4. 场景 A：赛前或赛中接入
+
+### 4.1 准备人工 session 日程
+
+创建：
+
+```text
+data/event_schedule/{event_id}.json
+```
+
+已有示例：
+
+```text
+data/event_schedule/3216.json
+```
+
+导入：
+
+```bash
+python scripts/runtime/import_current_event.py \
+  --event-id <event_id> \
+  --sources session_schedule
+```
+
+检查：
+
+```bash
+sqlite3 data/db/ittf.db "
+SELECT local_date, morning_session_start, afternoon_session_start
+FROM current_event_session_schedule
+WHERE event_id = <event_id>
+ORDER BY local_date;
+"
+```
+
+### 4.2 首次完整抓取和导入
+
+抓取：
+
+```bash
+python scripts/runtime/scrape_current_event.py \
+  --event-id <event_id> \
+  --headless
+```
+
+默认抓取：
+
+- `schedule`：官方赛程和队伍 roster
+- `standings`：小组积分
+- `brackets`：淘汰赛签表
+- `live`：正在进行的比赛
+- `completed`：官方完赛结果
+
+导入：
+
+```bash
+python scripts/runtime/import_current_event.py --event-id <event_id>
+```
 
 默认导入顺序：
 
-1. `session_schedule` -> `current_event_session_schedule`
-2. `standings` -> `current_event_group_standings`
-3. `brackets` -> `current_event_brackets`
-4. `live` -> `current_event_team_ties` + `current_event_matches`
-5. `completed` -> `current_event_team_ties` + `current_event_matches`
+1. `session_schedule`
+2. `schedule`
+3. `standings`
+4. `brackets`
+5. `live`
+6. `completed`
 
-常用命令：
-
-```bash
-python scripts/runtime/import_current_event.py --event-id 3216
-python scripts/runtime/import_current_event.py --event-id 3216 --sources live completed
-python scripts/runtime/import_current_event_live.py --event-id 3216
-python scripts/runtime/import_current_event_completed.py --event-id 3216
-```
-
-注意：
-
-- `current_event_team_ties` 由 `import_current_event_live.py` 和 `import_current_event_completed.py` 随 `current_event_matches` 一起维护
-- `--sources team_ties` 和 `--sources matches` 是兼容别名，会执行 `live + completed`
-- 不再运行 schedule-only team tie skeleton 导入；`GetEventSchedule.json` 只做补充数据
-
-### 4.7 日常刷新进行中赛事
-
-脚本：
-
-- `scripts/scrape_event_results_daily.py`
-
-当前真实行为：
-
-1. 找出 `events.lifecycle_status IN ('draw_published', 'in_progress')`
-2. 重新抓取 WTT raw 数据
-3. 重新执行 `import_wtt_event.py`
-
-常用命令：
+### 4.3 验证首次导入
 
 ```bash
-python scripts/scrape_event_results_daily.py
-python scripts/scrape_event_results_daily.py --event 3216
-python scripts/scrape_event_results_daily.py --event 3216 --skip-scrape
+sqlite3 data/db/ittf.db "
+SELECT 'sessions', COUNT(*) FROM current_event_session_schedule WHERE event_id = <event_id>
+UNION ALL
+SELECT 'standings', COUNT(*) FROM current_event_group_standings WHERE event_id = <event_id>
+UNION ALL
+SELECT 'brackets', COUNT(*) FROM current_event_brackets WHERE event_id = <event_id>
+UNION ALL
+SELECT 'team_ties', COUNT(*) FROM current_event_team_ties WHERE event_id = <event_id>
+UNION ALL
+SELECT 'matches', COUNT(*) FROM current_event_matches WHERE event_id = <event_id>;
+"
 ```
 
-注意：
+同时检查 `data/live_event_data/{event_id}/` 中的原始文件和抓取日志，不能只根据命令退出码判断数据完整。
 
-- 当前这个脚本不会把数据 promote 到 `matches`
-- 也不会把 `GetOfficialResult_take10.json` 系统化写回数据库比赛明细表
+### 4.4 安装赛事专属 cron
 
----
-
-## 5. 前端当前读哪些数据
-
-### 5.1 首页 / 赛事列表
-
-主要读取：
-
-- `events`
-- `event_session_schedule`
-- `matches`（部分历史信息）
-
-### 5.2 赛事详情页 `日程` tab
-
-主要读取：
-
-- `event_session_schedule`
-
-补充逻辑：
-
-- 进行中赛事会根据 `event.timeZone` 额外提示北京时间
-
-### 5.3 赛事详情页 `比赛` tab
-
-主要读取：
-
-- `event_schedule_matches`
-
-当前逻辑：
-
-- 按日期聚合
-- 服务端对重复比赛做去重
-- 对进行中赛事补北京时间提示
-
-### 5.4 赛事详情页 `签表` tab
-
-当前按赛事状态分两路：
-
-1. 历史 / 已落库赛事
-   - `matches`
-   - `event_draw_matches`
-
-2. 进行中团体赛
-   - `event_schedule_matches`
-   - `data/wtt_raw/{event_id}/GetOfficialResult_take10.json`（运行时读取）
-
-也就是说，进行中团体赛的小组积分表不是从历史表来的，而是从赛程表推导出来的。
-
----
-
-## 6. event 3216 这类赛事的推荐更新顺序
-
-推荐顺序：
-
-1. 补 `events`
+生产服务器使用：
 
 ```bash
-python scripts/db/backfill_events_calendar_event_id.py
+ITTF_DATA_DIR=/opt/ittf-data \
+PYENV_ENV_NAME=venv \
+/opt/ittf-ops/install_current_event_crontab.sh <event_id>
 ```
 
-2. 导入日程
+生成器依据 `current_event_session_schedule` 安排：
+
+- `schedule`：每日刷新
+- `standings`：Main Draw 前刷新
+- `brackets`：Main Draw 前及比赛阶段刷新
+- `live`：每个 session 开始后每 30 分钟刷新
+- `completed`：每个 session 开始后每 2 小时刷新
+- `promote`：最后一个比赛日的最后一个 session 起点后 24 小时执行
+
+安装后检查托管区块：
 
 ```bash
-python scripts/db/import_session_schedule.py --event 3216
+crontab -l | sed -n \
+  '/ITTF current-event refresh begin/,/ITTF current-event refresh end/p'
 ```
 
-3. 抓 raw
+注意：当前部署包对自动 promote 的支持存在缺口，见第 8 节。修复前必须把赛后手动 promote 和校验作为正式操作。
+
+### 4.5 赛事期间的手动补跑
+
+完整刷新：
 
 ```bash
-python scripts/scrape_wtt_event.py --event-id 3216 --sub-events MTEAM WTEAM
+python scripts/runtime/scrape_current_event.py --event-id <event_id> --headless
+python scripts/runtime/import_current_event.py --event-id <event_id>
 ```
 
-4. 导入 WTT 赛程
+只刷新 live 和 completed：
 
 ```bash
-python scripts/db/import_wtt_event.py --event 3216
+python scripts/runtime/scrape_current_event.py \
+  --event-id <event_id> \
+  --sources live completed \
+  --headless
+
+python scripts/runtime/import_current_event.py \
+  --event-id <event_id> \
+  --sources live completed
 ```
 
-5. 后续刷新
+## 5. 场景 B：2026 年及以后赛事的赛后补抓
+
+适用示例：2026 年 6 月的一场 WTT 赛事已经结束，系统在完赛后才开始接入。
+
+该场景仍使用当前赛事主链路，但不安装 cron。流程是一次性抓取完整的赛程、签表、积分和官方完赛结果，导入运行态表，然后 promote。
+
+### 5.1 建立基础记录并设置状态
+
+完成第 3 节的基础记录检查，将 `time_zone` 填完整，并把 `lifecycle_status` 设置为 `in_progress`。这里的 `in_progress` 表示“允许进入 current-event promote 流程”，不表示赛事现实中仍在进行。
+
+### 5.2 按可用数据抓取
+
+优先执行：
 
 ```bash
-python scripts/scrape_event_results_daily.py --event 3216
+python scripts/runtime/scrape_current_event.py \
+  --event-id <event_id> \
+  --sources schedule standings brackets completed \
+  --headless
 ```
 
----
+说明：
 
-## 7. 时区现状
+- `completed` 是完赛比赛结果的主要来源。
+- `schedule` 用于补充比赛编号、时间、台号和 roster。
+- `brackets`、`standings` 用于保留完整赛事结构。
+- 完赛后通常不需要抓 `live`；只有官方 completed 数据明显缺失时才将其作为排查项。
+- 如果某类页面或接口对该赛事不存在，可去掉对应 source，并在 promote 前确认核心完赛比赛数据完整。
 
-当前时区相关字段：
+### 5.3 导入运行态表
 
-- `events.time_zone`
-- `event_schedule_matches.scheduled_local_at`
-- `event_schedule_matches.scheduled_utc_at`
+有人工 session 日程时：
 
-实际情况：
+```bash
+python scripts/runtime/import_current_event.py \
+  --event-id <event_id> \
+  --sources session_schedule schedule standings brackets completed
+```
 
-- `events.time_zone` 不是所有赛事都有
-- `import_wtt_event.py` 会优先复用已有 `time_zone`
-- 如果为空，会做有限推断，例如 London -> `Europe/London`
+没有人工 session 日程时：
 
-前端当前展示策略：
+```bash
+python scripts/runtime/import_current_event.py \
+  --event-id <event_id> \
+  --sources schedule standings brackets completed
+```
 
-- 主时间仍显示赛事当地时间
-- 对进行中赛事额外补北京时间提示
+导入后执行第 4.3 节的数量检查，并重点检查：
 
----
+```bash
+sqlite3 data/db/ittf.db "
+SELECT status, COUNT(*)
+FROM current_event_matches
+WHERE event_id = <event_id>
+GROUP BY status;
+"
+```
 
-## 8. 当前已知限制
+promote 只会处理 `completed` 和 `walkover`。如果仍有应当完赛却处于 `scheduled` 或 `live` 的比赛，先修复抓取或导入结果。
 
-1. `events.time_zone` 仍不完整
-   目前还有不少赛事为空，需要后续治理。
+### 5.4 直接 promote，不安装 cron
 
-2. `GetOfficialResult_take10.json` 还不是正式落库链路
-   当前主要由服务端运行时读取补充。
+先 dry-run：
 
-3. 历史表晋升链路未完全接上
-   `event_schedule_* -> matches / event_draw_matches` 仍需后续实现或打通。
+```bash
+python scripts/db/promote_current_event.py \
+  --event-id <event_id> \
+  --dry-run
+```
 
-4. `scrape_event_results_daily.py` 当前只负责“抓 raw + 重导赛程”
-   还不包含完整的结果归档流程。
+确认无误后执行：
 
----
+```bash
+python scripts/db/promote_current_event.py --event-id <event_id>
+```
 
-## 9. 相关代码入口
+如果该赛事已有不完整的历史事实数据，需要整届替换：
 
-- `scripts/db/backfill_events_calendar_event_id.py`
-- `scripts/db/import_session_schedule.py`
-- `scripts/scrape_wtt_event.py`
-- `scripts/db/import_wtt_event.py`
-- `scripts/scrape_event_results_daily.py`
-- `web/lib/server/events.ts`
-- `web/app/events/[eventId]/page.tsx`
+```bash
+python scripts/db/promote_current_event.py \
+  --event-id <event_id> \
+  --replace
+```
+
+只有在无法合理调整 lifecycle 时才使用 `--force`。正常流程应明确设置状态，而不是长期依赖绕过校验。
+
+## 6. 完赛 promote 与校验
+
+无论赛事通过 cron 自动触发，还是赛后手动补抓，都必须完成本节校验。
+
+### 6.1 Promote 行为
+
+`scripts/db/promote_current_event.py` 在单个事务中：
+
+1. 校验赛事、生命周期和已完赛比赛。
+2. 将团体对阵写入 `team_ties` 相关表。
+3. 将单场比赛写入 `matches` 相关表。
+4. 重建该赛事的 `event_draw_matches`。
+5. 重建该赛事的 `sub_events` 和冠军。
+6. 将 `events.lifecycle_status` 更新为 `completed`。
+
+### 6.2 完赛后检查
+
+```bash
+sqlite3 data/db/ittf.db "
+SELECT event_id, lifecycle_status, last_synced_at
+FROM events
+WHERE event_id = <event_id>;
+
+SELECT COUNT(*) AS current_matches
+FROM current_event_matches
+WHERE event_id = <event_id>;
+
+SELECT COUNT(*) AS historical_matches
+FROM matches
+WHERE event_id = <event_id>;
+
+SELECT COUNT(*) AS draw_matches
+FROM event_draw_matches
+WHERE event_id = <event_id>;
+
+SELECT sub_event_type_code, champion_name, champion_country
+FROM sub_events
+WHERE event_id = <event_id>;
+"
+```
+
+还应在网站上检查：
+
+- 赛事详情页仍能展示日程、签表和比赛结果。
+- 球员页出现该赛事记录。
+- H2H 数据包含该赛事。
+- 各 sub-event 冠军正确。
+
+### 6.3 不完整 promote 的恢复
+
+如果第一次 promote 时还有未完成状态的比赛，后续默认执行会因为历史数据已经存在而跳过。修复运行态数据后使用：
+
+```bash
+python scripts/db/promote_current_event.py \
+  --event-id <event_id> \
+  --replace
+```
+
+`--replace` 会删除该赛事已有的历史事实数据并从 `current_event_*` 重新生成。执行前应备份数据库。
+
+## 7. 场景 C：补全 2026 年以前的历史赛事
+
+这条链路依赖 `results.ittf.link` 登录态和浏览器风控，通常在开发机手动执行。
+
+### 7.1 抓取历史赛事列表
+
+```bash
+python scripts/scrape_events.py \
+  --from-date <YYYY-MM-DD> \
+  --output-dir data/events_list/orig
+```
+
+翻译并导入赛事基础信息：
+
+```bash
+python scripts/translate_events.py
+python scripts/db/import_events.py
+```
+
+### 7.2 准备赛事比赛 URL
+
+将需要补录赛事的 event matches URL 写入：
+
+```text
+data/event_matches_url_list.txt
+```
+
+每行一个 URL。只放本次需要补录的赛事，避免无关重抓。
+
+### 7.3 抓取赛事比赛
+
+```bash
+python scripts/scrape_matches_from_events.py \
+  --urls-file data/event_matches_url_list.txt \
+  --output-dir data/event_matches/orig
+```
+
+翻译：
+
+```bash
+python scripts/translate_matches.py \
+  --orig-dir data/event_matches/orig \
+  --cn-dir data/event_matches/cn
+```
+
+检查 `missing_translations` 和 `data/event_matches/problematic/`，有问题时不要继续入库。
+
+### 7.4 导入历史事实表
+
+```bash
+python scripts/db/import_matches.py
+python scripts/db/import_event_draw_matches.py
+python scripts/db/import_sub_events.py
+```
+
+如果只需要重建单个已导入赛事的签表和冠军：
+
+```bash
+python scripts/db/import_event_draw_matches.py --event-id <event_id>
+python scripts/db/import_sub_events.py --event-id <event_id>
+```
+
+特殊赛事修复仍按数据库维护文档执行。例如 `event_id=2860` 在导入比赛前必须运行：
+
+```bash
+python scripts/fix_special_event_2860_stage_round.py
+```
+
+## 8. 当前已知运维缺口
+
+截至 2026-06-15，代码中的 cron 生成器会生成赛后 promote 任务，但服务器最小部署链路尚未形成可靠闭环：
+
+1. `deploy/server/upload_runtime.ps1` 没有上传 `scripts/db/promote_current_event.py`。
+2. promote 依赖的 `_match_keys.py`、`import_event_draw_matches.py`、`import_sub_events.py` 等文件也不在最小运行包中。
+3. `generate_current_event_crontab.py` 生成的 promote 命令使用 `scripts/db/promote_current_event.py`，与 `/opt/ittf-ops/runtime/python/` 的最小部署目录结构不一致。
+4. 当前 `current_event_*` 抓取和导入实现明显以团体赛为中心，默认 sub-event 为 `MTEAM`、`WTEAM`，官方结果导入器也按 team tie/rubber 建模。将主链路用于个人赛事前，必须先验证该赛事类型的数据能否被现有 importer 完整表达。
+
+因此当前正式操作要求：
+
+- cron 仍用于赛事期间的定时刷新。
+- 赛事结束后必须人工检查 promote 是否实际成功。
+- 在部署缺口修复前，以仓库完整环境中的手动 promote 为准。
+- 不要仅因 crontab 中存在 `sources=promote` 就认为赛事已经进入历史事实表。
+
+## 9. 故障排查
+
+### cron 无法生成
+
+检查：
+
+- `events.time_zone` 是否为有效 IANA 时区。
+- `current_event_session_schedule` 是否有数据。
+- session 日期和 Main Draw 轮次能否被识别。
+- 生成时赛事任务是否已经全部处于过去。
+
+### 抓取成功但数据库没有更新
+
+检查：
+
+- 抓取输出是否写入了预期的 `data/live_event_data/{event_id}/`。
+- 导入命令的 `--db-path` 和网站读取的数据库是否一致。
+- 所选 `--sources` 是否同时用于 scrape 和 import。
+- 原始 JSON 是否为空、被风控页面替代或仍是旧文件。
+
+### Promote 失败
+
+先执行 `--dry-run`，重点检查：
+
+- lifecycle 是否为 `in_progress` 或 `completed`。
+- `current_event_matches` 是否至少有一条 `completed` 或 `walkover`。
+- 是否已有历史数据，需要使用 `--replace`。
+- 球员无法关联时是否生成了 unmatched 报告。
+
+## 10. 相关文档
+
+- [数据库初始化、重建与通用校验](DATABASE_MAINTENANCE.md)
+- [服务器运行环境与 cron 安装](DEPLOY_ANALYTICS.md)
+- [各脚本职责](scripts_overview.md)
+- [Promote 设计与字段映射](design/promote_current_event.md)
