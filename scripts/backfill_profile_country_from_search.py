@@ -18,6 +18,7 @@ from typing import Any
 from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep, type_like_human
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.browser_session import ensure_logged_in
+from lib.country_codes import country_name_for_code, normalize_profile_country
 from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import guarded_goto
 
@@ -273,8 +274,12 @@ def run(args: argparse.Namespace) -> int:
                         country_code,
                     )
 
-                    profile_data["country"] = country_code
                     profile_data["country_code"] = country_code
+                    country_en = country_name_for_code(country_code)
+                    if country_en:
+                        profile_data["country"] = country_en
+                        profile_data["country_en"] = country_en
+                    normalize_profile_country(profile_data)
 
                     if args.dry_run:
                         logger.info("[%d/%d] Dry-run only, skip write: %s", idx, len(players), profile_path.name)

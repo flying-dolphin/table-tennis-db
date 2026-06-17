@@ -45,6 +45,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--cdp-port", type=int, default=9222, help="CDP port of an existing Chrome to reuse (default: 9222)")
     parser.add_argument("--headless", action="store_true", help="Run browser in headless mode")
     parser.add_argument("--slow-mo", type=int, default=100, help="Slow motion delay in ms")
+    parser.add_argument("--cdp-only", action="store_true", help="Require an existing Chrome CDP session; do not launch a new browser")
     parser.add_argument("--output-dir", default="data/rankings/orig", help="Output directory")
     parser.add_argument("--checkpoint", default="data/rankings/checkpoint_rankings.json", help="Checkpoint file path")
     parser.add_argument("--force", action="store_true", help="Ignore checkpoint, rescrape all")
@@ -517,6 +518,7 @@ def run(args: argparse.Namespace) -> int:
             p,
             use_cdp=True,
             cdp_port=args.cdp_port,
+            cdp_only=bool(args.cdp_only),
             launch_kwargs={"headless": args.headless, "slow_mo": args.slow_mo},
             context_kwargs={},
             log_prefix="rankings",

@@ -25,6 +25,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from lib.country_codes import country_name_for_code
+
 
 PLAYER_WITH_COUNTRY_RE = re.compile(
     r"[A-Z][^|()]*?(?:\s*\([^()]*\))*\s*\([A-Z]{3}\)"
@@ -340,7 +342,8 @@ def repair_file(file_path: Path, location_dict: dict[str, str]) -> dict[str, Any
         file_changes.update(["english_name"])
 
     if original_player_name and "country" not in data:
-        data["country"] = data.get("country_code", "")
+        country_code = data.get("country_code", "")
+        data["country"] = country_name_for_code(country_code) or country_code
         file_changes.update(["country"])
 
     if file_path.parent.name == "cn" and "country_zh" not in data:

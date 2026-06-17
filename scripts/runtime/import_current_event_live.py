@@ -310,19 +310,35 @@ def upsert_side_players(
         "DELETE FROM current_event_team_tie_side_players WHERE current_team_tie_side_id = ?",
         (current_team_tie_side_id,),
     )
+    if_ids = {
+        if_id
+        for player in players
+        if isinstance(player, dict)
+        for if_id in [legacy.int_or_none(player.get("if_id") or player.get("code"))]
+        if if_id is not None
+    }
+    player_ids = legacy.load_player_ids(cursor, if_ids)
+
     for player_order, player in enumerate(players, start=1):
         if not isinstance(player, dict):
             continue
         player_name = (player.get("name") or "").strip()
         if not player_name:
             continue
+        if_id = legacy.int_or_none(player.get("if_id") or player.get("code"))
         cursor.execute(
             """
             INSERT INTO current_event_team_tie_side_players (
                 current_team_tie_side_id, player_order, player_id, player_name, player_country
-            ) VALUES (?, ?, NULL, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?)
             """,
-            (current_team_tie_side_id, player_order, player_name, team_code),
+            (
+                current_team_tie_side_id,
+                player_order,
+                player_ids.get(if_id) if if_id is not None else None,
+                player_name,
+                team_code,
+            ),
         )
 
 

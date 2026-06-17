@@ -99,7 +99,7 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                     print(f"  [{i:3d}] SKIP (missing fields): {json_file.name}")
                     continue
 
-                slug = slugify(name)
+                slug = str(player_id)
 
                 # 职业生涯统计
                 career_stats = data.get('career_stats', {})
@@ -110,7 +110,7 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                     career_best_month = normalize_career_best_month(str(data.get('career_best_week')), 'week').month
 
                 cursor.execute("""
-                    INSERT OR REPLACE INTO players (
+                    INSERT INTO players (
                         player_id, name, name_zh, slug, country, country_code,
                         gender, birth_year, age,
                         style, style_zh, playing_hand, playing_hand_zh, grip, grip_zh,
@@ -124,6 +124,41 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                         scraped_at
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                               ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(player_id) DO UPDATE SET
+                        name = excluded.name,
+                        name_zh = excluded.name_zh,
+                        slug = excluded.slug,
+                        country = excluded.country,
+                        country_code = excluded.country_code,
+                        gender = excluded.gender,
+                        birth_year = excluded.birth_year,
+                        age = excluded.age,
+                        style = excluded.style,
+                        style_zh = excluded.style_zh,
+                        playing_hand = excluded.playing_hand,
+                        playing_hand_zh = excluded.playing_hand_zh,
+                        grip = excluded.grip,
+                        grip_zh = excluded.grip_zh,
+                        avatar_url = excluded.avatar_url,
+                        avatar_file = excluded.avatar_file,
+                        career_events = excluded.career_events,
+                        career_matches = excluded.career_matches,
+                        career_wins = excluded.career_wins,
+                        career_losses = excluded.career_losses,
+                        career_wtt_titles = excluded.career_wtt_titles,
+                        career_all_titles = excluded.career_all_titles,
+                        career_best_rank = excluded.career_best_rank,
+                        career_best_month = excluded.career_best_month,
+                        year_events = excluded.year_events,
+                        year_matches = excluded.year_matches,
+                        year_wins = excluded.year_wins,
+                        year_losses = excluded.year_losses,
+                        year_games = excluded.year_games,
+                        year_games_won = excluded.year_games_won,
+                        year_games_lost = excluded.year_games_lost,
+                        year_wtt_titles = excluded.year_wtt_titles,
+                        year_all_titles = excluded.year_all_titles,
+                        scraped_at = excluded.scraped_at
                 """, (
                     player_id, name, name_zh, slug,
                     country, country_code,

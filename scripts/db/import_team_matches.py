@@ -46,11 +46,6 @@ def parse_player_str(player_str: str) -> tuple[str, Optional[str]]:
     return (player_str or "").strip(), None
 
 
-def normalize_name_key(name: str) -> str:
-    parts = sorted((name or "").lower().split())
-    return " ".join(parts)
-
-
 def make_side_key(side: list[tuple[str, Optional[str]]]) -> str:
     tokens: list[str] = []
     for name, country in side:
@@ -86,16 +81,6 @@ def parse_sides(match: dict) -> tuple[list[tuple[str, Optional[str]]], list[tupl
         return side_a, side_b
     raw_a, raw_b = parse_raw_row_sides(match.get("raw_row_text") or "")
     return (side_a or raw_a), (side_b or raw_b)
-
-
-def resolve_player_id(player_index: dict, name: str, country: Optional[str]) -> int | None:
-    if not name:
-        return None
-    cc = country or ""
-    found = player_index.get((name, cc))
-    if found is not None:
-        return found
-    return player_index.get((normalize_name_key(name), cc))
 
 
 def infer_winner_side(match: dict, side_a: list[tuple[str, Optional[str]]], side_b: list[tuple[str, Optional[str]]]) -> str | None:
@@ -157,12 +142,6 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
     cursor.execute("PRAGMA foreign_keys = ON;")
-
-    cursor.execute("SELECT player_id, name, country_code FROM players")
-    player_index: dict[tuple[str, str], int] = {}
-    for player_id, name, country_code in cursor.fetchall():
-        player_index[(name, country_code)] = player_id
-        player_index[(normalize_name_key(name), country_code)] = player_id
 
     known_sub_event_codes = load_sub_event_codes(cursor)
     source_files = sorted(source_dir.glob("*.json"))
@@ -293,8 +272,8 @@ def import_team_matches(db_path: Path, source_dir: Path) -> dict:
                 cursor.execute(insert_side_sql, (match_id, side_no, side_key, is_winner))
                 match_side_id = int(cursor.lastrowid)
                 for player_order, (player_name, player_country) in enumerate(side_players, start=1):
-                    player_id = resolve_player_id(player_index, player_name, player_country)
-                    if player_id is None and player_name and player_country:
+                    player_id = None
+                    if player_name and player_country:
                         result["unmatched_players"].add(f"{player_name} ({player_country})")
                     cursor.execute(
                         insert_side_player_sql,

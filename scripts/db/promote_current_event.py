@@ -52,7 +52,6 @@ from _match_keys import make_side_key  # noqa: E402
 # 复用既有 import 脚本的核心函数：保持 promote 与历史 bootstrap 输出一致。
 import import_event_draw_matches  # noqa: E402
 import import_sub_events  # noqa: E402
-from import_sub_events import build_player_index, lookup_player_id  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
@@ -225,14 +224,12 @@ def pre_check(cursor, event_id: int, force: bool, replace: bool) -> Tuple[bool, 
 def promote_team_ties(
     cursor,
     event_id: int,
-    player_index: Dict[Tuple[str, str], int],
     miss_log: List[Tuple[str, str]],
 ) -> Dict[int, int]:
     """返回 current_team_tie_id → team_tie_id 映射。
 
-    promote 过程中如果 current_event_team_tie_side_players.player_id 为 NULL，
-    会按 (name, country) 在 players 表里查回填，避免历史 match_side_players
-    缺 player_id 导致前端按 player_id JOIN 时拿不到该赛事的比赛。
+    current_event_team_tie_side_players.player_id 为 NULL 时保持 NULL；
+    promote 不再按 (name, country) 回填，避免同名球员错配。
     """
     mapping: Dict[int, int] = {}
     rows = cursor.execute(
@@ -326,9 +323,7 @@ def promote_team_ties(
             ).fetchall()
             for player_order, player_id, player_name, player_country in player_rows:
                 if player_id is None and player_name:
-                    player_id = lookup_player_id(player_index, player_name, player_country)
-                    if player_id is None:
-                        miss_log.append((player_name, player_country or ""))
+                    miss_log.append((player_name, player_country or ""))
                 cursor.execute(
                     """
                     INSERT OR IGNORE INTO team_tie_side_players (
@@ -352,7 +347,6 @@ def promote_matches(
     event_id: int,
     event_meta: Dict,
     team_tie_map: Dict[int, int],
-    player_index: Dict[Tuple[str, str], int],
     miss_log: List[Tuple[str, str]],
 ) -> Tuple[Dict[int, int], int, int]:
     """返回 (current_match_id → match_id 映射, skipped_no_winner, skipped_walkover)。
@@ -467,9 +461,7 @@ def promote_matches(
             ).fetchall()
             for player_order, player_id, player_name, player_country in player_rows:
                 if player_id is None and player_name:
-                    player_id = lookup_player_id(player_index, player_name, player_country)
-                    if player_id is None:
-                        miss_log.append((player_name, player_country or ""))
+                    miss_log.append((player_name, player_country or ""))
                 cursor.execute(
                     """
                     INSERT INTO match_side_players (
@@ -574,17 +566,13 @@ def promote(db_path: str, event_id: int, *, dry_run: bool, replace: bool, force:
             purge_stats = replace_purge(cursor, event_id)
             report.update(purge_stats)
 
-        # 一次性构建 (name, country) → player_id 索引，promote 过程中
-        # 复用以回填 current_event_match_side_players.player_id（运行态
-        # import 没做这步，100% 行 player_id=NULL）。
-        player_index = build_player_index(cursor)
         miss_log: List[Tuple[str, str]] = []
 
-        team_tie_map = promote_team_ties(cursor, event_id, player_index, miss_log)
+        team_tie_map = promote_team_ties(cursor, event_id, miss_log)
         report["team_ties_promoted"] = len(team_tie_map)
 
         match_map, skipped_no_winner, skipped_walkover = promote_matches(
-            cursor, event_id, event_meta, team_tie_map, player_index, miss_log
+            cursor, event_id, event_meta, team_tie_map, miss_log
         )
         report["matches_promoted"] = len(match_map)
         report["matches_skipped_no_winner"] = skipped_no_winner

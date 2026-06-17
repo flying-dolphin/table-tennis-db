@@ -42,7 +42,6 @@ from _match_keys import (  # noqa: E402  抽出公共，promote 也复用
     make_dedup_key,
     make_side_key,
     normalize_event_name,
-    normalize_name_key,
 )
 
 
@@ -55,7 +54,7 @@ EVENT_ID_YEAR_MISMATCH_WHITELIST: set[int] = {
 }
 
 
-# normalize_event_name / normalize_name_key 抽出至 _match_keys.py（顶部已 import）
+# normalize_event_name 抽出至 _match_keys.py（顶部已 import）
 
 
 def parse_player_str(player_str: str):
@@ -374,16 +373,6 @@ def ensure_matches_table_allows_repeated_keys(cursor):
     return True
 
 
-def resolve_player_id(player_index: dict, name: str, country: Optional[str]):
-    if not name:
-        return None
-    cc = country or ""
-    pid = player_index.get((name, cc))
-    if pid is None:
-        pid = player_index.get((normalize_name_key(name), cc))
-    return pid
-
-
 def infer_winner_side(match: dict, side_a: list[tuple[str, Optional[str]]], side_b: list[tuple[str, Optional[str]]]):
     winner_name = (match.get("winner") or "").strip().lower()
 
@@ -453,13 +442,6 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
     cursor.execute("DELETE FROM matches")
     result["rebuilt_matches_table"] = ensure_matches_table_allows_repeated_keys(cursor)
     cursor.execute("DELETE FROM sqlite_sequence WHERE name IN ('matches', 'match_sides', 'match_side_players')")
-
-    cursor.execute("SELECT player_id, name, country_code FROM players")
-    player_index = {}
-    for player_id, name, country_code in cursor.fetchall():
-        player_index[(name, country_code)] = player_id
-        player_index[(normalize_name_key(name), country_code)] = player_id
-    print(f"Player index: {len(player_index)} entries")
 
     event_index = build_event_index(cursor)
     print(f"Event index:  {len(event_index['by_name_year'])} name+year entries")
@@ -601,8 +583,8 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
                 match_side_id = cursor.lastrowid
 
                 for player_order, (player_name, player_country) in enumerate(side_players, 1):
-                    player_id = resolve_player_id(player_index, player_name, player_country)
-                    if player_id is None and player_name and player_country:
+                    player_id = None
+                    if player_name and player_country:
                         result["unmatched_players"].add(f"{player_name} ({player_country})")
                     cursor.execute(
                         insert_side_player_sql,

@@ -36,11 +36,6 @@ except ImportError:
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
 
-def normalize_name_key(name: str) -> str:
-    parts = sorted(name.lower().split())
-    return " ".join(parts)
-
-
 def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip().lower())
 
@@ -114,30 +109,25 @@ def is_drawn_or_unplayed_score(score: str) -> bool:
     return parsed is not None and parsed[0] == parsed[1]
 
 
-def build_player_index(cursor) -> Dict[Tuple[str, str], int]:
-    cursor.execute("SELECT player_id, name, country_code FROM players")
-    index: Dict[Tuple[str, str], int] = {}
-    for player_id, name, country_code in cursor.fetchall():
-        index[(name, country_code)] = player_id
-        index[(normalize_name_key(name), country_code)] = player_id
-    return index
+def member_name(member) -> str:
+    return str(member[0] or "") if member else ""
 
 
-def lookup_player_id(index: Dict[Tuple[str, str], int], name: str, country_code: Optional[str]) -> Optional[int]:
-    if not name:
+def member_country(member) -> str:
+    return str(member[1] or "") if len(member) > 1 else ""
+
+
+def member_player_id(member) -> Optional[int]:
+    if len(member) <= 2 or member[2] is None:
         return None
-    cc = country_code or ""
-    pid = index.get((name, cc))
-    if pid is not None:
-        return pid
-    return index.get((normalize_name_key(name), cc))
+    return int(member[2])
 
 
 def pick_winner_side(
     winner_side: Optional[str],
     winner_name: str,
-    side_a: List[Tuple[str, str]],
-    side_b: List[Tuple[str, str]],
+    side_a: List[tuple],
+    side_b: List[tuple],
 ) -> Optional[str]:
     normalized_winner_side = (winner_side or "").strip().upper()
     if normalized_winner_side in {"A", "B"}:
@@ -146,8 +136,8 @@ def pick_winner_side(
     normalized_winner = normalize_text(winner_name or "")
 
     if normalized_winner:
-        a_hit = any(normalize_text(name) in normalized_winner for name, _ in side_a)
-        b_hit = any(normalize_text(name) in normalized_winner for name, _ in side_b)
+        a_hit = any(normalize_text(member_name(member)) in normalized_winner for member in side_a)
+        b_hit = any(normalize_text(member_name(member)) in normalized_winner for member in side_b)
         if a_hit and not b_hit:
             return "A"
         if b_hit and not a_hit:
@@ -156,8 +146,8 @@ def pick_winner_side(
     return None
 
 
-def make_team_key(side_players: List[Tuple[str, str]]) -> str:
-    countries = sorted({(country or "").strip().upper() for _, country in side_players if (country or "").strip()})
+def make_team_key(side_players: List[tuple]) -> str:
+    countries = sorted({member_country(member).strip().upper() for member in side_players if member_country(member).strip()})
     # Team finals usually have stable country identity but varying lineups across rubber matches.
     # Only use country aggregation for single-country teams; otherwise fall back to full roster.
     if len(countries) == 1:
@@ -165,20 +155,24 @@ def make_team_key(side_players: List[Tuple[str, str]]) -> str:
 
     members = sorted(
         {
-            f"{normalize_text(name)}|{(country or '').strip().upper()}"
-            for name, country in side_players
-            if name.strip()
+            f"{normalize_text(member_name(member))}|{member_country(member).strip().upper()}"
+            for member in side_players
+            if member_name(member).strip()
         }
     )
     return f"R:{'||'.join(members)}"
 
 
-def make_roster_key(side_players: List[Tuple[str, str]]) -> str:
+def make_roster_key(side_players: List[tuple]) -> str:
     members = sorted(
         {
-            f"{normalize_text(name)}|{(country or '').strip().upper()}"
-            for name, country in side_players
-            if name.strip()
+            (
+                f"id:{member_player_id(member)}"
+                if member_player_id(member) is not None
+                else f"name:{normalize_text(member_name(member))}|{member_country(member).strip().upper()}"
+            )
+            for member in side_players
+            if member_name(member).strip()
         }
     )
     return f"R:{'||'.join(members)}"
@@ -238,10 +232,10 @@ def countries_from_team_key(team_key: str) -> set[str]:
     return countries
 
 
-def majority_country(side_players: List[Tuple[str, str]]) -> Optional[str]:
+def majority_country(side_players: List[tuple]) -> Optional[str]:
     counts: Dict[str, int] = {}
-    for _name, country in side_players:
-        cc = (country or "").strip().upper()
+    for member in side_players:
+        cc = member_country(member).strip().upper()
         if not cc:
             continue
         counts[cc] = counts.get(cc, 0) + 1
@@ -275,8 +269,8 @@ def group_final_team_ties(final_matches: List[dict]) -> List[List[dict]]:
 
 
 def team_group_pair_key(matches: List[dict]) -> Tuple[str, str]:
-    side_a_players: List[Tuple[str, str]] = []
-    side_b_players: List[Tuple[str, str]] = []
+    side_a_players: List[tuple] = []
+    side_b_players: List[tuple] = []
     for match_data in matches:
         side_a_players.extend(match_data["side_a"])
         side_b_players.extend(match_data["side_b"])
@@ -291,7 +285,7 @@ def resolve_team_tie_by_side(
     result: dict,
     event_id: int,
     sub_event_type_code: str,
-) -> tuple[Optional[List[Tuple[str, str]]], Optional[str], Dict[str, int]]:
+) -> tuple[Optional[List[tuple]], Optional[str], Dict[str, int]]:
     wins_by_side = {"A": 0, "B": 0}
     side_rosters = {"A": [], "B": []}
 
@@ -332,7 +326,7 @@ def resolve_team_tie_by_side(
 def collect_override_team_champion_rosters(
     cursor,
     champion_team_by_event: Dict[Tuple[int, str], str],
-) -> Dict[Tuple[int, str], tuple[List[Tuple[str, str]], str]]:
+) -> Dict[Tuple[int, str], tuple[List[tuple], str]]:
     if not champion_team_by_event:
         return {}
 
@@ -343,6 +337,7 @@ def collect_override_team_champion_rosters(
             m.event_id,
             m.sub_event_type_code,
             ms.side_no,
+            msp.player_id,
             msp.player_name,
             msp.player_country
         FROM matches m
@@ -354,11 +349,11 @@ def collect_override_team_champion_rosters(
     )
     rows = cursor.fetchall()
 
-    roster_by_event: Dict[Tuple[int, str], List[Tuple[str, str]]] = {}
+    roster_by_event: Dict[Tuple[int, str], List[tuple]] = {}
     seen_by_event: Dict[Tuple[int, str], set[Tuple[str, str]]] = {}
 
     current_match_key: Optional[Tuple[int, str, int]] = None
-    current_sides: Dict[int, List[Tuple[str, str]]] = {1: [], 2: []}
+    current_sides: Dict[int, List[tuple]] = {1: [], 2: []}
 
     def flush_current_match() -> None:
         nonlocal current_match_key, current_sides
@@ -370,33 +365,33 @@ def collect_override_team_champion_rosters(
         champion_country = champion_team_by_event.get(event_key)
         if champion_country:
             for side in (current_sides.get(1, []), current_sides.get(2, [])):
-                side_countries = {country.strip().upper() for _, country in side if country.strip()}
+                side_countries = {member_country(member).strip().upper() for member in side if member_country(member).strip()}
                 if side_countries != {champion_country}:
                     continue
                 roster = roster_by_event.setdefault(event_key, [])
                 seen = seen_by_event.setdefault(event_key, set())
-                for name, country in side:
-                    cleaned_name = (name or "").strip()
-                    cleaned_country = (country or "").strip().upper()
+                for member in side:
+                    cleaned_name = member_name(member).strip()
+                    cleaned_country = member_country(member).strip().upper()
                     if not cleaned_name or cleaned_country != champion_country:
                         continue
                     member_key = (normalize_text(cleaned_name), cleaned_country)
                     if member_key in seen:
                         continue
                     seen.add(member_key)
-                    roster.append((cleaned_name, cleaned_country))
+                    roster.append((cleaned_name, cleaned_country, member_player_id(member)))
 
         current_match_key = None
         current_sides = {1: [], 2: []}
 
-    for match_id, event_id, sub_event_type_code, side_no, player_name, player_country in rows:
+    for match_id, event_id, sub_event_type_code, side_no, player_id, player_name, player_country in rows:
         match_key = (event_id, sub_event_type_code, match_id)
         if current_match_key != match_key:
             flush_current_match()
             current_match_key = match_key
 
         if player_name:
-            current_sides.setdefault(side_no, []).append((player_name, player_country or ""))
+            current_sides.setdefault(side_no, []).append((player_name, player_country or "", player_id))
 
     flush_current_match()
 
@@ -413,9 +408,9 @@ def resolve_team_tie_winner(
     event_id: int,
     sub_event_type_code: str,
     count_unresolved: bool,
-) -> tuple[Optional[str], Dict[str, List[Tuple[str, str]]], Dict[str, int], int]:
+) -> tuple[Optional[str], Dict[str, List[tuple]], Dict[str, int], int]:
     wins_by_team: Dict[str, int] = {}
-    rosters_by_team: Dict[str, List[Tuple[str, str]]] = {}
+    rosters_by_team: Dict[str, List[tuple]] = {}
     skipped_unfinished = 0
 
     for match_data in matches:
@@ -473,6 +468,7 @@ def build_team_semifinal_winner_pairs(cursor) -> dict[Tuple[int, str], set[Tuple
             m.winner_name,
             m.match_score,
             ms.side_no,
+            msp.player_id,
             msp.player_name,
             msp.player_country
         FROM event_draw_matches edm
@@ -493,6 +489,7 @@ def build_team_semifinal_winner_pairs(cursor) -> dict[Tuple[int, str], set[Tuple
         winner_name,
         match_score,
         side_no,
+        player_id,
         player_name,
         player_country,
     ) in cursor.fetchall():
@@ -513,9 +510,9 @@ def build_team_semifinal_winner_pairs(cursor) -> dict[Tuple[int, str], set[Tuple
         )
         if player_name:
             if side_no == 1:
-                current["side_a"].append((player_name, player_country or ""))
+                current["side_a"].append((player_name, player_country or "", player_id))
             elif side_no == 2:
-                current["side_b"].append((player_name, player_country or ""))
+                current["side_b"].append((player_name, player_country or "", player_id))
 
     grouped: Dict[Tuple[int, str, Tuple[str, str]], List[dict]] = {}
     for match_data in semifinal_matches.values():
@@ -563,6 +560,7 @@ def build_non_team_championship_final_pairs(cursor) -> dict[Tuple[int, str], set
             m.winner_side,
             m.winner_name,
             ms.side_no,
+            msp.player_id,
             msp.player_name,
             msp.player_country
         FROM event_draw_matches edm
@@ -584,6 +582,7 @@ def build_non_team_championship_final_pairs(cursor) -> dict[Tuple[int, str], set
         winner_side,
         winner_name,
         side_no,
+        player_id,
         player_name,
         player_country,
     ) in cursor.fetchall():
@@ -604,9 +603,9 @@ def build_non_team_championship_final_pairs(cursor) -> dict[Tuple[int, str], set
         )
         if player_name:
             if side_no == 1:
-                current["side_a"].append((player_name, player_country or ""))
+                current["side_a"].append((player_name, player_country or "", player_id))
             elif side_no == 2:
-                current["side_b"].append((player_name, player_country or ""))
+                current["side_b"].append((player_name, player_country or "", player_id))
 
     grouped: Dict[Tuple[int, str], Dict[str, List[dict]]] = {}
     for match_data in match_map.values():
@@ -702,7 +701,6 @@ def import_sub_events(
     if owns_conn:
         conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
-    player_index = build_player_index(cursor)
     # 跨 event 的预聚合：单 event 模式下也按 (event_id, sub_event_type_code) 索引返回，
     # 性能成本可接受，逻辑零分叉。
     team_semifinal_winner_pairs = build_team_semifinal_winner_pairs(cursor)
@@ -727,6 +725,7 @@ def import_sub_events(
             m.winner_name,
             m.match_score,
             ms.side_no,
+            msp.player_id,
             msp.player_name,
             msp.player_country
         FROM event_draw_matches edm
@@ -756,6 +755,7 @@ def import_sub_events(
         winner_name,
         match_score,
         side_no,
+        player_id,
         player_name,
         player_country,
     ) in rows:
@@ -774,9 +774,9 @@ def import_sub_events(
         )
         if player_name:
             if side_no == 1:
-                current["side_a"].append((player_name, player_country or ""))
+                current["side_a"].append((player_name, player_country or "", player_id))
             elif side_no == 2:
-                current["side_b"].append((player_name, player_country or ""))
+                current["side_b"].append((player_name, player_country or "", player_id))
 
     result["final_matches"] = len(match_map)
 
@@ -844,7 +844,7 @@ def import_sub_events(
                     result["non_team_final_fallbacks"] += 1
 
             wins_by_team: Dict[str, int] = {}
-            team_roster_by_key: Dict[str, List[Tuple[str, str]]] = {}
+            team_roster_by_key: Dict[str, List[tuple]] = {}
 
             for match_data in selected_finals:
                 winner_side = pick_winner_side(
@@ -900,31 +900,31 @@ def import_sub_events(
             champion_team_key = champion_team_keys[0]
             champion_roster = team_roster_by_key.get(champion_team_key, [])
 
-        champion_members: List[Tuple[str, str]] = []
+        champion_members: List[tuple] = []
         seen_members = set()
-        for name, country in champion_roster:
-            cleaned_name = (name or "").strip()
-            cleaned_country = (country or "").strip()
+        for member in champion_roster:
+            cleaned_name = member_name(member).strip()
+            cleaned_country = member_country(member).strip()
+            player_id = member_player_id(member)
             if not cleaned_name:
                 continue
-            member_key = (normalize_text(cleaned_name), cleaned_country.upper())
+            member_key = ("id", str(player_id)) if player_id is not None else (normalize_text(cleaned_name), cleaned_country.upper())
             if member_key in seen_members:
                 continue
             seen_members.add(member_key)
-            champion_members.append((cleaned_name, cleaned_country))
+            champion_members.append((cleaned_name, cleaned_country, player_id))
 
         champion_names: List[str] = []
         champion_ids: List[str] = []
         champion_countries: List[str] = []
 
-        for name, country in champion_members:
+        for name, country, player_id in champion_members:
             champion_names.append(name)
             if country:
                 champion_countries.append(country)
 
-            pid = lookup_player_id(player_index, name, country)
-            if pid is not None:
-                champion_ids.append(str(pid))
+            if player_id is not None:
+                champion_ids.append(str(player_id))
             else:
                 champion_ids.append("")
                 result["unmatched_champion_members"].add(f"{name} ({country})")
@@ -971,11 +971,13 @@ def import_sub_events(
         champion_names: List[str] = []
         champion_ids: List[str] = []
 
-        for name, country in champion_roster:
+        for member in champion_roster:
+            name = member_name(member)
+            country = member_country(member)
+            player_id = member_player_id(member)
             champion_names.append(name)
-            pid = lookup_player_id(player_index, name, country)
-            if pid is not None:
-                champion_ids.append(str(pid))
+            if player_id is not None:
+                champion_ids.append(str(player_id))
             else:
                 champion_ids.append("")
                 result["unmatched_champion_members"].add(f"{name} ({country})")

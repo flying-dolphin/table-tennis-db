@@ -25,43 +25,6 @@ except ImportError:
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
 
-def normalize_name_key(name: str) -> str:
-    """将名字转为排序后的小写单词集合，用于不区分姓名顺序的匹配。
-    'HARIMOTO Miwa' 和 'Miwa HARIMOTO' 都变成 'harimoto miwa'
-    """
-    parts = sorted(name.lower().split())
-    return ' '.join(parts)
-
-
-def build_player_index(cursor) -> dict:
-    """构建多种键 → player_id 的索引，支持不同名字格式的匹配。
-
-    索引键：
-    1. (name, country_code) — 精确匹配
-    2. (normalized_name_key, country_code) — 不区分姓名顺序
-    """
-    cursor.execute("SELECT player_id, name, country_code FROM players")
-    index = {}
-    for player_id, name, country_code in cursor.fetchall():
-        # 精确匹配
-        index[(name, country_code)] = player_id
-        # 不区分姓名顺序
-        norm_key = normalize_name_key(name)
-        index[(norm_key, country_code)] = player_id
-    return index
-
-
-def lookup_player(player_index: dict, name: str, country_code: str):
-    """查找 player_id，按优先级尝试多种匹配方式"""
-    # 1. 精确匹配
-    pid = player_index.get((name, country_code))
-    if pid:
-        return pid
-    # 2. 不区分姓名顺序
-    norm_key = normalize_name_key(name)
-    return player_index.get((norm_key, country_code))
-
-
 def normalize_expires_date(date_str: str) -> str:
     """将 '2026-May-25' 格式转为 '2026-05-25'"""
     if not date_str:
@@ -147,7 +110,7 @@ def cleanup_existing_snapshot(cursor, category: str, ranking_week: str) -> bool:
     return True
 
 
-def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = None) -> dict:
+def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = None, dry: bool = False) -> dict:
     result = {
         'snapshots': 0,
         'entries': 0,
@@ -155,18 +118,21 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
         'career_best_updates': 0,
         'replaced_snapshots': 0,
         'unmatched_players': [],
+        'unmatched_player_ids': [],
         'players_without_name_zh': [],
         'duplicate_players': [],
         'total_in_file': 0,
         'errors': [],
+        'dry_run': dry,
     }
 
     conn = sqlite3.connect(str(db_path))
     conn.execute("PRAGMA foreign_keys = ON")
     cursor = conn.cursor()
 
-    player_index = build_player_index(cursor)
-    print(f"Player index: {len(player_index)} entries")
+    cursor.execute("SELECT player_id FROM players")
+    valid_player_ids = {int(row[0]) for row in cursor.fetchall()}
+    print(f"Player IDs: {len(valid_player_ids)} valid IDs")
 
     json_files = resolve_ranking_files(rankings_dir, target_file)
 
@@ -190,28 +156,32 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
         print(f"\nProcessing {json_file.name}")
         print(f"  Category: {category}, Week: {ranking_week}, Date: {ranking_date}")
 
-        try:
-            if cleanup_existing_snapshot(cursor, category, ranking_week):
-                result['replaced_snapshots'] += 1
-                print("  Existing snapshot found, cleaned up old entries")
-        except sqlite3.Error as e:
-            result['errors'].append(f"Snapshot cleanup failed: {e}")
-            continue
+        # 清理与插入仅在非 dry 模式下执行
+        if not dry:
+            try:
+                if cleanup_existing_snapshot(cursor, category, ranking_week):
+                    result['replaced_snapshots'] += 1
+                    print("  Existing snapshot found, cleaned up old entries")
+            except sqlite3.Error as e:
+                result['errors'].append(f"Snapshot cleanup failed: {e}")
+                continue
 
-        # 1. 插入 ranking_snapshot
-        try:
-            cursor.execute("""
-                INSERT INTO ranking_snapshots
-                (category, ranking_week, ranking_date, total_players, scraped_at)
-                VALUES (?, ?, ?, ?, ?)
-            """, (category, ranking_week, ranking_date, total_players, scraped_at))
-            snapshot_id = cursor.lastrowid
-            result['snapshots'] += 1
-        except sqlite3.Error as e:
-            result['errors'].append(f"Snapshot insert failed: {e}")
-            continue
+            # 1. 插入 ranking_snapshot
+            try:
+                cursor.execute("""
+                    INSERT INTO ranking_snapshots
+                    (category, ranking_week, ranking_date, total_players, scraped_at)
+                    VALUES (?, ?, ?, ?, ?)
+                """, (category, ranking_week, ranking_date, total_players, scraped_at))
+                snapshot_id = cursor.lastrowid
+                result['snapshots'] += 1
+            except sqlite3.Error as e:
+                result['errors'].append(f"Snapshot insert failed: {e}")
+                continue
+        else:
+            snapshot_id = -1  # dry 模式下用占位符
 
-        # 2. 插入 ranking_entries 和 points_breakdown
+        # 2. 分析所有条目（dry 模式也执行）
         rankings = data.get('rankings', [])
         result['total_in_file'] = len(rankings)
         entries_count = 0
@@ -234,18 +204,41 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
                     'country_code': country_code,
                 })
 
-            # 匹配 player_id
-            player_id = lookup_player(player_index, name, country_code)
-            if player_id is None:
-                if name not in unmatched_in_file:
-                    unmatched_in_file.add(name)
-                    result['unmatched_players'].append({
+            # 匹配 player_id：必须使用 JSON 中已有的有效 player_id
+            player_id = None
+            raw_id = r.get('player_id')
+            if raw_id is not None:
+                try:
+                    pid = int(raw_id)
+                    if pid in valid_player_ids:
+                        player_id = pid
+                    else:
+                        result.setdefault('unmatched_player_ids', []).append({
+                            'rank': r.get('rank'),
+                            'name': name,
+                            'country_code': country_code,
+                            'json_player_id': pid,
+                            'name_zh': name_zh,
+                        })
+                        continue  # JSON 中的 player_id 不在 DB 中，跳过
+                except (ValueError, TypeError):
+                    result['unmatched_player_ids'].append({
+                        'rank': r.get('rank'),
                         'name': name,
                         'country_code': country_code,
-                        'rank': r.get('rank'),
+                        'json_player_id': raw_id,
                         'name_zh': name_zh,
                     })
-                continue  # 跳过无法匹配的球员
+                    continue
+            if player_id is None:
+                result['unmatched_player_ids'].append({
+                    'rank': r.get('rank'),
+                    'name': name,
+                    'country_code': country_code,
+                    'json_player_id': raw_id,
+                    'name_zh': name_zh,
+                })
+                continue  # 跳过无有效 player_id 的球员
 
             # 检测重复 player_id
             if player_id in seen_player_ids:
@@ -258,7 +251,16 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
                     'name_zh': name_zh,
                     'player_id': player_id,
                 })
+                if not dry:
+                    cursor.execute(
+                        "DELETE FROM points_breakdown WHERE snapshot_id=? AND player_id=?",
+                        (snapshot_id, player_id),
+                    )
             seen_player_ids.add(player_id)
+
+            if dry:
+                entries_count += 1
+                continue  # dry 模式跳过 DB 写入
 
             rank = r.get('rank')
             points = r.get('points', 0)
@@ -321,7 +323,8 @@ def import_rankings(db_path: str, rankings_dir: str, target_file: str | None = N
         if duplicate_in_file:
             print(f"  Duplicate player_ids: {len(duplicate_in_file)}")
 
-    conn.commit()
+    if not dry:
+        conn.commit()
     conn.close()
     return result
 
@@ -364,6 +367,11 @@ if __name__ == '__main__':
         "--file",
         help="指定要导入的 JSON 文件；可用相对项目根目录或绝对路径",
     )
+    parser.add_argument(
+        "--dry", "--dry-run",
+        action="store_true",
+        help="Dry run 模式：不实际写入数据库，只输出分析结果",
+    )
     args = parser.parse_args()
 
     rankings_dir = PROJECT_ROOT / "data" / "rankings" / "cn"
@@ -373,13 +381,15 @@ if __name__ == '__main__':
     print("=" * 70)
     print(f"Database:     {DB_PATH}")
     print(f"Rankings dir: {rankings_dir}")
+    if args.dry:
+        print(f"Mode:         DRY RUN (不修改数据库)")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
         print(f"[ERROR] Database not found: {DB_PATH}")
         sys.exit(1)
 
-    result = import_rankings(str(DB_PATH), str(rankings_dir), args.file)
+    result = import_rankings(str(DB_PATH), str(rankings_dir), args.file, dry=args.dry)
 
     print(f"\n{'='*70}")
     print("Results:")
@@ -390,7 +400,8 @@ if __name__ == '__main__':
     print(f"  Replaced snapshots: {result['replaced_snapshots']}")
 
     print(f"\n{'='*70}")
-    print("DATA INTEGRITY REPORT — 需人工修补的问题")
+    label = "DRY RUN — " if result['dry_run'] else ""
+    print(f"{label}DATA INTEGRITY REPORT — 需人工修补的问题")
     print(f"{'='*70}")
     total_issues = 0
 
@@ -415,9 +426,21 @@ if __name__ == '__main__':
             total_issues += 1
         print(f"     → 需要先将这些选手导入 players 表，再重新导入排名")
 
-    # 3. 重复的 player_id
+    # 3. JSON 中的 player_id 不在 DB players 表
+    if result.get('unmatched_player_ids'):
+        print(f"\n  3. JSON 中的 player_id 不在 players 表：{len(result['unmatched_player_ids'])} 条")
+        print(f"     {'Rank':>5}  {'Name':30s} {'Country'} {'json_player_id':>14s} {'name_zh'}")
+        print(f"     {'-'*70}")
+        for p in result['unmatched_player_ids']:
+            zh = p.get('name_zh') or '(无)'
+            json_player_id = str(p.get('json_player_id') or '(missing)')
+            print(f"     #{p['rank']:>4d}  {p['name']:30s} {p['country_code']:7s} {json_player_id:>14s} {zh}")
+            total_issues += 1
+        print(f"     → 需要先将这些选手导入 players 表，再重新导入排名")
+
+    # 4. 重复的 player_id
     if result['duplicate_players']:
-        print(f"\n  3. 重复 player_id 的条目（同一选手多次出现）：{len(result['duplicate_players'])} 条")
+        print(f"\n  4. 重复 player_id 的条目（同一选手多次出现）：{len(result['duplicate_players'])} 条")
         print(f"     {'Rank':>5}  {'Name':30s} {'Country'} {'player_id':>10s} {'name_zh'}")
         print(f"     {'-'*65}")
         for p in result['duplicate_players']:
@@ -427,16 +450,24 @@ if __name__ == '__main__':
         print(f"     → 需要确认是否应该去重，或修正排名数据后重新导入")
 
     # 汇总
-    need_reimport = bool(result['unmatched_players'] or result['duplicate_players'])
+    need_reimport = bool(result['unmatched_players'] or result.get('unmatched_player_ids') or result['duplicate_players'])
     print(f"\n{'='*70}")
     print(f"  汇总: JSON 中共 {result['total_in_file']} 条排名")
-    print(f"        实际插入 {result['entries']} 条（含重复覆盖）")
-    print(f"        待修补问题 {total_issues} 条")
-    if need_reimport:
-        print(f"  [需要重新导入] 请修复上述问题后重新运行导入：--file <文件名>")
-        print(f"     导入会自动清理旧 snapshot 并重新插入")
+    if result['dry_run']:
+        print(f"        可匹配插入 {result['entries']} 条")
     else:
-        print(f"  ✓  无需修补，数据完整")
+        print(f"        实际插入 {result['entries']} 条（含重复覆盖）")
+    print(f"        待修补问题 {total_issues} 条")
+    if result['dry_run']:
+        print(f"  [DRY RUN] 未修改数据库。以上为预览结果。")
+        if need_reimport:
+            print(f"  修复后去掉 --dry 运行即可导入")
+    else:
+        if need_reimport:
+            print(f"  [需要重新导入] 请修复上述问题后重新运行导入：--file <文件名>")
+            print(f"     导入会自动清理旧 snapshot 并重新插入")
+        else:
+            print(f"  ✓  无需修补，数据完整")
     print(f"{'='*70}")
 
     if result['errors']:
@@ -444,6 +475,7 @@ if __name__ == '__main__':
         for e in result['errors'][:10]:
             print(f"    - {e}")
 
-    verify_rankings(str(DB_PATH))
+    if not result['dry_run']:
+        verify_rankings(str(DB_PATH))
 
     sys.exit(0 if not result['errors'] else 1)

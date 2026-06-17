@@ -27,6 +27,7 @@ from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import guarded_goto
 from lib.profile_search_ui import click_go, open_or_select_autocomplete
+from lib.country_codes import country_name_for_code, normalize_profile_country
 from scrape_profiles import download_player_avatar, extract_profile_info
 
 logging.basicConfig(
@@ -509,18 +510,20 @@ def run(args: argparse.Namespace) -> int:
                         raise RuntimeError("player_id not found after search submit")
 
                     profile_url = page.url
+                    country_code = selected_country or expected_country
                     player_info = {
                         "player_id": player_id,
                         "name": row_name or selected_name,
                         "english_name": row_name or selected_name,
-                        "country": selected_country or expected_country,
-                        "country_code": selected_country or expected_country,
+                        "country": country_name_for_code(country_code),
+                        "country_code": country_code,
                         "rank": 0,
                         "points": 0,
                         "change": 0,
                     }
 
                     profile_data = extract_profile_info(page, player_info, profile_url)
+                    normalize_profile_country(profile_data)
                     avatar_meta = download_player_avatar(page, player_info, avatar_dir)
                     if avatar_meta:
                         profile_data.update(avatar_meta)

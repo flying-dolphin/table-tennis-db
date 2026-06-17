@@ -15,7 +15,6 @@ import argparse
 import json
 import logging
 import re
-import sqlite3
 import sys
 import urllib.parse
 import urllib.request
@@ -32,6 +31,7 @@ from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import open_page_with_verification
 from lib.page_ops import click_next_page_if_any, guarded_goto
 from lib.dict_translator import DictTranslator
+from lib.country_codes import country_name_for_code, normalize_profile_country
 
 logging.basicConfig(
     level=logging.INFO,
@@ -87,7 +87,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--snapshot-dir", default="data/ranking_snapshots")
     parser.add_argument("--profile-dir", default="data/player_profiles")
     parser.add_argument("--avatar-dir", default="data/player_avatars")
-    parser.add_argument("--db-path", default="data/db/ittf.db")
     parser.add_argument("--output", default=None)
     parser.add_argument("--checkpoint", default="data/player_profiles/checkpoint_scrape_profiles.json", help="Scrape checkpoint file path")
     parser.add_argument("--player-id", type=str, default=None, help="Player ID (player_id_raw)")
@@ -209,7 +208,7 @@ def parse_ranking_rows(page: Any, top_n: int, translator: DictTranslator | None 
             else:
                 # 无翻译模式：保持原始英文
                 display_name = english_name
-                country_name = country_code or association
+                country_name = country_name_for_code(country_code) or association or country_code
                 continent_name = continent_raw
 
             player = {
@@ -268,150 +267,6 @@ def build_output(rankings: list[dict[str, Any]], category: str, week: str, updat
     }
 
 
-def init_player_profiles_table(db_path: Path) -> None:
-    """Initialize or migrate player_profiles table."""
-    conn = sqlite3.connect(str(db_path))
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS player_profiles (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            player_id TEXT UNIQUE NOT NULL,
-            player_external_id TEXT,
-            name TEXT NOT NULL,
-            english_name TEXT,
-            country TEXT,
-            country_code TEXT,
-            gender TEXT,
-            birth_year INTEGER,
-            age INTEGER,
-            playing_hand TEXT,
-            grip TEXT,
-            current_rank INTEGER,
-            ranking_week TEXT,
-            career_best_rank INTEGER,
-            career_best_month TEXT,
-            career_stats JSON,
-            current_year_stats JSON,
-            recent_matches JSON,
-            avatar_url TEXT,
-            avatar_file_path TEXT,
-            profile_data JSON,
-            profile_url TEXT,
-            json_file_path TEXT,
-            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
-    existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(player_profiles)")}
-    required_cols = {
-        "gender": "TEXT",
-        "birth_year": "INTEGER",
-        "age": "INTEGER",
-        "current_rank": "INTEGER",
-        "ranking_week": "TEXT",
-        "career_best_rank": "INTEGER",
-        "career_best_month": "TEXT",
-        "career_stats": "JSON",
-        "current_year_stats": "JSON",
-        "recent_matches": "JSON",
-        "avatar_url": "TEXT",
-        "avatar_file_path": "TEXT",
-    }
-    for col, col_type in required_cols.items():
-        if col not in existing_cols:
-            conn.execute(f"ALTER TABLE player_profiles ADD COLUMN {col} {col_type}")
-            existing_cols.add(col)
-    if "career_best_week" in existing_cols and "career_best_month" in existing_cols:
-        rows = conn.execute("""
-            SELECT player_id, career_best_week
-            FROM player_profiles
-            WHERE career_best_month IS NULL AND career_best_week IS NOT NULL
-        """).fetchall()
-        for player_id, career_best_week in rows:
-            normalized = normalize_career_best_month(str(career_best_week), "week")
-            if normalized.month:
-                conn.execute(
-                    "UPDATE player_profiles SET career_best_month = ? WHERE player_id = ?",
-                    (normalized.month, player_id),
-                )
-    conn.execute("""
-        CREATE INDEX IF NOT EXISTS idx_player_profiles_player_id 
-        ON player_profiles(player_id)
-    """)
-    conn.commit()
-    conn.close()
-
-
-def save_player_profile_to_db(
-    db_path: Path,
-    player_id: str,
-    profile_data: dict[str, Any],
-    json_file_path: str
-) -> None:
-    """Save player profile to SQLite database."""
-    conn = sqlite3.connect(str(db_path))
-    try:
-        conn.execute("""
-            INSERT INTO player_profiles (
-                player_id, player_external_id, name, english_name, country,
-                country_code, gender, birth_year, age, playing_hand, grip,
-                current_rank, ranking_week, career_best_rank, career_best_month,
-                career_stats, current_year_stats, recent_matches, avatar_url,
-                avatar_file_path, profile_data, profile_url, json_file_path, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(player_id) DO UPDATE SET
-                name = excluded.name,
-                english_name = excluded.english_name,
-                country = excluded.country,
-                country_code = excluded.country_code,
-                gender = excluded.gender,
-                birth_year = excluded.birth_year,
-                age = excluded.age,
-                playing_hand = excluded.playing_hand,
-                grip = excluded.grip,
-                current_rank = excluded.current_rank,
-                ranking_week = excluded.ranking_week,
-                career_best_rank = excluded.career_best_rank,
-                career_best_month = excluded.career_best_month,
-                career_stats = excluded.career_stats,
-                current_year_stats = excluded.current_year_stats,
-                recent_matches = excluded.recent_matches,
-                avatar_url = excluded.avatar_url,
-                avatar_file_path = excluded.avatar_file_path,
-                profile_data = excluded.profile_data,
-                profile_url = excluded.profile_url,
-                json_file_path = excluded.json_file_path,
-                updated_at = excluded.updated_at
-        """, (
-            player_id,
-            profile_data.get("player_id"),
-            profile_data.get("name", ""),
-            profile_data.get("english_name", ""),
-            profile_data.get("country", ""),
-            profile_data.get("country_code", ""),
-            profile_data.get("gender"),
-            profile_data.get("birth_year"),
-            profile_data.get("age"),
-            profile_data.get("playing_hand"),
-            profile_data.get("grip"),
-            profile_data.get("current_rank"),
-            profile_data.get("ranking_week"),
-            profile_data.get("career_best_rank"),
-            profile_data.get("career_best_month"),
-            json.dumps(profile_data.get("career_stats"), ensure_ascii=False) if profile_data.get("career_stats") else None,
-            json.dumps(profile_data.get("current_year_stats"), ensure_ascii=False) if profile_data.get("current_year_stats") else None,
-            json.dumps(profile_data.get("recent_matches"), ensure_ascii=False) if profile_data.get("recent_matches") else None,
-            profile_data.get("avatar_url"),
-            profile_data.get("avatar_file_path"),
-            json.dumps(profile_data, ensure_ascii=False),
-            profile_data.get("profile_url"),
-            json_file_path,
-            datetime.now().isoformat()
-        ))
-        conn.commit()
-    finally:
-        conn.close()
-
-
 def scrape_player_profile(
     page: Any,
     profile_url: str,
@@ -419,7 +274,6 @@ def scrape_player_profile(
     delay_cfg: DelayConfig,
     profile_orig_dir: Path,
     avatar_dir: Path,
-    db_path: Path,
     checkpoint: CheckpointStore | None = None,
     category: str | None = None,
     force: bool = False,
@@ -473,10 +327,6 @@ def scrape_player_profile(
         logger.info("Saved original profile: %s", orig_path)
         if checkpoint is not None:
             checkpoint.mark_done(ck_scrape, meta={"orig_path": str(orig_path), "profile_url": profile_url})
-
-        # Save to database (use original data)
-        save_player_profile_to_db(db_path, player_id, profile_data, str(orig_path))
-        logger.info("Saved player profile to DB: %s", player_id)
 
         return profile_data, True
 
@@ -536,7 +386,7 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
         "player_id": player_info.get("player_id"),
         "name": player_info.get("name", ""),
         "english_name": player_info.get("english_name", ""),
-        "country": player_info.get("country", ""),
+        "country": country_name_for_code(player_info.get("country_code")) or player_info.get("country", ""),
         "country_code": player_info.get("country_code", ""),
         "profile_url": profile_url,
         "rank": player_info.get("rank"),
@@ -671,6 +521,7 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
     except Exception as exc:
         logger.warning("Error extracting profile details: %s", exc)
 
+    normalize_profile_country(profile_data)
     return profile_data
 
 
@@ -783,10 +634,6 @@ def run(args: argparse.Namespace) -> int:
     avatar_dir = Path(args.avatar_dir)
     avatar_dir.mkdir(parents=True, exist_ok=True)
 
-    db_path = Path(args.db_path)
-    db_path.parent.mkdir(parents=True, exist_ok=True)
-    init_player_profiles_table(db_path)
-
     output_path = Path(args.output) if args.output else Path(f"data/{args.category}_top{args.top}.json")
     checkpoint = CheckpointStore(Path(args.checkpoint))
     if getattr(args, "rebuild_checkpoint", False):
@@ -850,7 +697,6 @@ def run(args: argparse.Namespace) -> int:
                     delay_cfg,
                     profile_orig_dir,
                     avatar_dir,
-                    db_path,
                     checkpoint=checkpoint,
                     category=args.category,
                     force=bool(args.force),
@@ -881,7 +727,6 @@ def run(args: argparse.Namespace) -> int:
                         delay_cfg,
                         profile_orig_dir,
                         avatar_dir,
-                        db_path,
                         checkpoint=checkpoint,
                         category=args.category,
                         force=bool(args.force),
@@ -926,7 +771,6 @@ def run(args: argparse.Namespace) -> int:
                             delay_cfg,
                             profile_orig_dir,
                             avatar_dir,
-                            db_path,
                             checkpoint=checkpoint,
                             category=args.category,
                             force=bool(args.force),
