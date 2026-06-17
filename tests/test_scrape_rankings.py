@@ -6,7 +6,7 @@ from pathlib import Path
 SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
 
-from scrape_rankings import extract_ranking_meta
+from scrape_rankings import build_parser, extract_ranking_meta
 
 
 class FakePage:
@@ -31,6 +31,13 @@ class ExtractRankingMetaTests(unittest.TestCase):
 
         with self.assertRaisesRegex(ValueError, "ranking metadata"):
             extract_ranking_meta(page)
+
+
+class BuildParserTests(unittest.TestCase):
+    def test_accepts_cdp_only_flag(self):
+        args = build_parser().parse_args(["--cdp-only"])
+
+        self.assertTrue(args.cdp_only)
 
 
 if __name__ == "__main__":

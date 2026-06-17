@@ -72,6 +72,19 @@ pip install requests beautifulsoup4 pypdf playwright
 playwright install chromium
 ```
 
+抓取脚本会通过 Playwright/Patchright 启动 Chromium。Ubuntu 24.04 等最小化环境可能缺少浏览器运行库；如果启动时报错 `libnspr4.so`、`libnss3.so` 或 `libasound.so.2` not found，先安装系统依赖：
+
+```bash
+sudo apt-get update
+sudo apt-get install -y libnspr4 libnss3 libasound2t64
+```
+
+可用下面命令检查 Chromium 是否仍有缺失库：
+
+```bash
+ldd ~/.cache/ms-playwright/chromium-*/chrome-linux64/chrome | grep "not found"
+```
+
 ## 文档
 
 - [数据库设计](docs/design/database.md) — 表结构、关系、数据来源
