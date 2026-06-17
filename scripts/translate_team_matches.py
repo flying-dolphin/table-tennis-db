@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from lib.capture import save_json
 from lib.checkpoint import CheckpointStore
 from lib.dict_translator import DictTranslator
+from lib.event_translation import split_event_name, translate_event_name_dict_only
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -30,7 +31,6 @@ CN_DIR = PROJECT_ROOT / "data" / "team_matches" / "cn"
 CHECKPOINT_PATH = PROJECT_ROOT / "data" / "team_matches" / "checkpoint_translate_team_matches.json"
 MISSING_PATH = PROJECT_ROOT / "data" / "team_matches" / "missing_translations.txt"
 
-SPONSOR_SUFFIX_RE = re.compile(r"\s+Presented by .*$", re.IGNORECASE)
 SUB_EVENT_PREFIX_RE = re.compile(r"^([A-Z]\d+)([A-Z]+)$")
 SIDE_ENTRY_RE = re.compile(r"^(.+?)\s+\(([^)]+)\)$")
 
@@ -53,26 +53,17 @@ def _translate_ck(filename: str) -> str:
     return f"team_matches|file:{filename}|translate"
 
 
-def split_event_name(name: str) -> tuple[str, str | None]:
-    stripped = SPONSOR_SUFFIX_RE.sub("", (name or "")).strip()
-    match = re.match(r"^(.*?)\s+(\d{4})\s*$", stripped)
-    if match:
-        return match.group(1).strip(), match.group(2)
-    return stripped, None
-
-
 def translate_value(value: str, field: str, dt: DictTranslator, missing: dict[str, set[str]]) -> str:
     if value in SKIP_VALUES:
         return value
     category = FIELD_CATEGORY[field]
 
     if field == "event_name":
-        base_name, year = split_event_name(value)
-        translated_base = dt.translate(base_name, category)
-        if translated_base == base_name:
-            missing[field].add(base_name)
+        translated = translate_event_name_dict_only(value, dt)
+        if translated is None:
+            missing[field].add(split_event_name(value).base_name)
             return value
-        return f"{year}年{translated_base}" if year else translated_base
+        return translated
 
     if field == "sub_event_type_code":
         m = SUB_EVENT_PREFIX_RE.match(value)

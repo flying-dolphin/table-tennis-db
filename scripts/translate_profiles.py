@@ -22,6 +22,8 @@ import re
 import sys
 from pathlib import Path
 
+from lib.country_codes import normalize_profile_country
+
 PROJECT_ROOT = Path(__file__).parent.parent
 LOG_DIR = PROJECT_ROOT / "scripts" / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -109,8 +111,11 @@ _ENGLISH_LETTER_RE = re.compile(r"[A-Za-z]")
 
 def translate_profile(profile: dict, indexes: dict[str, dict[str, str]], filename: str) -> dict:
     profile.pop("recent_matches", None)
+    normalize_profile_country(profile, include_country_zh=True)
 
     for field, categories in TRANSLATE_FIELDS.items():
+        if field == "country" and profile.get("country_zh"):
+            continue
         original = profile.get(field)
         if not isinstance(original, str) or not original.strip():
             continue

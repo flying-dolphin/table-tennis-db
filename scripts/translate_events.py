@@ -11,14 +11,14 @@ from __future__ import annotations
 import argparse
 import json
 import logging
-import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
 from lib.capture import save_json
-from lib.translator import LLMTranslator
+from lib.dict_translator import DictTranslator
+from lib.event_translation import split_event_name, translate_event_name_dict_only
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -29,8 +29,6 @@ CN_DIR = PROJECT_ROOT / "data" / "events_list" / "cn"
 
 TRANSLATE_FIELDS = ("name", "event_type", "event_kind")
 SKIP_VALUES = {"--", ""}
-SPONSOR_SUFFIX_RE = re.compile(r"\s+Presented by .*$", re.IGNORECASE)
-YEAR_SUFFIX_RE = re.compile(r"^(?P<name>.*?)(?:\s+(?P<year>\d{4}))?$")
 
 
 def translated_field_name(field: str) -> str:
@@ -73,49 +71,8 @@ def load_cn_event_ids(cn_path: Path) -> set[int]:
         return set()
 
 
-def split_event_name(value: str) -> tuple[str, str | None]:
-    stripped = SPONSOR_SUFFIX_RE.sub("", value).strip()
-    match = YEAR_SUFFIX_RE.match(stripped)
-    if not match:
-        return stripped, None
-
-    name = (match.group("name") or "").strip()
-    year = match.group("year")
-    return name or stripped, year
-
-
-def format_translated_value(field: str, translated_value: str, name_year: str | None) -> str:
-    if field == "name" and name_year:
-        return f"{name_year}年{translated_value}"
-    return translated_value
-
-
-def collect_translate_items(events: list[dict], skip_ids: set[int]) -> tuple[dict[str, str], dict[str, str]]:
-    """Collect fields to translate from untranslated events.
-
-    Returns dict like {"3298.name": "WTT Youth ...", "3298.event_type": "WTT Youth Contender Series"}
-    """
-    items: dict[str, str] = {}
-    name_years: dict[str, str] = {}
-    for event in events:
-        eid = event.get("event_id")
-        if eid in skip_ids:
-            continue
-        for field in TRANSLATE_FIELDS:
-            value = event.get(field, "")
-            if value in SKIP_VALUES:
-                continue
-            key = f"{eid}.{field}"
-            if field == "name":
-                name, year = split_event_name(value)
-                if not name:
-                    continue
-                items[key] = name
-                if year:
-                    name_years[key] = year
-                continue
-            items[key] = value
-    return items, name_years
+def translate_event_field_dict_only(value: str, translator: DictTranslator) -> str | None:
+    return translate_event_name_dict_only(value, translator)
 
 
 def apply_translations(
@@ -177,68 +134,6 @@ def build_result(
     return result
 
 
-def apply_batch_to_base_events(
-    base_events: list[dict],
-    batch_result: dict[str, str],
-    translate_skip_ids: set[int],
-    failed_event_ids: set[int],
-    name_years: dict[str, str],
-) -> None:
-    for ev in base_events:
-        eid = ev.get("event_id")
-        if eid in translate_skip_ids or eid in failed_event_ids:
-            continue
-        for field in TRANSLATE_FIELDS:
-            key = f"{eid}.{field}"
-            if key in batch_result:
-                ev[translated_field_name(field)] = format_translated_value(field, batch_result[key], name_years.get(key))
-
-
-def validate_translations(
-    base_events: list[dict],
-    translated: dict[str, str],
-    translate_skip_ids: set[int],
-    failed_event_ids: set[int],
-    name_years: dict[str, str],
-) -> None:
-    for ev in base_events:
-        eid = ev.get("event_id")
-        if eid in translate_skip_ids or eid in failed_event_ids:
-            continue
-        for field in TRANSLATE_FIELDS:
-            orig_value = ev.get(field, "")
-            if orig_value in SKIP_VALUES:
-                logger.debug("event %s field '%s' is skip value %r, skipping", eid, field, orig_value)
-                continue
-            key = f"{eid}.{field}"
-            if key in translated:
-                ev[translated_field_name(field)] = format_translated_value(field, translated[key], name_years.get(key))
-            else:
-                logger.warning("event %s field '%s' missing from translated (key=%r)", eid, field, key)
-                failed_event_ids.add(eid)
-                break
-
-
-def collect_incomplete_event_ids(
-    events: list[dict],
-    translated: dict[str, str],
-    translate_skip_ids: set[int],
-) -> set[int]:
-    incomplete_ids: set[int] = set()
-    for event in events:
-        eid = event.get("event_id")
-        if eid in translate_skip_ids:
-            continue
-        for field in TRANSLATE_FIELDS:
-            orig_value = event.get(field, "")
-            if orig_value in SKIP_VALUES:
-                continue
-            if f"{eid}.{field}" not in translated:
-                incomplete_ids.add(eid)
-                break
-    return incomplete_ids
-
-
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Translate events_list files from orig to cn")
     parser.add_argument("--file", type=str, help="Specify orig file name (default: latest in orig/)")
@@ -247,8 +142,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--force", action="store_true", help="Re-translate all events, ignoring existing cn file")
     parser.add_argument("--event-id", type=int, nargs="+", help="Only translate specific event_id(s)")
     parser.add_argument("--top", type=int, help="Only translate the first N events (in file order)")
-    parser.add_argument("--provider", default="minimax", help="LLM provider (minimax, kimi, qwen, glm, deepseek)")
-    parser.add_argument("--model", default=None, help="LLM model name (default: provider's default model)")
     return parser
 
 
@@ -322,55 +215,31 @@ def run(args: argparse.Namespace) -> int:
     if translate_skip_ids:
         logger.info("Skipping %d events", len(translate_skip_ids))
 
-    # Collect items to translate from original data (so already-translated CN values aren't re-translated)
-    items, name_years = collect_translate_items(events, translate_skip_ids)
-    if not items:
-        logger.info("No new events to translate")
-        final_events = [ev for ev in base_events if output_skip_ids is None or ev.get("event_id") not in output_skip_ids]
-        result = dict(orig_data)
-        result["events"] = final_events
-        save_json(cn_path, result)
-        return 0
+    translator = DictTranslator()
+    missing: dict[str, set[str]] = {field: set() for field in TRANSLATE_FIELDS}
+    translated_count = 0
 
-    logger.info("Translating %d fields from %d events", len(items), len(items) // len(TRANSLATE_FIELDS) + 1)
+    for ev in base_events:
+        eid = ev.get("event_id")
+        if eid in translate_skip_ids:
+            continue
+        for field in TRANSLATE_FIELDS:
+            value = ev.get(field, "")
+            if value in SKIP_VALUES:
+                continue
+            translated = translate_event_field_dict_only(value, translator)
+            if translated is None:
+                missing[field].add(split_event_name(value).base_name)
+                continue
+            ev[translated_field_name(field)] = translated
+            translated_count += 1
 
-    failed_event_ids: set[int] = set()
-    translated_so_far: dict[str, str] = {}
-
-    def persist_progress() -> None:
-        incomplete_event_ids = collect_incomplete_event_ids(events, translated_so_far, translate_skip_ids)
-        excluded_event_ids = failed_event_ids | incomplete_event_ids
-        save_json(cn_path, build_result(orig_data, base_events, excluded_event_ids, output_skip_ids))
-
-    def handle_batch_complete(batch_index: int, batch_total: int, batch_result: dict[str, str]) -> None:
-        translated_so_far.update(batch_result)
-        apply_batch_to_base_events(base_events, batch_result, translate_skip_ids, failed_event_ids, name_years)
-        persist_progress()
-        logger.info("Saved progress after batch %d/%d: %s", batch_index, batch_total, cn_path)
-
-    translator = LLMTranslator(provider=args.provider, model=args.model)
-    try:
-        translated = translator.translate(items, on_batch_complete=handle_batch_complete)
-    except KeyboardInterrupt:
-        logger.warning("Translation interrupted, saving completed batches to %s", cn_path)
-        persist_progress()
-        raise
-
-    if translated is None:
-        logger.error("Translation API failed, saving completed batches only")
-        persist_progress()
-        return 1
-
-    validate_translations(base_events, translated, translate_skip_ids, failed_event_ids, name_years)
-    result = build_result(orig_data, base_events, failed_event_ids, output_skip_ids)
-
-    if failed_event_ids:
-        failed_list = sorted(failed_event_ids)
-        logger.warning("Skipping %d events with untranslated fields: %s", len(failed_list), failed_list[:10])
-        logger.error("Partial translation failure: %d events skipped. Re-run with --force to retry", len(failed_event_ids))
-        save_json(cn_path, result)
-        logger.info("Saved partial results: %s", cn_path)
-        return 1
+    result = build_result(orig_data, base_events, set(), output_skip_ids)
+    missing_count = sum(len(values) for values in missing.values())
+    logger.info("Dictionary translated %d fields; missing %d fields", translated_count, missing_count)
+    for field, values in missing.items():
+        if values:
+            logger.warning("Missing %s translations: %s", field, sorted(values)[:10])
 
     save_json(cn_path, result)
     logger.info("Saved: %s", cn_path)

@@ -2,7 +2,7 @@
 """
 Translate ranking files from orig to cn using dictionary only.
 Only translates specific fields: name, location, country,
-event, category, expires_on, position.
+category, expires_on, position.
 """
 
 from __future__ import annotations
@@ -99,7 +99,6 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
         "name": [],
         "country": [],
         "location": [],
-        "event": [],
         "category": [],
         "expires_on": [],
         "position": [],
@@ -131,14 +130,6 @@ def translate_rankings(data: dict, translator: DictTranslator, output_file: str)
                 missing["location"].append(original)
 
         for pb in record.get("points_breakdown", []):
-            if "event" in pb:
-                original = pb["event"]
-                translated = translator.translate(original, "events")
-                if translated != original:
-                    pb[_translated_field_name("event")] = translated
-                else:
-                    missing["event"].append(original)
-
             if "category" in pb:
                 original = pb["category"]
                 translated = translator.translate(original, "terms_others")
