@@ -117,8 +117,8 @@ Web 镜像只发布应用代码、Next.js 构建产物、非头像 public 资源
 | 资产 | 线上位置 | 准备/同步方式 | 漏掉后的现象 |
 |------|----------|---------------|--------------|
 | SQLite 主库 | `${ITTF_DATA_DIR}/db/ittf.db` | 首次部署用 `.backup` 快照上传；日常由服务器 A 赛事刷新或 Windows rankings 导入更新 | Web API 报 DB 缺失或页面无数据 |
-| Ranking/list 头像缩略图 | `${ITTF_DATA_DIR}/web_assets/avatar-thumbs/` | 开发机执行 `npm run images:avatars` 后 `rsync --delete`，见 5.4 节 | 列表、排名、赛程头像 404 或首字母占位 |
-| Player detail 完整头像缩略图 | `${ITTF_DATA_DIR}/web_assets/avatar-full-thumbs/` | 开发机执行 `npm run images:avatar-full` 后 `rsync --delete`，见 5.4 节 | 球员详情页头像 404 或首字母占位 |
+| Ranking/list 头像缩略图 | `${ITTF_DATA_DIR}/web_assets/avatar-thumbs/` | 首次不存在或 `crops` 源图变化时，开发机执行 `npm run images:avatars` 生成后 `rsync --delete`，见 5.4 节 | 列表、排名、赛程头像 404 或首字母占位 |
+| Player detail 完整头像缩略图 | `${ITTF_DATA_DIR}/web_assets/avatar-full-thumbs/` | 首次不存在或 `avatars` 源图变化时，开发机执行 `npm run images:avatar-full` 生成后 `rsync --delete`，见 5.4 节 | 球员详情页头像 404 或首字母占位 |
 | 进行中赛事 WTT 原始结果 | `${ITTF_DATA_DIR}/wtt_raw/{event_id}/` | 从抓取产物同步 `GetOfficialResult*.json`，必要时同步 `GetEventSchedule.json` | 进行中团体赛缺官方比分补充 |
 | 球员历史国家映射 | `${ITTF_DATA_DIR}/player_country_history.json` | 和数据库/排名资料更新一起上传；`upload_runtime.ps1` 与 ranking/profile 发布脚本会处理 | 详情页历史国家回写缺失 |
 | 赛事刷新 runtime 脚本 | `/opt/ittf-ops/` | Windows 开发机执行 `deploy/server/upload_runtime.ps1`，见 8.2 节 | cron 调用旧脚本或缺依赖 |
@@ -274,7 +274,14 @@ $EDITOR deploy/web/.env
 
 ### 5.4 生成并同步头像缩略图
 
-镜像不包含头像数据。每次新增、替换或重新裁剪头像后，都需要在有完整图片源文件的机器上生成两套 WebP 缩略图，并同步到服务器 A 的数据卷：
+镜像不包含头像数据。两条 `npm run images:*` 命令的作用是**在本地生成 WebP 缩略图文件**：
+
+- `npm run images:avatars`：从 `web/public/images/crops` 生成 ranking/list 使用的 `web/public/images/avatar-thumbs`
+- `npm run images:avatar-full`：从 `web/public/images/avatars` 生成 player detail 使用的 `web/public/images/avatar-full-thumbs`
+
+只有在缩略图目录首次不存在，或头像源图新增、替换、重裁剪后，才需要重新执行生成命令。日常只发代码且头像没有变化时，不需要运行这两个命令。
+
+生成完成后，把两套缩略图同步到服务器 A 的数据卷：
 
 ```bash
 cd /path/to/ittf/web
@@ -539,7 +546,7 @@ git pull && git status   # 确认是干净的
 ./deploy/web/build-and-push.sh           # 输出 ":xxxxxxx" tag
 # 例如：Pushed crpi-...:a1b2c3d
 
-# 如果本次涉及头像新增/替换/重裁剪，继续执行第 5.4 节：
+# 如果本次涉及头像新增/替换/重裁剪，且本地缩略图不存在或已过期，先执行第 5.4 节生成：
 # npm run images:avatars && npm run images:avatar-full
 # rsync 两套 web/public/images/avatar-*-thumbs 到服务器 data/web_assets/
 
@@ -794,7 +801,7 @@ docker compose up -d
 | 服务器 A SQLite 异地 | 每周 | scp `backups/` 到对象存储 |
 | 服务器 B Umami PG | 每日 | `docker exec umami-db pg_dump -U umami umami | gzip > /var/backups/umami/umami-$(date +%Y%m%d).sql.gz` |
 | 抓取产物 JSON | 不必备份 | 可重新抓取 |
-| 头像缩略图（`data/web_assets/`） | 不必备份 | 由源图重新生成，必要时 `cd web && npm run images:avatars && npm run images:avatar-full` 后复制两套缩略图目录 |
+| 头像缩略图（`data/web_assets/`） | 不必备份 | 由源图重新生成；仅在缩略图首次不存在或源图变化时运行 `cd web && npm run images:avatars && npm run images:avatar-full` |
 | ACR 镜像 | 自动 | 阿里云保留所有 push 过的 tag |
 
 ### 11.4 故障恢复
@@ -812,6 +819,7 @@ ls /opt/ittf/data/web_assets/avatar-thumbs | head
 ls /opt/ittf/data/web_assets/avatar-full-thumbs | head
 
 # 如果是空目录，从有完整图片源文件的机器重新生成并同步一份。
+# 生成命令只在缩略图不存在或源图变化时需要；已有可用缩略图时直接同步即可。
 # 开发机推荐用 rsync，见 5.4 节；服务器有完整 repo 时也可本地生成：
 cd /opt/ittf
 ( cd web && npm run images:avatars && npm run images:avatar-full )

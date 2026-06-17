@@ -10,13 +10,20 @@
 # 构建上下文应该是仓库根目录（不是 web/），因为镜像需要把 scripts/db/schema.sql 也拷进来。
 
 # ---------- 1. 安装依赖 ----------
-FROM docker.m.daocloud.io/library/node:20.18.1-bookworm-slim AS deps
+FROM docker.m.daocloud.io/library/node:20.19.0-bookworm-slim AS deps
 WORKDIR /app/web
+ARG NPM_CONFIG_REGISTRY=https://registry.npmmirror.com
+ENV NPM_CONFIG_REGISTRY=$NPM_CONFIG_REGISTRY \
+    NPM_CONFIG_REPLACE_REGISTRY_HOST=npmjs \
+    NPM_CONFIG_FETCH_RETRIES=5 \
+    NPM_CONFIG_FETCH_RETRY_MINTIMEOUT=20000 \
+    NPM_CONFIG_FETCH_RETRY_MAXTIMEOUT=120000 \
+    NPM_CONFIG_MAXSOCKETS=8
 COPY web/package.json web/package-lock.json ./
-RUN npm ci --no-audit --no-fund
+RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
 
 # ---------- 2. 构建 ----------
-FROM docker.m.daocloud.io/library/node:20.18.1-bookworm-slim AS builder
+FROM docker.m.daocloud.io/library/node:20.19.0-bookworm-slim AS builder
 WORKDIR /app/web
 ENV NEXT_TELEMETRY_DISABLED=1
 # build 阶段把公开变量内联进 bundle / 镜像 ENV（NEXT_PUBLIC_* 走客户端，ORG/PROJECT 只是标识符）
@@ -43,7 +50,7 @@ RUN --mount=type=secret,id=sentry_auth_token \
     /bin/sh -lc 'if [ -f /run/secrets/sentry_auth_token ]; then export SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token)"; fi; npm run build'
 
 # ---------- 3. 运行时 ----------
-FROM docker.m.daocloud.io/library/node:20.18.1-bookworm-slim AS runner
+FROM docker.m.daocloud.io/library/node:20.19.0-bookworm-slim AS runner
 WORKDIR /app/web
 ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \

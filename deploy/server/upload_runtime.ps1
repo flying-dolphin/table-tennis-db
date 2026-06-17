@@ -2,7 +2,9 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$ServerHost,
 
-    [string]$RemoteOpsDir = "/opt/ittf-ops"
+    [string]$RemoteOpsDir = "/opt/ittf-ops",
+
+    [string]$RemoteProjectDir = "/opt/ittf"
 )
 
 $ErrorActionPreference = "Stop"
@@ -104,6 +106,29 @@ $files = @(
     }
 )
 
+$projectFiles = @(
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\db\config.py")
+        Remote = "$RemoteProjectDir/scripts/db/config.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\db\import_players.py")
+        Remote = "$RemoteProjectDir/scripts/db/import_players.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\db\import_rankings.py")
+        Remote = "$RemoteProjectDir/scripts/db/import_rankings.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "scripts\lib\career_best.py")
+        Remote = "$RemoteProjectDir/scripts/lib/career_best.py"
+    },
+    @{
+        Local  = (Join-Path $RepoRoot "data\player_country_history.json")
+        Remote = "$RemoteProjectDir/data/player_country_history.json"
+    }
+)
+
 $StagingDir = Join-Path $PSScriptRoot "upload_staging"
 $ArchiveName = "runtime_bundle.tar.gz"
 $ArchivePath = Join-Path $PSScriptRoot $ArchiveName
@@ -143,6 +168,37 @@ Write-Host "Extracting archive on server..."
 
 Write-Host "Marking shell scripts as executable ..."
 & ssh $ServerHost "chmod +x '$RemoteOpsDir/event_refresh.sh' '$RemoteOpsDir/install_current_event_crontab.sh'"
+
+Write-Host "Staging project import files locally..."
+if (Test-Path $StagingDir) { Remove-Item -Recurse -Force $StagingDir }
+New-Item -ItemType Directory -Path $StagingDir | Out-Null
+
+foreach ($file in $projectFiles) {
+    if (-not (Test-Path -LiteralPath $file.Local)) {
+        throw "Local file not found: $($file.Local)"
+    }
+
+    $RelativePath = $file.Remote.Replace($RemoteProjectDir, "").TrimStart("/")
+    $DestFile = Join-Path $StagingDir $RelativePath
+    $DestDir = Split-Path $DestFile -Parent
+
+    if (-not (Test-Path $DestDir)) {
+        New-Item -ItemType Directory -Path $DestDir -Force | Out-Null
+    }
+
+    Write-Host "Copying $($file.Local) to project staging..."
+    Copy-Item $file.Local $DestFile
+}
+
+Write-Host "Creating project archive $ArchiveName ..."
+& tar.exe -czf $ArchivePath -C $StagingDir .
+
+Write-Host "Creating remote project directory and uploading archive to $ServerHost ..."
+& ssh $ServerHost "mkdir -p '$RemoteProjectDir'"
+& scp $ArchivePath ("{0}:{1}" -f $ServerHost, "$RemoteProjectDir/$ArchiveName")
+
+Write-Host "Extracting project archive on server..."
+& ssh $ServerHost "cd '$RemoteProjectDir' && tar -xzf $ArchiveName && rm $ArchiveName"
 
 Write-Host "Cleaning up local temporary files..."
 Remove-Item -Recurse -Force $StagingDir
