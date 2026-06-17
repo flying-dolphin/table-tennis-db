@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { getRankingAvatarSources } from "@/lib/avatar-paths";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -22,24 +24,25 @@ type PlayerAvatarProps = {
 export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarProps) {
   const displayName = player.nameZh?.trim() || player.name;
 
-  const filename = player.avatarFile;
-  const croppedPath = filename ? `/images/crops/${filename}` : null;
-  const originalPath = filename ? `/images/avatars/${filename}` : null;
+  const sources = getRankingAvatarSources(player.avatarFile);
 
-  const [error, setError] = useState(!filename);
-  const [imgSrc, setImgSrc] = useState(croppedPath);
-  const [retryCount, setRetryCount] = useState(0);
+  const [error, setError] = useState(!player.avatarFile);
+  const [imgSrc, setImgSrc] = useState(sources.primary);
+  const [fallbackIndex, setFallbackIndex] = useState(0);
 
   useEffect(() => {
-    setError(!filename);
-    setImgSrc(croppedPath);
-    setRetryCount(0);
-  }, [croppedPath, filename]);
+    setError(!player.avatarFile);
+    setImgSrc(sources.primary);
+    setFallbackIndex(0);
+  }, [player.avatarFile, sources.primary]);
 
   const handleImageError = () => {
-    if (retryCount === 0 && originalPath) {
-      setImgSrc(originalPath);
-      setRetryCount(1);
+    const fallback = sources.fallbacks[fallbackIndex];
+    if (fallback) {
+      setImgSrc(fallback);
+      setFallbackIndex((current) => current + 1);
+    } else if (imgSrc !== sources.default) {
+      setImgSrc(sources.default);
     } else {
       setError(true);
     }
@@ -49,6 +52,12 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
     sm: "w-9 h-9 text-xs",
     md: "w-12 h-12 text-lg",
     lg: "w-24 h-24 text-3xl",
+  };
+
+  const imageSizes = {
+    sm: 36,
+    md: 48,
+    lg: 96,
   };
 
   const containerClasses = cn(
@@ -64,10 +73,12 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
   if (!error && imgSrc) {
     return (
       <div className={cn(containerClasses, "bg-slate-50")}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={imgSrc}
           alt={player.name}
+          width={imageSizes[size]}
+          height={imageSizes[size]}
+          sizes={`${imageSizes[size]}px`}
           className="w-full h-full object-cover"
           onError={handleImageError}
         />

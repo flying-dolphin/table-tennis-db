@@ -54,11 +54,11 @@ services:
       # SQLite 数据库与抓取产物：宿主 /opt/ittf/data ↔ 容器 /app/data
       # （web/lib/paths.ts 里 DB_FILE 是 ../data/db/ittf.db，容器工作目录在 /app/web）
       - ${ITTF_DATA_DIR:-/opt/ittf/data}:/app/data
-      # 头像图片：从宿主数据卷以只读方式挂到 Next.js public 目录。
-      # 镜像里这两个路径已被 .dockerignore 排除，部署前需先把仓库里的
-      # web/public/images/{avatars,crops} 拷到数据卷的 web_assets/{avatars,crops}。
-      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/avatars:/app/web/public/images/avatars:ro
-      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/crops:/app/web/public/images/crops:ro
+      # 头像缩略图：线上只挂载 WebP 缩略图目录，不暴露 avatars/crops 原图目录。
+      # 部署前需先生成缩略图并把 web/public/images/{avatar-thumbs,avatar-full-thumbs}
+      # 同步到数据卷的 web_assets/ 对应目录。
+      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/avatar-thumbs:/app/web/public/images/avatar-thumbs:ro
+      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/avatar-full-thumbs:/app/web/public/images/avatar-full-thumbs:ro
     ports:
       # 左侧是宿主机端口（被占用时通过 ITTF_WEB_HOST_PORT 改，例如 3001）；
       # 右侧 3000 是容器内 Next.js 监听端口，固定不变（与 Dockerfile 的 PORT、healthcheck 对齐）。

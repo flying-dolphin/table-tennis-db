@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "images:avatars": "tsx scripts/generate-avatar-thumbs.ts",
+    "images:avatar-full": "tsx scripts/generate-avatar-full-thumbs.ts",
     "db:migrate": "tsx scripts/migrate.ts",
     "db:seed": "tsx scripts/seed.ts"
   },
@@ -24,6 +26,7 @@
     "nodemailer": "^8.0.5",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

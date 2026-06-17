@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useDeferredValue, useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, Trophy, X, UsersRound } from "lucide-react";
@@ -8,6 +9,7 @@ import { Flag } from "@/components/Flag";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 import { EventCategoryIcon, getEventCategory } from "@/components/events/EventCategoryIcon";
+import { getPlayerDetailAvatarSources } from "@/lib/avatar-paths";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -311,29 +313,48 @@ function EmptyState({ title, action = '想要' }: { title: string; action?: stri
 }
 
 function HeroPlayerAvatar({ player }: { player: Player }) {
+  const sources = getPlayerDetailAvatarSources(player.avatarFile);
+  const [imgSrc, setImgSrc] = React.useState(sources.primary);
+  const [fallbackIndex, setFallbackIndex] = React.useState(0);
   const [error, setError] = React.useState(false);
   const displayName = displayPlayerName(player);
-  const src = player.avatarFile
-    ? `/images/avatars/${player.avatarFile}`
-    : "/images/avatars/player_default.png";
+
+  React.useEffect(() => {
+    setImgSrc(sources.primary);
+    setFallbackIndex(0);
+    setError(false);
+  }, [sources.primary]);
+
+  const handleImageError = () => {
+    const fallback = sources.fallbacks[fallbackIndex];
+    if (fallback) {
+      setImgSrc(fallback);
+      setFallbackIndex((current) => current + 1);
+    } else if (imgSrc !== sources.default) {
+      setImgSrc(sources.default);
+    } else {
+      setError(true);
+    }
+  };
 
   if (error) {
     return (
-      <img
-        src="/images/avatars/player_default.png"
-        alt={displayName}
-        className="h-full w-full object-cover"
-      />
+      <div className="flex h-full w-full items-center justify-center bg-brand-deep text-5xl font-black text-white/90">
+        {displayName.slice(0, 1)}
+      </div>
     );
   }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
+    <Image
+      src={imgSrc}
       alt={displayName}
+      width={192}
+      height={192}
+      sizes="116px"
+      priority
       className="h-full w-full object-cover"
-      onError={() => setError(true)}
+      onError={handleImageError}
     />
   );
 }

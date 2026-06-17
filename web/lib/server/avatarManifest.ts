@@ -1,15 +1,15 @@
 import { readdirSync } from 'node:fs';
 import path from 'node:path';
 
-const CROPS_DIR = path.join(process.cwd(), 'public', 'images', 'crops');
+const RANKING_THUMBS_DIR = path.join(process.cwd(), 'public', 'images', 'avatar-thumbs');
 
 let manifest: Set<string> | null = null;
 
 function loadManifest(): Set<string> {
   if (manifest) return manifest;
   try {
-    const files = readdirSync(CROPS_DIR);
-    manifest = new Set(files);
+    const files = readdirSync(RANKING_THUMBS_DIR);
+    manifest = new Set(files.map((file) => file.replace(/\.[^.]+$/, '.png')));
   } catch {
     manifest = new Set();
   }

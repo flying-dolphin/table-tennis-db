@@ -24,10 +24,12 @@ data/ranking_snapshots
 data/db/*.db
 data/db/*.db-*
 
-# 头像图片：体量大且本质是数据，不该进镜像。
-# 部署时由 docker-compose 把数据卷上的 web_assets/{avatars,crops} bind-mount 到这两个路径。
+# 头像图片与缩略图：体量大且本质是数据，不该进镜像。
+# 线上 Web 容器只挂载数据卷上的 web_assets/{avatar-thumbs,avatar-full-thumbs}。
 web/public/images/avatars
 web/public/images/crops
+web/public/images/avatar-thumbs
+web/public/images/avatar-full-thumbs
 
 # 开发产物
 **/tmp

@@ -10,6 +10,8 @@ web/db/*.sqlite-shm
 web/db/*.sqlite-wal
 web/demo
 web/public/images/avatars
+web/public/images/avatar-thumbs
+web/public/images/avatar-full-thumbs
 web/public/images/crops
 references/
 scripts/.*

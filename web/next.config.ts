@@ -81,6 +81,24 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: '/images/avatar-thumbs/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/avatar-full-thumbs/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {
