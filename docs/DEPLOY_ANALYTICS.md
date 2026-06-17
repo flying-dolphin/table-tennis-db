@@ -274,24 +274,26 @@ $EDITOR deploy/web/.env
 
 ### 5.4 生成并同步头像缩略图
 
-镜像不包含头像数据。两条 `npm run images:*` 命令的作用是**在本地生成 WebP 缩略图文件**：
+镜像不包含头像数据。只有在缩略图目录首次不存在，或头像源图新增、替换、重裁剪后，才需要重新生成并同步。日常只发代码且头像没有变化时，不需要执行本节。
 
-- `npm run images:avatars`：从 `web/public/images/crops` 生成 ranking/list 使用的 `web/public/images/avatar-thumbs`
-- `npm run images:avatar-full`：从 `web/public/images/avatars` 生成 player detail 使用的 `web/public/images/avatar-full-thumbs`
-
-只有在缩略图目录首次不存在，或头像源图新增、替换、重裁剪后，才需要重新执行生成命令。日常只发代码且头像没有变化时，不需要运行这两个命令。
-
-生成完成后，把两套缩略图同步到服务器 A 的数据卷：
+在开发机生成缩略图后，把两套缩略图同步到服务器 A 的数据卷：
 
 ```bash
 cd /path/to/ittf/web
-npm run images:avatars       # ranking/list 使用，来源：web/public/images/crops
-npm run images:avatar-full   # player detail 使用，来源：web/public/images/avatars
 
+# 生成缩略图。 ranking/list 使用：web/public/images/crops -> web/public/images/avatar-thumbs
+npm run images:avatars
+
+# 生成缩略图。 player detail 使用：web/public/images/avatars -> web/public/images/avatar-full-thumbs
+npm run images:avatar-full
+
+# 注意远程服务器要安装rsyns
+# 同步 ranking/list 缩略图到服务器 A 的 ${ITTF_DATA_DIR}/web_assets/avatar-thumbs/
 cd ..
 rsync -av --delete web/public/images/avatar-thumbs/ \
   deploy@serverA:/opt/ittf/data/web_assets/avatar-thumbs/
 
+# 同步 player detail 缩略图到服务器 A 的 ${ITTF_DATA_DIR}/web_assets/avatar-full-thumbs/
 rsync -av --delete web/public/images/avatar-full-thumbs/ \
   deploy@serverA:/opt/ittf/data/web_assets/avatar-full-thumbs/
 ```
