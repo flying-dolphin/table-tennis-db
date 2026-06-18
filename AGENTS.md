@@ -10,12 +10,12 @@
 ```
 ittf/                          # Root of the project
 ├── scripts/                   # Python web scraping & data processing
+│   └── db/                    # SQLite schema (schema.sql)
 ├── web/                       # Next.js frontend + SQLite
 │   ├── app/                   # App Router pages and API routes
-│   ├── db/                    # SQLite schema (schema.sql) and client
-│   ├── lib/                   # Data access, types, utilities
+│   ├── lib/                   # Data access, types, utilities (incl. db client)
 │   └── scripts/               # DB migrate and seed scripts
-├── data/                      # Scraped JSON data (rankings, profiles, matches)
+├── data/                      # Scraped JSON data (rankings, profiles, matches); also SQLite DB
 └── design-system/             # Component library
 ```
 
@@ -28,18 +28,14 @@ ittf/                          # Root of the project
 cd web
 npm install
 npm run db:migrate    # Initialize SQLite schema
-npm run db:seed       # Import from ../data/ (women_singles_top50.json, matches_complete/*.json)
 npm run dev
 ```
-
-**Important:** Seed reads from the parent directory's `data/`, not `web/data/`.
 
 **Commands:**
 - `npm run dev` - Start dev server (port 3000)
 - `npm run build` - Production build
 - `npm run lint` - Run ESLint
-- `npm run db:migrate` - Apply schema.sql
-- `npm run db:seed` - Import JSON data to SQLite
+- `npm run db:migrate` - Apply scripts/db/schema.sql
 
 **Tailwind v4 note:** Uses `@tailwindcss/postcss` in postcss.config.mjs, not the traditional tailwindcss/postcss setup.
 
@@ -73,8 +69,8 @@ python scripts/run_rankings.py --force --output-dir data/rankings/orig
 ## Data Flow
 
 1. **Scraping** (Python) → JSON in `data/`
-2. **Seeding** (`npm run db:seed`) → SQLite in `web/db/ittf_rankings.sqlite`
-3. **Frontend** reads from SQLite via `web/db/client.ts`
+2. **Seeding** (Python import pipeline via `scripts/db/`) → SQLite in `data/db/ittf.db`
+3. **Frontend** reads from SQLite via `web/lib/server/db.ts`
 
 ## Design System
 
