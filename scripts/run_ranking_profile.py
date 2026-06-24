@@ -75,7 +75,7 @@ def run(args: argparse.Namespace) -> int:
     weekly_before = _file_set(weekly_output_dir, f"women_singles_top{args.top}_week*.json")
     weekly_file = None
     resume = bool(getattr(args, "resume", False))
-    if resume and not args.force:
+    if resume:
         weekly_file = latest_ranking_file(weekly_output_dir, top=args.top)
         if weekly_file is not None:
             logger.info("Resume enabled; reusing weekly ranking file: %s", weekly_file)
@@ -89,7 +89,7 @@ def run(args: argparse.Namespace) -> int:
             slow_mo=args.slow_mo,
             output_dir=str(weekly_output_dir),
             checkpoint=args.weekly_checkpoint,
-            force=args.force,
+            force=False,
             rebuild_checkpoint=False,
         )
         rc = run_weekly_wp(weekly_args)
@@ -114,7 +114,7 @@ def run(args: argparse.Namespace) -> int:
         profile_dir=args.profile_dir,
         avatar_dir=args.avatar_dir,
         ranking_only=args.ranking_only,
-        force=args.force,
+        force=False,
         resume=resume,
         init_session=False,
         headless=args.headless,
@@ -143,6 +143,7 @@ def run(args: argparse.Namespace) -> int:
         results=str(results_file),
         output=str(merged_output),
         unresolved_output=str(unresolved_output),
+        aliases=args.aliases,
     )
     merge_rc = run_merge(merge_args)
     if merge_rc != 0:
@@ -163,13 +164,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--results-output-dir", default="data/rankings/id_snapshots")
     parser.add_argument("--merged-output", default=None)
     parser.add_argument("--unresolved-output", default=None)
+    parser.add_argument("--aliases", default="scripts/data/player_name_aliases.json", help="Manual player name alias JSON")
     parser.add_argument("--weekly-checkpoint", default="data/rankings/checkpoint_rankings.json")
     parser.add_argument("--results-checkpoint", default="data/rankings/checkpoint_results_rankings.json")
     parser.add_argument("--storage-state", default="data/session/ittf_results_storage_state.json")
     parser.add_argument("--profile-dir", default="data/player_profiles")
     parser.add_argument("--avatar-dir", default="data/player_avatars")
     parser.add_argument("--ranking-only", action="store_true", help="Skip profile refresh after results ranking scrape")
-    parser.add_argument("--force", action="store_true")
     parser.add_argument("--resume", action="store_true", help="Reuse completed ranking snapshots and continue profile refresh")
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
