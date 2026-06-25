@@ -20,6 +20,7 @@ import json
 import logging
 import random
 import re
+import sqlite3
 import sys
 import time
 from pathlib import Path
@@ -49,6 +50,7 @@ BASE_URL = "https://results.ittf.link"
 DEFAULT_URLS_FILE = "data/event_matches_url_list.txt"
 DEFAULT_OUTPUT_DIR = "data/event_matches/orig"
 DEFAULT_PROBLEMATIC_OUTPUT_DIR = "data/event_matches/problematic"
+DEFAULT_DB_PATH = "data/db/ittf.db"
 
 
 def load_event_urls(urls_file: Path | None, urls: list[str]) -> list[str]:
@@ -59,6 +61,8 @@ def load_event_urls(urls_file: Path | None, urls: list[str]) -> list[str]:
         value = raw.strip()
         if not value or value.startswith("#"):
             return
+        if value.startswith("/"):
+            value = BASE_URL.rstrip("/") + value
         if value in seen:
             return
         seen.add(value)
@@ -146,6 +150,26 @@ def collect_existing_event_ids(output_dir: Path) -> set[str]:
         if match:
             event_ids.add(match.group(1))
     return event_ids
+
+
+def load_filtering_only_event_ids(db_path: Path) -> set[int]:
+    if not db_path.exists():
+        logger.warning("DB not found at %s, skipping filtering_only check", db_path)
+        return set()
+    conn = sqlite3.connect(str(db_path))
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            SELECT e.event_id
+            FROM events e
+            JOIN event_categories c ON c.id = e.event_category_id
+            WHERE c.filtering_only = 1
+            """
+        )
+        return {int(row[0]) for row in cursor.fetchall() if row and row[0] is not None}
+    finally:
+        conn.close()
 
 
 def select_display_100(page: Any) -> bool:
@@ -615,6 +639,11 @@ def run(args: argparse.Namespace) -> int:
             output_dir,
             problematic_output_dir,
         )
+
+    db_path = Path(args.db_path)
+    filtering_only_event_ids = load_filtering_only_event_ids(db_path)
+    if filtering_only_event_ids:
+        logger.info("Loaded %s filtering_only event ids from %s", len(filtering_only_event_ids), db_path)
     storage_state = Path(args.storage_state)
     delay_cfg = DelayConfig(
         min_request_sec=args.min_delay,
@@ -686,6 +715,16 @@ def run(args: argparse.Namespace) -> int:
                     )
                     continue
 
+                if event_id in filtering_only_event_ids:
+                    logger.info(
+                        "[%s/%s] Skip filtering_only event_id=%s: %s",
+                        idx,
+                        len(selected_urls),
+                        event_id,
+                        url,
+                    )
+                    continue
+
                 logger.info("[%s/%s] Scraping event matches URL: %s", idx, len(selected_urls), url)
                 try:
                     scrape_event_url(
@@ -733,6 +772,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-pages", type=int, default=500)
     parser.add_argument("--limit", type=int, default=0, help="Only scrape the first N URLs after loading")
     parser.add_argument("--stop-on-error", action="store_true")
+    parser.add_argument("--db-path", default=DEFAULT_DB_PATH, help="SQLite database path for filtering_only check")
     parser.add_argument("--force", action="store_true", help="Rescrape even if output for event_id already exists")
     return parser
 

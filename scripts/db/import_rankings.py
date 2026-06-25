@@ -5,6 +5,8 @@
 从 data/rankings/cn/*.json 导入
 """
 
+from __future__ import annotations
+
 import sqlite3
 import sys
 import json

@@ -237,8 +237,14 @@ def verify_players(db_path: str):
 
 
 if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description='导入球员数据')
+    parser.add_argument('--dir', type=str, default=None,
+                        help='球员 JSON 文件目录（默认：data/player_profiles/cn）')
+    args = parser.parse_args()
+
     db_path = Path(config.DB_PATH)
-    player_profiles_dir = config.PROJECT_ROOT / "data" / "player_profiles" / "cn"
+    player_profiles_dir = Path(args.dir) if args.dir else config.PROJECT_ROOT / "data" / "player_profiles" / "cn"
 
     print("=" * 70)
     print("Import Players")
