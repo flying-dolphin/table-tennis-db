@@ -146,8 +146,13 @@ def run(args: argparse.Namespace) -> int:
         aliases=args.aliases,
     )
     merge_rc = run_merge(merge_args)
-    if merge_rc != 0:
-        logger.warning("merge completed with unresolved rows; see %s", unresolved_output)
+    if merge_rc == 0:
+        # 无不resolved记录，删除空的unresolved报告文件
+        if unresolved_output.exists():
+            unresolved_output.unlink()
+            logger.info("无不resolved记录，已删除报告文件: %s", unresolved_output)
+    else:
+        logger.warning("合并完成但存在未resolved记录，详见: %s", unresolved_output)
     return 0
 
 
