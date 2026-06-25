@@ -24,6 +24,7 @@ from datetime import datetime
 from pathlib import Path
 
 from lib.country_codes import normalize_profile_country
+from lib.translator import Translator
 
 PROJECT_ROOT = Path(__file__).parent.parent
 LOG_DIR = PROJECT_ROOT / "scripts" / "logs"
@@ -57,50 +58,13 @@ def translated_field_name(field: str) -> str:
     return f"{field}_zh"
 
 
-def _normalize_key(text: str) -> str:
-    return (text or "").strip().lower()
-
-
-def load_dictionary(dict_path: Path) -> dict[str, dict[str, str]]:
-    if not dict_path.exists():
-        logger.error("Dictionary not found: %s", dict_path)
-        sys.exit(1)
-
-    with open(dict_path, "r", encoding="utf-8") as f:
-        raw = json.load(f)
-
-    entries = raw.get("entries", {})
-    indexes: dict[str, dict[str, str]] = {
-        "players": {},
-        "locations": {},
-        "terms": {},
-        "others": {},
-    }
-
-    for key, value in entries.items():
-        if not isinstance(value, dict):
-            continue
-        normalized_key = _normalize_key(key)
-        if not normalized_key:
-            continue
-        translated = value.get("translated", "").strip()
-        if not translated:
-            continue
-        for category in value.get("categories", []):
-            if category in indexes:
-                indexes[category][normalized_key] = translated
-
-    return indexes
-
-
-def translate_value(value: str, categories: list[str], indexes: dict[str, dict[str, str]], field_name: str, filename: str) -> str | None:
-    lookup_key = _normalize_key(value)
-    if not lookup_key:
+def translate_value(value: str, categories: list[str], translator: Translator, field_name: str, filename: str) -> str | None:
+    if not value or not value.strip():
         return value
 
     for category in categories:
-        translated = indexes.get(category, {}).get(lookup_key)
-        if translated:
+        translated = translator.translate_one(value, category)
+        if translated is not None and translated != value:
             return translated
 
     logger.error("Missing translation [%s] in %s: %r", field_name, filename, value)
@@ -110,7 +74,7 @@ def translate_value(value: str, categories: list[str], indexes: dict[str, dict[s
 _ENGLISH_LETTER_RE = re.compile(r"[A-Za-z]")
 
 
-def translate_profile(profile: dict, indexes: dict[str, dict[str, str]], filename: str) -> dict:
+def translate_profile(profile: dict, translator: Translator, filename: str) -> dict:
     profile.pop("recent_matches", None)
     normalize_profile_country(profile, include_country_zh=True)
 
@@ -122,7 +86,7 @@ def translate_profile(profile: dict, indexes: dict[str, dict[str, str]], filenam
             continue
         if not _ENGLISH_LETTER_RE.search(original):
             continue
-        translated = translate_value(original, categories, indexes, field, filename)
+        translated = translate_value(original, categories, translator, field, filename)
         if translated is not None:
             profile[translated_field_name(field)] = translated
 
@@ -165,6 +129,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--orig-dir", default=str(ORIG_DIR))
     parser.add_argument("--cn-dir", default=str(CN_DIR))
     parser.add_argument("--dict-path", default=str(DICT_PATH))
+    parser.add_argument("--mode", choices=("dict", "llm", "both"), default="dict", help="翻译模式（默认 dict）")
+    parser.add_argument("--provider", default="minimax", help="LLM provider（mode 含 llm 时生效）")
+    parser.add_argument("--model", default=None, help="LLM model")
     return parser
 
 
@@ -178,8 +145,12 @@ def main() -> int:
         logger.error("Orig directory does not exist: %s", orig_dir)
         return 1
 
+    if not dict_path.exists():
+        logger.error("Dictionary not found: %s", dict_path)
+        return 1
+
     cn_dir.mkdir(parents=True, exist_ok=True)
-    indexes = load_dictionary(dict_path)
+    translator = Translator(mode=args.mode, provider=args.provider, model=args.model, dict_path=dict_path)
 
     if args.file:
         files = [orig_dir / args.file]
@@ -208,7 +179,7 @@ def main() -> int:
             logger.error("Failed to load %s: %s", file_path.name, exc)
             return 1
 
-        translated = translate_profile(data, indexes, file_path.name)
+        translated = translate_profile(data, translator, file_path.name)
         cn_file = cn_dir / file_path.name
         save_json(cn_file, translated)
         logger.info("Translated: %s", file_path.name)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Translate event names from CLI."""
+"""Translate event names from CLI（基于统一 Translator）。"""
 
 from __future__ import annotations
 
@@ -10,13 +10,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from lib.dict_translator import DictTranslator
-from lib.event_translation import (
-    translate_event_name_dict_only,
-    translate_event_names_dict_then_llm,
-    translate_event_names_llm_only,
-)
-from lib.translator import LLMTranslator
+from lib.translator import Translator
+
+# CLI mode -> Translator mode
+_MODE_MAP = {"dict": "dict", "llm": "llm", "dict-then-llm": "both"}
 
 
 def _load_names(args: argparse.Namespace) -> list[str]:
@@ -55,6 +52,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--provider", default="minimax", help="LLM provider")
     parser.add_argument("--model", default=None, help="LLM model")
+    parser.add_argument(
+        "--confirm",
+        action="store_true",
+        help="逐条人工确认 LLM 译文并回写词典（仅 llm/dict-then-llm 生效）",
+    )
     parser.add_argument("--json", action="store_true", help="Output JSON")
     return parser
 
@@ -68,19 +70,13 @@ def main() -> int:
 
     items = {f"event_{index}": name for index, name in enumerate(names, 1)}
 
-    if args.mode == "dict":
-        dict_translator = DictTranslator()
-        results = {
-            key: translate_event_name_dict_only(name, dict_translator) or name
-            for key, name in items.items()
-        }
-    elif args.mode == "llm":
-        llm_translator = LLMTranslator(provider=args.provider, model=args.model)
-        results = translate_event_names_llm_only(items, llm_translator=llm_translator)
-    else:
-        llm_translator = LLMTranslator(provider=args.provider, model=args.model)
-        results = translate_event_names_dict_then_llm(items, llm_translator=llm_translator)
-
+    translator = Translator(
+        mode=_MODE_MAP[args.mode],
+        provider=args.provider,
+        model=args.model,
+        confirm=args.confirm,
+    )
+    results = translator.translate_batch(items, "events")
     if results is None:
         return 1
 

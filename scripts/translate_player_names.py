@@ -15,6 +15,7 @@
     python translate_player_names.py --provider kimi --model kimi-k2.5
     python translate_player_names.py --batch-size 50   # 每批翻译 50 个
     python translate_player_names.py --resume          # 跳过输出文件中已有的条目
+    python translate_player_names.py --confirm          # 逐条人工确认并回写词典
 """
 
 from __future__ import annotations
@@ -26,7 +27,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from lib.translator import LLMTranslator
+from lib.translator import Translator
 
 PROJECT_ROOT = Path(__file__).parent.parent
 INPUT_FILE = PROJECT_ROOT / "tmp" / "update_players.txt"
@@ -77,6 +78,7 @@ def main() -> int:
     parser.add_argument("--api-key", type=str, help="API Key（默认从环境变量读取）")
     parser.add_argument("--resume", action="store_true", default=True, help="跳过已翻译的条目（默认开启）")
     parser.add_argument("--no-resume", action="store_false", dest="resume", help="不跳过，从头翻译")
+    parser.add_argument("--confirm", action="store_true", help="逐条人工确认 LLM 译文并回写词典")
     args = parser.parse_args()
 
     input_file = Path(args.input)
@@ -103,17 +105,17 @@ def main() -> int:
         return 0
     logger.info(f"待翻译 {len(pending)} 条")
 
-    # 初始化翻译器
-    translator_kwargs: dict = {"provider": args.provider}
-    if args.model:
-        translator_kwargs["model"] = args.model
-    if args.api_key:
-        translator_kwargs["api_key"] = args.api_key
+    # 初始化翻译器（纯 LLM）
+    translator = Translator(
+        mode="llm",
+        provider=args.provider,
+        model=args.model,
+        api_key=args.api_key,
+        confirm=args.confirm,
+    )
+    logger.info(f"使用 {translator.llm.provider} ({translator.llm.model})")
 
-    translator = LLMTranslator(**translator_kwargs)
-    logger.info(f"使用 {translator.provider} ({translator.model})")
-
-    if not translator.api_key:
+    if not translator.llm.api_key:
         logger.error(f"未配置 API Key，请在 .env 中设置或通过 --api-key 传入")
         return 1
 
@@ -131,7 +133,7 @@ def main() -> int:
             logger.info(f"批次 {i}/{total_batches}，本批 {len(batch)} 条")
 
             items = {name: name for name in batch}
-            result = translator._translate_batch(items, category="player_names")
+            result = translator.translate_batch(items, "players")
 
             if not result:
                 logger.warning(f"批次 {i}/{total_batches} 翻译失败，跳过")
@@ -140,7 +142,8 @@ def main() -> int:
             lines = []
             for name in batch:
                 translated = result.get(name)
-                if translated:
+                # mode=llm 时未命中会返回原文，跳过未真正翻译的条目
+                if translated and translated != name:
                     lines.append(f"{name}:{translated}:players\n")
                     total_ok += 1
 
@@ -149,17 +152,22 @@ def main() -> int:
                 out_f.flush()
                 logger.info(f"批次 {i}/{total_batches} 完成：{len(lines)} 条已翻译，已写入")
 
+            if translator.stopped:
+                logger.warning("用户停止翻译，已保存当前进度")
+                break
+
     except KeyboardInterrupt:
         logger.warning("用户中断，已保存当前进度到输出文件")
     finally:
         out_f.close()
 
-    if translator.total_tokens["total"]:
+    tokens = translator.llm.total_tokens
+    if tokens["total"]:
         logger.info(
-            f"Token 累计 [{translator.provider} {translator.model}]:"
-            f" prompt={translator.total_tokens['prompt']},"
-            f" completion={translator.total_tokens['completion']},"
-            f" total={translator.total_tokens['total']}"
+            f"Token 累计 [{translator.llm.provider} {translator.llm.model}]:"
+            f" prompt={tokens['prompt']},"
+            f" completion={tokens['completion']},"
+            f" total={tokens['total']}"
         )
 
     logger.info(f"完成：共翻译 {total_ok} 条")

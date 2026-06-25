@@ -17,8 +17,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from lib.capture import save_json
-from lib.dict_translator import DictTranslator
-from lib.event_translation import split_event_name, translate_event_name_dict_only
+from lib.event_translation import split_event_name
+from lib.translator import Translator
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -71,8 +71,12 @@ def load_cn_event_ids(cn_path: Path) -> set[int]:
         return set()
 
 
-def translate_event_field_dict_only(value: str, translator: DictTranslator) -> str | None:
-    return translate_event_name_dict_only(value, translator)
+def translate_event_field(value: str, translator: Translator) -> str | None:
+    """翻译单个赛事相关字段；未命中返回 None。"""
+    translated = translator.translate_one(value, "events")
+    if translated is None or translated == value:
+        return None
+    return translated
 
 
 def apply_translations(
@@ -142,6 +146,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--force", action="store_true", help="Re-translate all events, ignoring existing cn file")
     parser.add_argument("--event-id", type=int, nargs="+", help="Only translate specific event_id(s)")
     parser.add_argument("--top", type=int, help="Only translate the first N events (in file order)")
+    parser.add_argument("--mode", choices=("dict", "llm", "both"), default="dict", help="翻译模式（默认 dict）")
+    parser.add_argument("--provider", default="minimax", help="LLM provider（mode 含 llm 时生效）")
+    parser.add_argument("--model", default=None, help="LLM model")
     return parser
 
 
@@ -215,7 +222,7 @@ def run(args: argparse.Namespace) -> int:
     if translate_skip_ids:
         logger.info("Skipping %d events", len(translate_skip_ids))
 
-    translator = DictTranslator()
+    translator = Translator(mode=args.mode, provider=args.provider, model=args.model)
     missing: dict[str, set[str]] = {field: set() for field in TRANSLATE_FIELDS}
     translated_count = 0
 
@@ -227,7 +234,7 @@ def run(args: argparse.Namespace) -> int:
             value = ev.get(field, "")
             if value in SKIP_VALUES:
                 continue
-            translated = translate_event_field_dict_only(value, translator)
+            translated = translate_event_field(value, translator)
             if translated is None:
                 missing[field].add(split_event_name(value).base_name)
                 continue

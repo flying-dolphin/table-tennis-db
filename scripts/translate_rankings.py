@@ -16,8 +16,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from lib.capture import save_json
-from lib.dict_translator import DictTranslator
 from lib.translate_constant import MONTH_MAP
+from lib.translator import Translator
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -43,7 +43,7 @@ def _translate_expires_on(value: str | None) -> str | None:
     return value
 
 
-def _translate_name(name: str | None, translator: DictTranslator) -> str | None:
+def _translate_name(name: str | None, translator: Translator) -> str | None:
     """翻译人名，先查词典，未命中则尝试交换名字顺序"""
     if not name:
         return name
@@ -58,7 +58,7 @@ def _translate_name(name: str | None, translator: DictTranslator) -> str | None:
     return original
 
 
-def _translate_position(value: str | None, translator: DictTranslator) -> str | None:
+def _translate_position(value: str | None, translator: Translator) -> str | None:
     """翻译position字段，处理带有 -n% 后缀的情况"""
     if not value:
         return value
@@ -93,7 +93,7 @@ def _write_missing_log(missing: dict, output_file: str) -> None:
             f.write("\n")
 
 
-def translate_rankings(data: dict, translator: DictTranslator, output_file: str) -> dict:
+def translate_rankings(data: dict, translator: Translator, output_file: str) -> dict:
     result = json.loads(json.dumps(data))
     missing: dict[str, list[str]] = {
         "name": [],
@@ -168,6 +168,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--cn-dir", default=str(CN_DIR))
     parser.add_argument("--dict-path", default=str(DICT_PATH))
     parser.add_argument("--force", action="store_true", help="Overwrite existing cn files")
+    parser.add_argument("--mode", choices=("dict", "llm", "both"), default="dict", help="翻译模式（默认 dict）")
+    parser.add_argument("--provider", default="minimax", help="LLM provider（mode 含 llm 时生效）")
+    parser.add_argument("--model", default=None, help="LLM model")
     return parser
 
 
@@ -185,7 +188,7 @@ def run(args: argparse.Namespace) -> int:
         return 1
 
     cn_dir.mkdir(parents=True, exist_ok=True)
-    translator = DictTranslator(dict_path)
+    translator = Translator(mode=args.mode, provider=args.provider, model=args.model, dict_path=dict_path)
 
     if args.file:
         file_arg = Path(args.file)

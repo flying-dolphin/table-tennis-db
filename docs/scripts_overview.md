@@ -24,8 +24,9 @@
 用法：`python run_rankings.py --top 100`
 
 ### translate_rankings.py
-将排名数据中的特定字段翻译为中文（使用词典 translation_dict_v2.json）。
+将排名数据中的特定字段翻译为中文（经统一 `Translator`，默认 `--mode dict` 仅词典）。
 翻译字段：name、country、location、event、category、expires_on、position。
+可选 `--mode both`（词典未命中走 LLM 兜底）/`--mode llm`，配 `--provider/--model`。
 输入：`data/rankings/orig/*.json` → 输出：`data/rankings/cn/*.json`
 
 ### db/import_rankings.py
@@ -61,7 +62,7 @@
 用法：`python run_profiles.py --category women --top 50`
 
 ### translate_profiles.py
-翻译球员档案中的特定字段（使用词典，不调用 LLM）。
+翻译球员档案中的特定字段（经统一 `Translator`，默认 `--mode dict` 仅词典；可选 `--mode both/llm`）。
 翻译字段：name（球员名）、country（国家）、gender（性别）、style/playing_hand/grip（握拍相关）。
 不翻译：recent_matches（近期比赛）。
 输入：`data/player_profiles/orig/player_*.json` → 输出：`data/player_profiles/cn/player_*.json`
@@ -138,7 +139,7 @@
 输出目录由 `--output-dir` 指定；历史赛事流程使用 `data/events_list/orig/`
 
 ### translate_events.py
-翻译赛事列表中的字段（LLM 翻译，词典兜底）。
+翻译赛事列表中的字段（经统一 `Translator`，默认 `--mode dict` 仅词典；可选 `--mode both/llm`）。
 翻译字段：name（赛事名）、event_type、event_kind。
 支持增量翻译（跳过已完成的 event_id）。
 输入：`data/events_list/orig/*.json` → 输出：`data/events_list/cn/*.json`
@@ -279,6 +280,23 @@
 
 ## 8. 翻译词典管理
 
+### lib/translator.py（统一翻译模块）
+组合词典翻译与 LLM 翻译的统一入口：
+- `DictTranslator`：纯词典查询（`scripts/data/translation_dict_v2.json`）。
+- `LLMTranslator`：纯 LLM API 调用（minimax/kimi/qwen/glm/deepseek）。
+- `Translator`：统一类，`mode ∈ {dict, llm, both}`（both=先词典后 LLM）。
+  开启 `confirm=True` 时，对每条 LLM 译文逐条人工确认（accept / other / stop），
+  确认结果回写词典文件。数据类型与词典 categories 一致：
+  `players / events / locations / terms / others / position / round / stage`。
+  另提供 `translate(value, category)` 兼容接口，便于保留字段编排逻辑的脚本
+  最小化替换 `DictTranslator.translate`。
+
+### run_translator.py
+统一翻译命令行入口：读取每行一个词的文本文件，按 `--type` 翻译，
+输出每行对应译文（保持顺序）。
+用法：`python scripts/run_translator.py --file words.txt --type players [--mode dict|llm|both] [--confirm]`
+`--confirm` 仅在使用 LLM 时生效，逐条人工确认并回写词典。
+
 ### dict_updator.py
 将 key:value:category 格式的词条文件批量添加到 translation_dict_v2.json。
 用法：`python dict_updator.py <input_file> --dict scripts/data/translation_dict_v2.json`
@@ -325,9 +343,6 @@
 
 ### json_extract.py
 从 JSON 文件提取数据。
-
-### translate_example.py
-翻译示例脚本。
 
 ### regulations_manager.py
 规则文件管理工具。

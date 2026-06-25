@@ -516,3 +516,318 @@ class LLMTranslator:
                 results[key] = value
 
         return results
+
+
+# ---------------------------------------------------------------------------
+# 统一翻译入口：组合 dict_translator + llm_translator
+# ---------------------------------------------------------------------------
+
+DICT_PATH = PROJECT_ROOT / "scripts" / "data" / "translation_dict_v2.json"
+
+# 对外数据类型（与 translation_dict_v2.json 的 categories 口径一致）
+SUPPORTED_TYPES = (
+    "players",
+    "events",
+    "locations",
+    "terms",
+    "others",
+    "position",
+    "round",
+    "stage",
+)
+
+# 数据类型 -> DictTranslator 查询分类
+_DICT_LOOKUP_CATEGORY = {
+    "players": "players",
+    "events": "events",
+    "locations": "locations",
+    "terms": "terms_others",
+    "others": "terms_others",
+    "position": "position",
+    "round": "round",
+    "stage": "stage",
+}
+
+# 数据类型 -> LLMTranslator 批量 prompt 分类
+_LLM_PROMPT_CATEGORY = {
+    "players": "player_names",
+    "events": "event",
+}
+
+# 旧分类名（DictTranslator 口径）-> 统一数据类型
+_LEGACY_CATEGORY_ALIASES = {
+    "countries": "locations",
+    "terms_others": "terms",
+}
+
+# 数据类型 -> 回写词典时的 validators 取值（与现有词条保持一致）
+_VALIDATOR_BY_TYPE = {
+    "players": "player_name",
+    "events": "event_name",
+    "locations": "location",
+    "terms": "none",
+    "others": "none",
+    "position": "none",
+    "round": "none",
+    "stage": "none",
+}
+
+
+class Translator:
+    """统一翻译器：组合词典翻译与 LLM 翻译。
+
+    mode：
+    - ``dict``：仅词典；未命中保留原文。
+    - ``llm`` ：仅 LLM。
+    - ``both``：先查词典，未命中再用 LLM（默认）。
+
+    confirm（仅在使用 LLM 时生效）：对每条 LLM 译文逐条人工确认，
+    三选项 accept / other / stop。开启 confirm 后，确认结果会回写词典文件。
+    """
+
+    def __init__(
+        self,
+        mode: str = "both",
+        provider: str = "minimax",
+        model: str | None = None,
+        api_key: str | None = None,
+        confirm: bool = False,
+        dict_path: Path | str | None = None,
+        input_fn: Callable[[str], str] = input,
+    ):
+        if mode not in ("dict", "llm", "both"):
+            raise ValueError(f"不支持的 mode: {mode}，支持 dict/llm/both")
+        self.mode = mode
+        self.confirm = confirm
+        self._input_fn = input_fn
+        self._dict_path = Path(dict_path) if dict_path else DICT_PATH
+        self.dict = DictTranslator(self._dict_path)
+        self.llm: LLMTranslator | None = None
+        if mode in ("llm", "both"):
+            self.llm = LLMTranslator(provider=provider, model=model, api_key=api_key)
+        self.stopped = False
+        self._pending_writes: dict[str, dict[str, str]] = {}
+
+    # -- 公共 API ----------------------------------------------------------
+
+    def translate_one(self, text: str, data_type: str) -> str | None:
+        result = self.translate_batch({text: text}, data_type)
+        if result is None:
+            return None
+        return result.get(text, text)
+
+    def translate(self, value: str | None, category: str) -> str | None:
+        """DictTranslator 兼容接口：接受旧分类名，未命中（或 LLM 失败）返回原值。
+
+        供保留字段编排逻辑的批处理脚本（rankings/profiles/...）最小化替换
+        ``DictTranslator.translate`` 使用。
+        """
+        if value is None:
+            return None
+        data_type = _LEGACY_CATEGORY_ALIASES.get(category, category)
+        if data_type not in SUPPORTED_TYPES:
+            raise ValueError(f"不支持的分类: {category}")
+        result = self.translate_one(value, data_type)
+        return result if result is not None else value
+
+    def translate_batch(self, items: dict[str, str], data_type: str) -> dict[str, str] | None:
+        """翻译一组 {key: value}，只翻译 value。返回 {key: 译文}。
+
+        LLM 阶段整体失败返回 None；用户 stop 时返回已确认部分并置 ``self.stopped``。
+        """
+        if data_type not in SUPPORTED_TYPES:
+            raise ValueError(
+                f"不支持的数据类型: {data_type}，支持: {', '.join(SUPPORTED_TYPES)}"
+            )
+        if not items:
+            return {}
+
+        dict_results: dict[str, str] = {}
+        llm_pending: dict[str, str] = {}
+
+        if self.mode == "llm":
+            llm_pending = dict(items)
+        else:
+            for key, value in items.items():
+                translated = self._dict_lookup(value, data_type)
+                if translated is not None:
+                    dict_results[key] = translated
+                else:
+                    llm_pending[key] = value
+            if dict_results:
+                logger.info("词典命中 %d 条，剩余 %d 条", len(dict_results), len(llm_pending))
+
+        llm_results: dict[str, str] = {}
+        if llm_pending and self.mode in ("llm", "both"):
+            raw = self._llm_translate(llm_pending, data_type)
+            if raw is None:
+                return None
+            if self.confirm:
+                llm_results = self._confirm(llm_pending, raw, data_type)
+            else:
+                llm_results = raw
+
+        return self._merge(items, dict_results, llm_results)
+
+    # -- 词典阶段 ----------------------------------------------------------
+
+    def _dict_lookup(self, value: str, data_type: str) -> str | None:
+        """词典查询；命中返回译文，未命中返回 None。"""
+        if not value:
+            return None
+        if data_type == "events":
+            from lib.event_translation import translate_event_name_dict_only
+
+            return translate_event_name_dict_only(value, self.dict)
+        translated = self.dict.translate(value, _DICT_LOOKUP_CATEGORY[data_type])
+        if translated is not None and translated != value:
+            return translated
+        return None
+
+    # -- LLM 阶段 ----------------------------------------------------------
+
+    def _llm_translate(self, items: dict[str, str], data_type: str) -> dict[str, str] | None:
+        assert self.llm is not None
+        if not self.llm.api_key:
+            logger.error("未配置 API Key，无法 LLM 翻译 %d 条", len(items))
+            return None
+
+        if data_type == "events":
+            from lib.event_translation import translate_event_names_llm_only
+
+            return translate_event_names_llm_only(items, llm_translator=self.llm)
+
+        prompt_category = _LLM_PROMPT_CATEGORY.get(data_type, "other")
+        results: dict[str, str] = {}
+        batches = self.llm._split_batches(items)  # noqa: SLF001 - 统一封装
+        for index, batch in enumerate(batches, 1):
+            logger.info("LLM 批次 %d/%d (%d 条)", index, len(batches), len(batch))
+            batch_result = self.llm._translate_batch(batch, category=prompt_category)  # noqa: SLF001
+            if not batch_result:
+                logger.error("LLM 批次 %d/%d 翻译失败", index, len(batches))
+                return None
+            results.update(batch_result)
+        return results
+
+    # -- 人工确认 ----------------------------------------------------------
+
+    def _confirm(
+        self, originals: dict[str, str], llm_results: dict[str, str], data_type: str
+    ) -> dict[str, str]:
+        confirmed: dict[str, str] = {}
+        for key, source_text in originals.items():
+            translated = llm_results.get(key, source_text)
+            while True:
+                print(f"\n原文 : {source_text}")
+                print(f"LLM译文: {translated}")
+                choice = self._input_fn("[a]ccept / [o]ther / [s]top: ").strip().lower()
+                if choice in ("", "a", "accept"):
+                    confirmed[key] = translated
+                    self._queue_dict_write(source_text, translated, data_type, "api")
+                    break
+                if choice in ("o", "other"):
+                    user_value = self._input_fn("请输入译文: ").strip()
+                    if user_value:
+                        confirmed[key] = user_value
+                        self._queue_dict_write(source_text, user_value, data_type, "manual")
+                    else:
+                        confirmed[key] = translated
+                        self._queue_dict_write(source_text, translated, data_type, "api")
+                    break
+                if choice in ("s", "stop"):
+                    self.stopped = True
+                    self._flush_dict_writes()
+                    print("已停止翻译，已确认结果写入词典")
+                    return confirmed
+                print("无效输入，请输入 a / o / s")
+        self._flush_dict_writes()
+        return confirmed
+
+    # -- 回写词典 ----------------------------------------------------------
+
+    def _queue_dict_write(self, original: str, translated: str, data_type: str, source: str) -> None:
+        store_original = original
+        store_translated = translated
+        if data_type == "events":
+            from lib.event_translation import split_event_name
+
+            parts = split_event_name(original)
+            store_original = parts.base_name
+            if parts.year and store_translated.startswith(f"{parts.year}年"):
+                store_translated = store_translated[len(parts.year) + 1:]
+
+        key = store_original.strip().lower()
+        if not key or not store_translated.strip():
+            return
+        self._pending_writes[key] = {
+            "original": store_original.strip(),
+            "translated": store_translated.strip(),
+            "type": data_type,
+            "source": source,
+        }
+
+    def _flush_dict_writes(self) -> None:
+        if not self._pending_writes:
+            return
+        from datetime import datetime
+
+        data = json.loads(self._dict_path.read_text(encoding="utf-8"))
+        entries = data.setdefault("entries", {})
+        now = datetime.now().isoformat()
+
+        for key, item in self._pending_writes.items():
+            data_type = item["type"]
+            validator = _VALIDATOR_BY_TYPE[data_type]
+            entry = entries.get(key)
+            if entry:
+                cats = set(entry.get("categories", []))
+                cats.add(data_type)
+                entry["categories"] = sorted(cats)
+                entry["translated"] = item["translated"]
+                entry["source"] = item["source"]
+                entry["review_status"] = "verified"
+                validators = entry.get("validators") or {}
+                validators[data_type] = validator
+                entry["validators"] = validators
+                entry["updated_at"] = now
+            else:
+                entries[key] = {
+                    "original": item["original"],
+                    "translated": item["translated"],
+                    "categories": [data_type],
+                    "source": item["source"],
+                    "review_status": "verified",
+                    "validators": {data_type: validator},
+                    "updated_at": now,
+                }
+
+        data.setdefault("metadata", {})["total_entries"] = len(entries)
+        data["metadata"]["updated_at"] = now
+
+        tmp_path = self._dict_path.with_suffix(self._dict_path.suffix + ".tmp")
+        tmp_path.write_text(
+            json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        tmp_path.replace(self._dict_path)
+        logger.info("回写词典 %d 条 -> %s", len(self._pending_writes), self._dict_path)
+        self._pending_writes.clear()
+        # 重新加载词典，使后续查询命中刚写入的条目
+        self.dict = DictTranslator(self._dict_path)
+
+    # -- 合并 --------------------------------------------------------------
+
+    def _merge(
+        self,
+        items: dict[str, str],
+        dict_results: dict[str, str],
+        llm_results: dict[str, str],
+    ) -> dict[str, str]:
+        merged: dict[str, str] = {}
+        for key, value in items.items():
+            if key in dict_results:
+                merged[key] = dict_results[key]
+            elif key in llm_results:
+                merged[key] = llm_results[key]
+            else:
+                merged[key] = value
+        return merged
