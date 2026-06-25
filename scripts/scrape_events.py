@@ -162,6 +162,46 @@ def select_display_100(page: Any) -> bool:
     return False
 
 
+def _locator_count(page: Any, selector: str) -> int:
+    try:
+        return page.locator(selector).count()
+    except Exception:
+        return 0
+
+
+def wait_for_events_table_ready(page: Any, timeout_sec: float = 30.0, poll_sec: float = 0.4) -> None:
+    """Wait until the events list has rendered rows and pagination/list controls."""
+    deadline = time.time() + timeout_sec
+    last_row_count = 0
+    last_pagination = (None, None, None)
+
+    while time.time() < deadline:
+        risk = detect_risk(page)
+        if risk:
+            raise RiskControlTriggered(risk)
+
+        tbody_rows = _locator_count(page, "table tbody tr")
+        table_rows = _locator_count(page, "table tr")
+        last_row_count = max(tbody_rows, table_rows)
+        last_pagination = get_pagination_info(page)
+        has_pagination = all(value is not None for value in last_pagination)
+        has_limit_controls = (
+            _locator_count(page, ".limit p") > 0
+            or _locator_count(page, ".limit.row p") > 0
+            or _locator_count(page, ".pagination-info") > 0
+        )
+
+        if last_row_count > 1 and (has_pagination or has_limit_controls):
+            return
+
+        time.sleep(poll_sec)
+
+    raise RuntimeError(
+        "Events table did not become ready "
+        f"(rows={last_row_count}, pagination={last_pagination}, url={page.url})"
+    )
+
+
 def get_pagination_info(page: Any) -> tuple[int | None, int | None, int | None]:
     """从底部分页信息解析当前页码、总页数、总记录数。
 
@@ -252,20 +292,42 @@ def parse_event_rows(page: Any, header_map: dict[str, int] | None = None) -> tup
     """
     tables = _query_selector_all_with_retry(page, "table", retries=4)
     events: list[dict[str, Any]] = []
+    logger.info("[parse_event_rows] found %s <table> elements", len(tables))
+
+    # DEBUG: dump page HTML to see actual structure
+    try:
+        debug_path = "/tmp/debug_events_page.html"
+        content = page.content()
+        with open(debug_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        logger.info("[parse_event_rows] DEBUG page HTML saved to %s (%s chars)", debug_path, len(content))
+    except Exception as exc:
+        logger.info("[parse_event_rows] DEBUG page dump failed: %s", exc)
+
+    # DEBUG: inspect each table's class and innerHTML length
+    for i, tbl in enumerate(tables):
+        try:
+            cls = tbl.get_attribute("class") or ""
+            inner = tbl.inner_html() or ""
+            logger.info("[parse_event_rows] table[%s] class=%r innerHTML_len=%s", i, cls, len(inner))
+        except Exception as exc:
+            logger.info("[parse_event_rows] table[%s] inspect failed: %s", i, exc)
 
     for table in tables:
         if header_map is None:
             header_map = _build_header_map(table)
-            if not header_map:
-                continue
+            logger.info("[parse_event_rows] header_map=%s", header_map)
 
         rows = _query_selector_all_with_retry(table, "tbody tr", retries=2)
         if not rows:
             rows = _query_selector_all_with_retry(table, "tr", retries=2)
+        logger.info("[parse_event_rows] found %s <tr> rows in this table", len(rows))
 
         for row in rows:
             cells = _query_selector_all_with_retry(row, "td", retries=2)
+            logger.info("[parse_event_rows] row has %s <td> cells", len(cells))
             if len(cells) < 3:
+                logger.info("[parse_event_rows] skip row: <3 cells")
                 continue
 
             def cell_text(idx: int | None) -> str:
@@ -285,6 +347,7 @@ def parse_event_rows(page: Any, header_map: dict[str, int] | None = None) -> tup
             event_id_text = cell_text(event_id_idx)
             # event_id 通常是数字，如果不是则跳过（可能是 header 行）
             if not event_id_text or not event_id_text.isdigit():
+                logger.info("[parse_event_rows] skip row: event_id not digit")
                 continue
 
             # 检查 name 列是否有链接
@@ -294,6 +357,13 @@ def parse_event_rows(page: Any, header_map: dict[str, int] | None = None) -> tup
                 if link:
                     href = (link.get_attribute("href") or "").strip()
 
+            # 检查 matches 列是否有链接
+            matches_href = ""
+            if matches_idx is not None and 0 <= matches_idx < len(cells):
+                link = cells[matches_idx].query_selector("a")
+                if link:
+                    matches_href = (link.get_attribute("href") or "").strip()
+
             events.append({
                 "event_id": int(event_id_text),
                 "year": cell_text(year_idx),
@@ -301,6 +371,7 @@ def parse_event_rows(page: Any, header_map: dict[str, int] | None = None) -> tup
                 "event_type": cell_text(event_type_idx),
                 "event_kind": cell_text(event_kind_idx),
                 "matches": cell_text(matches_idx),
+                "matches_href": matches_href,
                 "start_date": cell_text(start_date_idx),
                 "end_date": cell_text(end_date_idx),
                 "href": href,
@@ -309,6 +380,7 @@ def parse_event_rows(page: Any, header_map: dict[str, int] | None = None) -> tup
         if events:
             break
 
+    logger.info("[parse_event_rows] returning %s events", len(events))
     return events, header_map or {}
 
 
@@ -374,9 +446,10 @@ def scrape_events(
     """
 
     # 1. 选择每页显示 100 条
-    human_sleep(2.0, 4.0, "before selecting display count")
+    human_sleep(1.0, 3.0, "before selecting display count")
     if not select_display_100(page):
         logger.warning("Failed to set display to 100, proceeding with default page size")
+    wait_for_events_table_ready(page)
 
     # 2. 获取初始分页信息
     current_page, total_pages, total_records = get_pagination_info(page)
@@ -416,6 +489,7 @@ def scrape_events(
             save_json(output_file, _build_output_payload(all_events, from_date, pages_visited))
             raise RiskControlTriggered(risk)
 
+        wait_for_events_table_ready(page)
         events, header_map = parse_event_rows(page, header_map)
         pages_visited += 1
         logger.info("Page %s/%s: parsed %s events",
@@ -568,7 +642,13 @@ def run(args: argparse.Namespace) -> int:
                 return 0
 
         # 导航到 events 列表页
-        guarded_goto(page, EVENTS_URL, delay_cfg, "open events list page")
+        initial_delay_cfg = DelayConfig(
+            min_request_sec=args.initial_min_delay,
+            max_request_sec=args.initial_max_delay,
+            min_player_gap_sec=delay_cfg.min_player_gap_sec,
+            max_player_gap_sec=delay_cfg.max_player_gap_sec,
+        )
+        guarded_goto(page, EVENTS_URL, initial_delay_cfg, "open events list page")
 
         page.wait_for_load_state("domcontentloaded", timeout=45000)
         try:
@@ -581,11 +661,7 @@ def run(args: argparse.Namespace) -> int:
             close_browser_page(via_cdp, browser, page)
             raise RiskControlTriggered(risk)
 
-        # 等待表格出现
-        try:
-            page.locator("table").first.wait_for(timeout=15000)
-        except Exception:
-            logger.warning("Table did not appear before timeout")
+        wait_for_events_table_ready(page)
 
         try:
             events = scrape_events(page, from_date, delay_cfg, output_file)
@@ -632,6 +708,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     parser.add_argument("--min-delay", type=float, default=5.0)
     parser.add_argument("--max-delay", type=float, default=18.0)
+    parser.add_argument("--initial-min-delay", type=float, default=1.0)
+    parser.add_argument("--initial-max-delay", type=float, default=3.0)
 
     parser.add_argument("--force", action="store_true", help="Ignore checkpoint, re-scrape")
     return parser
