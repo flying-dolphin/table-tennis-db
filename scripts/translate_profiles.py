@@ -132,6 +132,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--mode", choices=("dict", "llm", "both"), default="dict", help="翻译模式（默认 dict）")
     parser.add_argument("--provider", default="minimax", help="LLM provider（mode 含 llm 时生效）")
     parser.add_argument("--model", default=None, help="LLM model")
+    parser.add_argument("--confirm", action="store_true", help="LLM 译文逐条人工确认并回写词典（mode 含 llm 时生效）")
     return parser
 
 
@@ -150,7 +151,7 @@ def main() -> int:
         return 1
 
     cn_dir.mkdir(parents=True, exist_ok=True)
-    translator = Translator(mode=args.mode, provider=args.provider, model=args.model, dict_path=dict_path)
+    translator = Translator(mode=args.mode, provider=args.provider, model=args.model, dict_path=dict_path, confirm=args.confirm)
 
     if args.file:
         files = [orig_dir / args.file]
@@ -183,6 +184,10 @@ def main() -> int:
         cn_file = cn_dir / file_path.name
         save_json(cn_file, translated)
         logger.info("Translated: %s", file_path.name)
+
+        if translator.stopped:
+            logger.warning("用户停止翻译，已保存当前进度")
+            break
 
     return 0
 

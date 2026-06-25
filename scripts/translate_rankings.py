@@ -154,6 +154,9 @@ def translate_rankings(data: dict, translator: Translator, output_file: str) -> 
                 else:
                     missing["position"].append(original)
 
+        if translator.stopped:
+            break
+
     has_missing = any(values for values in missing.values())
     if has_missing:
         _write_missing_log(missing, output_file)
@@ -171,6 +174,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--mode", choices=("dict", "llm", "both"), default="dict", help="翻译模式（默认 dict）")
     parser.add_argument("--provider", default="minimax", help="LLM provider（mode 含 llm 时生效）")
     parser.add_argument("--model", default=None, help="LLM model")
+    parser.add_argument("--confirm", action="store_true", help="LLM 译文逐条人工确认并回写词典（mode 含 llm 时生效）")
     return parser
 
 
@@ -188,7 +192,7 @@ def run(args: argparse.Namespace) -> int:
         return 1
 
     cn_dir.mkdir(parents=True, exist_ok=True)
-    translator = Translator(mode=args.mode, provider=args.provider, model=args.model, dict_path=dict_path)
+    translator = Translator(mode=args.mode, provider=args.provider, model=args.model, dict_path=dict_path, confirm=args.confirm)
 
     if args.file:
         file_arg = Path(args.file)
@@ -220,6 +224,10 @@ def run(args: argparse.Namespace) -> int:
         except Exception as exc:
             logger.error("Failed to translate %s: %s", file_path.name, exc)
             return 1
+
+        if translator.stopped:
+            logger.warning("用户停止翻译，已保存当前进度")
+            break
 
     return 0
 

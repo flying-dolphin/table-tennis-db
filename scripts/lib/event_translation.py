@@ -7,10 +7,12 @@ import logging
 import re
 import unicodedata
 from dataclasses import dataclass
-from typing import Callable
+from typing import TYPE_CHECKING, Callable
 
 from lib.dict_translator import DictTranslator
-from lib.translator import LLMTranslator
+
+if TYPE_CHECKING:
+    from lib.translator import LLMTranslator
 
 logger = logging.getLogger(__name__)
 
@@ -80,7 +82,7 @@ def translate_event_name_dict_only(
 
 def _translate_event_batch_llm_only(
     items: dict[str, str],
-    llm_translator: LLMTranslator,
+    llm_translator: "LLMTranslator",
     on_batch_complete: Callable[[int, int, dict[str, str]], None] | None = None,
 ) -> dict[str, str] | None:
     if hasattr(llm_translator, "translate_event_batch"):
@@ -107,11 +109,15 @@ def _translate_event_batch_llm_only(
 
 def translate_event_names_llm_only(
     items: dict[str, str],
-    llm_translator: LLMTranslator | None = None,
+    llm_translator: "LLMTranslator | None" = None,
     on_batch_complete: Callable[[int, int, dict[str, str]], None] | None = None,
 ) -> dict[str, str] | None:
     """Translate event names with LLM only, bypassing dictionary lookup."""
-    translator = llm_translator or LLMTranslator()
+    if llm_translator is None:
+        from lib.translator import LLMTranslator
+
+        llm_translator = LLMTranslator()
+    translator = llm_translator
     llm_items: dict[str, str] = {}
     years: dict[str, str] = {}
 
