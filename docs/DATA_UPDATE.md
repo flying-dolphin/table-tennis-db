@@ -203,6 +203,56 @@ SELECT COUNT(*) FROM ranking_entries;
 "
 ```
 
+### 2.9 发布到远程
+
+ranking/profile 发布使用独立脚本，不再夹带赛事刷新脚本：
+
+```bash
+deploy/server/update_rankings_profiles.sh --changed-since "2026-06-25 10:00:00"
+```
+
+`--changed-since` 也可以用环境变量 `CHANGED_SINCE` 提供。这个时间点用于筛选：
+
+- `data/player_profiles/cn/player_*.json`
+- `data/player_country_history.json`
+
+ranking 文件不走增量筛选，脚本始终选择 `data/rankings/cn/` 下最新的一份 JSON。
+
+远程流程：
+
+1. 发布 ranking/profile 导入代码。
+2. 只打包最新 ranking、指定时间之后修改过的 profile，以及同样满足时间条件的 `player_country_history.json`。
+3. 上传后解压到 `${REMOTE_TMP_DIR}/payload-*` 独立目录。
+4. 从该目录执行 dry-run、preflight、players/rankings 导入和导入后校验。
+5. 校验通过后才把 payload 中的 JSON 发布进远程 data 目录，并删除 payload 目录。
+
+每次导入前会备份远程 `data/db/ittf.db`。默认只保留最新 5 份 ranking/profile 备份，可用 `REMOTE_DB_BACKUPS_KEEP` 调整：
+
+```bash
+REMOTE_DB_BACKUPS_KEEP=10 \
+deploy/server/update_rankings_profiles.sh --changed-since "2026-06-25 10:00:00"
+```
+
+脚本会记录两类审计信息：
+
+- 本地完整执行日志：默认 `logs/deploy/ranking-profile-${RUN_ID}.log`，包含脚本输出、远程 dry-run、preflight、导入器和校验输出。
+- 远程导入 manifest：默认 `${REMOTE_DATA_DIR}/ittf_logs/ranking-profile-${RUN_ID}.manifest.txt`，记录本次 run id、ranking 文件、profile 文件清单、`player_country_history.json` 是否包含、payload 路径和 mtime。
+
+需要指定固定 run id 或日志路径时：
+
+```bash
+RUN_ID=20260625_week26 \
+LOG_FILE=logs/deploy/ranking-profile-20260625_week26.log \
+deploy/server/update_rankings_profiles.sh --changed-since "2026-06-25 10:00:00"
+```
+
+远程导入默认使用 `/home/flyingfox/.pyenv/shims/python3.11`。如果目标服务器用户或 pyenv 路径不同，显式设置 `REMOTE_PYTHON`：
+
+```bash
+REMOTE_PYTHON=/home/deploy/.pyenv/shims/python3.11 \
+deploy/server/update_rankings_profiles.sh --changed-since "2026-06-25 10:00:00"
+```
+
 ## 3. Rankings 和 Profiles 脚本说明
 
 ### 3.1 `scripts/run_ranking_profile.py`
@@ -527,6 +577,14 @@ python scripts/translate_matches.py \
   --cn-dir data/event_matches/cn
 python scripts/db/import_matches.py
 ```
+
+`translate_events.py` 也支持增量翻译：
+
+```bash
+python scripts/translate_events.py --since "2026-06-25 10:00"
+```
+
+`--since` 按 `data/events_list/orig/*.json` 的文件修改时间筛选，支持 `YYYY-MM-DD`、`YYYY-MM-DD HH:MM[:SS]` 和 `YYYY-MM-DDTHH:MM[:SS]`。传入 `--file` 时只处理指定文件，忽略 `--since`。
 
 具体执行顺序、前置检查和校验 SQL 以 [赛事数据日常更新流程](event-data-update-workflow.md) 为准。
 

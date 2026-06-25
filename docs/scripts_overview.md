@@ -78,6 +78,21 @@
 将中文版球员档案导入 SQLite 的 `players` 表。
 输入：`data/player_profiles/cn/player_*.json`
 
+### deploy/server/update_rankings_profiles.sh
+将 ranking/profile 导入代码和增量数据发布到远程服务器，并在远程执行导入。
+输入：
+- 最新一份 `data/rankings/cn/*.json`
+- `--changed-since` 或 `CHANGED_SINCE` 指定时间之后修改的 `data/player_profiles/cn/player_*.json`
+- 同一时间条件之后修改的 `data/player_country_history.json`
+
+关键逻辑：
+- 不发布赛事刷新脚本。
+- 数据包先解压到远程 `${REMOTE_TMP_DIR}/payload-*` 独立目录。
+- preflight、dry-run、导入和校验通过后，才把 payload 文件发布到远程 data 目录。
+- 导入前备份远程 SQLite，并按 `REMOTE_DB_BACKUPS_KEEP` 保留最新备份。
+- 本地完整执行日志写入 `LOG_FILE`，默认 `logs/deploy/ranking-profile-${RUN_ID}.log`。
+- 远程导入 manifest 写入 `${REMOTE_IMPORT_LOG_DIR}/ranking-profile-${RUN_ID}.manifest.txt`，记录本次导入的 ranking、profile 清单和 `player_country_history.json` 状态。
+
 ---
 
 ## 3. 比赛数据 (Matches)
@@ -141,7 +156,7 @@
 ### translate_events.py
 翻译赛事列表中的字段（经统一 `Translator`，默认 `--mode dict` 仅词典；可选 `--mode both/llm`）。
 翻译字段：name（赛事名）、event_type、event_kind。
-支持增量翻译（跳过已完成的 event_id）。
+支持增量翻译：`--since "YYYY-MM-DD HH:MM"` 只处理该时间点之后新增或修改的源 events 文件（按 `orig` 文件修改时间筛选）；`--file` 仍用于只翻译单个文件。
 输入：`data/events_list/orig/*.json` → 输出：`data/events_list/cn/*.json`
 
 ### db/import_events.py
@@ -258,6 +273,23 @@
 
 ### db/promote_current_event.py
 将 `current_event_*` 数据写入历史事实表，重建签表与冠军，并把赛事 lifecycle 更新为 `completed`。
+
+### deploy/server/update_event_runtime.sh
+将当前赛事刷新运行时发布到远程 ops 目录，和 ranking/profile 发布链路分离。
+默认只发布运行时文件到 `/opt/ittf-ops`：
+
+```bash
+deploy/server/update_event_runtime.sh
+```
+
+安装或替换当前赛事高频 cron 时显式传入 event_id：
+
+```bash
+deploy/server/update_event_runtime.sh --install-crontab 3216
+deploy/server/update_event_runtime.sh --skip-publish --install-crontab 3216
+```
+
+可配置项包括 `REMOTE_HOST`、`REMOTE_OPS_DIR`、`REMOTE_TMP_DIR`、`REMOTE_PYENV_ENV_NAME`、`REMOTE_ITTF_DATA_DIR`、`REMOTE_LOG_DIR` 和 `REMOTE_VENV_PATH`。
 
 ---
 

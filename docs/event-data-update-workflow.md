@@ -226,7 +226,23 @@ SELECT 'matches', COUNT(*) FROM current_event_matches WHERE event_id = <event_id
 
 ### 4.4 安装赛事专属 cron
 
-生产服务器使用：
+开发机侧推荐使用事件 runtime 发布脚本安装或替换 cron：
+
+```bash
+REMOTE_HOST=deploy@serverA \
+REMOTE_PYENV_ENV_NAME=venv \
+deploy/server/update_event_runtime.sh --install-crontab <event_id>
+```
+
+如果本次不需要重新发布事件 runtime，只更新 cron：
+
+```bash
+REMOTE_HOST=deploy@serverA \
+REMOTE_PYENV_ENV_NAME=venv \
+deploy/server/update_event_runtime.sh --skip-publish --install-crontab <event_id>
+```
+
+登录生产服务器后也可以直接使用：
 
 ```bash
 ITTF_DATA_DIR=/opt/ittf-data \
@@ -492,7 +508,7 @@ python scripts/fix_special_event_2860_stage_round.py
 
 截至 2026-06-15，代码中的 cron 生成器会生成赛后 promote 任务，但服务器最小部署链路尚未形成可靠闭环：
 
-1. `deploy/server/upload_runtime.ps1` 没有上传 `scripts/db/promote_current_event.py`。
+1. `deploy/server/update_event_runtime.sh` 只发布当前赛事刷新 runtime，没有上传 `scripts/db/promote_current_event.py`。
 2. promote 依赖的 `_match_keys.py`、`import_event_draw_matches.py`、`import_sub_events.py` 等文件也不在最小运行包中。
 3. `generate_current_event_crontab.py` 生成的 promote 命令使用 `scripts/db/promote_current_event.py`，与 `/opt/ittf-ops/runtime/python/` 的最小部署目录结构不一致。
 4. 当前 `current_event_*` 抓取和导入实现明显以团体赛为中心，默认 sub-event 为 `MTEAM`、`WTEAM`，官方结果导入器也按 team tie/rubber 建模。将主链路用于个人赛事前，必须先验证该赛事类型的数据能否被现有 importer 完整表达。
