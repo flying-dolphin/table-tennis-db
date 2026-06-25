@@ -92,7 +92,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--player-id", type=str, default=None, help="Player ID (player_id_raw)")
     parser.add_argument("--player-name", type=str, default=None, help="Player name (URL encoded)")
     parser.add_argument("--player-file", type=str, default=None, help="Batch file (player_id,player_name per line)")
-    parser.add_argument("--force", action="store_true", help="Force rescrape (ignore checkpoint)")
+    parser.add_argument("--resume", action="store_true", help="Resume from checkpoint: skip already-scraped profiles")
     parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing orig/cn files")
     return parser
 
@@ -276,7 +276,7 @@ def scrape_player_profile(
     avatar_dir: Path,
     checkpoint: CheckpointStore | None = None,
     category: str | None = None,
-    force: bool = False,
+    resume: bool = False,
 ) -> tuple[dict[str, Any] | None, bool]:
     """Scrape player profile page and save to JSON (orig only) and DB."""
     if not profile_url:
@@ -294,8 +294,8 @@ def scrape_player_profile(
     json_filename = f"player_{player_id}_{safe_name}.json"
     orig_path = profile_orig_dir / json_filename
 
-    # Default: if checkpoint says scraped and orig file exists, skip web work.
-    if checkpoint is not None and (not force) and checkpoint.is_done(ck_scrape) and orig_path.exists():
+    # Only skip when --resume is active and checkpoint says done and file exists.
+    if resume and checkpoint is not None and checkpoint.is_done(ck_scrape) and orig_path.exists():
         try:
             profile_data = json.loads(orig_path.read_text(encoding="utf-8"))
         except Exception as exc:
@@ -699,7 +699,7 @@ def run(args: argparse.Namespace) -> int:
                     avatar_dir,
                     checkpoint=checkpoint,
                     category=args.category,
-                    force=bool(args.force),
+                    resume=bool(args.resume),
                 )
                 if profile_data is None:
                     logger.error("Profile scrape failed: %s", player_name_arg)
@@ -729,7 +729,7 @@ def run(args: argparse.Namespace) -> int:
                         avatar_dir,
                         checkpoint=checkpoint,
                         category=args.category,
-                        force=bool(args.force),
+                        resume=bool(args.resume),
                     )
                     if profile_data is None:
                         logger.error("Profile scrape failed: %s", pname)
@@ -773,7 +773,7 @@ def run(args: argparse.Namespace) -> int:
                             avatar_dir,
                             checkpoint=checkpoint,
                             category=args.category,
-                            force=bool(args.force),
+                            resume=bool(args.resume),
                         )
                         if profile_data is None:
                             logger.error("Profile scrape failed: %s", player.get("english_name", player.get("name")))

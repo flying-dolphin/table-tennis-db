@@ -38,6 +38,31 @@ class RankingProfileDeployConfigTests(unittest.TestCase):
         self.assertLess(backup_pos, imports_pos)
         self.assertIn("ittf-before-ranking-profile-", update_script)
 
+    def test_data_update_script_runs_remote_preflight_before_backup_and_imports(self):
+        update_script = (ROOT / "deploy" / "server" / "update_rankings_profiles.sh").read_text(encoding="utf-8")
+
+        preflight_pos = update_script.index("\n    run_remote_preflight")
+        backup_pos = update_script.index("\n    backup_remote_database\n")
+        imports_pos = update_script.index("==> Running remote imports")
+
+        self.assertLess(preflight_pos, backup_pos)
+        self.assertLess(preflight_pos, imports_pos)
+        self.assertIn("import_rankings.py --dry --file", update_script)
+        self.assertIn("MIN_RANKING_ENTRIES", update_script)
+        self.assertIn("missing_name_zh", update_script)
+        self.assertIn("missing_player_ids", update_script)
+
+    def test_data_update_script_verifies_remote_database_after_imports(self):
+        update_script = (ROOT / "deploy" / "server" / "update_rankings_profiles.sh").read_text(encoding="utf-8")
+
+        imports_pos = update_script.index("==> Running remote imports")
+        verify_pos = update_script.index("\n    verify_remote_import")
+
+        self.assertLess(imports_pos, verify_pos)
+        self.assertIn("ranking_entries", update_script)
+        self.assertIn("ranking_snapshots", update_script)
+        self.assertIn("expected_entries", update_script)
+
 
 if __name__ == "__main__":
     unittest.main()

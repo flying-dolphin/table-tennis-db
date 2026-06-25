@@ -284,7 +284,7 @@ def refresh_profiles(
             avatar_dir,
             checkpoint=checkpoint,
             category=args.category,
-            force=bool(args.force),
+            resume=bool(getattr(args, 'resume', False)),
         )
         if profile_data is None:
             raise RuntimeError(f"profile scrape failed for {player.get('name')} ({player.get('player_id')})")
