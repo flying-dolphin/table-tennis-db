@@ -65,6 +65,7 @@
 翻译字段：name（球员名）、country（国家）、gender（性别）、style/playing_hand/grip（握拍相关）。
 不翻译：recent_matches（近期比赛）。
 输入：`data/player_profiles/orig/player_*.json` → 输出：`data/player_profiles/cn/player_*.json`
+支持增量翻译：`--since "YYYY-MM-DD HH:MM"` 只处理该时间点之后新增或修改的源 profile 文件（按 `orig` 文件修改时间筛选）；`--file` 仍用于只翻译单个文件。
 
 ### update_players.py
 从比赛数据（matches_complete）中发现未录入数据库的球员，并调用 scrape_profiles_from_search.py 抓取其档案。

@@ -20,6 +20,7 @@ import json
 import logging
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 from lib.country_codes import normalize_profile_country
@@ -134,9 +135,33 @@ def save_json(path: Path, data: dict) -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def parse_since(value: str) -> datetime:
+    normalized = value.strip()
+    for fmt in ("%Y-%m-%d", "%Y-%m-%d %H:%M", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M", "%Y-%m-%dT%H:%M:%S"):
+        try:
+            return datetime.strptime(normalized, fmt)
+        except ValueError:
+            continue
+    raise argparse.ArgumentTypeError(
+        "Expected --since in one of these formats: YYYY-MM-DD, YYYY-MM-DD HH:MM, YYYY-MM-DD HH:MM:SS, "
+        "YYYY-MM-DDTHH:MM, YYYY-MM-DDTHH:MM:SS"
+    )
+
+
+def filter_files_since(files: list[Path], since: datetime) -> list[Path]:
+    since_timestamp = since.timestamp()
+    return [file_path for file_path in files if file_path.stat().st_mtime > since_timestamp]
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Translate player profiles from orig to cn (dictionary only)")
     parser.add_argument("--file", type=str, help="Translate only one file from orig/")
+    parser.add_argument(
+        "--since",
+        type=parse_since,
+        help="Translate only orig/player_*.json files modified after this local time. "
+        "Formats: YYYY-MM-DD, YYYY-MM-DD HH:MM[:SS], YYYY-MM-DDTHH:MM[:SS]. Ignored when --file is set.",
+    )
     parser.add_argument("--orig-dir", default=str(ORIG_DIR))
     parser.add_argument("--cn-dir", default=str(CN_DIR))
     parser.add_argument("--dict-path", default=str(DICT_PATH))
@@ -159,7 +184,17 @@ def main() -> int:
     if args.file:
         files = [orig_dir / args.file]
     else:
-        files = sorted(orig_dir.glob("player_*.json"))
+        all_files = sorted(orig_dir.glob("player_*.json"))
+        if args.since:
+            files = filter_files_since(all_files, args.since)
+            logger.info(
+                "Incremental profile translation since %s: %d/%d files selected",
+                args.since.isoformat(sep=" "),
+                len(files),
+                len(all_files),
+            )
+        else:
+            files = all_files
 
     for file_path in files:
         if not file_path.exists():

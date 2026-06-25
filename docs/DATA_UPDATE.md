@@ -114,6 +114,14 @@ scripts/logs/translate_ranks.log
 python scripts/translate_profiles.py
 ```
 
+只翻译某个时间点之后新增或修改过的源 profile 文件时，使用 `--since`：
+
+```bash
+python scripts/translate_profiles.py --since "2026-06-25 10:00"
+```
+
+`--since` 按 `data/player_profiles/orig/player_*.json` 的文件修改时间筛选，支持 `YYYY-MM-DD`、`YYYY-MM-DD HH:MM[:SS]` 和 `YYYY-MM-DDTHH:MM[:SS]`。传入 `--file` 时只处理指定文件，忽略 `--since`。
+
 输出：
 
 ```text
@@ -166,6 +174,12 @@ python scripts/translate_rankings.py \
   --force
 
 python scripts/translate_profiles.py
+```
+
+如果本次只补充了增量 profile 的翻译词条，也可以只重跑增量 profile 翻译：
+
+```bash
+python scripts/translate_profiles.py --since "2026-06-25 10:00"
 ```
 
 ### 2.7 入库
