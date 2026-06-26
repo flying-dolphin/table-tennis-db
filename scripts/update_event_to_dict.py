@@ -28,7 +28,7 @@ DEFAULT_DICT_PATH = PROJECT_ROOT / "scripts" / "data" / "translation_dict_v2.jso
 
 SKIP_VALUES = {"", None}
 EVENT_CATEGORY = "events"
-EVENT_FIELDS = ("name", "event_type")
+EVENT_FIELDS = (("name", "name_zh"), ("event_type", "event_type_zh"))
 LOCATION_CATEGORY = "locations"
 EVENT_CALENDAR_NAME_FIELDS = (("name", "name_zh"),)
 EVENT_CALENDAR_LOCATION_FIELDS = (("location", "location_zh"),)
@@ -79,8 +79,8 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def normalize_text(value: Any) -> str:
     text = str(value or "").strip()
-    text = re.sub(r"^\d{4}\s*", "", text)
     text = re.sub(r"^\d{4}年", "", text)
+    text = re.sub(r"^\d{4}\s*", "", text)
     return text.strip()
 
 
@@ -206,9 +206,9 @@ def extract_entries(
         if cn_event is None:
             continue
 
-        for field in EVENT_FIELDS:
-            original = normalize_text(orig_event.get(field))
-            translated = normalize_translation(normalize_text(cn_event.get(field)))
+        for field_orig, field_zh in EVENT_FIELDS:
+            original = normalize_text(orig_event.get(field_orig))
+            translated = normalize_translation(normalize_text(cn_event.get(field_zh)))
             if not original or not translated:
                 continue
 
