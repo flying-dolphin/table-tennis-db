@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "2.0",
-    "updated_at": "2026-04-23T23:17:33.499780",
-    "total_entries": 4759
+    "updated_at": "2026-06-26T09:05:54.173229",
+    "total_entries": 4772
   },
   "entries": {
     "ma long": {
@@ -61927,6 +61927,175 @@
         "round": "none"
       },
       "updated_at": "2026-04-23T23:17:33.499780"
+    },
+    "ettu european u21 championships cluj-napoca": {
+      "original": "ETTU European U21 Championships Cluj-Napoca",
+      "translated": "克卢日-纳波卡ETTU欧洲U21锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "u21 championships": {
+      "original": "U21 Championships",
+      "translated": "U21锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "ittf-americas south american championships santiago": {
+      "original": "ITTF-Americas South American Championships Santiago",
+      "translated": "圣地亚哥国际乒联美洲南美洲锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "senior championships": {
+      "original": "Senior Championships",
+      "translated": "老将锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "wtt youth star contender sao jose": {
+      "original": "WTT Youth Star Contender Sao Jose",
+      "translated": "WTT青少年球星挑战赛圣何塞站",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "wtt youth star contender": {
+      "original": "WTT Youth Star Contender",
+      "translated": "WTT青少年球星挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "wtt contender": {
+      "original": "WTT Contender",
+      "translated": "WTT挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "wtt youth contender": {
+      "original": "WTT Youth Contender",
+      "translated": "WTT青少年挑战赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "ittf-americas central american youth championships tegucigalpa": {
+      "original": "ITTF-Americas Central American Youth Championships Tegucigalpa",
+      "translated": "特古西加尔巴国际乒联美洲中美洲青少年锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "youth championships": {
+      "original": "Youth Championships",
+      "translated": "青少年锦标赛",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "wtt feeder hennebont": {
+      "original": "WTT Feeder Hennebont",
+      "translated": "WTT支线赛埃内邦站",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "wtt feeder lagos": {
+      "original": "WTT Feeder Lagos",
+      "translated": "WTT支线赛拉各斯站",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
+    },
+    "wtt feeder istanbul": {
+      "original": "WTT Feeder Istanbul",
+      "translated": "WTT支线赛伊斯坦布尔站",
+      "categories": [
+        "events"
+      ],
+      "source": "api",
+      "review_status": "verified",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-06-26T09:05:54.173229"
     }
   }
 }
