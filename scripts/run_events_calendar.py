@@ -18,7 +18,7 @@ from translate_events_calendar import run as run_translate
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="ITTF Events Calendar 完整流程主入口")
     parser.add_argument("--year", "-y", type=int, required=True, help="年份（如 2026）")
-    parser.add_argument("--output", "-o", type=str, default=None, help="orig 输出文件路径（默认: data/events_calendar/orig/events_calendar_{year}.json）")
+    parser.add_argument("--output", "-o", type=str, default=None, help="输出目录（默认: data/events_calendar），抓取结果保存在 orig/ 子目录下")
     parser.add_argument("--cdp-port", type=int, default=9222, help="CDP 远程调试端口（默认: 9222）")
     parser.add_argument("--headless", action="store_true", help="无头模式运行")
     parser.add_argument("--slow-mo", type=int, default=100, help="慢动作延迟毫秒（默认: 100）")
@@ -32,9 +32,9 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.output:
-        output_dir = Path(args.output).parent
+        output_dir = Path(args.output)
     else:
-        output_dir = Path("data/events_calendar/orig")
+        output_dir = Path("data/events_calendar")
 
     print("=" * 60)
     print("ITTF Events Calendar 完整流程")
@@ -63,9 +63,9 @@ def main() -> None:
         translate_args = argparse.Namespace(
             file=f"events_calendar_{args.year}.json",
             year=None,
-            orig_dir=str(output_dir),
-            cn_dir="data/events_calendar/cn",
-            checkpoint="data/events_calendar/checkpoint_translate_events_calendar.json",
+            orig_dir=str(output_dir / "orig"),
+            cn_dir=str(output_dir / "cn"),
+            checkpoint=str(output_dir / "checkpoint_translate_events_calendar.json"),
             force=bool(args.force),
             rebuild_checkpoint=bool(args.rebuild_checkpoint),
         )
@@ -73,8 +73,8 @@ def main() -> None:
 
     if rc == 0:
         print("\n✓ 完整流程完成!")
-        print("  - 原始数据: data/events_calendar/orig/")
-        print("  - 中文数据: data/events_calendar/cn/")
+        print(f"  - 原始数据: {output_dir / 'orig'}/")
+        print(f"  - 中文数据: {output_dir / 'cn'}/")
     else:
         print(f"\n✗ 流程失败 (退出码: {rc})")
 

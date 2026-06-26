@@ -39,7 +39,7 @@ logger = logging.getLogger("ittf_events_calendar")
 # ── 默认配置 ────────────────────────────────────────────────────────────────
 
 BASE_URL = "https://www.ittf.com"
-DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "data" / "events_calendar" / "orig"
+DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "data" / "events_calendar"
 DEFAULT_FROM_YEAR = 2024  # 最早抓取的年份
 
 
@@ -262,7 +262,8 @@ def scrape_events_calendar(
 
     # 确保输出目录存在
     output_dir.mkdir(parents=True, exist_ok=True)
-    raw_output_file = output_dir / f"events_calendar_{year}.json"
+    (output_dir / "orig").mkdir(parents=True, exist_ok=True)
+    raw_output_file = output_dir / "orig" / f"events_calendar_{year}.json"
     checkpoint_scrape_file = output_dir / f"checkpoint_scrape_{year}.json"
 
     scrape_checkpoint = CheckpointStore(checkpoint_scrape_file)
@@ -423,7 +424,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--output", "-o",
         type=str,
         default=None,
-        help="输出文件路径（默认: data/events_calendar/orig/events_calendar_{year}.json）",
+        help="输出目录（默认: data/events_calendar），抓取结果保存在 orig/ 子目录下",
     )
     parser.add_argument(
         "--cdp-port",
@@ -461,15 +462,15 @@ def main() -> None:
 
     # 确定输出路径
     if args.output:
-        output_dir = Path(args.output).parent
-        output_file = Path(args.output)
+        output_dir = Path(args.output)
     else:
         output_dir = DEFAULT_OUTPUT_DIR
-        output_file = output_dir / f"events_calendar_{args.year}.json"
+    output_file = output_dir / "orig" / f"events_calendar_{args.year}.json"
 
     output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "orig").mkdir(parents=True, exist_ok=True)
 
-    # 如果指定了输出文件但不存在，尝试加载
+    # 如果指定了输出目录但文件已存在，尝试加载
     if args.output and not args.force:
         if output_file.exists():
             data = json.loads(output_file.read_text(encoding="utf-8"))
