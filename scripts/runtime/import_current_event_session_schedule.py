@@ -21,12 +21,14 @@ def upsert_session_rows(cursor: sqlite3.Cursor, event_id: int, sessions: list[di
     cursor.executemany(
         """
         INSERT INTO current_event_session_schedule (
-            event_id, day_index, local_date, morning_session_start, afternoon_session_start,
-            venue_raw, table_count, raw_sub_events_text, parsed_rounds_json,
+            event_id, day_index, session_index, local_date,
+            session_title, start_time, morning_session_start, afternoon_session_start,
+            venue_raw, table_count, table_label, raw_sub_events_text, parsed_rounds_json,
             updated_at
         ) VALUES (
-            :event_id, :day_index, :local_date, :morning_session_start, :afternoon_session_start,
-            :venue_raw, :table_count, :raw_sub_events_text, :parsed_rounds_json,
+            :event_id, :day_index, :session_index, :local_date,
+            :session_title, :start_time, :morning_session_start, :afternoon_session_start,
+            :venue_raw, :table_count, :table_label, :raw_sub_events_text, :parsed_rounds_json,
             datetime('now')
         )
         """,
@@ -50,6 +52,8 @@ def import_one_file(
     base_year = event["year"]
     sessions: list[dict] = []
     prev_date = None
+    last_date = None
+    day_index = 0
     parse_errors: list[str] = []
     unmatched_segments: list[str] = []
 
@@ -57,33 +61,66 @@ def import_one_file(
         try:
             local_date = legacy.parse_local_date(day["日期"], base_year, prev_date)
         except (KeyError, ValueError) as exc:
-            parse_errors.append(f"day#{idx}: {exc}")
+            parse_errors.append(f"row#{idx}: {exc}")
             continue
         prev_date = local_date
+        # day_index 按不同日期递增；per-session 时同一天多行共享同一 day_index
+        if local_date != last_date:
+            day_index += 1
+            last_date = local_date
 
-        start_t, end_t = legacy.parse_time_window(day.get("时间"))
         venue_raw = (day.get("场馆") or "").strip() or None
-        table_count = day.get("球台数")
-        if isinstance(table_count, str):
-            table_count = int(table_count) if table_count.isdigit() else None
-
         raw_segments: list[str] = day.get("赛事") or []
-        parsed: list[dict] = []
-        for seg in raw_segments:
-            entries = legacy.parse_event_segment(seg)
-            if not entries and seg.strip():
-                unmatched_segments.append(seg)
-            parsed.extend(entries)
+
+        # parsed_rounds_json：优先用 scrape 产出的机器可读 _parsed（英文解析，最可靠），
+        # 否则回退到对中文 赛事 文案的解析（旧的 per-day 文件，如 3216.json）。
+        parsed_field = day.get("_parsed")
+        if isinstance(parsed_field, list):
+            parsed = parsed_field
+        else:
+            parsed = []
+            for seg in raw_segments:
+                entries = legacy.parse_event_segment(seg)
+                if not entries and seg.strip():
+                    unmatched_segments.append(seg)
+                parsed.extend(entries)
+
+        # per-session：时间是单字符串 / 含 场次 / 含 _parsed；per-day：时间是 [首场, 末场] 列表
+        is_per_session = (
+            "场次" in day
+            or isinstance(parsed_field, list)
+            or isinstance(day.get("时间"), str)
+        )
+        if is_per_session:
+            start_time = (day.get("时间") or "").strip() or None
+            session_title = (day.get("场次") or "").strip() or None
+            table_label = (day.get("球台") or "").strip() or None
+            # 把 start_time 同时写进 morning_session_start，使 cron 生成器无需改造即可工作
+            morning_start = start_time
+            afternoon_start = None
+            table_count = None
+        else:
+            morning_start, afternoon_start = legacy.parse_time_window(day.get("时间"))
+            session_title = None
+            start_time = None
+            table_label = None
+            table_count = day.get("球台数")
+            if isinstance(table_count, str):
+                table_count = int(table_count) if table_count.isdigit() else None
 
         sessions.append(
             {
                 "event_id": event_id,
-                "day_index": idx,
+                "day_index": day_index,
+                "session_index": idx,
                 "local_date": local_date.isoformat(),
-                "morning_session_start": start_t,
-                "afternoon_session_start": end_t,
+                "session_title": session_title,
+                "start_time": start_time,
+                "morning_session_start": morning_start,
+                "afternoon_session_start": afternoon_start,
                 "venue_raw": venue_raw,
                 "table_count": table_count,
+                "table_label": table_label,
                 "raw_sub_events_text": " | ".join(raw_segments) if raw_segments else None,
                 "parsed_rounds_json": json.dumps(parsed, ensure_ascii=False),
             }
@@ -94,10 +131,13 @@ def import_one_file(
 
     if verbose:
         for session in sessions:
+            time_repr = session["start_time"] or (
+                f"{session['morning_session_start']}-{session['afternoon_session_start']}"
+            )
             print(
-                f"    day#{session['day_index']:>2} {session['local_date']} "
-                f"{session['morning_session_start']}-{session['afternoon_session_start']} "
-                f"@{session['venue_raw']!r} tables={session['table_count']}"
+                f"    #{session['session_index']:>2} day{session['day_index']:>2} {session['local_date']} "
+                f"{session['session_title'] or ''} {time_repr} "
+                f"@{session['venue_raw']!r} tables={session['table_label'] or session['table_count']}"
             )
 
     return {

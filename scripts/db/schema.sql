@@ -517,18 +517,25 @@ CREATE TABLE IF NOT EXISTS current_event_session_schedule (
     current_session_schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,
     event_id            INTEGER NOT NULL,
     day_index           INTEGER NOT NULL,
+    -- 行序号（1-based）。每个赛事一天可有多个时段（场次），用它做唯一约束与稳定排序。
+    -- 兼容旧的「每天一条」数据时 session_index = day_index。
+    session_index       INTEGER,
     local_date          TEXT NOT NULL,
+    -- per-session 字段：场次名（如「第1节」）、单一开始时间、具体球台（如「2-4号台」）。
+    session_title       TEXT,
+    start_time          TEXT,
     morning_session_start TEXT,
     afternoon_session_start TEXT,
     venue_raw           TEXT,
     venue_id            INTEGER,
     table_count         INTEGER,
+    table_label         TEXT,
     raw_sub_events_text TEXT,
     parsed_rounds_json  TEXT,
     updated_at          TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (event_id) REFERENCES events(event_id),
     FOREIGN KEY (venue_id) REFERENCES venues(venue_id),
-    UNIQUE(event_id, day_index)
+    UNIQUE(event_id, session_index)
 );
 
 CREATE INDEX IF NOT EXISTS idx_current_event_session_schedule_event

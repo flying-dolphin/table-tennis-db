@@ -184,11 +184,15 @@ type EventDetail = {
   sessionSchedule: Array<{
     id: number;
     dayIndex: number;
+    sessionIndex: number | null;
     localDate: string;
+    sessionTitle: string | null;
+    startTime: string | null;
     morningSessionStart: string | null;
     afternoonSessionStart: string | null;
     venueRaw: string | null;
     tableCount: number | null;
+    tableLabel: string | null;
     rawSubEventsText: string | null;
     parsedRoundsJson: string | null;
   }>;
@@ -1118,6 +1122,101 @@ function SessionScheduleView({
       <div className="pt-5">
         <div className="rounded-[1.7rem] bg-white/82 p-8 text-center text-slate-500 shadow-[0_12px_30px_rgba(165,178,196,0.16)] ring-1 ring-white/80">
           赛事日程还没补齐
+        </div>
+      </div>
+    );
+  }
+
+  const subEventLines = (raw: string | null): string[] =>
+    raw ? raw.split("|").map((part) => part.trim()).filter(Boolean) : [];
+
+  // per-session：同一天可有多个时段（场次），各自有开始时间/球台/场馆。
+  const isPerSession = sessions.some((s) => s.sessionTitle || s.startTime);
+
+  if (isPerSession) {
+    // 按 dayIndex 分组：每天一张卡，卡内列出各场次
+    const days = new Map<number, { dayIndex: number; localDate: string; rows: typeof sessions }>();
+    for (const s of sessions) {
+      const day = days.get(s.dayIndex) ?? { dayIndex: s.dayIndex, localDate: s.localDate, rows: [] as typeof sessions };
+      day.rows.push(s);
+      days.set(s.dayIndex, day);
+    }
+    const dayList = [...days.values()].sort((a, b) => a.dayIndex - b.dayIndex);
+
+    return (
+      <div className="pb-10 pt-4">
+        <div className="space-y-3">
+          {dayList.map((day) => (
+            <section
+              key={day.dayIndex}
+              className="rounded-[1.35rem] bg-white px-4 py-4 ring-1 ring-[#e8edf8] shadow-sm"
+            >
+              <div>
+                <p className="text-[0.78rem] font-bold text-[#7d95c7]">DAY {day.dayIndex}</p>
+                <h2 className="my-1 text-[1.22rem] font-black leading-none text-slate-950">
+                  {formatLocalDate(day.localDate)}
+                </h2>
+              </div>
+
+              <div className="mt-3 space-y-2.5">
+                {day.rows.map((row) => {
+                  const beijingTimeLabel =
+                    lifecycleStatus === "in_progress"
+                      ? formatBeijingSessionRange(
+                        row.localDate,
+                        row.morningSessionStart,
+                        row.afternoonSessionStart,
+                        eventTimeZone,
+                      )
+                      : null;
+                  const lines = subEventLines(row.rawSubEventsText);
+                  return (
+                    <div
+                      key={row.id}
+                      className="rounded-2xl bg-[#f7f9fd] px-3 py-2.5 ring-1 ring-[#eef2f9]"
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-[0.82rem] font-bold text-slate-500">
+                          <span className="flex items-center gap-1.5">
+                            <Clock3 size={13} className="shrink-0 text-[#7d95c7]" />
+                            {row.startTime || "待定"}
+                          </span>
+                          {row.sessionTitle ? (
+                            <span className="rounded-full bg-white px-2 py-0.5 text-[0.74rem] font-bold text-slate-500 ring-1 ring-[#e8edf8]">
+                              {row.sessionTitle}
+                            </span>
+                          ) : null}
+                          {beijingTimeLabel ? (
+                            <span className="text-[0.72rem] font-bold text-[#7d95c7]">({beijingTimeLabel})</span>
+                          ) : null}
+                        </div>
+                        {row.tableLabel ? (
+                          <span className="shrink-0 rounded-full bg-white px-2 py-0.5 text-[0.74rem] font-bold text-slate-500 ring-1 ring-[#e8edf8]">
+                            {row.tableLabel}
+                          </span>
+                        ) : null}
+                      </div>
+
+                      {lines.length > 0 ? (
+                        <div className="mt-1.5 space-y-0.5">
+                          {lines.map((line, i) => (
+                            <p key={i} className="text-[0.92rem] font-bold leading-relaxed text-slate-700">
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      ) : null}
+
+                      <div className="mt-1.5 flex items-center gap-1.5 text-[0.86rem] font-black text-slate-800">
+                        <MapPin size={13} className="shrink-0 text-[#7d95c7]" />
+                        <span className="truncate">{row.venueRaw || "待定"}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
         </div>
       </div>
     );

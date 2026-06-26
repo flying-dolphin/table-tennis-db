@@ -291,11 +291,15 @@ type EventBracketRound = {
 type EventSessionScheduleRow = {
   id: number;
   dayIndex: number;
+  sessionIndex: number | null;
   localDate: string;
+  sessionTitle: string | null;
+  startTime: string | null;
   morningSessionStart: string | null;
   afternoonSessionStart: string | null;
   venueRaw: string | null;
   tableCount: number | null;
+  tableLabel: string | null;
   rawSubEventsText: string | null;
   parsedRoundsJson: string | null;
 };
@@ -4242,16 +4246,20 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
             SELECT
               current_session_schedule_id AS id,
               day_index AS dayIndex,
+              session_index AS sessionIndex,
               local_date AS localDate,
+              session_title AS sessionTitle,
+              start_time AS startTime,
               morning_session_start AS morningSessionStart,
               afternoon_session_start AS afternoonSessionStart,
               venue_raw AS venueRaw,
               table_count AS tableCount,
+              table_label AS tableLabel,
               raw_sub_events_text AS rawSubEventsText,
               parsed_rounds_json AS parsedRoundsJson
             FROM current_event_session_schedule
             WHERE event_id = ?
-            ORDER BY day_index ASC
+            ORDER BY COALESCE(session_index, day_index) ASC
           `,
         )
         .all(eventId) as EventSessionScheduleRow[]

@@ -141,7 +141,7 @@ def load_event_and_schedule(db_path: Path, event_id: int) -> tuple[Event, list[S
                    raw_sub_events_text, parsed_rounds_json
             FROM current_event_session_schedule
             WHERE event_id = ?
-            ORDER BY local_date, current_session_schedule_id
+            ORDER BY local_date, session_index, current_session_schedule_id
             """,
             (event_id,),
         ).fetchall()
