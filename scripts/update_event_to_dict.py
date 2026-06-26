@@ -164,6 +164,8 @@ def extract_entries_from_events_calendar(
             translated = normalize_translation(normalize_text(cn_event.get(field_zh)))
             if not original or not translated:
                 continue
+            if original.upper() == "TBD":
+                continue
             normalized = original.lower()
             location_casing.setdefault(normalized, original)
             location_translations.setdefault(normalized, Counter())[translated] += 1
@@ -259,6 +261,31 @@ def run_dict_updator(input_file: Path, dict_path: Path) -> int:
     return completed.returncode
 
 
+def load_dict_entries(dict_path: Path) -> dict[str, Any]:
+    if not dict_path.exists():
+        return {}
+    with dict_path.open("r", encoding="utf-8") as fh:
+        data = json.load(fh)
+    return data.get("entries", {})
+
+
+def is_entry_changed(
+    original: str,
+    translated: str,
+    category: str,
+    existing_entries: dict[str, Any],
+) -> bool:
+    key = original.lower()
+    existing = existing_entries.get(key)
+    if existing is None:
+        return True
+    if existing.get("translated") != translated:
+        return True
+    if category not in existing.get("categories", []):
+        return True
+    return False
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="从 events_list/cn 和 events_calendar/cn 中提取翻译并更新词典")
     parser.add_argument(
@@ -340,13 +367,49 @@ def main() -> int:
             print("未提取到可更新的条目，退出。")
             return 0
 
-        print(f"total entries: {len(all_entries)}")
+        existing_entries = load_dict_entries(args.dict_path)
+        all_entries = [e for e in all_entries if is_entry_changed(*e, existing_entries)]
+
+        if not all_entries:
+            print("所有条目已在词典中且无需更新。")
+            return 0
+
+        simulated: dict[str, dict[str, Any]] = {}
+        new_count = 0
+        update_count = 0
+        new_samples: list[tuple[str, str, str]] = []
+        update_samples: list[tuple[str, str, str]] = []
+        for original, translated, category in all_entries:
+            key = original.lower()
+            if key not in existing_entries and key not in simulated:
+                new_count += 1
+                if len(new_samples) < 5:
+                    new_samples.append((original, translated, category))
+                simulated[key] = {"translated": translated, "categories": [category]}
+            else:
+                base = simulated.get(key) or existing_entries.get(key, {})
+                if base.get("translated") != translated or category not in base.get("categories", []):
+                    update_count += 1
+                    if len(update_samples) < 5:
+                        update_samples.append((original, translated, category))
+                    cats = list(base.get("categories", []))
+                    if category not in cats:
+                        cats.append(category)
+                    simulated[key] = {"translated": translated, "categories": cats}
+
+        print(f"新增: {new_count}，更新: {update_count}")
 
         if args.dry_run:
-            for original, translated, category in all_entries[:10]:
-                print(f"{original}:{translated}:{category}")
-            if len(all_entries) > 10:
-                print(f"... 其余 {len(all_entries) - 10} 条未展示")
+            shown = 0
+            for entry in new_samples:
+                print(f"[新增] {':'.join(entry)}")
+                shown += 1
+            for entry in update_samples:
+                print(f"[更新] {':'.join(entry)}")
+                shown += 1
+            remaining = len(all_entries) - shown
+            if remaining > 0:
+                print(f"... 其余 {remaining} 条未展示")
             return 0
 
         input_file = write_input_file(all_entries)

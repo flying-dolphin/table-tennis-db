@@ -61,29 +61,29 @@ def build_entry(original: str, translated: str, category: str, now: str) -> dict
     }
 
 
-def merge_entry(existing: dict[str, Any], translated: str, category: str, now: str) -> dict[str, Any]:
-    """合并新数据到已有条目。"""
-    updated = False
+def merge_entry(existing: dict[str, Any], translated: str, category: str, now: str) -> bool:
+    """合并新数据到已有条目，返回是否发生了实际变更。"""
+    changed = False
 
     if existing.get("translated") != translated:
         existing["translated"] = translated
-        updated = True
+        changed = True
 
     cats = existing.get("categories", [])
     if category not in cats:
         cats.append(category)
         existing["categories"] = cats
-        updated = True
+        changed = True
 
     validators = existing.get("validators", {})
     if category not in validators:
         validators[category] = CATEGORY_VALIDATORS.get(category, "none")
         existing["validators"] = validators
 
-    if updated:
+    if changed:
         existing["updated_at"] = now
 
-    return existing
+    return changed
 
 
 def main() -> None:
@@ -114,8 +114,7 @@ def main() -> None:
         if key not in entries:
             entries[key] = build_entry(original, translated, category, now)
             added += 1
-        else:
-            entries[key] = merge_entry(entries[key], translated, category, now)
+        elif merge_entry(entries[key], translated, category, now):
             updated += 1
 
     metadata = data.setdefault("metadata", {})

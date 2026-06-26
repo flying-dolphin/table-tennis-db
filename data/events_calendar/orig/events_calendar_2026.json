@@ -1,7 +1,7 @@
 {
   "year": 2026,
   "url": "https://www.ittf.com/2026-events-calendar/",
-  "scraped_at": "2026-04-12T11:14:13.587178+00:00",
+  "scraped_at": "2026-06-26T07:42:03.168092+00:00",
   "events": [
     {
       "name": "WTT Youth Contender Vadodara 2026",
@@ -166,12 +166,12 @@
       "status": ""
     },
     {
-      "name": "ITTF-Americas Masters Championships Asuncion 2026",
+      "name": "ITTF-Americas Masters Championships Asuncion 2025",
       "date": "02-07 Feb",
       "location": "PAR",
       "slug": "",
       "href": "https://www.ittf.com/tournament/3388/ITTFAmericas%20Masters%20Championships%20Asuncion%202026/",
-      "raw_text": "02-07 Feb: ITTF-Americas Masters Championships Asuncion 2026 (PAR)**",
+      "raw_text": "02-07 Feb: ITTF-Americas Masters Championships Asuncion 2025 (PAR)**",
       "status": ""
     },
     {
@@ -383,12 +383,12 @@
     },
     {
       "name": "ITTF-ATTU West Asia Youth Championships Amman 2026",
-      "date": "26-27 TBD Mar",
+      "date": "26-27 Mar",
       "location": "JOR",
-      "slug": "WestAsiaYouthChamp2026",
-      "href": "https://www.ittf.com/tournament/3499/WestAsiaYouthChamp2026",
-      "raw_text": "26-27 TBD Mar: ITTF-ATTU West Asia Youth Championships Amman 2026 (JOR)",
-      "status": ""
+      "slug": "",
+      "href": "",
+      "raw_text": "26-27 Mar: ITTF-ATTU West Asia Youth Championships Amman 2026 (JOR) (Postponed)",
+      "status": "(Postponed)"
     },
     {
       "name": "WTT Youth Contender Panagyurishte 2026",
@@ -603,8 +603,8 @@
       "location": "ARG",
       "slug": "",
       "href": "",
-      "raw_text": "18-20 Apr: ITTF World Para Future Buenos Aires 2026 (ARG) ( Postponed)",
-      "status": "( Postponed)"
+      "raw_text": "18-20 Apr: ITTF World Para Future Buenos Aires 2026 (ARG) (Postponed)",
+      "status": "(Postponed)"
     },
     {
       "name": "WTT Feeder Senec 2026",
@@ -737,9 +737,9 @@
       "date": "19-22 May",
       "location": "SUD",
       "slug": "",
-      "href": "https://www.ittf.com/tournament/3490/ITTF%20Africa%20East%20Regional%20Championships%20Port%20Sudan%202026/",
-      "raw_text": "19-22 May: ITTF-Africa East Regional Championships Port Sudan 2026 (SUD)",
-      "status": ""
+      "href": "",
+      "raw_text": "19-22 May: ITTF-Africa East Regional Championships Port Sudan 2026 (SUD) – Postponed",
+      "status": "– Postponed"
     },
     {
       "name": "WTT Contender Lagos 2026",
@@ -841,12 +841,12 @@
       "status": ""
     },
     {
-      "name": "WTT Youth Contender Rio De Janeiro 2026",
+      "name": "WTT Youth Contender São José 2026",
       "date": "08-11 Jun",
       "location": "BRA",
       "slug": "",
       "href": "https://www.worldtabletennis.com/eventInfo?eventId=3312",
-      "raw_text": "08-11 Jun: WTT Youth Contender Rio De Janeiro 2026 (BRA)",
+      "raw_text": "08-11 Jun: WTT Youth Contender São José 2026 (BRA)",
       "status": ""
     },
     {
@@ -859,12 +859,21 @@
       "status": ""
     },
     {
-      "name": "WTT Youth Star Contender Rio De Janeiro 2026",
+      "name": "WTT Youth Star Contender São José 2026",
       "date": "12-14 Jun",
       "location": "BRA",
       "slug": "",
       "href": "https://www.worldtabletennis.com/eventInfo?eventId=3313",
-      "raw_text": "12-14 Jun: WTT Youth Star Contender Rio De Janeiro 2026 (BRA)",
+      "raw_text": "12-14 Jun: WTT Youth Star Contender São José 2026 (BRA)",
+      "status": ""
+    },
+    {
+      "name": "ITTF Europe Hopes Week & Challenge Havirov 2026",
+      "date": "14-20 Jun",
+      "location": "CZE",
+      "slug": "",
+      "href": "https://www.ettu.org/",
+      "raw_text": "14-20 Jun: ITTF Europe Hopes Week & Challenge Havirov 2026 (CZE)**",
       "status": ""
     },
     {
@@ -872,7 +881,7 @@
       "date": "15-21 Jun",
       "location": "CHI",
       "slug": "",
-      "href": "https://americas.ittf.com/",
+      "href": "https://www.ittf.com/tournament/3407/ITTF-Americas%20South%20American%20Championships%20Santiago%202026/",
       "raw_text": "15-21 Jun: ITTF-Americas South American Championships Santiago 2026 (CHI)",
       "status": ""
     },
@@ -904,15 +913,6 @@
       "status": ""
     },
     {
-      "name": "ITTF-ATTU Asian Youth Championships Muscat 2026",
-      "date": "21-27 Jun",
-      "location": "OMA",
-      "slug": "",
-      "href": "https://asia.ittf.com/",
-      "raw_text": "21-27 Jun: ITTF-ATTU Asian Youth Championships Muscat 2026 (OMA)",
-      "status": ""
-    },
-    {
       "name": "WTT Youth Contender Caracas 2026",
       "date": "24-27 Jun",
       "location": "VEN",
@@ -940,13 +940,22 @@
       "status": ""
     },
     {
+      "name": "ITTF-ATTU Asian Youth Championships Bangkok 2026",
+      "date": "28 Jun-04 Jul",
+      "location": "THA",
+      "slug": "",
+      "href": "https://www.ittf.com/tournament/3472/ITTF-ATTU%20Asian%20Youth%20Championships%20Bangkok%202026/",
+      "raw_text": "28 Jun-04 Jul: ITTF-ATTU Asian Youth Championships Bangkok 2026 (THA)",
+      "status": ""
+    },
+    {
       "name": "ITTF-Africa Central Regional Championships Kinshasa 2026",
       "date": "26-28 June",
       "location": "COD",
       "slug": "",
-      "href": "https://africa.ittf.com/home",
-      "raw_text": "26-28 June: ITTF-Africa Central Regional Championships Kinshasa 2026 (COD)",
-      "status": ""
+      "href": "",
+      "raw_text": "26-28 June: ITTF-Africa Central Regional Championships Kinshasa 2026 (COD) – Postponed",
+      "status": "– Postponed"
     },
     {
       "name": "WTT Feeder Istanbul II 2026",
@@ -964,6 +973,15 @@
       "slug": "",
       "href": "https://parasuramericanos2026.com/",
       "raw_text": "04-7 Jul: Parasouth American Games Valledupar 2026 (COL)",
+      "status": ""
+    },
+    {
+      "name": "ITTF-Americas Hopes Week & Challenge Guadalajara 2026",
+      "date": "6-11 Jul",
+      "location": "MEX",
+      "slug": "",
+      "href": "https://americas.ittf.com/home",
+      "raw_text": "6-11 Jul: ITTF-Americas Hopes Week & Challenge Guadalajara 2026 (MEX)**",
       "status": ""
     },
     {
@@ -989,7 +1007,7 @@
       "date": "10-12 Jul",
       "location": "ZIM",
       "slug": "",
-      "href": "https://africa.ittf.com/",
+      "href": "https://www.ittf.com/tournament/3449/ITTF-Africa%20Southern%20Africa%20Regional%20Championships%20Harare%202026/",
       "raw_text": "10-12 Jul: ITTF-Africa Southern Africa Regional Championships Harare 2026 (ZIM)",
       "status": ""
     },
@@ -1012,11 +1030,20 @@
       "status": ""
     },
     {
+      "name": "ITTF-Africa Hopes Week & Challenge Accra 2026",
+      "date": "13-18 Jul",
+      "location": "GHA",
+      "slug": "",
+      "href": "https://africa.ittf.com/home",
+      "raw_text": "13-18 Jul: ITTF-Africa Hopes Week & Challenge Accra 2026 (GHA)**",
+      "status": ""
+    },
+    {
       "name": "ITTF-Americas Central America & Caribbean U11&U13 Championships Guadalajara 2026",
       "date": "13 July-19Jul",
       "location": "MEX",
       "slug": "",
-      "href": "",
+      "href": "https://www.ittf.com/tournament/3408/ITTF-Americas%20Central%20AmericaCaribbean%20U11U13%20Championships%20Guadalajara%202026/",
       "raw_text": "13 July-19Jul: ITTF-Americas Central America & Caribbean U11&U13 Championships Guadalajara 2026 (MEX)**",
       "status": ""
     },
@@ -1034,9 +1061,9 @@
       "date": "14-19 Jul",
       "location": "ARG",
       "slug": "",
-      "href": "https://www.worldtabletennis.com/eventInfo?eventId=3243",
-      "raw_text": "14-19 Jul: WTT Contender Buenos Aires 2026 (ARG)",
-      "status": ""
+      "href": "",
+      "raw_text": "14-19 Jul: WTT Contender Buenos Aires 2026 (ARG) Cancelled",
+      "status": "Cancelled"
     },
     {
       "name": "ITTF-Africa West Regional Championships Conakry 2026",
@@ -1075,12 +1102,12 @@
       "status": ""
     },
     {
-      "name": "ITTF Oceania Hopes Week Auckland 2026",
+      "name": "ITTF-Oceania Hopes Week & Challenge Auckland 2026",
       "date": "20-25 Jul",
       "location": "NZL",
       "slug": "",
       "href": "https://oceania.ittf.com/",
-      "raw_text": "20-25 Jul: ITTF Oceania Hopes Week Auckland 2026 (NZL)**",
+      "raw_text": "20-25 Jul: ITTF-Oceania Hopes Week & Challenge Auckland 2026 (NZL)**",
       "status": ""
     },
     {
@@ -1088,17 +1115,17 @@
       "date": "20-27 Jul",
       "location": "GHA",
       "slug": "",
-      "href": "https://africa.ittf.com/home",
+      "href": "https://www.ittf.com/tournament/3493/ITTF-Africa%20Youth%20Championships%20Accra%202026/",
       "raw_text": "20-27 Jul: ITTF-Africa Youth Championships Accra 2026 (GHA)",
       "status": ""
     },
     {
-      "name": "WTT Star Contender Brazil 2026",
+      "name": "WTT Star Contender Sao Jose dos Campos 2026",
       "date": "21-26 Jul",
       "location": "BRA",
       "slug": "",
       "href": "https://www.worldtabletennis.com/eventInfo?eventId=3244",
-      "raw_text": "21-26 Jul: WTT Star Contender Brazil 2026 (BRA)",
+      "raw_text": "21-26 Jul: WTT Star Contender Sao Jose dos Campos 2026 (BRA)",
       "status": ""
     },
     {
@@ -1142,17 +1169,17 @@
       "date": "28-29 Jul",
       "location": "GHA",
       "slug": "",
-      "href": "https://africa.ittf.com/home",
+      "href": "https://www.ittf.com/tournament/3494/ITTF-Africa%20Youth%20Cup%20Accra%202026/",
       "raw_text": "28-29 Jul: ITTF-Africa Youth Cup Accra 2026 (GHA)",
       "status": ""
     },
     {
-      "name": "WTT Feeder Tunis 2026",
-      "date": "29 Jul-2 Aug",
-      "location": "TUN",
+      "name": "ITTF Asia Hopes Week & Challenge Almaty 2026",
+      "date": "29 Jul-3 Aug",
+      "location": "KAZ",
       "slug": "",
-      "href": "https://www.worldtabletennis.com/eventInfo?eventId=3372",
-      "raw_text": "29 Jul-2 Aug: WTT Feeder Tunis 2026 (TUN)",
+      "href": "https://asia.ittf.com/home",
+      "raw_text": "29 Jul-3 Aug: ITTF Asia Hopes Week & Challenge Almaty 2026 (KAZ)",
       "status": ""
     },
     {
@@ -1183,15 +1210,6 @@
       "status": ""
     },
     {
-      "name": "WTT Youth Contender Amman 2026",
-      "date": "05-08 Aug",
-      "location": "JOR",
-      "slug": "",
-      "href": "https://www.worldtabletennis.com/eventInfo?eventId=3323",
-      "raw_text": "05-08 Aug: WTT Youth Contender Amman 2026 (JOR)",
-      "status": ""
-    },
-    {
       "name": "WTT Youth Contender Spokane 2026",
       "date": "06-09 Aug",
       "location": "USA",
@@ -1219,6 +1237,15 @@
       "status": ""
     },
     {
+      "name": "Europe Youth Smash – Sweden 2026",
+      "date": "14-16 Aug",
+      "location": "SWE",
+      "slug": "",
+      "href": "https://www.worldtabletennis.com/eventInfo?eventId=3324",
+      "raw_text": "14-16 Aug: Europe Youth Smash – Sweden 2026 (SWE)",
+      "status": ""
+    },
+    {
       "name": "ITTF World Para Elite Spokane 2026",
       "date": "11-15 Aug",
       "location": "USA",
@@ -1241,7 +1268,7 @@
       "date": "23-30 Aug",
       "location": "GUA",
       "slug": "",
-      "href": "https://americas.ittf.com/",
+      "href": "https://www.ittf.com/tournament/3410/ITTF%20Pan%20American%20Youth%20Championships%202025/",
       "raw_text": "23-30 Aug: ITTF-Americas Youth Championships Guatemala City 2026 (GUA)",
       "status": ""
     },
@@ -1286,7 +1313,7 @@
       "date": "28-30 Aug",
       "location": "FIN",
       "slug": "",
-      "href": "",
+      "href": "https://www.ittf.com/tournament/3444/ITTF-World-Para-Future-Lahti-2026/",
       "raw_text": "28-30 Aug: ITTF World Para Future Lahti 2026 (FIN)",
       "status": ""
     },
@@ -1346,11 +1373,11 @@
     },
     {
       "name": "ITTF-Americas U11&U13 Championships Houston 2026",
-      "date": "07-14 Sep",
+      "date": "09-16 Sep",
       "location": "USA",
       "slug": "",
-      "href": "",
-      "raw_text": "07-14 Sep: ITTF-Americas U11&U13 Championships Houston 2026 (USA)**",
+      "href": "https://www.ittf.com/tournament/3411/ITTF%20AMERICAS%20U11%20And%20U13%20CHAMPIONSHIPS%20HOUSTON%202026/",
+      "raw_text": "09-16 Sep: ITTF-Americas U11&U13 Championships Houston 2026 (USA)**",
       "status": ""
     },
     {
@@ -1390,15 +1417,6 @@
       "status": ""
     },
     {
-      "name": "WTT Youth Contender Medellín 2026",
-      "date": "09-12 Sep",
-      "location": "COL",
-      "slug": "",
-      "href": "https://www.worldtabletennis.com/eventInfo?eventId=3337",
-      "raw_text": "09-12 Sep: WTT Youth Contender Medellín 2026 (COL)",
-      "status": ""
-    },
-    {
       "name": "ITTF-Americas Central American Masters Championships Tegucigalpa 2026",
       "date": "12-15 Sep",
       "location": "HON",
@@ -1412,7 +1430,7 @@
       "date": "12-16 Sep",
       "location": "FRA",
       "slug": "",
-      "href": "",
+      "href": "https://www.ittf.com/tournament/3447/ITTF-World-Para-Elite-Yvelines-2026/",
       "raw_text": "12-16 Sep: ITTF World Para Elite Yvelines 2026 (FRA)",
       "status": ""
     },
@@ -1444,12 +1462,12 @@
       "status": ""
     },
     {
-      "name": "WTT Star Contender London 2026",
+      "name": "WTT Star Contender Astana 2026 – President’s Cup",
       "date": "15-20 Sep",
-      "location": "ENG",
+      "location": "KAZ",
       "slug": "",
       "href": "https://www.worldtabletennis.com/eventInfo?eventId=3254",
-      "raw_text": "15-20 Sep: WTT Star Contender London 2026 (ENG)",
+      "raw_text": "15-20 Sep: WTT Star Contender Astana 2026 – President’s Cup (KAZ)",
       "status": ""
     },
     {
@@ -1477,6 +1495,15 @@
       "slug": "",
       "href": "https://www.worldtabletennis.com/eventInfo?eventId=3334",
       "raw_text": "21-24 Sep: WTT Youth Contender Spa 2026 (BEL)",
+      "status": ""
+    },
+    {
+      "name": "WTT Youth Contender Monteria 2026",
+      "date": "22-25 Sep",
+      "location": "COL",
+      "slug": "",
+      "href": "https://www.worldtabletennis.com/eventInfo?eventId=3337",
+      "raw_text": "22-25 Sep: WTT Youth Contender Monteria 2026 (COL)",
       "status": ""
     },
     {
@@ -1547,7 +1574,7 @@
       "date": "06-09 Oct",
       "location": "ESP",
       "slug": "",
-      "href": "",
+      "href": "https://www.ittf.com/tournament/3445/ITTF-World-Para-Future-Region-de-Murcia-2026/",
       "raw_text": "06-09 Oct: ITTF World Para Future Region De Murcia 2026 (ESP)",
       "status": ""
     },
@@ -1571,11 +1598,20 @@
     },
     {
       "name": "ITTF-Africa Championships 2026",
-      "date": "11-18 Oct",
+      "date": "18-25 Oct",
       "location": "MAR",
       "slug": "",
       "href": "https://africa.ittf.com/home",
-      "raw_text": "11-18 Oct: ITTF-Africa Championships 2026 (MAR)",
+      "raw_text": "18-25 Oct: ITTF-Africa Championships 2026 (MAR)",
+      "status": ""
+    },
+    {
+      "name": "ITTF World Hopes Week & Challenge Sheffield 2026",
+      "date": "11-19 Oct",
+      "location": "ENG",
+      "slug": "",
+      "href": "",
+      "raw_text": "11-19 Oct: ITTF World Hopes Week & Challenge Sheffield 2026 (ENG)**",
       "status": ""
     },
     {
@@ -1615,12 +1651,12 @@
       "status": ""
     },
     {
-      "name": "WTT Youth Contender Fort Lauderdale 2026",
+      "name": "WTT Youth Contender Houston II 2026",
       "date": "18-21 Oct",
       "location": "USA",
       "slug": "",
       "href": "https://www.worldtabletennis.com/eventInfo?eventId=3481",
-      "raw_text": "18-21 Oct: WTT Youth Contender Fort Lauderdale 2026 (USA)",
+      "raw_text": "18-21 Oct: WTT Youth Contender Houston II 2026 (USA)",
       "status": ""
     },
     {
@@ -1639,6 +1675,24 @@
       "slug": "",
       "href": "https://asia.ittf.com/home",
       "raw_text": "19-25 Oct: ITTF-ATTU Asian Championships Tashkent 2026 (UZB)",
+      "status": ""
+    },
+    {
+      "name": "World Parkinson´s Table Tennis Championships Shanghai 2026",
+      "date": "20-25 Oct",
+      "location": "CHN",
+      "slug": "",
+      "href": "https://www.ittffoundation.org/programmes/tt4health/world-parkinsons-table-tennis-championships",
+      "raw_text": "20-25 Oct: World Parkinson´s Table Tennis Championships Shanghai 2026 (CHN)**",
+      "status": ""
+    },
+    {
+      "name": "World Alzheimer´s Table Tennis Championships Shanghai 2026",
+      "date": "20-25 Oct",
+      "location": "CHN",
+      "slug": "",
+      "href": "https://www.ittffoundation.org/programmes/tt4health/world-alzheimers-table-tennis-championships",
+      "raw_text": "20-25 Oct: World Alzheimer´s Table Tennis Championships Shanghai 2026 (CHN)**",
       "status": ""
     },
     {
@@ -1741,6 +1795,15 @@
       "status": ""
     },
     {
+      "name": "ITTF-Americas Masters Championships Caracas 2026",
+      "date": "09-15 Nov",
+      "location": "VEN",
+      "slug": "",
+      "href": "https://americas.ittf.com/",
+      "raw_text": "09-15 Nov: ITTF-Americas Masters Championships Caracas 2026 (VEN)**",
+      "status": ""
+    },
+    {
       "name": "WTT Contender Istanbul 2026",
       "date": "10-15 Nov",
       "location": "TUR",
@@ -1795,12 +1858,12 @@
       "status": ""
     },
     {
-      "name": "ITTF World Youth Championships Manama 2026",
+      "name": "ITTF World Youth Championships Istanbul 2026",
       "date": "21-28 Nov",
-      "location": "BRN",
+      "location": "TUR",
       "slug": "",
-      "href": "",
-      "raw_text": "21-28 Nov: ITTF World Youth Championships Manama 2026 (BRN)",
+      "href": "https://www.ittf.com/tournament/3377/WorldYouthChampionships2026/",
+      "raw_text": "21-28 Nov: ITTF World Youth Championships Istanbul 2026 (TUR)",
       "status": ""
     },
     {
@@ -1831,12 +1894,12 @@
       "status": ""
     },
     {
-      "name": "ITTF-Americas Masters Championships 2026",
-      "date": "Nov",
-      "location": "TBD",
+      "name": "WTT Feeder Tunis 2026",
+      "date": "06-10 Dec",
+      "location": "TUN",
       "slug": "",
-      "href": "https://americas.ittf.com/",
-      "raw_text": "Nov: ITTF-Americas Masters Championships 2026 (TBD)**",
+      "href": "https://www.worldtabletennis.com/eventInfo?eventId=3372",
+      "raw_text": "06-10 Dec: WTT Feeder Tunis 2026 (TUN)",
       "status": ""
     },
     {
@@ -1850,7 +1913,6 @@
     }
   ],
   "summary": {
-    "total": 205,
-    "with_translation": 205
+    "total": 212
   }
 }

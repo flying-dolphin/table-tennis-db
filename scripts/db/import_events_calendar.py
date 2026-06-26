@@ -11,6 +11,7 @@
 4. 若仍无法分类，保留 event_type / event_kind，category_id 为空。
 """
 
+import argparse
 import json
 import re
 import sqlite3
@@ -221,31 +222,45 @@ def build_event_lookup(cursor):
     }
 
 
-def build_calendar_lookup(cursor):
-    """构建已导入calendar记录的查找表，按 normalize_event_name(name) + year 去重"""
+def snapshot_year_translations(cursor, year: int) -> dict:
+    """整年替换前，快照该年已入库的中文译名等字段，便于新抓取缺译时回填。
+
+    返回 {"by_name": {...}, "by_href": {...}}，值为
+    {name_zh, location_zh, date_range_zh}。
+    """
     cursor.execute("""
-        SELECT year, name, href, event_id
+        SELECT name, href, name_zh, location_zh, date_range_zh
         FROM events_calendar
-    """)
+        WHERE year = ?
+    """, (year,))
 
-    by_name_year = {}
+    by_name = {}
     by_href = {}
-    by_event_id = {}
-
-    for row in cursor.fetchall():
-        year, name, href, event_id = row
-        if name:
-            by_name_year[(normalize_event_name(name), year)] = row
+    for name, href, name_zh, location_zh, date_range_zh in cursor.fetchall():
+        payload = {
+            "name_zh": name_zh,
+            "location_zh": location_zh,
+            "date_range_zh": date_range_zh,
+        }
+        norm = normalize_event_name(name) if name else None
+        if norm:
+            by_name[norm] = payload
         if href:
-            by_href[href] = row
-        if event_id:
-            by_event_id[event_id] = row
+            by_href[href] = payload
 
-    return {
-        "by_name_year": by_name_year,
-        "by_href": by_href,
-        "by_event_id": by_event_id,
-    }
+    return {"by_name": by_name, "by_href": by_href}
+
+
+def carry_over_zh(field: str, incoming, norm_name: str, href, snapshot: dict):
+    """新抓取该字段为空时，从快照按 name / href 回填旧译名。返回 (值, 是否回填)。"""
+    if incoming:
+        return incoming, False
+    for key, table in (("by_name", norm_name), ("by_href", href)):
+        if table:
+            old = snapshot.get(key, {}).get(table)
+            if old and old.get(field):
+                return old[field], True
+    return incoming, False
 
 
 def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
@@ -437,10 +452,71 @@ def resolve_event_v2(calendar_event: dict, event_lookup: dict, year: int):
     return None
 
 
-def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
+def build_calendar_row(event: dict, year: int, scraped_at, event_lookup: dict,
+                       cat_id_lookup: dict, snapshot: dict, result: dict) -> tuple:
+    """把一条 JSON 赛事解析为待插入的数据库行元组（含分类与译名回填）。"""
+    event_name = event.get("name", "")
+    href = event.get("href", "")
+    norm_name = normalize_event_name(event_name)
+
+    # 尝试匹配 events 表
+    matched_event = resolve_event_v2(event, event_lookup, year)
+    event_id_from_href = extract_event_id(href)
+    matched_event_id = matched_event["event_id"] if matched_event else event_id_from_href
+
+    if matched_event:
+        event_type, event_kind = override_event_type(
+            event_name,
+            matched_event["event_type"],
+            matched_event["event_kind"],
+        )
+        if (event_type, event_kind) == (matched_event["event_type"], matched_event["event_kind"]):
+            event_category_id = matched_event["event_category_id"]
+        else:
+            cat_id_str = CATEGORY_MAPPING.get((event_type or '', event_kind or '--'))
+            event_category_id = cat_id_lookup.get(cat_id_str) if cat_id_str else None
+        result["matched_events"] += 1
+    else:
+        event_type, event_kind = classify_event_by_name(event_name)
+        cat_id_str = CATEGORY_MAPPING.get((event_type or '', event_kind or '--'))
+        event_category_id = cat_id_lookup.get(cat_id_str) if cat_id_str else None
+        result["classified_by_name"] += 1
+
+    # 新抓取缺译时，从旧库快照回填中文字段
+    name_zh, carried_n = carry_over_zh("name_zh", event.get("name_zh"), norm_name, href, snapshot)
+    location_zh, carried_l = carry_over_zh("location_zh", event.get("location_zh"), norm_name, href, snapshot)
+    date_range_zh, carried_d = carry_over_zh("date_range_zh", event.get("date_zh"), norm_name, href, snapshot)
+    if carried_n or carried_l or carried_d:
+        result["carried_over_zh"] += 1
+
+    start_date, end_date = parse_date_range(event.get("date_zh"), year)
+
+    return (
+        year,
+        event_name,
+        name_zh,
+        event_type,
+        event_kind,
+        event_category_id,
+        event.get("date"),
+        date_range_zh,
+        start_date,
+        end_date,
+        event.get("location"),
+        location_zh,
+        event.get("status"),
+        href,
+        matched_event_id,
+        scraped_at,
+    )
+
+
+def import_events_calendar(db_path: str, calendar_dir: str,
+                           year_filter: int | None = None, dry_run: bool = False) -> dict:
     result = {
         "inserted": 0,
-        "skipped": 0,
+        "deleted": 0,
+        "carried_over_zh": 0,
         "matched_events": 0,
         "classified_by_name": 0,
         "errors": [],
@@ -449,14 +525,8 @@ def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
 
-    # 构建 events 表查找表
     event_lookup = build_event_lookup(cursor)
-
-    # 构建 category_id -> 数字 id 的映射
     cat_id_lookup = build_category_id_lookup(cursor)
-
-    # 构建已导入 calendar 记录查找表（用于去重）
-    calendar_lookup = build_calendar_lookup(cursor)
 
     calendar_path = Path(calendar_dir)
     json_files = sorted(calendar_path.glob("*.json"))
@@ -470,84 +540,55 @@ def import_events_calendar(db_path: str, calendar_dir: str) -> dict:
             continue
 
         year = int(data.get("year", 0))
+        if year_filter is not None and year != year_filter:
+            continue
+
         events = data.get("events", [])
         scraped_at = data.get("scraped_at")
-        print(f"Processing {json_file.name}: {len(events)} calendar events")
+        print(f"Processing {json_file.name}: {len(events)} calendar events (year={year})")
 
+        # 整年替换：先快照旧译名，再删除该年全部行
+        snapshot = snapshot_year_translations(cursor, year)
+        cursor.execute("SELECT COUNT(*) FROM events_calendar WHERE year = ?", (year,))
+        existing_count = cursor.fetchone()[0]
+
+        rows = []
         for event in events:
-            event_name = event.get("name", "")
-            href = event.get("href", "")
-
-            # 检查是否已存在（按 normalize_event_name(name) + year 判断）
-            norm_name = normalize_event_name(event_name)
-            existing = calendar_lookup["by_name_year"].get((norm_name, year)) if norm_name else None
-
-            if existing:
-                result["skipped"] += 1
-                continue
-
-            # 尝试匹配 events 表
-            matched_event = resolve_event_v2(event, event_lookup, year)
-
-            # 从 href 解析 event_id
-            event_id_from_href = extract_event_id(href)
-            matched_event_id = matched_event["event_id"] if matched_event else event_id_from_href
-
-            # 获取 event_type, event_kind, category_id
-            if matched_event:
-                event_type, event_kind = override_event_type(
-                    event_name,
-                    matched_event["event_type"],
-                    matched_event["event_kind"],
-                )
-                # events.event_category_id 已是数字外键，直接使用
-                if (event_type, event_kind) == (matched_event["event_type"], matched_event["event_kind"]):
-                    event_category_id = matched_event["event_category_id"]
-                else:
-                    cat_id_str = CATEGORY_MAPPING.get((event_type or '', event_kind or '--'))
-                    event_category_id = cat_id_lookup.get(cat_id_str) if cat_id_str else None
-                result["matched_events"] += 1
-            else:
-                # 通过名称自动分类
-                event_type, event_kind = classify_event_by_name(event_name)
-                # 通过 event_type + event_kind 查找 category_id，再转换为数字 id
-                cat_id_str = CATEGORY_MAPPING.get((event_type or '', event_kind or '--'))
-                event_category_id = cat_id_lookup.get(cat_id_str) if cat_id_str else None
-                result["classified_by_name"] += 1
-
-            # 解析 date_zh 获取 start_date 和 end_date
-            start_date, end_date = parse_date_range(event.get("date_zh"), year)
-
             try:
-                cursor.execute("""
-                    INSERT INTO events_calendar (
-                        year, name, name_zh, event_type, event_kind, event_category_id,
-                        date_range, date_range_zh, start_date, end_date,
-                        location, location_zh, status, href, event_id, scraped_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (
-                    year,
-                    event_name,
-                    event.get("name_zh"),
-                    event_type,
-                    event_kind,
-                    event_category_id,
-                    event.get("date"),
-                    event.get("date_zh"),
-                    start_date,
-                    end_date,
-                    event.get("location"),
-                    event.get("location_zh"),
-                    event.get("status"),
-                    href,
-                    matched_event_id,
-                    scraped_at,
+                rows.append(build_calendar_row(
+                    event, year, scraped_at, event_lookup, cat_id_lookup, snapshot, result,
                 ))
-                result["inserted"] += 1
-            except sqlite3.Error as exc:
-                result["errors"].append(f"{event_name}: {exc}")
+            except Exception as exc:
+                result["errors"].append(f"{event.get('name', '?')}: {exc}")
 
-    conn.commit()
+        if dry_run:
+            result["deleted"] += existing_count
+            result["inserted"] += len(rows)
+            print(f"  [dry-run] 将删除 {existing_count} 行，插入 {len(rows)} 行")
+            continue
+
+        cursor.execute("DELETE FROM events_calendar WHERE year = ?", (year,))
+        result["deleted"] += cursor.rowcount
+
+        try:
+            cursor.executemany("""
+                INSERT INTO events_calendar (
+                    year, name, name_zh, event_type, event_kind, event_category_id,
+                    date_range, date_range_zh, start_date, end_date,
+                    location, location_zh, status, href, event_id, scraped_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, rows)
+            result["inserted"] += len(rows)
+        except sqlite3.Error as exc:
+            result["errors"].append(f"INSERT failed for year {year}: {exc}")
+            conn.rollback()
+            conn.close()
+            return result
+
+    if dry_run:
+        conn.rollback()
+    else:
+        conn.commit()
     conn.close()
     return result
 
@@ -578,13 +619,22 @@ def verify_events_calendar(db_path: str):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="导入/更新赛事日历（整年替换 + 译名回填）")
+    parser.add_argument("--year", type=int, default=None,
+                        help="只更新指定年份（默认处理 cn 目录下所有年份文件）")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="只统计将删除/插入的行数，不写库")
+    args = parser.parse_args()
+
     calendar_dir = PROJECT_ROOT / "data" / "events_calendar" / "cn"
 
     print("=" * 70)
-    print("Import Events Calendar")
+    print("Import Events Calendar (整年替换模式)")
     print("=" * 70)
     print(f"Database:      {DB_PATH}")
     print(f"Calendar dir:  {calendar_dir}")
+    print(f"Year filter:   {args.year if args.year is not None else 'ALL'}")
+    print(f"Dry run:       {args.dry_run}")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
@@ -595,11 +645,13 @@ if __name__ == "__main__":
         print(f"[ERROR] Calendar directory not found: {calendar_dir}")
         sys.exit(1)
 
-    result = import_events_calendar(str(DB_PATH), str(calendar_dir))
+    result = import_events_calendar(str(DB_PATH), str(calendar_dir),
+                                    year_filter=args.year, dry_run=args.dry_run)
 
     print("\nResults:")
+    print(f"  Deleted (old rows):   {result['deleted']}")
     print(f"  Inserted:             {result['inserted']}")
-    print(f"  Skipped (dup):       {result['skipped']}")
+    print(f"  Carried-over zh:     {result['carried_over_zh']}")
     print(f"  Matched events:      {result['matched_events']}")
     print(f"  Classified by name:  {result['classified_by_name']}")
 
@@ -608,6 +660,7 @@ if __name__ == "__main__":
         for err in result["errors"][:10]:
             print(f"    - {err}")
 
-    verify_events_calendar(str(DB_PATH))
+    if not args.dry_run:
+        verify_events_calendar(str(DB_PATH))
 
     sys.exit(0 if not result["errors"] else 1)
