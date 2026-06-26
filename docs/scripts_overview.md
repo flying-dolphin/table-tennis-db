@@ -93,23 +93,47 @@
 - 本地完整执行日志写入 `LOG_FILE`，默认 `logs/deploy/ranking-profile-${RUN_ID}.log`。
 - 远程导入 manifest 写入 `${REMOTE_IMPORT_LOG_DIR}/ranking-profile-${RUN_ID}.manifest.txt`，记录本次导入的 ranking、profile 清单和 `player_country_history.json` 状态。
 
+### deploy/server/update_events_calendar.sh
+将赛事日历导入代码和单年中文日历 JSON 发布到远程服务器，并在远程执行导入。
+输入：
+- `--year` 目标年份。
+- `data/events_calendar/cn/events_calendar_{year}.json`
+
+关键逻辑：
+- 发布 `scripts/db/import_events_calendar.py`、`event_classification_overrides.py`、`config.py` 和 `event_category_mapping.json`。
+- 数据包先解压到远程 `${REMOTE_TMP_DIR}/payload-*` 独立目录。
+- 远程先执行 `import_events_calendar.py --year --dry-run` 和 JSON preflight。
+- 导入前备份远程 SQLite，并按 `REMOTE_DB_BACKUPS_KEEP` 保留最新备份。
+- 导入后校验该年 `events_calendar` 行数是否等于 JSON event 数。
+- 本地完整执行日志写入 `LOG_FILE`，默认 `logs/deploy/events-calendar-${RUN_ID}.log`。
+- 远程导入 manifest 写入 `${REMOTE_IMPORT_LOG_DIR}/events-calendar-{year}-${RUN_ID}.manifest.txt`。
+
 ---
 
 ## 3. 比赛数据 (Matches)
 
 数据来源：https://results.ittf.link/index.php/matches/players-matches-per-event（需登录）
 
-### scrape_matches.py
-抓取指定球员在指定日期之后的全部比赛数据。
+### scrape_matches_from_player.py
+按球员抓取指定日期之后的全部比赛数据。
 核心流程：autocomplete 输入球员名 → 点击搜索 → 遍历赛事列表 → 进入每个赛事详情页抓取比赛。
 输入：球员列表文件（由 rankings JSON 生成）
 输出：
-- `data/matches_complete/orig/{player_name}.json`：原始比赛数据
+- `data/matches_complete/orig/player_<player_id>_{player_name}.json`：有 player_id 时的原始比赛数据
+- `data/matches_complete/orig/{player_name}.json`：无 player_id 时的兼容文件名
 - `data/raw_event_payloads/{player_name}/{event}.json`：每个赛事的原始抓取内容
 
+`scripts/scrape_matches.py` 保留为兼容 wrapper，新脚本和文档应使用 `scripts/scrape_matches_from_player.py`。
+
 ### run_matches.py
-比赛数据完整流程主入口：调用 scrape_matches.py → translate_matches.py。
+按球员比赛数据完整流程主入口：调用 `scrape_matches_from_player.py` → `translate_matches.py`。
 用法：`python run_matches.py --players-file data/women_singles_top50.json --top-n 30`
+
+### scrape_matches_from_events.py
+按赛事抓取历史赛事比赛数据。
+输入：`data/event_matches_url_list.txt` 中的 event matches URL。
+输出：`data/event_matches/orig/*.json`。
+这是历史完赛赛事导入 `matches` / `event_draw_matches` / `sub_events` 的主数据源。
 
 ### translate_matches.py
 翻译比赛数据中的字段（使用词典 translation_dict_v2.json）。
@@ -117,19 +141,74 @@
 - 顶层：player_name、country
 - events[]：event_name、event_type
 - matches[]：sub_event、stage、round、side_a、side_b（球员名+国家）
-输入：`data/matches_complete/orig/*.json` → 输出：`data/matches_complete/cn/*.json`
+常见输入/输出：
+- player-centric：`data/matches_complete/orig/*.json` → `data/matches_complete/cn/*.json`
+- event-centric：`data/event_matches/orig/*.json` → `data/event_matches/cn/*.json`
 
 ### db/import_matches.py
-将中文版比赛数据导入 SQLite 的 `matches` 表。
-输入：`data/matches_complete/cn/*.json`
-关键逻辑：通过 event name + year 匹配 event_id，通过 player name + country_code 匹配 player_id。
+将中文版 event-centric 比赛数据导入 SQLite 的 `matches`、`match_sides`、`match_side_players` 表。
+输入：`data/event_matches/cn/*.json`
+关键逻辑：
+- 优先使用 payload 或文件名中的 event_id 关联 `events`。
+- 非同名球员通过 player name + 当前/历史 country_code 唯一匹配 player_id。
+- 同名同协会球员读取 `scripts/data/same_name_players.txt`，并用 `data/matches_complete/cn/player_<player_id>_*.json` 中的 player-centric matches 做唯一消歧。
+- 支持 `--event-id` 做局部 replace。
+
+### audit_same_name_players.py
+扫描 `players` 表并维护 `scripts/data/same_name_players.txt`。
+输入：
+- `data/db/ittf.db`
+- `data/player_country_history.json`
+- 现有 `scripts/data/same_name_players.txt`
+
+逻辑：
+- 按 normalized player name + country_code 找出同名同协会 player 组。
+- 将历史协会也作为有效 country 检查，发现协会变更导致的同名冲突。
+- `--update` 时合并写回名单，不删除已有人工条目。
+
+### run_import_wtt_events.sh
+历史完赛赛事事实表导入入口。
+按顺序执行：
+- `scripts/audit_same_name_players.py --update`
+- `scripts/db/import_events.py`
+- `scripts/prepare_same_name_player_matches.py`
+- `scripts/db/import_matches.py`
+- `scripts/db/import_event_draw_matches.py`
+- `scripts/db/import_sub_events.py`
+
+常用模式：
+- 无参数：全量重建。
+- `--event-id <id...>`：只导入指定 event id。
+- `--since "<time>"`：从 `data/event_matches/cn/*.json` 文件修改时间发现 event id 后增量导入。
+- `--skip-same-name-player-matches`：跳过缺失同名球员 player-centric matches 的自动准备。
+- `--same-name-from-date <YYYY-MM-DD>`：覆盖自动推断的同名球员抓取起始日期。
+
+该脚本导入已存在的中文 events/event matches JSON。唯一会自动触发抓取和翻译的情况，
+是本次待导入 matches 涉及同名球员且缺少对应 player-centric matches 消歧证据。
+
+输出与人工检查汇总：
+- 每次 run 生成日志目录 `data/logs/wtt-event-import/<run_id>/`（`<run_id>` 为时间戳）。
+- 每个子命令 stdout/stderr `tee` 到 `.log`，同时通过 `--summary-json` 写结构化 `.json`
+  （`import_events.json` 或 `events/*.json`、`import_matches.json`、`draw/<eid>.json`、
+  `sub_events/<eid>.json`、`player_matches/prepare_same_name_player_matches.json`）。
+- run 末尾调用 `scripts/db/summarize_wtt_import.py` 读取这些 JSON，渲染统一的
+  `⚠ MANUAL CHECK REQUIRED` 区块（skipped files 按原因分类、各 event 的 problem
+  events / unmatched champion members 等），无问题的 event 不打印。
+
+### db/summarize_wtt_import.py
+读取单次 run 的日志目录，把三个导入脚本的结构化 JSON 汇总成一个人工检查区块。
+仅做汇报，始终 exit 0。由 `run_import_wtt_events.sh` 在 run 末尾调用。
+
+### db/_import_summary.py
+共享工具：把导入脚本的 `result`/`stats` dict 序列化为 JSON（set→sorted list、
+Path→str）。三个导入脚本的 `--summary-json PATH`（支持 `auto`）均复用它。
 
 ### backfill_event_dates.py
 回填 matches_complete JSON 文件中的 start_date / end_date 字段。
 数据源：重新访问球员赛事列表页，提取日期信息。
 输入：已有球员比赛 JSON 文件
 输出：更新原文件（添加 start_date/end_date 字段）
-与 scrape_matches.py 的区别：此脚本只访问赛事列表页抓日期，不进详情页抓比赛。
+与 `scrape_matches_from_player.py` 的区别：此脚本只访问赛事列表页抓日期，不进详情页抓比赛。
 
 ### repair_matches_offline.py
 离线审计和修复 matches_complete JSON 文件。
@@ -162,7 +241,7 @@
 ### db/import_events.py
 将中文版赛事列表导入 SQLite 的 `events` 表。
 同时通过 event_type + event_kind 匹配 event_categories 和 event_type_mapping 表。
-输入：`data/events_list/cn/*.json`
+输入：`data/events_list/cn/*.json`，或通过 `--input-file` 指定单个 JSON。
 
 ### db/import_sub_events.py
 导入 sub_events 表（赛事子类型，如 WS/MS/WD/MD/XD）。
@@ -175,6 +254,18 @@
 ## 5. 赛事日历 (Events Calendar)
 
 数据来源：https://www.ittf.com/{year}-events-calendar/（公开页面，无需登录）
+
+### run_update_events_calendar.sh
+赛事日历更新入口。顺序执行抓取、翻译和数据库导入：
+1. `scrape_events_calendar.py --force`
+2. `translate_events_calendar.py --force`
+3. `db/import_events_calendar.py --year`
+
+用法：
+```bash
+scripts/run_update_events_calendar.sh 2026
+CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
+```
 
 ### scrape_events_calendar.py
 抓取 ITTF 官网历年赛事日历页面。
@@ -202,6 +293,14 @@
 主要用途：
 - 建立 upcoming 赛事的基础 `events` 记录
 - 初始化 `lifecycle_status='upcoming'`
+
+### scrape_event_schedule.py
+抓取 WTT Event Info 页（`provisional_schedule` 接口）的赛事日程并翻译，生成 per-session 的 `data/event_schedule/{event_id}.json`。
+- 输出每天每个时段一条：`日期 / 场次 / 时间 / 赛事 / 球台 / 场馆 / _parsed`
+- 场馆名保留原始英文；其余字段经 `scripts/lib/translator.py` 翻译
+- `_parsed` 由英文 `competition` 解析出机器可读的 sub-event / stage / round，供 importer 直接使用
+- 翻译模式默认先查词典再走 LLM，可用 `--provider`/`--model` 切换（MiniMax 配额受限时常用 `--provider qwen`）
+- 产出的文件由 `runtime/import_current_event_session_schedule.py` 导入
 
 ### runtime/scrape_current_event.py
 当前 WTT 团体赛事抓取总入口。
@@ -242,7 +341,7 @@
 - `GetOfficialResult.json` 是当前总入口的已完结 team tie 和 rubber 数据源
 
 ### runtime/import_current_event_session_schedule.py
-将 `data/event_schedule/{event_id}.json` 导入 `current_event_session_schedule`。
+将 `data/event_schedule/{event_id}.json` 导入 `current_event_session_schedule`。按行自动识别 per-day（旧格式，如 3216）和 per-session（每天每个时段一条，如 3242）两种结构；per-session 行写入 `session_index / session_title / start_time / table_label`，并把 `start_time` 同时写进 `morning_session_start` 以兼容 cron 生成器。导入 per-session 前需先执行 `scripts/db/upgrade_schema_session_per_session.py`。
 
 ### runtime/import_current_event_schedule.py
 将 WTT 官方赛程导入当前赛事赛程相关表，补充比赛编号、时间、台号和 roster。
@@ -360,6 +459,9 @@ deploy/server/update_event_runtime.sh --skip-publish --install-crontab 3216
 ### db/upgrade_schema.py
 数据库 schema 升级脚本。
 
+### db/upgrade_schema_session_per_session.py
+将 `current_event_session_schedule` 从「每天一条」升级为 per-session：新增 `session_index / session_title / start_time / table_label`，唯一约束改为 `UNIQUE(event_id, session_index)`。SQLite 无法直接改约束，脚本重建表并迁移旧数据（`session_index` 回填为 `day_index`）。幂等、运行前自动备份。导入 per-session 日程前需先执行一次。
+
 ### db/normalize_events.py
 规范化赛事名称（与 import_matches.py 中的一致）。
 
@@ -416,11 +518,17 @@ results.ittf.link
     │
     ├─ scrape_profiles_from_search.py ──→ data/player_profiles/orig/
     │                                         │
-    └─ scrape_matches.py ──→ data/matches_complete/orig/
-                                │
-                           translate_matches.py
-                                │
-                           db/import_matches.py → SQLite matches 表
+    ├─ scrape_matches_from_player.py ──→ data/matches_complete/orig/
+    │                                      │
+    │                                 translate_matches.py
+    │                                      │
+    │                                 同名球员消歧数据
+    │
+    └─ scrape_matches_from_events.py ──→ data/event_matches/orig/
+                                           │
+                                      translate_matches.py
+                                           │
+                                      run_import_wtt_events.sh → SQLite matches / event_draw_matches / sub_events
 
     ├─ scrape_events.py ──→ data/events_list/orig/
     │                           │
@@ -438,12 +546,13 @@ results.ittf.link
                                         │
                                    SQLite events(upcoming)
 
-人工维护日程
+赛事日程（抓取或人工维护）
     │
-    └─ data/event_schedule/{event_id}.json
+    ├─ scrape_event_schedule.py ──→ data/event_schedule/{event_id}.json
+    └─ 人工维护 ───────────────────→ data/event_schedule/{event_id}.json
             │
             └─ runtime/import_current_event_session_schedule.py
-                    │
+                    │  （per-session 前置：db/upgrade_schema_session_per_session.py）
                     └─ current_event_session_schedule
 
 WTT 当前赛事数据

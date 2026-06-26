@@ -381,49 +381,44 @@ deploy/server/update_rankings_profiles.sh --changed-since "2026-06-25 10:00:00"
 
 ## 4. 赛事日历更新流程
 
-### 4.1 抓取并翻译赛事日历
+### 4.1 更新赛事日历并导入数据库
 
 ```bash
-python scripts/run_events_calendar.py \
-  --year 2026 \
-  --cdp-port 9223
+scripts/run_update_events_calendar.sh 2026
 ```
 
-输出：
+该脚本会顺序执行：
+
+```bash
+python scripts/scrape_events_calendar.py --year 2026 --cdp-port 9223 --headless --force
+python scripts/translate_events_calendar.py --year 2026 --force
+python scripts/db/import_events_calendar.py --year 2026
+```
+
+输出和副作用：
 
 ```text
 data/events_calendar/orig/events_calendar_2026.json
 data/events_calendar/cn/events_calendar_2026.json
+scripts/data/translation_dict_v2.json  # LLM 新词条经人工确认后回写
+data/db/ittf.db                        # events_calendar 按年整年替换导入
 ```
 
-如果需要强制重跑：
+默认 CDP 端口是 `9223`。需要改端口时：
 
 ```bash
-python scripts/run_events_calendar.py \
-  --year 2026 \
-  --cdp-port 9223 \
-  --force
+CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 ```
 
-### 4.2 从日历翻译结果更新词典
+### 4.2 分步执行
 
 ```bash
-python scripts/update_event_to_dict.py
+python scripts/scrape_events_calendar.py --year 2026 --cdp-port 9223 --headless --force
+python scripts/translate_events_calendar.py --year 2026 --force
+python scripts/db/import_events_calendar.py --year 2026
 ```
 
-如果只想预览：
-
-```bash
-python scripts/update_event_to_dict.py --dry-run
-```
-
-### 4.3 导入数据库
-
-```bash
-python scripts/db/import_events_calendar.py
-```
-
-### 4.4 反填 events 基础记录
+### 4.3 反填 events 基础记录
 
 如果日历里有 `href/event_id`，但 `events` 表缺少基础记录：
 
@@ -431,7 +426,7 @@ python scripts/db/import_events_calendar.py
 python scripts/runtime/backfill_events_calendar_event_id.py
 ```
 
-### 4.5 验证
+### 4.4 验证
 
 ```bash
 sqlite3 data/db/ittf.db "
@@ -444,29 +439,39 @@ LIMIT 20;
 "
 ```
 
+### 4.5 发布到线上服务器
+
+本地 `events_calendar` 数据确认无误后，发布到服务器 A：
+
+```bash
+deploy/server/update_events_calendar.sh --year 2026
+```
+
+脚本会发布远程导入代码和该年份中文日历 JSON，远端执行 dry-run、备份 SQLite、正式按年整年替换导入，并校验导入后的 `events_calendar` 行数。
+
 ## 5. 赛事日历脚本说明
 
-### 5.1 `scripts/run_events_calendar.py`
+### 5.1 `scripts/run_update_events_calendar.sh`
 
-- 功能：赛事日历完整流程入口。
+- 功能：赛事日历更新入口，顺序执行抓取、翻译和数据库导入。
 - 输入：
-  - `--year`：目标年份。
-  - CDP/browser 参数：`--cdp-port`、`--headless`、`--slow-mo`。
-  - `--force`、`--rebuild-checkpoint`。
+  - 第一个位置参数：目标年份，默认 `2026`。
+  - 环境变量 `CDP_PORT`：CDP 端口，默认 `9223`。
 - 输出：
   - `data/events_calendar/orig/events_calendar_{year}.json`。
   - `data/events_calendar/cn/events_calendar_{year}.json`。
+  - 更新 `events_calendar` 数据库表。
 - 逻辑：
   1. 调用 `scrape_events_calendar.py` 抓取原始日历。
-  2. 抓取成功后调用 `translate_events_calendar.py` 翻译。
-  3. 输出 orig 和 cn 两份文件。
+  2. 调用 `translate_events_calendar.py` 翻译；默认 `both` 模式，LLM 新词条会人工确认并回写词典。
+  3. 调用 `db/import_events_calendar.py --year`，删除该年旧日历行后重新导入。
 
 ### 5.2 `scripts/scrape_events_calendar.py`
 
 - 功能：抓取指定年份赛事日历。
 - 输入：
   - ITTF/WTT 日历页面。
-  - `--year` 或由 `run_events_calendar.py` 传入年份。
+  - `--year` 目标年份。
 - 输出：
   - `data/events_calendar/orig/events_calendar_{year}.json`。
   - scrape checkpoint。
@@ -487,26 +492,11 @@ LIMIT 20;
   - `data/events_calendar/checkpoint_translate_events_calendar.json`。
 - 逻辑：
   1. 地点和部分固定词条使用词典。
-  2. 赛事名优先复用已有 cn 文件和词典。
-  3. 必要时用 LLM fallback。
-  4. 分批保存翻译进度。
+  2. 赛事名默认使用 `both`：词典优先，未命中调用 LLM。
+  3. `both` / `llm` 默认开启人工确认，确认后的 LLM 译文会回写词典。
+  4. 不复用已有 cn 文件里的 `name_zh`，每次按当前 orig 重新生成译名。
 
-### 5.4 `scripts/update_event_to_dict.py`
-
-- 功能：从已翻译的赛事数据反向更新词典。
-- 输入：
-  - `data/events_list/orig` 与 `data/events_list/cn` 最新同名文件。
-  - `data/events_calendar/orig` 与 `data/events_calendar/cn` 最新同名文件。
-  - 词典：`scripts/data/translation_dict_v2.json`。
-- 输出：
-  - 更新后的 `scripts/data/translation_dict_v2.json`。
-- 逻辑：
-  1. 对齐 orig/cn 文件。
-  2. 提取赛事名、地点等原文和中文译文。
-  3. 检查同一原文是否有多个译文。
-  4. 调用词典更新逻辑写入新词条。
-
-### 5.5 `scripts/db/import_events_calendar.py`
+### 5.4 `scripts/db/import_events_calendar.py`
 
 - 功能：将中文赛事日历导入数据库。
 - 输入：
@@ -515,11 +505,12 @@ LIMIT 20;
 - 输出：
   - 更新 `events_calendar` 表。
 - 逻辑：
-  1. 遍历中文赛事日历 JSON。
-  2. 写入赛事名称、年份、起止日期、地点、链接等字段。
-  3. 输出导入统计和校验信息。
+  1. 按 `--year` 过滤中文赛事日历 JSON。
+  2. 快照该年旧译名并删除该年旧行。
+  3. 写入赛事名称、年份、起止日期、地点、链接等字段。
+  4. 输出导入统计和校验信息。
 
-### 5.6 `scripts/runtime/backfill_events_calendar_event_id.py`
+### 5.5 `scripts/runtime/backfill_events_calendar_event_id.py`
 
 - 功能：从赛事日历反填 `events` 基础记录。
 - 输入：
@@ -530,6 +521,24 @@ LIMIT 20;
   1. 从 `events_calendar.href` 提取 `event_id`。
   2. 找出 `events` 表中不存在的赛事。
   3. 创建基础 event 记录，通常用于后续当前赛事链路接入。
+
+### 5.6 `deploy/server/update_events_calendar.sh`
+
+- 功能：将赛事日历导入代码和单年中文日历 JSON 发布到远程服务器，并在远程执行导入。
+- 输入：
+  - `--year`：目标年份。
+  - `data/events_calendar/cn/events_calendar_{year}.json`。
+- 输出：
+  - 远程 `data/events_calendar/cn/events_calendar_{year}.json`。
+  - 远程 `events_calendar` 表按该年整年替换。
+  - 本地部署日志 `logs/deploy/events-calendar-${RUN_ID}.log`。
+  - 远程 manifest `${REMOTE_IMPORT_LOG_DIR}/events-calendar-{year}-${RUN_ID}.manifest.txt`。
+- 逻辑：
+  1. 发布 `scripts/db/import_events_calendar.py` 等远端导入依赖。
+  2. 上传指定年份日历 JSON 到远程临时 payload。
+  3. 远程执行 `import_events_calendar.py --year --dry-run` 和 JSON preflight。
+  4. 备份远程 SQLite。
+  5. 正式导入并校验该年行数。
 
 ## 6. 赛事数据更新流程
 
@@ -575,7 +584,7 @@ python scripts/scrape_matches_from_events.py \
 python scripts/translate_matches.py \
   --orig-dir data/event_matches/orig \
   --cn-dir data/event_matches/cn
-python scripts/db/import_matches.py
+scripts/run_import_wtt_events.sh --event-id <event_id> [<event_id> ...]
 ```
 
 `translate_events.py` 也支持增量翻译：
@@ -585,6 +594,47 @@ python scripts/translate_events.py --since "2026-06-25 10:00"
 ```
 
 `--since` 按 `data/events_list/orig/*.json` 的文件修改时间筛选，支持 `YYYY-MM-DD`、`YYYY-MM-DD HH:MM[:SS]` 和 `YYYY-MM-DDTHH:MM[:SS]`。传入 `--file` 时只处理指定文件，忽略 `--since`。
+
+历史赛事事实表导入统一使用 `scripts/run_import_wtt_events.sh`：
+
+```bash
+# 全量导入 events，并重建 matches / event_draw_matches / sub_events
+scripts/run_import_wtt_events.sh
+
+# 推荐：明确导入本次更新的赛事
+scripts/run_import_wtt_events.sh --event-id <event_id> [<event_id> ...]
+
+# 按 data/event_matches/cn/*.json 文件修改时间发现 event id 后增量导入
+scripts/run_import_wtt_events.sh --since "2026-06-25 10:00:00"
+```
+
+该脚本会导入已翻译好的 `data/events_list/cn/*.json` 和
+`data/event_matches/cn/*.json`。`--since` 使用本地 event match 文件 mtime 发现最近更新的
+event id，不代表业务更新时间。
+
+导入 matches 时会自动读取：
+
+- `scripts/data/same_name_players.txt`：同名同协会球员保守拦截名单。
+- `data/matches_complete/cn/player_<player_id>_*.json`：同名球员消歧用的按球员 matches。
+- `data/player_country_history.json`：球员协会变更历史。
+
+`scripts/run_import_wtt_events.sh` 会在导入前自动执行：
+
+```bash
+python scripts/audit_same_name_players.py --update
+```
+
+因此新增同名 player 不依赖 `unresolved.json` 才能进入 `same_name_players.txt`。
+
+如果本次 event matches 涉及 `scripts/data/same_name_players.txt` 中的同名球员，
+`scripts/run_import_wtt_events.sh` 会在 `import_matches.py` 前自动为缺失证据的候选
+player 抓取并翻译 player-centric matches。已有
+`data/matches_complete/cn/player_<player_id>_*.json` 会被跳过。浏览器环境不可用且只想
+离线重导已有数据时，可加 `--skip-same-name-player-matches`。
+
+每次 run 的完整输出会写入 `data/logs/wtt-event-import/<run_id>/`，run 末尾打印统一的
+`⚠ MANUAL CHECK REQUIRED` 汇总区块（skipped files、unresolved winner_side、各 event 的
+unmatched champion members / problem events 等），无需从逐 event 输出里翻找。
 
 具体执行顺序、前置检查和校验 SQL 以 [赛事数据日常更新流程](event-data-update-workflow.md) 为准。
 

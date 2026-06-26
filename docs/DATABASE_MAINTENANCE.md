@@ -28,14 +28,15 @@ python scripts/db/import_events.py
 python scripts/db/import_events_calendar.py
 python scripts/runtime/backfill_events_calendar_event_id.py
 python scripts/fix_special_event_2860_stage_round.py
-python scripts/db/import_matches.py
-python scripts/db/import_event_draw_matches.py
-python scripts/db/import_sub_events.py
+scripts/run_import_wtt_events.sh
 ```
 
 注意：
 
 - `import_matches.py` 正式读取 `data/event_matches/cn/*.json`，不再以 `data/matches_complete/cn/*.json` 作为基础比赛表来源
+- `scripts/run_import_wtt_events.sh` 导入已翻译好的历史赛事 events 和 matches 数据；底层顺序是 `audit_same_name_players.py --update` → `import_events.py` → `prepare_same_name_player_matches.py` → `import_matches.py` → `import_event_draw_matches.py` → `import_sub_events.py`
+- `prepare_same_name_player_matches.py` 只在本次待导入 matches 涉及同名球员且缺少 `data/matches_complete/cn/player_<player_id>_*.json` 时，自动抓取并翻译 player-centric matches；离线重导可用 `--skip-same-name-player-matches` 跳过
+- `import_matches.py` 会读取 `scripts/data/same_name_players.txt`、`data/matches_complete/cn/player_<player_id>_*.json` 和 `data/player_country_history.json` 来回填 `match_side_players.player_id`
 - `event_id=2860`（`ITTF Mixed Team World Cup Chengdu 2023`）在 ITTF 原始数据中被整届错误标记为 `Qualification`
 - 该赛事真实赛制是“两阶段循环赛”，入库前必须先执行 `python scripts/fix_special_event_2860_stage_round.py`
 - 该修复脚本会把 `data/event_matches/orig|cn/ITTF_Mixed_Team_World_Cup_Chengdu_2023_2860.json` 改写为：

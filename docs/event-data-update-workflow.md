@@ -1,6 +1,6 @@
 # 赛事数据日常更新流程
 
-最后核对：2026-06-15
+最后核对：2026-06-26
 
 本文档是赛事数据更新的唯一操作说明。数据库维护、部署和脚本总览文档只保留职责说明，并链接到本文档。
 
@@ -114,12 +114,11 @@ python scripts/runtime/backfill_events_calendar_event_id.py
 如果日历数据本身尚未更新，先执行赛历抓取、翻译和导入，再执行上述 backfill：
 
 ```bash
-python scripts/run_events_calendar.py --year 2026
-python scripts/db/import_events_calendar.py
+scripts/run_update_events_calendar.sh 2026
 python scripts/runtime/backfill_events_calendar_event_id.py
 ```
 
-`run_events_calendar.py` 已包含抓取和翻译，不需要再单独运行 `translate_events_calendar.py`。
+`run_update_events_calendar.sh` 会顺序抓取、翻译并按年整年替换导入 `events_calendar`。
 
 ### 3.2 核对时区和生命周期
 
@@ -138,21 +137,41 @@ WHERE event_id = <event_id>;
 
 赛前准备但尚未开赛时可以暂时保留 `upcoming`；安装 cron 前至少要确保基础记录、时区和 session 日程完整。进入实际比赛更新阶段后，将状态设为 `in_progress`。
 
+### 3.3 一次性 schema 迁移：per-session session 日程
+
+`current_event_session_schedule` 已从「每天一条」升级为「每天每个时段一条」（per-session），新增 `session_index / session_title / start_time / table_label`，并把唯一约束由 `UNIQUE(event_id, day_index)` 改为 `UNIQUE(event_id, session_index)`。
+
+全新库执行 `schema.sql` 已是新结构，无需迁移。已有库在导入 per-session 日程前必须先跑一次迁移（幂等、自动备份，已迁移则跳过）：
+
+```bash
+python scripts/db/upgrade_schema_session_per_session.py
+```
+
+旧的 per-day 数据会被保留并把 `session_index` 回填为 `day_index`。详见 [DATABASE_MAINTENANCE.md](DATABASE_MAINTENANCE.md)。
+
 ## 4. 场景 A：赛前或赛中接入
 
-### 4.1 准备人工 session 日程
+### 4.1 准备 session 日程
 
-创建：
+目标文件：
 
 ```text
 data/event_schedule/{event_id}.json
 ```
 
-已有示例：
+支持两种格式，importer 会按行自动识别：
 
-```text
-data/event_schedule/3216.json
+- **per-day（旧格式，示例 `data/event_schedule/3216.json`）**：每天一条，`时间` 为 `[首场, 末场]` 列表，含 `球台数`。
+- **per-session（新格式，示例 `data/event_schedule/3242.json`）**：每天每个时段一条，含 `场次`、`时间`（单个字符串）、`球台`（具体台号文案）、`场馆`（原始英文），以及机器可读的 `_parsed` 轮次结构。
+
+优先用抓取脚本从 WTT Event Info 页直接生成 per-session 文件（自动翻译，场馆名保留英文）：
+
+```bash
+python scripts/scrape_event_schedule.py --event-id <event_id>
+# 默认先查词典再走 LLM；MiniMax 配额受限时可换 provider，例如 --provider qwen
 ```
+
+也可以手工编写该 JSON。导入前如尚未迁移 schema，先执行第 3.3 节的一次性迁移。
 
 导入：
 
@@ -162,14 +181,15 @@ python scripts/runtime/import_current_event.py \
   --sources session_schedule
 ```
 
-检查：
+检查（per-session 看 `session_index / start_time / table_label`，per-day 看 `morning/afternoon_session_start`）：
 
 ```bash
 sqlite3 data/db/ittf.db "
-SELECT local_date, morning_session_start, afternoon_session_start
+SELECT day_index, session_index, local_date, session_title,
+       start_time, morning_session_start, afternoon_session_start, table_label
 FROM current_event_session_schedule
 WHERE event_id = <event_id>
-ORDER BY local_date;
+ORDER BY local_date, session_index;
 "
 ```
 
@@ -483,7 +503,123 @@ python scripts/translate_matches.py \
 
 检查 `missing_translations` 和 `data/event_matches/problematic/`，有问题时不要继续入库。
 
-### 7.4 导入历史事实表
+### 7.4 同名球员消歧数据
+
+历史赛事比赛文件本身只有球员名和协会，没有官方 `player_id`。导入时会按以下顺序写入 `match_side_players.player_id`：
+
+1. 非同名球员：用球员名 + 当前或历史协会唯一匹配 `players.player_id`。
+2. 协会变更：读取 `data/player_country_history.json`，允许历史协会匹配到当前 `players` 记录。
+3. 同名同协会球员：读取 `scripts/data/same_name_players.txt`，禁止直接用 name + country 匹配，必须使用按球员抓取的 matches 文件做消歧。
+
+同名名单格式：
+
+```text
+player_id,player_name,country_code
+```
+
+人工审核 rankings/profile 时，`scripts/apply_ranking_profile_review.py` 会在应用 `resolution.player_id` 后检查 DB 中是否存在同名同协会多条 player；如果存在，会把整组写入 `scripts/data/same_name_players.txt`。
+
+正式导入前还会运行独立审计：
+
+```bash
+python scripts/audit_same_name_players.py --update
+```
+
+`scripts/run_import_wtt_events.sh` 已内置该步骤。它会扫描 `players` 表，合并已有名单，发现同名同当前协会，以及 `data/player_country_history.json` 导致的历史协会冲突。这样即使本次没有 `unresolved.json`，新增同名 player 也会进入名单。
+
+如果本次赛事涉及同名名单中的球员，`scripts/run_import_wtt_events.sh` 会在导入
+`matches` 前自动检查本次 event matches 文件，并为缺失证据的同名候选 player 抓取
+player-centric matches：
+
+```bash
+python scripts/scrape_matches_from_player.py \
+  --player-name "<player_name>" \
+  --player-country <country_code> \
+  --player-id <player_id> \
+  --from-date <YYYY-MM-DD>
+```
+
+抓取后会自动翻译对应的单个 player-centric matches 文件：
+
+```bash
+python scripts/translate_matches.py \
+  --orig-dir data/matches_complete/orig \
+  --cn-dir data/matches_complete/cn
+```
+
+有 `player_id` 时，按球员抓取的输出文件名为：
+
+```text
+data/matches_complete/orig/player_<player_id>_<player_name>.json
+data/matches_complete/cn/player_<player_id>_<player_name>.json
+```
+
+`scripts/prepare_same_name_player_matches.py` 会跳过已经存在的
+`data/matches_complete/cn/player_<player_id>_*.json`，避免重复抓取。自动推断的
+`--from-date` 是本次导入赛事最早 `event_year` 的 `YYYY-01-01`；如需手动覆盖：
+
+```bash
+scripts/run_import_wtt_events.sh \
+  --event-id <event_id> \
+  --same-name-from-date <YYYY-MM-DD>
+```
+
+如浏览器环境不可用、只想离线重导已有数据，可以临时跳过自动准备步骤：
+
+```bash
+scripts/run_import_wtt_events.sh \
+  --event-id <event_id> \
+  --skip-same-name-player-matches
+```
+
+`import_matches.py` 会读取这些文件，把 event-centric match 与 player-centric match 按
+`event_id/sub_event/stage/round/match_score/side_a/side_b` 对齐；只有唯一匹配到某个
+player_id 时才写入，否则保留 NULL 并输出到 `unresolved_same_name_players` 或
+`ambiguous_same_name_players`。
+
+### 7.5 导入历史事实表
+
+```bash
+scripts/run_import_wtt_events.sh
+```
+
+该脚本会按顺序执行：
+
+1. `scripts/audit_same_name_players.py --update`
+2. `scripts/db/import_events.py`
+3. `scripts/prepare_same_name_player_matches.py`
+4. `scripts/db/import_matches.py`
+5. `scripts/db/import_event_draw_matches.py`
+6. `scripts/db/import_sub_events.py`
+
+无 `--since` 或 `--event-id` 时是全量导入：`events` 会从
+`data/events_list/cn/*.json` upsert，`matches`、`event_draw_matches`、`sub_events`
+会整表重建。
+
+该脚本默认导入已经翻译好的 `data/events_list/cn/*.json` 和
+`data/event_matches/cn/*.json`。唯一会自动触发抓取/翻译的情况，是本次待导入
+matches 涉及同名名单球员且对应 player-centric matches 证据缺失。导入前会先刷新
+`scripts/data/same_name_players.txt`；导入 matches 时会同时读取：
+
+- `scripts/data/same_name_players.txt`
+- `data/matches_complete/cn/player_<player_id>_*.json`
+- `data/player_country_history.json`
+
+如果只需要导入本次更新的赛事，推荐显式传入 event id：
+
+```bash
+scripts/run_import_wtt_events.sh --event-id <event_id> [<event_id> ...]
+```
+
+也可以按本地文件更新时间增量导入：
+
+```bash
+scripts/run_import_wtt_events.sh --since '2026-06-20T00:00:00'
+```
+
+`--since` 的语义是：从 `data/event_matches/cn/` 中该时间后更新的 JSON 解析出 event id 集合，最后按 event id 对 `matches` 做局部 replace，并逐赛事重建 `event_draw_matches` 和 `sub_events`。它依赖文件系统 mtime，不等同于业务更新时间；如果文件来自复制、rsync、checkout 或重新翻译，mtime 可能变化。
+
+底层命令仍可单独使用。全量：
 
 ```bash
 python scripts/db/import_matches.py
@@ -491,11 +627,22 @@ python scripts/db/import_event_draw_matches.py
 python scripts/db/import_sub_events.py
 ```
 
-如果只需要重建单个已导入赛事的签表和冠军：
+单赛事增量：
 
 ```bash
+python scripts/db/import_matches.py --event-id <event_id>
 python scripts/db/import_event_draw_matches.py --event-id <event_id>
 python scripts/db/import_sub_events.py --event-id <event_id>
+```
+
+`import_matches.py` 的同名/历史协会相关参数默认已经指向标准路径；一般不需要显式传入：
+
+```bash
+python scripts/db/import_matches.py \
+  --event-id <event_id> \
+  --same-name-players scripts/data/same_name_players.txt \
+  --player-matches-dir data/matches_complete/cn \
+  --country-history data/player_country_history.json
 ```
 
 特殊赛事修复仍按数据库维护文档执行。例如 `event_id=2860` 在导入比赛前必须运行：
