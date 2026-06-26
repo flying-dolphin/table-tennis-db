@@ -96,9 +96,14 @@ class LLMTranslator:
     def __init__(
         self,
         api_key: str | None = None,
-        provider: str = "minimax",
+        provider: str | None = None,
         model: str | None = None,
     ):
+        provider = (provider or os.environ.get("DEFAULT_PROVIDER") or "minimax").strip()
+        model = (model or os.environ.get("DEFAULT_MODEL") or None)
+        if isinstance(model, str):
+            model = model.strip() or None
+
         self.provider = provider.lower()
         if self.provider not in self.PROVIDER_CONFIGS:
             supported = ", ".join(self.PROVIDER_CONFIGS.keys())
@@ -588,7 +593,7 @@ class Translator:
     def __init__(
         self,
         mode: str = "both",
-        provider: str = "minimax",
+        provider: str | None = None,
         model: str | None = None,
         api_key: str | None = None,
         confirm: bool = False,
@@ -597,6 +602,11 @@ class Translator:
     ):
         if mode not in ("dict", "llm", "both"):
             raise ValueError(f"不支持的 mode: {mode}，支持 dict/llm/both")
+        provider = (provider or os.environ.get("DEFAULT_PROVIDER") or "minimax").strip()
+        model = (model or os.environ.get("DEFAULT_MODEL") or None)
+        if isinstance(model, str):
+            model = model.strip() or None
+
         self.mode = mode
         self.confirm = confirm
         self._input_fn = input_fn
