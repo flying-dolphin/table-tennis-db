@@ -181,7 +181,8 @@ export function getPlayerAggregateStats(playerIds: number[]) {
           msp.player_country,
           ms.side_no,
           opp.player_country AS opponent_country,
-          se.champion_country_code AS champion_country_code
+          se.champion_country_code AS champion_country_code,
+          se.champion_player_ids AS champion_player_ids
         FROM matches m
         JOIN match_sides ms ON ms.match_id = m.match_id
         JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
@@ -207,6 +208,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
       side_no: number;
       opponent_country: string | null;
       champion_country_code: string | null;
+      champion_player_ids: string | null;
     }>;
 
   const groupedRows = new Map<
@@ -224,6 +226,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
       playerCountry: string | null;
       sideNo: number;
       championCountryCode: string | null;
+      championPlayerIds: string | null;
       opponentCountries: Set<string>;
     }
   >();
@@ -246,6 +249,7 @@ export function getPlayerAggregateStats(playerIds: number[]) {
         playerCountry: row.player_country,
         sideNo: row.side_no,
         championCountryCode: row.champion_country_code,
+        championPlayerIds: row.champion_player_ids,
         opponentCountries: new Set<string>(),
       };
 
@@ -302,6 +306,8 @@ export function getPlayerAggregateStats(playerIds: number[]) {
       didWin,
       playerCountry: row.playerCountry,
       championCountryCode: row.championCountryCode,
+      playerId: row.playerId,
+      championPlayerIds: row.championPlayerIds,
     });
 
     if (eventKey && isSevenEvent) {

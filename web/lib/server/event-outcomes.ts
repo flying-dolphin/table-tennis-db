@@ -17,6 +17,8 @@ type ChampionRecordInput = {
   didWin: boolean;
   playerCountry: string | null;
   championCountryCode?: string | null;
+  playerId?: number | null;
+  championPlayerIds?: string | null;
 };
 
 const manualEventOverrideCache = new Map<number, ManualEventOverride | null>();
@@ -44,6 +46,12 @@ export function readManualEventOverride(eventId: number): ManualEventOverride | 
 
 export function isChampionRecord(input: ChampionRecordInput) {
   if (input.subEventTypeCode?.endsWith('T')) {
+    // For transferred players whose country_code differs from the champion team,
+    // check champion_player_ids directly before falling back to country matching.
+    if (input.playerId != null && input.championPlayerIds) {
+      const ids = input.championPlayerIds.split(',').map((s) => parseInt(s.trim(), 10));
+      if (ids.includes(input.playerId)) return true;
+    }
     if (input.playerCountry && input.championCountryCode && input.playerCountry === input.championCountryCode) {
       return true;
     }

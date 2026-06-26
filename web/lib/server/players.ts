@@ -400,7 +400,9 @@ export function getPlayerDetail(slug: string) {
           GROUP_CONCAT(DISTINCT opp.player_name) AS opponentNames,
           GROUP_CONCAT(DISTINCT opp.player_country) AS opponentCountries,
           e.start_date AS startDate,
-          se.champion_country_code AS championCountryCode
+          se.champion_country_code AS championCountryCode,
+          se.champion_player_ids AS championPlayerIds,
+          self.player_id AS playerId
         FROM matches m
         JOIN match_sides ms ON ms.match_id = m.match_id
         JOIN match_side_players self ON self.match_side_id = ms.match_side_id
@@ -437,6 +439,8 @@ export function getPlayerDetail(slug: string) {
       opponentCountries: string | null;
       startDate: string | null;
       championCountryCode: string | null;
+      championPlayerIds: string | null;
+      playerId: number | null;
     }>;
 
   const eventMap = new Map<
@@ -490,6 +494,8 @@ export function getPlayerDetail(slug: string) {
       didWin,
       playerCountry: row.playerCountry,
       championCountryCode: row.championCountryCode,
+      playerId: row.playerId,
+      championPlayerIds: row.championPlayerIds,
     });
 
     if (!currentSubEvent || weight > currentSubEvent.weight || (isChampion && !currentSubEvent.isChampion)) {
