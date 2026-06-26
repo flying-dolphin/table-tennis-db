@@ -156,6 +156,74 @@ class EventClassificationOverrideTests(unittest.TestCase):
                 row,
             )
 
+    def test_event_import_cli_accepts_single_input_file_and_writes_summary(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            db_path = temp_dir / "ittf.db"
+            events_dir = temp_dir / "events"
+            events_dir.mkdir()
+            self._init_events_schema(db_path)
+            self._seed_event_mappings(db_path)
+
+            selected_payload = {
+                "scraped_at": "2026-06-20T00:00:00Z",
+                "events": [
+                    {
+                        "event_id": 9101,
+                        "year": 2026,
+                        "name": "Selected Event",
+                        "event_type": "Multi sport events",
+                        "event_kind": "--",
+                        "matches": "11",
+                    }
+                ],
+            }
+            ignored_payload = {
+                "scraped_at": "2026-06-20T00:00:00Z",
+                "events": [
+                    {
+                        "event_id": 9102,
+                        "year": 2026,
+                        "name": "Ignored Event",
+                        "event_type": "Multi sport events",
+                        "event_kind": "--",
+                        "matches": "22",
+                    }
+                ],
+            }
+            selected_file = events_dir / "selected.json"
+            selected_file.write_text(json.dumps(selected_payload), encoding="utf-8")
+            (events_dir / "ignored.json").write_text(json.dumps(ignored_payload), encoding="utf-8")
+            summary_path = temp_dir / "summary.json"
+
+            old_db_path = IMPORT_EVENTS.DB_PATH
+            try:
+                IMPORT_EVENTS.DB_PATH = db_path
+                with redirect_stdout(io.StringIO()):
+                    rc = IMPORT_EVENTS.main(
+                        [
+                            "--input-file",
+                            str(selected_file),
+                            "--summary-json",
+                            str(summary_path),
+                        ]
+                    )
+            finally:
+                IMPORT_EVENTS.DB_PATH = old_db_path
+
+            self.assertEqual(0, rc)
+            conn = sqlite3.connect(db_path)
+            try:
+                rows = conn.execute("SELECT event_id, name FROM events ORDER BY event_id").fetchall()
+            finally:
+                conn.close()
+
+            self.assertEqual([(9101, "Selected Event")], rows)
+            summary = json.loads(summary_path.read_text(encoding="utf-8"))
+            self.assertEqual("import_events", summary["kind"])
+            self.assertEqual(1, summary["inserted"])
+            self.assertEqual(0, summary["skipped"])
+
     def _init_events_schema(self, db_path: Path) -> None:
         conn = sqlite3.connect(db_path)
         try:

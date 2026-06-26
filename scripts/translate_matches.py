@@ -18,12 +18,12 @@ import json
 import logging
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
 from lib.capture import save_json
-from lib.checkpoint import CheckpointStore
 from lib.dict_translator import DictTranslator
 from lib.event_translation import split_event_name, translate_event_name_dict_only
 
@@ -33,7 +33,6 @@ logger = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).parent.parent
 ORIG_DIR = PROJECT_ROOT / "data" / "matches_complete" / "orig"
 CN_DIR = PROJECT_ROOT / "data" / "matches_complete" / "cn"
-CHECKPOINT_PATH = PROJECT_ROOT / "data" / "matches_complete" / "checkpoint_translate_matches.json"
 MISSING_PATH = PROJECT_ROOT / "data" / "matches_complete" / "missing_translations.txt"
 
 # e.g. "U21XD" -> prefix="U21", code="XD"
@@ -60,10 +59,6 @@ SKIP_VALUES = {"", "--"}
 SIDE_ENTRY_RE = re.compile(r"^(.+?)\s+\(([^)]+)\)$")
 
 
-def _translate_ck(filename: str) -> str:
-    return f"matches|file:{filename}|translate"
-
-
 def translate_value(
     value: str,
     field: str,
@@ -78,9 +73,11 @@ def translate_value(
 
     if field in ("event_name", "event"):
         translated = translate_event_name_dict_only(value, dt)
+        base_name = split_event_name(value).base_name
         if translated is None:
-            missing[field].add(split_event_name(value).base_name)
+            missing[field].add(base_name)
             return value  # keep original
+        missing[field].discard(base_name)
         return translated
 
     if field == "sub_event":
@@ -204,21 +201,6 @@ def translate_file_data(data: dict, dt: DictTranslator, missing: dict[str, set[s
     return result
 
 
-def load_missing(path: Path) -> dict[str, set[str]]:
-    """Load existing missing translations file into a dict[field, set[value]]."""
-    result: dict[str, set[str]] = {f: set() for f in FIELD_CATEGORY}
-    if not path.exists():
-        return result
-    for line in path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        field, sep, value = line.partition(": ")
-        if sep and field in result:
-            result[field].add(value)
-    return result
-
-
 def save_missing(path: Path, missing: dict[str, set[str]]) -> None:
     """Write missing translations to file, sorted by field then value. Only writes if there are missing entries."""
     lines: list[str] = []
@@ -234,34 +216,36 @@ def save_missing(path: Path, missing: dict[str, set[str]]) -> None:
     logger.info("Missing translations written to %s (%d entries)", path, len(lines))
 
 
-def bootstrap_checkpoint(checkpoint: CheckpointStore, orig_dir: Path, cn_dir: Path) -> None:
-    if checkpoint.path.exists() and checkpoint.has_any_completed():
-        return
-    if not orig_dir.exists():
-        return
-    with checkpoint.bulk():
-        for orig_file in sorted(orig_dir.glob("*.json")):
-            cn_file = cn_dir / orig_file.name
-            if not cn_file.exists():
-                continue
-            try:
-                json.loads(cn_file.read_text(encoding="utf-8"))
-            except Exception:
-                continue
-            ck = _translate_ck(orig_file.name)
-            if not checkpoint.is_done(ck):
-                checkpoint.mark_done(ck, meta={"bootstrapped_from": str(cn_file)})
+def parse_since(value: str) -> datetime:
+    normalized = value.strip()
+    for fmt in ("%Y-%m-%d", "%Y-%m-%d %H:%M", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M", "%Y-%m-%dT%H:%M:%S"):
+        try:
+            return datetime.strptime(normalized, fmt)
+        except ValueError:
+            continue
+    raise argparse.ArgumentTypeError(
+        "Expected --since in one of these formats: YYYY-MM-DD, YYYY-MM-DD HH:MM, YYYY-MM-DD HH:MM:SS, "
+        "YYYY-MM-DDTHH:MM, YYYY-MM-DDTHH:MM:SS"
+    )
+
+
+def filter_files_since(files: list[Path], since: datetime) -> list[Path]:
+    since_timestamp = since.timestamp()
+    return [f for f in files if f.stat().st_mtime > since_timestamp]
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Translate match files from orig to cn")
     parser.add_argument("--file", type=str, help="Translate only one file from orig/")
+    parser.add_argument(
+        "--since",
+        type=parse_since,
+        help="Translate only orig/*.json files modified after this local time. "
+        "Formats: YYYY-MM-DD, YYYY-MM-DD HH:MM[:SS], YYYY-MM-DDTHH:MM[:SS]. Ignored when --file is set.",
+    )
     parser.add_argument("--orig-dir", default=str(ORIG_DIR))
     parser.add_argument("--cn-dir", default=str(CN_DIR))
-    parser.add_argument("--checkpoint", default=str(CHECKPOINT_PATH))
     parser.add_argument("--missing", default=str(MISSING_PATH), help="Path to missing translations output file")
-    parser.add_argument("--force", action="store_true", help="Ignore checkpoint and regenerate cn files")
-    parser.add_argument("--rebuild-checkpoint", action="store_true", help="Rebuild checkpoint from existing cn files")
     return parser
 
 
@@ -269,53 +253,42 @@ def run(args: argparse.Namespace) -> int:
     orig_dir = Path(args.orig_dir)
     cn_dir = Path(args.cn_dir)
     missing_path = Path(args.missing)
-    checkpoint = CheckpointStore(Path(args.checkpoint))
-
-    if args.rebuild_checkpoint:
-        checkpoint.reset()
 
     if not orig_dir.exists():
         logger.error("Orig directory does not exist: %s", orig_dir)
         return 1
 
     cn_dir.mkdir(parents=True, exist_ok=True)
-    bootstrap_checkpoint(checkpoint, orig_dir, cn_dir)
-
     dt = DictTranslator()
-    if args.force:
-        missing = {f: set() for f in FIELD_CATEGORY}
-    else:
-        missing = load_missing(missing_path)
+    missing: dict[str, set[str]] = {f: set() for f in FIELD_CATEGORY}
 
     if args.file:
         files = [orig_dir / args.file]
     else:
-        files = sorted(orig_dir.glob("*.json"))
+        all_files = sorted(orig_dir.glob("*.json"))
+        if args.since:
+            files = filter_files_since(all_files, args.since)
+            logger.info(
+                "Incremental match translation since %s: %d/%d files selected",
+                args.since.isoformat(sep=" "),
+                len(files),
+                len(all_files),
+            )
+        else:
+            files = all_files
 
     for file_path in files:
         if not file_path.exists():
             logger.error("Orig file does not exist: %s", file_path)
             return 1
 
-        ck = _translate_ck(file_path.name)
         cn_file = cn_dir / file_path.name
-
-        if (not args.force) and checkpoint.is_done(ck) and cn_file.exists():
-            try:
-                json.loads(cn_file.read_text(encoding="utf-8"))
-                logger.info("Skipping (checkpoint): %s", file_path.name)
-                continue
-            except Exception:
-                logger.warning("Checkpoint done but cn file unreadable, re-translating: %s", cn_file)
-
         try:
             data = json.loads(file_path.read_text(encoding="utf-8"))
             translated = translate_file_data(data, dt, missing)
             save_json(cn_file, translated)
-            checkpoint.mark_done(ck, meta={"orig_path": str(file_path), "cn_path": str(cn_file)})
             logger.info("Translated: %s", file_path.name)
         except Exception as exc:
-            checkpoint.mark_failed(ck, str(exc), meta={"orig_path": str(file_path), "cn_path": str(cn_file)})
             logger.error("Translate failed: %s (%s)", file_path.name, exc)
             return 1
 

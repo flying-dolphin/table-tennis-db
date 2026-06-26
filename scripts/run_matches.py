@@ -23,7 +23,7 @@ from pathlib import Path
 # 添加项目根目录到路径
 sys.path.insert(0, str(Path(__file__).parent))
 
-from scrape_matches import build_parser as build_scrape_parser, run as run_scrape
+from scrape_matches_from_player import build_parser as build_scrape_parser, run as run_scrape
 from translate_matches import run as run_translate
 
 

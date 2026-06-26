@@ -8,7 +8,7 @@ https://results.ittf.link/index.php/event-matches/list/68?resetfilters=1&abc=460
 For each URL this script:
 - selects Display # = 100
 - reads bottom pagination info: Page X of Y Total: Z
-- scrapes every page with the same row parser used by scrape_matches.py
+- scrapes every page with the same row parser used by scrape_matches_from_player.py
 - verifies scraped count against the page Total
 - writes one JSON file named from the event field and abc event id
 """
@@ -35,7 +35,7 @@ from lib.checkpoint import utc_now_iso
 from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import click_next_page_if_any, guarded_goto
 from scrape_events import get_pagination_info
-from scrape_matches import parse_detail_matches_from_dom, select_browser_profiles
+from scrape_matches_from_player import parse_detail_matches_from_dom, select_browser_profiles
 
 
 logging.basicConfig(

@@ -32,7 +32,7 @@ from lib.browser_session import ensure_logged_in
 from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import click_next_page_if_any, guarded_goto
-from scrape_matches import parse_detail_matches_from_dom
+from scrape_matches_from_player import parse_detail_matches_from_dom
 
 try:
     from db import config as db_config

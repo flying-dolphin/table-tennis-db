@@ -30,10 +30,13 @@ if sys.platform == "win32" and getattr(sys.stdout, "encoding", "").lower() != "u
 try:
     import config
 
+    PROJECT_ROOT = config.PROJECT_ROOT
     DB_PATH = config.DB_PATH
 except ImportError:
     PROJECT_ROOT = Path(__file__).parent.parent.parent
     DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
+
+from _import_summary import write_summary  # noqa: E402
 
 
 ROUND_ORDER = {
@@ -629,6 +632,12 @@ if __name__ == "__main__":
         default=None,
         help="Only rebuild a single event's rows (DELETE+INSERT scoped to event_id). Default: full refresh.",
     )
+    parser.add_argument(
+        "--summary-json",
+        default=None,
+        help="Write the structured stats dict to this path (or 'auto'). "
+        "Used by run_import_wtt_events.sh to aggregate manual-check info.",
+    )
     args = parser.parse_args()
 
     print("=" * 70)
@@ -663,5 +672,15 @@ if __name__ == "__main__":
 
     if not args.dry_run and stats["full_refresh"]:
         verify_event_draw_matches(str(DB_PATH))
+
+    if args.summary_json:
+        summary_path = write_summary(
+            stats,
+            args.summary_json,
+            project_root=PROJECT_ROOT,
+            kind="import_event_draw_matches",
+            event_id=args.event_id,
+        )
+        print(f"  Summary JSON written: {summary_path}")
 
     sys.exit(0)

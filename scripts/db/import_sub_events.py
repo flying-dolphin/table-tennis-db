@@ -35,6 +35,8 @@ except ImportError:
     PROJECT_ROOT = Path(__file__).parent.parent.parent
     DB_PATH = PROJECT_ROOT / "scripts" / "db" / "ittf.db"
 
+from _import_summary import write_summary  # noqa: E402
+
 
 def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip().lower())
@@ -1094,6 +1096,12 @@ if __name__ == "__main__":
         default=None,
         help="Only rebuild a single event's sub_events (DELETE+INSERT scoped to event_id). Default: full refresh.",
     )
+    parser.add_argument(
+        "--summary-json",
+        default=None,
+        help="Write the structured result dict to this path (or 'auto'). "
+        "Used by run_import_wtt_events.sh to aggregate manual-check info.",
+    )
     cli_args = parser.parse_args()
 
     print("=" * 70)
@@ -1137,4 +1145,15 @@ if __name__ == "__main__":
 
     if not cli_args.dry_run and result["full_refresh"]:
         verify_sub_events(str(DB_PATH))
+
+    if cli_args.summary_json:
+        summary_path = write_summary(
+            result,
+            cli_args.summary_json,
+            project_root=PROJECT_ROOT,
+            kind="import_sub_events",
+            event_id=cli_args.event_id,
+        )
+        print(f"  Summary JSON written: {summary_path}")
+
     sys.exit(0)

@@ -8,6 +8,7 @@
 import sqlite3
 import sys
 import json
+import argparse
 from pathlib import Path
 
 if sys.platform == 'win32':
@@ -27,6 +28,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from event_classification_overrides import override_event_type
+from _import_summary import write_summary
 
 
 def resolve_event_category(cursor, event_type: str, event_kind: str | None):
@@ -58,14 +60,17 @@ def resolve_event_category(cursor, event_type: str, event_kind: str | None):
     }
 
 
-def import_events(db_path: str, events_dir: str) -> dict:
+def import_events(db_path: str, events_dir: str, input_file: str | Path | None = None) -> dict:
     result = {'inserted': 0, 'skipped': 0, 'errors': []}
 
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
 
     events_path = Path(events_dir)
-    json_files = sorted(events_path.glob("*.json"))
+    if input_file is not None:
+        json_files = [Path(input_file)]
+    else:
+        json_files = sorted(events_path.glob("*.json"))
 
     for json_file in json_files:
         try:
@@ -191,25 +196,49 @@ def verify_events(db_path: str):
     conn.close()
 
 
-if __name__ == '__main__':
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Import events into SQLite")
+    parser.add_argument(
+        "--input-file",
+        default=None,
+        help="Import only this translated events JSON file. Default: import data/events_list/cn/*.json.",
+    )
+    parser.add_argument(
+        "--summary-json",
+        default=None,
+        help="Write the structured result dict to this path (or 'auto').",
+    )
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = build_parser().parse_args(argv)
     events_dir = PROJECT_ROOT / "data" / "events_list" / "cn"
+    input_file = Path(args.input_file) if args.input_file else None
 
     print("=" * 70)
     print("Import Events")
     print("=" * 70)
     print(f"Database:   {DB_PATH}")
-    print(f"Events dir: {events_dir}")
+    if input_file:
+        print(f"Input file: {input_file}")
+    else:
+        print(f"Events dir: {events_dir}")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
         print(f"[ERROR] Database not found: {DB_PATH}")
-        sys.exit(1)
+        return 1
 
-    if not events_dir.exists():
+    if input_file is not None and not input_file.exists():
+        print(f"[ERROR] Input file not found: {input_file}")
+        return 1
+
+    if input_file is None and not events_dir.exists():
         print(f"[ERROR] Events directory not found: {events_dir}")
-        sys.exit(1)
+        return 1
 
-    result = import_events(str(DB_PATH), str(events_dir))
+    result = import_events(str(DB_PATH), str(events_dir), input_file=input_file)
 
     print(f"\nResults:")
     print(f"  Inserted: {result['inserted']}")
@@ -221,4 +250,12 @@ if __name__ == '__main__':
 
     verify_events(str(DB_PATH))
 
-    sys.exit(0 if not result['errors'] else 1)
+    if args.summary_json:
+        path = write_summary(result, args.summary_json, project_root=PROJECT_ROOT, kind="import_events")
+        print(f"\nSummary JSON: {path}")
+
+    return 0 if not result['errors'] else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

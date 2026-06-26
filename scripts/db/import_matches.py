@@ -22,7 +22,7 @@ import re
 import sqlite3
 import sys
 from pathlib import Path
-from typing import Iterator, Optional
+from typing import Iterator, Optional, Sequence
 
 if sys.platform == "win32":
     import io
@@ -42,15 +42,27 @@ from _match_keys import (  # noqa: E402  抽出公共，promote 也复用
     make_dedup_key,
     make_side_key,
     normalize_event_name,
+    normalize_name_key,
 )
+from _import_summary import write_summary  # noqa: E402
 
 
 PLAYER_TOKEN_RE = re.compile(r"^(.+?)\s*\((\w+)\)$")
+DEFAULT_SAME_NAME_PLAYERS_PATH = PROJECT_ROOT / "scripts" / "data" / "same_name_players.txt"
+DEFAULT_PLAYER_MATCHES_DIR = PROJECT_ROOT / "data" / "matches_complete" / "cn"
+DEFAULT_PLAYER_COUNTRY_HISTORY_PATH = PROJECT_ROOT / "data" / "player_country_history.json"
 
 # 赛事命名里的年份与实际举办年份不一致（如赛季总决赛在次年 1 月举办），
 # 这些 event_id 的 raw_row_text 年份检查将被放行。
 EVENT_ID_YEAR_MISMATCH_WHITELIST: set[int] = {
     2866,  # WTT Finals Men Doha 2023（实际于 2024 年 1 月举办）
+}
+
+# payload 名与 events 表名不一致、但 payload 自带 event_id 已唯一锁定赛事，
+# 仅为官方全称 vs 简称差异，放行名称相等守卫。
+EVENT_NAME_MISMATCH_WHITELIST: set[int] = {
+    3216,  # payload 'ITTF World Team Table Tennis Championships Finals London 2026'
+           # vs db 'ITTF World Team Championships Finals London 2026'
 }
 
 
@@ -261,7 +273,11 @@ def iter_event_matches_payload(
         result["unmatched_events"].add(event_name or str(event_id))
         return
 
-    if event_name and normalize_event_name(event_name) != normalize_event_name(event_row["name"]):
+    if (
+        event_name
+        and event_id not in EVENT_NAME_MISMATCH_WHITELIST
+        and normalize_event_name(event_name) != normalize_event_name(event_row["name"])
+    ):
         result["skipped_files"].append(
             f"{json_file.name}: payload event mismatch for event_id={event_id}: "
             f"payload={event_name!r}, db={event_row['name']!r}"
@@ -405,9 +421,286 @@ def infer_winner_side(match: dict, side_a: list[tuple[str, Optional[str]]], side
     return None
 
 
-def import_matches(db_path: str, matches_dir: str) -> dict:
+def player_lookup_keys(name: str, country: Optional[str]) -> list[tuple[str, str]]:
+    cc = (country or "").strip().upper()
+    return [
+        ((name or "").strip(), cc),
+        (normalize_name_key(name or ""), cc),
+    ]
+
+
+def add_player_index_entry(index: dict[tuple[str, str], set[int]], name: str, country: Optional[str], player_id: int) -> None:
+    for key in player_lookup_keys(name, country):
+        if not key[0] or not key[1]:
+            continue
+        index.setdefault(key, set()).add(int(player_id))
+
+
+def build_player_index(cursor: sqlite3.Cursor, country_history_path: Path) -> dict[tuple[str, str], set[int]]:
+    cursor.execute("SELECT player_id, name, country_code FROM players")
+    player_rows = [(int(player_id), name or "", (country_code or "").upper()) for player_id, name, country_code in cursor.fetchall()]
+    index: dict[tuple[str, str], set[int]] = {}
+    by_name_country: dict[tuple[str, str], set[int]] = {}
+
+    for player_id, name, country_code in player_rows:
+        add_player_index_entry(index, name, country_code, player_id)
+        by_name_country.setdefault((normalize_name_key(name), country_code), set()).add(player_id)
+
+    if country_history_path.exists():
+        try:
+            history = json.loads(country_history_path.read_text(encoding="utf-8"))
+        except Exception:
+            history = []
+        if isinstance(history, list):
+            for item in history:
+                if not isinstance(item, dict):
+                    continue
+                name = str(item.get("player_name") or "").strip()
+                current_country = str(item.get("current_country") or "").strip().upper()
+                historical_country = str(item.get("historical_country") or "").strip().upper()
+                if not name or not current_country or not historical_country:
+                    continue
+                ids = by_name_country.get((normalize_name_key(name), current_country), set())
+                for player_id in ids:
+                    add_player_index_entry(index, name, historical_country, player_id)
+
+    return index
+
+
+def load_same_name_players(path: Path) -> dict[tuple[str, str], set[int]]:
+    groups: dict[tuple[str, str], set[int]] = {}
+    if not path.exists():
+        return groups
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [part.strip() for part in line.split(",", 2)]
+        if len(parts) != 3 or not parts[0].isdigit():
+            continue
+        player_id = int(parts[0])
+        name = parts[1]
+        country = parts[2].upper()
+        if not name or not country:
+            continue
+        groups.setdefault((normalize_name_key(name), country), set()).add(player_id)
+    return groups
+
+
+def apply_country_history_to_same_name_groups(
+    same_name_groups: dict[tuple[str, str], set[int]],
+    country_history_path: Path,
+) -> None:
+    if not country_history_path.exists():
+        return
+    try:
+        history = json.loads(country_history_path.read_text(encoding="utf-8"))
+    except Exception:
+        return
+    if not isinstance(history, list):
+        return
+
+    for item in history:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("player_name") or "").strip()
+        current_country = str(item.get("current_country") or "").strip().upper()
+        historical_country = str(item.get("historical_country") or "").strip().upper()
+        if not name or not current_country or not historical_country:
+            continue
+        current_key = (normalize_name_key(name), current_country)
+        candidate_ids = same_name_groups.get(current_key)
+        if candidate_ids:
+            historical_key = (normalize_name_key(name), historical_country)
+            same_name_groups.setdefault(historical_key, set()).update(candidate_ids)
+
+
+def match_context_key(
+    event_id: Optional[int],
+    sub_event: str,
+    stage: str,
+    round_: str,
+    match_score: str,
+    side_a: list[tuple[str, Optional[str]]],
+    side_b: list[tuple[str, Optional[str]]],
+) -> tuple:
+    return (
+        int(event_id) if event_id is not None else None,
+        (sub_event or "").strip().upper(),
+        (stage or "").strip().lower(),
+        (round_ or "").strip().lower(),
+        re.sub(r"\s+", "", match_score or ""),
+        make_side_key(side_a),
+        make_side_key(side_b),
+    )
+
+
+def iter_player_match_contexts(payload: dict, event_index: dict) -> Iterator[tuple[tuple, str, str]]:
+    years = payload.get("years") or {}
+    if not isinstance(years, dict):
+        return
+    for year_data in years.values():
+        if not isinstance(year_data, dict):
+            continue
+        for event in year_data.get("events") or []:
+            if not isinstance(event, dict):
+                continue
+            event_name = str(event.get("event_name") or "").strip()
+            event_year = parse_event_year(event.get("event_year"))
+            event_id = resolve_event_id(event_index, event_name, event_year)
+            for match in event.get("matches") or []:
+                if not isinstance(match, dict):
+                    continue
+                raw_row_text = str(match.get("raw_row_text") or "")
+                side_a, side_b = parse_sides(match, raw_row_text)
+                if not side_a or not side_b:
+                    continue
+                key = match_context_key(
+                    event_id,
+                    str(match.get("sub_event") or ""),
+                    str(match.get("stage") or ""),
+                    str(match.get("round") or ""),
+                    str(match.get("match_score") or ""),
+                    side_a,
+                    side_b,
+                )
+                perspective = str(match.get("perspective") or "").strip().lower()
+                result_for_player = str(match.get("result_for_player") or "").strip().lower()
+                yield key, perspective, result_for_player
+
+
+def load_player_match_evidence(player_id: int, player_matches_dir: Path, event_index: dict) -> set[tuple]:
+    evidence: set[tuple] = set()
+    if not player_matches_dir.exists():
+        return evidence
+
+    paths = sorted(player_matches_dir.glob(f"player_{player_id}_*.json"))
+    if not paths:
+        for path in sorted(player_matches_dir.glob("*.json")):
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            if parse_event_id(data.get("player_id")) == player_id:
+                paths = [path]
+                break
+
+    for path in paths:
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for key, _perspective, _result in iter_player_match_contexts(data, event_index):
+            evidence.add(key)
+    return evidence
+
+
+def resolve_same_name_player_id(
+    candidate_ids: set[int],
+    player_matches_dir: Path,
+    event_index: dict,
+    context_key: tuple,
+) -> tuple[Optional[int], str]:
+    matched = []
+    for candidate_id in sorted(candidate_ids):
+        if context_key in load_player_match_evidence(candidate_id, player_matches_dir, event_index):
+            matched.append(candidate_id)
+    if len(matched) == 1:
+        return matched[0], "matched"
+    if len(matched) > 1:
+        return None, "ambiguous"
+    return None, "unresolved"
+
+
+def resolve_player_id(
+    player_index: dict[tuple[str, str], set[int]],
+    same_name_groups: dict[tuple[str, str], set[int]],
+    player_matches_dir: Path,
+    event_index: dict,
+    player_name: str,
+    player_country: Optional[str],
+    context_key: tuple,
+) -> tuple[Optional[int], str]:
+    lookup_key = (normalize_name_key(player_name or ""), (player_country or "").strip().upper())
+    candidates: set[int] = set()
+    for key in player_lookup_keys(player_name, player_country):
+        candidates.update(player_index.get(key, set()))
+
+    same_name_candidates = same_name_groups.get(lookup_key)
+    if same_name_candidates:
+        player_id, status = resolve_same_name_player_id(same_name_candidates, player_matches_dir, event_index, context_key)
+        if status == "matched":
+            return player_id, status
+        return None, f"same_name_{status}"
+
+    if len(candidates) == 1:
+        return next(iter(candidates)), "matched"
+    if len(candidates) > 1:
+        return None, "ambiguous"
+    return None, "unmatched"
+
+
+def normalize_event_ids(event_ids: Sequence[int] | None) -> list[int]:
+    if not event_ids:
+        return []
+    return sorted({int(event_id) for event_id in event_ids})
+
+
+def sql_placeholders(values: Sequence[int]) -> str:
+    return ",".join("?" for _ in values)
+
+
+def delete_matches_for_events(cursor: sqlite3.Cursor, event_ids: Sequence[int]) -> None:
+    placeholders = sql_placeholders(event_ids)
+    params = tuple(event_ids)
+
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='event_draw_matches'")
+    if cursor.fetchone():
+        cursor.execute(f"DELETE FROM event_draw_matches WHERE event_id IN ({placeholders})", params)
+
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='sub_events'")
+    if cursor.fetchone():
+        cursor.execute(f"DELETE FROM sub_events WHERE event_id IN ({placeholders})", params)
+
+    cursor.execute(
+        f"""
+        DELETE FROM match_side_players
+         WHERE match_side_id IN (
+            SELECT msp.match_side_id
+              FROM match_side_players msp
+              JOIN match_sides ms ON ms.match_side_id = msp.match_side_id
+              JOIN matches m ON m.match_id = ms.match_id
+             WHERE m.event_id IN ({placeholders})
+         )
+        """,
+        params,
+    )
+    cursor.execute(
+        f"""
+        DELETE FROM match_sides
+         WHERE match_id IN (
+            SELECT match_id FROM matches WHERE event_id IN ({placeholders})
+         )
+        """,
+        params,
+    )
+    cursor.execute(f"DELETE FROM matches WHERE event_id IN ({placeholders})", params)
+
+
+def import_matches(
+    db_path: str,
+    matches_dir: str,
+    event_ids: Sequence[int] | None = None,
+    *,
+    same_name_players_path: Path = DEFAULT_SAME_NAME_PLAYERS_PATH,
+    player_matches_dir: Path = DEFAULT_PLAYER_MATCHES_DIR,
+    country_history_path: Path = DEFAULT_PLAYER_COUNTRY_HISTORY_PATH,
+) -> dict:
+    selected_event_ids = normalize_event_ids(event_ids)
+    full_refresh = not selected_event_ids
     result = {
-        "full_refresh": True,
+        "full_refresh": full_refresh,
+        "event_ids": selected_event_ids,
         "source_rows": 0,
         "total_in_files": 0,
         "inserted": 0,
@@ -419,6 +712,9 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
         "unresolved_winner_side": 0,
         "unmatched_events": set(),
         "unmatched_players": set(),
+        "ambiguous_players": set(),
+        "unresolved_same_name_players": set(),
+        "ambiguous_same_name_players": set(),
         "auto_added_sub_event_codes": set(),
         "skipped_files": [],
         "raw_event_mismatch_examples": [],
@@ -430,21 +726,29 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
     cursor = conn.cursor()
     cursor.execute("PRAGMA foreign_keys = ON;")
 
-    # Full refresh mode: clear derived data and existing match data.
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='event_draw_matches'")
-    if cursor.fetchone():
-        cursor.execute("DELETE FROM event_draw_matches")
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='sub_events'")
-    if cursor.fetchone():
-        cursor.execute("DELETE FROM sub_events")
-    cursor.execute("DELETE FROM match_side_players")
-    cursor.execute("DELETE FROM match_sides")
-    cursor.execute("DELETE FROM matches")
-    result["rebuilt_matches_table"] = ensure_matches_table_allows_repeated_keys(cursor)
-    cursor.execute("DELETE FROM sqlite_sequence WHERE name IN ('matches', 'match_sides', 'match_side_players')")
+    if full_refresh:
+        # Full refresh mode: clear derived data and existing match data.
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='event_draw_matches'")
+        if cursor.fetchone():
+            cursor.execute("DELETE FROM event_draw_matches")
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='sub_events'")
+        if cursor.fetchone():
+            cursor.execute("DELETE FROM sub_events")
+        cursor.execute("DELETE FROM match_side_players")
+        cursor.execute("DELETE FROM match_sides")
+        cursor.execute("DELETE FROM matches")
+        result["rebuilt_matches_table"] = ensure_matches_table_allows_repeated_keys(cursor)
+        cursor.execute("DELETE FROM sqlite_sequence WHERE name IN ('matches', 'match_sides', 'match_side_players')")
+    else:
+        delete_matches_for_events(cursor, selected_event_ids)
 
     event_index = build_event_index(cursor)
     print(f"Event index:  {len(event_index['by_name_year'])} name+year entries")
+    player_index = build_player_index(cursor, Path(country_history_path))
+    print(f"Player index: {len(player_index)} name+country entries")
+    same_name_groups = load_same_name_players(Path(same_name_players_path))
+    apply_country_history_to_same_name_groups(same_name_groups, Path(country_history_path))
+    print(f"Same-name groups: {len(same_name_groups)}")
     known_sub_event_codes = load_sub_event_codes(cursor)
     print(f"Sub-event codes: {len(known_sub_event_codes)}")
     filtering_only_event_ids = load_filtering_only_event_ids(cursor)
@@ -496,6 +800,8 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
             file_count += 1
 
             event_id = event_ctx["event_id"]
+            if selected_event_ids and event_id not in selected_event_ids:
+                continue
             event_name = event_ctx["event_name"]
             event_name_zh = event_ctx["event_name_zh"]
             event_year = event_ctx["event_year"]
@@ -550,6 +856,15 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
             games = match.get("games", [])
             games_json = json.dumps(games, ensure_ascii=False) if games else None
             winner_name = (match.get("winner") or "").strip()
+            context_key = match_context_key(
+                event_id,
+                sub_event,
+                stage,
+                round_,
+                str(match.get("match_score") or ""),
+                side_a,
+                side_b,
+            )
 
             cursor.execute(
                 insert_match_sql,
@@ -583,9 +898,25 @@ def import_matches(db_path: str, matches_dir: str) -> dict:
                 match_side_id = cursor.lastrowid
 
                 for player_order, (player_name, player_country) in enumerate(side_players, 1):
-                    player_id = None
-                    if player_name and player_country:
-                        result["unmatched_players"].add(f"{player_name} ({player_country})")
+                    player_id, resolution_status = resolve_player_id(
+                        player_index,
+                        same_name_groups,
+                        Path(player_matches_dir),
+                        event_index,
+                        player_name,
+                        player_country,
+                        context_key,
+                    )
+                    if player_id is None and player_name and player_country:
+                        label = f"{player_name} ({player_country})"
+                        if resolution_status == "ambiguous":
+                            result["ambiguous_players"].add(label)
+                        elif resolution_status == "same_name_unresolved":
+                            result["unresolved_same_name_players"].add(label)
+                        elif resolution_status == "same_name_ambiguous":
+                            result["ambiguous_same_name_players"].add(label)
+                        else:
+                            result["unmatched_players"].add(label)
                     cursor.execute(
                         insert_side_player_sql,
                         (match_side_id, player_order, player_id, player_name, player_country),
@@ -656,25 +987,55 @@ if __name__ == "__main__":
         default=str(PROJECT_ROOT / "data" / "event_matches" / "cn"),
         help="Directory containing event_match.v1 JSON files",
     )
+    parser.add_argument(
+        "--event-id",
+        type=int,
+        nargs="+",
+        default=None,
+        help="Replace and import only these event_id values. Default: full refresh.",
+    )
+    parser.add_argument("--same-name-players", type=Path, default=DEFAULT_SAME_NAME_PLAYERS_PATH)
+    parser.add_argument("--player-matches-dir", type=Path, default=DEFAULT_PLAYER_MATCHES_DIR)
+    parser.add_argument("--country-history", type=Path, default=DEFAULT_PLAYER_COUNTRY_HISTORY_PATH)
+    parser.add_argument(
+        "--summary-json",
+        default=None,
+        help="Write the structured result dict to this path (or 'auto'). "
+        "Used by run_import_wtt_events.sh to aggregate manual-check info.",
+    )
     cli_args = parser.parse_args()
     matches_dir = Path(cli_args.source_dir)
+    event_ids = normalize_event_ids(cli_args.event_id)
 
     print("=" * 70)
     print("Import Matches")
     print("=" * 70)
     print(f"Database:      {DB_PATH}")
     print(f"Source dir:    {matches_dir}")
+    print(f"Event ids:     {', '.join(str(e) for e in event_ids) if event_ids else '(full refresh)'}")
+    print(f"Same names:    {cli_args.same_name_players}")
+    print(f"Player matches:{cli_args.player_matches_dir}")
+    print(f"Country hist:  {cli_args.country_history}")
     print("=" * 70 + "\n")
 
     if not Path(DB_PATH).exists():
         print(f"[ERROR] Database not found: {DB_PATH}")
         sys.exit(1)
 
-    result = import_matches(str(DB_PATH), str(matches_dir))
+    result = import_matches(
+        str(DB_PATH),
+        str(matches_dir),
+        event_ids=event_ids,
+        same_name_players_path=cli_args.same_name_players,
+        player_matches_dir=cli_args.player_matches_dir,
+        country_history_path=cli_args.country_history,
+    )
 
     print(f"\n{'='*70}")
     print("Results:")
     print(f"  Full refresh mode:       {result['full_refresh']}")
+    if not result["full_refresh"]:
+        print(f"  Event ids:               {', '.join(str(e) for e in result['event_ids'])}")
     print(f"  Rebuilt matches table:   {result['rebuilt_matches_table']}")
     print(f"  Source rows scanned:     {result['source_rows']}")
     print(f"  Rows after validation:   {result['total_in_files']}")
@@ -714,6 +1075,30 @@ if __name__ == "__main__":
         if len(players_list) > 20:
             print(f"    ... and {len(players_list)-20} more")
 
+    if result["ambiguous_players"]:
+        players_list = sorted(result["ambiguous_players"])
+        print(f"\n  Ambiguous players ({len(players_list)}):")
+        for p in players_list[:20]:
+            print(f"    - {p}")
+        if len(players_list) > 20:
+            print(f"    ... and {len(players_list)-20} more")
+
+    if result["unresolved_same_name_players"]:
+        players_list = sorted(result["unresolved_same_name_players"])
+        print(f"\n  Unresolved same-name players ({len(players_list)}):")
+        for p in players_list[:20]:
+            print(f"    - {p}")
+        if len(players_list) > 20:
+            print(f"    ... and {len(players_list)-20} more")
+
+    if result["ambiguous_same_name_players"]:
+        players_list = sorted(result["ambiguous_same_name_players"])
+        print(f"\n  Ambiguous same-name players ({len(players_list)}):")
+        for p in players_list[:20]:
+            print(f"    - {p}")
+        if len(players_list) > 20:
+            print(f"    ... and {len(players_list)-20} more")
+
     if result["errors"]:
         print(f"\n  Errors ({len(result['errors'])}):")
         for e in result["errors"][:10]:
@@ -728,3 +1113,12 @@ if __name__ == "__main__":
             print(f"    ... and {len(auto_codes)-30} more")
 
     verify_matches(str(DB_PATH))
+
+    if cli_args.summary_json:
+        summary_path = write_summary(
+            result,
+            cli_args.summary_json,
+            project_root=PROJECT_ROOT,
+            kind="import_matches",
+        )
+        print(f"\n  Summary JSON written: {summary_path}")
