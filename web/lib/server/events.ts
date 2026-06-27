@@ -310,7 +310,7 @@ type EventScheduleDay = {
 };
 
 type EventScheduleMatch = {
-  scheduleMatchId: number;
+  scheduleMatchId: number | string;
   externalMatchCode: string | null;
   subEventTypeCode: string;
   subEventNameZh: string | null;
@@ -377,7 +377,13 @@ function pickPreferredScheduleMatch(left: EventScheduleMatch, right: EventSchedu
   const completenessDiff = scheduleMatchCompleteness(left) - scheduleMatchCompleteness(right);
   if (completenessDiff !== 0) return completenessDiff > 0 ? left : right;
 
-  return left.scheduleMatchId >= right.scheduleMatchId ? left : right;
+  return scheduleMatchSortId(left.scheduleMatchId) >= scheduleMatchSortId(right.scheduleMatchId) ? left : right;
+}
+
+function scheduleMatchSortId(value: number | string | null) {
+  if (typeof value === 'number') return value;
+  const parsed = Number(String(value ?? '').replace(/^cm:/, ''));
+  return Number.isFinite(parsed) ? parsed : 0;
 }
 
 function scheduleStagePriority(match: EventScheduleMatch) {
@@ -433,7 +439,7 @@ function compareScheduleMatches(left: EventScheduleMatch, right: EventScheduleMa
   if (tableDiff !== 0) return tableDiff;
   const sessionDiff = (left.sessionLabel ?? '').localeCompare(right.sessionLabel ?? '');
   if (sessionDiff !== 0) return sessionDiff;
-  return left.scheduleMatchId - right.scheduleMatchId;
+  return scheduleMatchSortId(left.scheduleMatchId) - scheduleMatchSortId(right.scheduleMatchId);
 }
 
 function normalizeHistoricalSidePlayerCountry(player: SidePlayer): { player: SidePlayer; changed: boolean } {
@@ -618,11 +624,54 @@ function buildCurrentScheduleMatches(eventId: number) {
         LEFT JOIN current_event_team_tie_side_players p ON p.current_team_tie_side_id = s.current_team_tie_side_id
         LEFT JOIN players pl ON pl.player_id = p.player_id
         WHERE t.event_id = ?
-        ORDER BY t.scheduled_local_at ASC, t.current_team_tie_id ASC, s.side_no ASC, p.player_order ASC
+        UNION ALL
+        SELECT
+          'cm:' || m.current_match_id AS scheduleMatchId,
+          m.external_match_code AS externalMatchCode,
+          m.sub_event_type_code AS subEventTypeCode,
+          st.name_zh AS subEventNameZh,
+          m.stage_code AS stageCode,
+          COALESCE(sc.name_zh, m.stage_label) AS stageNameZh,
+          m.round_code AS roundCode,
+          COALESCE(rc.name_zh, m.round_label) AS roundNameZh,
+          m.group_code AS groupCode,
+          m.scheduled_local_at AS scheduledLocalAt,
+          m.scheduled_utc_at AS scheduledUtcAt,
+          m.table_no AS tableNo,
+          m.session_label AS sessionLabel,
+          m.status,
+          m.source_schedule_status AS rawScheduleStatus,
+          m.match_score AS matchScore,
+          m.games,
+          m.winner_side AS winnerSide,
+          s.current_match_side_id AS scheduleSideId,
+          s.side_no AS sideNo,
+          NULL AS entryId,
+          s.placeholder_text AS placeholderText,
+          s.team_code AS teamCode,
+          s.seed,
+          s.qualifier,
+          s.is_winner AS isWinner,
+          p.player_order AS playerOrder,
+          p.player_id AS playerId,
+          p.player_name AS playerName,
+          p.player_country AS playerCountry,
+          pl.slug,
+          pl.name_zh AS playerNameZh
+        FROM current_event_matches m
+        LEFT JOIN sub_event_types st ON st.code = m.sub_event_type_code
+        LEFT JOIN stage_codes sc ON sc.code = m.stage_code
+        LEFT JOIN round_codes rc ON rc.code = m.round_code
+        LEFT JOIN current_event_match_sides s ON s.current_match_id = m.current_match_id
+        LEFT JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+        LEFT JOIN players pl ON pl.player_id = p.player_id
+        WHERE m.event_id = ?
+          AND m.current_team_tie_id IS NULL
+        ORDER BY scheduledLocalAt ASC, scheduleMatchId ASC, sideNo ASC, playerOrder ASC
       `,
     )
-    .all(eventId) as Array<{
-    scheduleMatchId: number;
+    .all(eventId, eventId) as Array<{
+    scheduleMatchId: number | string;
     externalMatchCode: string | null;
     subEventTypeCode: string;
     subEventNameZh: string | null;
@@ -656,7 +705,7 @@ function buildCurrentScheduleMatches(eventId: number) {
     playerNameZh: string | null;
   }>;
 
-  const scheduleMatchMap = new Map<number, EventScheduleMatch>();
+  const scheduleMatchMap = new Map<number | string, EventScheduleMatch>();
   for (const row of scheduleRows) {
     const current =
       scheduleMatchMap.get(row.scheduleMatchId) ??
@@ -677,7 +726,7 @@ function buildCurrentScheduleMatches(eventId: number) {
         status: row.status,
         rawScheduleStatus: row.rawScheduleStatus,
         matchScore: row.matchScore,
-        games: [],
+        games: parseGames(row.games),
         winnerSide: row.winnerSide,
         sides: [],
       };
@@ -1744,7 +1793,10 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
       `
         SELECT
           b.current_bracket_id AS matchId,
-          t.current_team_tie_id AS scheduleMatchId,
+          CASE
+            WHEN m.current_match_id IS NOT NULL THEN 'cm:' || m.current_match_id
+            ELSE t.current_team_tie_id
+          END AS scheduleMatchId,
           COALESCE(b.round_code, b.bracket_code, 'UNKNOWN') AS drawRound,
           COALESCE(b.round_order, 0) AS roundOrder,
           b.match_score AS matchScore,
@@ -1755,6 +1807,7 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
           b.side_b_placeholder AS sideBPlaceholder
         FROM current_event_brackets b
         LEFT JOIN current_event_team_ties t ON t.event_id = b.event_id AND t.external_match_code = b.external_unit_code
+        LEFT JOIN current_event_matches m ON m.event_id = b.event_id AND m.external_match_code = b.external_unit_code
         WHERE b.event_id = ?
           AND b.sub_event_type_code = ?
         ORDER BY COALESCE(b.round_order, 9999) ASC, b.bracket_position ASC, b.current_bracket_id ASC
@@ -1762,7 +1815,7 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
     )
     .all(eventId, subEventCode) as Array<{
     matchId: number;
-    scheduleMatchId: number | null;
+    scheduleMatchId: number | string | null;
     drawRound: string;
     roundOrder: number;
     matchScore: string | null;
