@@ -959,6 +959,8 @@ def scrape_player(
     force: bool = False,
     out_file: Path | None = None,
     player_output: dict[str, Any] | None = None,
+    player_id: str | None = None,
+    allow_empty: bool = False,
 ) -> dict[str, Any]:
     """获取该球员从 from_date 至今的全部赛事，不依赖年份下拉过滤。"""
     result: dict[str, Any] = {
@@ -968,9 +970,22 @@ def scrape_player(
         "captured_at": utc_now_iso(),
         "events": [],
     }
-    guarded_goto(page, SEARCH_URL, delay_cfg, f"open query page for {player_name}")
+    # 必须带 resetfilters=1 清掉 Fabrik 在 session 里残留的上一位球员过滤器，
+    # 否则连续抓同名球员时，导航会恢复上一个人的 player_id 过滤器，新选择无法覆盖，
+    # 导致后续同名球员实际抓到的是前一个人的比赛（detail_url 里 abc=<上一个id>）。
+    search_url = f"{SEARCH_URL}/list/69?resetfilters=1&clearfilters=1&clearordering=1"
+    guarded_goto(page, search_url, delay_cfg, f"open query page for {player_name}")
 
-    if not open_or_select_autocomplete(page, player_name, country_code):
+    if not open_or_select_autocomplete(page, player_name, country_code, preferred_player_id=player_id):
+        # 指定了 player_id 但下拉里选不到该 id（该人近期无比赛/不在下拉）：
+        # 判为该 id 无证据，返回空结果，绝不退回抓到其他同名人的数据。
+        if player_id and allow_empty:
+            logger.warning(
+                "Preferred player_id=%s for %s (%s) not selectable in autocomplete; "
+                "returning empty evidence (no wrong-namesake fallback).",
+                player_id, player_name, country_code,
+            )
+            return result
         raise RuntimeError(f"autocomplete not found for {player_name} ({country_code})")
 
     # 不选年份过滤，直接提交，获取按时间倒序的全量赛事列表
@@ -1535,6 +1550,8 @@ def run(args: argparse.Namespace) -> int:
                     force=bool(args.force),
                     out_file=orig_file,
                     player_output=player_output,
+                    player_id=player_id,
+                    allow_empty=bool(getattr(args, "allow_empty", False)),
                 )
                 player_data["schema_version"] = _prefer_existing(player_data.get("schema_version"), "match.v2")
                 player_data["player_id"] = _prefer_existing(player_data.get("player_id"), player_id)

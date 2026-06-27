@@ -11,10 +11,24 @@ from .anti_bot import move_mouse_to_locator, type_like_human
 logger = logging.getLogger(__name__)
 
 
-def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) -> bool:
+def open_or_select_autocomplete(
+    page: Any,
+    player_name: str,
+    country_code: str,
+    preferred_player_id: str | None = None,
+) -> bool:
     search_key = f"{player_name} ({country_code})" if country_code else player_name
 
-    logger.info("[autocomplete] start player=%s country=%s search_key=%s", player_name, country_code or "", search_key)
+    # 同名球员消歧：指定 preferred_player_id 时，必须按候选的 data-value 精确选中该
+    # player_id，绝不退回按姓名分数选第一个同名候选（否则不同同名人会抓到同一份数据）。
+    pref_id = str(preferred_player_id).strip() if preferred_player_id is not None else None
+    if pref_id and not re.fullmatch(r"\d+", pref_id):
+        pref_id = None
+
+    logger.info(
+        "[autocomplete] start player=%s country=%s search_key=%s preferred_player_id=%s",
+        player_name, country_code or "", search_key, pref_id or "-",
+    )
 
     search_input = page.locator("input[type='text']").first
     input_count = search_input.count()
@@ -178,7 +192,9 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                 exact_count = 0
             logger.info("[autocomplete] attempt=%s exact_count=%s target=%s", attempt + 1, exact_count, target_text)
             try:
-                if exact_count > 0 and exact.is_visible():
+                # 指定 preferred_player_id 时跳过 exact 快路径：它按姓名文本命中，
+                # 同名时会选错人；改走下方候选枚举按 data-value 精确选。
+                if pref_id is None and exact_count > 0 and exact.is_visible():
                     logger.info("[autocomplete] exact option visible, trying click: %s", target_text)
                     exact_data_value = ""
                     try:
@@ -229,6 +245,20 @@ def open_or_select_autocomplete(page: Any, player_name: str, country_code: str) 
                     txt = " ".join((item.inner_text() or "").split())
                     data_value = item.get_attribute("data-value") if item.count() > 0 else None
                     if not txt:
+                        continue
+                    if pref_id is not None:
+                        # 只认 player_id：data-value 命中目标才选，命中即锁定（分数无关）。
+                        if (data_value or "").strip() == pref_id:
+                            logger.info(
+                                "[autocomplete] candidate[%s]=%s data-value=%s matched preferred player_id",
+                                i, txt[:120], data_value,
+                            )
+                            best_candidate = (10_000, i, item, txt)
+                            break
+                        logger.info(
+                            "[autocomplete] candidate[%s]=%s data-value=%s skip (want player_id=%s)",
+                            i, txt[:120], data_value, pref_id,
+                        )
                         continue
                     score = candidate_score(txt)
                     logger.info("[autocomplete] candidate[%s]=%s data-value=%s score=%s", i, txt[:120], data_value, score)

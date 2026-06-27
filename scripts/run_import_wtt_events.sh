@@ -18,6 +18,7 @@ SKIP_SAME_NAME_PLAYER_MATCHES=0
 SAME_NAME_FROM_DATE=""
 SAME_NAME_HEADLESS=0
 SAME_NAME_CDP_PORT=9223
+SAME_NAME_FORCE=0
 FAIL=0
 
 usage() {
@@ -40,6 +41,8 @@ Options:
                       Override the auto from-date for same-name player-centric matches.
   --same-name-headless
                       Pass --headless when scraping same-name player-centric matches.
+  --same-name-force   Re-scrape same-name player-centric matches even when evidence
+                      already exists (use after fixing scraping logic).
   --same-name-cdp-port PORT
                       CDP port of an existing Chrome reused for same-name scraping
                       (default: 9223).
@@ -85,6 +88,10 @@ while [[ $# -gt 0 ]]; do
       SAME_NAME_HEADLESS=1
       shift
       ;;
+    --same-name-force)
+      SAME_NAME_FORCE=1
+      shift
+      ;;
     --same-name-cdp-port)
       SAME_NAME_CDP_PORT="${2:-}"
       if [[ -z "$SAME_NAME_CDP_PORT" ]]; then
@@ -126,6 +133,12 @@ fi
 
 cd "$ROOT_DIR"
 
+# 统一使用项目 venv 的 Python：scrape 依赖 patchright，系统 Python 没有。
+# prepare 通过 sys.executable 拉起 scraper，因此这里选对解释器即可贯穿整条链。
+PYTHON="$ROOT_DIR/.venv/bin/python"
+[[ -x "$PYTHON" ]] || PYTHON="python"
+echo "[INFO] Python: $PYTHON"
+
 RUN_ID="$(date +%Y%m%d-%H%M%S)"
 LOG_DIR="$ROOT_DIR/data/logs/wtt-event-import/$RUN_ID"
 mkdir -p "$LOG_DIR/events" "$LOG_DIR/draw" "$LOG_DIR/sub_events" "$LOG_DIR/player_matches"
@@ -134,12 +147,12 @@ echo "[INFO] Logs:   $LOG_DIR"
 
 # 失败时也要产出汇总（manual-check 摘要正是为了暴露问题）。
 finish() {
-  python scripts/db/summarize_wtt_import.py --run-dir "$LOG_DIR" || true
+  "$PYTHON" scripts/db/summarize_wtt_import.py --run-dir "$LOG_DIR" || true
   exit "$FAIL"
 }
 
 # --- 0. 刷新同名球员名单（来自 players 表，与批次无关，但要在导入前最新）-------
-if ! ( python scripts/audit_same_name_players.py \
+if ! ( "$PYTHON" scripts/audit_same_name_players.py \
          --db-path "$DB_PATH" \
          --output "$ROOT_DIR/scripts/data/same_name_players.txt" \
          --country-history "$ROOT_DIR/data/player_country_history.json" \
@@ -152,7 +165,7 @@ fi
 # --- 1. --event-file: 先导入 events，再派生 event id 集合 ---------------------
 if [[ -n "$EVENT_FILE" ]]; then
   event_base="$(basename "$EVENT_FILE" .json)"
-  if ! ( python scripts/db/import_events.py \
+  if ! ( "$PYTHON" scripts/db/import_events.py \
            --input-file "$EVENT_FILE" \
            --summary-json "$LOG_DIR/import_events.json" 2>&1 \
          | tee "$LOG_DIR/import_events.log" ); then
@@ -162,7 +175,7 @@ if [[ -n "$EVENT_FILE" ]]; then
   fi
 
   mapfile -t EVENT_IDS < <(
-    python - "$EVENT_FILE" <<'PY'
+    "$PYTHON" - "$EVENT_FILE" <<'PY'
 import json
 import sys
 
@@ -192,7 +205,7 @@ fi
 # import_matches.py 会对 --event-id 先删后插：若某 id 没有 match 文件，会删掉其
 # 已有 matches 又无数据写回（丢数据）。因此缺文件的 id 一律排除并显式列出。
 mapfile -t IMPORTABLE_IDS < <(
-  python - "$DB_PATH" "$SOURCE_DIR" "${EVENT_IDS[@]}" <<'PY'
+  "$PYTHON" - "$DB_PATH" "$SOURCE_DIR" "${EVENT_IDS[@]}" <<'PY'
 import json
 import re
 import sqlite3
@@ -259,7 +272,7 @@ echo "[INFO] Importable event ids (${#IMPORTABLE_IDS[@]}): ${IMPORTABLE_IDS[*]}"
 for eid in "${IMPORTABLE_IDS[@]}"; do
   if [[ "$eid" == "2860" ]]; then
     echo "[INFO] event 2860 in batch; applying source fix first."
-    if ! ( python scripts/fix_special_event_2860_stage_round.py 2>&1 \
+    if ! ( "$PYTHON" scripts/fix_special_event_2860_stage_round.py 2>&1 \
            | tee "$LOG_DIR/fix_special_event_2860.log" ); then
       echo "[ERROR] fix_special_event_2860_stage_round.py failed" >&2
       FAIL=1
@@ -287,7 +300,10 @@ else
   if [[ "$SAME_NAME_HEADLESS" -eq 1 ]]; then
     PREPARE_ARGS+=(--headless)
   fi
-  if ! ( python scripts/prepare_same_name_player_matches.py "${PREPARE_ARGS[@]}" 2>&1 \
+  if [[ "$SAME_NAME_FORCE" -eq 1 ]]; then
+    PREPARE_ARGS+=(--force)
+  fi
+  if ! ( "$PYTHON" scripts/prepare_same_name_player_matches.py "${PREPARE_ARGS[@]}" 2>&1 \
          | tee "$LOG_DIR/player_matches/prepare_same_name_player_matches.log" ); then
     echo "[ERROR] prepare_same_name_player_matches.py failed" >&2
     FAIL=1
@@ -296,7 +312,7 @@ else
 fi
 
 # --- 5. 导入 matches（一次性，按 importable id 删后重建）---------------------
-if ! ( python scripts/db/import_matches.py \
+if ! ( "$PYTHON" scripts/db/import_matches.py \
          --source-dir "$SOURCE_DIR" \
          --event-id "${IMPORTABLE_IDS[@]}" \
          --summary-json "$LOG_DIR/import_matches.json" 2>&1 \
@@ -308,13 +324,13 @@ fi
 
 # --- 6. 逐 event 重建 draw 与 sub_events（单个失败不中断整批）---------------
 for eid in "${IMPORTABLE_IDS[@]}"; do
-  if ! ( python scripts/db/import_event_draw_matches.py --event-id "$eid" \
+  if ! ( "$PYTHON" scripts/db/import_event_draw_matches.py --event-id "$eid" \
            --summary-json "$LOG_DIR/draw/$eid.json" 2>&1 \
          | tee "$LOG_DIR/draw/$eid.log" ); then
     echo "[ERROR] import_event_draw_matches.py failed for event $eid" >&2
     FAIL=1
   fi
-  if ! ( python scripts/db/import_sub_events.py --event-id "$eid" \
+  if ! ( "$PYTHON" scripts/db/import_sub_events.py --event-id "$eid" \
            --summary-json "$LOG_DIR/sub_events/$eid.json" 2>&1 \
          | tee "$LOG_DIR/sub_events/$eid.log" ); then
     echo "[ERROR] import_sub_events.py failed for event $eid" >&2
