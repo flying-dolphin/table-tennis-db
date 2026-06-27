@@ -51,14 +51,14 @@ services:
       NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${NEXT_PUBLIC_UMAMI_WEBSITE_ID:-}
       NEXT_PUBLIC_CLARITY_PROJECT_ID: ${NEXT_PUBLIC_CLARITY_PROJECT_ID:-}
     volumes:
-      # SQLite 数据库与抓取产物：宿主 /opt/ittf/data ↔ 容器 /app/data
+      # SQLite 数据库与抓取产物：宿主 /home/flyingfox/doubao_tt/data ↔ 容器 /app/data
       # （web/lib/paths.ts 里 DB_FILE 是 ../data/db/ittf.db，容器工作目录在 /app/web）
-      - ${ITTF_DATA_DIR:-/opt/ittf/data}:/app/data
+      - ${ITTF_DATA_DIR:-/home/flyingfox/doubao_tt/data}:/app/data
       # 头像缩略图：线上只挂载 WebP 缩略图目录，不暴露 avatars/crops 原图目录。
       # 部署前需先生成缩略图并把 web/public/images/{avatar-thumbs,avatar-full-thumbs}
       # 同步到数据卷的 web_assets/ 对应目录。
-      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/avatar-thumbs:/app/web/public/images/avatar-thumbs:ro
-      - ${ITTF_DATA_DIR:-/opt/ittf/data}/web_assets/avatar-full-thumbs:/app/web/public/images/avatar-full-thumbs:ro
+      - ${ITTF_DATA_DIR:-/home/flyingfox/doubao_tt/data}/web_assets/avatar-thumbs:/app/web/public/images/avatar-thumbs:ro
+      - ${ITTF_DATA_DIR:-/home/flyingfox/doubao_tt/data}/web_assets/avatar-full-thumbs:/app/web/public/images/avatar-full-thumbs:ro
     ports:
       # 左侧是宿主机端口（被占用时通过 ITTF_WEB_HOST_PORT 改，例如 3001）；
       # 右侧 3000 是容器内 Next.js 监听端口，固定不变（与 Dockerfile 的 PORT、healthcheck 对齐）。

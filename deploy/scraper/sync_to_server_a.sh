@@ -13,7 +13,7 @@ set -euo pipefail
 # ===== 配置 =====
 SERVER_A_HOST=deploy@serverA.your-domain.com
 SSH_KEY=$HOME/.ssh/ittf_deploy
-REMOTE_PROJECT=/opt/ittf
+REMOTE_PROJECT=/home/flyingfox/doubao_tt
 LOCAL_PROJECT=/local/ittf            # 本地服务器上的项目根
 COMPOSE_FILE_REMOTE=deploy/web/docker-compose.yml
 ENV_FILE_REMOTE=deploy/web/.env

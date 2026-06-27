@@ -374,8 +374,9 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 将 `current_event_*` 数据写入历史事实表，重建签表与冠军，并把赛事 lifecycle 更新为 `completed`。
 
 ### deploy/server/update_event_runtime.sh
-将当前赛事刷新运行时发布到远程 ops 目录，和 ranking/profile 发布链路分离。
-默认只发布运行时文件到 `/opt/ittf-ops`：
+将当前赛事刷新运行时（含 per-session 赛程抓取、翻译栈、promote 及其依赖）按仓库目录
+镜像发布到远端项目根（默认 `doubao_tt`），与 ranking/calendar/historical 发布脚本同根，
+统一写网站读取的 `doubao_tt/data/db/ittf.db`：
 
 ```bash
 deploy/server/update_event_runtime.sh

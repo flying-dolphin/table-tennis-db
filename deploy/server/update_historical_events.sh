@@ -17,10 +17,18 @@
 # Defaults target:
 #   flyingfox@xiaodoubao.site:doubao_tt/data
 #
+# Provide the batch as either an explicit id list or an events_list JSON:
+#   --event-id <id...>   explicit ids; every id MUST have an events_list entry
+#                        and an event_matches/cn file, else it errors.
+#   --event-file <path>  parse ids from events_list JSON (events[].event_id);
+#                        ids without an event_matches/cn file are skipped with a
+#                        warning (mirrors scripts/run_import_wtt_events.sh).
+#
 # Usage:
+#   deploy/server/update_historical_events.sh --event-file data/events_list/cn/events_from_2026-05-05.json
 #   deploy/server/update_historical_events.sh --event-id 3391 3392
 #   deploy/server/update_historical_events.sh --event-id 3391 --publish-only
-#   deploy/server/update_historical_events.sh --event-id 3391 --skip-publish
+#   deploy/server/update_historical_events.sh --event-file data/events_list/cn/events_from_2026-05-05.json --skip-publish
 #
 # Optional env:
 #   REMOTE_HOST=flyingfox@xiaodoubao.site
@@ -48,11 +56,12 @@ LOG_FILE=${LOG_FILE:-${LOCAL_LOG_DIR}/historical-events-${RUN_ID}.log}
 REMOTE_IMPORT_LOG_DIR=${REMOTE_IMPORT_LOG_DIR:-${REMOTE_DATA_DIR}/ittf_logs}
 
 EVENT_IDS=()
+EVENT_FILE=""
 PUBLISH_ONLY=0
 SKIP_PUBLISH=0
 
 usage() {
-    sed -n '2,34p' "$0"
+    sed -n '2,42p' "$0"
 }
 
 while [ "$#" -gt 0 ]; do
@@ -63,6 +72,15 @@ while [ "$#" -gt 0 ]; do
                 EVENT_IDS+=("$1")
                 shift
             done
+            ;;
+        --event-file)
+            if [ "$#" -lt 2 ]; then
+                echo "ERROR: --event-file requires a path" >&2
+                usage >&2
+                exit 2
+            fi
+            EVENT_FILE="$2"
+            shift 2
             ;;
         --publish-only)
             PUBLISH_ONLY=1
@@ -88,8 +106,12 @@ if [ "$PUBLISH_ONLY" -eq 1 ] && [ "$SKIP_PUBLISH" -eq 1 ]; then
     echo "ERROR: --publish-only and --skip-publish cannot be used together" >&2
     exit 2
 fi
-if [ "$PUBLISH_ONLY" -eq 0 ] && [ "${#EVENT_IDS[@]}" -eq 0 ]; then
-    echo "ERROR: --event-id is required (unless --publish-only)" >&2
+if [ -n "$EVENT_FILE" ] && [ "${#EVENT_IDS[@]}" -gt 0 ]; then
+    echo "ERROR: use either --event-id or --event-file, not both" >&2
+    exit 2
+fi
+if [ "$PUBLISH_ONLY" -eq 0 ] && [ -z "$EVENT_FILE" ] && [ "${#EVENT_IDS[@]}" -eq 0 ]; then
+    echo "ERROR: one of --event-id / --event-file is required (unless --publish-only)" >&2
     usage >&2
     exit 2
 fi
@@ -104,15 +126,22 @@ if ! [[ "$REMOTE_DB_BACKUPS_KEEP" =~ ^[0-9]+$ ]] || [ "$REMOTE_DB_BACKUPS_KEEP" 
     exit 2
 fi
 
+if [ -n "$EVENT_FILE" ]; then
+    EVENT_FILE="$(realpath -- "$EVENT_FILE")"
+fi
+
 cd "$(dirname "$0")/../.."
 
-EVENT_IDS_STR="${EVENT_IDS[*]:-}"
+if [ -n "$EVENT_FILE" ] && [ ! -f "$EVENT_FILE" ]; then
+    echo "ERROR: events file not found: ${EVENT_FILE}" >&2
+    exit 1
+fi
+
+# The authoritative batch (event ids + HAS_2860) is resolved during payload
+# collection, since --event-file derives ids from the file and prunes ids that
+# have no match file. These start empty and are set by collect_local_payload.
+EVENT_IDS_STR=""
 HAS_2860=0
-for eid in "${EVENT_IDS[@]:-}"; do
-    if [ "$eid" = "2860" ]; then
-        HAS_2860=1
-    fi
-done
 
 init_logging() {
     mkdir -p "$(dirname "$LOG_FILE")"
@@ -120,7 +149,11 @@ init_logging() {
     exec > >(tee -a "$LOG_FILE") 2>&1
 
     echo "==> Run ID: ${RUN_ID}"
-    echo "==> Event ids: ${EVENT_IDS_STR:-<none>}"
+    if [ -n "$EVENT_FILE" ]; then
+        echo "==> Event file: ${EVENT_FILE}"
+    else
+        echo "==> Event ids: ${EVENT_IDS[*]:-<none>}"
+    fi
     echo "==> Logging to ${LOG_FILE}"
 }
 
@@ -185,9 +218,14 @@ backup_remote_database() {
     ssh "$REMOTE_HOST" "cd '${REMOTE_PROJECT_DIR}' && mkdir -p data/db/backups && backup_path=\"data/db/backups/ittf-before-historical-events-\$(date +%Y%m%d_%H%M%S).db\" && ${REMOTE_PYTHON} -c \"import sqlite3, sys; src = sqlite3.connect('data/db/ittf.db'); dst = sqlite3.connect(sys.argv[1]); src.backup(dst); dst.close(); src.close()\" \"\$backup_path\" && echo \"Remote backup path: \$backup_path\" && ls -lh \"\$backup_path\" && ${REMOTE_PYTHON} -c \"from pathlib import Path; keep = int('${REMOTE_DB_BACKUPS_KEEP}'); backups = sorted(Path('data/db/backups').glob('ittf-before-historical-events-*.db'), key=lambda p: p.stat().st_mtime, reverse=True); removed = backups[keep:]; [p.unlink() for p in removed]; print('Backup retention: kept {} of {} files, removed {}'.format(min(len(backups), keep), len(backups), len(removed)))\""
 }
 
-# Resolve each requested event id to its local match file and a filtered events
-# list entry, then stage all payload files into staging_dir. Prints the resolved
-# match-file basenames (one per line). Aborts on any unresolved id.
+# Resolve the batch and stage all payload files into staging_dir. Two modes:
+#   --event-id : explicit ids; error if any id lacks an events_list entry or a
+#                match file.
+#   --event-file: derive ids from the file; entries come from the file itself,
+#                ids without a match file are skipped with a warning.
+# Writes the authoritative resolved set to events_publish_${RUN_ID}.json. The
+# caller derives the final event-id list and match-file list from the staging
+# tree afterwards.
 collect_local_payload() {
     local staging_dir="$1"
     local filtered_events_path="${staging_dir}/events_list/cn/events_publish_${RUN_ID}.json"
@@ -195,8 +233,8 @@ collect_local_payload() {
         "${staging_dir}/event_matches/orig" "${staging_dir}/matches_complete/cn" \
         "${staging_dir}/data"
 
-    EVENT_IDS_STR="$EVENT_IDS_STR" FILTERED_EVENTS_PATH="$filtered_events_path" \
-        STAGING_DIR="$staging_dir" python - <<'PY'
+    EVENT_IDS_STR="${EVENT_IDS[*]:-}" EVENT_FILE="$EVENT_FILE" \
+        FILTERED_EVENTS_PATH="$filtered_events_path" STAGING_DIR="$staging_dir" python - <<'PY'
 import json
 import os
 import re
@@ -206,7 +244,8 @@ from pathlib import Path
 
 root = Path.cwd()
 staging = Path(os.environ["STAGING_DIR"])
-event_ids = [int(x) for x in os.environ["EVENT_IDS_STR"].split()]
+event_file = os.environ.get("EVENT_FILE") or ""
+explicit_ids = [int(x) for x in os.environ["EVENT_IDS_STR"].split()]
 
 # event_id -> match file path (from event_matches/cn)
 match_dir = root / "data" / "event_matches" / "cn"
@@ -226,55 +265,71 @@ for path in match_dir.glob("*.json"):
     if eid is not None and eid not in match_by_id:
         match_by_id[eid] = path
 
-# event_id -> events_list entry (scan all events_list/cn files)
-events_dir = root / "data" / "events_list" / "cn"
-entry_by_id = {}
-for path in events_dir.glob("*.json"):
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        continue
-    for event in data.get("events") or []:
-        if not isinstance(event, dict):
-            continue
+
+def load_entries(paths):
+    """Return {event_id: entry} from the given events_list JSON files (first wins)."""
+    out = {}
+    for p in paths:
         try:
-            eid = int(event.get("event_id"))
-        except (TypeError, ValueError):
-            continue
-        entry_by_id.setdefault(eid, event)
+            data = json.loads(Path(p).read_text(encoding="utf-8"))
+        except Exception as exc:
+            print(f"ERROR: cannot parse events list {p}: {exc}", file=sys.stderr)
+            sys.exit(1)
+        for event in data.get("events") or []:
+            if not isinstance(event, dict):
+                continue
+            try:
+                eid = int(event.get("event_id"))
+            except (TypeError, ValueError):
+                continue
+            out.setdefault(eid, event)
+    return out
 
-missing_match, missing_entry = [], []
-resolved_entries, resolved_match_files = [], []
-for eid in event_ids:
-    if eid not in match_by_id:
-        missing_match.append(eid)
-    if eid not in entry_by_id:
-        missing_entry.append(eid)
-    if eid in match_by_id and eid in entry_by_id:
-        resolved_entries.append(entry_by_id[eid])
-        resolved_match_files.append(match_by_id[eid])
 
-errors = []
-if missing_entry:
-    errors.append("no events_list entry: " + " ".join(map(str, missing_entry)))
-if missing_match:
-    errors.append("no event_matches/cn file: " + " ".join(map(str, missing_match)))
-if errors:
-    for e in errors:
-        print("ERROR: " + e, file=sys.stderr)
-    sys.exit(1)
+resolved_entries = []
+if event_file:
+    # File-driven: ids and entries come from the given file. Prune ids without a
+    # match file (not yet scraped/translated) with a warning, like the importer.
+    entry_by_id = load_entries([event_file])
+    ordered_ids = list(entry_by_id.keys())
+    skipped = [e for e in ordered_ids if e not in match_by_id]
+    target_ids = [e for e in ordered_ids if e in match_by_id]
+    if skipped:
+        print("WARN: skipped (no event_matches/cn file yet): "
+              + " ".join(map(str, skipped)), file=sys.stderr)
+    if not target_ids:
+        print("ERROR: no event in the file has a match file in data/event_matches/cn",
+              file=sys.stderr)
+        sys.exit(1)
+    resolved_entries = [entry_by_id[e] for e in target_ids]
+else:
+    # Explicit ids: require both an events_list entry and a match file.
+    entry_by_id = load_entries((root / "data" / "events_list" / "cn").glob("*.json"))
+    target_ids = explicit_ids
+    missing_entry = [e for e in target_ids if e not in entry_by_id]
+    missing_match = [e for e in target_ids if e not in match_by_id]
+    errors = []
+    if missing_entry:
+        errors.append("no events_list entry: " + " ".join(map(str, missing_entry)))
+    if missing_match:
+        errors.append("no event_matches/cn file: " + " ".join(map(str, missing_match)))
+    if errors:
+        for e in errors:
+            print("ERROR: " + e, file=sys.stderr)
+        sys.exit(1)
+    resolved_entries = [entry_by_id[e] for e in target_ids]
 
-# Write filtered events list payload.
-filtered_path = Path(os.environ["FILTERED_EVENTS_PATH"])
-filtered_path.write_text(
+# Write the authoritative resolved events list payload.
+Path(os.environ["FILTERED_EVENTS_PATH"]).write_text(
     json.dumps({"events": resolved_entries}, ensure_ascii=False, indent=2),
     encoding="utf-8",
 )
 
-# Stage match files.
-for src in resolved_match_files:
+# Stage match files for the resolved ids.
+for entry in resolved_entries:
+    eid = int(entry["event_id"])
+    src = match_by_id[eid]
     shutil.copy2(src, staging / "event_matches" / "cn" / src.name)
-    print(src.name)
 
 # Stage same-name player-centric evidence (small set; needed by import_matches
 # since the server skips the scraping/preparation step).
@@ -288,12 +343,16 @@ if country_history.exists():
     shutil.copy2(country_history, staging / "data" / "player_country_history.json")
 
 # event_id=2860 needs both orig and cn payloads for the source fix.
-if 2860 in event_ids:
+resolved_id_set = {int(e["event_id"]) for e in resolved_entries}
+if 2860 in resolved_id_set:
     orig_2860 = root / "data" / "event_matches" / "orig" / "ITTF_Mixed_Team_World_Cup_Chengdu_2023_2860.json"
     if orig_2860.exists():
         shutil.copy2(orig_2860, staging / "event_matches" / "orig" / orig_2860.name)
     else:
         print("WARN: event 2860 in batch but orig file missing: " + str(orig_2860), file=sys.stderr)
+
+print("Resolved {} event(s): {}".format(
+    len(resolved_id_set), " ".join(str(e) for e in sorted(resolved_id_set))), file=sys.stderr)
 PY
 }
 
@@ -469,8 +528,31 @@ upload_data_and_import() {
     trap 'rm -rf "$staging_dir" "$archive_path"' RETURN
 
     echo "==> Collecting and staging historical-events payload"
-    mapfile -t match_files < <(collect_local_payload "$staging_dir")
-    echo "    resolved ${#match_files[@]} match file(s):"
+    collect_local_payload "$staging_dir"
+
+    # Derive the authoritative batch from the staged events list. This sets the
+    # global EVENT_IDS_STR / HAS_2860 used by the remote import and verify steps.
+    local filtered_events_path="${staging_dir}/events_list/cn/events_publish_${RUN_ID}.json"
+    EVENT_IDS_STR="$(python - "$filtered_events_path" <<'PY'
+import json
+import sys
+
+data = json.loads(open(sys.argv[1], encoding="utf-8").read())
+print(" ".join(str(int(e["event_id"])) for e in data.get("events") or []))
+PY
+)"
+    if [ -z "$EVENT_IDS_STR" ]; then
+        echo "ERROR: no resolved events to publish" >&2
+        exit 1
+    fi
+    HAS_2860=0
+    for eid in $EVENT_IDS_STR; do
+        [ "$eid" = "2860" ] && HAS_2860=1
+    done
+
+    mapfile -t match_files < <(cd "${staging_dir}/event_matches/cn" && ls -1 ./*.json 2>/dev/null | sed 's#^\./##')
+    echo "    resolved $(echo "$EVENT_IDS_STR" | wc -w) event(s): ${EVENT_IDS_STR}"
+    echo "    ${#match_files[@]} match file(s):"
     for name in "${match_files[@]}"; do
         echo "      - ${name}"
     done

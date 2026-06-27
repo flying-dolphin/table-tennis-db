@@ -1,6 +1,6 @@
 # 赛事数据日常更新流程
 
-最后核对：2026-06-26
+最后核对：2026-06-27
 
 本文档是赛事数据更新的唯一操作说明。数据库维护、部署和脚本总览文档只保留职责说明，并链接到本文档。
 
@@ -262,12 +262,12 @@ REMOTE_PYENV_ENV_NAME=venv \
 deploy/server/update_event_runtime.sh --skip-publish --install-crontab <event_id>
 ```
 
-登录生产服务器后也可以直接使用：
+登录生产服务器后也可以直接使用（current-event 代码与其它发布脚本同根，发布在
+`doubao_tt/` 下）：
 
 ```bash
-ITTF_DATA_DIR=/opt/ittf-data \
-PYENV_ENV_NAME=venv \
-/opt/ittf-ops/install_current_event_crontab.sh <event_id>
+cd doubao_tt
+PYENV_ENV_NAME=venv ./deploy/server/install_current_event_crontab.sh <event_id>
 ```
 
 生成器依据 `current_event_session_schedule` 安排：
@@ -286,7 +286,7 @@ crontab -l | sed -n \
   '/ITTF current-event refresh begin/,/ITTF current-event refresh end/p'
 ```
 
-注意：当前部署包对自动 promote 的支持存在缺口，见第 8 节。修复前必须把赛后手动 promote 和校验作为正式操作。
+注意：`promote` 自动任务依赖的脚本现在已随发布包一起部署，cron 命令路径也与发布布局一致（见第 8 节）。但完赛后仍必须人工核对 promote 是否实际成功，不能仅因 crontab 中存在 `sources=promote` 就认为已进入历史事实表。
 
 ### 4.5 赛事期间的手动补跑
 
@@ -655,7 +655,22 @@ python scripts/fix_special_event_2860_stage_round.py
 
 第 7.1–7.5 节都在开发机执行：抓取、翻译，并通过 `scripts/run_import_wtt_events.sh`
 把已完赛历史赛事导入开发机数据库。确认开发机数据无误后，用专用发布脚本把同一批
-赛事导入服务器 A 的线上数据库：
+赛事导入服务器 A 的线上数据库。
+
+推荐用 `--event-file` 直接指向本批的 events_list JSON，脚本会自动解析其中的
+`events[].event_id`，无需逐一手填 id（与 `run_import_wtt_events.sh --event-file` 语义
+一致）：
+
+```bash
+REMOTE_HOST=deploy@serverA \
+deploy/server/update_historical_events.sh \
+  --event-file data/events_list/cn/events_from_2026-05-05.json
+```
+
+`--event-file` 模式只发布文件中**已经有 `data/event_matches/cn` match 文件**的赛事，
+尚未抓取/翻译的赛事会被跳过并告警，不会误删线上数据。
+
+也可以显式指定少量 id（每个 id 必须既有 events_list 条目又有 match 文件，否则报错）：
 
 ```bash
 REMOTE_HOST=deploy@serverA \
@@ -685,7 +700,9 @@ deploy/server/update_historical_events.sh --event-id <event_id> [<event_id> ...]
 
 说明：
 
-- 发布脚本严格按 `--event-id` 限定范围，不会触碰其它赛事的历史事实数据。
+- 发布脚本严格按本批解析出的 event id 限定范围（`--event-id` 显式给定，或
+  `--event-file` 从 JSON 解析并按 match 文件存在性过滤），不会触碰其它赛事的历史
+  事实数据。
 - 线上不抓取同名球员证据；这些 `player_*.json` 必须先在开发机由
   `scripts/run_import_wtt_events.sh` 准备好，再由本脚本上传。
 - 远端用 `${REMOTE_PYTHON}` 直接调用各导入器，不调用开发机的
@@ -698,21 +715,37 @@ deploy/server/update_historical_events.sh --event-id <event_id> [<event_id> ...]
 2026 年及以后赛事（场景 A/B）走当前赛事主链路 + promote，其线上数据由服务器 A 的
 赛事刷新和 promote 流程产生，不使用本脚本。本脚本只用于第 7 节的历史链路。
 
-## 8. 当前已知运维缺口
+## 8. 部署闭环与剩余缺口
 
-截至 2026-06-15，代码中的 cron 生成器会生成赛后 promote 任务，但服务器最小部署链路尚未形成可靠闭环：
+### 8.1 promote 部署闭环（已修复）
 
-1. `deploy/server/update_event_runtime.sh` 只发布当前赛事刷新 runtime，没有上传 `scripts/db/promote_current_event.py`。
-2. promote 依赖的 `_match_keys.py`、`import_event_draw_matches.py`、`import_sub_events.py` 等文件也不在最小运行包中。
-3. `generate_current_event_crontab.py` 生成的 promote 命令使用 `scripts/db/promote_current_event.py`，与 `/opt/ittf-ops/runtime/python/` 的最小部署目录结构不一致。
-4. 当前 `current_event_*` 抓取和导入实现明显以团体赛为中心，默认 sub-event 为 `MTEAM`、`WTEAM`，官方结果导入器也按 team tie/rubber 建模。将主链路用于个人赛事前，必须先验证该赛事类型的数据能否被现有 importer 完整表达。
+截至 2026-06-27，赛后自动 promote 的部署链路已闭环：
 
-因此当前正式操作要求：
+1. `deploy/server/update_event_runtime.sh` 现在按仓库目录镜像发布到 `doubao_tt/` 下，
+   除当前赛事刷新 runtime（`scripts/runtime/`）外，还发布 `scripts/db/promote_current_event.py`
+   及其依赖（`_match_keys.py`、`_import_summary.py`、`import_event_draw_matches.py`、
+   `import_sub_events.py`、`config.py`）。
+2. current-event 代码与 rankings/calendar/historical 发布脚本同根，统一写 `doubao_tt/data/db/ittf.db`
+   （即网站读取的库）。`generate_current_event_crontab.py` 生成的命令形如
+   `cd doubao_tt && <python> scripts/db/promote_current_event.py ...`，路径与发布布局一致。
+3. 同时发布 per-session 赛程抓取脚本 `scripts/scrape_event_schedule.py` 及其翻译栈
+   （`scripts/lib/{translator,dict_translator,event_translation}.py`、
+   `scripts/data/translation_dict_v2.json`、`docs/rules/TRANSLATION_RULES.md`）。
+   该脚本走 LLM 翻译，服务器需在 `doubao_tt/.env` 配置 `MINIMAX_API_KEY`。
 
-- cron 仍用于赛事期间的定时刷新。
-- 赛事结束后必须人工检查 promote 是否实际成功。
-- 在部署缺口修复前，以仓库完整环境中的手动 promote 为准。
-- 不要仅因 crontab 中存在 `sources=promote` 就认为赛事已经进入历史事实表。
+仍需注意：
+
+- 完赛后必须人工核对 promote 是否实际成功（见第 6 节校验），不要仅因 crontab 中存在
+  `sources=promote` 就认为赛事已经进入历史事实表。
+- schema 迁移脚本（`scripts/db/upgrade_schema_*.py`）和人工 session 日程
+  （`data/event_schedule/{event_id}.json`）目前仍按一次性手动处理：手动 scp 到
+  `doubao_tt/` 对应路径并在线上执行/导入，发布脚本不负责这两类一次性数据。
+
+### 8.2 剩余缺口：个人赛建模
+
+当前 `current_event_*` 抓取和导入实现明显以团体赛为中心，默认 sub-event 为 `MTEAM`、
+`WTEAM`，官方结果导入器也按 team tie/rubber 建模。将主链路用于个人赛事前，必须先验证
+该赛事类型的数据能否被现有 importer 完整表达。
 
 ## 9. 故障排查
 

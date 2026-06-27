@@ -31,7 +31,7 @@
    │   ↓                  │   │         │ reads    │    │           │          │
    │  Python 抓取 + 导入   │   │  ┌──────▼───────┐  │    │  ┌────────▼───────┐  │
    │  → 本地 SQLite        │   │  │ SQLite 数据库 │  │    │  │ PostgreSQL 专用 │  │
-   │  → .backup 快照       ├──►│  │ /opt/ittf/   │  │    │  └────────────────┘  │
+   │  → .backup 快照       ├──►│  │ doubao_tt/   │  │    │  └────────────────┘  │
    │  rsync 推送 ─────────►│   │  │  data/db/    │  │    │                      │
    │                      │   │  │  ittf.db     │  │    │  与服务器 A 完全隔离   │
    └──────────┬───────────┘   │  └──────────────┘  │    └──────────────────────┘
@@ -61,7 +61,7 @@
 |------|--------|------|------|
 | 阿里云 ACR | 阿里云 | SaaS（个人版免费） | 存放 Web 镜像 |
 | Next.js Web | 服务器 A | Docker 容器（pull from ACR） | 对外 SSR + API |
-| SQLite 数据库 | 服务器 A | 宿主文件 `/opt/ittf/data/db/ittf.db` | 网站读取的真实数据 |
+| SQLite 数据库 | 服务器 A | 宿主文件 `/home/flyingfox/doubao_tt/data/db/ittf.db` | 网站读取的真实数据 |
 | Cloudflare | 边缘 | SaaS | DNS 代理、WAF、Bot、防刷、TLS 入口 |
 | Nginx + 源站证书 | 服务器 A | 宿主 | 仅供 Cloudflare 回源的反代 + HTTPS |
 | Python 赛事刷新 | **服务器 A** | host venv + cron | 直接刷新 WTT 公开接口数据并写入本机 SQLite |
@@ -121,9 +121,10 @@ Web 镜像只发布应用代码、Next.js 构建产物、非头像 public 资源
 | Player detail 完整头像缩略图 | `${ITTF_DATA_DIR}/web_assets/avatar-full-thumbs/` | 首次不存在或 `avatars` 源图变化时，开发机执行 `npm run images:avatar-full` 生成后 `rsync --delete`，见 5.4 节 | 球员详情页头像 404 或首字母占位 |
 | 进行中赛事 WTT 原始结果 | `${ITTF_DATA_DIR}/wtt_raw/{event_id}/` | 从抓取产物同步 `GetOfficialResult*.json`，必要时同步 `GetEventSchedule.json` | 进行中团体赛缺官方比分补充 |
 | 球员历史国家映射 | `${ITTF_DATA_DIR}/player_country_history.json` | 和 ranking/profile 数据一起发布；`deploy/server/update_rankings_profiles.sh --changed-since ...` 只在文件修改时间晚于指定时间时上传 | 详情页历史国家回写缺失 |
-| 赛事刷新 runtime 脚本 | `/opt/ittf-ops/` | 执行 `deploy/server/update_event_runtime.sh`，见 8.2 节 | cron 调用旧脚本或缺依赖 |
-| 当前赛事抓取/导入产物 | `/opt/ittf-data/live_event_data/` | 服务器 A 的 `event_refresh.sh` 自动生成 | 当前赛事页面不更新 |
-| 人工维护赛程输入 | `/opt/ittf-data/event_schedule/` | 按赛事流程手动放入或同步 | cron 生成缺 session schedule |
+| 赛事刷新 runtime 脚本 | `doubao_tt/scripts/`、`doubao_tt/deploy/server/` | 执行 `deploy/server/update_event_runtime.sh`，见 8.2 节 | cron 调用旧脚本或缺依赖 |
+| 当前赛事抓取/导入产物 | `doubao_tt/data/live_event_data/` | 服务器 A 的 `event_refresh.sh` 自动生成 | 当前赛事页面不更新 |
+| 人工维护赛程输入 | `doubao_tt/data/event_schedule/` | 按赛事流程手动放入或同步 | cron 生成缺 session schedule |
+| 赛程翻译密钥 | `doubao_tt/.env` 的 `MINIMAX_API_KEY` | 手动配置 | `scrape_event_schedule.py` 翻译失败 |
 
 因此，**发 Web 镜像不等于发数据**。代码发版走第 7 节；头像缩略图走第 5.4 节；赛事刷新 runtime 走第 8.2 节；数据库和 rankings/profile 数据走第 8.3 节。
 
@@ -291,14 +292,14 @@ npm run images:avatar-full
 # 同步 ranking/list 缩略图到服务器 A 的 ${ITTF_DATA_DIR}/web_assets/avatar-thumbs/
 cd ..
 rsync -av --delete web/public/images/avatar-thumbs/ \
-  deploy@serverA:/opt/ittf/data/web_assets/avatar-thumbs/
+  deploy@serverA:/home/flyingfox/doubao_tt/data/web_assets/avatar-thumbs/
 
 # 同步 player detail 缩略图到服务器 A 的 ${ITTF_DATA_DIR}/web_assets/avatar-full-thumbs/
 rsync -av --delete web/public/images/avatar-full-thumbs/ \
-  deploy@serverA:/opt/ittf/data/web_assets/avatar-full-thumbs/
+  deploy@serverA:/home/flyingfox/doubao_tt/data/web_assets/avatar-full-thumbs/
 ```
 
-如果服务器 A 的部署用户、主机名或数据目录不同，把 `deploy@serverA:/opt/ittf/data` 替换成实际 `${ITTF_DATA_DIR}` 所在路径。`--delete` 会删除线上已不存在的旧缩略图，避免 stale 文件长期保留。
+如果服务器 A 的部署用户、主机名或数据目录不同，把 `deploy@serverA:/home/flyingfox/doubao_tt/data` 替换成实际 `${ITTF_DATA_DIR}` 所在路径。`--delete` 会删除线上已不存在的旧缩略图，避免 stale 文件长期保留。
 
 只更新头像、不改代码时，不需要重新 build 镜像；只执行本节的数据同步即可。
 
@@ -367,19 +368,19 @@ Remove-Item Env:SENTRY_AUTH_TOKEN
 
 ```bash
 # 创建项目目录与 deploy 用户
-sudo mkdir -p /opt/ittf
+sudo mkdir -p /home/flyingfox/doubao_tt
 sudo useradd -m -G docker deploy
-sudo chown -R deploy:deploy /opt/ittf
+sudo chown -R deploy:deploy /home/flyingfox/doubao_tt
 
 # 装 nginx + certbot
 sudo apt install -y nginx certbot python3-certbot-nginx
 
 # 赛事刷新 cron 日志目录
-sudo -u deploy mkdir -p /opt/ittf-logs
+sudo -u deploy mkdir -p /home/flyingfox/doubao_tt/data/logs
 
 # 切到 deploy 用户拉代码（仅 deploy/ 目录就够，源码不需要）
 sudo -u deploy -i
-cd /opt/ittf
+cd /home/flyingfox/doubao_tt
 git clone <repo-url> .            # 或者只 scp 部分目录
 mkdir -p data/db data/rankings data/player_profiles data/player_avatars data/matches_complete
 
@@ -397,11 +398,11 @@ cp -r web/public/images/avatar-full-thumbs data/web_assets/avatar-full-thumbs
 # 在 data/wtt_raw/{event_id}/ 下已有 GetOfficialResult_take10.json（必要时连同
 # GetOfficialResult.json、GetEventSchedule.json 一并同步）。
 mkdir -p data/wtt_raw/3216
-cp -r data/wtt_raw/3216 /opt/ittf/data/wtt_raw/
+cp -r data/wtt_raw/3216 /home/flyingfox/doubao_tt/data/wtt_raw/
 
 # 历史球员国家映射 data/player_country_history.json 也属于宿主数据卷内容。
 # 服务端运行时会直接读取它来回写历史国家，镜像本身不包含这份文件。
-cp data/player_country_history.json /opt/ittf/data/player_country_history.json
+cp data/player_country_history.json /home/flyingfox/doubao_tt/data/player_country_history.json
 ```
 
 > 漏掉这一步的现象：容器能起来，但前端所有运动员头像 404（控制台一片红的 `/images/avatars/*` 与 `/images/crops/*`）。Docker 在挂载点宿主目录不存在时会自动建空目录挂上去，于是只读挂载里看不到任何文件。
@@ -418,7 +419,7 @@ docker login crpi-0nufvytst96nosej.cn-beijing.personal.cr.aliyuncs.com
 ### 6.3 配 .env
 
 ```bash
-cd /opt/ittf
+cd /home/flyingfox/doubao_tt
 cp deploy/web/.env.example deploy/web/.env
 chmod 600 deploy/web/.env
 $EDITOR deploy/web/.env
@@ -430,7 +431,7 @@ $EDITOR deploy/web/.env
 
 ```env
 ITTF_WEB_IMAGE=crpi-0nufvytst96nosej.cn-beijing.personal.cr.aliyuncs.com/doubao_tt/doubao_web:vX.Y.Z
-ITTF_DATA_DIR=/opt/ittf/data
+ITTF_DATA_DIR=/home/flyingfox/doubao_tt/data
 APP_ORIGIN=https://ittf.your-domain.com
 SESSION_COOKIE_SECURE=true
 TRUST_PROXY_HEADERS=true
@@ -478,7 +479,7 @@ ITTF_WEB_IMAGE=crpi-0nufvytst96nosej.cn-beijing.personal.cr.aliyuncs.com/doubao_
 sqlite3 data/db/ittf.db ".backup data/db/ittf.initial.db"
 
 # 上传到服务器 A
-scp data/db/ittf.initial.db deploy@serverA:/opt/ittf/data/db/ittf.db
+scp data/db/ittf.initial.db deploy@serverA:/home/flyingfox/doubao_tt/data/db/ittf.db
 ```
 
 如果采用 checkpoint 方式：
@@ -487,7 +488,7 @@ scp data/db/ittf.initial.db deploy@serverA:/opt/ittf/data/db/ittf.db
 sqlite3 data/db/ittf.db "PRAGMA wal_checkpoint(TRUNCATE);"
 
 # 然后再上传主库文件
-scp data/db/ittf.db deploy@serverA:/opt/ittf/data/db/
+scp data/db/ittf.db deploy@serverA:/home/flyingfox/doubao_tt/data/db/
 ```
 
 后续日常同步建议继续走第八节的 `.backup` + 原子替换流程，不要直接复制正在使用中的 `ittf.db`。
@@ -495,7 +496,7 @@ scp data/db/ittf.db deploy@serverA:/opt/ittf/data/db/
 ### 6.5 拉镜像 + 起容器
 
 ```bash
-cd /opt/ittf
+cd /home/flyingfox/doubao_tt
 docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env pull web
 docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env up -d
 docker compose -f deploy/web/docker-compose.yml logs -f web
@@ -504,7 +505,7 @@ docker compose -f deploy/web/docker-compose.yml logs -f web
 ### 6.6 配 Nginx + TLS
 
 ```bash
-sudo cp /opt/ittf/deploy/web/nginx.conf.example /etc/nginx/conf.d/ittf.conf
+sudo cp /home/flyingfox/doubao_tt/deploy/web/nginx.conf.example /etc/nginx/conf.d/ittf.conf
 sudo sed -i 's/ittf.example.com/ittf.your-domain.com/g' /etc/nginx/conf.d/ittf.conf
 sudo nginx -t && sudo systemctl reload nginx
 sudo certbot --nginx -d ittf.your-domain.com
@@ -554,7 +555,7 @@ git pull && git status   # 确认是干净的
 
 # 2. 服务器 A
 ssh deploy@serverA
-cd /opt/ittf
+cd /home/flyingfox/doubao_tt
 sed -i 's|^ITTF_WEB_IMAGE=.*|ITTF_WEB_IMAGE=crpi-0nufvytst96nosej.cn-beijing.personal.cr.aliyuncs.com/doubao_tt/doubao_web:a1b2c3d|' deploy/web/.env
 docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env pull web
 docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env up -d
@@ -583,65 +584,65 @@ docker compose -f deploy/web/docker-compose.yml logs --tail=80 web
 
 赛事接入、赛中刷新、2026 年及以后赛事的赛后补抓、cron 安装时机和完赛 promote，统一见 [赛事数据日常更新流程](event-data-update-workflow.md)。本节只说明服务器运行环境和最小部署包。
 
-最小部署包：
+部署布局：current-event 运行代码与 rankings/calendar/historical 发布脚本**同根**，
+按仓库目录镜像发布到 `doubao_tt/` 下（默认远端项目根 `REMOTE_PROJECT_DIR=doubao_tt`），
+统一写网站读取的 `doubao_tt/data/db/ittf.db`：
 
 ```text
-/opt/ittf-ops/
-  event_refresh.sh
-  install_current_event_crontab.sh
-  runtime/
-    python/backfill_events_calendar_event_id.py
-    python/generate_current_event_crontab.py
-    python/import_current_event.py
-    python/import_current_event_brackets.py
-    python/import_current_event_completed.py
-    python/import_current_event_group_standings.py
-    python/import_current_event_live.py
-    python/import_current_event_session_schedule.py
-    python/scrape_current_event.py
-    python/scrape_wtt_brackets.py
-    python/scrape_wtt_live_matches.py
-    python/scrape_wtt_matches.py
-    python/scrape_wtt_pool_standings.py
-    python/scrape_wtt_schedule.py
-    python/wtt_import_shared.py
-    python/wtt_scrape_shared.py
-    python/lib/browser_runtime.py
+doubao_tt/
+  .env                                  # 含 MINIMAX_API_KEY（手动配置，不随包发布）
+  deploy/server/event_refresh.sh
+  deploy/server/install_current_event_crontab.sh
+  scripts/runtime/**                    # 当前赛事抓取 + 导入运行态（不含 test_*.py）
+  scripts/scrape_event_schedule.py      # per-session 赛程抓取
+  scripts/lib/translator.py
+  scripts/lib/dict_translator.py
+  scripts/lib/event_translation.py
+  scripts/data/translation_dict_v2.json # 赛程翻译词典
+  docs/rules/TRANSLATION_RULES.md       # 翻译 prompt 规则
+  scripts/db/config.py
+  scripts/db/_match_keys.py
+  scripts/db/_import_summary.py
+  scripts/db/import_event_draw_matches.py
+  scripts/db/import_sub_events.py
+  scripts/db/promote_current_event.py   # 赛后 promote（依赖上面几个）
+  data/db/ittf.db                       # 网站读取的库（不随包发布）
+  data/live_event_data/                 # 抓取产物（event_refresh.sh 自动生成）
+  data/event_schedule/                  # 人工 session 日程（手动放入）
 ```
 
 注意：
 
-- 服务器上**不需要完整仓库**
-- 只需要上传上面这些文件
-- 数据库、人工维护赛程和抓取产物单独放在 `ITTF_DATA_DIR` 指向的数据目录
-- 赛事当地时区必须维护在 `events.time_zone`，值必须是 IANA 时区名，例如 `Europe/London`
-- `current_event_session_schedule` 必须已有当前赛事日程，生成 cron 前先导入 `/opt/ittf-data/event_schedule/{event_id}.json`
-- 当前最小部署包不包含 promote 脚本及其依赖，不能把生成的自动 promote 任务视为已可靠部署；具体缺口和临时操作要求见赛事流程文档
+- 服务器上**不需要完整仓库**，只发布上面这些代码文件。
+- 数据库、人工维护赛程、抓取产物、`.env` 单独放在 `doubao_tt/data` 与 `doubao_tt/.env`，不随包发布。
+- 赛事当地时区必须维护在 `events.time_zone`，值必须是 IANA 时区名，例如 `Europe/London`。
+- `current_event_session_schedule` 必须已有当前赛事日程，生成 cron 前先导入 `doubao_tt/data/event_schedule/{event_id}.json`。
+- 赛后 promote 脚本及其依赖已包含在发布包中，cron 生成的 `sources=promote` 命令路径与发布布局一致；但完赛后仍须人工核对 promote 是否成功（见赛事流程文档第 8 节）。
+- `scripts/scrape_event_schedule.py` 走 LLM 翻译，需要 `doubao_tt/.env` 中的 `MINIMAX_API_KEY`。
 
-开发机可直接执行的上传命令：
+开发机可直接执行的上传命令（默认远端 `flyingfox@xiaodoubao.site:doubao_tt`）：
 
 ```bash
-REMOTE_HOST=deploy@serverA deploy/server/update_event_runtime.sh
+deploy/server/update_event_runtime.sh
 ```
 
-如果目标目录不是 `/opt/ittf-ops`：
+如果目标主机/项目根不同：
 
 ```bash
 REMOTE_HOST=deploy@serverA \
-REMOTE_OPS_DIR=/data/ittf-ops \
+REMOTE_PROJECT_DIR=doubao_tt \
 deploy/server/update_event_runtime.sh
 ```
 
 这个脚本会自动：
 
-1. 在服务器上创建 `runtime/data`、`runtime/python` 和 `runtime/python/lib`
-2. 上传最小运行包需要的所有文件
-3. 给 `event_refresh.sh` 添加执行权限
+1. 按仓库目录镜像，把上面清单里的文件解压发布到 `doubao_tt/` 下对应路径
+2. 给 `deploy/server/event_refresh.sh` 和 `install_current_event_crontab.sh` 添加执行权限
 
-发布运行时不等于安装当前赛事 cron。需要安装或替换高频 cron 时显式传入 event_id：
+发布运行时不等于安装当前赛事 cron。需要安装或替换高频 cron 时显式传入 event_id
+（`REMOTE_PYENV_ENV_NAME` 用于选定带无头浏览器的 python 环境给 cron 命令）：
 
 ```bash
-REMOTE_HOST=deploy@serverA \
 REMOTE_PYENV_ENV_NAME=venv \
 deploy/server/update_event_runtime.sh --install-crontab <event_id>
 ```
@@ -649,7 +650,6 @@ deploy/server/update_event_runtime.sh --install-crontab <event_id>
 如果运行时文件没有变化，只更新 cron：
 
 ```bash
-REMOTE_HOST=deploy@serverA \
 REMOTE_PYENV_ENV_NAME=venv \
 deploy/server/update_event_runtime.sh --skip-publish --install-crontab <event_id>
 ```
@@ -657,37 +657,36 @@ deploy/server/update_event_runtime.sh --skip-publish --install-crontab <event_id
 一次性准备：
 
 ```bash
-ssh deploy@serverA
+ssh flyingfox@xiaodoubao.site
 sudo apt install -y sqlite3 nodejs npm
-mkdir -p /opt/ittf-ops /opt/ittf-data/db /opt/ittf-data/live_event_data /opt/ittf-data/event_schedule /opt/ittf-logs
-chmod +x /opt/ittf-ops/event_refresh.sh
+mkdir -p doubao_tt/data/db doubao_tt/data/live_event_data doubao_tt/data/event_schedule doubao_tt/data/logs
 pyenv activate venv
 pip install patchright playwright beautifulsoup4 brotli python-dotenv requests pypdf
 npm i -g agent-browser
 python -m patchright install chromium
 agent-browser --version
 python --version
+# 配置赛程翻译密钥（scrape_event_schedule.py 需要）
+echo 'MINIMAX_API_KEY=<key>' >> doubao_tt/.env
 ```
 
 线上数据库放在：
 
 ```text
-/opt/ittf-data/db/ittf.db
+doubao_tt/data/db/ittf.db
 ```
 
-部署后可用单个赛事验证运行环境：
+部署后可用单个赛事验证运行环境（路径默认从脚本位置推导，无需再设 `ITTF_DATA_DIR`）：
 
 ```bash
-ITTF_DATA_DIR=/opt/ittf-data \
-PYENV_ENV_NAME=venv \
-EVENT_ID=<event_id> \
-/opt/ittf-ops/event_refresh.sh
+cd doubao_tt
+PYENV_ENV_NAME=venv EVENT_ID=<event_id> ./deploy/server/event_refresh.sh
 ```
 
 确认：
 
-- `/opt/ittf-data/live_event_data/` 已生成最新赛事目录
-- `/opt/ittf-data/db/backups/` 已生成备份
+- `doubao_tt/data/live_event_data/` 已生成最新赛事目录
+- `doubao_tt/data/db/backups/` 已生成备份
 - 命令输出没有 `failed` 或 `Error:`
 - `pyenv activate venv && python --version` 至少为 `Python 3.8`
 - `agent-browser --version` 能正常返回版本号
@@ -799,9 +798,14 @@ ${REMOTE_IMPORT_LOG_DIR}/events-calendar-{year}-${RUN_ID}.manifest.txt
 
 开发机按[赛事数据日常更新流程](event-data-update-workflow.md)第 7 节抓取、翻译并用
 `scripts/run_import_wtt_events.sh` 导入开发机数据库后，把同一批已完赛历史赛事发布到
-服务器 A 的线上数据库：
+服务器 A 的线上数据库。多赛事推荐用 `--event-file` 指向 events_list JSON，自动解析
+其中的 event id（也可用 `--event-id` 显式给定）：
 
 ```bash
+REMOTE_HOST=deploy@serverA \
+deploy/server/update_historical_events.sh \
+  --event-file data/events_list/cn/events_from_2026-05-05.json
+
 REMOTE_HOST=deploy@serverA \
 deploy/server/update_historical_events.sh --event-id <event_id> [<event_id> ...]
 ```
@@ -876,8 +880,8 @@ trackEvent('player_view', { slug: player.slug, source: 'ranking_list' });
 - [ ] 从第三方站点或伪造 `Origin` 发起认证类 `POST` 请求会被 403 拒绝
 - [ ] 直接访问服务器 A 的源站 IP 或未走 Cloudflare 的入口时，请求被拦截或无法正常使用
 - [ ] Cloudflare Security Events 里能看到认证接口的 challenge / rate limit 测试记录
-- [ ] 已执行 `deploy/server/update_event_runtime.sh --install-crontab <event_id>` 或远程 `/opt/ittf-ops/install_current_event_crontab.sh <event_id>`，并成功安装 `ITTF current-event refresh` 托管区块
-- [ ] cron 跑完：服务器 A `/opt/ittf/data/db/ittf.db` 时间戳更新，`${ITTF_DATA_DIR}/logs/event_<id>_YYYYMMDD.log` 有新增内容
+- [ ] 已执行 `deploy/server/update_event_runtime.sh --install-crontab <event_id>` 或远程 `cd doubao_tt && ./deploy/server/install_current_event_crontab.sh <event_id>`，并成功安装 `ITTF current-event refresh` 托管区块
+- [ ] cron 跑完：服务器 A `doubao_tt/data/db/ittf.db` 时间戳更新，`doubao_tt/data/logs/event_<id>_YYYYMMDD.log` 有新增内容
 
 ---
 
@@ -887,10 +891,10 @@ trackEvent('player_view', { slug: player.slug, source: 'ranking_list' });
 
 | 位置 | 命令 |
 |------|------|
-| 服务器 A 容器 | `docker compose -f /opt/ittf/deploy/web/docker-compose.yml logs --tail=200 -f web` |
+| 服务器 A 容器 | `docker compose -f /home/flyingfox/doubao_tt/deploy/web/docker-compose.yml logs --tail=200 -f web` |
 | 服务器 A nginx | `sudo tail -f /var/log/nginx/{error,access}.log` |
 | 服务器 B 容器 | `docker compose -f /opt/umami/docker-compose.yml logs -f` |
-| 服务器 A 赛事 cron | `tail -f /opt/ittf-data/logs/event_<id>_$(date +%Y%m%d).log` |
+| 服务器 A 赛事 cron | `tail -f doubao_tt/data/logs/event_<id>_$(date +%Y%m%d).log` |
 | Sentry | `https://sentry.io` Issues / Performance / Crons |
 | Umami | `https://analytics.your-domain.com` Realtime / Events |
 | Clarity | `https://clarity.microsoft.com` Recordings / Heatmaps |
@@ -919,20 +923,20 @@ docker compose up -d
 
 **Web 容器起不来**
 ```bash
-docker compose -f /opt/ittf/deploy/web/docker-compose.yml logs web
+docker compose -f /home/flyingfox/doubao_tt/deploy/web/docker-compose.yml logs web
 # 常见：.env 缺值 / SQLite 不存在 / 端口被占
 ```
 
 **所有运动员头像 404（页面是好的，但头像位置全是首字母占位）**
 ```bash
 # 确认挂载点存在且非空
-ls /opt/ittf/data/web_assets/avatar-thumbs | head
-ls /opt/ittf/data/web_assets/avatar-full-thumbs | head
+ls /home/flyingfox/doubao_tt/data/web_assets/avatar-thumbs | head
+ls /home/flyingfox/doubao_tt/data/web_assets/avatar-full-thumbs | head
 
 # 如果是空目录，从有完整图片源文件的机器重新生成并同步一份。
 # 生成命令只在缩略图不存在或源图变化时需要；已有可用缩略图时直接同步即可。
 # 开发机推荐用 rsync，见 5.4 节；服务器有完整 repo 时也可本地生成：
-cd /opt/ittf
+cd /home/flyingfox/doubao_tt
 ( cd web && npm run images:avatars && npm run images:avatar-full )
 cp -r web/public/images/avatar-thumbs      data/web_assets/avatar-thumbs
 cp -r web/public/images/avatar-full-thumbs data/web_assets/avatar-full-thumbs
@@ -945,26 +949,26 @@ docker compose -f deploy/web/docker-compose.yml exec web ls /app/web/public/imag
 **进行中团体赛缺比分 / 小组积分表不完整**
 ```bash
 # 确认宿主数据卷里存在运行时所需的 WTT 原始结果文件
-ls /opt/ittf/data/wtt_raw/3216
-ls /opt/ittf/data/wtt_raw/3216/GetOfficialResult_take10.json
+ls /home/flyingfox/doubao_tt/data/wtt_raw/3216
+ls /home/flyingfox/doubao_tt/data/wtt_raw/3216/GetOfficialResult_take10.json
 
 # 容器内确认 /app/data 挂载后文件可见
 docker compose -f deploy/web/docker-compose.yml exec web ls /app/data/wtt_raw/3216/GetOfficialResult_take10.json
 ```
 
-如果服务器上缺这个文件，需要从已有抓取产物同步到 `/opt/ittf/data/wtt_raw/{event_id}/`，或确认页面已经改为读取当前 `current_event_*` 运行态表。`event_refresh.sh` 当前刷新的是 `/opt/ittf-data/live_event_data/` 与 SQLite current 表，不会生成旧的 `wtt_raw` 文件。
+如果服务器上缺这个文件，需要从已有抓取产物同步到 `/home/flyingfox/doubao_tt/data/wtt_raw/{event_id}/`，或确认页面已经改为读取当前 `current_event_*` 运行态表。`event_refresh.sh` 当前刷新的是 `doubao_tt/data/live_event_data/` 与 SQLite current 表，不会生成旧的 `wtt_raw` 文件。
 
 **SQLite 损坏**
 ```bash
-docker compose -f /opt/ittf/deploy/web/docker-compose.yml stop web
-ls -t /opt/ittf/data/db/backups/ | head
-cp /opt/ittf/data/db/backups/ittf-YYYYMMDD_HHMMSS.db /opt/ittf/data/db/ittf.db
-docker compose -f /opt/ittf/deploy/web/docker-compose.yml start web
+docker compose -f /home/flyingfox/doubao_tt/deploy/web/docker-compose.yml stop web
+ls -t /home/flyingfox/doubao_tt/data/db/backups/ | head
+cp /home/flyingfox/doubao_tt/data/db/backups/ittf-YYYYMMDD_HHMMSS.db /home/flyingfox/doubao_tt/data/db/ittf.db
+docker compose -f /home/flyingfox/doubao_tt/deploy/web/docker-compose.yml start web
 ```
 
 **当前赛事 cron 没有跑起来**
 - 检查 crontab 托管区块是否存在：`crontab -l | sed -n '/ITTF current-event refresh begin/,/ITTF current-event refresh end/p'`
-- 检查当天日志：`tail -f /opt/ittf-data/logs/event_<id>_$(date +%Y%m%d).log`
+- 检查当天日志：`tail -f doubao_tt/data/logs/event_<id>_$(date +%Y%m%d).log`
 - 常见：`events.time_zone` 缺失、`current_event_session_schedule` 未导入、浏览器依赖不完整、WTT 接口临时失败
 
 **镜像 pull 失败 401**
@@ -974,8 +978,8 @@ docker compose -f /opt/ittf/deploy/web/docker-compose.yml start web
 **回滚到上一个版本**
 ```bash
 ssh deploy@serverA
-sed -i 's|ITTF_WEB_IMAGE=.*|ITTF_WEB_IMAGE=crpi-...:<上一个 tag>|' /opt/ittf/deploy/web/.env
-cd /opt/ittf
+sed -i 's|ITTF_WEB_IMAGE=.*|ITTF_WEB_IMAGE=crpi-...:<上一个 tag>|' /home/flyingfox/doubao_tt/deploy/web/.env
+cd /home/flyingfox/doubao_tt
 docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env pull web
 docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env up -d
 ```

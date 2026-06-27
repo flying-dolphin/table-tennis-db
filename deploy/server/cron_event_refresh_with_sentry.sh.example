@@ -3,8 +3,9 @@
 # 服务器 A 上用 sentry-cli monitors run 包装 event_refresh.sh
 # 复制为 cron_event_refresh_with_sentry.sh 后填写 SENTRY_* 变量
 #
+# 放置位置（与 current-event 代码同根）：doubao_tt/deploy/server/cron_event_refresh_with_sentry.sh
 # Cron 示例（每天北京时间 06:10 跑一次）：
-#   10 6 * * * PYENV_ENV_NAME=venv /opt/ittf-ops/cron_event_refresh_with_sentry.sh >> /opt/ittf-logs/event-refresh.log 2>&1
+#   10 6 * * * PYENV_ENV_NAME=venv doubao_tt/deploy/server/cron_event_refresh_with_sentry.sh >> doubao_tt/data/logs/event-refresh.log 2>&1
 
 set -euo pipefail
 
@@ -15,4 +16,4 @@ export SENTRY_DSN=https://<key>@o<orgid>.ingest.sentry.io/<projectid>
 MONITOR_SLUG=ittf-event-refresh
 
 exec sentry-cli monitors run "${MONITOR_SLUG}" -- \
-    /opt/ittf-ops/event_refresh.sh
+    "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)/event_refresh.sh"

@@ -1,30 +1,36 @@
 #!/usr/bin/env bash
 #
 # 服务器 A 上的赛事自动刷新最小部署入口。
-# 依赖 deploy/server/runtime/ 目录，不依赖整仓库。
+#
+# 布局：current-event 运行代码与 rankings/calendar/historical 发布脚本同根，
+# 镜像仓库结构发布到 doubao_tt/ 下：
+#   doubao_tt/deploy/server/event_refresh.sh                (本脚本)
+#   doubao_tt/deploy/server/install_current_event_crontab.sh
+#   doubao_tt/scripts/runtime/*.py                          (抓取/导入运行态)
+#   doubao_tt/scripts/db/*.py                               (promote + 历史导入器)
+#   doubao_tt/scripts/lib/*.py + scripts/data/translation_dict_v2.json  (赛程翻译)
+#   doubao_tt/data/db/ittf.db                               (网站读取的库)
+#   doubao_tt/data/live_event_data/                         (抓取产物)
+#   doubao_tt/data/event_schedule/                          (人工 session 日程，可选)
 #
 # 运行前提：
-#   - 已上传 deploy/server/event_refresh.sh
-#   - 已上传 deploy/server/runtime/
-#   - 已准备好 pyenv 环境（推荐）或传统 venv（兜底）
+#   - 已用 deploy/server/update_event_runtime.sh 发布上述代码
+#   - 已准备好 pyenv 环境（设 PYENV_ENV_NAME，推荐）或用 PYTHON_BIN 显式指定解释器，
+#     且该解释器装有 patchright/playwright + chromium（默认 sources 含 standings/live 需要无头浏览器）
 #   - sqlite3 命令可用
-#   - 若使用默认 sources（含 completed/live/standings），还需：
-#       patchright/playwright + chromium（例如 python -m patchright install chromium）
 #
-# 外部数据目录结构（默认 /opt/ittf-data）：
-#   /opt/ittf-data/db/ittf.db
-#   /opt/ittf-data/live_event_data/
-#   /opt/ittf-data/event_schedule/   (可选)
+# 路径默认从脚本位置推导（PROJECT_ROOT = 本脚本上两级目录），也可用环境变量覆盖。
 
 set -euo pipefail
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-RUNTIME_DIR="${SCRIPT_DIR}/runtime"
-ITTF_DATA_DIR=${ITTF_DATA_DIR:-/opt/ittf-data}
+PROJECT_ROOT=${PROJECT_ROOT:-$(CDPATH= cd -- "${SCRIPT_DIR}/../.." && pwd)}
+ITTF_DATA_DIR=${ITTF_DATA_DIR:-${PROJECT_ROOT}/data}
 DB_PATH=${DB_PATH:-${ITTF_DATA_DIR}/db/ittf.db}
+RUNTIME_PY_DIR="${PROJECT_ROOT}/scripts/runtime"
 PYENV_ROOT=${PYENV_ROOT:-${HOME}/.pyenv}
 PYENV_ENV_NAME=${PYENV_ENV_NAME:-}
-VENV_PATH=${VENV_PATH:-/opt/ittf-venv}
+PYTHON_BIN=${PYTHON_BIN:-}
 BACKUP_DIR=${BACKUP_DIR:-${ITTF_DATA_DIR}/db/backups}
 RETENTION_DAYS=${RETENTION_DAYS:-30}
 EVENT_SCHEDULE_DIR=${EVENT_SCHEDULE_DIR:-${ITTF_DATA_DIR}/event_schedule}
@@ -55,17 +61,16 @@ require_command() {
 }
 
 require_command sqlite3
-require_file "${RUNTIME_DIR}"
-require_file "${RUNTIME_DIR}/python/backfill_events_calendar_event_id.py"
-require_file "${RUNTIME_DIR}/python/scrape_current_event.py"
-require_file "${RUNTIME_DIR}/python/import_current_event.py"
-require_file "${RUNTIME_DIR}/python/import_current_event_session_schedule.py"
+require_file "${RUNTIME_PY_DIR}/backfill_events_calendar_event_id.py"
+require_file "${RUNTIME_PY_DIR}/scrape_current_event.py"
+require_file "${RUNTIME_PY_DIR}/import_current_event.py"
+require_file "${RUNTIME_PY_DIR}/import_current_event_session_schedule.py"
 require_file "${DB_PATH}"
 
 mkdir -p "${BACKUP_DIR}"
 mkdir -p "${LIVE_EVENT_DATA_DIR}"
 
-cd "${SCRIPT_DIR}"
+cd "${PROJECT_ROOT}"
 export DB_PATH
 
 if [[ -n "${PYENV_ENV_NAME}" ]]; then
@@ -79,13 +84,12 @@ if [[ -n "${PYENV_ENV_NAME}" ]]; then
     pyenv activate "${PYENV_ENV_NAME}"
     PYTHON_BIN="$(pyenv which python)"
     log "使用 pyenv 环境 ${PYENV_ENV_NAME}: ${PYTHON_BIN}"
+elif [[ -n "${PYTHON_BIN}" ]]; then
+    require_file "${PYTHON_BIN}"
+    log "使用指定解释器 PYTHON_BIN: ${PYTHON_BIN}"
 else
-    require_file "${VENV_PATH}/bin/activate"
-    require_file "${VENV_PATH}/bin/python"
-    # shellcheck disable=SC1091
-    source "${VENV_PATH}/bin/activate"
-    PYTHON_BIN="${VENV_PATH}/bin/python"
-    log "使用 venv 解释器: ${PYTHON_BIN}"
+    echo "[ERROR] 需设置 PYENV_ENV_NAME（推荐）或 PYTHON_BIN 指向装有 playwright/patchright 的解释器" >&2
+    exit 1
 fi
 
 BACKUP_DATE="$(date +%Y%m%d)"
@@ -100,7 +104,7 @@ fi
 find "${BACKUP_DIR}" -name 'ittf-pre-event-refresh-*.db' -mtime +"${RETENTION_DAYS}" -delete
 
 log "回填 events_calendar.event_id 并补齐 events"
-"${PYTHON_BIN}" "${RUNTIME_DIR}/python/backfill_events_calendar_event_id.py" --db "${DB_PATH}"
+"${PYTHON_BIN}" "${RUNTIME_PY_DIR}/backfill_events_calendar_event_id.py" --db "${DB_PATH}"
 
 if [[ -n "${EVENT_ID:-}" ]]; then
     EVENT_IDS="${EVENT_ID}"
@@ -118,12 +122,12 @@ fi
 while IFS= read -r CURRENT_EVENT_ID; do
     [[ -z "${CURRENT_EVENT_ID}" ]] && continue
     log "刷新当前赛事 ${CURRENT_EVENT_ID}"
-    "${PYTHON_BIN}" "${RUNTIME_DIR}/python/scrape_current_event.py" \
+    "${PYTHON_BIN}" "${RUNTIME_PY_DIR}/scrape_current_event.py" \
         --event-id "${CURRENT_EVENT_ID}" \
         --live-event-data-root "${LIVE_EVENT_DATA_DIR}" \
         --headless
 
-    "${PYTHON_BIN}" "${RUNTIME_DIR}/python/import_current_event.py" \
+    "${PYTHON_BIN}" "${RUNTIME_PY_DIR}/import_current_event.py" \
         --event-id "${CURRENT_EVENT_ID}" \
         --db-path "${DB_PATH}" \
         --live-event-data-root "${LIVE_EVENT_DATA_DIR}" \

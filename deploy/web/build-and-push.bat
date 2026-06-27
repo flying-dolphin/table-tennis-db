@@ -84,7 +84,7 @@ echo OK: built and pushed %IMAGE%:!TAG!
 echo.
 echo Next, on server A:
 echo   ssh deploy@serverA
-echo   cd /opt/ittf
+echo   cd /home/flyingfox/doubao_tt
 echo   # edit deploy/web/.env: ITTF_WEB_IMAGE=%IMAGE%:!TAG!
 echo   docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env pull web
 echo   docker compose -f deploy/web/docker-compose.yml --env-file deploy/web/.env up -d
