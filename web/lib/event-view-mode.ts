@@ -13,3 +13,10 @@ export function shouldUseScheduleTabs({
   if (sessionScheduleCount > 0) return true;
   return scheduleDays.some((day) => day.localDate != null && day.localDate !== '日期待定');
 }
+
+export function shouldShowBeijingTimeForEvent(
+  _lifecycleStatus: string | null | undefined,
+  eventTimeZone: string | null | undefined,
+) {
+  return Boolean(eventTimeZone && eventTimeZone !== 'Asia/Shanghai');
+}

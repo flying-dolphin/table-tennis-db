@@ -30,6 +30,13 @@ SUB_EVENT_TYPE_MAP = {
     "women's team": "WT",
     "mixed team": "XT",
 }
+INDIVIDUAL_SUB_EVENT_TYPE_MAP = {
+    "men's singles": "MS",
+    "women's singles": "WS",
+    "men's doubles": "MD",
+    "women's doubles": "WD",
+    "mixed doubles": "XD",
+}
 
 
 def official_results_path(event_dir: Path) -> Path:
@@ -43,6 +50,8 @@ def parse_sub_event_type(value: str | None, category: str | None) -> str | None:
     key = (value or "").strip().lower()
     if key in SUB_EVENT_TYPE_MAP:
         return SUB_EVENT_TYPE_MAP[key]
+    if key in INDIVIDUAL_SUB_EVENT_TYPE_MAP:
+        return INDIVIDUAL_SUB_EVENT_TYPE_MAP[key]
 
     raw = (category or "").strip().lower()
     if raw.startswith("men's teams"):
@@ -51,6 +60,9 @@ def parse_sub_event_type(value: str | None, category: str | None) -> str | None:
         return "WT"
     if raw.startswith("mixed teams"):
         return "XT"
+    for name, code in INDIVIDUAL_SUB_EVENT_TYPE_MAP.items():
+        if raw.startswith(name):
+            return code
     return None
 
 
@@ -110,6 +122,16 @@ def official_match_score(match_card: dict) -> str | None:
     return None
 
 
+def official_games(match_card: dict) -> str | None:
+    for key in ("resultsGameScores", "gameScores"):
+        value = match_card.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+        if isinstance(value, list) and value:
+            return json.dumps(value, ensure_ascii=False)
+    return None
+
+
 def parse_table_name(match_card: dict) -> str | None:
     for key in ("tableName", "tableNumber"):
         value = match_card.get(key)
@@ -130,6 +152,203 @@ def parse_team_codes(match_card: dict) -> tuple[str | None, str | None]:
     while len(teams) < 2:
         teams.append(None)
     return teams[0], teams[1]
+
+
+def parse_individual_competitors(match_card: dict) -> list[dict]:
+    competitors = match_card.get("competitiors") or []
+    return [item for item in competitors[:2] if isinstance(item, dict)]
+
+
+def competitor_display_name(competitor: dict) -> str | None:
+    value = competitor.get("competitiorName") or competitor.get("competitorName")
+    return value.strip() if isinstance(value, str) and value.strip() else None
+
+
+def competitor_org(competitor: dict) -> str | None:
+    value = competitor.get("competitiorOrg") or competitor.get("competitorOrg")
+    return value.strip() if isinstance(value, str) and value.strip() else None
+
+
+def competitor_players(competitor: dict) -> list[dict]:
+    players = competitor.get("players") or []
+    if isinstance(players, list) and players:
+        return [player for player in players if isinstance(player, dict)]
+    name = competitor_display_name(competitor)
+    org = competitor_org(competitor)
+    if not name:
+        return []
+    return [{"playerName": name, "playerOrgCode": org, "playerPosition": 1}]
+
+
+def replace_individual_match_children(
+    cursor: sqlite3.Cursor,
+    current_match_id: int,
+    competitors: list[dict],
+    winner_side: str | None,
+) -> tuple[int, int]:
+    cursor.execute(
+        """
+        DELETE FROM current_event_match_side_players
+        WHERE current_match_side_id IN (
+            SELECT current_match_side_id
+            FROM current_event_match_sides
+            WHERE current_match_id = ?
+        )
+        """,
+        (current_match_id,),
+    )
+    cursor.execute("DELETE FROM current_event_match_sides WHERE current_match_id = ?", (current_match_id,))
+
+    side_count = 0
+    player_count = 0
+    for side_no, competitor in enumerate(competitors[:2], start=1):
+        cursor.execute(
+            """
+            INSERT INTO current_event_match_sides (
+                current_match_id, side_no, team_code, seed, qualifier, placeholder_text, is_winner
+            ) VALUES (?, ?, ?, NULL, NULL, NULL, ?)
+            """,
+            (
+                current_match_id,
+                side_no,
+                competitor_org(competitor),
+                1 if winner_side == ("A" if side_no == 1 else "B") else 0,
+            ),
+        )
+        current_match_side_id = int(cursor.lastrowid)
+        side_count += 1
+
+        for player_order, player in enumerate(competitor_players(competitor), start=1):
+            name = player.get("playerName") or competitor_display_name(competitor)
+            if not name:
+                continue
+            cursor.execute(
+                """
+                INSERT INTO current_event_match_side_players (
+                    current_match_side_id, player_order, player_id, player_name, player_country
+                ) VALUES (?, ?, NULL, ?, ?)
+                """,
+                (
+                    current_match_side_id,
+                    player_order,
+                    name,
+                    player.get("playerOrgCode") or competitor_org(competitor),
+                ),
+            )
+            player_count += 1
+
+    return side_count, player_count
+
+
+def winner_name_for_side(competitors: list[dict], winner_side: str | None) -> str | None:
+    if winner_side not in {"A", "B"}:
+        return None
+    index = 0 if winner_side == "A" else 1
+    if len(competitors) <= index:
+        return None
+    return competitor_display_name(competitors[index])
+
+
+def upsert_official_individual_match(
+    cursor: sqlite3.Cursor,
+    *,
+    event_id: int,
+    item: dict,
+    sub_event_type_code: str,
+    category: str,
+) -> tuple[bool, int, int]:
+    match_card = item.get("match_card") if isinstance(item.get("match_card"), dict) else {}
+    competitors = parse_individual_competitors(match_card)
+    if len(competitors) < 2:
+        return False, 0, 0
+
+    external_match_code = shared.normalize_external_match_code(item.get("documentCode") or match_card.get("documentCode"))
+    if not external_match_code:
+        return False, 0, 0
+
+    stage_code, round_code = normalize_round_from_category(category)
+    group_code = parse_group_code(category)
+    raw_score = official_match_score(match_card)
+    match_score, winner_side = build_score_a_perspective(raw_score, None, None, True)
+    start_local = ((match_card.get("matchDateTime") or {}).get("startDateLocal")) or item.get("startDateLocal")
+    match_number = parse_match_number(match_card.get("subEventDescription"))
+    scheduled_local_at = parse_scheduled_local_at(start_local)
+    session_label = parse_match_info(match_number, start_local)
+    raw_payload = json.dumps(item, ensure_ascii=False)
+
+    existing = cursor.execute(
+        """
+        SELECT current_match_id
+        FROM current_event_matches
+        WHERE event_id = ? AND external_match_code = ?
+        """,
+        (event_id, external_match_code),
+    ).fetchone()
+    values = (
+        event_id,
+        sub_event_type_code,
+        category,
+        stage_code,
+        category,
+        round_code,
+        group_code,
+        external_match_code,
+        scheduled_local_at,
+        parse_table_name(match_card),
+        session_label,
+        "completed",
+        "Official",
+        match_score,
+        official_games(match_card),
+        winner_side,
+        winner_name_for_side(competitors, winner_side),
+        raw_payload,
+    )
+
+    if existing:
+        current_match_id = int(existing["current_match_id"])
+        cursor.execute(
+            """
+            UPDATE current_event_matches
+            SET current_team_tie_id = NULL,
+                sub_event_type_code = ?,
+                stage_label = ?,
+                stage_code = ?,
+                round_label = ?,
+                round_code = ?,
+                group_code = ?,
+                scheduled_local_at = COALESCE(?, scheduled_local_at),
+                table_no = COALESCE(?, table_no),
+                session_label = COALESCE(?, session_label),
+                status = ?,
+                source_status = ?,
+                match_score = ?,
+                games = ?,
+                winner_side = ?,
+                winner_name = ?,
+                raw_source_payload = ?,
+                last_synced_at = datetime('now'),
+                updated_at = datetime('now')
+            WHERE current_match_id = ?
+            """,
+            values[1:7] + values[8:] + (current_match_id,),
+        )
+    else:
+        cursor.execute(
+            """
+            INSERT INTO current_event_matches (
+                event_id, current_team_tie_id, sub_event_type_code, stage_label, stage_code, round_label,
+                round_code, group_code, external_match_code, scheduled_local_at, scheduled_utc_at, table_no,
+                session_label, status, source_status, source_schedule_status, match_score, games, winner_side,
+                winner_name, raw_source_payload, last_synced_at, created_at, updated_at
+            ) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, datetime('now'), datetime('now'), datetime('now'))
+            """,
+            values,
+        )
+        current_match_id = int(cursor.lastrowid)
+
+    side_count, player_count = replace_individual_match_children(cursor, current_match_id, competitors, winner_side)
+    return True, side_count, player_count
 
 
 def parse_rubber(match_result: dict) -> dict | None:
@@ -274,7 +493,7 @@ def ensure_official_team_tie(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Import completed team ties and rubbers from GetOfficialResult.json.")
+    parser = argparse.ArgumentParser(description="Import completed matches/team ties from GetOfficialResult.json.")
     parser.add_argument("--event-id", type=int, required=True)
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
@@ -299,6 +518,7 @@ def main() -> int:
         conn.execute("BEGIN")
         imported_ties = 0
         imported_rubbers = 0
+        imported_matches = 0
 
         for item in payload:
             if not isinstance(item, dict):
@@ -310,6 +530,18 @@ def main() -> int:
             category = parse_category(match_card.get("subEventDescription"), match_card.get("subEventName"))
             sub_event_type_code = parse_sub_event_type(item.get("subEventType"), category)
             if not sub_event_type_code:
+                continue
+
+            if sub_event_type_code not in {"MT", "WT", "XT"}:
+                ok, _side_count, _player_count = upsert_official_individual_match(
+                    cursor,
+                    event_id=args.event_id,
+                    item=item,
+                    sub_event_type_code=sub_event_type_code,
+                    category=category,
+                )
+                if ok:
+                    imported_matches += 1
                 continue
 
             team1, team2 = parse_team_codes(match_card)
@@ -403,7 +635,8 @@ def main() -> int:
         conn.close()
 
     print(
-        f"Imported {imported_ties} official completed team ties and "
+        f"Imported {imported_matches} official completed matches, "
+        f"{imported_ties} official completed team ties and "
         f"{imported_rubbers} official completed rubbers for event {args.event_id}"
     )
     return 0

@@ -18,6 +18,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
 TEAM_SUB_EVENTS = {"MT", "WT", "XT"}
+INDIVIDUAL_SUB_EVENTS = {"MS", "WS", "MD", "WD", "XD"}
 
 
 def live_result_path(event_dir: Path) -> Path:
@@ -67,6 +68,9 @@ def parse_live_sub_event(item: dict) -> str | None:
         return code
 
     name = (item.get("sub_event_name") or "").strip().lower()
+    for label, code in legacy.SUB_EVENT_MAP.items():
+        if name.startswith(label.lower()):
+            return code
     if name.startswith("men's teams"):
         return "MT"
     if name.startswith("women's teams"):
@@ -112,6 +116,16 @@ def parse_live_round_info(item: dict) -> legacy.RoundInfo:
         return legacy.RoundInfo("PRELIMINARY", "R1", None)
 
     return round_info
+
+
+def live_stage_label(round_info: legacy.RoundInfo) -> str | None:
+    if round_info.stage_code == "PRELIMINARY":
+        return "Preliminary"
+    if round_info.stage_code == "MAIN_DRAW":
+        return "Main Draw"
+    if round_info.stage_code == "UNKNOWN":
+        return None
+    return round_info.stage_code
 
 
 def parse_live_session_label(item: dict) -> str | None:
@@ -639,6 +653,142 @@ def replace_match_children(
         )
 
 
+def live_side_player_name(side: dict) -> str | None:
+    players = side.get("players") if isinstance(side.get("players"), list) else []
+    for player in players:
+        if isinstance(player, dict) and isinstance(player.get("name"), str) and player["name"].strip():
+            return player["name"].strip()
+    value = side.get("display_name")
+    return value.strip() if isinstance(value, str) and value.strip() else None
+
+
+def winner_name_from_live_sides(sides: list[dict], winner_side: str | None) -> str | None:
+    if winner_side not in {"A", "B"}:
+        return None
+    index = 0 if winner_side == "A" else 1
+    if len(sides) <= index or not isinstance(sides[index], dict):
+        return None
+    return live_side_player_name(sides[index])
+
+
+def upsert_live_individual_match(
+    cursor: sqlite3.Cursor,
+    *,
+    event_id: int,
+    item: dict,
+    now: str,
+) -> bool:
+    sub_event_type_code = parse_live_sub_event(item)
+    if sub_event_type_code not in INDIVIDUAL_SUB_EVENTS:
+        return False
+
+    external_match_code = legacy.normalize_external_match_code(item.get("match_code"))
+    if not external_match_code:
+        external_match_code = build_live_external_match_code(item, sub_event_type_code, parse_live_round_info(item))
+
+    round_info = parse_live_round_info(item)
+    scheduled_local_at = item.get("scheduled_start") or item.get("scheduled_start_local")
+    status = resolve_live_status(item.get("source_status"))
+    score = item.get("score")
+    winner_side = resolve_winner_side(status, item.get("winner_side"), score)
+    sides = item.get("sides") if isinstance(item.get("sides"), list) else []
+    if len(sides) < 2:
+        return False
+
+    existing = cursor.execute(
+        """
+        SELECT current_match_id
+        FROM current_event_matches
+        WHERE event_id = ? AND external_match_code = ?
+        """,
+        (event_id, external_match_code),
+    ).fetchone()
+
+    values = (
+        event_id,
+        sub_event_type_code,
+        live_stage_label(round_info),
+        round_info.stage_code,
+        item.get("round") or item.get("sub_event_name"),
+        round_info.round_code,
+        round_info.group_code,
+        external_match_code,
+        scheduled_local_at,
+        legacy.normalize_table_label(item.get("table_no")),
+        legacy.canonical_session_label(
+            item.get("session_label"),
+            item.get("sub_event_name"),
+            item.get("raw_title"),
+            scheduled_local_at=scheduled_local_at,
+        ),
+        status,
+        item.get("source_status"),
+        score,
+        json.dumps(item.get("games") or [], ensure_ascii=False),
+        winner_side,
+        winner_name_from_live_sides(sides, winner_side),
+        json.dumps(item, ensure_ascii=False),
+        now,
+    )
+
+    if existing:
+        current_match_id = int(existing["current_match_id"])
+        cursor.execute(
+            """
+            UPDATE current_event_matches
+            SET current_team_tie_id = NULL,
+                sub_event_type_code = ?,
+                stage_label = COALESCE(?, stage_label),
+                stage_code = COALESCE(?, stage_code),
+                round_label = COALESCE(?, round_label),
+                round_code = COALESCE(?, round_code),
+                group_code = COALESCE(?, group_code),
+                scheduled_local_at = COALESCE(?, scheduled_local_at),
+                table_no = COALESCE(?, table_no),
+                session_label = COALESCE(?, session_label),
+                status = ?,
+                source_status = COALESCE(?, source_status),
+                match_score = ?,
+                games = ?,
+                winner_side = ?,
+                winner_name = ?,
+                raw_source_payload = ?,
+                last_synced_at = ?,
+                updated_at = datetime('now')
+            WHERE current_match_id = ?
+            """,
+            values[1:7] + values[8:] + (current_match_id,),
+        )
+    else:
+        cursor.execute(
+            """
+            INSERT INTO current_event_matches (
+                event_id, current_team_tie_id, sub_event_type_code, stage_label, stage_code, round_label, round_code,
+                group_code, external_match_code, scheduled_local_at, scheduled_utc_at, table_no, session_label,
+                status, source_status, source_schedule_status, match_score, games, winner_side, winner_name,
+                raw_source_payload, last_synced_at, created_at, updated_at
+            ) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))
+            """,
+            values,
+        )
+        current_match_id = int(cursor.lastrowid)
+
+    side_a = {
+        "team_code": sides[0].get("organization") if isinstance(sides[0], dict) else None,
+        "player_name": live_side_player_name(sides[0]) if isinstance(sides[0], dict) else None,
+        "player_country": sides[0].get("organization") if isinstance(sides[0], dict) else None,
+        "is_winner": winner_side == "A",
+    }
+    side_b = {
+        "team_code": sides[1].get("organization") if isinstance(sides[1], dict) else None,
+        "player_name": live_side_player_name(sides[1]) if isinstance(sides[1], dict) else None,
+        "player_country": sides[1].get("organization") if isinstance(sides[1], dict) else None,
+        "is_winner": winner_side == "B",
+    }
+    replace_match_children(cursor, current_match_id, side_a, side_b)
+    return True
+
+
 def sync_team_tie_from_live_match(cursor: sqlite3.Cursor, current_team_tie_id: int, live_match: dict) -> None:
     status = resolve_live_status(live_match.get("source_status"))
     score = live_match.get("score")
@@ -789,8 +939,12 @@ def main() -> int:
         conn.execute("BEGIN")
         imported_ties = 0
         imported_rubbers = 0
+        imported_matches = 0
         for live_match in live_matches:
             if not isinstance(live_match, dict):
+                continue
+            if upsert_live_individual_match(cursor, event_id=args.event_id, item=live_match, now=now):
+                imported_matches += 1
                 continue
             tie_row = upsert_live_team_tie(cursor, event_id=args.event_id, item=live_match, now=now)
             if not tie_row:
@@ -820,7 +974,10 @@ def main() -> int:
     finally:
         conn.close()
 
-    print(f"Imported {imported_ties} live team ties and {imported_rubbers} live rubbers for event {args.event_id}")
+    print(
+        f"Imported {imported_matches} live matches, "
+        f"{imported_ties} live team ties and {imported_rubbers} live rubbers for event {args.event_id}"
+    )
     return 0
 
 

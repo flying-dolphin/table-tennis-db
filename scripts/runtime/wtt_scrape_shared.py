@@ -32,10 +32,83 @@ REQ_HEADERS = {
     "Referer": "https://www.worldtabletennis.com/",
 }
 
+SUB_EVENT_DISCOVERY_ORDER = ("MS", "WS", "MD", "WD", "XD", "MT", "WT", "XT")
+SUB_EVENT_TO_BRACKET_CODE = {
+    "MS": "MSING",
+    "WS": "WSING",
+    "MD": "MDOUB",
+    "WD": "WDOUB",
+    "XD": "XDOUB",
+    "MT": "MTEAM",
+    "WT": "WTEAM",
+    "XT": "XTEAM",
+}
+SUB_EVENT_TO_STANDINGS_CODE = {
+    "MT": "MTEAM",
+    "WT": "WTEAM",
+    "XT": "XTEAM",
+}
+BRACKET_CODE_TO_DOCUMENT_SUB = {
+    "MSING": "MSINGLES",
+    "WSING": "WSINGLES",
+    "MDOUB": "MDOUBLES",
+    "WDOUB": "WDOUBLES",
+    "XDOUB": "XDOUBLES",
+    "MTEAM": "MTEAM",
+    "WTEAM": "WTEAM",
+    "XTEAM": "XTEAM",
+}
+
+
+@dataclass(frozen=True)
+class EventSubEventDiscovery:
+    event_id: int
+    source_path: Path
+    source_exists: bool
+    sub_event_codes: list[str]
+
 
 def doc_code_for_sub(sub_event: str) -> str:
-    sub = (sub_event + "-----")[:5]
-    return f"TTE{sub}{'-' * 34}"
+    normalized = (sub_event or "").strip().upper()
+    document_sub = BRACKET_CODE_TO_DOCUMENT_SUB.get(normalized, normalized)
+    return f"TTE{document_sub}{'-' * max(0, 42 - 3 - len(document_sub))}"
+
+
+def discover_event_sub_events(event_id: int, *, project_root: Path = PROJECT_ROOT) -> EventSubEventDiscovery:
+    source_path = project_root / "data" / "event_schedule" / f"{event_id}.json"
+    if not source_path.exists():
+        return EventSubEventDiscovery(event_id, source_path, False, [])
+
+    try:
+        payload = json.loads(source_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return EventSubEventDiscovery(event_id, source_path, True, [])
+
+    seen: set[str] = set()
+    rows = payload if isinstance(payload, list) else []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        parsed = row.get("_parsed") or []
+        if not isinstance(parsed, list):
+            continue
+        for item in parsed:
+            if not isinstance(item, dict):
+                continue
+            code = (item.get("sub_event_code") or "").strip().upper()
+            if code in SUB_EVENT_TO_BRACKET_CODE:
+                seen.add(code)
+
+    ordered = [code for code in SUB_EVENT_DISCOVERY_ORDER if code in seen]
+    return EventSubEventDiscovery(event_id, source_path, True, ordered)
+
+
+def resolve_bracket_sub_events(discovered: EventSubEventDiscovery) -> list[str]:
+    return [SUB_EVENT_TO_BRACKET_CODE[code] for code in discovered.sub_event_codes if code in SUB_EVENT_TO_BRACKET_CODE]
+
+
+def resolve_standings_team_codes(discovered: EventSubEventDiscovery) -> list[str]:
+    return [SUB_EVENT_TO_STANDINGS_CODE[code] for code in discovered.sub_event_codes if code in SUB_EVENT_TO_STANDINGS_CODE]
 
 
 def fetch_json(url: str, retries: int = 4, backoff: float = 1.5) -> bytes | None:

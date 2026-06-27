@@ -9,7 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from wtt_scrape_shared import DEFAULT_LIVE_EVENT_DATA_DIR, DEFAULT_SUB_EVENTS
+from wtt_scrape_shared import DEFAULT_LIVE_EVENT_DATA_DIR, discover_event_sub_events, resolve_standings_team_codes
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
@@ -33,8 +33,8 @@ def main() -> int:
     ap.add_argument(
         "--sub-events",
         nargs="+",
-        default=DEFAULT_SUB_EVENTS,
-        help="schedule/brackets 使用的 sub-event codes，默认 MTEAM WTEAM",
+        default=None,
+        help="brackets 使用的 sub-event codes；不传则从 data/event_schedule/{event_id}.json 推导",
     )
     ap.add_argument(
         "--live-event-data-root",
@@ -72,7 +72,9 @@ def main() -> int:
         if source == "schedule":
             cmd = base + [str(SCRIPT_DIR / "scrape_wtt_schedule.py")] + root_args
         elif source == "brackets":
-            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_brackets.py")] + root_args + ["--sub-events", *args.sub_events]
+            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_brackets.py")] + root_args
+            if args.sub_events:
+                cmd += ["--sub-events", *args.sub_events]
         elif source == "live":
             cmd = base + [str(SCRIPT_DIR / "scrape_wtt_live_matches.py")] + root_args + browser_args
             if args.with_debug_files:
@@ -80,11 +82,14 @@ def main() -> int:
         elif source == "completed":
             cmd = base + [str(SCRIPT_DIR / "scrape_wtt_official_results.py")] + root_args
         else:
+            discovered = discover_event_sub_events(args.event_id)
+            team_codes = resolve_standings_team_codes(discovered)
             cmd = (
                 base
                 + [str(SCRIPT_DIR / "scrape_wtt_pool_standings.py")]
                 + root_args
                 + ["--stage-label", args.stage_label]
+                + ["--team-codes", *team_codes]
                 + browser_args
             )
         rc = run_step(cmd)

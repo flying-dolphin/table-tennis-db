@@ -65,6 +65,29 @@ def load_source_urls(input_dir: Path) -> dict[str, str]:
     return urls if isinstance(urls, dict) else {}
 
 
+def should_skip_missing_standings(input_dir: Path) -> bool:
+    summary_path = input_dir / "standings_capture_summary.json"
+    if not summary_path.exists():
+        return False
+    try:
+        summary = load_json(summary_path)
+    except json.JSONDecodeError:
+        return False
+    return bool(summary.get("skipped"))
+
+
+def missing_standings_skip_reason(input_dir: Path) -> str:
+    summary_path = input_dir / "standings_capture_summary.json"
+    if not summary_path.exists():
+        return "standings capture was skipped"
+    try:
+        summary = load_json(summary_path)
+    except json.JSONDecodeError:
+        return "standings capture was skipped"
+    reason = summary.get("skip_reason")
+    return reason if isinstance(reason, str) and reason.strip() else "standings capture was skipped"
+
+
 def import_file(
     conn: sqlite3.Connection,
     *,
@@ -156,6 +179,9 @@ def main() -> int:
 
     files = sorted(input_dir.glob("*_standings.json"))
     if not files:
+        if should_skip_missing_standings(input_dir):
+            print(f"Skipped standings import: {missing_standings_skip_reason(input_dir)}")
+            return 0
         print(f"No *_standings.json files found in {input_dir}", file=sys.stderr)
         return 1
 

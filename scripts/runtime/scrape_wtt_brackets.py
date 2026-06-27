@@ -8,7 +8,12 @@ import argparse
 import sys
 from pathlib import Path
 
-from wtt_scrape_shared import DEFAULT_LIVE_EVENT_DATA_DIR, DEFAULT_SUB_EVENTS, scrape_brackets_only
+from wtt_scrape_shared import (
+    DEFAULT_LIVE_EVENT_DATA_DIR,
+    discover_event_sub_events,
+    resolve_bracket_sub_events,
+    scrape_brackets_only,
+)
 
 
 def main() -> int:
@@ -17,8 +22,8 @@ def main() -> int:
     ap.add_argument(
         "--sub-events",
         nargs="+",
-        default=DEFAULT_SUB_EVENTS,
-        help="WTT sub-event codes（5 字符），默认 MTEAM WTEAM",
+        default=None,
+        help="WTT bracket sub-event codes; omitted means derive from data/event_schedule/{event_id}.json",
     )
     ap.add_argument(
         "--live-event-data-root",
@@ -29,7 +34,15 @@ def main() -> int:
 
     event_dir = Path(args.live_event_data_root) / str(args.event_id)
     print(f"Scrape WTT brackets {args.event_id} -> {event_dir}")
-    summary = scrape_brackets_only(args.event_id, args.sub_events, event_dir)
+    sub_events = args.sub_events
+    if sub_events is None:
+        discovered = discover_event_sub_events(args.event_id)
+        sub_events = resolve_bracket_sub_events(discovered)
+        if not sub_events:
+            source = discovered.source_path
+            reason = "missing" if not discovered.source_exists else "no supported sub-events"
+            print(f"Skip brackets: {reason} in {source}")
+    summary = scrape_brackets_only(args.event_id, sub_events, event_dir)
     print()
     print(f"Done: {len(summary['files'])} files, {len(summary['errors'])} errors")
     return 0

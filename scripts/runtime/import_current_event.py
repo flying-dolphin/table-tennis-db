@@ -9,6 +9,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from wtt_scrape_shared import discover_event_sub_events, resolve_standings_team_codes
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
@@ -70,19 +72,23 @@ def main() -> int:
             return rc
 
     if "standings" in args.sources:
-        cmd = [
-            py,
-            str(SCRIPT_DIR / "import_current_event_group_standings.py"),
-            "--db-path",
-            str(args.db_path.resolve()),
-            "--input-dir",
-            str((args.live_event_data_root.resolve() / str(args.event_id))),
-            "--event-id",
-            str(args.event_id),
-        ]
-        rc = run_step(cmd)
-        if rc != 0:
-            return rc
+        discovered = discover_event_sub_events(args.event_id)
+        if discovered.source_exists and not resolve_standings_team_codes(discovered):
+            print(f"Skip standings import: no team sub-events found in {discovered.source_path}")
+        else:
+            cmd = [
+                py,
+                str(SCRIPT_DIR / "import_current_event_group_standings.py"),
+                "--db-path",
+                str(args.db_path.resolve()),
+                "--input-dir",
+                str((args.live_event_data_root.resolve() / str(args.event_id))),
+                "--event-id",
+                str(args.event_id),
+            ]
+            rc = run_step(cmd)
+            if rc != 0:
+                return rc
 
     if "brackets" in args.sources:
         cmd = [

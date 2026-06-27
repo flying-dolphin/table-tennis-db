@@ -30,7 +30,7 @@ import {
   type TeamBracketRound as DisplayTeamBracketRound,
 } from "@/lib/team-knockout-bracket";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
-import { shouldUseScheduleTabs } from "@/lib/event-view-mode";
+import { shouldShowBeijingTimeForEvent, shouldUseScheduleTabs } from "@/lib/event-view-mode";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -1161,7 +1161,7 @@ function SessionScheduleView({
               <div className="mt-3 space-y-2.5">
                 {day.rows.map((row) => {
                   const beijingTimeLabel =
-                    lifecycleStatus === "in_progress"
+                    shouldShowBeijingTimeForEvent(lifecycleStatus, eventTimeZone)
                       ? formatBeijingSessionRange(
                         row.localDate,
                         row.morningSessionStart,
@@ -1227,7 +1227,7 @@ function SessionScheduleView({
       <div className="space-y-3">
         {sessions.map((session) => {
           const beijingTimeLabel =
-            lifecycleStatus === "in_progress"
+            shouldShowBeijingTimeForEvent(lifecycleStatus, eventTimeZone)
               ? formatBeijingSessionRange(
                 session.localDate,
                 session.morningSessionStart,
@@ -1445,7 +1445,7 @@ function ScheduleByDateView({
       </div>
     );
   }
-  const showBeijingTime = lifecycleStatus === "in_progress";
+  const showBeijingTime = shouldShowBeijingTimeForEvent(lifecycleStatus, eventTimeZone);
 
   return (
     <div className="pb-10 pt-4">

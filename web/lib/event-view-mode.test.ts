@@ -37,3 +37,15 @@ test('does not use schedule tabs for historical fallback days without real dates
     false,
   );
 });
+
+test('shows Beijing time for completed events outside China', () => {
+  const { shouldShowBeijingTimeForEvent } = require('./event-view-mode.ts');
+
+  assert.equal(shouldShowBeijingTimeForEvent('completed', 'Europe/London'), true);
+});
+
+test('does not show duplicate Beijing time for China events', () => {
+  const { shouldShowBeijingTimeForEvent } = require('./event-view-mode.ts');
+
+  assert.equal(shouldShowBeijingTimeForEvent('in_progress', 'Asia/Shanghai'), false);
+});

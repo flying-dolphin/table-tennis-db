@@ -28,13 +28,15 @@ from typing import Any
 
 import brotli
 
+from wtt_scrape_shared import discover_event_sub_events, resolve_standings_team_codes
+
 logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
 API_BASE = "https://liveeventsapi.worldtabletennis.com/api/cms"
 WTT_CACHEDDATA_BASE = "https://wtt-web-frontdoor-withoutcache-cqakg0andqf5hchn.a01.azurefd.net/websitecacheddata"
-TARGET_CODES = ("MTEAM", "WTEAM")
+SUPPORTED_TEAM_CODES = ("MTEAM", "WTEAM", "XTEAM")
 
 REQ_HEADERS = {
     "User-Agent": (
@@ -255,7 +257,7 @@ def aggregate_by_team(wrappers: list[dict[str, Any]]) -> dict[str, dict[str, Any
         if not isinstance(payload, dict):
             continue
         team_code = classify_team_code(payload.get("DocumentCode"))
-        if team_code not in TARGET_CODES:
+        if team_code not in SUPPORTED_TEAM_CODES:
             continue
         enriched.append((wrapper_timestamp_key(payload), team_code, payload))
     enriched.sort(key=lambda item: item[0])
@@ -353,14 +355,36 @@ def analyze_event(
     live_event_data_root: Path,
     *,
     stage_label: str,
+    team_codes: list[str] | None = None,
 ) -> int:
     canonical_label = canonical_stage_label(stage_label)
     output_dir = live_event_data_root / str(event_id)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    if team_codes is None:
+        team_codes = resolve_standings_team_codes(discover_event_sub_events(event_id))
+    target_codes = [code for code in team_codes if code in SUPPORTED_TEAM_CODES]
+
     snapshots: dict[str, dict[str, Any]] = {}
     captured_urls: dict[str, str] = {}
-    for team_code in TARGET_CODES:
+    if not target_codes:
+        meta = {
+            "event_id": event_id,
+            "stage_label": canonical_label,
+            "api_url": f"{WTT_CACHEDDATA_BASE}/{event_id}/poolstandings/{{team_code}}.json",
+            "output_dir": str(output_dir),
+            "captured_codes": [],
+            "captured_urls": {},
+            "captured_at": datetime.now(timezone.utc).isoformat(),
+            "group_summary": {},
+            "skipped": True,
+            "skip_reason": f"No team sub-events found in data/event_schedule/{event_id}.json",
+        }
+        write_outputs(output_dir, snapshots, meta)
+        logger.info("No team sub-events found for event %s; skipped pool standings", event_id)
+        return 0
+
+    for team_code in target_codes:
         cached_url = f"{WTT_CACHEDDATA_BASE}/{event_id}/poolstandings/{team_code}.json"
         logger.info("Fetching %s", cached_url)
         try:
@@ -388,7 +412,7 @@ def analyze_event(
         snapshots[team_code] = snapshot
         captured_urls[team_code] = source_url
 
-    missing = [code for code in TARGET_CODES if code not in snapshots]
+    missing = [code for code in target_codes if code not in snapshots]
     if missing:
         logger.error(
             "Missing pool standings for: %s (available: %s)",
@@ -434,6 +458,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Stored stage label is normalized to 'Groups'. Kept for orchestrator compatibility.",
     )
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
+    parser.add_argument(
+        "--team-codes",
+        nargs="*",
+        default=None,
+        help="Team standings codes to capture (MTEAM WTEAM XTEAM). Omit to derive from data/event_schedule/{event_id}.json.",
+    )
     parser.add_argument("--verbose", action="store_true")
     # Browser-related flags retained as no-ops so the existing orchestrator (`scrape_current_event.py`)
     # can keep passing them without modification.
@@ -451,6 +481,7 @@ def main() -> int:
         args.event_id,
         args.live_event_data_root.resolve(),
         stage_label=str(args.stage_label),
+        team_codes=args.team_codes,
     )
 
 

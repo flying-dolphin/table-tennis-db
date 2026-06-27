@@ -129,6 +129,9 @@ def normalize_round_from_category(category: str) -> tuple[str | None, str | None
         group_code = parse_group_code(category)
         group_no = int(group_code[2:]) if group_code and group_code[2:].isdigit() else None
         return "PRELIMINARY", f"G{group_no}" if group_no is not None else None
+    qualifying_match = re.search(r"qualifying round\s+(\d+)", raw)
+    if qualifying_match:
+        return "PRELIMINARY", f"R{int(qualifying_match.group(1))}"
     if "preliminary round" in raw:
         return "PRELIMINARY", "R1"
     mapping = {
