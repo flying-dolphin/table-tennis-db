@@ -114,6 +114,7 @@ class ImportCurrentEventOfficialResultsTests(unittest.TestCase):
             item=item,
             sub_event_type_code="MS",
             category="Men's Singles - Qualifying Round 1",
+            event_time_zone="America/Los_Angeles",
         )
 
         self.assertEqual(0, self.conn.execute("SELECT COUNT(*) FROM current_event_team_ties").fetchone()[0])
@@ -127,6 +128,7 @@ class ImportCurrentEventOfficialResultsTests(unittest.TestCase):
         self.assertEqual("T02", match["table_no"])
         self.assertEqual("PRELIMINARY", match["stage_code"])
         self.assertEqual("R1", match["round_code"])
+        self.assertEqual("2026-06-26T17:00:00+00:00", match["scheduled_utc_at"])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_sides").fetchone()[0])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_side_players").fetchone()[0])
 

@@ -50,13 +50,14 @@ type SidePlayer = {
 
 type BracketMatch = {
   matchId: number;
-  scheduleMatchId: number | null;
+  scheduleMatchId: number | string | null;
+  externalUnitCode?: string | null;
   drawRound: string;
   roundLabel: string;
   roundOrder: number;
   matchScore: string | null;
   games: Array<{ player: number; opponent: number }>;
-  sides: Array<{ sideNo: number; isWinner: boolean; players: SidePlayer[] }>;
+  sides: Array<{ sideNo: number; isWinner: boolean; previousUnit?: string | null; players: SidePlayer[] }>;
 };
 
 type ChampionPlayer = {
@@ -204,20 +205,20 @@ type EventDetail = {
   subEventDetails: Array<{
     code: string;
     champion: EventChampion | null;
-    bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
+    bracket: Array<{ code: string; drawCode?: string | null; label: string; order: number; matches: BracketMatch[] }>;
     roundRobinView: EventRoundRobinView | null;
     teamKnockoutView: EventTeamKnockoutView | null;
     presentationMode: "knockout" | "staged_round_robin" | "team_knockout_with_bronze";
   }>;
   champion: EventChampion | null;
-  bracket: Array<{ code: string; label: string; order: number; matches: BracketMatch[] }>;
+  bracket: Array<{ code: string; drawCode?: string | null; label: string; order: number; matches: BracketMatch[] }>;
   roundRobinView: EventRoundRobinView | null;
   teamKnockoutView: EventTeamKnockoutView | null;
   presentationMode: "knockout" | "staged_round_robin" | "team_knockout_with_bronze";
 };
 
 type EventScheduleMatch = {
-  scheduleMatchId: number;
+  scheduleMatchId: number | string;
   externalMatchCode?: string | null;
   subEventTypeCode: string;
   subEventNameZh: string | null;
@@ -539,9 +540,6 @@ function dedupeCountries(players: Array<{ countryCode: string | null }>) {
 }
 
 function sideName(side: BracketMatch["sides"][number], isXT: boolean = false) {
-  if (isXT && side.players.length > 0) {
-    return side.players[0].countryCode || side.players.map(displayPlayerName).join(" / ");
-  }
   return side.players.map(displayPlayerName).join(" / ");
 }
 
@@ -640,6 +638,18 @@ function orderBracketByFeeders(rounds: EventDetail["bracket"]): EventDetail["bra
     for (const nm of nextRound.matches) {
       const sortedSides = [...nm.sides].sort((a, b) => a.sideNo - b.sideNo);
       for (let s = 0; s < 2; s++) {
+        const previousUnit = sortedSides[s].previousUnit?.trim();
+        if (previousUnit) {
+          const feederByUnit = prevMatches.find(
+            (pm) => !used.has(pm.matchId) && pm.externalUnitCode === previousUnit,
+          );
+          if (feederByUnit) {
+            newOrder.push(feederByUnit);
+            used.add(feederByUnit.matchId);
+            continue;
+          }
+        }
+
         const sideKey = makeSidePlayerKey(sortedSides[s]);
         let feeder: BracketMatch | undefined;
         if (sideKey) {
@@ -727,10 +737,30 @@ function scheduleRoundLabel(match: EventScheduleMatch) {
 
 function scheduleSideLabel(side: EventScheduleMatch["sides"][number] | undefined) {
   if (!side) return "待定";
-  if (side.teamCode) return side.teamCode;
-  if (side.placeholderText) return side.placeholderText;
   if (side.players.length > 0) return side.players.map(displayPlayerName).join(" / ");
+  if (side.placeholderText) return side.placeholderText;
+  if (side.teamCode) return side.teamCode;
   return "待定";
+}
+
+function scheduleSideCountryLabel(side: EventScheduleMatch["sides"][number] | undefined) {
+  if (!side) return null;
+  const countries = dedupeCountries(side.players);
+  if (countries.length > 0) return countries.join(" / ");
+  return side.teamCode;
+}
+
+function bracketSideCountryLabel(side: BracketMatch["sides"][number] | undefined) {
+  if (!side) return null;
+  const countries = dedupeCountries(side.players);
+  return countries.length > 0 ? countries.join(" / ") : null;
+}
+
+function drawGroupLabel(drawCode: string | null | undefined) {
+  const normalized = (drawCode ?? "").toUpperCase();
+  if (normalized === "MAIN") return "MAIN DRAW";
+  if (normalized === "PREL" || normalized === "QLF" || normalized === "QUALIFICATION") return "QLF DRAW";
+  return normalized || "DRAW";
 }
 
 function parseDisplayMatchScore(matchScore: string | null | undefined) {
@@ -743,7 +773,7 @@ function parseDisplayMatchScore(matchScore: string | null | undefined) {
     };
   }
 
-  const match = raw.match(/^(\d+)\s*-\s*(\d+)(?:\s+(WO))?$/i);
+  const match = raw.match(/^(\d+)\s*-\s*(\d+)(?:\s+(WO))?/i);
   if (match) {
     const scoreA = Number(match[1]);
     const scoreB = Number(match[2]);
@@ -1307,6 +1337,8 @@ function ScheduleMatchCard({
   const beijingTimeLabel = showBeijingTime
     ? formatBeijingTimeLabel(match.scheduledUtcAt, match.scheduledLocalAt, eventTimeZone)
     : null;
+  const primaryTimeLabel = beijingTimeLabel ?? formatLocalTime(match.scheduledLocalAt);
+  const eventLocalTimeLabel = beijingTimeLabel && match.scheduledLocalAt ? formatLocalTime(match.scheduledLocalAt) : null;
 
   return (
     <Link href={route(withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref))} className="block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
@@ -1314,10 +1346,8 @@ function ScheduleMatchCard({
         <div className="flex min-w-0 items-center gap-2 text-[0.82rem] font-bold text-slate-500">
           {match.tableNo ? <span className="rounded-full bg-[#f3f6fb] px-2">{match.tableNo}</span> : null}
           <Clock3 size={14} className="shrink-0 text-[#7d95c7]" />
-          <span>{formatLocalTime(match.scheduledLocalAt)}</span>
-          {beijingTimeLabel ? (
-            <p className="text-[0.76rem] font-bold text-[#7d95c7]">({beijingTimeLabel})</p>
-          ) : null}
+          <span>{primaryTimeLabel}</span>
+          {eventLocalTimeLabel ? <span className="text-[0.74rem] font-bold text-slate-400">赛地 {eventLocalTimeLabel}</span> : null}
         </div>
         <span className={cn("shrink-0 rounded-full px-2.5 py-1 text-[0.72rem] font-black ring-1", meta.className)}>
           {meta.label}
@@ -1335,6 +1365,7 @@ function ScheduleMatchCard({
           const score = scoreParts[side.sideNo - 1] ?? null;
           const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
           const label = scheduleSideLabel(side);
+          const countryLabel = scheduleSideCountryLabel(side);
           const isWinner = side.isWinner || (match.winnerSide === (side.sideNo === 1 ? 'A' : 'B'));
           return (
             <div key={side.sideNo} className="flex items-center gap-2">
@@ -1343,7 +1374,11 @@ function ScheduleMatchCard({
                 <p className={cn("truncate text-[1rem] font-black leading-tight", isWinner ? "text-slate-950" : "text-slate-700")}>
                   {label}
                 </p>
-                {side.seed ? <p className="mt-0.5 text-[0.7rem] font-bold text-slate-400">Seed {side.seed}</p> : null}
+                {countryLabel || side.seed ? (
+                  <p className="mt-0.5 truncate text-[0.7rem] font-bold text-slate-400">
+                    {[countryLabel, side.seed ? `Seed ${side.seed}` : null].filter(Boolean).join(" · ")}
+                  </p>
+                ) : null}
               </div>
               {score || shouldShowLiveScore ? (
                 <span className="shrink-0 flex items-center gap-1.5">
@@ -1755,10 +1790,46 @@ function DrawMatchCard({
   const sides = [sideA, sideB].filter(Boolean);
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
   const hasScore = Boolean(match.matchScore?.trim());
-  const matchHref =
-    hasScore && match.scheduleMatchId
-      ? withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref)
-      : withFromQuery(`/matches/${match.matchId}`, eventReturnHref);
+  const matchHref = match.scheduleMatchId
+    ? withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref)
+    : null;
+  const cardClassName = cn(
+    "block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm",
+    matchHref ? "transition active:scale-[0.99]" : "cursor-default",
+    isChampionPath ? "border-[#3a74f2] shadow-[0_2px_8px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
+  );
+  const cardContent = (
+    <div className="space-y-0.5">
+      {sides.map((side) => {
+        const score = scoreParts[side.sideNo - 1] ?? null;
+        const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
+        const flag = dedupeCountries(side.players)[0] ?? null;
+        const countryLabel = bracketSideCountryLabel(side);
+        return (
+          <div key={side.sideNo} className="flex items-center gap-1.5">
+            <Flag code={flag} className="shrink-0 scale-[0.85] origin-left" />
+            <div className="min-w-0 flex-1">
+              <p className={cn("truncate text-[0.72rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-500")}>
+                {sideName(side, isXT)}
+              </p>
+              {countryLabel ? <p className="truncate text-[0.56rem] font-bold leading-tight text-slate-400">{countryLabel}</p> : null}
+            </div>
+            {hasScore ? (
+              <span className="shrink-0 flex items-center gap-1">
+                {showSuffix ? <span className="text-[0.5rem] font-black leading-none text-amber-700">{suffixLabel}</span> : null}
+                <span className={cn("font-numeric text-[1rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
+                  {score ?? "-"}
+                </span>
+              </span>
+            ) : null}
+            <span className="flex w-3 shrink-0 items-center justify-center">
+              {side.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
 
   return (
     <div className="relative">
@@ -1767,45 +1838,20 @@ function DrawMatchCard({
           {matchNumber}
         </span>
       )}
-      <Link
-        href={route(matchHref)}
-        className={cn(
-          "block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm transition active:scale-[0.99]",
-          isChampionPath ? "border-[#3a74f2] shadow-[0_2px_8px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
-        )}
-      >
-        <div className="space-y-1">
-          {sides.map((side) => {
-            const score = scoreParts[side.sideNo - 1] ?? "-";
-            const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
-            const flag = dedupeCountries(side.players)[0] ?? null;
-            return (
-              <div key={side.sideNo} className="flex items-center gap-1">
-                <Flag code={flag} className="shrink-0 scale-[0.85] origin-left" />
-                <p className={cn("min-w-0 flex-1 truncate text-[0.7rem] font-bold leading-tight", side.isWinner ? "text-slate-900" : "text-slate-400")}>
-                  {sideName(side, isXT)}
-                </p>
-                <span className="shrink-0 flex items-center gap-1">
-                  {showSuffix ? <span className="text-[0.5rem] font-black leading-none text-amber-700">{suffixLabel}</span> : null}
-                  <span className={cn("font-numeric text-[1rem] font-black leading-none tabular-nums", side.isWinner ? "text-[#2d6cf6]" : "text-slate-300")}>
-                    {score}
-                  </span>
-                </span>
-                <span className="flex w-3 shrink-0 items-center justify-center">
-                  {side.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      </Link>
+      {matchHref ? (
+        <Link href={route(matchHref)} className={cardClassName}>
+          {cardContent}
+        </Link>
+      ) : (
+        <div className={cardClassName}>{cardContent}</div>
+      )}
     </div>
   );
 }
 
-const DRAW_CARD_W = 112;
-const DRAW_CARD_H = 48;
-const DRAW_COL_GAP = 16;
+const DRAW_CARD_W = 136;
+const DRAW_CARD_H = 52;
+const DRAW_COL_GAP = 14;
 const DRAW_NUM_SPACE = 16;
 
 function DrawView({
@@ -1826,21 +1872,40 @@ function DrawView({
   eventId: string;
 }) {
   const [search, setSearch] = React.useState("");
+  const drawCodes = React.useMemo(() => {
+    const codes = Array.from(new Set(rounds.map((round) => round.drawCode ?? "main")));
+    return codes.sort((left, right) => {
+      const priority = (code: string) => ((code ?? "").toUpperCase() === "MAIN" ? 0 : (code ?? "").toUpperCase() === "PREL" ? 1 : 2);
+      const diff = priority(left) - priority(right);
+      return diff || left.localeCompare(right);
+    });
+  }, [rounds]);
+  const [activeDrawCode, setActiveDrawCode] = React.useState(() => drawCodes[0] ?? "main");
+  React.useEffect(() => {
+    if (drawCodes.length === 0) return;
+    if (!drawCodes.includes(activeDrawCode)) {
+      setActiveDrawCode(drawCodes[0]);
+    }
+  }, [activeDrawCode, drawCodes]);
   const highlightedNames = normalizeChampionNames(champion).map((name) => truncateChineseName(name, 4));
 
-  const bracketPodium = React.useMemo(
-    () => deriveBracketPodium(rounds, isXT ?? false),
-    [rounds, isXT],
+  const activeDrawRounds = React.useMemo(
+    () => rounds.filter((round) => (round.drawCode ?? "main") === activeDrawCode),
+    [rounds, activeDrawCode],
   );
 
-  // Data is ordered latest-first (Final → SF → R1); reverse for left-to-right and
-  // reorder so that prev[2n], prev[2n+1] feed next[n] (matched by player identity).
+  const bracketPodium = React.useMemo(
+    () => deriveBracketPodium(activeDrawRounds, isXT ?? false),
+    [activeDrawRounds, isXT],
+  );
+
+  // Order rounds left-to-right and reorder matches so prev[2n], prev[2n+1] feed next[n].
   // When a bronze match exists, place it between the semifinals and final so the
   // draw reads in match chronology even though bronze is a side branch.
   const orderedRounds = React.useMemo(() => {
-    const reversed = [...rounds].reverse();
-    const bronzeRound = reversed.find((round) => round.code === "Bronze");
-    const roundsWithoutBronze = reversed.filter((round) => round.code !== "Bronze");
+    const leftToRight = [...activeDrawRounds].sort((left, right) => right.order - left.order);
+    const bronzeRound = leftToRight.find((round) => round.code === "Bronze");
+    const roundsWithoutBronze = leftToRight.filter((round) => round.code !== "Bronze");
 
     if (!bronzeRound) {
       return orderBracketByFeeders(roundsWithoutBronze);
@@ -1854,7 +1919,7 @@ function DrawView({
     const roundsWithBronze = [...roundsWithoutBronze];
     roundsWithBronze.splice(bronzeInsertIndex, 0, bronzeRound);
     return orderBracketByFeeders(roundsWithBronze);
-  }, [rounds]);
+  }, [activeDrawRounds]);
 
   const filteredRounds = React.useMemo(() => {
     if (!search.trim()) return orderedRounds;
@@ -1901,7 +1966,7 @@ function DrawView({
     DRAW_NUM_SPACE +
     displayRounds.length * (DRAW_CARD_W + DRAW_COL_GAP) +
     (champVisible ? champBoxW + 8 : 0);
-  const showBracketPodium = Boolean(bracketPodium) && hasCompletedBracketFinal(rounds);
+  const showBracketPodium = Boolean(bracketPodium) && hasCompletedBracketFinal(activeDrawRounds);
   const showTeamPodium = teamKnockoutView ? isTeamTieCompleted(teamKnockoutView.finalTie) : false;
 
   return (
@@ -1949,6 +2014,24 @@ function DrawView({
           )}
         </section>
       )}
+
+      {drawCodes.length > 1 ? (
+        <div className="mb-4 inline-flex rounded-lg bg-white p-1 ring-1 ring-[#dce7f5]">
+          {drawCodes.map((drawCode) => (
+            <button
+              key={drawCode}
+              type="button"
+              onClick={() => setActiveDrawCode(drawCode)}
+              className={cn(
+                "rounded-md px-3 py-1.5 text-[0.74rem] font-black transition",
+                activeDrawCode === drawCode ? "bg-[#2d6cf6] text-white shadow-sm" : "text-slate-500 hover:bg-slate-50",
+              )}
+            >
+              {drawGroupLabel(drawCode)}
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       <div className="overflow-x-auto pb-2">
         {/* Round column headers */}
@@ -2304,6 +2387,18 @@ function findBracketFeederIndices(prevRound: BracketMatch[], nextMatch: BracketM
   const sortedSides = [...nextMatch.sides].sort((a, b) => a.sideNo - b.sideNo);
 
   for (const side of sortedSides) {
+    const previousUnit = side.previousUnit?.trim();
+    if (previousUnit) {
+      const previousUnitIndex = prevRound.findIndex(
+        (match, index) => !used.has(index) && match.externalUnitCode === previousUnit,
+      );
+      if (previousUnitIndex !== -1) {
+        used.add(previousUnitIndex);
+        feeders.push({ sideNo: side.sideNo, matchIndex: previousUnitIndex });
+        continue;
+      }
+    }
+
     const sideKey = makeSidePlayerKey(side);
     if (!sideKey) continue;
 

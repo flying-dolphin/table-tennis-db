@@ -165,8 +165,18 @@ def infer_time_zone(event: dict) -> str | None:
         return existing
 
     haystack = " ".join(str(event.get(k) or "") for k in ("name", "location", "href")).lower()
-    if "london" in haystack or "united kingdom" in haystack or "england" in haystack:
-        return "Europe/London"
+    time_zone_keywords = [
+        (("united states smash", "ontario california", "ontario, california"), "America/Los_Angeles"),
+        (("london", "united kingdom", "england"), "Europe/London"),
+        (("doha", "qatar"), "Asia/Qatar"),
+        (("singapore",), "Asia/Singapore"),
+        (("macau", "macao"), "Asia/Macau"),
+        (("china smash", "beijing"), "Asia/Shanghai"),
+        (("yokohama", "japan"), "Asia/Tokyo"),
+    ]
+    for keywords, time_zone in time_zone_keywords:
+        if any(keyword in haystack for keyword in keywords):
+            return time_zone
     return None
 
 

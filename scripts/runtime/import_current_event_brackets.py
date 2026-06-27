@@ -71,6 +71,8 @@ def normalize_round(raw_code: str | None) -> tuple[str | None, str | None, int |
         "R64-": ("MAIN_DRAW", "R64", 60),
         "R64": ("MAIN_DRAW", "R64", 60),
         "RND1": ("PRELIMINARY", "R1", 70),
+        "RND2": ("PRELIMINARY", "RND2", 60),
+        "RND3": ("PRELIMINARY", "RND3", 50),
     }
     if raw in mapping:
         return mapping[raw]

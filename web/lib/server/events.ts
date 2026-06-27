@@ -274,17 +274,19 @@ type ChampionPlayer = EventChampion['players'][number];
 
 type EventBracketRound = {
   code: string;
+  drawCode?: string | null;
   label: string;
   order: number;
   matches: Array<{
     matchId: number;
-    scheduleMatchId: number | null;
+    scheduleMatchId: number | string | null;
+    externalUnitCode?: string | null;
     drawRound: string;
     roundLabel: string;
     roundOrder: number;
     matchScore: string | null;
     games: Array<{ player: number; opponent: number }>;
-    sides: Array<{ sideNo: number; isWinner: boolean; players: SidePlayer[] }>;
+    sides: Array<{ sideNo: number; isWinner: boolean; previousUnit?: string | null; players: SidePlayer[] }>;
   }>;
 };
 
@@ -338,6 +340,34 @@ type EventScheduleMatch = {
     isWinner: boolean;
     players: SidePlayer[];
   }>;
+};
+
+type WttBracketAthlete = {
+  Code?: string | null;
+  Description?: {
+    GivenName?: string | null;
+    FamilyName?: string | null;
+    Organization?: string | null;
+    IfId?: string | null;
+  } | null;
+};
+
+type WttBracketCompetitorPlace = {
+  Pos?: number | string | null;
+  Code?: string | null;
+  PreviousUnit?: {
+    Unit?: string | null;
+  } | null;
+  Competitor?: {
+    Code?: string | null;
+    Organization?: string | null;
+    Description?: {
+      TeamName?: string | null;
+    } | null;
+    Composition?: {
+      Athlete?: WttBracketAthlete[] | WttBracketAthlete | null;
+    } | null;
+  } | null;
 };
 
 function scheduleMatchStatusPriority(status: string) {
@@ -523,7 +553,7 @@ function mergeHistoricalScheduleMatches(matches: EventScheduleMatch[]) {
 
     const base = group
       .map((item) => item.match)
-      .sort((left, right) => Math.abs(left.scheduleMatchId) - Math.abs(right.scheduleMatchId))[0];
+      .sort((left, right) => Math.abs(scheduleMatchSortId(left.scheduleMatchId)) - Math.abs(scheduleMatchSortId(right.scheduleMatchId)))[0];
     const sideMap = new Map<string, EventScheduleMatch['sides'][number]>();
     for (const item of group) {
       for (const side of item.match.sides) {
@@ -1787,16 +1817,105 @@ type OfficialScheduleResult = {
   }>;
 };
 
+function parseBracketPayload(rawSourcePayload: string | null): { competitorPlaces: WttBracketCompetitorPlace[] } {
+  if (!rawSourcePayload) return { competitorPlaces: [] };
+  try {
+    const payload = JSON.parse(rawSourcePayload) as { CompetitorPlace?: unknown };
+    const places = Array.isArray(payload.CompetitorPlace) ? payload.CompetitorPlace : [];
+    return { competitorPlaces: places as WttBracketCompetitorPlace[] };
+  } catch {
+    return { competitorPlaces: [] };
+  }
+}
+
+function formatBracketAthleteName(athlete: WttBracketAthlete) {
+  const description = athlete.Description;
+  const familyName = description?.FamilyName?.trim();
+  const givenName = description?.GivenName?.trim();
+  return [familyName, givenName].filter(Boolean).join(' ').trim();
+}
+
+function playerIdFromBracketAthlete(athlete: WttBracketAthlete) {
+  const rawId = athlete.Description?.IfId ?? athlete.Code;
+  const parsed = Number(String(rawId ?? '').trim());
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function collectBracketPlayerIds(rawSourcePayload: string | null) {
+  const { competitorPlaces } = parseBracketPayload(rawSourcePayload);
+  const ids: number[] = [];
+  for (const place of competitorPlaces) {
+    const athletesRaw = place.Competitor?.Composition?.Athlete;
+    const athletes = Array.isArray(athletesRaw) ? athletesRaw : athletesRaw ? [athletesRaw] : [];
+    for (const athlete of athletes) {
+      const playerId = playerIdFromBracketAthlete(athlete);
+      if (playerId != null) ids.push(playerId);
+    }
+  }
+  return ids;
+}
+
+function playersFromCurrentBracketPayload(
+  rawSourcePayload: string | null,
+  sideNo: 1 | 2,
+  fallbackTeamCode: string | null,
+  fallbackPlaceholder: string | null,
+  playerMap: Map<number, { slug: string | null; nameZh: string | null; avatarFile: string | null }>,
+): SidePlayer[] {
+  const { competitorPlaces } = parseBracketPayload(rawSourcePayload);
+  const place =
+    competitorPlaces.find((item) => Number(item.Pos) === sideNo) ??
+    competitorPlaces[sideNo - 1] ??
+    null;
+  const competitor = place?.Competitor ?? null;
+  const teamCode = competitor?.Organization?.trim() || fallbackTeamCode;
+  const athletesRaw = competitor?.Composition?.Athlete;
+  const athletes = Array.isArray(athletesRaw) ? athletesRaw : athletesRaw ? [athletesRaw] : [];
+  const players = athletes
+    .map((athlete): SidePlayer | null => {
+      const name = formatBracketAthleteName(athlete);
+      if (!name) return null;
+      const playerId = playerIdFromBracketAthlete(athlete);
+      const playerMeta = playerId != null ? playerMap.get(playerId) : undefined;
+      return {
+        playerId,
+        slug: playerMeta?.slug ?? null,
+        name,
+        nameZh: playerMeta?.nameZh ?? null,
+        countryCode: athlete.Description?.Organization?.trim() || teamCode,
+      };
+    })
+    .filter((player): player is SidePlayer => Boolean(player));
+
+  if (players.length > 0) return players;
+
+  const teamName = competitor?.Description?.TeamName?.trim();
+  const fallbackName = teamName || fallbackPlaceholder || fallbackTeamCode;
+  return fallbackName
+    ? [
+        {
+          playerId: null,
+          slug: null,
+          name: fallbackName,
+          nameZh: null,
+          countryCode: teamCode,
+        },
+      ]
+    : [];
+}
+
 function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): EventBracketRound[] {
   const rows = db
     .prepare(
       `
         SELECT
           b.current_bracket_id AS matchId,
+          b.external_unit_code AS externalUnitCode,
           CASE
             WHEN m.current_match_id IS NOT NULL THEN 'cm:' || m.current_match_id
             ELSE t.current_team_tie_id
           END AS scheduleMatchId,
+          b.draw_code AS drawCode,
           COALESCE(b.round_code, b.bracket_code, 'UNKNOWN') AS drawRound,
           COALESCE(b.round_order, 0) AS roundOrder,
           b.match_score AS matchScore,
@@ -1804,7 +1923,10 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
           b.side_a_team_code AS sideATeamCode,
           b.side_b_team_code AS sideBTeamCode,
           b.side_a_placeholder AS sideAPlaceholder,
-          b.side_b_placeholder AS sideBPlaceholder
+          b.side_b_placeholder AS sideBPlaceholder,
+          b.side_a_previous_unit AS sideAPreviousUnit,
+          b.side_b_previous_unit AS sideBPreviousUnit,
+          b.raw_source_payload AS rawSourcePayload
         FROM current_event_brackets b
         LEFT JOIN current_event_team_ties t ON t.event_id = b.event_id AND t.external_match_code = b.external_unit_code
         LEFT JOIN current_event_matches m ON m.event_id = b.event_id AND m.external_match_code = b.external_unit_code
@@ -1815,7 +1937,9 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
     )
     .all(eventId, subEventCode) as Array<{
     matchId: number;
+    externalUnitCode: string | null;
     scheduleMatchId: number | string | null;
+    drawCode: string | null;
     drawRound: string;
     roundOrder: number;
     matchScore: string | null;
@@ -1824,19 +1948,29 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
     sideBTeamCode: string | null;
     sideAPlaceholder: string | null;
     sideBPlaceholder: string | null;
+    sideAPreviousUnit: string | null;
+    sideBPreviousUnit: string | null;
+    rawSourcePayload: string | null;
   }>;
+
+  const playerMap = loadPlayerDisplayMap(
+    Array.from(new Set(rows.flatMap((row) => collectBracketPlayerIds(row.rawSourcePayload)))),
+  );
 
   return Array.from(
     rows.reduce((map, row) => {
       const meta = teamTieRoundMeta(row.drawRound, null);
-      const current = map.get(row.drawRound) ?? {
+      const mapKey = `${row.drawCode ?? 'UNKNOWN'}:${row.drawRound}`;
+      const current = map.get(mapKey) ?? {
         code: row.drawRound,
+        drawCode: row.drawCode,
         label: meta.label,
         order: row.roundOrder || meta.order,
         matches: [] as EventBracketRound['matches'],
       };
       current.matches.push({
         matchId: row.matchId,
+        externalUnitCode: row.externalUnitCode,
         scheduleMatchId: row.scheduleMatchId,
         drawRound: row.drawRound,
         roundLabel: meta.label,
@@ -1847,40 +1981,20 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
           {
             sideNo: 1,
             isWinner: row.winnerSide === 'A',
-            players:
-              row.sideATeamCode || row.sideAPlaceholder
-                ? [
-                    {
-                      playerId: null,
-                      slug: null,
-                      name: row.sideATeamCode || row.sideAPlaceholder || 'TBD',
-                      nameZh: null,
-                      countryCode: row.sideATeamCode,
-                    },
-                  ]
-                : [],
+            previousUnit: row.sideAPreviousUnit,
+            players: playersFromCurrentBracketPayload(row.rawSourcePayload, 1, row.sideATeamCode, row.sideAPlaceholder, playerMap),
           },
           {
             sideNo: 2,
             isWinner: row.winnerSide === 'B',
-            players:
-              row.sideBTeamCode || row.sideBPlaceholder
-                ? [
-                    {
-                      playerId: null,
-                      slug: null,
-                      name: row.sideBTeamCode || row.sideBPlaceholder || 'TBD',
-                      nameZh: null,
-                      countryCode: row.sideBTeamCode,
-                    },
-                  ]
-                : [],
+            previousUnit: row.sideBPreviousUnit,
+            players: playersFromCurrentBracketPayload(row.rawSourcePayload, 2, row.sideBTeamCode, row.sideBPlaceholder, playerMap),
           },
         ],
       });
-      map.set(row.drawRound, current);
+      map.set(mapKey, current);
       return map;
-    }, new Map<string, { code: string; label: string; order: number; matches: EventBracketRound['matches'] }>())
+    }, new Map<string, { code: string; drawCode: string | null; label: string; order: number; matches: EventBracketRound['matches'] }>())
       .values(),
   ).sort((left, right) => right.order - left.order);
 }
@@ -2664,8 +2778,190 @@ function buildRoundRobinView(eventId: number, subEventCode: string, override: Ma
   };
 }
 
+function buildCurrentIndividualScheduleMatchDetail(currentMatchId: number) {
+  const currentMatch = db
+    .prepare(
+      `
+        SELECT
+          'cm:' || m.current_match_id AS scheduleMatchId,
+          m.event_id AS eventId,
+          e.name AS eventName,
+          e.name_zh AS eventNameZh,
+          e.year AS eventYear,
+          m.sub_event_type_code AS subEventTypeCode,
+          st.name_zh AS subEventNameZh,
+          m.stage_code AS stageCode,
+          COALESCE(sc.name_zh, m.stage_label) AS stageNameZh,
+          m.round_code AS roundCode,
+          COALESCE(rc.name_zh, m.round_label) AS roundNameZh,
+          m.group_code AS groupCode,
+          m.scheduled_local_at AS scheduledLocalAt,
+          m.scheduled_utc_at AS scheduledUtcAt,
+          m.table_no AS tableNo,
+          m.session_label AS sessionLabel,
+          m.status,
+          m.source_schedule_status AS rawScheduleStatus,
+          m.match_score AS matchScore,
+          m.games,
+          m.winner_side AS winnerSide,
+          m.external_match_code AS externalMatchCode,
+          e.start_date AS startDate,
+          e.end_date AS endDate
+        FROM current_event_matches m
+        LEFT JOIN events e ON e.event_id = m.event_id
+        LEFT JOIN sub_event_types st ON st.code = m.sub_event_type_code
+        LEFT JOIN stage_codes sc ON sc.code = m.stage_code
+        LEFT JOIN round_codes rc ON rc.code = m.round_code
+        WHERE m.current_match_id = ?
+      `,
+    )
+    .get(currentMatchId) as
+    | {
+        scheduleMatchId: string;
+        eventId: number;
+        eventName: string | null;
+        eventNameZh: string | null;
+        eventYear: number | null;
+        subEventTypeCode: string;
+        subEventNameZh: string | null;
+        stageCode: string | null;
+        stageNameZh: string | null;
+        roundCode: string | null;
+        roundNameZh: string | null;
+        groupCode: string | null;
+        scheduledLocalAt: string | null;
+        scheduledUtcAt: string | null;
+        tableNo: string | null;
+        sessionLabel: string | null;
+        status: string;
+        rawScheduleStatus: string | null;
+        matchScore: string | null;
+        games: string | null;
+        winnerSide: string | null;
+        externalMatchCode: string | null;
+        startDate: string | null;
+        endDate: string | null;
+      }
+    | undefined;
+
+  if (!currentMatch) return null;
+
+  const sideRows = db
+    .prepare(
+      `
+        SELECT
+          s.side_no AS sideNo,
+          s.is_winner AS isWinner,
+          s.team_code AS teamCode,
+          s.seed,
+          s.qualifier,
+          s.placeholder_text AS placeholderText,
+          p.player_order AS playerOrder,
+          p.player_id AS playerId,
+          p.player_name AS playerName,
+          p.player_country AS playerCountry,
+          pl.slug,
+          pl.name_zh AS playerNameZh,
+          REPLACE(REPLACE(pl.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+        FROM current_event_match_sides s
+        LEFT JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+        LEFT JOIN players pl ON pl.player_id = p.player_id
+        WHERE s.current_match_id = ?
+        ORDER BY s.side_no ASC, p.player_order ASC
+      `,
+    )
+    .all(currentMatchId) as Array<{
+    sideNo: number;
+    isWinner: number;
+    teamCode: string | null;
+    seed: number | null;
+    qualifier: number | null;
+    placeholderText: string | null;
+    playerOrder: number | null;
+    playerId: number | null;
+    playerName: string | null;
+    playerCountry: string | null;
+    slug: string | null;
+    playerNameZh: string | null;
+    avatarFile: string | null;
+  }>;
+
+  const fallbackPlayerDisplayMap = loadPlayerDisplayMapByNames(sideRows.map((row) => row.playerName ?? '').filter(Boolean));
+  const sideMap = new Map<number, {
+    sideNo: number;
+    isWinner: boolean;
+    teamCode: string | null;
+    seed: number | null;
+    qualifier: boolean | null;
+    placeholderText: string | null;
+    players: Array<SidePlayer & { avatarFile: string | null }>;
+  }>();
+
+  for (const row of sideRows) {
+    const current =
+      sideMap.get(row.sideNo) ??
+      {
+        sideNo: row.sideNo,
+        isWinner: row.isWinner === 1,
+        teamCode: row.teamCode,
+        seed: row.seed,
+        qualifier: row.qualifier == null ? null : row.qualifier === 1,
+        placeholderText: row.placeholderText,
+        players: [],
+      };
+    if (row.playerName) {
+      const fallbackDisplay = fallbackPlayerDisplayMap.get(row.playerName.trim());
+      current.players.push({
+        playerId: row.playerId ?? fallbackDisplay?.playerId ?? null,
+        slug: row.slug ?? fallbackDisplay?.slug ?? null,
+        name: row.playerName,
+        nameZh: row.playerNameZh ?? fallbackDisplay?.nameZh ?? null,
+        countryCode: row.playerCountry,
+        avatarFile: filterAvatarFile(row.avatarFile) ?? fallbackDisplay?.avatarFile ?? null,
+      });
+    }
+    sideMap.set(row.sideNo, current);
+  }
+
+  return {
+    match: {
+      scheduleMatchId: currentMatch.scheduleMatchId,
+      eventId: currentMatch.eventId,
+      eventName: currentMatch.eventName,
+      eventNameZh: currentMatch.eventNameZh,
+      eventYear: currentMatch.eventYear,
+      subEventTypeCode: currentMatch.subEventTypeCode,
+      subEventNameZh: currentMatch.subEventNameZh,
+      stageCode: currentMatch.stageCode ?? '',
+      stageNameZh: currentMatch.stageNameZh,
+      roundCode: currentMatch.roundCode ?? '',
+      roundNameZh: currentMatch.roundNameZh,
+      roundLabel: roundLabel(currentMatch.roundCode, currentMatch.roundNameZh),
+      groupCode: currentMatch.groupCode,
+      scheduledLocalAt: currentMatch.scheduledLocalAt,
+      scheduledUtcAt: currentMatch.scheduledUtcAt,
+      tableNo: currentMatch.tableNo,
+      sessionLabel: currentMatch.sessionLabel,
+      status: currentMatch.status,
+      rawScheduleStatus: currentMatch.rawScheduleStatus,
+      matchScore: currentMatch.matchScore,
+      games: parseGames(currentMatch.games),
+      winnerSide: currentMatch.winnerSide,
+      startDate: currentMatch.startDate,
+      endDate: currentMatch.endDate,
+      externalMatchCode: currentMatch.externalMatchCode,
+    },
+    sides: Array.from(sideMap.values()).sort((left, right) => left.sideNo - right.sideNo),
+    rubbers: [],
+  };
+}
+
 export function getScheduleMatchDetail(scheduleMatchId: number | string) {
   if (typeof scheduleMatchId === 'string') {
+    const currentMatchId = scheduleMatchId.match(/^cm:(\d+)$/)?.[1];
+    if (currentMatchId) {
+      return buildCurrentIndividualScheduleMatchDetail(Number(currentMatchId));
+    }
     const parsedScheduleMatchId = Number(scheduleMatchId);
     if (Number.isFinite(parsedScheduleMatchId) && String(parsedScheduleMatchId) === scheduleMatchId) {
       return getScheduleMatchDetail(parsedScheduleMatchId);
@@ -4357,7 +4653,7 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
   };
 
   const bracketForSubEvent = (subEventCode: string): EventBracketRound[] => {
-    if (useCurrentEventModel && isAutoTeamSubEvent(subEventCode)) {
+    if (useCurrentEventModel) {
       return buildCurrentBracketForSubEvent(eventId, subEventCode);
     }
 

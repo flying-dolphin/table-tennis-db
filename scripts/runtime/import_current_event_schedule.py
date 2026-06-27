@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sqlite3
 import sys
 from pathlib import Path
@@ -15,6 +16,31 @@ import wtt_import_shared as shared
 DEFAULT_DB_PATH = shared.DEFAULT_DB_PATH
 DEFAULT_LIVE_EVENT_DATA_DIR = shared.PROJECT_ROOT / "data" / "live_event_data"
 TEAM_SUB_EVENTS = {"MT", "WT", "XT"}
+
+
+def qualifier_placeholder_text(competitor: dict) -> str | None:
+    organization = (competitor.get("Organization") or "").strip().upper()
+    desc = competitor.get("Description") or {}
+    team_name = (desc.get("TeamName") or "").strip()
+    if organization != "DEF" or not team_name:
+        return None
+    match = re.match(r"Qualifier\s+(\d+)$", team_name, re.IGNORECASE)
+    if match:
+        return f"资格赛晋级位 {int(match.group(1))}"
+    return team_name
+
+
+def is_placeholder_competitor(competitor: dict) -> bool:
+    if qualifier_placeholder_text(competitor):
+        return True
+    athletes = (((competitor.get("Composition") or {}).get("Athlete")) or [])
+    if len(athletes) != 1 or not isinstance(athletes[0], dict):
+        return False
+    desc = athletes[0].get("Description") or {}
+    given = (desc.get("GivenName") or "").strip()
+    family = (desc.get("FamilyName") or "").strip()
+    organization = (desc.get("Organization") or competitor.get("Organization") or "").strip().upper()
+    return not given and not family and organization in {"DEF", "TBD"}
 
 
 def schedule_path(event_dir: Path) -> Path:
@@ -293,23 +319,28 @@ def insert_match_children(
         if not isinstance(start, dict):
             continue
         competitor = start.get("Competitor") or {}
+        placeholder_text = qualifier_placeholder_text(competitor) if is_placeholder_competitor(competitor) else None
         cursor.execute(
             """
             INSERT INTO current_event_match_sides (
                 current_match_id, side_no, team_code, seed, qualifier, placeholder_text, is_winner
-            ) VALUES (?, ?, ?, ?, ?, NULL, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 current_match_id,
                 side_no,
-                (competitor.get("Organization") or "").strip() or None,
+                None if placeholder_text else (competitor.get("Organization") or "").strip() or None,
                 shared.int_or_none(competitor.get("Seed")),
                 shared.bool_to_int(competitor.get("Qualifier")),
+                placeholder_text,
                 1 if winner_side == ("A" if side_no == 1 else "B") else 0,
             ),
         )
         current_match_side_id = int(cursor.lastrowid)
         side_count += 1
+
+        if placeholder_text:
+            continue
 
         athletes = (((competitor.get("Composition") or {}).get("Athlete")) or [])
         for player_order, athlete in enumerate(athletes, start=1):
@@ -620,14 +651,20 @@ def main() -> int:
         player_count = 0
         existing_rows = load_existing_ties(cursor, args.event_id)
         existing_matches = load_existing_matches(cursor, args.event_id)
+        event_time_zone = shared.infer_time_zone(event)
         conn.execute("BEGIN")
+        if event_time_zone and not (event.get("time_zone") or "").strip():
+            cursor.execute(
+                "UPDATE events SET time_zone = ? WHERE event_id = ? AND (time_zone IS NULL OR trim(time_zone) = '')",
+                (event_time_zone, args.event_id),
+            )
         cleaned_non_team_ties = cleanup_non_team_ties(cursor, args.event_id)
 
         for unit in units:
             ok, kind, unit_side_count, unit_player_count = upsert_schedule_unit(
                 cursor,
                 event_id=args.event_id,
-                event_time_zone=shared.infer_time_zone(event),
+                event_time_zone=event_time_zone,
                 unit=unit,
                 existing_rows=existing_rows,
                 existing_matches=existing_matches,

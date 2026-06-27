@@ -153,6 +153,32 @@ def start(code: str, org: str, name: str, if_id: str, *, seed: int = 1) -> dict:
     }
 
 
+def qualifier_placeholder(code: str, label: str, *, seed: int = 62) -> dict:
+    return {
+        "Competitor": {
+            "Code": code,
+            "Organization": "DEF",
+            "Seed": seed,
+            "Qualifier": True,
+            "Description": {"TeamName": label, "IfId": code},
+            "Composition": {
+                "Athlete": [
+                    {
+                        "Code": code,
+                        "Order": 1,
+                        "Description": {
+                            "GivenName": "",
+                            "FamilyName": "",
+                            "Organization": "DEF",
+                            "IfId": code,
+                        },
+                    }
+                ]
+            },
+        }
+    }
+
+
 class ImportCurrentEventScheduleTests(unittest.TestCase):
     def setUp(self):
         self.conn = sqlite3.connect(":memory:")
@@ -191,6 +217,40 @@ class ImportCurrentEventScheduleTests(unittest.TestCase):
         self.assertEqual("T02", row["table_no"])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_sides").fetchone()[0])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_side_players").fetchone()[0])
+
+    def test_qualifier_placeholder_does_not_import_numeric_player_name(self):
+        match_unit = unit(
+            "Women's Singles",
+            "TTEWSINGLES-----------R64-002500--",
+            [
+                start("135049", "CHN", "KUAI Man", "135049"),
+                qualifier_placeholder("100258767", "Qualifier 6"),
+            ],
+        )
+        player_ids = load_player_ids_for_units(self.conn.cursor(), [match_unit])
+
+        result = upsert_schedule_unit(
+            self.conn.cursor(),
+            event_id=3242,
+            event_time_zone=None,
+            unit=match_unit,
+            existing_rows=load_existing_ties(self.conn.cursor(), 3242),
+            existing_matches=load_existing_matches(self.conn.cursor(), 3242),
+            player_ids=player_ids,
+        )
+
+        self.assertEqual((True, "match", 2, 1), result)
+        side = self.conn.execute(
+            "SELECT * FROM current_event_match_sides WHERE side_no = 2",
+        ).fetchone()
+        self.assertEqual("资格赛晋级位 6", side["placeholder_text"])
+        self.assertIsNone(side["team_code"])
+        self.assertEqual(
+            0,
+            self.conn.execute(
+                "SELECT COUNT(*) FROM current_event_match_side_players WHERE player_name = '100258767'",
+            ).fetchone()[0],
+        )
 
     def test_team_schedule_unit_imports_as_team_tie(self):
         team_unit = unit(

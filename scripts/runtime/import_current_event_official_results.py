@@ -256,6 +256,7 @@ def upsert_official_individual_match(
     item: dict,
     sub_event_type_code: str,
     category: str,
+    event_time_zone: str | None = None,
 ) -> tuple[bool, int, int]:
     match_card = item.get("match_card") if isinstance(item.get("match_card"), dict) else {}
     competitors = parse_individual_competitors(match_card)
@@ -273,6 +274,7 @@ def upsert_official_individual_match(
     start_local = ((match_card.get("matchDateTime") or {}).get("startDateLocal")) or item.get("startDateLocal")
     match_number = parse_match_number(match_card.get("subEventDescription"))
     scheduled_local_at = parse_scheduled_local_at(start_local)
+    _, scheduled_utc_at = shared.to_local_and_utc(scheduled_local_at, event_time_zone)
     session_label = parse_match_info(match_number, start_local)
     raw_payload = json.dumps(item, ensure_ascii=False)
 
@@ -294,6 +296,7 @@ def upsert_official_individual_match(
         group_code,
         external_match_code,
         scheduled_local_at,
+        scheduled_utc_at,
         parse_table_name(match_card),
         session_label,
         "completed",
@@ -318,6 +321,7 @@ def upsert_official_individual_match(
                 round_code = ?,
                 group_code = ?,
                 scheduled_local_at = COALESCE(?, scheduled_local_at),
+                scheduled_utc_at = COALESCE(?, scheduled_utc_at),
                 table_no = COALESCE(?, table_no),
                 session_label = COALESCE(?, session_label),
                 status = ?,
@@ -341,7 +345,7 @@ def upsert_official_individual_match(
                 round_code, group_code, external_match_code, scheduled_local_at, scheduled_utc_at, table_no,
                 session_label, status, source_status, source_schedule_status, match_score, games, winner_side,
                 winner_name, raw_source_payload, last_synced_at, created_at, updated_at
-            ) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, datetime('now'), datetime('now'), datetime('now'))
+            ) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?, datetime('now'), datetime('now'), datetime('now'))
             """,
             values,
         )
@@ -515,6 +519,8 @@ def main() -> int:
     conn.execute("PRAGMA foreign_keys = ON")
     try:
         cursor = conn.cursor()
+        event = shared.get_event(cursor, args.event_id)
+        event_time_zone = shared.infer_time_zone(event) if event else None
         conn.execute("BEGIN")
         imported_ties = 0
         imported_rubbers = 0
@@ -539,6 +545,7 @@ def main() -> int:
                     item=item,
                     sub_event_type_code=sub_event_type_code,
                     category=category,
+                    event_time_zone=event_time_zone,
                 )
                 if ok:
                     imported_matches += 1
