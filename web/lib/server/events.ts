@@ -3562,7 +3562,10 @@ function teamTieBracketStageMeta(stage: string, stageZh: string | null) {
 
   const mainDrawMatch = trimmed.match(/^Main Draw(?:\s*-\s*(.+))?$/i);
   if (mainDrawMatch) {
-    const qualifier = displayTeamStageQualifier(stageZh?.replace(/^(主赛|正赛)\s*-\s*/u, '') ?? mainDrawMatch[1] ?? null);
+    const stageZhRest = stageZh?.replace(/^(主赛|正赛)\s*-\s*/u, '') ?? null;
+    const qualifier = displayTeamStageQualifier(
+      (stageZhRest !== stageZh ? stageZhRest : null) ?? mainDrawMatch[1] ?? null,
+    );
     return {
       codePrefix: qualifier ? `main-${normalizeTeamStageToken(mainDrawMatch[1] ?? qualifier)}` : 'main',
       labelPrefix: qualifier,

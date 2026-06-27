@@ -141,7 +141,7 @@ echo "[INFO] Python: $PYTHON"
 
 RUN_ID="$(date +%Y%m%d-%H%M%S)"
 LOG_DIR="$ROOT_DIR/data/logs/wtt-event-import/$RUN_ID"
-mkdir -p "$LOG_DIR/events" "$LOG_DIR/draw" "$LOG_DIR/sub_events" "$LOG_DIR/player_matches"
+mkdir -p "$LOG_DIR/events" "$LOG_DIR/draw" "$LOG_DIR/sub_events" "$LOG_DIR/player_matches" "$LOG_DIR/team_tie_backfill"
 echo "[INFO] Run id: $RUN_ID"
 echo "[INFO] Logs:   $LOG_DIR"
 
@@ -322,7 +322,16 @@ if ! ( "$PYTHON" scripts/db/import_matches.py \
   finish
 fi
 
-# --- 6. 逐 event 重建 draw 与 sub_events（单个失败不中断整批）---------------
+# --- 6. 回填团体赛橡皮比赛与 team_ties 的关联（单个失败不中断整批）---------
+for eid in "${IMPORTABLE_IDS[@]}"; do
+  if ! ( "$PYTHON" scripts/db/backfill_team_tie_rubbers.py --event-id "$eid" --apply 2>&1 \
+         | tee "$LOG_DIR/team_tie_backfill/$eid.log" ); then
+    echo "[ERROR] backfill_team_tie_rubbers.py failed for event $eid" >&2
+    FAIL=1
+  fi
+done
+
+# --- 7. 逐 event 重建 draw 与 sub_events（单个失败不中断整批）---------------
 for eid in "${IMPORTABLE_IDS[@]}"; do
   if ! ( "$PYTHON" scripts/db/import_event_draw_matches.py --event-id "$eid" \
            --summary-json "$LOG_DIR/draw/$eid.json" 2>&1 \
@@ -338,5 +347,5 @@ for eid in "${IMPORTABLE_IDS[@]}"; do
   fi
 done
 
-# --- 7. 统一汇总 + 退出码 ----------------------------------------------------
+# --- 8. 统一汇总 + 退出码 ----------------------------------------------------
 finish
