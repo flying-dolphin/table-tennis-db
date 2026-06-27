@@ -651,6 +651,53 @@ python scripts/db/import_matches.py \
 python scripts/fix_special_event_2860_stage_round.py
 ```
 
+### 7.6 发布已完赛历史数据到线上数据库
+
+第 7.1–7.5 节都在开发机执行：抓取、翻译，并通过 `scripts/run_import_wtt_events.sh`
+把已完赛历史赛事导入开发机数据库。确认开发机数据无误后，用专用发布脚本把同一批
+赛事导入服务器 A 的线上数据库：
+
+```bash
+REMOTE_HOST=deploy@serverA \
+deploy/server/update_historical_events.sh --event-id <event_id> [<event_id> ...]
+```
+
+该脚本与 `update_events_calendar.sh` / `update_rankings_profiles.sh` 同构，流程是：
+
+1. 发布历史导入所需的最小 Python 运行包（`scripts/db/import_events.py`、
+   `import_matches.py`、`import_event_draw_matches.py`、`import_sub_events.py`
+   及其本地依赖 `_match_keys.py`、`_import_summary.py`、`event_classification_overrides.py`、
+   `config.py`，以及 `scripts/audit_same_name_players.py`、
+   `scripts/fix_special_event_2860_stage_round.py`）。不上传任何抓取/浏览器代码。
+2. 仅打包本批 event id 对应的数据：从 `data/event_matches/cn/` 选出对应 match 文件、
+   从 `data/events_list/cn/*.json` 过滤出对应 events 条目生成精简 events 列表、
+   连同 `data/matches_complete/cn/player_*.json` 同名球员证据和
+   `data/player_country_history.json` 一起上传。
+3. 远端 preflight（校验每个 event id 都有 events 条目和 match 文件、JSON 可解析）。
+4. 把 match 文件、player-centric 证据、country history 发布到线上 data 目录。
+5. 备份线上 SQLite（默认保留最近 5 份 `ittf-before-historical-events-*.db`）。
+6. 在线上依次执行：`audit_same_name_players.py --update`（基于线上 players 表刷新同名名单）、
+   `import_events.py --input-file <精简列表>`（upsert events 行）、必要时 2860 修复、
+   `import_matches.py --event-id <ids>`（按 id 删后重建）、逐赛事
+   `import_event_draw_matches.py` 和 `import_sub_events.py`。
+7. 远端校验每个 event id 的 `events / matches / event_draw_matches / sub_events` 行数，
+   并把 manifest 写入 `${REMOTE_IMPORT_LOG_DIR}/historical-events-${RUN_ID}.manifest.txt`。
+
+说明：
+
+- 发布脚本严格按 `--event-id` 限定范围，不会触碰其它赛事的历史事实数据。
+- 线上不抓取同名球员证据；这些 `player_*.json` 必须先在开发机由
+  `scripts/run_import_wtt_events.sh` 准备好，再由本脚本上传。
+- 远端用 `${REMOTE_PYTHON}` 直接调用各导入器，不调用开发机的
+  `run_import_wtt_events.sh`（其内部硬编码 `python` 且包含浏览器抓取步骤）。
+- 远端目标服务器用户或 pyenv 路径不同时显式设置 `REMOTE_PYTHON`，例如
+  `REMOTE_PYTHON=/home/deploy/.pyenv/shims/python3.11`。
+- 只发布运行包而不导入：`--publish-only`；运行包已是最新只导入：`--skip-publish`。
+- 本地完整日志在 `logs/deploy/historical-events-${RUN_ID}.log`。
+
+2026 年及以后赛事（场景 A/B）走当前赛事主链路 + promote，其线上数据由服务器 A 的
+赛事刷新和 promote 流程产生，不使用本脚本。本脚本只用于第 7 节的历史链路。
+
 ## 8. 当前已知运维缺口
 
 截至 2026-06-15，代码中的 cron 生成器会生成赛后 promote 任务，但服务器最小部署链路尚未形成可靠闭环：

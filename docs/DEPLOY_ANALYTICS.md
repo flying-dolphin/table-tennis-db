@@ -795,7 +795,31 @@ ${REMOTE_IMPORT_LOG_DIR}/events-calendar-{year}-${RUN_ID}.manifest.txt
 
 本地日志包含远程 dry-run、preflight、导入器和校验输出；远程 manifest 记录本次发布的年份、日历 JSON、payload 路径和本地日志路径。
 
-### 8.5 历史本地抓取机同步链路（已归档）
+### 8.5 已完赛历史赛事发布
+
+开发机按[赛事数据日常更新流程](event-data-update-workflow.md)第 7 节抓取、翻译并用
+`scripts/run_import_wtt_events.sh` 导入开发机数据库后，把同一批已完赛历史赛事发布到
+服务器 A 的线上数据库：
+
+```bash
+REMOTE_HOST=deploy@serverA \
+deploy/server/update_historical_events.sh --event-id <event_id> [<event_id> ...]
+```
+
+脚本会发布最小历史导入运行包，仅打包本批 event id 对应的 `event_matches/cn` match
+文件、从 `events_list/cn` 过滤出的精简 events 列表、`matches_complete/cn/player_*.json`
+同名球员证据和 `player_country_history.json`，在远端执行 preflight、备份 SQLite，然后用
+`${REMOTE_PYTHON}` 直接调用 `import_events.py` / `import_matches.py` /
+`import_event_draw_matches.py` / `import_sub_events.py` 按 event id 局部重建历史事实表，
+最后逐赛事校验行数。线上不抓取，同名球员证据必须在开发机预先准备好。具体步骤、参数
+和注意事项以赛事流程文档第 7.6 节为准。
+
+默认远程 Python 与 ranking/profile 发布脚本相同；用户或 pyenv 路径不同时显式设置
+`REMOTE_PYTHON`。备份默认保留最近 5 份 `ittf-before-historical-events-*.db`，可用
+`REMOTE_DB_BACKUPS_KEEP` 调整。本地日志在 `logs/deploy/historical-events-${RUN_ID}.log`，
+远程 manifest 在 `${REMOTE_IMPORT_LOG_DIR}/historical-events-${RUN_ID}.manifest.txt`。
+
+### 8.6 历史本地抓取机同步链路（已归档）
 
 仓库里仍保留 `deploy/scraper/sync_to_server_a.sh` 与 `deploy/scraper/cron_with_sentry.sh.example`，但这是一条历史链路：
 
