@@ -343,8 +343,8 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 ### runtime/import_current_event_session_schedule.py
 将 `data/event_schedule/{event_id}.json` 导入 `current_event_session_schedule`。按行自动识别 per-day（旧格式，如 3216）和 per-session（每天每个时段一条，如 3242）两种结构；per-session 行写入 `session_index / session_title / start_time / table_label`，并把 `start_time` 同时写进 `morning_session_start` 以兼容 cron 生成器。导入 per-session 前需先执行 `scripts/db/upgrade_schema_session_per_session.py`。
 
-### runtime/import_current_event_schedule.py
-将 WTT 官方赛程导入当前赛事赛程相关表，补充比赛编号、时间、台号和 roster。
+### runtime/import_current_event_matches.py
+将 WTT `GetEventSchedule.json` 比赛单元导入当前赛事比赛表，补充比赛编号、时间、台号和 roster。不同于 `scripts/scrape_event_schedule.py` 抓取的 Event Info / Provisional Schedule。
 
 ### runtime/import_current_event_live.py
 从 `data/live_event_data/{event_id}/GetLiveResult.json` 导入进行中比赛。
@@ -368,28 +368,31 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 - `current_event_match_side_players`
 
 ### runtime/generate_current_event_crontab.py
-根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron，包括 schedule、standings、brackets、live、completed 和赛后 promote 任务。
+根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron，包括每日 DB 备份（backup）、schedule、standings、brackets、live、completed 和赛后 promote 任务。
 
 ### db/promote_current_event.py
 将 `current_event_*` 数据写入历史事实表，重建签表与冠军，并把赛事 lifecycle 更新为 `completed`。
 
-### deploy/server/update_event_runtime.sh
-将当前赛事刷新运行时（含 per-session 赛程抓取、翻译栈、promote 及其依赖）按仓库目录
-镜像发布到远端项目根（默认 `doubao_tt`），与 ranking/calendar/historical 发布脚本同根，
-统一写网站读取的 `doubao_tt/data/db/ittf.db`：
+### deploy/server/update_current_event.sh
+current-event 生产更新的**唯一入口**（开发机运行，ssh 到生产）。一条命令完成：发布
+runtime（含 per-session 赛程抓取、翻译栈、promote 及其依赖，按仓库目录镜像到默认
+`doubao_tt`）→ 按 `events_calendar` 建/更新该赛事 events 行（`lifecycle_status='completed'`
+的历史赛事冻结不动）→ preflight → 备份生产 `doubao_tt/data/db/ittf.db` → 抓取+导入 →
+校验 `current_event_*` 行数 →（可选）安装高频 cron。
 
 ```bash
-deploy/server/update_event_runtime.sh
+deploy/server/update_current_event.sh --event-id 3216 --time-zone Europe/London   # 首次接入设时区
+deploy/server/update_current_event.sh --event-id 3216 --install-crontab
+deploy/server/update_current_event.sh --event-id 3216 --sources live completed
+deploy/server/update_current_event.sh --event-id 3216 --sources session_schedule  # 仅导入人工日程
+deploy/server/update_current_event.sh --publish-only
 ```
 
-安装或替换当前赛事高频 cron 时显式传入 event_id：
+`--time-zone <IANA>` 把日历不含的时区写到该赛事 `events` 行；`lifecycle_status` 按
+`start_date`（配合事件时区）自动判 `upcoming`/`in_progress`，`--lifecycle <status>` 可覆盖。
+两者只写未完结赛事，`completed` 仅由 promote 设置（永不自动）。
 
-```bash
-deploy/server/update_event_runtime.sh --install-crontab 3216
-deploy/server/update_event_runtime.sh --skip-publish --install-crontab 3216
-```
-
-可配置项包括 `REMOTE_HOST`、`REMOTE_OPS_DIR`、`REMOTE_TMP_DIR`、`REMOTE_PYENV_ENV_NAME`、`REMOTE_ITTF_DATA_DIR`、`REMOTE_LOG_DIR` 和 `REMOTE_VENV_PATH`。
+可配置项包括 `REMOTE_HOST`、`REMOTE_PROJECT_DIR`、`REMOTE_PYTHON`、`REMOTE_PYENV_ENV_NAME`、`REMOTE_PYTHON_BIN`、`REMOTE_TMP_DIR`、`REMOTE_DB_BACKUPS_KEEP`、`REMOTE_LOG_DIR`。裸 `scripts/runtime/scrape_current_event.py` / `import_current_event.py` 仅用于开发机/排障。
 
 ---
 

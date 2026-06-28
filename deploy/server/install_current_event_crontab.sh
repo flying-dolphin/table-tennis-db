@@ -2,9 +2,10 @@
 #
 # Replace the managed high-frequency current-event cron block.
 #
-# 布局：与 event_refresh.sh 同根（doubao_tt/），生成的 cron 命令直接 cd 到
-# PROJECT_ROOT 后用相对路径调用 scripts/runtime/*.py 和 scripts/db/promote_current_event.py，
-# 因此 promote 自动任务也能正确解析（依赖随 update_event_runtime.sh 一起发布）。
+# 布局：发布在 doubao_tt/ 下，生成的 cron 命令直接 cd 到 PROJECT_ROOT 后用相对路径
+# 调用 scripts/runtime/*.py 和 scripts/db/promote_current_event.py，因此 promote 自动
+# 任务也能正确解析（依赖随 deploy/server/update_current_event.sh 一起发布）。
+# 通常由 update_current_event.sh --install-crontab 调用；也可在服务器本机直接运行。
 #
 # Usage:
 #   PYENV_ENV_NAME=venv doubao_tt/deploy/server/install_current_event_crontab.sh 3216

@@ -27,9 +27,12 @@ SCRAPE_IMPORT_SOURCES = {
 }
 
 # 不经过 scrape/import 流水线、独立命令的 source。
-SPECIAL_SOURCES = {"promote"}
+SPECIAL_SOURCES = {"promote", "backup"}
 
-SOURCE_ORDER = ["schedule", "standings", "brackets", "live", "completed", "promote"]
+SOURCE_ORDER = ["backup", "schedule", "standings", "brackets", "live", "completed", "promote"]
+
+# 每日 cron 备份保留份数（high-freq 刷新本身不备份，靠这个兜底）。
+DAILY_BACKUP_KEEP = 3
 MAIN_DRAW_ROUNDS = {
     "R256",
     "R128",
@@ -308,6 +311,14 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
                 run_at = session_start + timedelta(hours=2 * idx)
                 add_job(jobs, run_at, "completed", f"{session_label}-completed-{idx}")
 
+    # 每个比赛日的首个 session 起点跑一次 DB 备份（在当天首批 live 导入之前），
+    # 给无备份的 high-freq 刷新兜底。备份独占该分钟，不与刷新任务合并。
+    for day in schedule:
+        starts = session_starts(day)
+        if starts:
+            run_at = to_target_datetime(day.local_date, starts[0][1], event_tz, target_tz)
+            add_job(jobs, run_at, "backup", "daily-backup")
+
     # 在最后一个比赛日的最后一个 session 起点 + 24h 后跑 promote：
     # 把 current_event_* 复制到历史事实表，并将 lifecycle_status 翻为 completed。
     # 这是 lifecycle 切换的唯一入口；脚本自身幂等，cron 多跑也无害。
@@ -344,9 +355,39 @@ def build_promote_command(args: argparse.Namespace) -> str:
     return cmd
 
 
+def build_backup_command(args: argparse.Namespace) -> str:
+    """`backup` source 对应的独立命令：备份生产 SQLite 并按份数轮转。"""
+    python_bin = str(args.python_bin)
+    project_root = str(args.project_root)
+    command_db_path = str(args.emit_db_path or args.db_path)
+    event_id = str(args.event_id)
+    backup_file = "data/db/backups/ittf-cron-backup-$(date +\\%Y\\%m\\%d_\\%H\\%M\\%S).db"
+    backup_py = (
+        "import sqlite3,sys; src=sqlite3.connect(sys.argv[1]); "
+        "dst=sqlite3.connect(sys.argv[2]); src.backup(dst); dst.close(); src.close()"
+    )
+    rotate_py = (
+        "from pathlib import Path; keep=%d; "
+        "b=sorted(Path('data/db/backups').glob('ittf-cron-backup-*.db'), "
+        "key=lambda p: p.stat().st_mtime, reverse=True); "
+        "[p.unlink() for p in b[keep:]]" % DAILY_BACKUP_KEEP
+    )
+    cmd = (
+        f"cd {shlex.quote(project_root)} && mkdir -p data/db/backups && "
+        f"{shlex.quote(python_bin)} -c {shlex.quote(backup_py)} {shlex.quote(command_db_path)} {backup_file} && "
+        f"{shlex.quote(python_bin)} -c {shlex.quote(rotate_py)}"
+    )
+    if args.log_dir:
+        log_file = f"{args.log_dir}/event_{event_id}_backup_$(date +\\%Y\\%m\\%d).log"
+        cmd = f"mkdir -p {shlex.quote(args.log_dir)} && {cmd} >> {log_file} 2>&1"
+    return cmd
+
+
 def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
     if sources == {"promote"}:
         return build_promote_command(args)
+    if sources == {"backup"}:
+        return build_backup_command(args)
     # promote 不会和其它 source 合并到同一个分钟点（晚于所有 session 24h），保险起见忽略
     ordered_sources = [source for source in SOURCE_ORDER if source in sources and source not in SPECIAL_SOURCES]
     scrape_sources = [SCRAPE_IMPORT_SOURCES[source][0] for source in ordered_sources]

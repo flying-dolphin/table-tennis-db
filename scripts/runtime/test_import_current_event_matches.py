@@ -8,7 +8,7 @@ RUNTIME_DIR = Path(__file__).resolve().parent
 if str(RUNTIME_DIR) not in sys.path:
     sys.path.insert(0, str(RUNTIME_DIR))
 
-from import_current_event_schedule import (
+from import_current_event_matches import (
     cleanup_non_team_ties,
     load_existing_matches,
     load_existing_ties,
@@ -179,7 +179,7 @@ def qualifier_placeholder(code: str, label: str, *, seed: int = 62) -> dict:
     }
 
 
-class ImportCurrentEventScheduleTests(unittest.TestCase):
+class ImportCurrentEventMatchesTests(unittest.TestCase):
     def setUp(self):
         self.conn = sqlite3.connect(":memory:")
         self.conn.row_factory = sqlite3.Row
@@ -243,7 +243,7 @@ class ImportCurrentEventScheduleTests(unittest.TestCase):
         side = self.conn.execute(
             "SELECT * FROM current_event_match_sides WHERE side_no = 2",
         ).fetchone()
-        self.assertEqual("资格赛晋级位 6", side["placeholder_text"])
+        self.assertEqual("资格赛晋级位", side["placeholder_text"])
         self.assertIsNone(side["team_code"])
         self.assertEqual(
             0,

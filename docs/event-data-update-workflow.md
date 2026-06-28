@@ -1,6 +1,6 @@
 # 赛事数据日常更新流程
 
-最后核对：2026-06-27
+最后核对：2026-06-28
 
 本文档是赛事数据更新的唯一操作说明。数据库维护、部署和脚本总览文档只保留职责说明，并链接到本文档。
 
@@ -109,7 +109,7 @@ WHERE event_id = <event_id>;
 python scripts/runtime/backfill_events_calendar_event_id.py
 ```
 
-该脚本会从 `events_calendar.href` 提取 `event_id`，并为缺失赛事建立 `lifecycle_status='upcoming'` 的基础记录。
+该脚本会从 `events_calendar.href` 提取 `event_id`，并为缺失赛事建立 `lifecycle_status='upcoming'` 的基础记录。本节命令面向开发机本地库；**生产库无需手动 backfill**——第 4.4 节的 `update_current_event.sh` 会按 `events_calendar` 自动建/更新该赛事的 `events` 行。
 
 如果日历数据本身尚未更新，先执行赛历抓取、翻译和导入，再执行上述 backfill：
 
@@ -120,13 +120,37 @@ python scripts/runtime/backfill_events_calendar_event_id.py
 
 `run_update_events_calendar.sh` 会顺序抓取、翻译并按年整年替换导入 `events_calendar`。
 
-### 3.2 核对时区和生命周期
+### 3.2 确定时区与生命周期的取值
 
-cron 生成器要求 `events.time_zone` 是有效的 IANA 时区，例如 `Europe/London`。promote 默认要求赛事状态为 `in_progress` 或 `completed`。
+本节只负责**确定** `events` 两个专有字段的取值（日历里没有这两列）。怎么写进库分两种：
+**开发机本地库**用下面的 `--apply` / sqlite；**生产库不要手动改**，用第 4.4 节
+`update_current_event.sh` 的 `--time-zone` / `--lifecycle`。
 
-当前代码没有统一的 lifecycle 自动推进器。开始抓取前必须核对，必要时更新：
+- `time_zone`：cron 生成器要求有效 IANA 时区（`Area/Location`），如 `Asia/Shanghai`、
+  `Asia/Qatar`、`America/Los_Angeles`、`Europe/Paris`；不要写 `UTC+8`、`CST`、`GMT` 这类简称。
+- `lifecycle_status`：promote 要求 `in_progress` 或 `completed`。**生产侧不用手动设**——
+  第 4.4 节的 `update_current_event.sh` 会按 `start_date`（配合事件时区）自动判定：已开赛
+  （含已结束）→ `in_progress`，未开赛 → `upcoming`；**永不自动设 `completed`**（只由 promote 设）。
+  需要强制某状态时用 `--lifecycle` 覆盖。开发机本地库仍可用下面的 sqlite 手动改。
+
+先用推断脚本得到 time_zone 值（按赛事名城市 + `events_calendar.location` 国家代码）：
 
 ```bash
+python scripts/runtime/infer_event_time_zone.py --event-id <event_id>
+python scripts/runtime/infer_event_time_zone.py --event-id <event_id> --explain
+```
+
+只处理确定性场景：赛事名含已知城市优先按城市推断；单时区国家按国家代码推断。遇到 `USA`、
+`AUS`、`CAN`、`BRA`、`MEX`、`RUS` 等多时区国家代码会失败并提示手动传 `--time-zone <IANA>`，
+避免 cron 时间算错。
+
+写入**开发机本地库**（生产库改用第 4.4 节的命令）：
+
+```bash
+# 用推断值写本地库
+python scripts/runtime/infer_event_time_zone.py --event-id <event_id> --apply
+
+# 或手动指定时区/生命周期
 sqlite3 data/db/ittf.db "
 UPDATE events
 SET time_zone = '<IANA time zone>',
@@ -135,7 +159,7 @@ WHERE event_id = <event_id>;
 "
 ```
 
-赛前准备但尚未开赛时可以暂时保留 `upcoming`；安装 cron 前至少要确保基础记录、时区和 session 日程完整。进入实际比赛更新阶段后，将状态设为 `in_progress`。
+安装 cron 前至少要确保基础记录、时区和 session 日程完整。
 
 ### 3.3 一次性 schema 迁移：per-session session 日程
 
@@ -151,7 +175,10 @@ python scripts/db/upgrade_schema_session_per_session.py
 
 ## 4. 场景 A：赛前或赛中接入
 
-### 4.1 准备 session 日程
+> **生产更新只有一个入口 `update_current_event.sh`，集中说明在 4.4**（含命令速查表，所有用法以那张表为准）。
+> 4.1 准备 session 日程（含上线一步）；4.2/4.3/4.5 是开发机本地裸命令，写开发机库或排障用，**不是生产路径、无导入前备份**。
+
+### 4.1 准备 session 日程（开发机生成 + 上线）
 
 目标文件：
 
@@ -193,7 +220,37 @@ ORDER BY local_date, session_index;
 "
 ```
 
-### 4.2 首次完整抓取和导入
+#### 线上更新 session 日程
+
+以上命令写的是**开发机本地库**。要让生产生效，把生成好的 `data/event_schedule/{event_id}.json`
+同步到服务器，再用生产入口只导入 session_schedule（会先发布 runtime、备份生产库，然后
+仅导入，不重抓其它 source）。这等同于第 4.4 节命令表的「只更新 session 日程」一行；
+**首次接入新赛事**请改用第 4.4 节的完整接入命令（会一并设置时区、生命周期、装 cron）。
+
+```bash
+# 1) 上传人工/抓取得到的 session 日程到服务器
+scp data/event_schedule/<event_id>.json \
+  flyingfox@xiaodoubao.site:doubao_tt/data/event_schedule/
+
+# 2) 仅导入 session_schedule（--sources session_schedule 时脚本会自动跳过 scrape）
+REMOTE_PYENV_ENV_NAME=venv \
+deploy/server/update_current_event.sh --event-id <event_id> --sources session_schedule
+```
+
+脚本与数据在服务器上的位置：
+
+- `scrape_event_schedule.py` 已包含在发布的 runtime 里，线上路径
+  `doubao_tt/scripts/scrape_event_schedule.py`；因此也可登录服务器在 `doubao_tt/` 下重新
+  生成该 JSON，但它走 LLM 翻译，需要 `.env` 配好 `DEFAULT_PROVIDER` 及其对应 key
+  （见第 8.1 节）。日常更推荐在开发机生成、scp 上传，再用上面的命令导入。
+- `import_current_event.py` 线上路径 `doubao_tt/scripts/runtime/import_current_event.py`，
+  由 `update_current_event.sh` 调用，从 `doubao_tt/data/event_schedule/` 读取该 JSON。
+- 人工 session 日程 JSON 不随发布包上传，必须像上面那样手动 scp（见第 8.1 节一次性数据说明）。
+
+### 4.2 首次完整抓取和导入（开发机本地）
+
+> 本节及 4.3、4.5 是开发机本地裸命令，写本地库、无导入前备份，仅用于本地验证、按 source
+> 局部刷新或排障。生产一律用 4.4 的 `update_current_event.sh`。
 
 抓取：
 
@@ -226,7 +283,7 @@ python scripts/runtime/import_current_event.py --event-id <event_id>
 5. `live`
 6. `completed`
 
-### 4.3 验证首次导入
+### 4.3 验证首次导入（开发机本地）
 
 ```bash
 sqlite3 data/db/ittf.db "
@@ -244,40 +301,71 @@ SELECT 'matches', COUNT(*) FROM current_event_matches WHERE event_id = <event_id
 
 同时检查 `data/live_event_data/{event_id}/` 中的原始文件和抓取日志，不能只根据命令退出码判断数据完整。
 
-### 4.4 安装赛事专属 cron
+### 4.4 生产更新入口 `update_current_event.sh` 与安装 cron
 
-开发机侧推荐使用事件 runtime 发布脚本安装或替换 cron：
+生产更新统一走这一个入口 `deploy/server/update_current_event.sh`（开发机运行，ssh 到
+生产 `doubao_tt`，写网站读取的 `doubao_tt/data/db/ittf.db`）。一条命令完成：按
+`events_calendar` 建/更新该赛事 `events` 行 → 设时区/生命周期（`--time-zone`/`--lifecycle`）→
+preflight → **备份生产库** → 抓取+导入 → 校验 →（可选）装 cron。
+
+**首次接入一个新赛事。** 前提：① 赛事已在 `events_calendar`（否则先更新赛历，见 3.1）；
+② 已确定 IANA 时区（取值见 3.2）；③ 如需 session 信息或要装 cron，已把
+`data/event_schedule/{event_id}.json` scp 到服务器（见 4.1）。然后：
 
 ```bash
-REMOTE_HOST=deploy@serverA \
 REMOTE_PYENV_ENV_NAME=venv \
-deploy/server/update_event_runtime.sh --install-crontab <event_id>
+deploy/server/update_current_event.sh --event-id <event_id> \
+  --time-zone <IANA> --install-crontab
 ```
 
-如果本次不需要重新发布事件 runtime，只更新 cron：
+`--time-zone` 仅在 `events` 行尚未设时区时需要，设过后可省略。`lifecycle_status` 由脚本按
+`start_date`（配合事件时区）自动判定（已开赛→`in_progress`，未开赛→`upcoming`），无需手填；
+需要强制时用 `--lifecycle <status>` 覆盖。`--time-zone` / `--lifecycle` 只写**未完结**赛事，
+`completed`（历史/已 promote）一律不动，且**永不自动设 `completed`**——只由 promote 设置。
 
-```bash
-REMOTE_HOST=deploy@serverA \
-REMOTE_PYENV_ENV_NAME=venv \
-deploy/server/update_event_runtime.sh --skip-publish --install-crontab <event_id>
-```
+**命令速查**（同一脚本按场景选参数，所有用法以此表为准；除 `--publish-only` 外都加
+`REMOTE_PYENV_ENV_NAME=venv` 前缀）：
 
-登录生产服务器后也可以直接使用（current-event 代码与其它发布脚本同根，发布在
-`doubao_tt/` 下）：
+| 场景 | 参数 |
+| --- | --- |
+| 首次接入新赛事 | `--event-id <id> --time-zone <IANA> --install-crontab` |
+| 常规整体刷新（已设过时区） | `--event-id <id>` |
+| 只刷 live/completed（赛中轻量） | `--event-id <id> --sources live completed` |
+| 只更新 session 日程（先 scp，见 4.1） | `--event-id <id> --sources session_schedule` |
+| 只装/换 cron、本次不重抓 | `--event-id <id> --no-refresh --install-crontab` |
+| 只发布代码、不碰数据 | `--publish-only` |
+| 跳过发布、只更新数据 | `--event-id <id> --skip-publish` |
 
-```bash
-cd doubao_tt
-PYENV_ENV_NAME=venv ./deploy/server/install_current_event_crontab.sh <event_id>
-```
+默认刷新（不带 `--sources`）抓取并导入相同的五类 source（`schedule / standings / brackets /
+live / completed`），与 cron 一致。`session_schedule` 是人工日程，不在默认里，只通过上表
+「只更新 session 日程」单独导入，因此默认刷新不会因服务器缺该赛事日程文件而失败。
 
-生成器依据 `current_event_session_schedule` 安排：
+默认每次先发布 runtime（除非 `--skip-publish`），镜像到 `doubao_tt/scripts/` 等，包含
+`scripts/runtime/`（scrape/import 及各 importer）、`scripts/scrape_event_schedule.py` 及翻译栈、
+`scripts/db/promote_current_event.py` 及依赖、`deploy/server/install_current_event_crontab.sh`；
+完整清单见 [DEPLOY_ANALYTICS.md](DEPLOY_ANALYTICS.md) 第 8.2 节。线上脚本因此始终与开发机一致。
 
+**cron 与手动的关系**：装了 cron 后，赛事期间的常规刷新、赛后 promote、每日
+DB 备份都由 cron 自动完成，**不需要再手动跑**。只在这些情况再手动跑
+`update_current_event.sh`：接入新赛事、想立刻刷新一次、赛后没装 cron 需要补抓。
+裸 py 仅用于开发机/排障，**不要直接对生产库跑**（无备份）。
+
+cron 生成器依据 `current_event_session_schedule` 安排：
+
+- `backup`：每个比赛日首个 session 起点做一次 DB 备份（保留最近 3 份）
 - `schedule`：每日刷新
 - `standings`：Main Draw 前刷新
 - `brackets`：Main Draw 前及比赛阶段刷新
 - `live`：每个 session 开始后每 30 分钟刷新
 - `completed`：每个 session 开始后每 2 小时刷新
 - `promote`：最后一个比赛日的最后一个 session 起点后 24 小时执行
+
+登录生产服务器后也可只装 cron：
+
+```bash
+cd doubao_tt
+PYENV_ENV_NAME=venv ./deploy/server/install_current_event_crontab.sh <event_id>
+```
 
 安装后检查托管区块：
 
@@ -286,9 +374,13 @@ crontab -l | sed -n \
   '/ITTF current-event refresh begin/,/ITTF current-event refresh end/p'
 ```
 
-注意：`promote` 自动任务依赖的脚本现在已随发布包一起部署，cron 命令路径也与发布布局一致（见第 8 节）。但完赛后仍必须人工核对 promote 是否实际成功，不能仅因 crontab 中存在 `sources=promote` 就认为已进入历史事实表。
+注意：`promote` 自动任务依赖的脚本已随发布包部署、cron 命令路径与发布布局一致
+（见第 8 节）。但完赛后仍必须人工核对 promote 是否实际成功，不能仅因 crontab 中
+存在 `sources=promote` 就认为已进入历史事实表。
 
-### 4.5 赛事期间的手动补跑
+### 4.5 赛事期间的手动补跑（开发机本地）
+
+> 生产侧赛中补跑用 4.4 的 `--sources`（带备份）；本节是开发机本地等价命令。
 
 完整刷新：
 
@@ -717,29 +809,39 @@ deploy/server/update_historical_events.sh --event-id <event_id> [<event_id> ...]
 
 ## 8. 部署闭环与剩余缺口
 
-### 8.1 promote 部署闭环（已修复）
+### 8.1 生产入口与 promote 部署闭环（已修复）
 
-截至 2026-06-27，赛后自动 promote 的部署链路已闭环：
+截至 2026-06-28，current-event 的生产更新已收敛为单一入口
+`deploy/server/update_current_event.sh`，赛后自动 promote 链路已闭环：
 
-1. `deploy/server/update_event_runtime.sh` 现在按仓库目录镜像发布到 `doubao_tt/` 下，
-   除当前赛事刷新 runtime（`scripts/runtime/`）外，还发布 `scripts/db/promote_current_event.py`
-   及其依赖（`_match_keys.py`、`_import_summary.py`、`import_event_draw_matches.py`、
-   `import_sub_events.py`、`config.py`）。
-2. current-event 代码与 rankings/calendar/historical 发布脚本同根，统一写 `doubao_tt/data/db/ittf.db`
-   （即网站读取的库）。`generate_current_event_crontab.py` 生成的命令形如
-   `cd doubao_tt && <python> scripts/db/promote_current_event.py ...`，路径与发布布局一致。
+1. `update_current_event.sh` 按仓库目录镜像发布到 `doubao_tt/` 下，
+   除当前赛事刷新 runtime（`scripts/runtime/`）外，还发布
+   `scripts/db/promote_current_event.py` 及其依赖（`_match_keys.py`、
+   `_import_summary.py`、`import_event_draw_matches.py`、`import_sub_events.py`、
+   `config.py`），并在每次刷新前**备份生产 SQLite**。
+2. current-event 代码与 rankings/calendar/historical 发布脚本同根，统一写
+   `doubao_tt/data/db/ittf.db`（即网站读取的库）。`generate_current_event_crontab.py`
+   生成的命令形如 `cd doubao_tt && <python> scripts/db/promote_current_event.py ...`，
+   路径与发布布局一致；并额外 emit `backup` 任务，每个比赛日首个 session 起点做一次
+   DB 备份（保留最近 3 份），给高频刷新兜底。
 3. 同时发布 per-session 赛程抓取脚本 `scripts/scrape_event_schedule.py` 及其翻译栈
    （`scripts/lib/{translator,dict_translator,event_translation}.py`、
    `scripts/data/translation_dict_v2.json`、`docs/rules/TRANSLATION_RULES.md`）。
-   该脚本走 LLM 翻译，服务器需在 `doubao_tt/.env` 配置 `MINIMAX_API_KEY`。
+   该脚本走 LLM 翻译，服务器需在 `doubao_tt/.env` 配置 `DEFAULT_PROVIDER` 及其对应的
+   API key（如 minimax→`MINIMAX_API_KEY`、qwen→`DASHSCOPE_API_KEY`；provider 与 key 的
+   映射见 `scripts/lib/translator.py`）。
+4. `update_current_event.sh` 在刷新前会按 `events_calendar` 为该赛事**建/更新
+   events 行**：缺失则插入，占位行（未完结）刷新描述字段，`lifecycle_status='completed'`
+   的历史/已 promote 赛事一律冻结不动；不再依赖全局 `backfill`、不会灌入未来赛事。
 
 仍需注意：
 
 - 完赛后必须人工核对 promote 是否实际成功（见第 6 节校验），不要仅因 crontab 中存在
   `sources=promote` 就认为赛事已经进入历史事实表。
 - schema 迁移脚本（`scripts/db/upgrade_schema_*.py`）和人工 session 日程
-  （`data/event_schedule/{event_id}.json`）目前仍按一次性手动处理：手动 scp 到
-  `doubao_tt/` 对应路径并在线上执行/导入，发布脚本不负责这两类一次性数据。
+  （`data/event_schedule/{event_id}.json`）仍按一次性手动处理：手动 scp 到
+  `doubao_tt/` 对应路径并在线上执行/导入，`update_current_event.sh` 不负责这两类
+  一次性数据。
 
 ### 8.2 剩余缺口：个人赛建模
 

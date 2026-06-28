@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Import GetEventSchedule.json into current event match/team tie tables."""
+"""Import WTT GetEventSchedule.json units into current event match/team tie tables."""
 
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ def qualifier_placeholder_text(competitor: dict) -> str | None:
         return None
     match = re.match(r"Qualifier\s+(\d+)$", team_name, re.IGNORECASE)
     if match:
-        return f"资格赛晋级位 {int(match.group(1))}"
+        return "资格赛晋级位"
     return team_name
 
 
@@ -621,7 +621,7 @@ def upsert_schedule_unit(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Import GetEventSchedule.json into current event match/team tie tables.")
+    parser = argparse.ArgumentParser(description="Import WTT GetEventSchedule.json units into current event match/team tie tables.")
     parser.add_argument("--event-id", type=int, required=True)
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)

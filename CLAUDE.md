@@ -43,7 +43,7 @@ Common entry points:
 - `python scripts/run_profiles.py --category women --top 50 --headless` — scrape player profiles + avatars
 - `python scripts/scrape_matches.py --players-file data/women_singles_top50.json` — scrape match history
 - `python scripts/scrape_events_calendar.py --year 2026` — scrape calendar
-- `python scripts/runtime/scrape_current_event.py --event-id <id>` then `python scripts/runtime/import_current_event.py --event-id <id>` — refresh an upcoming/in-progress event end-to-end (scrape WTT schedule/standings/brackets/live/completed, then import into `current_event_*`). On the server this pair is wrapped by `deploy/server/event_refresh.sh` (which also does a pre-refresh DB backup, calendar backfill, and auto-discovery of in-progress events).
+- `python scripts/runtime/scrape_current_event.py --event-id <id>` then `python scripts/runtime/import_current_event.py --event-id <id>` — refresh an upcoming/in-progress event end-to-end (scrape WTT schedule/standings/brackets/live/completed, then import into `current_event_*`). Production updates go through `deploy/server/update_current_event.sh` (run from the dev machine; it publishes runtime, ensures the events row, backs up the prod DB, scrapes+imports on the server, verifies, and optionally installs the refresh cron).
 
 ### Database bootstrap order (run from repo root)
 
@@ -97,7 +97,7 @@ so promote runs automatically after the event ends.
 The DB has two parallel sets of tables for the same conceptual event, and code paths must respect which lifecycle stage an event is in:
 
 - **Historical** (completed events): `matches`, `event_draw_matches`, `sub_events`. Populated by the bootstrap import pipeline above.
-- **Live / upcoming** (`lifecycle_status` ∈ `upcoming | draw_published | in_progress | completed`): `event_session_schedule`, `event_draw_entries`, `event_draw_entry_players`, `event_schedule_matches`, `event_schedule_match_sides`, `event_schedule_match_side_players`, `event_group_standings`, plus team-tie tables. Populated by `scripts/runtime/*` scripts and orchestrated by `scrape_current_event.py` + `import_current_event.py` (server-side wrapper: `deploy/server/event_refresh.sh`).
+- **Live / upcoming** (`lifecycle_status` ∈ `upcoming | draw_published | in_progress | completed`): `event_session_schedule`, `event_draw_entries`, `event_draw_entry_players`, `event_schedule_matches`, `event_schedule_match_sides`, `event_schedule_match_side_players`, `event_group_standings`, plus team-tie tables. Populated by `scripts/runtime/*` scripts and orchestrated by `scrape_current_event.py` + `import_current_event.py` (production entry: `deploy/server/update_current_event.sh`).
 
 `docs/event-data-update-workflow.md` is the canonical description of which scripts feed which tables.
 

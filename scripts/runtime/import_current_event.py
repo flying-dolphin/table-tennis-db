@@ -61,7 +61,7 @@ def main() -> int:
     if "schedule" in args.sources:
         cmd = [
             py,
-            str(SCRIPT_DIR / "import_current_event_schedule.py"),
+            str(SCRIPT_DIR / "import_current_event_matches.py"),
             "--event-id",
             str(args.event_id),
             *db_args,
