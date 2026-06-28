@@ -9,6 +9,7 @@ import sqlite3
 import sys
 import json
 import argparse
+from datetime import date
 from pathlib import Path
 
 if sys.platform == 'win32':
@@ -29,6 +30,12 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from event_classification_overrides import override_event_type
 from _import_summary import write_summary
+
+
+def lifecycle_status_for_import(end_date: str | None) -> str:
+    if not end_date:
+        return "upcoming"
+    return "completed" if end_date < date.today().isoformat() else "upcoming"
 
 
 def resolve_event_category(cursor, event_type: str, event_kind: str | None):
@@ -105,6 +112,8 @@ def import_events(db_path: str, events_dir: str, input_file: str | Path | None =
                 total_matches = 0
 
             try:
+                lifecycle_status = lifecycle_status_for_import(event.get('end_date'))
+
                 cursor.execute("""
                     INSERT INTO events (
                         event_id, year, name, name_zh,
@@ -112,8 +121,8 @@ def import_events(db_path: str, events_dir: str, input_file: str | Path | None =
                         event_kind, event_kind_zh,
                         event_category_id, category_code, category_name_zh,
                         total_matches, start_date, end_date, location,
-                        href, scraped_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        href, scraped_at, lifecycle_status
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(event_id) DO UPDATE SET
                         year = excluded.year,
                         name = excluded.name,
@@ -129,7 +138,13 @@ def import_events(db_path: str, events_dir: str, input_file: str | Path | None =
                         end_date = excluded.end_date,
                         location = excluded.location,
                         href = excluded.href,
-                        scraped_at = excluded.scraped_at
+                        scraped_at = excluded.scraped_at,
+                        lifecycle_status = CASE
+                            WHEN events.lifecycle_status = 'upcoming'
+                             AND excluded.lifecycle_status = 'completed'
+                            THEN 'completed'
+                            ELSE events.lifecycle_status
+                        END
                 """, (
                     event_id,
                     int(event.get('year', 0)),
@@ -147,6 +162,7 @@ def import_events(db_path: str, events_dir: str, input_file: str | Path | None =
                     event.get('location'),
                     event.get('href'),
                     data.get('scraped_at'),
+                    lifecycle_status,
                 ))
                 result['inserted'] += 1
             except sqlite3.Error as e:

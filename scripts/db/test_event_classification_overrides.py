@@ -156,6 +156,88 @@ class EventClassificationOverrideTests(unittest.TestCase):
                 row,
             )
 
+    def test_event_import_marks_past_upcoming_events_completed_only(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            db_path = temp_dir / "ittf.db"
+            events_dir = temp_dir / "events"
+            events_dir.mkdir()
+            self._init_events_schema(db_path)
+            self._seed_event_mappings(db_path)
+
+            conn = sqlite3.connect(db_path)
+            try:
+                conn.executemany(
+                    """
+                    INSERT INTO events (
+                        event_id, year, name, event_type_name, event_kind,
+                        lifecycle_status, end_date
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    [
+                        (9201, 2020, "Past Upcoming", "Multi sport events", "--", "upcoming", "2020-01-01"),
+                        (9202, 2999, "Future Upcoming", "Multi sport events", "--", "upcoming", "2999-01-01"),
+                        (9203, 2020, "Past In Progress", "Multi sport events", "--", "in_progress", "2020-01-01"),
+                    ],
+                )
+                conn.commit()
+            finally:
+                conn.close()
+
+            payload = {
+                "scraped_at": "2026-06-25T00:00:00Z",
+                "events": [
+                    {
+                        "event_id": 9201,
+                        "year": 2020,
+                        "name": "Past Upcoming",
+                        "event_type": "Multi sport events",
+                        "event_kind": "--",
+                        "matches": "1",
+                        "end_date": "2020-01-01",
+                    },
+                    {
+                        "event_id": 9202,
+                        "year": 2999,
+                        "name": "Future Upcoming",
+                        "event_type": "Multi sport events",
+                        "event_kind": "--",
+                        "matches": "1",
+                        "end_date": "2999-01-01",
+                    },
+                    {
+                        "event_id": 9203,
+                        "year": 2020,
+                        "name": "Past In Progress",
+                        "event_type": "Multi sport events",
+                        "event_kind": "--",
+                        "matches": "1",
+                        "end_date": "2020-01-01",
+                    },
+                ],
+            }
+            (events_dir / "events.json").write_text(json.dumps(payload), encoding="utf-8")
+
+            with redirect_stdout(io.StringIO()):
+                IMPORT_EVENTS.import_events(str(db_path), str(events_dir))
+
+            conn = sqlite3.connect(db_path)
+            try:
+                rows = conn.execute(
+                    "SELECT event_id, lifecycle_status FROM events ORDER BY event_id"
+                ).fetchall()
+            finally:
+                conn.close()
+
+            self.assertEqual(
+                [
+                    (9201, "completed"),
+                    (9202, "upcoming"),
+                    (9203, "in_progress"),
+                ],
+                rows,
+            )
+
     def test_event_import_cli_accepts_single_input_file_and_writes_summary(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             temp_dir = Path(tmpdir)
