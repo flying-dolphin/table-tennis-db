@@ -121,12 +121,20 @@ def normalize_round(raw_round: str | None) -> RoundInfo:
         if 1 <= group_no <= 16:
             return RoundInfo("PRELIMINARY", f"G{group_no}", raw[:4])
 
-    if raw == "RND1":
-        return RoundInfo("PRELIMINARY", "R1", None)
+    # Qualifying rounds arrive as RND1 / RND2 / RND3 ... — all map to the
+    # PRELIMINARY stage, one round each.
+    qualifying = re.match(r"RND(\d+)$", raw)
+    if qualifying:
+        return RoundInfo("PRELIMINARY", f"R{int(qualifying.group(1))}", None)
 
     direct = {
+        "R128-": "R128",
+        "R128": "R128",
+        "R64-": "R64",
+        "R64": "R64",
         "R32-": "R32",
         "R32": "R32",
+        "R16-": "R16",
         "R16": "R16",
         "8FNL": "R16",
         "QFNL": "QF",

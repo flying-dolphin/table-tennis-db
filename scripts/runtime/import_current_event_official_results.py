@@ -169,6 +169,26 @@ def competitor_org(competitor: dict) -> str | None:
     return value.strip() if isinstance(value, str) and value.strip() else None
 
 
+def collect_player_if_ids(payload: object) -> set[int]:
+    """Walk the official-results payload and collect every WTT `playerId`."""
+    ids: set[int] = set()
+
+    def walk(node: object) -> None:
+        if isinstance(node, dict):
+            if "playerId" in node:
+                pid = shared.int_or_none(node.get("playerId"))
+                if pid is not None:
+                    ids.add(pid)
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+
+    walk(payload)
+    return ids
+
+
 def competitor_players(competitor: dict) -> list[dict]:
     players = competitor.get("players") or []
     if isinstance(players, list) and players:
@@ -185,6 +205,7 @@ def replace_individual_match_children(
     current_match_id: int,
     competitors: list[dict],
     winner_side: str | None,
+    player_ids: dict[int, int],
 ) -> tuple[int, int]:
     cursor.execute(
         """
@@ -222,15 +243,20 @@ def replace_individual_match_children(
             name = player.get("playerName") or competitor_display_name(competitor)
             if not name:
                 continue
+            # GetOfficialResult carries the WTT player id directly (`playerId`),
+            # which shares the players.player_id id space. Resolve it instead of
+            # name matching so same-org namesakes can't collide.
+            if_id = shared.int_or_none(player.get("playerId"))
             cursor.execute(
                 """
                 INSERT INTO current_event_match_side_players (
                     current_match_side_id, player_order, player_id, player_name, player_country
-                ) VALUES (?, ?, NULL, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?)
                 """,
                 (
                     current_match_side_id,
                     player_order,
+                    player_ids.get(if_id) if if_id is not None else None,
                     name,
                     player.get("playerOrgCode") or competitor_org(competitor),
                 ),
@@ -256,6 +282,7 @@ def upsert_official_individual_match(
     item: dict,
     sub_event_type_code: str,
     category: str,
+    player_ids: dict[int, int],
     event_time_zone: str | None = None,
 ) -> tuple[bool, int, int]:
     match_card = item.get("match_card") if isinstance(item.get("match_card"), dict) else {}
@@ -351,7 +378,9 @@ def upsert_official_individual_match(
         )
         current_match_id = int(cursor.lastrowid)
 
-    side_count, player_count = replace_individual_match_children(cursor, current_match_id, competitors, winner_side)
+    side_count, player_count = replace_individual_match_children(
+        cursor, current_match_id, competitors, winner_side, player_ids
+    )
     return True, side_count, player_count
 
 
@@ -521,6 +550,7 @@ def main() -> int:
         cursor = conn.cursor()
         event = shared.get_event(cursor, args.event_id)
         event_time_zone = shared.infer_time_zone(event) if event else None
+        player_ids = shared.load_player_ids(cursor, collect_player_if_ids(payload))
         conn.execute("BEGIN")
         imported_ties = 0
         imported_rubbers = 0
@@ -545,6 +575,7 @@ def main() -> int:
                     item=item,
                     sub_event_type_code=sub_event_type_code,
                     category=category,
+                    player_ids=player_ids,
                     event_time_zone=event_time_zone,
                 )
                 if ok:

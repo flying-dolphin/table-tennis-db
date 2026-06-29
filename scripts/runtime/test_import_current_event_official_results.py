@@ -114,6 +114,8 @@ class ImportCurrentEventOfficialResultsTests(unittest.TestCase):
             item=item,
             sub_event_type_code="MS",
             category="Men's Singles - Qualifying Round 1",
+            # 1001 is known in players; 1002 is not, so it must fall back to NULL.
+            player_ids={1001: 1001},
             event_time_zone="America/Los_Angeles",
         )
 
@@ -131,6 +133,15 @@ class ImportCurrentEventOfficialResultsTests(unittest.TestCase):
         self.assertEqual("2026-06-26T17:00:00+00:00", match["scheduled_utc_at"])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_sides").fetchone()[0])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_side_players").fetchone()[0])
+
+        # player_id resolved from the source playerId (no name matching).
+        resolved = dict(
+            self.conn.execute(
+                "SELECT player_name, player_id FROM current_event_match_side_players ORDER BY player_name"
+            ).fetchall()
+        )
+        self.assertEqual(1001, resolved["LEFT Player"])
+        self.assertIsNone(resolved["RIGHT Player"])
 
 
 if __name__ == "__main__":

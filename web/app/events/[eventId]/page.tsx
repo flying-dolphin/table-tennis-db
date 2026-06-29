@@ -729,10 +729,15 @@ function resolveScheduleDisplayStatus(match: EventScheduleMatch) {
 }
 
 function scheduleRoundLabel(match: EventScheduleMatch) {
+  const roundLabel = match.roundNameZh || match.roundCode;
   if (match.groupCode) {
-    return `${match.roundNameZh || match.roundCode}${match.groupCode ? ` · ${match.groupCode}` : ""}`;
+    return `${roundLabel}${match.groupCode ? ` · ${match.groupCode}` : ""}`;
   }
-  return match.roundNameZh || match.roundCode || match.sessionLabel || "轮次待定";
+  // 资格赛轮次名（"第一轮"）单看分不清是预选赛，补上 stage 前缀。
+  if (match.stageCode === "PRELIMINARY" && roundLabel) {
+    return `${match.stageNameZh || "资格赛"} · ${roundLabel}`;
+  }
+  return roundLabel || match.sessionLabel || "轮次待定";
 }
 
 function scheduleSideLabel(side: EventScheduleMatch["sides"][number] | undefined) {
