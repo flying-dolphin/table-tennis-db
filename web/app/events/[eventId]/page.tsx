@@ -31,6 +31,7 @@ import {
 } from "@/lib/team-knockout-bracket";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 import { shouldShowBeijingTimeForEvent, shouldUseScheduleTabs } from "@/lib/event-view-mode";
+import { matchDetailPath } from "@/lib/match-detail-link";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -763,9 +764,9 @@ function bracketSideCountryLabel(side: BracketMatch["sides"][number] | undefined
 
 function drawGroupLabel(drawCode: string | null | undefined) {
   const normalized = (drawCode ?? "").toUpperCase();
-  if (normalized === "MAIN") return "MAIN DRAW";
-  if (normalized === "PREL" || normalized === "QLF" || normalized === "QUALIFICATION") return "QLF DRAW";
-  return normalized || "DRAW";
+  if (normalized === "MAIN" || normalized === "MAIN DRAW") return "正赛";
+  if (normalized === "PREL" || normalized === "QLF" || normalized === "QUALIFICATION" || normalized === "QLF DRAW") return "资格赛";
+  return normalized || "签表";
 }
 
 function parseDisplayMatchScore(matchScore: string | null | undefined) {
@@ -1344,9 +1345,19 @@ function ScheduleMatchCard({
     : null;
   const primaryTimeLabel = beijingTimeLabel ?? formatLocalTime(match.scheduledLocalAt);
   const eventLocalTimeLabel = beijingTimeLabel && match.scheduledLocalAt ? formatLocalTime(match.scheduledLocalAt) : null;
+  const hasScore = Boolean(match.matchScore?.trim());
+  const isCurrentScheduleMatch =
+    (typeof match.scheduleMatchId === "string" && match.scheduleMatchId.startsWith("cm:")) ||
+    (typeof match.scheduleMatchId === "number" && match.scheduleMatchId > 0);
+  const matchHref = matchDetailPath({
+    hasScore,
+    scheduleMatchId: match.scheduleMatchId,
+    kind: match.subEventTypeCode === "MT" || match.subEventTypeCode === "WT" || match.subEventTypeCode === "XT" ? "tie" : "match",
+  });
+  const cardClassName = "block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm";
 
-  return (
-    <Link href={route(withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref))} className="block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm transition active:scale-[0.99]">
+  const cardContent = (
+    <>
       <div className="flex items-center justify-between gap-2">
         <div className="flex min-w-0 items-center gap-2 text-[0.82rem] font-bold text-slate-500">
           {match.tableNo ? <span className="rounded-full bg-[#f3f6fb] px-2">{match.tableNo}</span> : null}
@@ -1372,14 +1383,21 @@ function ScheduleMatchCard({
           const label = scheduleSideLabel(side);
           const countryLabel = scheduleSideCountryLabel(side);
           const isWinner = side.isWinner || (match.winnerSide === (side.sideNo === 1 ? 'A' : 'B'));
+          const countryCode = side.teamCode || side.players[0]?.countryCode || null;
           return (
             <div key={side.sideNo} className="flex items-center gap-2">
-              <Flag code={side.teamCode || side.players[0]?.countryCode || null} className="shrink-0 scale-[1.18] origin-left" />
+              {isCurrentScheduleMatch ? (
+                <div className="flex w-12 shrink-0 flex-col items-center justify-center gap-1">
+                  <Flag code={countryCode} className="shrink-0 scale-[1.18] origin-center" />
+                </div>
+              ) : (
+                <Flag code={countryCode} className="shrink-0 scale-[1.18] origin-left" />
+              )}
               <div className="min-w-0 flex-1">
                 <p className={cn("truncate text-[1rem] font-black leading-tight", isWinner ? "text-slate-950" : "text-slate-700")}>
                   {label}
                 </p>
-                {countryLabel || side.seed ? (
+                {!isCurrentScheduleMatch && (countryLabel || side.seed) ? (
                   <p className="mt-0.5 truncate text-[0.7rem] font-bold text-slate-400">
                     {[countryLabel, side.seed ? `Seed ${side.seed}` : null].filter(Boolean).join(" · ")}
                   </p>
@@ -1404,6 +1422,16 @@ function ScheduleMatchCard({
         </p>
       ) : null}
 
+    </>
+  );
+
+  if (!matchHref) {
+    return <div className={cardClassName}>{cardContent}</div>;
+  }
+
+  return (
+    <Link href={route(withFromQuery(matchHref, eventReturnHref))} className={cn(cardClassName, "transition active:scale-[0.99]")}>
+      {cardContent}
     </Link>
   );
 }
@@ -1795,9 +1823,11 @@ function DrawMatchCard({
   const sides = [sideA, sideB].filter(Boolean);
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
   const hasScore = Boolean(match.matchScore?.trim());
-  const matchHref = match.scheduleMatchId
-    ? withFromQuery(`/schedule-matches/${match.scheduleMatchId}`, eventReturnHref)
-    : null;
+  const matchHref = matchDetailPath({
+    hasScore,
+    scheduleMatchId: match.scheduleMatchId,
+    matchId: !match.externalUnitCode ? match.matchId : null,
+  });
   const cardClassName = cn(
     "block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm",
     matchHref ? "transition active:scale-[0.99]" : "cursor-default",
@@ -1844,7 +1874,7 @@ function DrawMatchCard({
         </span>
       )}
       {matchHref ? (
-        <Link href={route(matchHref)} className={cardClassName}>
+        <Link href={route(withFromQuery(matchHref, eventReturnHref))} className={cardClassName}>
           {cardContent}
         </Link>
       ) : (
@@ -2185,7 +2215,7 @@ function TeamTieNodeCard({
   const hasScore = tie.scoreA > 0 || tie.scoreB > 0;
   const tieHref =
     hasScore && tie.scheduleMatchId != null
-      ? withFromQuery(`/schedule-matches/${tie.scheduleMatchId}`, eventReturnHref)
+      ? withFromQuery(`/matches/tie:${tie.scheduleMatchId}`, eventReturnHref)
       : null;
   return (
     <div className="rounded-[1rem] border border-[#dce7f5] bg-white px-3 py-3 shadow-sm">
@@ -2245,7 +2275,7 @@ function DrawTeamTieCard({
   const hasScore = tie.scoreA > 0 || tie.scoreB > 0;
   const tieHref =
     hasScore && tie.scheduleMatchId != null
-      ? withFromQuery(`/schedule-matches/${tie.scheduleMatchId}`, eventReturnHref)
+      ? withFromQuery(`/matches/tie:${tie.scheduleMatchId}`, eventReturnHref)
       : null;
   return (
     <div className="rounded-[0.6rem] border border-[#dce7f5] bg-white px-1.5 py-1 shadow-sm">

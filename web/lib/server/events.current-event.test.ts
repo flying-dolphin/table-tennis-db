@@ -3,7 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const { getEventDetail } = require('./events.ts');
+const { getEventDetail, getMatchDetail } = require('./events.ts');
 
 test('current individual bracket uses player names from WTT bracket payload', () => {
   const detail = getEventDetail(3242, 'MS');
@@ -30,4 +30,38 @@ test('current bracket preserves draw groups and feeder previous units', () => {
   assert.equal(mainRound.matches.length, 32);
   assert.equal(preliminaryRound.matches.length, 32);
   assert.equal(roundOf32.matches[0].sides[0].previousUnit, 'TTEMSINGLES-----------R64-000100--');
+});
+
+test('current individual bracket links completed matches to current match details', () => {
+  const detail = getEventDetail(3242, 'WS');
+  const roundOf64 = detail.bracket.find((round) => round.drawCode === 'MAIN' && round.code === 'R64');
+
+  assert.ok(roundOf64, 'expected WS MAIN R64 bracket');
+  const shaoMeshref = roundOf64.matches.find((match) => match.externalUnitCode === 'TTEWSINGLES-----------R64-000300--');
+
+  assert.ok(shaoMeshref, 'expected SHAO Jieni vs MESHREF Dina bracket match');
+  assert.equal(shaoMeshref.scheduleMatchId, 'cm:1320');
+});
+
+test('current match detail parses comma-separated game scores', () => {
+  const detail = getMatchDetail('cm:1320');
+
+  assert.ok(detail, 'expected current match detail');
+  assert.equal(detail.match.matchId, 'cm:1320');
+  assert.equal(detail.match.matchScore, '1-3');
+  assert.deepEqual(detail.match.games, [
+    { player: 8, opponent: 11 },
+    { player: 11, opponent: 9 },
+    { player: 8, opponent: 11 },
+    { player: 5, opponent: 11 },
+  ]);
+});
+
+test('historical individual bracket keeps match id for match-detail links', () => {
+  const detail = getEventDetail(3379, 'WS');
+  const final = detail.bracket.find((round) => round.code === 'Final');
+
+  assert.ok(final, 'expected WS final bracket');
+  assert.equal(final.matches[0].matchId, 309247);
+  assert.equal(final.matches[0].scheduleMatchId, null);
 });

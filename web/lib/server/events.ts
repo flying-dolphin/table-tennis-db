@@ -210,26 +210,31 @@ function loadTeamChampionPlayers(eventId: number, subEventCode: string, champion
 
 function parseGames(value: string | null) {
   if (!value) return [];
+  const parseGameToken = (token: string) => {
+    const match = token.trim().match(/^(\d+)\s*[-:]\s*(\d+)$/);
+    if (!match) return null;
+    const game = { player: Number(match[1]), opponent: Number(match[2]) };
+    return game.player === 0 && game.opponent === 0 ? null : game;
+  };
   try {
     const parsed = JSON.parse(value) as unknown;
-    if (!Array.isArray(parsed)) return [];
+    if (!Array.isArray(parsed)) return parseScoreSequence(value);
     return parsed
       .map((game) => {
         if (typeof game === 'string') {
-          const match = game.trim().match(/^(\d+)\s*-\s*(\d+)$/);
-          if (!match) return null;
-          return { player: Number(match[1]), opponent: Number(match[2]) };
+          return parseGameToken(game);
         }
         if (!game || typeof game !== 'object') return null;
         const record = game as { player?: unknown; opponent?: unknown };
         const player = Number(record.player);
         const opponent = Number(record.opponent);
         if (!Number.isFinite(player) || !Number.isFinite(opponent)) return null;
+        if (player === 0 && opponent === 0) return null;
         return { player, opponent };
       })
       .filter((game): game is { player: number; opponent: number } => game != null);
   } catch {
-    return [];
+    return parseScoreSequence(value);
   }
 }
 
@@ -1929,7 +1934,10 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
           b.raw_source_payload AS rawSourcePayload
         FROM current_event_brackets b
         LEFT JOIN current_event_team_ties t ON t.event_id = b.event_id AND t.external_match_code = b.external_unit_code
-        LEFT JOIN current_event_matches m ON m.event_id = b.event_id AND m.external_match_code = b.external_unit_code
+        LEFT JOIN current_event_matches m
+          ON m.event_id = b.event_id
+          AND m.sub_event_type_code = b.sub_event_type_code
+          AND REPLACE(m.external_match_code, '-', '') = REPLACE(b.external_unit_code, '-', '')
         WHERE b.event_id = ?
           AND b.sub_event_type_code = ?
         ORDER BY COALESCE(b.round_order, 9999) ASC, b.bracket_position ASC, b.current_bracket_id ASC
@@ -2020,7 +2028,7 @@ function parseScoreSequence(value: string | null | undefined) {
     .map((item) => item.trim())
     .filter(Boolean)
     .map((item) => {
-      const match = item.match(/(-?\d+)\s*-\s*(-?\d+)/);
+      const match = item.match(/(-?\d+)\s*[-:]\s*(-?\d+)/);
       if (!match) return null;
       return { player: Number(match[1]), opponent: Number(match[2]) };
     })
@@ -4900,7 +4908,49 @@ export function getEventTeamRoster(eventId: number, subEventCode: string, teamCo
   };
 }
 
-export function getMatchDetail(matchId: number) {
+export function getMatchDetail(matchId: number | string) {
+  if (typeof matchId === 'string') {
+    const scheduleMatchId = matchId.match(/^tie:(.+)$/)?.[1];
+    if (scheduleMatchId) {
+      const detail = getScheduleMatchDetail(scheduleMatchId);
+      return detail ? { kind: 'tie' as const, ...detail } : null;
+    }
+
+    const currentMatchId = matchId.match(/^cm:(\d+)$/)?.[1];
+    if (currentMatchId) {
+      const detail = buildCurrentIndividualScheduleMatchDetail(Number(currentMatchId));
+      if (!detail) return null;
+      return {
+        kind: 'match' as const,
+        match: {
+          matchId,
+          eventId: detail.match.eventId,
+          eventName: detail.match.eventName,
+          eventNameZh: detail.match.eventNameZh,
+          eventYear: detail.match.eventYear,
+          subEventTypeCode: detail.match.subEventTypeCode,
+          subEventNameZh: detail.match.subEventNameZh,
+          stage: detail.match.stageCode,
+          stageZh: detail.match.stageNameZh,
+          round: detail.match.roundCode,
+          roundZh: detail.match.roundNameZh,
+          roundLabel: detail.match.roundLabel,
+          matchScore: detail.match.matchScore,
+          games: detail.match.games,
+          winnerSide: detail.match.winnerSide,
+          winnerName: null,
+          startDate: detail.match.startDate,
+          endDate: detail.match.endDate,
+        },
+        sides: detail.sides,
+      };
+    }
+
+    const parsedMatchId = Number(matchId);
+    if (!Number.isFinite(parsedMatchId) || String(parsedMatchId) !== matchId) return null;
+    return getMatchDetail(parsedMatchId);
+  }
+
   const match = db
     .prepare(
       `
@@ -5018,6 +5068,7 @@ export function getMatchDetail(matchId: number) {
   }
 
   return {
+    kind: 'match' as const,
     match: {
       ...match,
       eventName: match.eventCanonicalName ?? match.eventName,

@@ -3,10 +3,10 @@ import { getMatchDetail } from '@/lib/server/events';
 
 export async function GET(_: Request, { params }: { params: Promise<{ matchId: string }> }) {
   const { matchId } = await params;
-  const parsedMatchId = Number(matchId);
+  const parsedMatchId = matchId.match(/^(cm:\d+|tie:.+)$/) ? matchId : Number(matchId);
 
-  if (!Number.isFinite(parsedMatchId)) {
-    return error(400, 40003, 'matchId must be a number');
+  if (typeof parsedMatchId === 'number' && !Number.isFinite(parsedMatchId)) {
+    return error(400, 40003, 'matchId must be a number, cm:<id>, or tie:<id>');
   }
 
   const result = getMatchDetail(parsedMatchId);

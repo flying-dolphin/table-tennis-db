@@ -367,7 +367,7 @@ function CompareContent() {
           <div className="px-3 pt-3 pb-3 flex items-center gap-2">
             <Trophy size={18} className="text-brand-deep" />
             <h3 className="text-body font-bold text-text-primary">交手记录</h3>
-            <span className="text-micro font-medium text-text-tertiary">仅女单</span>
+            <span className="text-micro font-medium text-text-tertiary">仅单打</span>
           </div>
 
           <div className="flex flex-col">

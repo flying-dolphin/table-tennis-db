@@ -182,3 +182,14 @@ test('event 896 WT unified KOR/PRK branch exposes an aggregate schedule detail p
     'aggregate detail should retain original PRK players from the source ties',
   );
 });
+
+test('match detail route supports historical team ties', () => {
+  const { getMatchDetail } = require('./events.ts');
+  const detail = getMatchDetail('tie:-2921');
+
+  assert.ok(detail, 'expected team tie detail from match route');
+  assert.equal(detail.kind, 'tie');
+  assert.equal(detail.match.scheduleMatchId, -2921);
+  assert.equal(detail.match.matchScore, '2-3');
+  assert.equal(detail.rubbers.length, 5);
+});
