@@ -551,6 +551,7 @@ def main() -> int:
         event = shared.get_event(cursor, args.event_id)
         event_time_zone = shared.infer_time_zone(event) if event else None
         player_ids = shared.load_player_ids(cursor, collect_player_if_ids(payload))
+        team_roster = shared.load_event_roster_player_ids(cursor, args.event_id)
         conn.execute("BEGIN")
         imported_ties = 0
         imported_rubbers = 0
@@ -662,6 +663,7 @@ def main() -> int:
                     team1_is_side_a=team1_is_side_a,
                     game=game,
                     game_order=game_order,
+                    roster=team_roster,
                 )
                 imported_rubbers += 1
 

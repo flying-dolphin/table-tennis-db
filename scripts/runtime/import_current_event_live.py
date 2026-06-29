@@ -605,12 +605,21 @@ def infer_player_country(name: str, roster_by_name: dict[str, str]) -> str | Non
     return roster_by_name.get(name.strip().upper())
 
 
+def split_rubber_player_names(player_name: str | None) -> list[str]:
+    """Split a rubber side into individual names (doubles rubbers use "A / B")."""
+    if not player_name:
+        return []
+    return [part.strip() for part in player_name.split("/") if part.strip()]
+
+
 def replace_match_children(
     cursor: sqlite3.Cursor,
     current_match_id: int,
     side_a: dict,
     side_b: dict,
+    roster: dict[tuple[str, str], int] | None = None,
 ) -> None:
+    roster = roster or {}
     cursor.execute(
         """
         DELETE FROM current_event_match_side_players
@@ -639,18 +648,26 @@ def replace_match_children(
             ),
         )
         current_match_side_id = int(cursor.lastrowid)
-        cursor.execute(
-            """
-            INSERT INTO current_event_match_side_players (
-                current_match_side_id, player_order, player_id, player_name, player_country
-            ) VALUES (?, 1, NULL, ?, ?)
-            """,
-            (
-                current_match_side_id,
-                side.get("player_name"),
-                side.get("player_country"),
-            ),
-        )
+        # Live rubbers identify players by name only; resolve player_id from the
+        # tie roster (ids sourced from if_id), scoped to this side's team.
+        names = split_rubber_player_names(side.get("player_name")) or [side.get("player_name")]
+        for player_order, name in enumerate(names, start=1):
+            if not name:
+                continue
+            cursor.execute(
+                """
+                INSERT INTO current_event_match_side_players (
+                    current_match_side_id, player_order, player_id, player_name, player_country
+                ) VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    current_match_side_id,
+                    player_order,
+                    legacy.resolve_roster_player_id(roster, side.get("team_code"), name),
+                    name,
+                    side.get("player_country"),
+                ),
+            )
 
 
 def live_side_player_name(side: dict) -> str | None:
@@ -825,6 +842,7 @@ def upsert_live_rubber(
     winner_side = infer_winner_side(individual_match.get("match_score"))
     status = resolve_live_status(live_match.get("source_status"))
     roster_by_name = build_roster_country_map(cursor, int(tie_row["current_team_tie_id"]))
+    roster_player_ids = legacy.load_event_roster_player_ids(cursor, event_id)
     sides = live_match.get("sides") if isinstance(live_match.get("sides"), list) else []
 
     existing = cursor.execute(
@@ -912,7 +930,7 @@ def upsert_live_rubber(
         "player_country": infer_player_country(individual_match.get("player_b") or "", roster_by_name),
         "is_winner": winner_side == "B",
     }
-    replace_match_children(cursor, current_match_id, side_a, side_b)
+    replace_match_children(cursor, current_match_id, side_a, side_b, roster_player_ids)
 
 
 def main() -> int:

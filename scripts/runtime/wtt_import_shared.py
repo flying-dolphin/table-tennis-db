@@ -467,3 +467,51 @@ def load_player_ids(cursor: sqlite3.Cursor, if_ids: set[int]) -> dict[int, int]:
         tuple(sorted(if_ids)),
     ).fetchall()
     return {int(row[0]): int(row[0]) for row in rows}
+
+
+def load_event_roster_player_ids(
+    cursor: sqlite3.Cursor, event_id: int
+) -> dict[tuple[str, str], int]:
+    """Map ``(TEAM_CODE, PLAYER_NAME)`` to player_id for an event's team rosters.
+
+    The nominated rosters in ``current_event_team_tie_side_players`` already
+    carry player ids resolved from the source's ``if_id`` (never name matching).
+    Team-tie rubber sources (completed/live results) identify the individual who
+    played each rubber by *name only*; resolving that name against the rosters
+    keyed by ``(team_code, name)`` scopes the lookup to one national team, so a
+    name picks the already-id'd roster member rather than risking a global
+    same-name collision.
+
+    Aggregating across the whole event (not a single tie) matters: a player's
+    nomination may be missing from one tie's roster but present in another, and
+    ``(team_code, name)`` is unambiguous within one event's delegation.
+    """
+    rows = cursor.execute(
+        """
+        SELECT s.team_code, p.player_name, p.player_id
+        FROM current_event_team_tie_side_players p
+        JOIN current_event_team_tie_sides s
+          ON s.current_team_tie_side_id = p.current_team_tie_side_id
+        JOIN current_event_team_ties t
+          ON t.current_team_tie_id = s.current_team_tie_id
+        WHERE t.event_id = ?
+          AND p.player_id IS NOT NULL
+        """,
+        (event_id,),
+    ).fetchall()
+    roster: dict[tuple[str, str], int] = {}
+    for team_code, player_name, player_id in rows:
+        if team_code and player_name:
+            roster[(str(team_code).strip().upper(), str(player_name).strip().upper())] = int(player_id)
+    return roster
+
+
+def resolve_roster_player_id(
+    roster: dict[tuple[str, str], int],
+    team_code: str | None,
+    player_name: str | None,
+) -> int | None:
+    """Look up a single rubber player's id within a tie roster (see above)."""
+    if not roster or not team_code or not player_name:
+        return None
+    return roster.get((team_code.strip().upper(), player_name.strip().upper()))

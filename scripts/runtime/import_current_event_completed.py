@@ -135,6 +135,9 @@ def normalize_round_from_category(category: str) -> tuple[str | None, str | None
     if "preliminary round" in raw:
         return "PRELIMINARY", "R1"
     mapping = {
+        "round of 256": ("MAIN_DRAW", "R256"),
+        "round of 128": ("MAIN_DRAW", "R128"),
+        "round of 64": ("MAIN_DRAW", "R64"),
         "round of 32": ("MAIN_DRAW", "R32"),
         "round of 16": ("MAIN_DRAW", "R16"),
         "quarter-final": ("MAIN_DRAW", "QF"),
@@ -464,11 +467,19 @@ def side_team_codes(cursor: sqlite3.Cursor, current_team_tie_id: int) -> tuple[s
     return mapping.get(1), mapping.get(2)
 
 
+def split_rubber_player_names(player_name: str | None) -> list[str]:
+    """Split a rubber side into individual names (doubles rubbers use "A / B")."""
+    if not player_name:
+        return []
+    return [part.strip() for part in player_name.split("/") if part.strip()]
+
+
 def replace_match_children(
     cursor: sqlite3.Cursor,
     current_match_id: int,
     side_a: dict,
     side_b: dict,
+    roster: dict[tuple[str, str], int],
 ) -> None:
     cursor.execute(
         """
@@ -493,14 +504,27 @@ def replace_match_children(
             (current_match_id, side_no, side["team_code"], 1 if side["is_winner"] else 0),
         )
         current_match_side_id = int(cursor.lastrowid)
-        cursor.execute(
-            """
-            INSERT INTO current_event_match_side_players (
-                current_match_side_id, player_order, player_id, player_name, player_country
-            ) VALUES (?, 1, NULL, ?, ?)
-            """,
-            (current_match_side_id, side["player_name"], side["player_country"]),
-        )
+        # The completed-results scrape only gives names; resolve player_id from
+        # the tie roster (whose ids came from the source's if_id), scoped to
+        # this side's team so a name can't collide with a global namesake.
+        names = split_rubber_player_names(side["player_name"]) or [side["player_name"]]
+        for player_order, name in enumerate(names, start=1):
+            if not name:
+                continue
+            cursor.execute(
+                """
+                INSERT INTO current_event_match_side_players (
+                    current_match_side_id, player_order, player_id, player_name, player_country
+                ) VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    current_match_side_id,
+                    player_order,
+                    shared.resolve_roster_player_id(roster, side["team_code"], name),
+                    name,
+                    side["player_country"],
+                ),
+            )
 
 
 def reset_tie_matches(cursor: sqlite3.Cursor, current_team_tie_id: int) -> None:
@@ -545,6 +569,7 @@ def upsert_completed_rubber(
     team1_is_side_a: bool,
     game: dict,
     game_order: int,
+    roster: dict[tuple[str, str], int],
 ) -> None:
     external_match_code = f"{tie_row['external_match_code']}::R{game_order}"
     player_a_name = (game.get("player1") or "").strip() if team1_is_side_a else (game.get("player2") or "").strip()
@@ -637,7 +662,7 @@ def upsert_completed_rubber(
         "player_country": side_b_team_code,
         "is_winner": winner_side == "B",
     }
-    replace_match_children(cursor, current_match_id, side_a, side_b)
+    replace_match_children(cursor, current_match_id, side_a, side_b, roster)
 
 
 def main() -> int:
@@ -662,6 +687,7 @@ def main() -> int:
     try:
         cursor = conn.cursor()
         event_year = load_event_year(cursor, args.event_id)
+        roster = shared.load_event_roster_player_ids(cursor, args.event_id)
         conn.execute("BEGIN")
         imported = 0
         unmatched = 0
@@ -746,6 +772,7 @@ def main() -> int:
                     team1_is_side_a=team1_is_side_a,
                     game=game,
                     game_order=game_order,
+                    roster=roster,
                 )
                 imported += 1
         conn.commit()
