@@ -18,6 +18,7 @@ import {
   ChevronUp,
   CheckCircle2,
   MapPin,
+  Globe,
 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -32,6 +33,7 @@ import {
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 import { shouldShowBeijingTimeForEvent, shouldUseScheduleTabs } from "@/lib/event-view-mode";
 import { matchDetailPath } from "@/lib/match-detail-link";
+import { groupChinaScheduleMatches } from "@/lib/schedule-match-groups";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -1514,6 +1516,8 @@ function ScheduleByDateView({
     );
   }
   const showBeijingTime = shouldShowBeijingTimeForEvent(lifecycleStatus, eventTimeZone);
+  const activeDayMatchGroups = activeDay ? groupChinaScheduleMatches(activeDay.matches) : { chinaMatches: [], otherMatches: [] };
+  const shouldSeparateChinaMatches = activeDayMatchGroups.chinaMatches.length > 0;
 
   return (
     <div className="pb-10 pt-4">
@@ -1555,17 +1559,95 @@ function ScheduleByDateView({
             <span className="text-[0.85rem] font-bold text-slate-400">{activeDay.matches.length} 场</span>
           </div>
           <div className="space-y-3">
-            {activeDay.matches.map((match) => (
-              <ScheduleMatchCard
-                key={match.scheduleMatchId}
-                match={match}
-                showBeijingTime={showBeijingTime}
-                eventTimeZone={eventTimeZone}
-                eventReturnHref={eventReturnHref}
-              />
-            ))}
+            {shouldSeparateChinaMatches ? (
+              <>
+                <ScheduleMatchSection
+                  label="中国队"
+                  count={activeDayMatchGroups.chinaMatches.length}
+                  matches={activeDayMatchGroups.chinaMatches}
+                  showBeijingTime={showBeijingTime}
+                  eventTimeZone={eventTimeZone}
+                  eventReturnHref={eventReturnHref}
+                  variant="china"
+                />
+                {activeDayMatchGroups.otherMatches.length > 0 ? (
+                  <ScheduleMatchSection
+                    label="其他"
+                    count={activeDayMatchGroups.otherMatches.length}
+                    matches={activeDayMatchGroups.otherMatches}
+                    showBeijingTime={showBeijingTime}
+                    eventTimeZone={eventTimeZone}
+                    eventReturnHref={eventReturnHref}
+                    variant="other"
+                  />
+                ) : null}
+              </>
+            ) : (
+              activeDay.matches.map((match) => (
+                <ScheduleMatchCard
+                  key={match.scheduleMatchId}
+                  match={match}
+                  showBeijingTime={showBeijingTime}
+                  eventTimeZone={eventTimeZone}
+                  eventReturnHref={eventReturnHref}
+                />
+              ))
+            )}
           </div>
         </section>
+      </div>
+    </div>
+  );
+}
+
+function ScheduleMatchSection({
+  label,
+  count,
+  matches,
+  showBeijingTime,
+  eventTimeZone,
+  eventReturnHref,
+  variant,
+}: {
+  label: string;
+  count: number;
+  matches: EventScheduleMatch[];
+  showBeijingTime: boolean;
+  eventTimeZone: string | null;
+  eventReturnHref: string;
+  variant: "china" | "other";
+}) {
+  const isChinaSection = variant === "china";
+  return (
+    <div
+      className={cn(
+        "space-y-3",
+        isChinaSection
+          ? "rounded-[1.45rem] bg-[#fff7ed] p-2.5 ring-1 ring-[#fed7aa]"
+          : "rounded-[1.45rem] bg-[#eff6ff] p-2.5 ring-1 ring-[#bfdbfe]",
+      )}
+    >
+      <div className="flex items-center justify-between px-1">
+        <p className={cn("flex items-center gap-1.5 text-sm font-black", isChinaSection ? "text-[#c2410c]" : "text-[#1d4ed8]")}>
+          {isChinaSection ? (
+            <Flag code="CHN" className="shrink-0 scale-110 origin-left" />
+          ) : (
+            <Globe size={14} strokeWidth={2.4} className="shrink-0" />
+          )}
+          {label}
+        </p>
+        <span className={cn("text-sm font-bold", isChinaSection ? "text-[#ea580c]" : "text-[#2563eb]")}>{count} 场</span>
+      </div>
+      <div className="space-y-3">
+        {matches.map((match) => (
+          <ScheduleMatchCard
+            key={match.scheduleMatchId}
+            match={match}
+            showBeijingTime={showBeijingTime}
+            eventTimeZone={eventTimeZone}
+            eventReturnHref={eventReturnHref}
+          />
+        ))}
       </div>
     </div>
   );
