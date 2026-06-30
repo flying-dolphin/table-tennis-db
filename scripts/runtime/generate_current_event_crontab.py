@@ -23,7 +23,7 @@ SCRAPE_IMPORT_SOURCES = {
     "standings": ("standings", "standings"),
     "brackets": ("brackets", "brackets"),
     "live": ("live", "live"),
-    "completed": ("completed", "completed"),
+    "completed": (("completed", "match_details"), "completed"),
 }
 
 # 不经过 scrape/import 流水线、独立命令的 source。
@@ -390,8 +390,15 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         return build_backup_command(args)
     # promote 不会和其它 source 合并到同一个分钟点（晚于所有 session 24h），保险起见忽略
     ordered_sources = [source for source in SOURCE_ORDER if source in sources and source not in SPECIAL_SOURCES]
-    scrape_sources = [SCRAPE_IMPORT_SOURCES[source][0] for source in ordered_sources]
-    import_sources = [SCRAPE_IMPORT_SOURCES[source][1] for source in ordered_sources]
+    scrape_sources: list[str] = []
+    import_sources: list[str] = []
+    for source in ordered_sources:
+        scrape_source, import_source = SCRAPE_IMPORT_SOURCES[source]
+        if isinstance(scrape_source, tuple):
+            scrape_sources.extend(scrape_source)
+        else:
+            scrape_sources.append(scrape_source)
+        import_sources.append(import_source)
 
     python_bin = str(args.python_bin)
     project_root = str(args.project_root)

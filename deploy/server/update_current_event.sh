@@ -473,7 +473,8 @@ run_refresh() {
     # session_schedule 只能从 data/event_schedule/{id}.json 导入，不是 scrape source。
     # scrape 与 import 分别取 sources：scrape 过滤掉 session_schedule；若 --sources 只剩
     # session_schedule（无可抓取项）则跳过 scrape，仅导入。未指定 --sources 时两者各用
-    # 自己的默认（scrape=schedule/standings/brackets/live/completed，import 含 session_schedule）。
+    # 自己的默认（scrape=schedule/standings/brackets/live/completed/match_details，
+    # import 含 session_schedule）。
     local import_arg="" scrape_arg="" scrape_sources=""
     if [ -n "$SOURCES_STR" ]; then
         import_arg="--sources ${SOURCES_STR}"
@@ -484,8 +485,8 @@ run_refresh() {
         done
         [ -n "$scrape_sources" ] && scrape_arg="--sources ${scrape_sources}"
     else
-        # 默认与 cron 完全一致：scrape 和 import 都走相同的五类 source。显式指定
-        # import 五类（而非依赖 import 自带的默认，那个还含 session_schedule），
+        # 默认与 cron 完全一致：scrape 走其默认 source；显式指定 import 五类
+        #（而非依赖 import 自带的默认，那个还含 session_schedule），
         # 这样默认刷新不会因为服务器上缺该赛事的人工 session 日程文件而失败。
         # session_schedule 是人工日程，按第 4.1 节用 --sources session_schedule 单独导入。
         import_arg="--sources schedule standings brackets live completed"

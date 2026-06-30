@@ -15,7 +15,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
 DEFAULT_SUB_EVENTS = ["MTEAM", "WTEAM"]
-OFFICIAL_RESULTS_PAGE_SIZE = 100
+OFFICIAL_RESULTS_PAGE_SIZE = 5000
+OFFICIAL_RESULTS_FALLBACK_PAGE_SIZES = (1000,)
 
 API_BASE = "https://liveeventsapi.worldtabletennis.com/api/cms"
 LIVE_MATCH_STATIC_BASE = "https://wtt-web-frontdoor-withoutcache-cqakg0andqf5hchn.a01.azurefd.net"
@@ -141,7 +142,10 @@ def fetch_json_value(url: str, retries: int = 4, backoff: float = 1.5):
     body = fetch_json(url, retries=retries, backoff=backoff)
     if body is None:
         return None
-    return json.loads(body.decode("utf-8"))
+    try:
+        return json.loads(body.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        return None
 
 
 def normalize_match_code(value: str | None) -> str:
@@ -375,7 +379,7 @@ def fetch_live_matches_api(event_id: int):
     return url, fetch_json_value(url)
 
 
-def fetch_all_official_results(event_id: int, page_size: int = OFFICIAL_RESULTS_PAGE_SIZE) -> tuple[dict, list[dict]]:
+def fetch_official_results_window(event_id: int, page_size: int) -> tuple[dict, list[dict]]:
     results: list[dict] = []
     seen_keys: set[str] = set()
     skip = 0
@@ -432,6 +436,27 @@ def fetch_all_official_results(event_id: int, page_size: int = OFFICIAL_RESULTS_
         "count": len(results),
         "pages": pages,
     }, results
+
+
+def fetch_all_official_results(event_id: int, page_size: int = OFFICIAL_RESULTS_PAGE_SIZE) -> tuple[dict, list[dict]]:
+    page_sizes = [page_size]
+    page_sizes.extend(size for size in OFFICIAL_RESULTS_FALLBACK_PAGE_SIZES if size not in page_sizes)
+
+    first_meta: dict | None = None
+    for candidate_page_size in page_sizes:
+        meta, results = fetch_official_results_window(event_id, candidate_page_size)
+        if first_meta is None:
+            first_meta = meta
+        if meta.get("ok"):
+            if candidate_page_size != page_size:
+                meta = {
+                    **meta,
+                    "fallback_from_page_size": page_size,
+                    "page_size": candidate_page_size,
+                }
+            return meta, results
+
+    return first_meta or {"url": None, "ok": False, "count": 0, "pages": 0}, []
 
 
 def build_live_results_snapshot(

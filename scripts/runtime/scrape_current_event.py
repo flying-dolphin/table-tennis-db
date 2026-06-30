@@ -26,8 +26,8 @@ def main() -> int:
     ap.add_argument(
         "--sources",
         nargs="+",
-        choices=("schedule", "brackets", "live", "completed", "standings"),
-        default=["schedule", "brackets", "live", "completed", "standings"],
+        choices=("schedule", "brackets", "live", "completed", "match_details", "standings"),
+        default=["schedule", "brackets", "live", "completed", "match_details", "standings"],
         help="抓取源列表，默认全部执行",
     )
     ap.add_argument(
@@ -59,7 +59,7 @@ def main() -> int:
         str(Path(args.live_event_data_root)),
     ]
     browser_args: list[str] = []
-    if args.use_cdp:
+    if args.use_cdp or args.cdp_port:
         browser_args.append("--use-cdp")
     if args.headless:
         browser_args.append("--headless")
@@ -81,6 +81,8 @@ def main() -> int:
                 cmd.append("--with-debug-files")
         elif source == "completed":
             cmd = base + [str(SCRIPT_DIR / "scrape_wtt_official_results.py")] + root_args
+        elif source == "match_details":
+            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_match_details.py")] + root_args
         else:
             discovered = discover_event_sub_events(args.event_id)
             team_codes = resolve_standings_team_codes(discovered)

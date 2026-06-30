@@ -21,7 +21,12 @@ from pathlib import Path
 from typing import Any
 
 from lib.browser_runtime import close_browser_page, open_browser_page
-from wtt_scrape_shared import DEFAULT_LIVE_EVENT_DATA_DIR, build_schedule_unit_index, load_local_schedule_payload
+from wtt_scrape_shared import (
+    DEFAULT_LIVE_EVENT_DATA_DIR,
+    build_live_results_snapshot,
+    build_schedule_unit_index,
+    load_local_schedule_payload,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -448,6 +453,33 @@ def normalize_live_cards(
     return normalized
 
 
+def scrape_live_matches_with_fallback(
+    event_id: int,
+    *,
+    schedule_payload: Any,
+    use_cdp: bool,
+    cdp_port: int,
+    headless: bool,
+    timeout_ms: int,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], str, str]:
+    cards, page_html = scrape_live_page(
+        event_id,
+        use_cdp=use_cdp,
+        cdp_port=cdp_port,
+        headless=headless,
+        timeout_ms=timeout_ms,
+    )
+    normalized = normalize_live_cards(cards, schedule_payload)
+    if normalized:
+        return cards, normalized, page_html, "dom_live_page"
+
+    _summary, api_normalized, _raw_sources = build_live_results_snapshot(event_id, schedule_payload)
+    if api_normalized:
+        return cards, api_normalized, page_html, "api_live_result"
+
+    return cards, normalized, page_html, "dom_live_page"
+
+
 def write_outputs(
     event_dir: Path,
     event_id: int,
@@ -457,6 +489,7 @@ def write_outputs(
     *,
     schedule_cache_used: bool,
     with_debug_files: bool,
+    source_kind: str = "dom_live_page",
 ) -> dict[str, Any]:
     event_dir.mkdir(parents=True, exist_ok=True)
 
@@ -464,8 +497,12 @@ def write_outputs(
         "event_id": event_id,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "sources": {
-            "dom_live_page": {
-                "url": LIVE_URL_TEMPLATE.format(event_id=event_id),
+            source_kind: {
+                "url": (
+                    LIVE_URL_TEMPLATE.format(event_id=event_id)
+                    if source_kind == "dom_live_page"
+                    else f"https://liveeventsapi.worldtabletennis.com/api/cms/GetLiveResult?EventId={event_id}"
+                ),
                 "ok": True,
                 "count": len(normalized),
             }
@@ -535,8 +572,9 @@ def main() -> int:
 
     schedule_payload = load_local_schedule_payload(event_dir)
     try:
-        cards, page_html = scrape_live_page(
+        cards, normalized, page_html, source_kind = scrape_live_matches_with_fallback(
             args.event_id,
+            schedule_payload=schedule_payload,
             use_cdp=bool(args.use_cdp),
             cdp_port=args.cdp_port,
             headless=bool(args.headless),
@@ -546,7 +584,6 @@ def main() -> int:
         print(f"ERROR: {exc}")
         print("Install with: pip install patchright && python -m patchright install chromium")
         return 1
-    normalized = normalize_live_cards(cards, schedule_payload)
     summary = write_outputs(
         event_dir,
         args.event_id,
@@ -555,8 +592,12 @@ def main() -> int:
         page_html,
         schedule_cache_used=bool(schedule_payload),
         with_debug_files=bool(args.with_debug_files),
+        source_kind=source_kind,
     )
-    print(f"  [live_results_dom] ✓ {len(normalized)} matches ({sum(1 for item in normalized if item.get('individual_matches'))} with detailed boards)")
+    print(
+        f"  [{source_kind}] ✓ {len(normalized)} matches "
+        f"({sum(1 for item in normalized if item.get('individual_matches'))} with detailed boards)"
+    )
     print()
     print(f"Done: {len(summary['files'])} files, {len(summary['errors'])} errors")
     return 0
