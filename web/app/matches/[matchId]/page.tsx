@@ -9,6 +9,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { Flag } from "@/components/Flag";
+import { getVisibleSideAvatarPlayers } from "@/lib/match-side-avatars";
 import { formatSubEventLabel } from "@/lib/sub-event-label";
 
 function cn(...inputs: ClassValue[]) {
@@ -314,6 +315,59 @@ function HeroWinBadge() {
   );
 }
 
+function SideAvatarStack({
+  players,
+  sideNo,
+  variant = "card",
+}: {
+  players: MatchPlayer[];
+  sideNo: number;
+  variant?: "hero" | "card";
+}) {
+  const visiblePlayers = getVisibleSideAvatarPlayers(players);
+
+  if (visiblePlayers.length === 0) {
+    return variant === "hero" ? (
+      <div className="grid h-[4.5rem] w-[4.5rem] place-items-center rounded-full bg-[#f3f6fb] ring-1 ring-white/90 shadow-lg" />
+    ) : (
+      <div className="h-12 w-12 shrink-0 rounded-full bg-surface-tinted" />
+    );
+  }
+
+  if (variant === "hero") {
+    const isPair = visiblePlayers.length > 1;
+    return (
+      <div className={cn("flex h-[4.5rem] items-center justify-center", isPair ? "w-[6.2rem] gap-1" : "w-[4.5rem]")}>
+        {visiblePlayers.map((player, index) => (
+          <PlayerAvatar
+            key={`${player.playerId ?? "player"}-${index}-${player.avatarFile ?? "no-avatar"}`}
+            player={{ ...player, playerId: player.playerId ?? `hero-${sideNo}-${index}` }}
+            size="lg"
+            className={cn(
+              "bg-[#f3f6fb] ring-1 ring-white/90 shadow-lg",
+              isPair ? "!h-[3.75rem] !w-[3.75rem]" : "!h-full !w-full",
+            )}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  const isPair = visiblePlayers.length > 1;
+  return (
+    <div className={cn("flex shrink-0 items-center", isPair ? "w-[5.25rem]" : "w-12")}>
+      {visiblePlayers.map((player, index) => (
+        <PlayerAvatar
+          key={`${player.playerId ?? "player"}-${index}-${player.avatarFile ?? "no-avatar"}`}
+          player={{ ...player, playerId: player.playerId ?? `side-${sideNo}-${index}` }}
+          size="md"
+          className={cn(isPair ? "!h-11 !w-11 ring-2 ring-white" : "", index > 0 ? "-ml-2.5" : "")}
+        />
+      ))}
+    </div>
+  );
+}
+
 function HeroScore({ left, right, isWO }: { left: string; right: string; isWO: boolean }) {
   return (
     <div className="flex flex-col items-center justify-center pt-3">
@@ -361,20 +415,11 @@ function MatchScoreHero({
   const score = scorePartsFromMatchScore(matchScore);
 
   const renderSide = (side: MatchSide | undefined, index: number, winner: boolean) => {
-    const player = side?.players[0];
-    const countryCode = player?.countryCode ?? null;
+    const countryCode = side?.players[0]?.countryCode ?? null;
     return (
       <div className="flex min-w-0 flex-col items-center text-center">
         <div className="relative">
-          <div className="grid h-[4.5rem] w-[4.5rem] place-items-center overflow-hidden rounded-full bg-[#f3f6fb] ring-1 ring-white/90 shadow-lg">
-            {player ? (
-              <PlayerAvatar
-                player={{ ...player, playerId: player.playerId ?? `hero-${index}` }}
-                size="lg"
-                className="!h-full !w-full"
-              />
-            ) : null}
-          </div>
+          <SideAvatarStack players={side?.players ?? []} sideNo={side?.sideNo ?? index} variant="hero" />
           {winner ? <HeroWinBadge /> : null}
         </div>
         <p className={cn("mt-4 line-clamp-2 text-[0.95rem] font-bold leading-tight", winner ? "text-white" : "text-white/85")}>
@@ -457,8 +502,6 @@ function TieScoreHero({
 }
 
 function SideCard({ side, hasResult }: { side: MatchSide; hasResult: boolean }) {
-  const firstPlayer = side.players[0];
-
   return (
     <section
       className={cn(
@@ -468,13 +511,7 @@ function SideCard({ side, hasResult }: { side: MatchSide; hasResult: boolean }) 
     >
       <div className="mb-3 flex items-center justify-between gap-3">
         <div className="flex min-w-0 flex-1 items-center gap-3">
-          {firstPlayer ? (
-            <div className="shrink-0">
-              <PlayerAvatar player={{ ...firstPlayer, playerId: firstPlayer.playerId ?? `side-${side.sideNo}` }} size="md" />
-            </div>
-          ) : (
-            <div className="h-12 w-12 shrink-0 rounded-full bg-surface-tinted" />
-          )}
+          <SideAvatarStack players={side.players} sideNo={side.sideNo} />
           <div className="min-w-0 flex-1">
             <h2 className="line-clamp-1 text-heading-2 font-black text-text-primary" title={sideTitle(side)}>
               {sideTitle(side)}
