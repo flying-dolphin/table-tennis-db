@@ -33,6 +33,7 @@ import {
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 import { shouldShowBeijingTimeForEvent, shouldUseScheduleTabs } from "@/lib/event-view-mode";
 import { matchDetailPath } from "@/lib/match-detail-link";
+import { getCurrentBeijingDate, regroupScheduleDaysByBeijingDate } from "@/lib/schedule-beijing-days";
 import { groupChinaScheduleMatches } from "@/lib/schedule-match-groups";
 
 function cn(...inputs: ClassValue[]) {
@@ -377,36 +378,10 @@ function formatBeijingTimeLabel(value: string | null, scheduledLocalAt?: string 
   return `北京时间 ${month}/${day} ${hour}:${minute}`;
 }
 
-function getCurrentDateInTimeZone(timeZone: string | null) {
-  const now = new Date();
-  if (!timeZone) {
-    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-  }
-
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(now);
-  const year = parts.find((part) => part.type === "year")?.value;
-  const month = parts.find((part) => part.type === "month")?.value;
-  const day = parts.find((part) => part.type === "day")?.value;
-
-  if (!year || !month || !day) {
-    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-  }
-
-  return `${year}-${month}-${day}`;
-}
-
-function getDefaultScheduleDate(
-  days: Array<{ localDate: string }>,
-  eventTimeZone: string | null,
-) {
+function getDefaultScheduleDate(days: Array<{ localDate: string }>) {
   if (days.length === 0) return null;
 
-  const today = getCurrentDateInTimeZone(eventTimeZone);
+  const today = getCurrentBeijingDate();
   const firstDate = days[0].localDate;
   const lastDate = days[days.length - 1].localDate;
 
@@ -422,14 +397,10 @@ function getDefaultScheduleDate(
 
 function filterScheduleDaysBySubEvent(
   days: EventDetail["scheduleDays"],
+  eventTimeZone: string | null,
   subEventCode: string,
 ) {
-  return days
-    .map((day) => ({
-      ...day,
-      matches: day.matches.filter((match) => match.subEventTypeCode === subEventCode),
-    }))
-    .filter((day) => day.matches.length > 0);
+  return regroupScheduleDaysByBeijingDate(days, eventTimeZone, subEventCode);
 }
 
 function resolveScheduleDateForSubEvent({
@@ -443,14 +414,14 @@ function resolveScheduleDateForSubEvent({
   eventTimeZone: string | null;
   preferredDate: string | null;
 }) {
-  const filteredDays = filterScheduleDaysBySubEvent(days, subEventCode);
+  const filteredDays = filterScheduleDaysBySubEvent(days, eventTimeZone, subEventCode);
   if (filteredDays.length === 0) {
     return null;
   }
   if (preferredDate && filteredDays.some((day) => day.localDate === preferredDate)) {
     return preferredDate;
   }
-  return getDefaultScheduleDate(filteredDays, eventTimeZone);
+  return getDefaultScheduleDate(filteredDays);
 }
 
 function zonedLocalDateTimeToDate(localDate: string, localTime: string, timeZone: string) {
@@ -1328,12 +1299,10 @@ function SessionScheduleView({
 
 function ScheduleMatchCard({
   match,
-  showBeijingTime,
   eventTimeZone,
   eventReturnHref,
 }: {
   match: EventScheduleMatch;
-  showBeijingTime: boolean;
   eventTimeZone: string | null;
   eventReturnHref: string;
 }) {
@@ -1342,11 +1311,8 @@ function ScheduleMatchCard({
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
   const sideRows = [sideA, sideB].filter(Boolean);
   const shouldShowLiveScore = match.status === "live" && scoreParts.some(Boolean);
-  const beijingTimeLabel = showBeijingTime
-    ? formatBeijingTimeLabel(match.scheduledUtcAt, match.scheduledLocalAt, eventTimeZone)
-    : null;
+  const beijingTimeLabel = formatBeijingTimeLabel(match.scheduledUtcAt, match.scheduledLocalAt, eventTimeZone);
   const primaryTimeLabel = beijingTimeLabel ?? formatLocalTime(match.scheduledLocalAt);
-  const eventLocalTimeLabel = beijingTimeLabel && match.scheduledLocalAt ? formatLocalTime(match.scheduledLocalAt) : null;
   const hasScore = Boolean(match.matchScore?.trim());
   const isCurrentScheduleMatch =
     (typeof match.scheduleMatchId === "string" && match.scheduleMatchId.startsWith("cm:")) ||
@@ -1365,7 +1331,6 @@ function ScheduleMatchCard({
           {match.tableNo ? <span className="rounded-full bg-[#f3f6fb] px-2">{match.tableNo}</span> : null}
           <Clock3 size={14} className="shrink-0 text-[#7d95c7]" />
           <span>{primaryTimeLabel}</span>
-          {eventLocalTimeLabel ? <span className="text-[0.74rem] font-bold text-slate-400">赛地 {eventLocalTimeLabel}</span> : null}
         </div>
         <span className={cn("shrink-0 rounded-full px-2.5 py-1 text-[0.72rem] font-black ring-1", meta.className)}>
           {meta.label}
@@ -1441,7 +1406,6 @@ function ScheduleMatchCard({
 function ScheduleByDateView({
   days,
   selectedSubEvent,
-  lifecycleStatus,
   eventTimeZone,
   selectedDate,
   onSelectDate,
@@ -1449,20 +1413,19 @@ function ScheduleByDateView({
 }: {
   days: EventDetail["scheduleDays"];
   selectedSubEvent: string;
-  lifecycleStatus: string | null;
   eventTimeZone: string | null;
   selectedDate: string | null;
   onSelectDate: (date: string | null) => void;
   eventReturnHref: string;
 }) {
   const filteredDays = React.useMemo(
-    () => filterScheduleDaysBySubEvent(days, selectedSubEvent),
-    [days, selectedSubEvent],
+    () => filterScheduleDaysBySubEvent(days, eventTimeZone, selectedSubEvent),
+    [days, eventTimeZone, selectedSubEvent],
   );
 
   const defaultSelectedDate = React.useMemo(
-    () => getDefaultScheduleDate(filteredDays, eventTimeZone),
-    [filteredDays, eventTimeZone],
+    () => getDefaultScheduleDate(filteredDays),
+    [filteredDays],
   );
 
   React.useEffect(() => {
@@ -1515,7 +1478,6 @@ function ScheduleByDateView({
       </div>
     );
   }
-  const showBeijingTime = shouldShowBeijingTimeForEvent(lifecycleStatus, eventTimeZone);
   const activeDayMatchGroups = activeDay ? groupChinaScheduleMatches(activeDay.matches) : { chinaMatches: [], otherMatches: [] };
   const shouldSeparateChinaMatches = activeDayMatchGroups.chinaMatches.length > 0;
 
@@ -1565,7 +1527,6 @@ function ScheduleByDateView({
                   label="中国队"
                   count={activeDayMatchGroups.chinaMatches.length}
                   matches={activeDayMatchGroups.chinaMatches}
-                  showBeijingTime={showBeijingTime}
                   eventTimeZone={eventTimeZone}
                   eventReturnHref={eventReturnHref}
                   variant="china"
@@ -1575,7 +1536,6 @@ function ScheduleByDateView({
                     label="其他"
                     count={activeDayMatchGroups.otherMatches.length}
                     matches={activeDayMatchGroups.otherMatches}
-                    showBeijingTime={showBeijingTime}
                     eventTimeZone={eventTimeZone}
                     eventReturnHref={eventReturnHref}
                     variant="other"
@@ -1587,7 +1547,6 @@ function ScheduleByDateView({
                 <ScheduleMatchCard
                   key={match.scheduleMatchId}
                   match={match}
-                  showBeijingTime={showBeijingTime}
                   eventTimeZone={eventTimeZone}
                   eventReturnHref={eventReturnHref}
                 />
@@ -1604,7 +1563,6 @@ function ScheduleMatchSection({
   label,
   count,
   matches,
-  showBeijingTime,
   eventTimeZone,
   eventReturnHref,
   variant,
@@ -1612,7 +1570,6 @@ function ScheduleMatchSection({
   label: string;
   count: number;
   matches: EventScheduleMatch[];
-  showBeijingTime: boolean;
   eventTimeZone: string | null;
   eventReturnHref: string;
   variant: "china" | "other";
@@ -1643,7 +1600,6 @@ function ScheduleMatchSection({
           <ScheduleMatchCard
             key={match.scheduleMatchId}
             match={match}
-            showBeijingTime={showBeijingTime}
             eventTimeZone={eventTimeZone}
             eventReturnHref={eventReturnHref}
           />
@@ -3643,7 +3599,6 @@ function EventDetailContent() {
                 <ScheduleByDateView
                   days={data.scheduleDays}
                   selectedSubEvent={resolvedSubEvent}
-                  lifecycleStatus={data.event.lifecycleStatus}
                   eventTimeZone={data.event.timeZone}
                   selectedDate={selectedDate}
                   onSelectDate={handleSelectDate}
