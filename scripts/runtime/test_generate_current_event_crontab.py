@@ -66,9 +66,9 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         }
 
         self.assertEqual(2, len(refresh_jobs))
-        self.assertIn(("live", "match_details"), range_lines)
+        self.assertIn(("match_details",), range_lines)
         self.assertIn(("live",), range_lines)
-        self.assertTrue(range_lines[("live", "match_details")].startswith("0,30 1-5 2 7 * "))
+        self.assertTrue(range_lines[("match_details",)].startswith("0,30 1-5 2 7 * "))
         self.assertTrue(range_lines[("live",)].startswith("10,20,40,50 1-5 2 7 * "))
         self.assertNotIn("completed", set().union(*(job.sources for job in refresh_jobs)))
 

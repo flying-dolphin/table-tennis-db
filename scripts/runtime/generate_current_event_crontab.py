@@ -292,9 +292,10 @@ def build_session_refresh_jobs(session_start: datetime, session_label: str) -> l
     session_end = run_at + SESSION_REFRESH_DURATION
     idx = 0
     while run_at < session_end:
-        sources = {"live"}
         if idx % 3 == 0:
-            sources.add("match_details")
+            sources = {"match_details"}
+        else:
+            sources = {"live"}
         points.append((run_at, sources))
         idx += 1
         run_at += timedelta(minutes=10)
@@ -308,6 +309,7 @@ def build_session_refresh_jobs(session_start: datetime, session_label: str) -> l
     sortable = sorted(
         (
             bucket_date,
+            tuple(sorted(sources)),
             sources,
             tuple(sorted(minutes)),
             hour,
@@ -316,14 +318,14 @@ def build_session_refresh_jobs(session_start: datetime, session_label: str) -> l
     )
     idx = 0
     while idx < len(sortable):
-        bucket_date, sources, minutes, hour = sortable[idx]
+        bucket_date, source_key, sources, minutes, hour = sortable[idx]
         hours = [hour]
         idx += 1
         while idx < len(sortable):
-            next_date, next_sources, next_minutes, next_hour = sortable[idx]
+            next_date, next_source_key, next_sources, next_minutes, next_hour = sortable[idx]
             if (
                 next_date != bucket_date
-                or next_sources != sources
+                or next_source_key != source_key
                 or next_minutes != minutes
                 or next_hour != hours[-1] + 1
             ):
