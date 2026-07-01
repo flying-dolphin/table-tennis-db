@@ -49,12 +49,16 @@ class ScrapeCurrentEventTests(unittest.TestCase):
             "3242",
             "--sources",
             "match_details",
+            "--db-path",
+            "/tmp/ittf.db",
         ]
         with patch.object(sys, "argv", argv), patch.object(scrape_current_event, "run_step", side_effect=capture_step):
             self.assertEqual(0, scrape_current_event.main())
 
         self.assertEqual(1, len(commands))
         self.assertTrue(any(str(part).endswith("scrape_wtt_match_details.py") for part in commands[0]))
+        self.assertIn("--db-path", commands[0])
+        self.assertIn("/tmp/ittf.db", commands[0])
 
 
 if __name__ == "__main__":

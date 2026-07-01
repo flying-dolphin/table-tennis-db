@@ -24,12 +24,14 @@ SCRAPE_IMPORT_SOURCES = {
     "brackets": ("brackets", "brackets"),
     "live": ("live", "live"),
     "completed": (("completed", "match_details"), "completed"),
+    "match_details": ("match_details", ("live", "completed")),
 }
 
 # 不经过 scrape/import 流水线、独立命令的 source。
 SPECIAL_SOURCES = {"promote", "backup"}
 
-SOURCE_ORDER = ["backup", "schedule", "standings", "brackets", "live", "completed", "promote"]
+SOURCE_ORDER = ["backup", "schedule", "standings", "brackets", "live", "match_details", "completed", "promote"]
+SESSION_REFRESH_DURATION = timedelta(hours=5)
 
 # 每日 cron 备份保留份数（high-freq 刷新本身不备份，靠这个兜底）。
 DAILY_BACKUP_KEEP = 3
@@ -70,6 +72,11 @@ class CronJob:
     run_at: datetime
     sources: set[str]
     labels: set[str]
+    minute_field: str | None = None
+    hour_field: str | None = None
+    day_field: str | None = None
+    month_field: str | None = None
+    end_at: datetime | None = None
 
 
 def parse_args() -> argparse.Namespace:
@@ -270,11 +277,118 @@ def add_job(jobs: dict[datetime, CronJob], run_at: datetime, source: str, label:
     job.labels.add(label)
 
 
+def cron_number_field(values: list[int]) -> str:
+    ordered = sorted(set(values))
+    if not ordered:
+        raise ValueError("cron field requires at least one value")
+    if len(ordered) > 1 and ordered == list(range(ordered[0], ordered[-1] + 1)):
+        return f"{ordered[0]}-{ordered[-1]}"
+    return ",".join(str(value) for value in ordered)
+
+
+def build_session_refresh_jobs(session_start: datetime, session_label: str) -> list[CronJob]:
+    points: list[tuple[datetime, set[str]]] = []
+    run_at = session_start.replace(second=0, microsecond=0)
+    session_end = run_at + SESSION_REFRESH_DURATION
+    idx = 0
+    while run_at < session_end:
+        sources = {"live"}
+        if idx % 3 == 0:
+            sources.add("match_details")
+        points.append((run_at, sources))
+        idx += 1
+        run_at += timedelta(minutes=10)
+
+    buckets: dict[tuple[date, frozenset[str], int], set[int]] = {}
+    for point_at, sources in points:
+        key = (point_at.date(), frozenset(sources), point_at.hour)
+        buckets.setdefault(key, set()).add(point_at.minute)
+
+    grouped: list[CronJob] = []
+    sortable = sorted(
+        (
+            bucket_date,
+            sources,
+            tuple(sorted(minutes)),
+            hour,
+        )
+        for (bucket_date, sources, hour), minutes in buckets.items()
+    )
+    idx = 0
+    while idx < len(sortable):
+        bucket_date, sources, minutes, hour = sortable[idx]
+        hours = [hour]
+        idx += 1
+        while idx < len(sortable):
+            next_date, next_sources, next_minutes, next_hour = sortable[idx]
+            if (
+                next_date != bucket_date
+                or next_sources != sources
+                or next_minutes != minutes
+                or next_hour != hours[-1] + 1
+            ):
+                break
+            hours.append(next_hour)
+            idx += 1
+
+        run_date_time = datetime(
+            bucket_date.year,
+            bucket_date.month,
+            bucket_date.day,
+            hours[0],
+            min(minutes),
+            tzinfo=session_start.tzinfo,
+        )
+        grouped.append(
+            CronJob(
+                run_at=run_date_time,
+                sources=set(sources),
+                labels={f"{session_label}-refresh-window"},
+                minute_field=cron_number_field(list(minutes)),
+                hour_field=cron_number_field(hours),
+                day_field=str(bucket_date.day),
+                month_field=str(bucket_date.month),
+                end_at=datetime(
+                    bucket_date.year,
+                    bucket_date.month,
+                    bucket_date.day,
+                    hours[-1],
+                    max(minutes),
+                    tzinfo=session_start.tzinfo,
+                ),
+            )
+        )
+
+    return sorted(grouped, key=lambda item: (item.run_at, sorted(item.sources)))
+
+
+def dedupe_cron_jobs(jobs: list[CronJob]) -> list[CronJob]:
+    merged: dict[tuple, CronJob] = {}
+    for job in jobs:
+        key = (
+            job.run_at,
+            frozenset(job.sources),
+            job.minute_field,
+            job.hour_field,
+            job.day_field,
+            job.month_field,
+        )
+        existing = merged.get(key)
+        if existing is None:
+            merged[key] = job
+            continue
+        existing.labels.update(job.labels)
+        if job.end_at and (existing.end_at is None or job.end_at > existing.end_at):
+            existing.end_at = job.end_at
+    return sorted(merged.values(), key=lambda item: item.run_at)
+
+
 def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) -> tuple[date, list[CronJob]]:
     main_draw_start = find_main_draw_start(schedule)
     event_tz = ZoneInfo(event.time_zone)
     target_tz = ZoneInfo(target_time_zone)
     jobs: dict[datetime, CronJob] = {}
+    range_jobs: list[CronJob] = []
 
     for day in schedule:
         evening_start = second_session_or_fallback(day)
@@ -304,12 +418,7 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
 
         for session_label, start in starts:
             session_start = to_target_datetime(day.local_date, start, event_tz, target_tz)
-            for idx in range(1, 12):
-                run_at = session_start + timedelta(minutes=30 * idx)
-                add_job(jobs, run_at, "live", f"{session_label}-live-{idx}")
-            for idx in range(1, 4):
-                run_at = session_start + timedelta(hours=2 * idx)
-                add_job(jobs, run_at, "completed", f"{session_label}-completed-{idx}")
+            range_jobs.extend(build_session_refresh_jobs(session_start, session_label))
 
     # 每个比赛日的首个 session 起点跑一次 DB 备份（在当天首批 live 导入之前），
     # 给无备份的 high-freq 刷新兜底。备份独占该分钟，不与刷新任务合并。
@@ -327,11 +436,22 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
     promote_at = to_target_datetime(last_day.local_date, last_session, event_tz, target_tz) + timedelta(hours=24)
     add_job(jobs, promote_at, "promote", "post-event-promote")
 
-    return main_draw_start, sorted(jobs.values(), key=lambda item: item.run_at)
+    return main_draw_start, dedupe_cron_jobs([*jobs.values(), *range_jobs])
 
 
 def shell_join(parts: list[str]) -> str:
     return " ".join(shlex.quote(part) for part in parts)
+
+
+def dedupe_preserve_order(items: list[str]) -> list[str]:
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for item in items:
+        if item in seen:
+            continue
+        seen.add(item)
+        deduped.append(item)
+    return deduped
 
 
 def build_promote_command(args: argparse.Namespace) -> str:
@@ -398,7 +518,12 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
             scrape_sources.extend(scrape_source)
         else:
             scrape_sources.append(scrape_source)
-        import_sources.append(import_source)
+        if isinstance(import_source, tuple):
+            import_sources.extend(import_source)
+        else:
+            import_sources.append(import_source)
+    scrape_sources = dedupe_preserve_order(scrape_sources)
+    import_sources = dedupe_preserve_order(import_sources)
 
     python_bin = str(args.python_bin)
     project_root = str(args.project_root)
@@ -416,6 +541,8 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         *scrape_sources,
         "--live-event-data-root",
         live_root,
+        "--db-path",
+        command_db_path,
     ]
     browser_sources = {"standings", "live"}
     if browser_sources.intersection(sources):
@@ -450,15 +577,19 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
 def cron_line(job: CronJob, command: str) -> str:
     run_date = job.run_at.strftime("%Y-%m-%d")
     guard = f'test "$(date +\\%Y-\\%m-\\%d)" = "{run_date}"'
+    minute = job.minute_field or str(job.run_at.minute)
+    hour = job.hour_field or str(job.run_at.hour)
+    day = job.day_field or str(job.run_at.day)
+    month = job.month_field or str(job.run_at.month)
     return (
-        f"{job.run_at.minute} {job.run_at.hour} {job.run_at.day} {job.run_at.month} * "
+        f"{minute} {hour} {day} {month} * "
         f"{guard} && {command}"
     )
 
 
 def render_crontab(args: argparse.Namespace, event: Event, main_draw_start: date, jobs: list[CronJob]) -> str:
     now = datetime.now(ZoneInfo(args.cron_time_zone)).replace(second=0, microsecond=0)
-    selected_jobs = jobs if args.include_past else [job for job in jobs if job.run_at >= now]
+    selected_jobs = jobs if args.include_past else [job for job in jobs if (job.end_at or job.run_at) >= now]
 
     lines = [
         f"# Generated for event {event.event_id}: {event.name}",

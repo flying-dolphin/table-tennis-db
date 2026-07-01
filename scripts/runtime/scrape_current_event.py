@@ -12,6 +12,8 @@ from pathlib import Path
 from wtt_scrape_shared import DEFAULT_LIVE_EVENT_DATA_DIR, discover_event_sub_events, resolve_standings_team_codes
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parents[1]
+DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 
 
 def run_step(cmd: list[str]) -> int:
@@ -41,6 +43,7 @@ def main() -> int:
         default=str(DEFAULT_LIVE_EVENT_DATA_DIR),
         help="进行中赛事数据根目录",
     )
+    ap.add_argument("--db-path", default=str(DEFAULT_DB_PATH), help="SQLite DB path for DB-backed scrape sources")
     ap.add_argument("--stage-label", default="Groups", help="standings 页签名称，默认 Groups")
     ap.add_argument("--cdp-port", type=int, default=9222)
     ap.add_argument("--use-cdp", action="store_true")
@@ -82,7 +85,7 @@ def main() -> int:
         elif source == "completed":
             cmd = base + [str(SCRIPT_DIR / "scrape_wtt_official_results.py")] + root_args
         elif source == "match_details":
-            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_match_details.py")] + root_args
+            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_match_details.py")] + root_args + ["--db-path", str(args.db_path)]
         else:
             discovered = discover_event_sub_events(args.event_id)
             team_codes = resolve_standings_team_codes(discovered)

@@ -368,7 +368,9 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 - `current_event_match_side_players`
 
 ### runtime/generate_current_event_crontab.py
-根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron，包括每日 DB 备份（backup）、schedule、standings、brackets、live、completed 和赛后 promote 任务。
+根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron。按 session 刷新窗口（5 小时）
+周期内每 10 分钟一次 live 刷新、每 30 分钟合并一次 match_details 刷新（导入 live + completed 表），
+外加 backup、schedule、standings、brackets 和赛后 promote 任务。
 
 ### db/promote_current_event.py
 将 `current_event_*` 数据写入历史事实表，重建签表与冠军，并把赛事 lifecycle 更新为 `completed`。

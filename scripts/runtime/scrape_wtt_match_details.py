@@ -5,18 +5,24 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
+import sqlite3
 import time
 import urllib.request
 from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import brotli
 
 from wtt_scrape_shared import (
+    API_BASE,
     DEFAULT_LIVE_EVENT_DATA_DIR,
     LIVE_MATCH_STATIC_BASE,
+    PROJECT_ROOT,
     build_schedule_unit_index,
     load_local_schedule_payload,
     normalize_live_result_item,
@@ -24,18 +30,25 @@ from wtt_scrape_shared import (
 )
 
 MATCHDATA_BASE = f"{LIVE_MATCH_STATIC_BASE}/matchdata"
+DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 MATCHDATA_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
     ),
     "Accept": "application/json, text/plain, */*",
     "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
     "Origin": "https://www.worldtabletennis.com",
     "Referer": "https://www.worldtabletennis.com/",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "cross-site",
 }
 OFFICIAL_STATUSES = {"OFFICIAL"}
 LIVE_STATUSES = {"LIVE", "INTERMEDIATE", "DISPLAYED"}
+UPCOMING_WINDOW = timedelta(minutes=15)
 
 
 @dataclass(frozen=True)
@@ -88,34 +101,164 @@ def live_result_codes(payload: Any) -> list[str]:
     return codes
 
 
-def select_match_detail_codes(schedule_payload: Any, official_results: Any, live_payload: Any) -> list[MatchDetailTarget]:
+def add_target(selected: list[MatchDetailTarget], seen: set[str], code: str | None, reason: str) -> None:
+    normalized = normalize_match_code(code)
+    if not normalized or normalized in seen:
+        return
+    selected.append(MatchDetailTarget(normalized, reason))
+    seen.add(normalized)
+
+
+def parse_schedule_start_utc(value: str | None, event_time_zone: str | None) -> datetime | None:
+    if not value or not event_time_zone:
+        return None
+    try:
+        tz = ZoneInfo(event_time_zone)
+    except ZoneInfoNotFoundError:
+        return None
+    raw = value.strip()
+    for fmt in ("%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M", "%Y-%m-%d %H:%M"):
+        try:
+            return datetime.strptime(raw, fmt).replace(tzinfo=tz).astimezone(timezone.utc)
+        except ValueError:
+            continue
+    try:
+        parsed = datetime.fromisoformat(raw)
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=tz)
+    return parsed.astimezone(timezone.utc)
+
+
+def load_event_time_zone(db_path: Path, event_id: int) -> str | None:
+    if not db_path.exists():
+        return None
+    try:
+        conn = sqlite3.connect(str(db_path))
+        row = conn.execute("SELECT time_zone FROM events WHERE event_id = ?", (event_id,)).fetchone()
+    except sqlite3.Error:
+        return None
+    finally:
+        try:
+            conn.close()
+        except UnboundLocalError:
+            pass
+    return (row[0] or "").strip() if row else None
+
+
+def load_db_match_detail_targets(db_path: Path, event_id: int) -> list[MatchDetailTarget]:
+    if not db_path.exists():
+        return []
+    try:
+        conn = sqlite3.connect(str(db_path))
+        rows = conn.execute(
+            """
+            SELECT external_match_code, status, match_score, games
+            FROM current_event_matches
+            WHERE event_id = ?
+              AND external_match_code IS NOT NULL
+              AND trim(external_match_code) != ''
+              AND (
+                status IN ('scheduled', 'live')
+                OR (
+                  status IN ('completed', 'walkover')
+                  AND (
+                    match_score IS NULL OR trim(match_score) = ''
+                    OR games IS NULL OR trim(games) = '' OR trim(games) = '[]'
+                  )
+                )
+              )
+            ORDER BY external_match_code
+            """,
+            (event_id,),
+        ).fetchall()
+    except sqlite3.Error:
+        return []
+    finally:
+        try:
+            conn.close()
+        except UnboundLocalError:
+            pass
+
+    targets: list[MatchDetailTarget] = []
+    for code, status, _match_score, _games in rows:
+        normalized_status = (status or "").strip().lower()
+        if normalized_status == "live":
+            reason = "db_live"
+        elif normalized_status in {"completed", "walkover"}:
+            reason = "db_completed_missing_score"
+        else:
+            reason = "db_scheduled"
+        normalized = normalize_match_code(code)
+        if normalized:
+            targets.append(MatchDetailTarget(normalized, reason))
+    return targets
+
+
+def select_match_detail_codes(
+    schedule_payload: Any,
+    official_results: Any,
+    live_payload: Any,
+    *,
+    now_utc: datetime | None = None,
+    event_time_zone: str | None = None,
+    db_codes: list[MatchDetailTarget] | None = None,
+) -> list[MatchDetailTarget]:
     schedule_units = build_schedule_unit_index(schedule_payload)
     known_official_codes = official_result_codes(official_results)
     selected: list[MatchDetailTarget] = []
     seen: set[str] = set()
+    now_utc = now_utc or datetime.now(timezone.utc)
 
     for code, unit in sorted(schedule_units.items(), key=lambda item: (item[1].get("StartDate") or "", item[0])):
+        start_utc = parse_schedule_start_utc(unit.get("StartDate"), event_time_zone)
+        if start_utc and now_utc <= start_utc <= now_utc + UPCOMING_WINDOW:
+            add_target(selected, seen, code, "upcoming")
+            continue
         if (unit.get("ScheduleStatus") or "").strip().lower() != "official":
             continue
-        if code in known_official_codes or code in seen:
+        if code in known_official_codes:
             continue
-        selected.append(MatchDetailTarget(code, "missing_official"))
-        seen.add(code)
+        add_target(selected, seen, code, "missing_official")
 
     for code in live_result_codes(live_payload):
-        if code in seen:
-            continue
-        selected.append(MatchDetailTarget(code, "live"))
-        seen.add(code)
+        add_target(selected, seen, code, "live")
+
+    for target in db_codes or []:
+        add_target(selected, seen, target.match_code, target.reason)
 
     return selected
 
 
-def fetch_match_card(event_id: int, match_code: str) -> tuple[str, dict[str, Any] | None]:
+def fetch_match_card(event_id: int, match_code: str) -> tuple[str, dict[str, Any] | None, str | None]:
     doc_code = full_document_code(match_code)
     url = f"{MATCHDATA_BASE}/{event_id}/{doc_code}.json?q={time.strftime('%Y-%m-%d')}"
     payload = fetch_matchdata_json(url)
-    return url, payload if isinstance(payload, dict) else None
+    if isinstance(payload, dict):
+        return url, payload, "static_matchdata"
+    official_url = (
+        f"{API_BASE}/GetOfficialResult?EventId={event_id}"
+        f"&DocumentCode={doc_code}&include_match_card=true"
+    )
+    official_payload = fetch_matchdata_json(official_url)
+    card = extract_official_match_card(official_payload)
+    return official_url, card, "official_query" if card is not None else None
+
+
+def extract_official_match_card(payload: Any) -> dict[str, Any] | None:
+    if isinstance(payload, list):
+        if not payload:
+            return None
+        first = payload[0]
+        if not isinstance(first, dict):
+            return None
+        card = first.get("match_card")
+        return card if isinstance(card, dict) else first
+    if isinstance(payload, dict):
+        card = payload.get("match_card")
+        return card if isinstance(card, dict) else payload
+    return None
 
 
 def decode_response_body(response: Any, body: bytes) -> bytes:
@@ -126,6 +269,8 @@ def decode_response_body(response: Any, body: bytes) -> bytes:
         encoding = ""
     if encoding.lower() == "br":
         return brotli.decompress(body)
+    if encoding.lower() == "gzip" or body[:2] == b"\x1f\x8b":
+        return gzip.decompress(body)
     return body
 
 
@@ -137,6 +282,8 @@ def fetch_matchdata_json(url: str, retries: int = 2) -> Any:
                 if resp.status == 204:
                     return None
                 body = decode_response_body(resp, resp.read())
+                if body.startswith(b"\xef\xbb\xbf"):
+                    body = body[3:]
                 return json.loads(body.decode("utf-8"))
         except Exception:
             if attempt >= retries:
@@ -235,19 +382,38 @@ def merge_match_cards(
     return {"official_added": official_added, "live_added": live_added, "live_updated": live_updated}
 
 
-def scrape_match_details_only(event_id: int, event_dir: Path) -> dict[str, Any]:
+def scrape_match_details_only(event_id: int, event_dir: Path, db_path: Path = DEFAULT_DB_PATH) -> dict[str, Any]:
     event_dir.mkdir(parents=True, exist_ok=True)
     schedule_payload = load_local_schedule_payload(event_dir)
     official_payload = load_json_or_default(event_dir / "GetOfficialResult.json", [])
     live_payload = load_json_or_default(event_dir / "GetLiveResult.json", {"matches": []})
-    targets = select_match_detail_codes(schedule_payload, official_payload, live_payload)
+    event_time_zone = load_event_time_zone(db_path, event_id)
+    db_targets = load_db_match_detail_targets(db_path, event_id)
+    targets = select_match_detail_codes(
+        schedule_payload,
+        official_payload,
+        live_payload,
+        event_time_zone=event_time_zone,
+        db_codes=db_targets,
+    )
 
     cards: list[dict[str, Any]] = []
     errors: list[dict[str, Any]] = []
     sources: list[dict[str, Any]] = []
+    source_counts = {"static_matchdata": 0, "official_query": 0}
     for target in targets:
-        url, card = fetch_match_card(event_id, target.match_code)
-        sources.append({"match_code": target.match_code, "reason": target.reason, "url": url, "ok": card is not None})
+        url, card, source_kind = fetch_match_card(event_id, target.match_code)
+        if source_kind in source_counts:
+            source_counts[source_kind] += 1
+        sources.append(
+            {
+                "match_code": target.match_code,
+                "reason": target.reason,
+                "url": url,
+                "source": source_kind,
+                "ok": card is not None,
+            }
+        )
         if card is None:
             errors.append({"match_code": target.match_code, "reason": target.reason, "url": url})
             continue
@@ -260,6 +426,9 @@ def scrape_match_details_only(event_id: int, event_dir: Path) -> dict[str, Any]:
         "event_id": event_id,
         "targets": len(targets),
         "fetched": len(cards),
+        "source_counts": source_counts,
+        "db_targets": len(db_targets),
+        "event_time_zone": event_time_zone,
         "files": [{"kind": "post_match_center", "file": raw_path.name, "size": raw_path.stat().st_size, "count": len(cards)}],
         "merge": merge_report,
         "sources": sources,
@@ -277,13 +446,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch per-match WTT matchdata for missing completed and live matches.")
     parser.add_argument("--event-id", type=int, required=True)
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
+    parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     args = parser.parse_args()
 
     event_dir = args.live_event_data_root.resolve() / str(args.event_id)
     print(f"Scrape WTT match details {args.event_id} -> {event_dir}")
-    summary = scrape_match_details_only(args.event_id, event_dir)
+    summary = scrape_match_details_only(args.event_id, event_dir, args.db_path.resolve())
     print(
         f"  [match_details] targets={summary['targets']} fetched={summary['fetched']} "
+        f"static={summary['source_counts']['static_matchdata']} "
+        f"official_query={summary['source_counts']['official_query']} "
         f"official_added={summary['merge']['official_added']} live_added={summary['merge']['live_added']} "
         f"live_updated={summary['merge']['live_updated']}"
     )
