@@ -612,6 +612,47 @@ def split_rubber_player_names(player_name: str | None) -> list[str]:
     return [part.strip() for part in player_name.split("/") if part.strip()]
 
 
+def live_side_players(side: dict) -> list[dict]:
+    raw_players = side.get("players") if isinstance(side.get("players"), list) else []
+    players: list[dict] = []
+    for player in raw_players:
+        if not isinstance(player, dict):
+            continue
+        name = (player.get("name") or "").strip()
+        if not name:
+            continue
+        players.append(
+            {
+                "name": name,
+                "player_id": legacy.int_or_none(player.get("if_id") or player.get("code") or player.get("player_id")),
+                "country": player.get("organization") or side.get("organization"),
+            }
+        )
+    if players:
+        return players
+
+    value = side.get("display_name")
+    names = split_rubber_player_names(value.strip() if isinstance(value, str) else None)
+    return [{"name": name, "player_id": None, "country": side.get("organization")} for name in names]
+
+
+def resolve_live_player_id(
+    cursor: sqlite3.Cursor,
+    roster: dict[tuple[str, str], int],
+    team_code: str | None,
+    player: dict,
+) -> int | None:
+    direct_id = legacy.int_or_none(player.get("player_id"))
+    if direct_id is not None:
+        try:
+            row = cursor.execute("SELECT player_id FROM players WHERE player_id = ?", (direct_id,)).fetchone()
+        except sqlite3.OperationalError:
+            row = None
+        if row:
+            return direct_id
+    return legacy.resolve_roster_player_id(roster, team_code, player.get("name"))
+
+
 def replace_match_children(
     cursor: sqlite3.Cursor,
     current_match_id: int,
@@ -650,8 +691,13 @@ def replace_match_children(
         current_match_side_id = int(cursor.lastrowid)
         # Live rubbers identify players by name only; resolve player_id from the
         # tie roster (ids sourced from if_id), scoped to this side's team.
-        names = split_rubber_player_names(side.get("player_name")) or [side.get("player_name")]
-        for player_order, name in enumerate(names, start=1):
+        players = side.get("players") or [
+            {"name": name, "player_id": None, "country": side.get("player_country")}
+            for name in (split_rubber_player_names(side.get("player_name")) or [side.get("player_name")])
+            if name
+        ]
+        for player_order, player in enumerate(players, start=1):
+            name = player.get("name")
             if not name:
                 continue
             cursor.execute(
@@ -663,9 +709,9 @@ def replace_match_children(
                 (
                     current_match_side_id,
                     player_order,
-                    legacy.resolve_roster_player_id(roster, side.get("team_code"), name),
+                    resolve_live_player_id(cursor, roster, side.get("team_code"), player),
                     name,
-                    side.get("player_country"),
+                    player.get("country") or side.get("player_country"),
                 ),
             )
 
@@ -793,12 +839,14 @@ def upsert_live_individual_match(
     side_a = {
         "team_code": sides[0].get("organization") if isinstance(sides[0], dict) else None,
         "player_name": live_side_player_name(sides[0]) if isinstance(sides[0], dict) else None,
+        "players": live_side_players(sides[0]) if isinstance(sides[0], dict) else [],
         "player_country": sides[0].get("organization") if isinstance(sides[0], dict) else None,
         "is_winner": winner_side == "A",
     }
     side_b = {
         "team_code": sides[1].get("organization") if isinstance(sides[1], dict) else None,
         "player_name": live_side_player_name(sides[1]) if isinstance(sides[1], dict) else None,
+        "players": live_side_players(sides[1]) if isinstance(sides[1], dict) else [],
         "player_country": sides[1].get("organization") if isinstance(sides[1], dict) else None,
         "is_winner": winner_side == "B",
     }

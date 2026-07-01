@@ -62,6 +62,11 @@ CREATE TABLE current_event_match_side_players (
     player_name TEXT NOT NULL,
     player_country TEXT
 );
+CREATE TABLE players (
+    player_id INTEGER PRIMARY KEY,
+    name TEXT,
+    name_zh TEXT
+);
 """
 
 
@@ -120,6 +125,75 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
         self.assertEqual("T02", match["table_no"])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_sides").fetchone()[0])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_side_players").fetchone()[0])
+
+    def test_live_start_list_preserves_all_doubles_players(self):
+        self.conn.executemany(
+            "INSERT INTO players (player_id, name, name_zh) VALUES (?, ?, ?)",
+            [
+                (123682, "THAKKAR Manav", "萨卡尔·马纳夫"),
+                (131879, "SHAH Manush", "沙·马努什"),
+                (135996, "MATSUSHIMA Sora", "松岛辉空"),
+                (133694, "TOGAMI Shunsuke", "户上隼辅"),
+            ],
+        )
+        item = {
+            "match_code": "TTEMDOUBLES-----------8FNL000700",
+            "source_status": "Start List",
+            "sub_event": "Men's Doubles",
+            "round": "8FNL",
+            "scheduled_start": "2026-06-30T20:55:00",
+            "table_no": "T01",
+            "session_label": "Men's Doubles - R16 - M 7",
+            "score": None,
+            "games": [],
+            "winner_side": None,
+            "sides": [
+                {
+                    "organization": "IND",
+                    "display_name": "THAKKAR Manav/SHAH Manush",
+                    "players": [
+                        {"name": "THAKKAR Manav", "if_id": "123682", "organization": "IND"},
+                        {"name": "SHAH Manush", "if_id": "131879", "organization": "IND"},
+                    ],
+                },
+                {
+                    "organization": "JPN",
+                    "display_name": "MATSUSHIMA Sora/TOGAMI Shunsuke",
+                    "players": [
+                        {"name": "MATSUSHIMA Sora", "if_id": "135996", "organization": "JPN"},
+                        {"name": "TOGAMI Shunsuke", "if_id": "133694", "organization": "JPN"},
+                    ],
+                },
+            ],
+        }
+
+        result = upsert_live_individual_match(
+            self.conn.cursor(),
+            event_id=3242,
+            item=item,
+            now="2026-07-01T04:30:24+00:00",
+        )
+
+        self.assertTrue(result)
+        match = self.conn.execute("SELECT * FROM current_event_matches").fetchone()
+        self.assertEqual("scheduled", match["status"])
+        players = self.conn.execute(
+            """
+            SELECT s.side_no, p.player_order, p.player_id, p.player_name, p.player_country
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            ORDER BY s.side_no, p.player_order
+            """
+        ).fetchall()
+        self.assertEqual(
+            [
+                (1, 1, 123682, "THAKKAR Manav", "IND"),
+                (1, 2, 131879, "SHAH Manush", "IND"),
+                (2, 1, 135996, "MATSUSHIMA Sora", "JPN"),
+                (2, 2, 133694, "TOGAMI Shunsuke", "JPN"),
+            ],
+            [tuple(row) for row in players],
+        )
 
 
 if __name__ == "__main__":
