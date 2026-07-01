@@ -401,21 +401,21 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
     for day in schedule:
         second_start = second_session_or_fallback(day)
         if second_start and day.local_date < main_draw_start:
-            run_at = to_target_datetime(day.local_date, second_start, event_tz, target_tz) + timedelta(hours=3)
+            run_at = to_target_datetime(day.local_date, second_start, event_tz, target_tz) + timedelta(hours=5)
             add_job(jobs, run_at, "standings", "standings")
 
     pre_main_day = next((day for day in schedule if day.local_date == main_draw_start - timedelta(days=1)), None)
     if pre_main_day:
         second_start = second_session_or_fallback(pre_main_day)
         if second_start:
-            run_at = to_target_datetime(pre_main_day.local_date, second_start, event_tz, target_tz) + timedelta(hours=3)
+            run_at = to_target_datetime(pre_main_day.local_date, second_start, event_tz, target_tz) + timedelta(hours=5)
             add_job(jobs, run_at, "brackets", "pre-main-draw-brackets")
 
     for day in schedule:
         starts = session_starts(day)
         if day.local_date >= main_draw_start:
             for session_label, start in starts:
-                run_at = to_target_datetime(day.local_date, start, event_tz, target_tz) + timedelta(hours=3)
+                run_at = to_target_datetime(day.local_date, start, event_tz, target_tz) + timedelta(hours=5)
                 add_job(jobs, run_at, "brackets", f"{session_label}-brackets")
 
         for session_label, start in starts:
