@@ -2232,7 +2232,7 @@ function DrawView({
                 highlightedNames.length > 0 &&
                 match.sides.some((s) => s.isWinner && highlightedNames.every((n) => sideName(s, isXT).includes(n)));
               return (
-                <div key={match.matchId} className="absolute" style={{ top, left, width: DRAW_CARD_W }}>
+                <div key={match.matchId} className="cv-auto absolute" style={{ top, left, width: DRAW_CARD_W }}>
                   <DrawMatchCard
                     match={match}
                     isChampionPath={isChampionPath}
