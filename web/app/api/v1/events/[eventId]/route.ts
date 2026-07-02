@@ -11,7 +11,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ even
 
   const { searchParams } = new URL(request.url);
   const subEvent = searchParams.get('sub_event');
-  const result = getEventDetail(parsedEventId, subEvent);
+  const lean = searchParams.get('lean') === '1';
+  const result = getEventDetail(parsedEventId, subEvent, { lean });
 
   if (!result) {
     return error(404, 40403, 'Event not found');

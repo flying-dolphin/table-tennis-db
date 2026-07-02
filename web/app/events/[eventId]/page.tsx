@@ -259,7 +259,9 @@ type EventDetailResponse = {
 
 type ViewMode = "session" | "draw" | "schedule" | "champions";
 
-type EventSubEventView = EventDetail["subEvents"][number] & EventDetail["subEventDetails"][number];
+type EventSubEventDetail = EventDetail["subEventDetails"][number];
+
+type EventSubEventView = EventDetail["subEvents"][number] & EventSubEventDetail;
 
 function displayName(name: string, nameZh: string | null) {
   return nameZh?.trim() || name;
@@ -960,9 +962,9 @@ function ChampionBanner({
 
 function LiveViewTabs({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMode) => void }) {
   const tabs: Array<{ mode: ViewMode; label: string; icon: React.ReactNode }> = [
-    { mode: "session", label: "日程", icon: <CalendarDays size={16} /> },
-    { mode: "draw", label: "签表", icon: <FolderTree size={16} /> },
     { mode: "schedule", label: "比赛", icon: <List size={16} /> },
+    { mode: "draw", label: "签表", icon: <FolderTree size={16} /> },
+    { mode: "session", label: "日程", icon: <CalendarDays size={16} /> },
   ];
 
   return (
@@ -1073,7 +1075,7 @@ function MatchListCard({
   return (
     <Link
       href={route(withFromQuery(`/matches/${match.matchId}`, eventReturnHref))}
-      className="block rounded-2xl bg-white px-4 py-3.5 ring-1 ring-slate-100 shadow-sm transition active:scale-[0.99]"
+      className="cv-auto block rounded-2xl bg-white px-4 py-3.5 ring-1 ring-slate-100 shadow-sm transition active:scale-[0.99]"
     >
       <div className="mb-2.5 flex items-center justify-between">
         <span className="text-[0.82rem] font-medium text-slate-400">已结束</span>
@@ -1322,7 +1324,7 @@ function ScheduleMatchCard({
     scheduleMatchId: match.scheduleMatchId,
     kind: match.subEventTypeCode === "MT" || match.subEventTypeCode === "WT" || match.subEventTypeCode === "XT" ? "tie" : "match",
   });
-  const cardClassName = "block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm";
+  const cardClassName = "cv-auto block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm";
 
   const cardContent = (
     <>
@@ -1400,6 +1402,55 @@ function ScheduleMatchCard({
     <Link href={route(withFromQuery(matchHref, eventReturnHref))} className={cn(cardClassName, "transition active:scale-[0.99]")}>
       {cardContent}
     </Link>
+  );
+}
+
+// 分段渲染：先挂载前 initial 项，随哨兵滚入视口按 step 递增，避免一次性挂载长列表
+// 造成的主线程长任务（点开签表/切到密集赛程日时的卡顿）。配合 .cv-auto 使用效果最佳。
+function useProgressiveReveal(total: number, step = 12, initial = 12) {
+  const [count, setCount] = React.useState(() => Math.min(initial, total));
+  const sentinelRef = React.useRef<HTMLDivElement | null>(null);
+
+  React.useEffect(() => {
+    setCount(Math.min(initial, total));
+  }, [total, initial]);
+
+  React.useEffect(() => {
+    if (count >= total) return;
+    const el = sentinelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setCount((current) => Math.min(current + step, total));
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [count, total, step]);
+
+  return { count, sentinelRef };
+}
+
+function ProgressiveList<T>({
+  items,
+  step = 12,
+  initial = 12,
+  children,
+}: {
+  items: T[];
+  step?: number;
+  initial?: number;
+  children: (item: T, index: number) => React.ReactNode;
+}) {
+  const { count, sentinelRef } = useProgressiveReveal(items.length, step, initial);
+  return (
+    <>
+      {items.slice(0, count).map((item, index) => children(item, index))}
+      {count < items.length ? <div ref={sentinelRef} aria-hidden className="h-1 w-full" /> : null}
+    </>
   );
 }
 
@@ -1543,14 +1594,16 @@ function ScheduleByDateView({
                 ) : null}
               </>
             ) : (
-              activeDay.matches.map((match) => (
-                <ScheduleMatchCard
-                  key={match.scheduleMatchId}
-                  match={match}
-                  eventTimeZone={eventTimeZone}
-                  eventReturnHref={eventReturnHref}
-                />
-              ))
+              <ProgressiveList items={activeDay.matches} initial={14} step={14}>
+                {(match) => (
+                  <ScheduleMatchCard
+                    key={match.scheduleMatchId}
+                    match={match}
+                    eventTimeZone={eventTimeZone}
+                    eventReturnHref={eventReturnHref}
+                  />
+                )}
+              </ProgressiveList>
             )}
           </div>
         </section>
@@ -1596,14 +1649,16 @@ function ScheduleMatchSection({
         <span className={cn("text-sm font-bold", isChinaSection ? "text-[#ea580c]" : "text-[#2563eb]")}>{count} 场</span>
       </div>
       <div className="space-y-3">
-        {matches.map((match) => (
-          <ScheduleMatchCard
-            key={match.scheduleMatchId}
-            match={match}
-            eventTimeZone={eventTimeZone}
-            eventReturnHref={eventReturnHref}
-          />
-        ))}
+        <ProgressiveList items={matches} initial={14} step={14}>
+          {(match) => (
+            <ScheduleMatchCard
+              key={match.scheduleMatchId}
+              match={match}
+              eventTimeZone={eventTimeZone}
+              eventReturnHref={eventReturnHref}
+            />
+          )}
+        </ProgressiveList>
       </div>
     </div>
   );
@@ -1700,7 +1755,7 @@ function TeamTieSummaryCard({
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
   return (
-    <div className="rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-[#e8edf8]">
+    <div className="cv-auto-tie rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-[#e8edf8]">
       <div className="flex items-center justify-between gap-2">
         <span className="shrink-0 text-[0.85rem] font-bold text-slate-500">
           {tieIndex !== undefined ? `第 ${tieIndex} 场` : "已结束"}
@@ -2970,7 +3025,7 @@ function TeamTieCard({
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
   return (
-    <div className="rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-[#e8edf8]">
+    <div className="cv-auto-tie rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-[#e8edf8]">
       <div className="flex items-center justify-between gap-2">
         <span className="shrink-0 text-[0.85rem] font-bold text-slate-500">{titleText}</span>
         <div className="flex items-center gap-1.5 min-w-0">
@@ -3078,7 +3133,7 @@ function GroupStandingsTable({
   if (standings.length === 0) return null;
 
   return (
-    <div className="overflow-hidden rounded-[1.2rem] bg-white ring-1 ring-[#e8edf8]">
+    <div className="cv-auto-tie overflow-hidden rounded-[1.2rem] bg-white ring-1 ring-[#e8edf8]">
       <div className="grid grid-cols-[2.5rem_minmax(0,1fr)_2.2rem_2.2rem_2.2rem_3rem_4rem] gap-2 border-b border-slate-100 px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.06em] text-slate-400">
         <span>排名</span>
         <span>队伍</span>
@@ -3212,7 +3267,8 @@ function RoundRobinView({
               {!isStageCollapsed ? (
                 stage.groups ? (
                   <div className="space-y-4">
-                    {stage.groups.map((group) => {
+                    <ProgressiveList items={stage.groups} initial={6} step={6}>
+                    {(group) => {
                       const groupKey = `${stage.code}:${group.code}`;
                       const isCollapsed = collapsedGroups.has(groupKey);
                       return (
@@ -3258,7 +3314,8 @@ function RoundRobinView({
                           )}
                         </div>
                       );
-                    })}
+                    }}
+                    </ProgressiveList>
                   </div>
                 ) : (
                   <div className="space-y-3">
@@ -3398,6 +3455,18 @@ function EventDetailSkeleton() {
   );
 }
 
+function SubEventDetailLoading() {
+  return (
+    <div className="pt-5">
+      <div className="animate-pulse space-y-3">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="h-20 rounded-2xl bg-slate-100/80" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function EventDetailContent() {
   const params = useParams<{ eventId: string }>();
   const router = useRouter();
@@ -3407,8 +3476,11 @@ function EventDetailContent() {
   const urlDate = searchParams.get("date");
   const from = searchParams.get("from");
   const [data, setData] = React.useState<EventDetail | null>(null);
+  // 按子项目缓存的 detail（bracket / roundRobin / teamKnockout）。lean 模式下首屏只带
+  // 选中子项目，其它在切换 tab 时懒加载后并入这里，避免一次性传输全部子项目详情。
+  const [detailMap, setDetailMap] = React.useState<Record<string, EventSubEventDetail>>({});
   const [selectedSubEvent, setSelectedSubEvent] = React.useState<string | null>(urlSubEvent);
-  const [viewMode, setViewMode] = React.useState<ViewMode>(urlView ?? "session");
+  const [viewMode, setViewMode] = React.useState<ViewMode>(urlView ?? "schedule");
   const [selectedDate, setSelectedDate] = React.useState<string | null>(urlDate);
   const [loading, setLoading] = React.useState(true);
   const initialUrlSubEventRef = React.useRef(urlSubEvent);
@@ -3429,10 +3501,15 @@ function EventDetailContent() {
     async function load() {
       setLoading(true);
       try {
-        const res = await fetch(`/api/v1/events/${params.eventId}`);
+        const query = new URLSearchParams({ lean: "1" });
+        if (initialUrlSubEventRef.current) query.set("sub_event", initialUrlSubEventRef.current);
+        const res = await fetch(`/api/v1/events/${params.eventId}?${query.toString()}`);
         const json = (await res.json()) as EventDetailResponse;
         if (json.code === 0) {
           setData(json.data);
+          setDetailMap(
+            Object.fromEntries(json.data.subEventDetails.map((detail) => [detail.code, detail])),
+          );
           setSelectedSubEvent((current) => {
             const next = current ?? initialUrlSubEventRef.current ?? json.data.selectedSubEvent;
             return json.data.subEvents.some((subEvent) => subEvent.code === next)
@@ -3463,7 +3540,8 @@ function EventDetailContent() {
 
     setViewMode((current) => {
       if (useScheduleTabs) {
-        return current === "session" || current === "draw" || current === "schedule" ? current : "session";
+        if (current === "session" || current === "draw" || current === "schedule") return current;
+        return data.event.lifecycleStatus === "upcoming" ? "session" : "schedule";
       }
       return current === "schedule" || current === "draw" ? current : "schedule";
     });
@@ -3471,6 +3549,38 @@ function EventDetailContent() {
 
   const currentSubEvent = selectedSubEvent ?? data?.selectedSubEvent ?? null;
   const effectiveDate = viewMode === "schedule" ? selectedDate : null;
+
+  // 懒加载：切换到尚未缓存详情的子项目时，按需拉取该子项目的 lean 详情。
+  React.useEffect(() => {
+    if (!data || !currentSubEvent) return;
+    if (detailMap[currentSubEvent]) return;
+    const subEvent = data.subEvents.find((item) => item.code === currentSubEvent);
+    if (!subEvent || subEvent.disabled) return;
+
+    let cancelled = false;
+    (async () => {
+      try {
+        const query = new URLSearchParams({ lean: "1", sub_event: currentSubEvent });
+        const res = await fetch(`/api/v1/events/${params.eventId}?${query.toString()}`);
+        const json = (await res.json()) as EventDetailResponse;
+        if (cancelled || json.code !== 0) return;
+        setDetailMap((prev) => {
+          if (prev[currentSubEvent]) return prev;
+          const next = { ...prev };
+          for (const detail of json.data.subEventDetails) {
+            next[detail.code] = detail;
+          }
+          return next;
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [data, currentSubEvent, detailMap, params.eventId]);
 
   React.useEffect(() => {
     if (!data || !currentSubEvent) return;
@@ -3525,22 +3635,28 @@ function EventDetailContent() {
     setSelectedDate(value);
   }, []);
 
+  const subEventViews = React.useMemo<EventSubEventView[]>(() => {
+    if (!data) return [];
+    return data.subEvents.map((subEvent) => {
+      const detail = detailMap[subEvent.code];
+      return {
+        ...subEvent,
+        champion: detail?.champion ?? subEvent.champion,
+        bracket: detail?.bracket ?? [],
+        roundRobinView: detail?.roundRobinView ?? null,
+        teamKnockoutView: detail?.teamKnockoutView ?? null,
+        presentationMode: detail?.presentationMode ?? data.presentationMode,
+      };
+    });
+  }, [data, detailMap]);
+
   if (loading || !data) {
     return <EventDetailSkeleton />;
   }
 
   const resolvedSubEvent = currentSubEvent ?? data.selectedSubEvent;
-  const subEventViews = data.subEvents.map((subEvent) => {
-    const detail = data.subEventDetails.find((item) => item.code === subEvent.code);
-    return {
-      ...subEvent,
-      champion: detail?.champion ?? subEvent.champion,
-      bracket: detail?.bracket ?? [],
-      roundRobinView: detail?.roundRobinView ?? null,
-      teamKnockoutView: detail?.teamKnockoutView ?? null,
-      presentationMode: detail?.presentationMode ?? data.presentationMode,
-    };
-  });
+  // lean 懒加载下，切到未缓存的子项目时其详情尚未到达，用于避免签表/冠军页误显示“空”。
+  const currentDetailLoaded = detailMap[resolvedSubEvent] != null;
   const currentDetail = subEventViews.find((detail) => detail.code === resolvedSubEvent);
   const currentBracket = currentDetail?.bracket ?? [];
   const currentChampion = currentDetail?.champion ?? null;
@@ -3604,6 +3720,8 @@ function EventDetailContent() {
                   onSelectDate={handleSelectDate}
                   eventReturnHref={eventReturnHref}
                 />
+              ) : !currentDetailLoaded ? (
+                <SubEventDetailLoading />
               ) : (
                 <div className="space-y-6">
                   {shouldShowTeamKnockout ? (
@@ -3637,6 +3755,8 @@ function EventDetailContent() {
                 </div>
               )}
             </>
+          ) : !currentDetailLoaded ? (
+            <SubEventDetailLoading />
           ) : currentPresentationMode === "staged_round_robin" && currentRoundRobinView ? (
             <RoundRobinView
               view={currentRoundRobinView}

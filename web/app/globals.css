@@ -205,4 +205,19 @@
     font-weight: 500;
     box-shadow: none;
   }
+
+  /*
+   * content-visibility 优化：让浏览器跳过屏幕外卡片的布局/绘制。
+   * 用于长列表里的重复卡片（赛程、循环赛、签表列表等），
+   * contain-intrinsic-size 给出高度占位估值，避免滚动条跳动。
+   */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 120px;
+  }
+
+  .cv-auto-tie {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 220px;
+  }
 }

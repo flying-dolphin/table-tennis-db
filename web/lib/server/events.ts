@@ -4410,7 +4410,12 @@ function hasCurrentEventPresentationData(eventId: number): boolean {
   return Boolean(row);
 }
 
-export function getEventDetail(eventId: number, requestedSubEvent?: string | null) {
+export function getEventDetail(
+  eventId: number,
+  requestedSubEvent?: string | null,
+  options?: { lean?: boolean },
+) {
+  const lean = options?.lean === true;
   const event = db
     .prepare(
       `
@@ -4832,11 +4837,24 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     };
   };
 
-  const subEventDetails = subEvents
-    .filter((subEvent) => !subEvent.disabled)
-    .map((subEvent) => buildSubEventDetail(subEvent.code));
-  const dataForSelected =
-    subEventDetails.find((detail) => detail.code === selectedSubEvent) ?? buildSubEventDetail(selectedSubEvent);
+  // lean 模式：只构建当前选中子项目的详情（bracket / roundRobin / teamKnockout），
+  // 其它子项目在前端切换 tab 时按需再拉一次。可将响应体积减半以上。
+  // 另外：团体赛（有 teamKnockoutView）签表页走 TeamKnockoutDrawView，不渲染 bracket，
+  // 故 lean 模式下丢弃这份死数据（每子项目约 160KB）。
+  const trimLeanDetail = <T extends { teamKnockoutView: EventTeamKnockoutView | null; bracket: EventBracketRound[] }>(
+    detail: T,
+  ): T => (lean && detail.teamKnockoutView ? { ...detail, bracket: [] } : detail);
+
+  const dataForSelected = trimLeanDetail(buildSubEventDetail(selectedSubEvent));
+  const subEventDetails = lean
+    ? subEvents.some((detail) => detail.code === selectedSubEvent && !detail.disabled)
+      ? [dataForSelected]
+      : []
+    : subEvents
+        .filter((subEvent) => !subEvent.disabled)
+        .map((subEvent) =>
+          subEvent.code === selectedSubEvent ? dataForSelected : buildSubEventDetail(subEvent.code),
+        );
 
   return {
     event,
@@ -4845,10 +4863,12 @@ export function getEventDetail(eventId: number, requestedSubEvent?: string | nul
     scheduleDays: Array.from(scheduleDays.values()).sort((left, right) => left.localDate.localeCompare(right.localDate)),
     selectedSubEvent,
     subEventDetails,
-    champion: dataForSelected?.champion ?? null,
-    bracket: dataForSelected?.bracket ?? [],
-    roundRobinView: dataForSelected?.roundRobinView ?? null,
-    teamKnockoutView: dataForSelected?.teamKnockoutView ?? null,
+    // 顶层字段仅作前端 fallback；lean 模式下所选子项目详情已在 subEventDetails 中，
+    // 这里去掉重复的重字段（bracket 等），避免 ~270KB 的冗余。
+    champion: lean ? null : dataForSelected?.champion ?? null,
+    bracket: lean ? [] : dataForSelected?.bracket ?? [],
+    roundRobinView: lean ? null : dataForSelected?.roundRobinView ?? null,
+    teamKnockoutView: lean ? null : dataForSelected?.teamKnockoutView ?? null,
     presentationMode: dataForSelected?.presentationMode ?? 'knockout',
   };
 }
