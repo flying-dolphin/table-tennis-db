@@ -311,7 +311,8 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 - `GetEventSchedule.json`：官方基础赛程，用于补充 match code、时间、台号、队伍 roster
 - `MTEAM_standings.json` / `WTEAM_standings.json`：小组积分
 - `GetBrackets_{sub_event}.json`：淘汰赛签表
-- `GetLiveResult.json`：进行中比赛 DOM 结果
+- `GetLiveResult.json`：进行中比赛 DOM 结果；默认带 `--include-official`，会合并最近完赛的
+  official 结果，降低 live 源缺比赛或缺 score 的概率
 - `GetOfficialResult.json`：官方已完结 team tie 和 individual rubber 明细
 
 用法：
@@ -369,8 +370,9 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 
 ### runtime/generate_current_event_crontab.py
 根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron。按 session 刷新窗口（5 小时）
-周期内每 10 分钟一次 live 刷新、每 30 分钟合并一次 match_details 刷新（导入 live + completed 表），
-外加 backup、schedule、standings、brackets 和赛后 promote 任务。
+周期内每 10 分钟一次 live 刷新（cron 命令显式带 `--include-official`）、每 30 分钟合并一次
+match_details 刷新（导入 live + completed 表），外加 backup、schedule、standings、brackets
+和赛后 promote 任务。
 
 ### db/promote_current_event.py
 将 `current_event_*` 数据写入历史事实表，重建签表与冠军，并把赛事 lifecycle 更新为 `completed`。

@@ -1,7 +1,8 @@
 import sys
 import unittest
+from io import StringIO
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 
 RUNTIME_DIR = Path(__file__).resolve().parent
@@ -59,6 +60,22 @@ class ScrapeCurrentEventTests(unittest.TestCase):
         self.assertTrue(any(str(part).endswith("scrape_wtt_match_details.py") for part in commands[0]))
         self.assertIn("--db-path", commands[0])
         self.assertIn("/tmp/ittf.db", commands[0])
+
+    def test_run_step_logs_command_timing_and_return_code(self):
+        completed = Mock()
+        completed.returncode = 7
+        stdout = StringIO()
+
+        with patch.object(scrape_current_event.subprocess, "run", return_value=completed), patch("sys.stdout", stdout):
+            rc = scrape_current_event.run_step(["python", "child.py", "--flag"])
+
+        output = stdout.getvalue()
+        self.assertEqual(7, rc)
+        self.assertIn("[current-event] START", output)
+        self.assertIn("python child.py --flag", output)
+        self.assertIn("[current-event] END", output)
+        self.assertIn("rc=7", output)
+        self.assertIn("duration=", output)
 
 
 if __name__ == "__main__":

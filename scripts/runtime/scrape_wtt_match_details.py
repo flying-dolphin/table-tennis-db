@@ -442,6 +442,26 @@ def scrape_match_details_only(event_id: int, event_dir: Path, db_path: Path = DE
     return summary
 
 
+def print_fetch_errors(errors: list[dict[str, Any]]) -> None:
+    if not errors:
+        return
+    print(f"  WARNING: {len(errors)} match detail target(s) could not be fetched")
+    for error in errors:
+        print(
+            "    "
+            f"match_code={error.get('match_code') or '-'} "
+            f"reason={error.get('reason') or '-'} "
+            f"url={error.get('url') or '-'}"
+        )
+
+
+def has_useful_match_detail_output(summary: dict[str, Any]) -> bool:
+    if summary.get("fetched", 0) > 0:
+        return True
+    merge = summary.get("merge") if isinstance(summary.get("merge"), dict) else {}
+    return any((merge.get(key) or 0) > 0 for key in ("official_added", "live_added", "live_updated"))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch per-match WTT matchdata for missing completed and live matches.")
     parser.add_argument("--event-id", type=int, required=True)
@@ -459,9 +479,10 @@ def main() -> int:
         f"official_added={summary['merge']['official_added']} live_added={summary['merge']['live_added']} "
         f"live_updated={summary['merge']['live_updated']}"
     )
+    print_fetch_errors(summary["errors"])
     print()
     print(f"Done: {len(summary['files'])} file(s), {len(summary['errors'])} error(s)")
-    return 0 if not summary["errors"] else 1
+    return 0 if not summary["errors"] or has_useful_match_detail_output(summary) else 1
 
 
 if __name__ == "__main__":

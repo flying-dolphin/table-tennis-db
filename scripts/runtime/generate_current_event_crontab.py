@@ -546,6 +546,8 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         "--db-path",
         command_db_path,
     ]
+    if "live" in scrape_sources:
+        scrape_cmd.append("--include-official")
     browser_sources = {"standings", "live"}
     if browser_sources.intersection(sources):
         if args.headless:

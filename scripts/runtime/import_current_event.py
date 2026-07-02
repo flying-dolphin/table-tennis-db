@@ -7,6 +7,8 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 from wtt_scrape_shared import discover_event_sub_events, resolve_standings_team_codes
@@ -18,10 +20,21 @@ DEFAULT_EVENT_SCHEDULE_DIR = PROJECT_ROOT / "data" / "event_schedule"
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 
+def log_timestamp() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
 def run_step(cmd: list[str]) -> int:
-    print(f"> {' '.join(cmd)}")
+    rendered = " ".join(cmd)
+    started = time.monotonic()
+    print(f"[current-event] START {log_timestamp()} command={rendered}", flush=True)
     completed = subprocess.run(cmd)
-    return int(completed.returncode)
+    rc = int(completed.returncode)
+    duration = time.monotonic() - started
+    print(f"[current-event] END {log_timestamp()} rc={rc} duration={duration:.2f}s command={rendered}", flush=True)
+    if rc != 0:
+        print(f"[current-event] ERROR step failed rc={rc} command={rendered}", flush=True)
+    return rc
 
 
 def main() -> int:

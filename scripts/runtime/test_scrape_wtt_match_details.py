@@ -6,6 +6,7 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import Mock, patch
+from io import StringIO
 
 import brotli
 
@@ -192,6 +193,62 @@ class ScrapeWttMatchDetailsTests(unittest.TestCase):
             {"static_matchdata": 1, "official_query": 1},
             summary["source_counts"],
         )
+
+    def test_main_allows_partial_match_detail_failures_and_logs_failed_targets(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            event_dir = Path(tmp) / "3242"
+            event_dir.mkdir()
+            (event_dir / "GetEventSchedule.json").write_text("[]", encoding="utf-8")
+            (event_dir / "GetOfficialResult.json").write_text("[]", encoding="utf-8")
+            (event_dir / "GetLiveResult.json").write_text(
+                json.dumps(
+                    {
+                        "summary": {"event_id": 3242},
+                        "matches": [
+                            {"match_code": "TTEWSINGLES-----------R64-001300", "source_status": "Live"},
+                            {"match_code": "TTEMSINGLES-----------R64-001400", "source_status": "Live"},
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            def fake_fetch(event_id, match_code):
+                if match_code == "TTEWSINGLES-----------R64-001300":
+                    return (
+                        "https://static.example/success.json",
+                        {
+                            "eventId": "3242",
+                            "documentCode": "TTEWSINGLES-----------R64-001300----------",
+                            "subEventName": "Women's Singles",
+                            "resultStatus": "OFFICIAL",
+                        },
+                        "static_matchdata",
+                    )
+                return ("https://static.example/missing.json", None, None)
+
+            argv = [
+                "scrape_wtt_match_details.py",
+                "--event-id",
+                "3242",
+                "--live-event-data-root",
+                tmp,
+                "--db-path",
+                str(Path(tmp) / "missing.db"),
+            ]
+            stdout = StringIO()
+            with (
+                patch.object(sys, "argv", argv),
+                patch.object(details, "fetch_match_card", side_effect=fake_fetch),
+                patch("sys.stdout", stdout),
+            ):
+                rc = details.main()
+
+        output = stdout.getvalue()
+        self.assertEqual(0, rc)
+        self.assertIn("WARNING: 1 match detail target(s) could not be fetched", output)
+        self.assertIn("TTEMSINGLES-----------R64-001400", output)
+        self.assertIn("https://static.example/missing.json", output)
 
     def test_full_document_code_pads_normalized_code(self):
         self.assertEqual(
