@@ -7,6 +7,8 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 from wtt_scrape_shared import DEFAULT_LIVE_EVENT_DATA_DIR, discover_event_sub_events, resolve_standings_team_codes
@@ -16,10 +18,21 @@ PROJECT_ROOT = SCRIPT_DIR.parents[1]
 DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 
 
+def log_timestamp() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
 def run_step(cmd: list[str]) -> int:
-    print(f"> {' '.join(cmd)}")
+    rendered = " ".join(cmd)
+    started = time.monotonic()
+    print(f"[current-event] START {log_timestamp()} command={rendered}", flush=True)
     completed = subprocess.run(cmd)
-    return int(completed.returncode)
+    rc = int(completed.returncode)
+    duration = time.monotonic() - started
+    print(f"[current-event] END {log_timestamp()} rc={rc} duration={duration:.2f}s command={rendered}", flush=True)
+    if rc != 0:
+        print(f"[current-event] ERROR step failed rc={rc} command={rendered}", flush=True)
+    return rc
 
 
 def main() -> int:
@@ -50,6 +63,7 @@ def main() -> int:
     ap.add_argument("--headless", action="store_true")
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--with-debug-files", action="store_true", help="live 抓取时输出调试文件")
+    ap.add_argument("--include-official", action=argparse.BooleanOptionalAction, default=True, help="live 时同时获取最近完成的比赛")
     args = ap.parse_args()
 
     base = [
@@ -79,7 +93,10 @@ def main() -> int:
             if args.sub_events:
                 cmd += ["--sub-events", *args.sub_events]
         elif source == "live":
-            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_live_matches.py")] + root_args + browser_args
+            live_args = list(root_args)
+            if args.include_official:
+                live_args.append("--include-official")
+            cmd = base + [str(SCRIPT_DIR / "scrape_wtt_live_matches.py")] + live_args + browser_args
             if args.with_debug_files:
                 cmd.append("--with-debug-files")
         elif source == "completed":

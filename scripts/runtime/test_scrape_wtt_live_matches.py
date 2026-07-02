@@ -11,44 +11,102 @@ if str(RUNTIME_DIR) not in sys.path:
 import scrape_wtt_live_matches as live
 
 
-class ScrapeWttLiveMatchesTests(unittest.TestCase):
-    def test_dom_empty_falls_back_to_live_api_snapshot(self):
-        api_matches = [
-            {
-                "match_code": "TTEMSINGLES-----------R64-002100",
-                "source_status": "Start List",
-                "sub_event": "Men's Singles",
-                "round": "R64-",
-                "scheduled_start": "2026-06-29T18:35:00",
-                "table_no": "T01",
-                "session_label": "Men's Singles - R64 - M 21",
-                "score": None,
-                "games": [],
-                "winner_side": None,
-                "sides": [
-                    {"organization": "JPN", "display_name": "TOGAMI Shunsuke", "players": [{"name": "TOGAMI Shunsuke"}]},
-                    {"organization": "USA", "display_name": "JHA Kanak", "players": [{"name": "JHA Kanak"}]},
-                ],
-            }
-        ]
-        api_summary = {"event_id": 3242, "matches": 1, "detail_rich_matches": 0}
+class NormalizeCdnMatchTests(unittest.TestCase):
+    def test_live_matchdata_normalizes_correctly(self):
+        card = {
+            "eventId": "3242",
+            "documentCode": "TTEMSINGLES-----------R32-001100----------",
+            "subEventName": "Men's Singles",
+            "subEventDescription": "Men's Singles - Round of 32 - Match 11",
+            "resultStatus": "LIVE",
+            "overallScores": "2-1",
+            "resultOverallScores": "2-1",
+            "gameScores": "11-5,9-11,11-7,0-0,0-0",
+            "tableNumber": "T01",
+            "tableName": "Table 1",
+            "competitiors": [
+                {"competitiorId": "116021", "competitiorName": "JHA Kanak", "competitiorOrg": "USA"},
+                {"competitiorId": "121684", "competitiorName": "JARVIS Tom", "competitiorOrg": "ENG"},
+            ],
+            "matchDateTime": {"startDateUTC": "2026-07-02T03:20:00"},
+        }
+        result = live.normalize_cdn_match(card, "LIVE", {})
+        self.assertEqual(result["match_code"], "TTEMSINGLES-----------R32-001100")
+        self.assertEqual(result["source_status"], "LIVE")
+        self.assertEqual(result["score"], "2-1")
+        self.assertEqual(result["sub_event"], "MS")
+        self.assertEqual(result["round"], "R32-")
+        self.assertEqual(result["table_no"], "Table 1")
+        self.assertEqual(len(result["sides"]), 2)
+        self.assertEqual(result["sides"][0]["display_name"], "JHA Kanak")
+        self.assertEqual(result["sides"][1]["display_name"], "JARVIS Tom")
+        self.assertEqual(result["winner_side"], "A")
 
-        with patch.object(live, "scrape_live_page", return_value=([], "<html></html>")), patch.object(
-            live, "build_live_results_snapshot", return_value=(api_summary, api_matches, [])
-        ):
-            cards, normalized, page_html, source = live.scrape_live_matches_with_fallback(
-                3242,
-                schedule_payload=[],
-                use_cdp=False,
-                cdp_port=9222,
-                headless=True,
-                timeout_ms=30000,
-            )
+    def test_official_match_has_no_winner_side_when_tied(self):
+        card = {
+            "documentCode": "TTEMSINGLES-----------R32-001100----------",
+            "resultStatus": "OFFICIAL",
+            "overallScores": "0-0",
+        }
+        result = live.normalize_cdn_match(card, "OFFICIAL", {})
+        self.assertIsNone(result["winner_side"])
 
-        self.assertEqual([], cards)
-        self.assertEqual(api_matches, normalized)
-        self.assertEqual("<html></html>", page_html)
-        self.assertEqual("api_live_result", source)
+    def test_sub_event_code_mapping(self):
+        self.assertEqual(live.sub_event_code_from_name("Men's Singles"), "MS")
+        self.assertEqual(live.sub_event_code_from_name("Women's Doubles"), "WD")
+        self.assertEqual(live.sub_event_code_from_name("Mixed Doubles"), "XD")
+        self.assertEqual(live.sub_event_code_from_name("Men's Teams"), "MT")
+        self.assertIsNone(live.sub_event_code_from_name(None))
+        self.assertIsNone(live.sub_event_code_from_name("Unknown Event"))
+
+    def test_round_code_from_description(self):
+        self.assertEqual(live.round_code_from_description("Men's Singles - Quarterfinal - Match 1"), "QFNL")
+        self.assertEqual(live.round_code_from_description("Mixed Doubles - Semifinal - Match 2"), "SFNL")
+        self.assertEqual(live.round_code_from_description("Women's Singles - Round of 32 - Match 11"), "R32-")
+        self.assertEqual(live.round_code_from_description("Men's Doubles - Final"), "FNL")
+        self.assertIsNone(live.round_code_from_description(None))
+
+    def test_build_sides_from_empty_competitors(self):
+        self.assertEqual(live.build_sides_from_competitors({"competitiors": []}), [])
+        self.assertEqual(live.build_sides_from_competitors({}), [])
+
+    def test_full_document_code_pads_to_42_chars(self):
+        code = "TTEMSINGLESR32001100"
+        result = live.full_document_code(code)
+        self.assertEqual(len(result), 42)
+        self.assertTrue(result.startswith(code))
+        self.assertTrue(result.endswith("--"))
+
+    def test_cdn_matchdata_without_competitors_returns_empty_sides(self):
+        card = {
+            "documentCode": "TTEMSINGLES-----------R32-001100----------",
+            "subEventName": "Men's Singles",
+            "resultStatus": "LIVE",
+        }
+        result = live.normalize_cdn_match(card, "LIVE", {})
+        self.assertEqual(result["sides"], [])
+
+    def test_official_result_from_take_10_structure(self):
+        payload = {
+            "eventId": "3242",
+            "documentCode": "TTEMSINGLES-----------R32-001100----------",
+            "subEventName": "Men's Singles",
+            "subEventDescription": "Men's Singles - Round of 32 - Match 11",
+            "resultStatus": "OFFICIAL",
+            "overallScores": "3-1",
+            "resultOverallScores": "3-1",
+            "gameScores": "11-2,11-3,6-11,11-4,0-0",
+            "tableName": "Table 1",
+            "competitiors": [
+                {"competitiorId": "116021", "competitiorName": "JHA Kanak", "competitiorOrg": "USA"},
+                {"competitiorId": "121684", "competitiorName": "JARVIS Tom", "competitiorOrg": "ENG"},
+            ],
+            "matchDateTime": {"startDateUTC": "2026-07-02T03:20:00"},
+        }
+        result = live.normalize_cdn_match(payload, "OFFICIAL", {})
+        self.assertEqual(result["source_status"], "OFFICIAL")
+        self.assertEqual(result["score"], "3-1")
+        self.assertEqual(result["games"], ["11-2", "11-3", "6-11", "11-4", "0-0"])
 
 
 if __name__ == "__main__":

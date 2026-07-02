@@ -1,495 +1,327 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""Scrape WTT live team-match details from the rendered Live Matches page DOM.
-
-This script is the browser-based live pipeline. It does not fetch schedule data
-from the network, but it can read a local `GetEventSchedule.json`
-cache to map DOM cards back to schedule match codes for downstream importing.
-"""
-
 from __future__ import annotations
 
 import argparse
-import io
+import gzip
 import json
-import logging
 import re
 import sys
 import time
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from lib.browser_runtime import close_browser_page, open_browser_page
+import brotli
+
 from wtt_scrape_shared import (
     DEFAULT_LIVE_EVENT_DATA_DIR,
-    build_live_results_snapshot,
     build_schedule_unit_index,
     load_local_schedule_payload,
+    normalize_match_code,
+    parse_score_pair,
 )
 
-logger = logging.getLogger(__name__)
-
-LIVE_URL_TEMPLATE = (
-    "https://www.worldtabletennis.com/teamseventInfo"
-    "?selectedTab=Results&innerselectedTab=Live%20Matches&eventId={event_id}"
-)
-
-if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
-
-
-def configure_logging(verbose: bool) -> None:
-    level = logging.DEBUG if verbose else logging.INFO
-    logging.basicConfig(level=level, format="%(asctime)s %(levelname)s %(message)s")
+CDN_BASE = "https://wtt-web-frontdoor-withoutcache-cqakg0andqf5hchn.a01.azurefd.net"
+CDN_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Origin": "https://www.worldtabletennis.com",
+    "Referer": "https://www.worldtabletennis.com/",
+}
 
 
-def parse_score_pair(value: str | None) -> tuple[int, int] | None:
-    if not value:
-        return None
-    match = re.search(r"(\d+)\s*-\s*(\d+)", value)
-    if not match:
-        return None
-    return int(match.group(1)), int(match.group(2))
+def decode_response_body(response: Any, body: bytes) -> bytes:
+    encoding = ""
+    try:
+        encoding = response.headers.get("Content-Encoding", "")
+    except AttributeError:
+        encoding = ""
+    if encoding.lower() == "br":
+        return brotli.decompress(body)
+    if encoding.lower() == "gzip" or body[:2] == b"\x1f\x8b":
+        return gzip.decompress(body)
+    return body
 
 
-def infer_winner_side(score: str | None) -> str | None:
-    parsed = parse_score_pair(score)
-    if not parsed:
-        return None
-    if parsed[0] > parsed[1]:
-        return "A"
-    if parsed[1] > parsed[0]:
-        return "B"
+def fetch_cdn_json(path: str, retries: int = 2) -> Any:
+    url = f"{CDN_BASE}{path}"
+    for attempt in range(1, retries + 1):
+        try:
+            req = urllib.request.Request(url, headers=CDN_HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                if resp.status == 204:
+                    return None
+                body = decode_response_body(resp, resp.read())
+                if body.startswith(b"\xef\xbb\xbf"):
+                    body = body[3:]
+                return json.loads(body.decode("utf-8"))
+        except Exception:
+            if attempt >= retries:
+                return None
+            time.sleep(0.5 * attempt)
     return None
 
 
-def parse_round_code(title: str | None) -> str | None:
-    raw = (title or "").strip()
-    group_match = re.search(r"Group\s+(\d+)", raw, flags=re.IGNORECASE)
-    if group_match:
-        return f"GP{int(group_match.group(1)):02d}"
-    if "Preliminary Round" in raw:
+def fetch_live_events_index() -> list[dict[str, Any]]:
+    payload = fetch_cdn_json(
+        "/websitestaticapifiles/general/wtt_live_results_event_id.json"
+    )
+    if isinstance(payload, list):
+        return payload
+    return []
+
+
+def fetch_live_match_ids(event_id: int) -> list[dict[str, Any]]:
+    payload = fetch_cdn_json(
+        f"/websitestaticapifiles/{event_id}/{event_id}_livematchids.json?EventId={event_id}"
+    )
+    if isinstance(payload, list):
+        return payload
+    return []
+
+
+def fetch_take_10_official(event_id: int) -> list[dict[str, Any]]:
+    payload = fetch_cdn_json(
+        f"/websitestaticapifiles/{event_id}/{event_id}_take_10_official_results.json"
+    )
+    if isinstance(payload, list):
+        return payload
+    return []
+
+
+def full_document_code(value: str | None) -> str:
+    normalized = normalize_match_code(value)
+    return normalized + ("-" * max(0, 42 - len(normalized)))
+
+
+def fetch_matchdata_card(event_id: int, match_code: str) -> dict[str, Any] | None:
+    doc_code = full_document_code(match_code)
+    path = f"/matchdata/{event_id}/{doc_code}.json?q={time.strftime('%Y-%m-%d')}"
+    payload = fetch_cdn_json(path)
+    if isinstance(payload, dict):
+        return payload
+    return None
+
+
+def sub_event_code_from_name(name: str | None) -> str | None:
+    mapping = {
+        "Men's Singles": "MS",
+        "Women's Singles": "WS",
+        "Men's Doubles": "MD",
+        "Women's Doubles": "WD",
+        "Mixed Doubles": "XD",
+        "Men's Teams": "MT",
+        "Women's Teams": "WT",
+        "Mixed Teams": "XT",
+        "Men Singles": "MS",
+        "Women Singles": "WS",
+        "Men Doubles": "MD",
+        "Women Doubles": "WD",
+        "Mixed Doubles": "XD",
+    }
+    if not name:
+        return None
+    return mapping.get(name.strip())
+
+
+def round_code_from_description(desc: str | None) -> str | None:
+    if not desc:
+        return None
+    raw = desc.strip()
+    if re.search(r"Preliminary Round", raw, re.IGNORECASE):
         return "RND1"
-    if "Quarterfinal" in raw:
+    if re.search(r"Quarterfinal", raw, re.IGNORECASE):
         return "QFNL"
-    if "Semifinal" in raw:
+    if re.search(r"Semifinal", raw, re.IGNORECASE):
         return "SFNL"
-    if re.search(r"\bFinal\b", raw, flags=re.IGNORECASE):
+    if re.search(r"\bFinal\b", raw, re.IGNORECASE) and "Quarterfinal" not in raw and "Semifinal" not in raw:
         return "FNL"
-    round_of_match = re.search(r"Round of\s+(\d+)", raw, flags=re.IGNORECASE)
-    if round_of_match:
-        round_size = int(round_of_match.group(1))
-        if round_size == 16:
+    m = re.search(r"Round of\s+(\d+)", raw, re.IGNORECASE)
+    if m:
+        size = int(m.group(1))
+        if size == 16:
             return "8FNL"
-        if round_size == 32:
+        if size == 32:
             return "R32-"
+        if size == 64:
+            return "R64-"
+        if size == 128:
+            return "R128"
+    m = re.search(r"Group\s+(\d+)", raw, re.IGNORECASE)
+    if m:
+        return f"GP{int(m.group(1)):02d}"
     return None
 
 
-def parse_match_no(match_label: str | None) -> int | None:
-    match = re.search(r"Match\s+(\d+)", match_label or "", flags=re.IGNORECASE)
-    return int(match.group(1)) if match else None
-
-
-def flatten_schedule_units(schedule_payload: Any) -> list[dict[str, Any]]:
-    return list(build_schedule_unit_index(schedule_payload).values())
-
-
-def parse_scheduled_label(value: str | None) -> str | None:
-    raw = (value or "").strip()
-    if "|" not in raw:
-        return raw or None
-    return raw.split("|", 1)[1].strip() or None
-
-
-def location_label(unit: dict[str, Any]) -> str | None:
-    venue_desc = unit.get("VenueDescription") or {}
-    return (
-        venue_desc.get("LocationName")
-        or venue_desc.get("VenueName")
-        or unit.get("Location")
-        or None
-    )
-
-
-def parse_live_title_parts(title: str | None) -> dict[str, str | None]:
-    raw_title = re.sub(r"\s+", " ", (title or "").replace("\xa0", " ")).strip()
-    cleaned_title = re.sub(r"\s*LIVE\s*", " ", raw_title, flags=re.IGNORECASE).strip()
-
-    sub_event_label = None
-    round_label = None
-    match = re.match(r"^(Men's Teams|Women's Teams|Mixed Teams)\s*-\s*(.+?)$", cleaned_title, flags=re.IGNORECASE)
-    if match:
-        sub_event_label = match.group(1).strip()
-        round_label = match.group(2).strip() or None
-    elif cleaned_title:
-        sub_event_label = cleaned_title
-
-    return {
-        "display_title": cleaned_title or None,
-        "sub_event_label": sub_event_label,
-        "round_label": round_label,
-    }
-
-
-def match_dom_card_to_schedule_unit(card: dict[str, Any], schedule_units: list[dict[str, Any]]) -> dict[str, Any] | None:
-    side_orgs = tuple(
-        side.get("organization")
-        for side in (card.get("sides") or [])[:2]
-        if isinstance(side, dict) and side.get("organization")
-    )
-    round_code = parse_round_code(card.get("round_label") or card.get("display_title"))
-    match_no = parse_match_no(card.get("match_label"))
-    table_no = (card.get("table_no") or "").strip().lower()
-    sub_event = (card.get("sub_event_label") or "").strip().lower()
-
-    candidates: list[tuple[int, dict[str, Any]]] = []
-    for unit in schedule_units:
-        starts = (((unit.get("StartList") or {}).get("Start")) or [])
-        unit_orgs = tuple(
-            ((start.get("Competitor") or {}).get("Organization") or "")
-            for start in starts[:2]
-            if isinstance(start, dict)
+def build_sides_from_competitors(card: dict[str, Any]) -> list[dict[str, Any]]:
+    competitors = card.get("competitiors") or card.get("competitors") or []
+    sides: list[dict[str, Any]] = []
+    for competitor in competitors[:2]:
+        if not isinstance(competitor, dict):
+            continue
+        name = (
+            competitor.get("competitiorName")
+            or competitor.get("competitorName")
+            or ""
         )
-        if len(unit_orgs) != 2 or unit_orgs != side_orgs:
-            continue
-        if sub_event and (unit.get("SubEvent") or "").strip().lower() != sub_event:
-            continue
-
-        score = 0
-        if round_code and (unit.get("Round") or "").strip().upper() == round_code:
-            score += 6
-        if sub_event:
-            score += 4
-        if table_no and table_no in ((location_label(unit) or "").strip().lower()):
-            score += 3
-
-        item_name = " ".join(
-            str(item.get("Value") or "")
-            for item in (unit.get("ItemName") or [])
-            if isinstance(item, dict)
+        org = (
+            competitor.get("competitiorOrg")
+            or competitor.get("competitorOrg")
+            or ""
         )
-        if match_no is not None and re.search(rf"\bM\s*{match_no}\b", item_name, flags=re.IGNORECASE):
-            score += 5
-
-        start_date = (unit.get("StartDate") or "").strip()
-        scheduled_label = (card.get("scheduled_label") or "").strip()
-        if scheduled_label and scheduled_label in start_date:
-            score += 1
-
-        candidates.append((score, unit))
-
-    if not candidates:
-        return None
-    candidates.sort(key=lambda item: (item[0], item[1].get("ActualEndDate") or item[1].get("ActualStartDate") or item[1].get("StartDate") or ""), reverse=True)
-    best_score, best_unit = candidates[0]
-    if sub_event and (best_unit.get("SubEvent") or "").strip().lower() != sub_event:
-        return None
-    return best_unit if best_score > 0 else None
-
-
-def build_side_players_from_individual_matches(individual_matches: list[dict[str, Any]], side_key: str) -> list[dict[str, Any]]:
-    seen: set[str] = set()
-    players: list[dict[str, Any]] = []
-    field = "player_a" if side_key == "A" else "player_b"
-    for match in individual_matches:
-        raw = (match.get(field) or "").strip()
-        if not raw or raw in seen:
-            continue
-        seen.add(raw)
-        players.append({"name": raw})
-    return players
-
-
-def extract_live_cards(page: Any) -> list[dict[str, Any]]:
-    script = """
-() => {
-  function text(el) {
-    return ((el && (el.innerText || el.textContent)) || '').trim();
-  }
-
-  function parseIndividualMatches(card) {
-    const holder = card.querySelector('.results_expander_holder');
-    if (!holder) return [];
-    const blocks = Array.from(holder.children)
-      .filter(el => text(el))
-      .map(el => text(el).replace(/\\s+/g, ' ').trim());
-    const out = [];
-    // Live DOM concatenates player B's name directly with the first game score
-    // (no space), e.g. "MATSUSHIMA Sora11-9,4-11,...". Anchor games to end and
-    // let player B be a lazy run that stops at the first digit/game token.
-    const withGames = /^(.+?)\\s+(\\d+\\s*-\\s*\\d+)\\s+(.+?)((?:\\d+-\\d+)(?:\\s*,\\s*\\d+-\\d+)*)$/;
-    const withoutGames = /^(.+?)\\s+(\\d+\\s*-\\s*\\d+)\\s+(.+)$/;
-    for (const block of blocks) {
-      let m = block.match(withGames);
-      if (m) {
-        out.push({
-          player_a: m[1].trim(),
-          match_score: m[2].replace(/\\s+/g, ''),
-          player_b: m[3].trim(),
-          games: m[4].split(',').map(x => x.trim()).filter(Boolean),
-          raw_text: block,
-        });
-        continue;
-      }
-      m = block.match(withoutGames);
-      if (m) {
-        out.push({
-          player_a: m[1].trim(),
-          match_score: m[2].replace(/\\s+/g, ''),
-          player_b: m[3].trim(),
-          games: [],
-          raw_text: block,
-        });
-        continue;
-      }
-      out.push({ raw_text: block });
-    }
-    return out;
-  }
-
-  return Array.from(document.querySelectorAll('app-teams-match-card')).map((card, index) => {
-    const title = text(card.querySelector('mat-card-title.card_head'));
-    const schedule = text(card.querySelector('mat-card-title.card_head .row')) || '';
-    const score = text(card.querySelector('.custom_card_div')) || null;
-    const sideA = text(card.querySelector('.custom_card_span1.fl')) || null;
-    const sideB = text(card.querySelector('.custom_card_span2.fr')) || null;
-    const tableNo = text(card.querySelector('.col-5 span')) || text(card.querySelector('.col-5')) || null;
-    const isLive = !!card.querySelector('.live_score_indicator');
-    const details = parseIndividualMatches(card);
-    return {
-      index,
-      raw_title: title,
-      match_label: schedule.split('|')[0]?.trim() || schedule || null,
-      scheduled_label: schedule.includes('|') ? schedule.split('|').slice(1).join('|').trim() : null,
-      score,
-      is_live: isLive,
-      table_no: tableNo,
-      sides: [
-        { organization: sideA, display_name: sideA, players: [] },
-        { organization: sideB, display_name: sideB, players: [] },
-      ],
-      individual_matches: details,
-      raw_text: text(card),
-    };
-  }).filter(card => card.score || card.individual_matches.length > 0);
-}
-"""
-    return page.evaluate(script)
-
-
-def has_no_live_matches_banner(page: Any) -> bool:
-    script = """
-() => {
-  const bodyText = (document.body && document.body.innerText) || '';
-  return bodyText.includes('No live matches available currently.');
-}
-"""
-    try:
-        return bool(page.evaluate(script))
-    except Exception:
-        return False
-
-
-def wait_for_live_content_or_empty(page: Any, timeout_ms: int) -> str:
-    page.wait_for_selector("body", timeout=timeout_ms)
-    deadline = time.monotonic() + (timeout_ms / 1000.0)
-    while time.monotonic() < deadline:
-        try:
-            if page.locator("app-teams-match-card").count():
-                return "cards"
-        except Exception:
-            pass
-
-        try:
-            if page.get_by_text("No live matches available currently.", exact=False).count():
-                return "empty"
-        except Exception:
-            pass
-
-        try:
-            body_text = page.locator("body").inner_text(timeout=1000)
-            normalized = re.sub(r"\s+", " ", body_text or "").strip()
-            if "No live matches available currently." in normalized:
-                return "empty"
-            if "Live Matches" in normalized and "Completed" in normalized and "Results" in normalized:
-                pass
-        except Exception:
-            pass
-
-        page.wait_for_timeout(250)
-
-    return "timeout"
-
-
-def ensure_scores_visible(page: Any) -> None:
-    try:
-        toggle = page.get_by_text("Show Scores", exact=True).first
-        if toggle.count() and toggle.is_visible():
-            toggle.click(timeout=3000)
-            page.wait_for_timeout(500)
-    except Exception:
-        pass
-
-
-def expand_all_view_results(page: Any) -> None:
-    headers = page.locator("mat-expansion-panel-header.custom_results_expansion_header")
-    try:
-        count = headers.count()
-    except Exception:
-        count = 0
-
-    for idx in range(count):
-        try:
-            header = headers.nth(idx)
-            if header.is_visible():
-                header.click(timeout=3000)
-                page.wait_for_timeout(150)
-        except Exception:
-            continue
-
-
-def scrape_live_page(
-    event_id: int,
-    *,
-    use_cdp: bool,
-    cdp_port: int,
-    headless: bool,
-    timeout_ms: int,
-) -> tuple[list[dict[str, Any]], str]:
-    url = LIVE_URL_TEMPLATE.format(event_id=event_id)
-
-    try:
-        from patchright.sync_api import sync_playwright
-    except Exception:
-        try:
-            from playwright.sync_api import sync_playwright
-        except Exception as exc:
-            raise RuntimeError("patchright/playwright not installed") from exc
-
-    with sync_playwright() as p:
-        via_cdp, browser, _, page = open_browser_page(
-            p,
-            use_cdp=use_cdp,
-            cdp_port=cdp_port,
-            cdp_only=False,
-            launch_kwargs={"headless": headless},
-            context_kwargs={"viewport": {"width": 1440, "height": 2000}},
-            log_prefix="wtt-live-dom",
-        )
-        try:
-            page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
-            state = wait_for_live_content_or_empty(page, timeout_ms)
-            if state == "empty":
-                return [], page.content()
-            if state != "cards":
-                raise TimeoutError("live page did not expose cards or empty-state banner in time")
-            ensure_scores_visible(page)
-            expand_all_view_results(page)
-            page.wait_for_timeout(800)
-            cards = extract_live_cards(page)
-            return cards, page.content()
-        finally:
-            close_browser_page(via_cdp, browser, page)
-
-
-def normalize_live_cards(
-    cards: list[dict[str, Any]],
-    schedule_payload: Any,
-) -> list[dict[str, Any]]:
-    schedule_units = flatten_schedule_units(schedule_payload)
-    normalized: list[dict[str, Any]] = []
-
-    for card in cards:
-        if not isinstance(card, dict):
-            continue
-        title_parts = parse_live_title_parts(card.get("raw_title"))
-        card["display_title"] = title_parts["display_title"]
-        card["sub_event_label"] = title_parts["sub_event_label"]
-        card["round_label"] = title_parts["round_label"]
-        score = (card.get("score") or "").strip() or None
-        sides = card.get("sides") if isinstance(card.get("sides"), list) else []
-        individual_matches = card.get("individual_matches") if isinstance(card.get("individual_matches"), list) else []
-        schedule_unit = match_dom_card_to_schedule_unit(card, schedule_units)
-        match_code = (schedule_unit.get("Code") or "").rstrip("-") if isinstance(schedule_unit, dict) else None
-
-        for idx, side in enumerate(sides[:2]):
-            if not isinstance(side, dict):
-                continue
-            side["players"] = build_side_players_from_individual_matches(individual_matches, "A" if idx == 0 else "B")
-
-        normalized.append(
+        sides.append(
             {
-                "match_code": match_code,
-                "source_status": "Live" if card.get("is_live") else "Displayed",
-                "sub_event": (
-                    schedule_unit.get("SubEvent")
-                    if isinstance(schedule_unit, dict)
-                    else card.get("sub_event_label")
-                ),
-                "sub_event_name": card.get("display_title"),
-                "round": (
-                    schedule_unit.get("Round")
-                    if isinstance(schedule_unit, dict)
-                    else parse_round_code(card.get("round_label") or card.get("display_title"))
-                ),
-                "scheduled_start": schedule_unit.get("StartDate") if isinstance(schedule_unit, dict) else None,
-                "scheduled_start_local": card.get("scheduled_label"),
-                "table_no": card.get("table_no"),
-                "session_label": card.get("match_label"),
-                "score": score,
-                "games": [m.get("match_score") for m in individual_matches if isinstance(m, dict) and m.get("match_score")],
-                "winner_side": infer_winner_side(score),
-                "sides": sides,
-                "individual_matches": individual_matches,
-                "raw_title": card.get("raw_title"),
-                "raw_text": card.get("raw_text"),
+                "competitor_code": competitor.get("competitiorCode") or competitor.get("competitorCode"),
+                "organization": org,
+                "display_name": name,
+                "players": [],
             }
         )
-
-    normalized.sort(key=lambda item: ((item.get("table_no") or ""), (item.get("match_code") or ""), (item.get("score") or "")))
-    return normalized
+    return sides
 
 
-def scrape_live_matches_with_fallback(
+def normalize_cdn_match(
+    card: dict[str, Any],
+    source_status: str,
+    schedule_unit_index: dict[str, dict],
+) -> dict[str, Any]:
+    code = normalize_match_code(card.get("documentCode"))
+    schedule_unit = schedule_unit_index.get(code) if schedule_unit_index else None
+
+    score = (
+        card.get("resultOverallScores")
+        or card.get("overallScores")
+        or None
+    )
+    games_raw = card.get("resultsGameScores") or card.get("gameScores") or ""
+    games = [g.strip() for g in games_raw.split(",") if g.strip()] if isinstance(games_raw, str) else (games_raw if isinstance(games_raw, list) else [])
+
+    sides = build_sides_from_competitors(card)
+
+    winner_side = None
+    parsed = parse_score_pair(score)
+    if parsed and len(sides) >= 2:
+        if parsed[0] > parsed[1]:
+            winner_side = "A"
+        elif parsed[1] > parsed[0]:
+            winner_side = "B"
+
+    sub_event_name = card.get("subEventName")
+    sub_event = sub_event_code_from_name(sub_event_name) or (schedule_unit.get("SubEvent") if schedule_unit else None)
+
+    table_no = card.get("tableName") or card.get("tableNumber") or (schedule_unit.get("Location") if schedule_unit else None)
+
+    scheduled_start = None
+    match_dt = card.get("matchDateTime") or {}
+    if isinstance(match_dt, dict):
+        scheduled_start = match_dt.get("startDateUTC") or match_dt.get("startDateLocal")
+
+    session_label = None
+    if schedule_unit:
+        from wtt_scrape_shared import text_value
+        session_label = text_value(schedule_unit.get("ItemName")) or text_value(schedule_unit.get("ItemDescription"))
+    if not session_label:
+        session_label = card.get("subEventDescription")
+
+    round_code = schedule_unit.get("Round") if schedule_unit else None
+    if not round_code:
+        round_code = round_code_from_description(card.get("subEventDescription"))
+
+    return {
+        "match_code": code,
+        "source_status": source_status,
+        "sub_event": sub_event,
+        "sub_event_name": sub_event_name,
+        "round": round_code,
+        "scheduled_start": scheduled_start,
+        "table_no": table_no,
+        "session_label": session_label,
+        "score": score,
+        "games": games,
+        "winner_side": winner_side,
+        "sides": sides,
+        "individual_matches": [],
+        "raw_match_card": card,
+    }
+
+
+def scrape_event_matches(
     event_id: int,
     *,
-    schedule_payload: Any,
-    use_cdp: bool,
-    cdp_port: int,
-    headless: bool,
-    timeout_ms: int,
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]], str, str]:
-    cards, page_html = scrape_live_page(
-        event_id,
-        use_cdp=use_cdp,
-        cdp_port=cdp_port,
-        headless=headless,
-        timeout_ms=timeout_ms,
+    include_official: bool = False,
+    schedule_payload: Any = None,
+) -> list[dict[str, Any]]:
+    schedule_unit_index = build_schedule_unit_index(schedule_payload) if schedule_payload else {}
+
+    matches: list[dict[str, Any]] = []
+    seen_codes: set[str] = set()
+
+    live_ids = fetch_live_match_ids(event_id)
+    for entry in live_ids:
+        code = normalize_match_code(entry.get("documentCode"))
+        if not code or code in seen_codes:
+            continue
+        sub_type = entry.get("subEventType")
+
+        card = fetch_matchdata_card(event_id, code)
+        if card is None:
+            continue
+
+        status = (card.get("resultStatus") or "").strip().upper() or "LIVE"
+
+        normalized = normalize_cdn_match(card, status, schedule_unit_index)
+        if normalized["match_code"]:
+            seen_codes.add(normalized["match_code"])
+            matches.append(normalized)
+
+    if include_official:
+        official_items = fetch_take_10_official(event_id)
+        for item in official_items:
+            match_card = item.get("match_card") if isinstance(item.get("match_card"), dict) else {}
+            payload = match_card or item
+            code = normalize_match_code(
+                item.get("documentCode") or match_card.get("documentCode")
+            )
+            if not code or code in seen_codes:
+                continue
+
+            status = (payload.get("resultStatus") or item.get("fullResults") or "OFFICIAL").strip().upper()
+            normalized = normalize_cdn_match(payload, status, schedule_unit_index)
+            if schedule_unit_index:
+                unit = schedule_unit_index.get(normalized.get("match_code"))
+                if unit:
+                    if not normalized.get("sub_event"):
+                        normalized["sub_event"] = unit.get("SubEvent")
+                    if not normalized.get("round"):
+                        normalized["round"] = unit.get("Round")
+
+            if normalized.get("match_code"):
+                seen_codes.add(normalized["match_code"])
+                matches.append(normalized)
+
+    matches.sort(
+        key=lambda m: (
+            m.get("source_status") or "",
+            m.get("table_no") or "",
+            m.get("match_code") or "",
+        )
     )
-    normalized = normalize_live_cards(cards, schedule_payload)
-    if normalized:
-        return cards, normalized, page_html, "dom_live_page"
-
-    _summary, api_normalized, _raw_sources = build_live_results_snapshot(event_id, schedule_payload)
-    if api_normalized:
-        return cards, api_normalized, page_html, "api_live_result"
-
-    return cards, normalized, page_html, "dom_live_page"
+    return matches
 
 
 def write_outputs(
     event_dir: Path,
     event_id: int,
-    cards: list[dict[str, Any]],
-    normalized: list[dict[str, Any]],
-    page_html: str,
+    matches: list[dict[str, Any]],
     *,
     schedule_cache_used: bool,
     with_debug_files: bool,
-    source_kind: str = "dom_live_page",
 ) -> dict[str, Any]:
     event_dir.mkdir(parents=True, exist_ok=True)
 
@@ -497,48 +329,62 @@ def write_outputs(
         "event_id": event_id,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "sources": {
-            source_kind: {
-                "url": (
-                    LIVE_URL_TEMPLATE.format(event_id=event_id)
-                    if source_kind == "dom_live_page"
-                    else f"https://liveeventsapi.worldtabletennis.com/api/cms/GetLiveResult?EventId={event_id}"
-                ),
+            "cdn_live_matches": {
+                "url": f"{CDN_BASE}/websitestaticapifiles/general/wtt_live_results_event_id.json",
                 "ok": True,
-                "count": len(normalized),
+                "count": len(matches),
             }
         },
-        "matches": len(normalized),
-        "detail_rich_matches": sum(1 for item in normalized if item.get("individual_matches")),
+        "matches": len(matches),
+        "detail_rich_matches": sum(
+            1 for m in matches if m.get("score") and m.get("games")
+        ),
         "schedule_cache_used": schedule_cache_used,
     }
-    normalized_payload = {"summary": summary, "matches": normalized}
+    normalized_payload = {"summary": summary, "matches": matches}
     normalized_path = event_dir / "GetLiveResult.json"
-    normalized_path.write_text(json.dumps(normalized_payload, ensure_ascii=False, indent=2), encoding="utf-8", newline="")
+    normalized_path.write_text(
+        json.dumps(normalized_payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+        newline="",
+    )
 
     script_summary = {
         "event_id": event_id,
         "files": [
-            {"kind": "live_results_normalized", "file": normalized_path.name, "size": normalized_path.stat().st_size, "count": len(normalized)},
+            {
+                "kind": "live_results_normalized",
+                "file": normalized_path.name,
+                "size": normalized_path.stat().st_size,
+                "count": len(matches),
+            }
         ],
         "errors": [],
         "fetched_at": summary["fetched_at"],
     }
 
     if with_debug_files:
-        raw_payload = {
-            "event_id": event_id,
-            "fetched_at": datetime.now(timezone.utc).isoformat(),
-            "cards": cards,
-        }
-        raw_path = event_dir / "GetLiveResult_dom.json"
-        raw_path.write_text(json.dumps(raw_payload, ensure_ascii=False, indent=2), encoding="utf-8", newline="")
-        html_path = event_dir / "GetLiveResult_page.html"
-        html_path.write_text(page_html, encoding="utf-8", newline="")
-        script_summary["files"].extend(
-            [
-                {"kind": "live_results_dom_raw", "file": raw_path.name, "size": raw_path.stat().st_size, "count": len(cards)},
-                {"kind": "live_results_page_html", "file": html_path.name, "size": html_path.stat().st_size},
-            ]
+        raw_path = event_dir / "GetLiveResult_cdn_raw.json"
+        raw_path.write_text(
+            json.dumps(
+                {
+                    "event_id": event_id,
+                    "fetched_at": summary["fetched_at"],
+                    "matches": matches,
+                },
+                ensure_ascii=False,
+                indent=2,
+            ),
+            encoding="utf-8",
+            newline="",
+        )
+        script_summary["files"].append(
+            {
+                "kind": "live_results_cdn_raw",
+                "file": raw_path.name,
+                "size": raw_path.stat().st_size,
+                "count": len(matches),
+            }
         )
 
     (event_dir / "_scrape_summary_live.json").write_text(
@@ -550,58 +396,53 @@ def write_outputs(
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Scrape WTT live team-match details from the rendered Live Matches page DOM.")
+    ap = argparse.ArgumentParser(
+        description="Scrape WTT live matches via CDN JSON (no browser needed)."
+    )
     ap.add_argument("--event-id", type=int, required=True)
     ap.add_argument(
         "--live-event-data-root",
         default=str(DEFAULT_LIVE_EVENT_DATA_DIR),
-        help="进行中赛事数据根目录",
     )
-    ap.add_argument("--cdp-port", type=int, default=9222)
-    ap.add_argument("--use-cdp", action="store_true", help="Reuse existing Chrome via CDP.")
-    ap.add_argument("--headless", action="store_true", help="Launch a headless browser when not using CDP.")
-    ap.add_argument("--with-debug-files", action="store_true", help="额外输出 DOM 原始 JSON 和页面 HTML 调试文件。")
+    ap.add_argument("--include-official", action="store_true", help="Also fetch recently completed matches from take_10.")
+    ap.add_argument("--with-debug-files", action="store_true")
     ap.add_argument("--timeout-ms", type=int, default=30000)
     ap.add_argument("--verbose", action="store_true")
-    args = ap.parse_args()
 
-    configure_logging(bool(args.verbose))
+    ap.add_argument("--use-cdp", action="store_true", help=argparse.SUPPRESS)
+    ap.add_argument("--cdp-port", type=int, default=9222, help=argparse.SUPPRESS)
+    ap.add_argument("--headless", action="store_true", help=argparse.SUPPRESS)
+
+    args = ap.parse_args()
 
     event_dir = Path(args.live_event_data_root) / str(args.event_id)
     print(f"Scrape WTT live matches {args.event_id} -> {event_dir}")
 
     schedule_payload = load_local_schedule_payload(event_dir)
-    try:
-        cards, normalized, page_html, source_kind = scrape_live_matches_with_fallback(
-            args.event_id,
-            schedule_payload=schedule_payload,
-            use_cdp=bool(args.use_cdp),
-            cdp_port=args.cdp_port,
-            headless=bool(args.headless),
-            timeout_ms=int(args.timeout_ms),
-        )
-    except RuntimeError as exc:
-        print(f"ERROR: {exc}")
-        print("Install with: pip install patchright && python -m patchright install chromium")
-        return 1
+    schedule_cache_used = bool(schedule_payload)
+
+    matches = scrape_event_matches(
+        args.event_id,
+        include_official=bool(args.include_official),
+        schedule_payload=schedule_payload,
+    )
+
     summary = write_outputs(
         event_dir,
         args.event_id,
-        cards,
-        normalized,
-        page_html,
-        schedule_cache_used=bool(schedule_payload),
+        matches,
+        schedule_cache_used=schedule_cache_used,
         with_debug_files=bool(args.with_debug_files),
-        source_kind=source_kind,
     )
+
     print(
-        f"  [{source_kind}] ✓ {len(normalized)} matches "
-        f"({sum(1 for item in normalized if item.get('individual_matches'))} with detailed boards)"
+        f"  [cdn_live_matches] ✓ {len(matches)} matches "
+        f"({sum(1 for m in matches if m.get('score') and m.get('games'))} with scores + games)"
     )
     print()
-    print(f"Done: {len(summary['files'])} files, {len(summary['errors'])} errors")
-    return 0
+    print(f"Done: {len(summary['files'])} file(s), {len(summary['errors'])} error(s)")
+    return 0 if not summary["errors"] else 1
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())
