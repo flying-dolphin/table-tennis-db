@@ -497,7 +497,8 @@ function formatBeijingSessionRange(
 }
 
 function displayPlayerName(player: { name: string; nameZh: string | null }) {
-  return player.nameZh?.trim() || player.name;
+  const name = player.nameZh?.trim() || player.name;
+  return name.toUpperCase() === "BYE" ? "轮空" : name;
 }
 
 function normalizeChampionNames(champion: EventChampion | null) {
@@ -719,7 +720,7 @@ function scheduleRoundLabel(match: EventScheduleMatch) {
 function scheduleSideLabel(side: EventScheduleMatch["sides"][number] | undefined) {
   if (!side) return "待定";
   if (side.players.length > 0) return side.players.map(displayPlayerName).join(" / ");
-  if (side.placeholderText) return side.placeholderText;
+  if (side.placeholderText) return side.placeholderText.toUpperCase() === "BYE" ? "轮空" : side.placeholderText;
   if (side.teamCode) return side.teamCode;
   return "待定";
 }
