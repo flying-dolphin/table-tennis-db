@@ -612,10 +612,42 @@ def split_rubber_player_names(player_name: str | None) -> list[str]:
     return [part.strip() for part in player_name.split("/") if part.strip()]
 
 
-def live_side_players(side: dict) -> list[dict]:
-    raw_players = side.get("players") if isinstance(side.get("players"), list) else []
+def raw_match_card_side_players(item: dict, side_index: int) -> list[dict]:
+    match_card = item.get("raw_match_card") if isinstance(item.get("raw_match_card"), dict) else {}
+    competitors = match_card.get("competitiors") or match_card.get("competitors") or []
+    if not isinstance(competitors, list) or len(competitors) <= side_index:
+        return []
+    competitor = competitors[side_index]
+    if not isinstance(competitor, dict):
+        return []
+
+    raw_players = competitor.get("players") if isinstance(competitor.get("players"), list) else []
     players: list[dict] = []
     for player in raw_players:
+        if not isinstance(player, dict):
+            continue
+        name = (player.get("playerName") or player.get("name") or "").strip()
+        if not name:
+            continue
+        players.append(
+            {
+                "name": name,
+                "player_id": legacy.int_or_none(player.get("playerId") or player.get("player_id")),
+                "country": (
+                    player.get("playerOrgCode")
+                    or player.get("organization")
+                    or competitor.get("competitiorOrg")
+                    or competitor.get("competitorOrg")
+                ),
+            }
+        )
+    return players
+
+
+def live_side_players(side: dict, fallback_players: list[dict] | None = None) -> list[dict]:
+    side_players = side.get("players") if isinstance(side.get("players"), list) else []
+    players: list[dict] = []
+    for player in side_players:
         if not isinstance(player, dict):
             continue
         name = (player.get("name") or "").strip()
@@ -630,6 +662,8 @@ def live_side_players(side: dict) -> list[dict]:
         )
     if players:
         return players
+    if fallback_players:
+        return fallback_players
 
     value = side.get("display_name")
     names = split_rubber_player_names(value.strip() if isinstance(value, str) else None)
@@ -839,14 +873,22 @@ def upsert_live_individual_match(
     side_a = {
         "team_code": sides[0].get("organization") if isinstance(sides[0], dict) else None,
         "player_name": live_side_player_name(sides[0]) if isinstance(sides[0], dict) else None,
-        "players": live_side_players(sides[0]) if isinstance(sides[0], dict) else [],
+        "players": (
+            live_side_players(sides[0], raw_match_card_side_players(item, 0))
+            if isinstance(sides[0], dict)
+            else []
+        ),
         "player_country": sides[0].get("organization") if isinstance(sides[0], dict) else None,
         "is_winner": winner_side == "A",
     }
     side_b = {
         "team_code": sides[1].get("organization") if isinstance(sides[1], dict) else None,
         "player_name": live_side_player_name(sides[1]) if isinstance(sides[1], dict) else None,
-        "players": live_side_players(sides[1]) if isinstance(sides[1], dict) else [],
+        "players": (
+            live_side_players(sides[1], raw_match_card_side_players(item, 1))
+            if isinstance(sides[1], dict)
+            else []
+        ),
         "player_country": sides[1].get("organization") if isinstance(sides[1], dict) else None,
         "is_winner": winner_side == "B",
     }

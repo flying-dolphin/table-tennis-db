@@ -300,6 +300,28 @@ def build_side_from_schedule_start(start: dict) -> dict:
     }
 
 
+def build_players_from_match_card_competitor(competitor: dict) -> list[dict]:
+    players = competitor.get("players")
+    if not isinstance(players, list):
+        return []
+
+    normalized = []
+    for player in players:
+        if not isinstance(player, dict):
+            continue
+        name = player.get("playerName") or player.get("name")
+        if not name:
+            continue
+        normalized.append(
+            {
+                "player_id": player.get("playerId") or player.get("player_id"),
+                "name": name,
+                "organization": player.get("playerOrgCode") or player.get("organization"),
+            }
+        )
+    return normalized
+
+
 def load_local_schedule_payload(event_dir: Path):
     schedule_path = event_dir / "GetEventSchedule.json"
     if not schedule_path.exists():
@@ -340,7 +362,7 @@ def normalize_live_result_item(item: dict, schedule_unit_index: dict[str, dict])
                             or competitor.get("competitiorOrg")
                             or competitor.get("competitorOrg")
                         ),
-                        "players": [],
+                        "players": build_players_from_match_card_competitor(competitor),
                     }
                 )
 

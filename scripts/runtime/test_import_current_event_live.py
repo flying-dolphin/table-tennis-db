@@ -9,6 +9,7 @@ if str(RUNTIME_DIR) not in sys.path:
     sys.path.insert(0, str(RUNTIME_DIR))
 
 from import_current_event_live import upsert_live_individual_match
+from wtt_scrape_shared import normalize_live_result_item
 
 
 SCHEMA = """
@@ -191,6 +192,124 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
                 (1, 2, 131879, "SHAH Manush", "IND"),
                 (2, 1, 135996, "MATSUSHIMA Sora", "JPN"),
                 (2, 2, 133694, "TOGAMI Shunsuke", "JPN"),
+            ],
+            [tuple(row) for row in players],
+        )
+
+    def test_live_result_normalization_preserves_match_card_player_ids(self):
+        item = {
+            "documentCode": "TTEMDOUBLES-----------QFNL000100----------",
+            "status": "OFFICIAL",
+            "match_card": {
+                "documentCode": "TTEMDOUBLES-----------QFNL000100----------",
+                "subEventName": "Men's Doubles",
+                "resultStatus": "OFFICIAL",
+                "competitiors": [
+                    {
+                        "competitiorName": "LIN Shidong/HUANG Youzheng",
+                        "competitiorOrg": "CHN",
+                        "players": [
+                            {"playerId": "137237", "playerName": "LIN Shidong", "playerOrgCode": "CHN"},
+                            {"playerId": "137238", "playerName": "HUANG Youzheng", "playerOrgCode": "CHN"},
+                        ],
+                    },
+                    {
+                        "competitiorName": "QUEK Izaac/PANG Koen",
+                        "competitiorOrg": "SGP",
+                        "players": [
+                            {"playerId": "133713", "playerName": "QUEK Izaac", "playerOrgCode": "SGP"},
+                            {"playerId": "131912", "playerName": "PANG Koen", "playerOrgCode": "SGP"},
+                        ],
+                    },
+                ],
+            },
+        }
+
+        normalized = normalize_live_result_item(item, {})
+
+        self.assertEqual(
+            [
+                {"player_id": "137237", "name": "LIN Shidong", "organization": "CHN"},
+                {"player_id": "137238", "name": "HUANG Youzheng", "organization": "CHN"},
+            ],
+            normalized["sides"][0]["players"],
+        )
+        self.assertEqual(
+            [
+                {"player_id": "133713", "name": "QUEK Izaac", "organization": "SGP"},
+                {"player_id": "131912", "name": "PANG Koen", "organization": "SGP"},
+            ],
+            normalized["sides"][1]["players"],
+        )
+
+    def test_live_individual_import_uses_raw_match_card_player_ids_when_sides_are_empty(self):
+        self.conn.executemany(
+            "INSERT INTO players (player_id, name, name_zh) VALUES (?, ?, ?)",
+            [
+                (137237, "LIN Shidong", "林诗栋"),
+                (137238, "HUANG Youzheng", "黄友政"),
+                (133713, "QUEK Izaac", "郭以撒"),
+                (131912, "PANG Koen", "庞 昆"),
+            ],
+        )
+        item = {
+            "match_code": "TTEMDOUBLES-----------QFNL000100",
+            "source_status": "OFFICIAL",
+            "sub_event": "MD",
+            "sub_event_name": "Men's Doubles",
+            "round": "QFNL",
+            "scheduled_start": "07/02/2026 02:10:00",
+            "table_no": "Table 1",
+            "session_label": "Men's Doubles - QF - M 1",
+            "score": "3-1",
+            "games": ["11-9", "11-7", "4-11", "11-4", "0-0"],
+            "winner_side": "A",
+            "sides": [
+                {"organization": "CHN", "display_name": "LIN Shidong/HUANG Youzheng", "players": []},
+                {"organization": "SGP", "display_name": "QUEK Izaac/PANG Koen", "players": []},
+            ],
+            "raw_match_card": {
+                "competitiors": [
+                    {
+                        "competitiorOrg": "CHN",
+                        "players": [
+                            {"playerId": "137237", "playerName": "LIN Shidong", "playerOrgCode": "CHN"},
+                            {"playerId": "137238", "playerName": "HUANG Youzheng", "playerOrgCode": "CHN"},
+                        ],
+                    },
+                    {
+                        "competitiorOrg": "SGP",
+                        "players": [
+                            {"playerId": "133713", "playerName": "QUEK Izaac", "playerOrgCode": "SGP"},
+                            {"playerId": "131912", "playerName": "PANG Koen", "playerOrgCode": "SGP"},
+                        ],
+                    },
+                ],
+            },
+        }
+
+        result = upsert_live_individual_match(
+            self.conn.cursor(),
+            event_id=3242,
+            item=item,
+            now="2026-07-02T03:00:00+00:00",
+        )
+
+        self.assertTrue(result)
+        players = self.conn.execute(
+            """
+            SELECT s.side_no, p.player_order, p.player_id, p.player_name, p.player_country
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            ORDER BY s.side_no, p.player_order
+            """
+        ).fetchall()
+        self.assertEqual(
+            [
+                (1, 1, 137237, "LIN Shidong", "CHN"),
+                (1, 2, 137238, "HUANG Youzheng", "CHN"),
+                (2, 1, 133713, "QUEK Izaac", "SGP"),
+                (2, 2, 131912, "PANG Koen", "SGP"),
             ],
             [tuple(row) for row in players],
         )
