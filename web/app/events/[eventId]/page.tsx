@@ -727,14 +727,15 @@ function scheduleSideLabel(side: EventScheduleMatch["sides"][number] | undefined
 
 function scheduleSideCountryLabel(side: EventScheduleMatch["sides"][number] | undefined) {
   if (!side) return null;
-  const countries = dedupeCountries(side.players);
+  const countries = dedupeCountries(side.players).filter((c) => c.toUpperCase() !== "BYE");
   if (countries.length > 0) return countries.join(" / ");
+  if (side.teamCode?.toUpperCase() === "BYE") return null;
   return side.teamCode;
 }
 
 function bracketSideCountryLabel(side: BracketMatch["sides"][number] | undefined) {
   if (!side) return null;
-  const countries = dedupeCountries(side.players);
+  const countries = dedupeCountries(side.players).filter((c) => c.toUpperCase() !== "BYE");
   return countries.length > 0 ? countries.join(" / ") : null;
 }
 
