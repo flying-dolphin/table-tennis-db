@@ -74,9 +74,38 @@ def translate_value(value: str, categories: list[str], translator: Translator, f
 _ENGLISH_LETTER_RE = re.compile(r"[A-Za-z]")
 
 
-def translate_profile(profile: dict, translator: Translator, filename: str) -> dict:
+def _career_best_rank(profile: dict) -> int | None:
+    raw_value = profile.get("career_best_rank")
+    if raw_value in (None, ""):
+        return None
+    try:
+        return int(raw_value)
+    except (TypeError, ValueError):
+        return None
+
+
+def should_translate_profile(profile: dict, career_best_rank_lte: int | None = None) -> bool:
+    if career_best_rank_lte is None:
+        return True
+    rank = _career_best_rank(profile)
+    return rank is not None and rank <= career_best_rank_lte
+
+
+def translate_profile(
+    profile: dict,
+    translator: Translator,
+    filename: str,
+    career_best_rank_lte: int | None = None,
+) -> dict:
     profile.pop("recent_matches", None)
-    normalize_profile_country(profile, include_country_zh=True)
+    allow_chinese_fields = should_translate_profile(profile, career_best_rank_lte)
+    normalize_profile_country(profile, include_country_zh=allow_chinese_fields)
+
+    if not allow_chinese_fields:
+        for key in list(profile):
+            if key.endswith("_zh"):
+                profile.pop(key, None)
+        return profile
 
     for field, categories in TRANSLATE_FIELDS.items():
         if field == "country" and profile.get("country_zh"):
@@ -133,6 +162,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--provider", default="minimax", help="LLM provider（mode 含 llm 时生效）")
     parser.add_argument("--model", default=None, help="LLM model")
     parser.add_argument("--confirm", action="store_true", help="LLM 译文逐条人工确认并回写词典（mode 含 llm 时生效）")
+    parser.add_argument(
+        "--career-best-rank-lte",
+        type=int,
+        default=None,
+        help="Only add Chinese profile fields when career_best_rank is less than or equal to this value.",
+    )
     return parser
 
 
@@ -180,7 +215,7 @@ def main() -> int:
             logger.error("Failed to load %s: %s", file_path.name, exc)
             return 1
 
-        translated = translate_profile(data, translator, file_path.name)
+        translated = translate_profile(data, translator, file_path.name, args.career_best_rank_lte)
         cn_file = cn_dir / file_path.name
         save_json(cn_file, translated)
         logger.info("Translated: %s", file_path.name)

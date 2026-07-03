@@ -7,10 +7,16 @@ import json
 import sqlite3
 import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+fake_config = types.ModuleType("config")
+fake_config.PROJECT_ROOT = Path(__file__).resolve().parents[2]
+fake_config.DB_PATH = fake_config.PROJECT_ROOT / "data" / "db" / "ittf.db"
+sys.modules["config"] = fake_config
 
 from import_matches import import_matches
 
@@ -227,6 +233,26 @@ class ImportMatchesIncrementalTests(unittest.TestCase):
 
         self.assertEqual("Old Winner", beta_winner)
         self.assertEqual("Alpha Winner", alpha_winner)
+
+    def test_filtering_only_event_is_skipped_by_default(self) -> None:
+        conn = sqlite3.connect(self.db_path)
+        conn.execute("INSERT INTO event_categories (id, filtering_only) VALUES (9, 1)")
+        conn.execute("UPDATE events SET event_category_id = 9 WHERE event_id = 1001")
+        conn.commit()
+        conn.close()
+
+        result = import_matches(
+            str(self.db_path),
+            str(self.matches_dir),
+            event_ids=[1001],
+            same_name_players_path=self.same_name_players_path,
+            player_matches_dir=self.player_matches_dir,
+            country_history_path=self.country_history_path,
+        )
+
+        self.assertEqual(1, result["skipped_filtering_only"])
+        self.assertEqual(0, result["inserted"])
+        self.assertEqual(0, self.count("matches", 1001))
 
     def import_event(self, event_id: int) -> dict:
         return import_matches(

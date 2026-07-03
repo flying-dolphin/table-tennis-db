@@ -760,6 +760,162 @@ python scripts/db/import_matches.py \
   --country-history data/player_country_history.json
 ```
 
+### 7.7 全量历史补数
+
+全量历史补数用于一次性补齐 `results.ittf.link/index.php/events` 当前能返回的全部历史
+events、event matches、由 matches 反推的 player profiles、翻译结果和数据库导入。它是在
+7.1–7.5 手工流程之上的批量编排入口；原手工 URL 流程仍可用于少量赛事修复。
+
+先做本地缺口统计：
+
+```bash
+python scripts/backfill_historical_data.py plan
+```
+
+默认只输出摘要，包含 event matches 和 profile search 的 completed / pending / failed 数量。
+如需查看具体 pending 明细：
+
+```bash
+python scripts/backfill_historical_data.py plan --include-details
+```
+
+#### 步骤 1：抓取全量 events
+
+全量补数通常从足够早的日期开始，例如：
+
+```bash
+python scripts/backfill_historical_data.py scrape-events \
+  --from-date 1900-01-01
+```
+
+该阶段会调用 `scripts/scrape_events.py`，进入 events 页面后使用 Display 100，并把结果写入
+`data/events_list/orig/`。如需复用已登录浏览器：
+
+```bash
+python scripts/backfill_historical_data.py scrape-events \
+  --from-date 1900-01-01 \
+  --cdp-port 9222
+```
+
+#### 步骤 2：抓取缺失 event matches
+
+先 dry-run，确认批次范围：
+
+```bash
+python scripts/backfill_historical_data.py scrape-matches --dry-run
+```
+
+正式抓取：
+
+```bash
+python scripts/backfill_historical_data.py scrape-matches \
+  --cdp-port 9222
+```
+
+该阶段会从 `data/events_list/orig/*.json` 的 `matches_href` 生成
+`data/backfill/historical/event_match_urls.txt`，并只抓取尚未在
+`data/event_matches/orig/` 或 `data/event_matches/problematic/` 中出现的 event。
+
+默认不跳过 `filtering_only` event，保证抓取层全量归档。只有明确需要保持旧的过滤行为时，
+才加：
+
+```bash
+python scripts/backfill_historical_data.py scrape-matches --filter
+```
+
+注意：`filtering_only` 数据即使被抓取归档，导入层默认仍由 `import_matches.py` 跳过，
+不会进入正式 `matches`、`match_sides`、`match_side_players` 统计表。
+
+#### 步骤 3：补 player profiles
+
+从已抓到的 event matches 中提取球员英文名，并合并 DB 现有 player name，生成需要执行
+profile search 的名单：
+
+```bash
+python scripts/backfill_historical_data.py scrape-players --dry-run
+```
+
+正式抓取：
+
+```bash
+python scripts/backfill_historical_data.py scrape-players \
+  --cdp-port 9222
+```
+
+该阶段会生成 `data/backfill/historical/profile_search_players.json`，再调用
+`scripts/scrape_profiles_from_search.py`。profile search candidate cache 位于：
+
+```text
+data/player_profiles/profile_search_candidates.json
+```
+
+cache 默认不自动过期。需要人工刷新某个名字时：
+
+```bash
+python scripts/backfill_historical_data.py scrape-players \
+  --refresh-name "WANG Chuqin" \
+  --cdp-port 9222
+```
+
+#### 步骤 4：翻译新增数据
+
+先 dry-run 看将执行哪些命令：
+
+```bash
+python scripts/backfill_historical_data.py translate --dry-run --since <YYYY-MM-DD>
+```
+
+正式翻译：
+
+```bash
+python scripts/backfill_historical_data.py translate --since <YYYY-MM-DD>
+```
+
+profiles 默认使用：
+
+```bash
+--career-best-rank-lte 50
+```
+
+也就是所有 profile 都会生成可导入的 CN JSON，但只有 `career_best_rank <= 50` 的球员补
+`name_zh`、`country_zh`、`gender_zh`、`style_zh`、`playing_hand_zh`、`grip_zh` 等中文字段。
+
+#### 步骤 5：导入开发机数据库
+
+如果按某个 events list 文件导入：
+
+```bash
+python scripts/backfill_historical_data.py import \
+  --event-file data/events_list/cn/<events_file>.json
+```
+
+如果只修复指定赛事：
+
+```bash
+python scripts/backfill_historical_data.py import \
+  --event-id <event_id> [<event_id> ...]
+```
+
+该阶段会调用 `scripts/run_import_wtt_events.sh`，因此仍会自动执行同名名单审计、
+同名球员 player-centric matches 证据准备、matches 导入、draw/sub-events 重建。
+
+如果当前环境不能打开浏览器、只想导入已经准备好的离线数据：
+
+```bash
+python scripts/backfill_historical_data.py import \
+  --event-id <event_id> \
+  --skip-same-name-player-matches
+```
+
+#### 补数后检查
+
+导入后至少检查：
+
+- `scripts/run_import_wtt_events.sh` 输出的 summary JSON 和 manual-check 摘要。
+- `unmatched_players`、`ambiguous_players`、`unresolved_same_name_players` 是否需要人工处理。
+- `data/event_matches/problematic/` 是否有新增文件。
+- 赛事详情页、球员页、H2H、冠军统计是否符合预期。
+
 特殊赛事修复仍按数据库维护文档执行。例如 `event_id=2860` 在导入比赛前必须运行：
 
 ```bash

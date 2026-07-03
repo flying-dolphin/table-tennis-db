@@ -87,6 +87,37 @@ class AuditSameNamePlayersTests(unittest.TestCase):
             self.output_path.read_text(encoding="utf-8").strip().splitlines(),
         )
 
+    def test_audit_discovers_same_name_groups_from_profile_json_and_preserves_existing(self) -> None:
+        profile_dir = self.root / "profiles"
+        profile_dir.mkdir()
+        (profile_dir / "player_201_Same_Profile.json").write_text(
+            json.dumps({"player_id": 201, "name": "Same Profile", "country_code": "CHN"}),
+            encoding="utf-8",
+        )
+        (profile_dir / "player_202_Profile_Same.json").write_text(
+            json.dumps({"player_id": 202, "english_name": "Profile Same", "country_code": "CHN"}),
+            encoding="utf-8",
+        )
+        (profile_dir / "player_203_Solo_Profile.json").write_text(
+            json.dumps({"player_id": 203, "name": "Solo Profile", "country_code": "JPN"}),
+            encoding="utf-8",
+        )
+
+        summary = audit_same_name_players(
+            db_path=self.db_path,
+            output_path=self.output_path,
+            country_history_path=self.history_path,
+            profile_dir=profile_dir,
+            update=True,
+        )
+
+        lines = self.output_path.read_text(encoding="utf-8").strip().splitlines()
+        self.assertIn("99,Existing Person,KOR", lines)
+        self.assertIn("201,Same Profile,CHN", lines)
+        self.assertIn("202,Profile Same,CHN", lines)
+        self.assertNotIn("203,Solo Profile,JPN", lines)
+        self.assertGreaterEqual(summary["added_entries"], 2)
+
 
 if __name__ == "__main__":
     unittest.main()

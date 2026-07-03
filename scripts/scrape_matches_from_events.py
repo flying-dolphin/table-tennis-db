@@ -641,7 +641,7 @@ def run(args: argparse.Namespace) -> int:
         )
 
     db_path = Path(args.db_path)
-    filtering_only_event_ids = load_filtering_only_event_ids(db_path)
+    filtering_only_event_ids = load_filtering_only_event_ids(db_path) if args.filter else set()
     if filtering_only_event_ids:
         logger.info("Loaded %s filtering_only event ids from %s", len(filtering_only_event_ids), db_path)
     storage_state = Path(args.storage_state)
@@ -715,7 +715,7 @@ def run(args: argparse.Namespace) -> int:
                     )
                     continue
 
-                if event_id in filtering_only_event_ids:
+                if args.filter and event_id in filtering_only_event_ids:
                     logger.info(
                         "[%s/%s] Skip filtering_only event_id=%s: %s",
                         idx,
@@ -773,6 +773,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--limit", type=int, default=0, help="Only scrape the first N URLs after loading")
     parser.add_argument("--stop-on-error", action="store_true")
     parser.add_argument("--db-path", default=DEFAULT_DB_PATH, help="SQLite database path for filtering_only check")
+    parser.add_argument("--filter", action="store_true", help="Skip filtering_only events when scraping")
     parser.add_argument("--force", action="store_true", help="Rescrape even if output for event_id already exists")
     return parser
 

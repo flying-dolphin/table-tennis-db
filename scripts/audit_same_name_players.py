@@ -98,15 +98,44 @@ def load_country_history(path: Path) -> list[dict[str, str]]:
     return history
 
 
-def discover_same_name_entries(db_path: Path, country_history_path: Path) -> set[tuple[int, str, str]]:
+def load_profile_players(profile_dir: Path | None) -> list[dict[str, Any]]:
+    if profile_dir is None or not profile_dir.exists():
+        return []
+
+    players: list[dict[str, Any]] = []
+    for path in sorted(profile_dir.glob("player_*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if not isinstance(data, dict):
+            continue
+        try:
+            player_id = int(data.get("player_id"))
+        except (TypeError, ValueError):
+            continue
+        name = str(data.get("name") or data.get("english_name") or "").strip()
+        country_code = str(data.get("country_code") or "").strip().upper()
+        if name and country_code:
+            players.append({"player_id": player_id, "name": name, "country_code": country_code})
+    return players
+
+
+def discover_same_name_entries(
+    db_path: Path,
+    country_history_path: Path,
+    profile_dir: Path | None = None,
+) -> set[tuple[int, str, str]]:
     players = load_players(db_path)
+    profile_players = load_profile_players(profile_dir)
+    all_players = players + profile_players
     effective_rows: list[tuple[int, str, str]] = [
         (player["player_id"], player["name"], player["country_code"])
-        for player in players
+        for player in all_players
     ]
 
     by_current_key: dict[tuple[str, str], list[dict[str, Any]]] = {}
-    for player in players:
+    for player in all_players:
         by_current_key.setdefault((normalize_name_key(player["name"]), player["country_code"]), []).append(player)
 
     for item in load_country_history(country_history_path):
@@ -129,10 +158,11 @@ def audit_same_name_players(
     db_path: Path,
     output_path: Path,
     country_history_path: Path,
+    profile_dir: Path | None = None,
     update: bool,
 ) -> dict[str, int]:
     existing = load_existing_entries(output_path)
-    discovered = discover_same_name_entries(db_path, country_history_path)
+    discovered = discover_same_name_entries(db_path, country_history_path, profile_dir)
     merged = existing | discovered
     added = merged - existing
 
@@ -153,6 +183,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT_PATH)
     parser.add_argument("--country-history", type=Path, default=DEFAULT_COUNTRY_HISTORY_PATH)
+    parser.add_argument("--profile-dir", type=Path, default=PROJECT_ROOT / "data" / "player_profiles" / "orig")
     parser.add_argument("--update", action="store_true", help="Write discovered entries into the output file")
     return parser
 
@@ -163,6 +194,7 @@ def main() -> None:
         db_path=args.db_path,
         output_path=args.output,
         country_history_path=args.country_history,
+        profile_dir=args.profile_dir,
         update=args.update,
     )
     print("Same-name player audit:")
