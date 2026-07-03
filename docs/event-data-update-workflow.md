@@ -556,7 +556,13 @@ python scripts/db/promote_current_event.py \
 
 这条链路依赖 `results.ittf.link` 登录态和浏览器风控，通常在开发机手动执行。
 
-### 7.1 抓取历史赛事列表
+整个流程分为三个阶段：
+
+1. **数据准备**（7.1–7.3，手动）：抓取并翻译赛事列表和比赛数据，生成 JSON 文件。
+2. **数据库导入**（7.4–7.5，自动脚本）：`run_import_wtt_events.sh` 统一处理同名消歧、导入赛事和比赛。
+3. **发布上线**（7.6）：将开发机已验证的数据同步到生产库。
+
+### 7.1 抓取并翻译赛事列表
 
 ```bash
 python scripts/scrape_events.py \
@@ -564,12 +570,13 @@ python scripts/scrape_events.py \
   --output-dir data/events_list/orig
 ```
 
-翻译并导入赛事基础信息：
+翻译：
 
 ```bash
 python scripts/translate_events.py
-python scripts/db/import_events.py
 ```
+
+> 导入 `events` 表由第 7.5 节 `run_import_wtt_events.sh` 统一处理，本节只需完成抓取和翻译。
 
 ### 7.2 准备赛事比赛 URL
 
@@ -599,33 +606,46 @@ python scripts/translate_matches.py \
 
 检查 `missing_translations` 和 `data/event_matches/problematic/`，有问题时不要继续入库。
 
-### 7.4 同名球员消歧数据
+### 7.4 同名球员消歧
 
-历史赛事比赛文件本身只有球员名和协会，没有官方 `player_id`。导入时会按以下顺序写入 `match_side_players.player_id`：
+#### 问题背景
 
-1. 非同名球员：用球员名 + 当前或历史协会唯一匹配 `players.player_id`。
-2. 协会变更：读取 `data/player_country_history.json`，允许历史协会匹配到当前 `players` 记录。
-3. 同名同协会球员：读取 `scripts/data/same_name_players.txt`，禁止直接用 name + country 匹配，必须使用按球员抓取的 matches 文件做消歧。
+历史赛事比赛文件（`data/event_matches/cn/*.json`）只包含球员名和协会，没有官方 `player_id`。
+`scripts/db/import_matches.py`（由 `scripts/run_import_wtt_events.sh` 的第 4 步调用，见 7.5）
+导入这些文件写入 `matches`、`match_sides`、`match_side_players` 等表时，需要把球员名+协会映射为
+`players` 表中的 `player_id`。大多数球员可以唯一匹配，但存在两类歧义：
 
-同名名单格式：
+- **同名同协会**：多个 `players` 行有相同的 `name` 和 `country_code`（如"王 Yang/CHN"有两人以上）。
+- **历史协会变更**：赛事文件里的协会与 `players` 表的当前协会不一致，但仍属同一球员。
 
-```text
-player_id,player_name,country_code
-```
+#### 消歧逻辑（import_matches.py 内部）
 
-人工审核 rankings/profile 时，`scripts/apply_ranking_profile_review.py` 会在应用 `resolution.player_id` 后检查 DB 中是否存在同名同协会多条 player；如果存在，会把整组写入 `scripts/data/same_name_players.txt`。
+`import_matches.py` 对每条参赛记录按以下优先级匹配 `match_side_players.player_id`：
 
-正式导入前还会运行独立审计：
+1. **唯一匹配**：球员名 + 赛事文件中的协会能在 `players` 表中找到唯一一行 → 直接写入。
+2. **历史协会匹配**：球员名在当前 `players` 表中找不到对应协会，但读取
+   `data/player_country_history.json` 后能匹配到同一球员 → 允许历史协会关联到当前 `players` 行。
+3. **同名同协会匹配**：球员名+协会命中 `scripts/data/same_name_players.txt` 名单 →
+   禁止直接匹配，必须到 `data/matches_complete/cn/player_<player_id>_*.json` 中查找
+   player-centric 证据，按 `event_id/sub_event/stage/round/match_score/side_a/side_b` 对齐；
+   唯一对齐时写入该 `player_id`，否则保留 NULL 并输出到 `unresolved_same_name_players` 或
+   `ambiguous_same_name_players`。
 
-```bash
-python scripts/audit_same_name_players.py --update
-```
+#### 步骤 A：维护同名名单（audit + 人工审核）
 
-`scripts/run_import_wtt_events.sh` 已内置该步骤。它会扫描 `players` 表，合并已有名单，发现同名同当前协会，以及 `data/player_country_history.json` 导致的历史协会冲突。这样即使本次没有 `unresolved.json`，新增同名 player 也会进入名单。
+同名名单存储在 `scripts/data/same_name_players.txt`，格式为每行 `player_id,player_name,country_code`。
 
-如果本次赛事涉及同名名单中的球员，`scripts/run_import_wtt_events.sh` 会在导入
-`matches` 前自动检查本次 event matches 文件，并为缺失证据的同名候选 player 抓取
-player-centric matches：
+**自动审计**：`scripts/run_import_wtt_events.sh` 内置了 `scripts/audit_same_name_players.py --update`。
+该脚本扫描 `players` 表，合并已有名单，发现同名同当前协会以及 `data/player_country_history.json`
+导致的历史协会冲突。这样即使本次没有人工提交的记录，新增同名 player 也会进入名单。
+
+**人工补充**：审核 rankings/profile 时，`scripts/apply_ranking_profile_review.py` 在应用
+`resolution.player_id` 后检查 DB 中是否存在同名同协会多条 player；如果存在，会把整组写入同名名单。
+
+#### 步骤 B：准备 player-centric 消歧证据（run_import_wtt_events.sh 自动完成）
+
+如果本次赛事涉及同名名单中的球员，`run_import_wtt_events.sh` 会在导入 matches 前自动为
+缺失证据的同名候选 player 抓取个人级比赛数据：
 
 ```bash
 python scripts/scrape_matches_from_player.py \
@@ -635,7 +655,7 @@ python scripts/scrape_matches_from_player.py \
   --from-date <YYYY-MM-DD>
 ```
 
-抓取后会自动翻译对应的单个 player-centric matches 文件：
+输出文件会存入 `data/matches_complete/orig/`，然后自动翻译到 `data/matches_complete/cn/`：
 
 ```bash
 python scripts/translate_matches.py \
@@ -643,16 +663,16 @@ python scripts/translate_matches.py \
   --cn-dir data/matches_complete/cn
 ```
 
-有 `player_id` 时，按球员抓取的输出文件名为：
+文件命名规则（有 `player_id` 时）：
 
 ```text
 data/matches_complete/orig/player_<player_id>_<player_name>.json
 data/matches_complete/cn/player_<player_id>_<player_name>.json
 ```
 
-`scripts/prepare_same_name_player_matches.py` 会跳过已经存在的
-`data/matches_complete/cn/player_<player_id>_*.json`，避免重复抓取。自动推断的
-`--from-date` 是本次导入赛事最早 `event_year` 的 `YYYY-01-01`；如需手动覆盖：
+`scripts/prepare_same_name_player_matches.py` 会跳过已存在的 `player_<player_id>_*.json`，
+避免重复抓取。自动推断的 `--from-date` 是本次导入赛事最早 `event_year` 的 `YYYY-01-01`；
+如需手动覆盖：
 
 ```bash
 scripts/run_import_wtt_events.sh \
@@ -668,12 +688,11 @@ scripts/run_import_wtt_events.sh \
   --skip-same-name-player-matches
 ```
 
-`import_matches.py` 会读取这些文件，把 event-centric match 与 player-centric match 按
-`event_id/sub_event/stage/round/match_score/side_a/side_b` 对齐；只有唯一匹配到某个
-player_id 时才写入，否则保留 NULL 并输出到 `unresolved_same_name_players` 或
-`ambiguous_same_name_players`。
-
 ### 7.5 导入历史事实表
+
+前提：7.1–7.3 的数据文件已经就位（`data/events_list/cn/*.json`、`data/event_matches/cn/*.json`）。
+
+执行以下命令将数据写入 SQLite：
 
 ```bash
 scripts/run_import_wtt_events.sh
@@ -681,12 +700,12 @@ scripts/run_import_wtt_events.sh
 
 该脚本会按顺序执行：
 
-1. `scripts/audit_same_name_players.py --update`
-2. `scripts/db/import_events.py`
-3. `scripts/prepare_same_name_player_matches.py`
-4. `scripts/db/import_matches.py`
-5. `scripts/db/import_event_draw_matches.py`
-6. `scripts/db/import_sub_events.py`
+1. `scripts/audit_same_name_players.py --update` — 刷新同名名单（详见 7.4）
+2. `scripts/db/import_events.py` — 从 `data/events_list/cn/*.json` upsert 到 `events` 表
+3. `scripts/prepare_same_name_player_matches.py` — 准备同名球员消歧证据（详见 7.4）
+4. `scripts/db/import_matches.py` — 导入比赛到 `matches`/`match_sides`/`match_side_players`
+5. `scripts/db/import_event_draw_matches.py` — 重建 `event_draw_matches`
+6. `scripts/db/import_sub_events.py` — 重建 `sub_events` 和冠军
 
 无 `--since` 或 `--event-id` 时是全量导入：`events` 会从
 `data/events_list/cn/*.json` upsert，`matches`、`event_draw_matches`、`sub_events`
