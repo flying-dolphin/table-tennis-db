@@ -32,6 +32,33 @@ test('current bracket preserves draw groups and feeder previous units', () => {
   assert.equal(roundOf32.matches[0].sides[0].previousUnit, 'TTEMSINGLES-----------R64-000100--');
 });
 
+test('current main draw bracket rounds are ordered from early rounds to final', () => {
+  const detail = getEventDetail(3242, 'MS');
+  const mainRounds = detail.bracket.filter((round) => round.drawCode === 'MAIN');
+
+  assert.deepEqual(
+    mainRounds.map((round) => round.code),
+    ['R64', 'R32', 'R16', 'QF', 'SF', 'F'],
+  );
+  assert.deepEqual(
+    mainRounds.map((round) => round.order),
+    [20, 30, 40, 50, 60, 80],
+  );
+});
+
+test('historical main draw bracket rounds are ordered from early rounds to final', () => {
+  const detail = getEventDetail(3240, 'WS');
+
+  assert.deepEqual(
+    detail.bracket.map((round) => round.code),
+    ['R32', 'R16', 'QuarterFinal', 'SemiFinal', 'Final'],
+  );
+  assert.deepEqual(
+    detail.bracket.map((round) => round.order),
+    [30, 40, 50, 60, 80],
+  );
+});
+
 test('current individual bracket links completed matches to current match details', () => {
   const detail = getEventDetail(3242, 'WS');
   const roundOf64 = detail.bracket.find((round) => round.drawCode === 'MAIN' && round.code === 'R64');

@@ -2004,7 +2004,7 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
       return map;
     }, new Map<string, { code: string; drawCode: string | null; label: string; order: number; matches: EventBracketRound['matches'] }>())
       .values(),
-  ).sort((left, right) => right.order - left.order);
+  ).sort((left, right) => left.order - right.order);
 }
 
 function normalizeExternalMatchCode(value: string | null | undefined) {
@@ -4700,7 +4700,7 @@ export function getEventDetail(
           LEFT JOIN players p ON p.player_id = msp.player_id
           WHERE edm.event_id = ?
             AND edm.sub_event_type_code = ?
-          ORDER BY edm.round_order DESC, edm.match_id ASC, ms.side_no ASC, msp.player_order ASC
+          ORDER BY edm.round_order ASC, edm.match_id ASC, ms.side_no ASC, msp.player_order ASC
         `,
       )
       .all(eventId, subEventCode) as Array<{
@@ -4779,7 +4779,7 @@ export function getEventDetail(
           return map;
         }, new Map<string, { code: string; label: string; order: number; matches: Array<ReturnType<typeof matchMap.get> extends infer T ? NonNullable<T> : never> }>())
         .values(),
-    ).sort((left, right) => right.order - left.order);
+    ).sort((left, right) => left.order - right.order);
   };
 
   const roundRobinViewForSubEvent = (subEventCode: string): EventRoundRobinView | null => {

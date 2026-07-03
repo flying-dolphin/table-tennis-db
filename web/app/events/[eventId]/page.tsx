@@ -2033,7 +2033,7 @@ function DrawView({
   // When a bronze match exists, place it between the semifinals and final so the
   // draw reads in match chronology even though bronze is a side branch.
   const orderedRounds = React.useMemo(() => {
-    const leftToRight = [...activeDrawRounds].sort((left, right) => right.order - left.order);
+    const leftToRight = [...activeDrawRounds].sort((left, right) => left.order - right.order);
     const bronzeRound = leftToRight.find((round) => round.code === "Bronze");
     const roundsWithoutBronze = leftToRight.filter((round) => round.code !== "Bronze");
 

@@ -61,18 +61,18 @@ def infer_winner_side(item: dict[str, Any]) -> str | None:
 def normalize_round(raw_code: str | None) -> tuple[str | None, str | None, int | None]:
     raw = (raw_code or "").strip().upper()
     mapping = {
-        "FNL-": ("MAIN_DRAW", "F", 10),
-        "FNL": ("MAIN_DRAW", "F", 10),
-        "SFNL": ("MAIN_DRAW", "SF", 20),
-        "QFNL": ("MAIN_DRAW", "QF", 30),
+        "FNL-": ("MAIN_DRAW", "F", 80),
+        "FNL": ("MAIN_DRAW", "F", 80),
+        "SFNL": ("MAIN_DRAW", "SF", 60),
+        "QFNL": ("MAIN_DRAW", "QF", 50),
         "8FNL": ("MAIN_DRAW", "R16", 40),
-        "R32-": ("MAIN_DRAW", "R32", 50),
-        "R32": ("MAIN_DRAW", "R32", 50),
-        "R64-": ("MAIN_DRAW", "R64", 60),
-        "R64": ("MAIN_DRAW", "R64", 60),
-        "RND1": ("PRELIMINARY", "R1", 70),
-        "RND2": ("PRELIMINARY", "RND2", 60),
-        "RND3": ("PRELIMINARY", "RND3", 50),
+        "R32-": ("MAIN_DRAW", "R32", 30),
+        "R32": ("MAIN_DRAW", "R32", 30),
+        "R64-": ("MAIN_DRAW", "R64", 20),
+        "R64": ("MAIN_DRAW", "R64", 20),
+        "RND1": ("PRELIMINARY", "R1", 10),
+        "RND2": ("PRELIMINARY", "RND2", 20),
+        "RND3": ("PRELIMINARY", "RND3", 30),
     }
     if raw in mapping:
         return mapping[raw]
