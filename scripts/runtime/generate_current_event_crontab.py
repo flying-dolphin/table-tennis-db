@@ -290,14 +290,9 @@ def build_session_refresh_jobs(session_start: datetime, session_label: str) -> l
     points: list[tuple[datetime, set[str]]] = []
     run_at = session_start.replace(second=0, microsecond=0)
     session_end = run_at + SESSION_REFRESH_DURATION
-    idx = 0
     while run_at < session_end:
-        if idx % 3 == 0:
-            sources = {"match_details"}
-        else:
-            sources = {"live"}
+        sources = {"live"}
         points.append((run_at, sources))
-        idx += 1
         run_at += timedelta(minutes=10)
 
     buckets: dict[tuple[date, frozenset[str], int], set[int]] = {}

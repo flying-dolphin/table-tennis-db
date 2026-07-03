@@ -370,8 +370,7 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 
 ### runtime/generate_current_event_crontab.py
 根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron。按 session 刷新窗口（5 小时）
-周期内每 10 分钟一次 live 刷新（cron 命令显式带 `--include-official`）、每 30 分钟合并一次
-match_details 刷新（导入 live + completed 表），外加 backup、schedule、standings、brackets
+周期内每 10 分钟一次 live 刷新（cron 命令显式带 `--include-official`），外加 backup、schedule、standings、brackets
 和赛后 promote 任务。
 
 ### db/promote_current_event.py
