@@ -10,6 +10,7 @@ import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { Flag } from "@/components/Flag";
 import { getVisibleSideAvatarPlayers } from "@/lib/match-side-avatars";
+import { matchStatusLabel } from "@/lib/match-status-label";
 import { formatSubEventLabel } from "@/lib/sub-event-label";
 
 function cn(...inputs: ClassValue[]) {
@@ -50,6 +51,7 @@ type MatchDetail = {
     round: string | null;
     roundZh: string | null;
     roundLabel: string;
+    status?: string | null;
     matchScore: string | null;
     games: Array<{ player: number; opponent: number }>;
     winnerSide: string | null;
@@ -95,6 +97,7 @@ type TieDetail = {
     roundLabel: string;
     scheduledLocalAt: string | null;
     tableNo: string | null;
+    status?: string | null;
     matchScore: string | null;
     winnerSide: string | null;
     startDate: string | null;
@@ -402,6 +405,7 @@ function MatchScoreHero({
   sideB,
   matchScore,
   winnerSide,
+  status,
   hasResult,
   attached = false,
 }: {
@@ -409,6 +413,7 @@ function MatchScoreHero({
   sideB: MatchSide | undefined;
   matchScore: string | null;
   winnerSide: string | null;
+  status?: string | null;
   hasResult: boolean;
   attached?: boolean;
 }) {
@@ -437,7 +442,7 @@ function MatchScoreHero({
 
   return (
     <HeroShell attached={attached}>
-      <HeroStatusPill label={hasResult ? "已结束" : "未开始"} />
+      <HeroStatusPill label={matchStatusLabel(status, hasResult ? winnerSide : null)} />
       <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-2">
         {renderSide(sideA, 0, winnerSide === "A")}
         <HeroScore left={score.left} right={score.right} isWO={score.isWO} />
@@ -453,6 +458,7 @@ function TieScoreHero({
   sideA,
   sideB,
   matchScore,
+  status,
   hasResult,
   onBack,
 }: {
@@ -461,6 +467,7 @@ function TieScoreHero({
   sideA: TieSide | undefined;
   sideB: TieSide | undefined;
   matchScore: string | null;
+  status?: string | null;
   hasResult: boolean;
   onBack: () => void;
 }) {
@@ -490,7 +497,7 @@ function TieScoreHero({
     <section className="px-4 pb-4 pt-4">
       <HeroBackBar title={title} meta={meta} onBack={onBack} />
       <HeroShell>
-        <HeroStatusPill label={hasResult ? "已结束" : "未开始"} />
+        <HeroStatusPill label={matchStatusLabel(status, hasResult ? "A" : null)} />
         <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-start gap-2">
           {renderSide(sideA, sideA?.isWinner ?? false)}
           <HeroScore left={score.left} right={score.right} isWO={score.isWO} />
@@ -814,6 +821,7 @@ function MatchContent() {
           sideA={sideA}
           sideB={sideB}
           matchScore={data.match.matchScore}
+          status={data.match.status}
           hasResult={hasResult}
           onBack={handleBack}
         />
@@ -865,6 +873,7 @@ function MatchContent() {
             sideB={sideB}
             matchScore={data.match.matchScore}
             winnerSide={data.match.winnerSide}
+            status={data.match.status}
             hasResult={hasResult}
             attached
           />

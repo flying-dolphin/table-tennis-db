@@ -4974,6 +4974,7 @@ export function getMatchDetail(matchId: number | string) {
           round: detail.match.roundCode,
           roundZh: detail.match.roundNameZh,
           roundLabel: detail.match.roundLabel,
+          status: detail.match.status,
           matchScore: detail.match.matchScore,
           games: detail.match.games,
           winnerSide: detail.match.winnerSide,

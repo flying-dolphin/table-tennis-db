@@ -109,6 +109,7 @@ test('current match detail parses comma-separated game scores', () => {
 
   assert.ok(detail, 'expected current match detail');
   assert.equal(detail.match.matchId, 'cm:1320');
+  assert.equal(detail.match.status, 'completed');
   assert.equal(detail.match.matchScore, '1-3');
   assert.deepEqual(detail.match.games, [
     { player: 8, opponent: 11 },
