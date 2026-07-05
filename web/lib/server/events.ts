@@ -4681,6 +4681,9 @@ export function getEventDetail(
             m.team_tie_id AS scheduleMatchId,
             edm.draw_round AS drawRound,
             edm.round_order AS roundOrder,
+            edm.bracket_position AS bracketPosition,
+            edm.side_a_previous_match_id AS sideAPreviousMatchId,
+            edm.side_b_previous_match_id AS sideBPreviousMatchId,
             m.round AS sourceRound,
             m.round_zh AS sourceRoundZh,
             m.match_score AS matchScore,
@@ -4700,7 +4703,7 @@ export function getEventDetail(
           LEFT JOIN players p ON p.player_id = msp.player_id
           WHERE edm.event_id = ?
             AND edm.sub_event_type_code = ?
-          ORDER BY edm.round_order ASC, edm.match_id ASC, ms.side_no ASC, msp.player_order ASC
+          ORDER BY edm.round_order ASC, COALESCE(edm.bracket_position, edm.match_id) ASC, edm.match_id ASC, ms.side_no ASC, msp.player_order ASC
         `,
       )
       .all(eventId, subEventCode) as Array<{
@@ -4708,6 +4711,9 @@ export function getEventDetail(
       scheduleMatchId: number | null;
       drawRound: string;
       roundOrder: number;
+      bracketPosition: number | null;
+      sideAPreviousMatchId: number | null;
+      sideBPreviousMatchId: number | null;
       sourceRound: string | null;
       sourceRoundZh: string | null;
       matchScore: string | null;
@@ -4730,9 +4736,10 @@ export function getEventDetail(
         drawRound: string;
         roundLabel: string;
         roundOrder: number;
+        bracketPosition: number | null;
         matchScore: string | null;
         games: Array<{ player: number; opponent: number }>;
-        sides: Array<{ sideNo: number; isWinner: boolean; players: SidePlayer[] }>;
+        sides: Array<{ sideNo: number; isWinner: boolean; previousUnit?: string | null; players: SidePlayer[] }>;
       }
     >();
 
@@ -4745,14 +4752,21 @@ export function getEventDetail(
           drawRound: row.drawRound,
           roundLabel: roundLabel(row.drawRound ?? row.sourceRound, row.sourceRoundZh),
           roundOrder: row.roundOrder,
+          bracketPosition: row.bracketPosition,
           matchScore: row.matchScore,
           games: parseGames(row.games),
-          sides: [],
+          sides: [] as Array<{ sideNo: number; isWinner: boolean; previousUnit?: string | null; players: SidePlayer[] }>,
         };
 
       let side = current.sides.find((item) => item.sideNo === row.sideNo);
       if (!side) {
-        side = { sideNo: row.sideNo, isWinner: row.isWinner === 1, players: [] };
+        const previousMatchId = row.sideNo === 1 ? row.sideAPreviousMatchId : row.sideBPreviousMatchId;
+        side = {
+          sideNo: row.sideNo,
+          isWinner: row.isWinner === 1,
+          previousUnit: previousMatchId != null ? `match:${previousMatchId}` : null,
+          players: [],
+        };
         current.sides.push(side);
       }
       side.players.push({
@@ -4775,6 +4789,11 @@ export function getEventDetail(
             matches: [] as Array<(typeof match)>,
           };
           current.matches.push(match);
+          current.matches.sort((left, right) => {
+            const leftPosition = left.bracketPosition ?? left.matchId;
+            const rightPosition = right.bracketPosition ?? right.matchId;
+            return leftPosition - rightPosition || left.matchId - right.matchId;
+          });
           map.set(match.drawRound, current);
           return map;
         }, new Map<string, { code: string; label: string; order: number; matches: Array<ReturnType<typeof matchMap.get> extends infer T ? NonNullable<T> : never> }>())

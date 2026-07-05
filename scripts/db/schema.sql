@@ -282,6 +282,9 @@ CREATE TABLE IF NOT EXISTS event_draw_matches (
     round_order         INTEGER NOT NULL,
     source_stage        TEXT,
     source_round        TEXT,
+    bracket_position    INTEGER,
+    side_a_previous_match_id INTEGER,
+    side_b_previous_match_id INTEGER,
     bronze_source       TEXT,
     bronze_verified     INTEGER NOT NULL DEFAULT 0,
     validation_note     TEXT,
@@ -294,6 +297,8 @@ CREATE TABLE IF NOT EXISTS event_draw_matches (
 );
 CREATE INDEX IF NOT EXISTS idx_event_draw_matches_stage_code ON event_draw_matches(stage_code);
 CREATE INDEX IF NOT EXISTS idx_event_draw_matches_round_code ON event_draw_matches(round_code);
+CREATE INDEX IF NOT EXISTS idx_event_draw_matches_bracket_position
+ON event_draw_matches(event_id, sub_event_type_code, round_order, bracket_position);
 
 CREATE INDEX IF NOT EXISTS idx_event_draw_matches_event
 ON event_draw_matches(event_id, sub_event_type_code, round_order);

@@ -35,6 +35,7 @@ import { shouldShowBeijingTimeForEvent, shouldUseScheduleTabs } from "@/lib/even
 import { matchDetailPath } from "@/lib/match-detail-link";
 import { getCurrentBeijingDate, regroupScheduleDaysByBeijingDate } from "@/lib/schedule-beijing-days";
 import { groupChinaScheduleMatches } from "@/lib/schedule-match-groups";
+import { expandVirtualByeNodes, isVirtualByeMatch, realBracketMatchCount } from "@/lib/bracket-virtual-byes";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -62,6 +63,7 @@ type BracketMatch = {
   matchScore: string | null;
   games: Array<{ player: number; opponent: number }>;
   sides: Array<{ sideNo: number; isWinner: boolean; previousUnit?: string | null; players: SidePlayer[] }>;
+  isVirtualBye?: boolean;
 };
 
 type ChampionPlayer = {
@@ -596,6 +598,15 @@ function makeSidePlayerKey(side: BracketMatch["sides"][number] | undefined): str
     .join("|");
 }
 
+function bracketMatchUnitKey(match: BracketMatch) {
+  return match.externalUnitCode ?? `match:${match.matchId}`;
+}
+
+function bracketRoundCountLabel(round: { matches: BracketMatch[] }) {
+  const realCount = realBracketMatchCount(round);
+  return realCount === round.matches.length ? `${realCount} 场` : `${realCount} 场 / ${round.matches.length} 位`;
+}
+
 // Reorder matches in each round so that prev[2n] and prev[2n+1] feed next[n].
 // Rounds are expected in left-to-right order (R1 → ... → Final).
 function orderBracketByFeeders(rounds: EventDetail["bracket"]): EventDetail["bracket"] {
@@ -618,7 +629,7 @@ function orderBracketByFeeders(rounds: EventDetail["bracket"]): EventDetail["bra
         const previousUnit = sortedSides[s].previousUnit?.trim();
         if (previousUnit) {
           const feederByUnit = prevMatches.find(
-            (pm) => !used.has(pm.matchId) && pm.externalUnitCode === previousUnit,
+            (pm) => !used.has(pm.matchId) && bracketMatchUnitKey(pm) === previousUnit,
           );
           if (feederByUnit) {
             newOrder.push(feederByUnit);
@@ -1917,6 +1928,7 @@ function DrawMatchCard({
   const [sideA, sideB] = [...match.sides].sort((a, b) => a.sideNo - b.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
+  const isVirtualBye = isVirtualByeMatch(match);
   const hasScore = Boolean(match.matchScore?.trim());
   const matchHref = matchDetailPath({
     hasScore,
@@ -1924,7 +1936,7 @@ function DrawMatchCard({
     matchId: !match.externalUnitCode ? match.matchId : null,
   });
   const cardClassName = cn(
-    "block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm",
+    "relative block rounded-[0.6rem] border bg-white px-1.5 py-1 shadow-sm",
     matchHref ? "transition active:scale-[0.99]" : "cursor-default",
     isChampionPath ? "border-[#3a74f2] shadow-[0_2px_8px_rgba(58,116,242,0.14)]" : "border-[#dce7f5]",
   );
@@ -1953,7 +1965,7 @@ function DrawMatchCard({
               </span>
             ) : null}
             <span className="flex w-3 shrink-0 items-center justify-center">
-              {side.isWinner ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+              {side.isWinner && !isVirtualBye ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
             </span>
           </div>
         );
@@ -2052,9 +2064,10 @@ function DrawView({
   }, [activeDrawRounds]);
 
   const filteredRounds = React.useMemo(() => {
-    if (!search.trim()) return orderedRounds;
+    const roundsWithByes = expandVirtualByeNodes(orderedRounds);
+    if (!search.trim()) return roundsWithByes;
     const keyword = search.trim().toLowerCase();
-    return orderedRounds
+    return roundsWithByes
       .map((round) => ({
         ...round,
         matches: round.matches.filter((match) =>
@@ -2173,7 +2186,7 @@ function DrawView({
               style={{ width: DRAW_CARD_W, marginRight: DRAW_COL_GAP }}
             >
               <p className="text-[0.78rem] font-black text-slate-900">{round.label}</p>
-              <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{round.matches.length} 场</p>
+              <p className="mt-0.5 text-[0.65rem] font-medium text-slate-400">{bracketRoundCountLabel(round)}</p>
             </div>
           ))}
         </div>
@@ -2234,7 +2247,7 @@ function DrawView({
                 highlightedNames.length > 0 &&
                 match.sides.some((s) => s.isWinner && highlightedNames.every((n) => sideName(s, isXT).includes(n)));
               return (
-                <div key={match.matchId} className="cv-auto absolute" style={{ top, left, width: DRAW_CARD_W }}>
+                <div key={bracketMatchUnitKey(match)} className="cv-auto absolute" style={{ top, left, width: DRAW_CARD_W }}>
                   <DrawMatchCard
                     match={match}
                     isChampionPath={isChampionPath}
@@ -2520,7 +2533,7 @@ function findBracketFeederIndices(prevRound: BracketMatch[], nextMatch: BracketM
     const previousUnit = side.previousUnit?.trim();
     if (previousUnit) {
       const previousUnitIndex = prevRound.findIndex(
-        (match, index) => !used.has(index) && match.externalUnitCode === previousUnit,
+        (match, index) => !used.has(index) && bracketMatchUnitKey(match) === previousUnit,
       );
       if (previousUnitIndex !== -1) {
         used.add(previousUnitIndex);

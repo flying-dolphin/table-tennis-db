@@ -59,6 +59,40 @@ test('historical main draw bracket rounds are ordered from early rounds to final
   );
 });
 
+test('historical single-elimination bracket exposes inferred feeders for partial round of 64', () => {
+  const women = getEventDetail(3241, 'WS');
+  const womenRoundOf64 = women.bracket.find((round) => round.code === 'R64');
+  const womenRoundOf32 = women.bracket.find((round) => round.code === 'R32');
+
+  assert.ok(womenRoundOf64, 'expected WS R64 bracket for event 3241');
+  assert.ok(womenRoundOf32, 'expected WS R32 bracket for event 3241');
+  assert.equal(womenRoundOf64.matches.length, 16);
+  assert.equal(womenRoundOf32.matches.length, 16);
+  const firstWomenFeeder = womenRoundOf32.matches[0].sides.find((side) => side.previousUnit != null);
+  assert.equal(firstWomenFeeder?.previousUnit, `match:${womenRoundOf64.matches[0].matchId}`);
+  const womenAkaeR64 = womenRoundOf64.matches.find((match) => match.sides.some((side) => side.isWinner && side.players[0]?.name === 'AKAE Kaho'));
+  const womenAkaeR32 = womenRoundOf32.matches.find((match) => match.sides.some((side) => side.players[0]?.name === 'AKAE Kaho'));
+  assert.ok(womenAkaeR64, 'expected AKAE Kaho R64 match');
+  assert.ok(womenAkaeR32, 'expected AKAE Kaho R32 match');
+  assert.ok(womenAkaeR32.sides.some((side) => side.previousUnit === `match:${womenAkaeR64.matchId}`));
+
+  const men = getEventDetail(3241, 'MS');
+  const menRoundOf64 = men.bracket.find((round) => round.code === 'R64');
+  const menRoundOf32 = men.bracket.find((round) => round.code === 'R32');
+
+  assert.ok(menRoundOf64, 'expected MS R64 bracket for event 3241');
+  assert.ok(menRoundOf32, 'expected MS R32 bracket for event 3241');
+  assert.equal(menRoundOf64.matches.length, 16);
+  assert.equal(menRoundOf32.matches.length, 16);
+  const firstMenFeeder = menRoundOf32.matches[0].sides.find((side) => side.previousUnit != null);
+  assert.equal(firstMenFeeder?.previousUnit, `match:${menRoundOf64.matches[0].matchId}`);
+  const menKuoR64 = menRoundOf64.matches.find((match) => match.sides.some((side) => side.isWinner && side.players[0]?.name === 'KUO Guan-Hong'));
+  const menKuoR32 = menRoundOf32.matches.find((match) => match.sides.some((side) => side.players[0]?.name === 'KUO Guan-Hong'));
+  assert.ok(menKuoR64, 'expected KUO Guan-Hong R64 match');
+  assert.ok(menKuoR32, 'expected KUO Guan-Hong R32 match');
+  assert.ok(menKuoR32.sides.some((side) => side.previousUnit === `match:${menKuoR64.matchId}`));
+});
+
 test('current individual bracket links completed matches to current match details', () => {
   const detail = getEventDetail(3242, 'WS');
   const roundOf64 = detail.bracket.find((round) => round.drawCode === 'MAIN' && round.code === 'R64');

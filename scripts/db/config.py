@@ -18,7 +18,11 @@ def load_env_file(filepath: Path):
     """手动解析 .env 文件，不依赖 python-dotenv"""
     if not filepath.exists():
         return
-    with open(filepath, 'r', encoding='utf-8') as f:
+    try:
+        f = open(filepath, 'r', encoding='utf-8')
+    except PermissionError:
+        return
+    with f:
         for line in f:
             line = line.strip()
             if not line or line.startswith('#'):

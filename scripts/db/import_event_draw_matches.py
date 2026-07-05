@@ -18,7 +18,7 @@ import argparse
 import re
 import sqlite3
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Pattern, Set, Tuple
 
@@ -63,6 +63,9 @@ CREATE TABLE IF NOT EXISTS event_draw_matches (
     round_order         INTEGER NOT NULL,
     source_stage        TEXT,
     source_round        TEXT,
+    bracket_position    INTEGER,
+    side_a_previous_match_id INTEGER,
+    side_b_previous_match_id INTEGER,
     bronze_source       TEXT,
     bronze_verified     INTEGER NOT NULL DEFAULT 0,
     validation_note     TEXT,
@@ -84,6 +87,10 @@ CREATE_INDEX_SQL = [
     """
     CREATE INDEX IF NOT EXISTS idx_event_draw_matches_match
     ON event_draw_matches(match_id)
+    """,
+    """
+    CREATE INDEX IF NOT EXISTS idx_event_draw_matches_bracket_position
+    ON event_draw_matches(event_id, sub_event_type_code, round_order, bracket_position)
     """,
 ]
 
@@ -113,6 +120,9 @@ class DrawRow:
     bronze_source: Optional[str]
     bronze_verified: int
     validation_note: Optional[str]
+    bracket_position: Optional[int] = None
+    side_a_previous_match_id: Optional[int] = None
+    side_b_previous_match_id: Optional[int] = None
 
 
 @dataclass(frozen=True)
@@ -255,6 +265,15 @@ def loser_side_key(match: MatchRow) -> Optional[str]:
     return None
 
 
+def winner_side_key(match: MatchRow) -> Optional[str]:
+    winner = (match.winner_side or "").strip().upper()
+    if winner == "A":
+        return match.side_a_key
+    if winner == "B":
+        return match.side_b_key
+    return None
+
+
 def is_non_wtt(category_code: Optional[str]) -> bool:
     return category_code is not None and not category_code.startswith("WTT_")
 
@@ -348,6 +367,112 @@ def build_final_counts(matches: Iterable[MatchRow]) -> Dict[Tuple[int, str], int
             key = (match.event_id, match.sub_event_type_code)
             counts[key] = counts.get(key, 0) + 1
     return counts
+
+
+def infer_bracket_links(draw_rows: List[DrawRow], matches: List[MatchRow]) -> List[DrawRow]:
+    """Infer historical bracket feeder links from winner side keys.
+
+    Historical ITTF result rows do not carry WTT bracket unit codes. This derives
+    a stable display graph from completed results: if a side in round N+1 has the
+    same side key as a winner in round N, that side is fed by the earlier match.
+    """
+
+    match_by_id = {match.match_id: match for match in matches}
+    state: Dict[int, DrawRow] = {
+        row.match_id: replace(row, bracket_position=index + 1)
+        for index, row in enumerate(
+            sorted(draw_rows, key=lambda item: (item.event_id, item.sub_event_type_code, item.round_order, item.match_id))
+        )
+    }
+    groups: Dict[Tuple[int, str], List[DrawRow]] = {}
+    for row in state.values():
+        groups.setdefault((row.event_id, row.sub_event_type_code), []).append(row)
+
+    for group_rows in groups.values():
+        rounds: Dict[int, List[DrawRow]] = {}
+        for row in group_rows:
+            rounds.setdefault(row.round_order, []).append(row)
+
+        round_orders = sorted(rounds)
+        for round_index in range(len(round_orders) - 1):
+            prev_rows = sorted(
+                rounds[round_orders[round_index]],
+                key=lambda item: (item.bracket_position if item.bracket_position is not None else item.match_id, item.match_id),
+            )
+            next_rows = sorted(
+                rounds[round_orders[round_index + 1]],
+                key=lambda item: (item.bracket_position if item.bracket_position is not None else item.match_id, item.match_id),
+            )
+
+            winner_sources: Dict[str, List[DrawRow]] = {}
+            for row in prev_rows:
+                match = match_by_id.get(row.match_id)
+                winner_key = winner_side_key(match) if match else None
+                if winner_key:
+                    winner_sources.setdefault(winner_key, []).append(row)
+
+            used_previous_match_ids: Set[int] = set()
+            for next_position, row in enumerate(next_rows, start=1):
+                match = match_by_id.get(row.match_id)
+                if not match:
+                    continue
+
+                previous_ids = {"A": row.side_a_previous_match_id, "B": row.side_b_previous_match_id}
+                for side_label, side_key, side_no in (
+                    ("A", match.side_a_key, 1),
+                    ("B", match.side_b_key, 2),
+                ):
+                    if not side_key:
+                        continue
+                    feeder = next(
+                        (
+                            source
+                            for source in winner_sources.get(side_key, [])
+                            if source.match_id not in used_previous_match_ids
+                        ),
+                        None,
+                    )
+                    if feeder is None:
+                        continue
+
+                    used_previous_match_ids.add(feeder.match_id)
+                    previous_ids[side_label] = feeder.match_id
+
+                state[row.match_id] = replace(
+                    state[row.match_id],
+                    side_a_previous_match_id=previous_ids["A"],
+                    side_b_previous_match_id=previous_ids["B"],
+                )
+
+        for round_index in range(len(round_orders) - 1, 0, -1):
+            next_rows = sorted(
+                (state[row.match_id] for row in rounds[round_orders[round_index]]),
+                key=lambda item: (item.bracket_position if item.bracket_position is not None else item.match_id, item.match_id),
+            )
+
+            for next_position, row in enumerate(next_rows, start=1):
+                state[row.match_id] = replace(state[row.match_id], bracket_position=next_position)
+                for previous_match_id, side_no in (
+                    (row.side_a_previous_match_id, 1),
+                    (row.side_b_previous_match_id, 2),
+                ):
+                    if previous_match_id is None or previous_match_id not in state:
+                        continue
+                    state[previous_match_id] = replace(
+                        state[previous_match_id],
+                        bracket_position=((next_position - 1) * 2) + side_no,
+                    )
+
+    return sorted(
+        state.values(),
+        key=lambda item: (
+            item.event_id,
+            item.sub_event_type_code,
+            item.round_order,
+            item.bracket_position if item.bracket_position is not None else item.match_id,
+            item.match_id,
+        ),
+    )
 
 
 def classify_draw_rows(matches: List[MatchRow]) -> Tuple[List[DrawRow], dict]:
@@ -448,11 +573,20 @@ def classify_draw_rows(matches: List[MatchRow]) -> Tuple[List[DrawRow], dict]:
             )
             result["position_bronze"] += 1
 
-    return list(draw_rows_by_match_id.values()), result
+    return infer_bracket_links(list(draw_rows_by_match_id.values()), matches), result
 
 
 def ensure_table(cursor) -> None:
     cursor.execute(CREATE_TABLE_SQL)
+    cursor.execute("PRAGMA table_info(event_draw_matches)")
+    existing_columns = {row[1] for row in cursor.fetchall()}
+    for column_name, column_type in (
+        ("bracket_position", "INTEGER"),
+        ("side_a_previous_match_id", "INTEGER"),
+        ("side_b_previous_match_id", "INTEGER"),
+    ):
+        if column_name not in existing_columns:
+            cursor.execute(f"ALTER TABLE event_draw_matches ADD COLUMN {column_name} {column_type}")
     for stmt in CREATE_INDEX_SQL:
         cursor.execute(stmt)
 
@@ -467,10 +601,13 @@ INSERT_DRAW_SQL = """
         round_order,
         source_stage,
         source_round,
+        bracket_position,
+        side_a_previous_match_id,
+        side_b_previous_match_id,
         bronze_source,
         bronze_verified,
         validation_note
-    ) VALUES (?, ?, ?, 'Main Draw', ?, ?, ?, ?, ?, ?, ?)
+    ) VALUES (?, ?, ?, 'Main Draw', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 """
 
 
@@ -483,6 +620,9 @@ def _draw_row_to_tuple(row: DrawRow) -> tuple:
         row.round_order,
         row.source_stage,
         row.source_round,
+        row.bracket_position,
+        row.side_a_previous_match_id,
+        row.side_b_previous_match_id,
         row.bronze_source,
         row.bronze_verified,
         row.validation_note,
