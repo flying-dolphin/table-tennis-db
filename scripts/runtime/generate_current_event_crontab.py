@@ -425,12 +425,12 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
             run_at = to_target_datetime(day.local_date, starts[0][1], event_tz, target_tz)
             add_job(jobs, run_at, "backup", "daily-backup")
 
-    # 在最后一个比赛日的最后一个 session 起点 + 24h 后跑 promote：
+    # 在最后一个比赛日的最后一个 session 起点 + 5h 后跑 promote：
     # 把 current_event_* 复制到历史事实表，并将 lifecycle_status 翻为 completed。
     # 这是 lifecycle 切换的唯一入口；脚本自身幂等，cron 多跑也无害。
     last_day = schedule[-1]
     last_session = second_session_or_fallback(last_day) or time(12, 0)
-    promote_at = to_target_datetime(last_day.local_date, last_session, event_tz, target_tz) + timedelta(hours=24)
+    promote_at = to_target_datetime(last_day.local_date, last_session, event_tz, target_tz) + timedelta(hours=5)
     add_job(jobs, promote_at, "promote", "post-event-promote")
 
     return main_draw_start, dedupe_cron_jobs([*jobs.values(), *range_jobs])
