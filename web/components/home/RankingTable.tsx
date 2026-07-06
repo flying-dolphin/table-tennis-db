@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { DenseLink } from "@/components/DenseLink";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { Flag } from "@/components/Flag";
 import { clsx, type ClassValue } from "clsx";
@@ -125,7 +125,7 @@ export default function RankingTable() {
 
               if (isTop1) {
                 return (
-                  <Link
+                  <DenseLink
                     key={player.playerId}
                     href={`/players/${player.slug}`}
                     className="flex items-center bg-white/85 px-2 py-2 border border-white/40 shadow-sm rounded-lg relative overflow-hidden mb-2 transition-colors hover:bg-white/95"
@@ -169,12 +169,12 @@ export default function RankingTable() {
                         </span>
                       )}
                     </div>
-                  </Link>
+                  </DenseLink>
                 );
               }
 
               return (
-                <Link
+                <DenseLink
                   key={player.playerId}
                   href={`/players/${player.slug}`}
                   className="flex items-center py-2 px-1 hover:bg-white/50 transition-colors rounded-sm"
@@ -218,7 +218,7 @@ export default function RankingTable() {
                       </span>
                     )}
                   </div>
-                </Link>
+                </DenseLink>
               );
             })}
         </div>

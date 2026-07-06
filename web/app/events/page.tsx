@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import type { Route } from "next";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { CalendarDays, Search, Trophy, Medal, X } from "lucide-react";
 import { Outfit } from "next/font/google";
+import { DenseLink } from "@/components/DenseLink";
 import {
   ensureEventsHistoryKey,
   readEventsSnapshot,
@@ -492,7 +492,7 @@ function EventsPageContent() {
                    const isOngoing = event.displayStatus === "in_progress";
 
                   return (
-                    <Link
+                    <DenseLink
                       key={event.eventId}
                       href={route(`/events/${event.eventId}?from=${encodeURIComponent(currentUrl)}`)}
                       onClick={() => {
@@ -534,7 +534,7 @@ function EventsPageContent() {
                           </div>
                         )}
                       </div>
-                    </Link>
+                    </DenseLink>
                   );
                 })}
                <div ref={loadMoreRef} className="py-4 text-center">                {loadingMore ? (

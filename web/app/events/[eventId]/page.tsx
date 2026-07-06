@@ -2,7 +2,6 @@
 
 import React, { Suspense } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import type { Route } from "next";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import {
@@ -23,6 +22,7 @@ import {
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
+import { DenseLink as Link } from "@/components/DenseLink";
 import { Flag } from "@/components/Flag";
 import {
   buildTeamBracketRounds,

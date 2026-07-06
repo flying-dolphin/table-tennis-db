@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, Trophy, X, UsersRound } from "lucide-react";
+import { DenseLink } from "@/components/DenseLink";
 import { Flag } from "@/components/Flag";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
@@ -353,6 +354,7 @@ function HeroPlayerAvatar({ player }: { player: Player }) {
       height={192}
       sizes="116px"
       priority
+      unoptimized
       className="h-full w-full object-cover"
       onError={handleImageError}
     />
@@ -665,7 +667,7 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
       ) : null}
 
       {displayEvents.map((event, idx) => (
-        <Link
+        <DenseLink
           key={event.eventId}
           href={route(`/events/${event.eventId}`)}
           className={cn(
@@ -691,7 +693,7 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
             </span>
             <ChevronRight size={16} className="text-text-tertiary/50 group-hover:text-brand-strong transition-colors" />
           </div>
-        </Link>
+        </DenseLink>
       ))}
       {hasMore && !expanded && (
         <button

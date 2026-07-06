@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import type { Route } from "next";
 import { ChevronLeft, ArrowRightLeft, Trophy, Zap, Globe, Search, X, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { DenseLink } from "@/components/DenseLink";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -377,7 +378,7 @@ function CompareContent() {
               data.headToHeadMatches.map((match) => {
                 const isWinnerA = match.winnerId === pA.playerId;
                 return (
-                  <Link
+                  <DenseLink
                     key={match.matchId}
                     href={route(`/matches/${match.matchId}`)}
                     className="flex items-center px-3 py-3 border-b border-border-subtle last:border-0 transition-colors hover:bg-page-background"
@@ -408,7 +409,7 @@ function CompareContent() {
                       </div>
                       <ChevronRight size={16} className="text-text-tertiary" />
                     </div>
-                  </Link>
+                  </DenseLink>
                 );
               })
             )}

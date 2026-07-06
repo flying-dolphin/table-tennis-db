@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Check, X } from "lucide-react";
-import Link from "next/link";
+import { DenseLink } from "@/components/DenseLink";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { Flag } from "@/components/Flag";
 import { clsx, type ClassValue } from "clsx";
@@ -303,7 +303,7 @@ export default function RankingsPageClient() {
                       </div>
                     </button>
                   ) : (
-                    <Link href={`/players/${player.slug}`} className="flex flex-1 items-center overflow-hidden">
+                    <DenseLink href={`/players/${player.slug}`} className="flex flex-1 items-center overflow-hidden">
                       <PlayerAvatar player={player} size="sm" />
                       <div className="ml-3 flex-1 overflow-hidden">
                         <div className="flex items-center gap-1.5">
@@ -329,7 +329,7 @@ export default function RankingsPageClient() {
                           )}
                         </div>
                       </div>
-                    </Link>
+                    </DenseLink>
                   )}
 
                   <div className="min-w-[58px] shrink-0 text-right">
@@ -379,12 +379,12 @@ export default function RankingsPageClient() {
             </div>
 
             {selectedIds.length === 2 ? (
-              <Link
+              <DenseLink
                 href={`/compare?player_a=${selectedPlayers[0].slug}&player_b=${selectedPlayers[1].slug}`}
                 className="bg-white text-brand-deep px-5 py-2 rounded-full text-body font-bold hover:bg-brand-mist active:scale-95 transition-colors shrink-0 shadow-sm"
               >
                 开始对比
-              </Link>
+              </DenseLink>
             ) : (
               <div className="w-8 h-8 rounded-full border-2 border-dashed border-white/30 flex items-center justify-center shrink-0">
                 <span className="text-micro font-bold text-white/40">2</span>

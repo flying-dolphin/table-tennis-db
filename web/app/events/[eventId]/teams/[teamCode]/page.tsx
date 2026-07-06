@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Route } from 'next';
 import { notFound } from 'next/navigation';
 import { ChevronLeft, Users } from 'lucide-react';
+import { DenseLink } from '@/components/DenseLink';
 import { Flag } from '@/components/Flag';
 import { PlayerAvatar } from '@/components/PlayerAvatar';
 import { getEventTeamRoster } from '@/lib/server/events';
@@ -107,9 +108,9 @@ export default async function TeamRosterPage({
                 );
 
                 return player.slug ? (
-                  <Link key={`${player.playerId ?? player.name}-${index}`} href={route(`/players/${player.slug}`)}>
+                  <DenseLink key={`${player.playerId ?? player.name}-${index}`} href={route(`/players/${player.slug}`)}>
                     {content}
-                  </Link>
+                  </DenseLink>
                 ) : (
                   <div key={`${player.playerId ?? player.name}-${index}`}>{content}</div>
                 );

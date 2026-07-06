@@ -7,6 +7,7 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { DenseLink } from "@/components/DenseLink";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { Flag } from "@/components/Flag";
 import { getVisibleSideAvatarPlayers } from "@/lib/match-side-avatars";
@@ -561,9 +562,9 @@ function SideCard({ side, hasResult }: { side: MatchSide; hasResult: boolean }) 
           }
 
           return (
-            <Link key={player.slug} href={route(`/players/${player.slug}`)}>
+            <DenseLink key={player.slug} href={route(`/players/${player.slug}`)}>
               {content}
-            </Link>
+            </DenseLink>
           );
         })}
       </div>
@@ -698,13 +699,13 @@ function SinglesComparePanel({ playerA, playerB }: { playerA: MatchPlayer; playe
             <h2 className="text-body font-bold text-text-primary">历史交手</h2>
           </div>
           {summary.totalMatches >= 2 ? (
-            <Link
+            <DenseLink
               href={route(`/compare?player_a=${playerA.slug}&player_b=${playerB.slug}`)}
               className="flex items-center gap-0.5 text-caption font-bold text-brand-strong"
             >
               更多
               <ChevronRight size={14} />
-            </Link>
+            </DenseLink>
           ) : null}
         </div>
 
@@ -735,7 +736,7 @@ function SinglesComparePanel({ playerA, playerB }: { playerA: MatchPlayer; playe
 
         {/* 最近一次交手 */}
         {latest ? (
-          <Link
+          <DenseLink
             href={route(`/matches/${latest.matchId}`)}
             className="mt-2 flex items-center justify-between gap-3 py-2 transition-colors hover:bg-brand-mist/30"
           >
@@ -749,7 +750,7 @@ function SinglesComparePanel({ playerA, playerB }: { playerA: MatchPlayer; playe
               <span className="font-numeric text-body-lg font-black text-text-primary tabular-nums">{latest.matchScore || "-"}</span>
               <ChevronRight size={16} className="text-text-tertiary" />
             </div>
-          </Link>
+          </DenseLink>
         ) : (
           <p className="mt-5 rounded-md bg-surface-secondary px-3 py-3 text-center text-caption font-bold text-text-tertiary">暂无历史交手记录</p>
         )}
