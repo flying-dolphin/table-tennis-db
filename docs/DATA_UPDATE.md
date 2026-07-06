@@ -64,19 +64,18 @@ profile 抓取阶段只写 JSON、头像和 checkpoint，不直接写 `player_pr
 ```bash
 python scripts/run_ranking_profile.py \
   --cdp-port 9223 \
-  --cdp-only \
-  --resume
+  --cdp-only
 ```
 
 常用参数：
 
 - `--top 1000`：抓取排名数量，默认 1000。
 - `--category women|men`：默认 `women`。
-- `--resume`：复用已完成的 weekly ranking 和 results snapshot，继续 profile 抓取。
-- `--force`：忽略 checkpoint 和已有产物，重新抓取。
+- `--resume`：中断后续跑，复用本轮已完成的 weekly ranking 和 results snapshot，继续 profile 抓取。
+- `--force`：忽略 checkpoint 和已有产物，重新抓取。`--force` 优先级高于 `--resume`。
 - `--ranking-only`：只抓 ranking，不刷新 profiles。
 
-中断后继续运行同一命令即可：
+中断后在原命令上追加 `--resume` 续跑：
 
 ```bash
 python scripts/run_ranking_profile.py \

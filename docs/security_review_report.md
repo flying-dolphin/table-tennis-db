@@ -23,6 +23,27 @@ nginx (`/etc/nginx/conf.d/data.xiaodoubao.site.conf`)，Docker 部署的 Next.js
 
 ---
 
+## 处理进度总览（2026-07-06）
+
+| 步骤 | 内容 | 状态 |
+|---|---|---|
+| 1 | 【H4】`.env` 改 `TRUSTED_PROXY_IP_HEADER=x-real-ip`，堵限流绕过 | ✅ 已完成 |
+| 2a | 【H1】阿里云安全组只放行 22/80/443 | ✅ 已完成 |
+| 2b | 【H1】关闭 rpcbind(111) | ✅ 已完成 |
+| 2c | 【H1】8080 Flask 站绑回 127.0.0.1（公网层已被 2a 挡住，此项为纵深加固） | ✅ 已完成 |
+| 2d | 【H1】firewalld 兜底 | ➖ 不适用（firewalld 未运行，以阿里云安全组为准） |
+| 3 | 【H2】nginx 边缘限流 `limit_req`/`limit_conn` + `server_tokens off` | ✅ 已完成 |
+| 4a | 【H3】部署防爬代码（robots.ts / 去指纹 X-Powered-By） | ✅ 已完成 |
+| 4b | 【H3】（可选）套 Cloudflare 免费版：CC 防护 / Bot 管理 / 隐藏源站 | ⬜ 待处理 |
+| 5 | 【M1】fail2ban + 核对 sshd 策略 | ⬜ 待处理 |
+| 6 | 【M2】清理备份、防磁盘写满 | ⬜ 待处理 |
+| L | 低危加固（server_tokens/http2/静态卸载等） | ⬜ 待处理 |
+
+> 已完成 1、2a/2b/2c、3、4a：最紧急的在线限流绕过漏洞、主机公网暴露面、nginx 边缘限流、
+> 防爬代码均已上线。剩余为可选的 Cloudflare（4b）、fail2ban（5）、备份清理（6）与低危加固（L）。
+
+---
+
 ## 高危 (High)
 
 ### H1 — 主机暴露面：rpcbind(111) 与 8080 监听全网卡
@@ -44,18 +65,14 @@ LISTEN 127.0.0.1:6379  redis (仅本地，OK)
 - `8080` 把第二个站点直接裸暴露，绕过了 443 的 TLS 与安全头。
 
 **修复**：
-1. 确认阿里云 **安全组** 只放行 22 / 80 / 443，其余端口一律 `deny`（这是最省事、对弱机零开销的第一道防线）。
-2. 关闭不需要的 rpcbind：
-   ```bash
-   sudo systemctl disable --now rpcbind.socket rpcbind.service
-   ```
-3. 8080 站点若需公网访问，应改为 127.0.0.1 监听 + 走 443 反代；若仅内部用，绑回 `127.0.0.1`。
-4. 主机防火墙兜底（即使有安全组也建议加）：
-   ```bash
-   sudo firewall-cmd --permanent --add-service=http --add-service=https --add-service=ssh
-   sudo firewall-cmd --permanent --remove-service=rpc-bind 2>/dev/null
-   sudo firewall-cmd --reload
-   ```
+1. ✅ 阿里云 **安全组** 已只放行 22 / 80 / 443，其余端口一律 `deny`（对弱机零开销的第一道防线）。
+2. ✅ 已关闭 rpcbind：`sudo systemctl disable --now rpcbind.socket rpcbind.service`。
+3. ✅ **8080 站点**：经排查是一个 **Flask 应用**（`Server: Werkzeug/3.0.4 Python/3.12.5`，
+   `/root/.conda/envs/web/bin/python app.py`，以 **root** 运行），即 `xiaodoubao.site` /
+   `xiaodoubao.club` 背后的站，nginx 已在 443 反代到 `localhost:8080`。
+   已绑回 `127.0.0.1`（2a 安全组也已封 8080，双重保险）。
+4. ➖ 主机 firewalld **未运行**，以阿里云安全组作为唯一防火墙即可，无需再起 firewalld
+   （若日后要本机兜底可再启用，但对当前单机无必要）。
 
 ### H2 — nginx 边缘无限流，弱服务器无洪水缓冲
 
@@ -181,13 +198,136 @@ location /api/v1/auth/ {
 }
 ```
 
-`robots.txt`（新建 `web/app/robots.ts`）：
+`robots.txt`（已落地 `web/app/robots.ts`）：
 ```ts
 import type { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: '*', allow: '/', disallow: ['/api/'] }],
-    sitemap: 'https://data.xiaodoubao.site/sitemap.xml',
+    rules: [{ userAgent: '*', allow: '/', disallow: ['/api/', '/monitoring'] }],
   };
 }
 ```
+
+---
+
+## 修复操作步骤（含进度标记）
+
+> 图例：✅ 已完成　⬜ 待处理　➖ 不适用
+
+### 已落地的代码改动（随下次部署生效）
+
+| 文件 | 改动 |
+|---|---|
+| `web/app/robots.ts`（新增） | 声明禁止爬 `/api/`、`/monitoring` |
+| `web/next.config.ts` | `poweredByHeader: false`，去掉 `X-Powered-By` 指纹 |
+| `deploy/web/nginx.conf.example` | 加入 `limit_req`/`limit_conn`、`server_tokens off` 说明、真实 IP 处理、去掉伪造 XFF 透传 |
+
+这三个改动要随镜像重新构建推送后才生效（见步骤 4）。
+
+### ✅ 步骤 1 — 堵住限流绕过漏洞（H4）
+
+已在线上 `.env` 将 `TRUSTED_PROXY_IP_HEADER` 改为 `x-real-ip`（`TRUST_PROXY_HEADERS=true` 不变），
+并 `docker compose ... up -d` 生效。配合 nginx `proxy_set_header X-Real-IP $remote_addr;`（已有），
+应用信任的是不可伪造的真实连接 IP。
+
+### 步骤 2 — 收缩主机暴露面（H1）
+
+- ✅ **2a 阿里云安全组**：入方向只保留 22（建议限来源 IP）、80、443；已删除 111/8080/3000/3001 等。
+- ✅ **2b 关闭 rpcbind**：`sudo systemctl disable --now rpcbind.socket rpcbind.service`。
+- ✅ **2c 8080 Flask 站绑回 127.0.0.1**（纵深加固，公网层已由 2a 关闭）：已把 `app.run` 的
+  `host` 改为 `127.0.0.1` 并重启；`ss -tlnp | grep 8080` 现为 `127.0.0.1:8080`，站点访问正常。操作参考：
+  ```bash
+  # 1) 定位 app.py 的工作目录与文件（进程以 root 运行，需 sudo）
+  sudo ls -l /proc/174357/cwd          # PID 见 `ps aux | grep app.py`，指向 app.py 所在目录
+  # 2) 编辑 app.py，把监听地址从 0.0.0.0 改成 127.0.0.1：
+  #      app.run(host='127.0.0.1', port=8080)   # 原来多半是 host='0.0.0.0'
+  #    nginx 反代用的是 http://localhost:8080，改后照常工作。
+  # 3) 重启该服务（取决于它怎么启动的：systemd / pm2 / screen / nohup）
+  #      如是 systemd： sudo systemctl restart <服务名>
+  #      如是裸进程： sudo kill 174357 后按原方式重新拉起
+  # 4) 验证：ss -tlnp | grep 8080 应显示 127.0.0.1:8080；curl https://xiaodoubao.site 仍正常
+  ```
+  > 附注（另一层隐患，非本次范围）：该 Flask 站是 **Werkzeug 开发服务器**且**以 root 运行**。
+  > 长期建议改用 gunicorn/uwsgi 生产服务器 + 非 root 用户运行，降低单点被攻破后的影响面。
+- ➖ **2d firewalld 兜底**：firewalld 未运行，以阿里云安全组为唯一防火墙即可，无需启用。
+
+### ✅ 步骤 3 — nginx 边缘限流（H2）
+
+**3a.** 在 `/etc/nginx/nginx.conf` 的 `http {` 块**顶部**（务必先于 `include /etc/nginx/conf.d/*.conf;`）加入：
+```nginx
+server_tokens off;
+limit_req_zone  $binary_remote_addr zone=api_limit:10m  rate=20r/s;
+limit_req_zone  $binary_remote_addr zone=auth_limit:10m rate=5r/m;
+limit_conn_zone $binary_remote_addr zone=conn_limit:10m;
+```
+> ⚠️ 踩坑记录：这三行 `*_zone` **必须**定义在 `http {}` 里。若只改了站点 `.conf` 而漏了这步，
+> `nginx -t` 会报 `[emerg] zero size shared memory zone "conn_limit"`（引用了未定义的区）。
+
+**3b.** 站点 `/etc/nginx/conf.d/data.xiaodoubao.site.conf` 已更新为成品版（与 `deploy/web/nginx.conf.example`
+一致）：`location /` 加 `limit_req zone=api_limit burst=50 nodelay;`；新增 `location /api/v1/auth/`
+（`burst=5`）；`/images/`、`/_next/static/`、`/static/` **豁免限流**（避免一个页面几十张头像/chunk 误伤 429）；
+`X-Forwarded-For` 改为 `$remote_addr;`；`listen 443 ssl http2;`（nginx 1.20.1 用 listen 上的 `http2` 参数，
+不能用 `http2 on;`）；`proxy_read_timeout` 收到 60s。
+
+**3c.** 校验并热加载：`sudo nginx -t && sudo systemctl reload nginx`。
+
+**3d. 压测验证限流是否生效**：
+
+限流按**速率**触发，串行 `for` 循环 curl 太慢（每次请求走完才发下一个），50 次刚好落在 burst=50 桶内，
+所以**会全是 200 —— 这不代表没生效**。必须**并发**打、且总数明显超过 burst：
+```bash
+# 300 个请求 / 50 并发，统计各状态码数量
+seq 1 300 | xargs -P 50 -I{} curl -s -o /dev/null -w "%{http_code}\n" \
+  https://data.xiaodoubao.site/api/v1/rankings | sort | uniq -c
+# 预期：约 50 个 200（填满 burst 桶）+ 其余 429
+```
+若并发压测仍全是 200，才是配置问题，按序排查：
+```bash
+sudo nginx -T 2>/dev/null | grep -E "limit_req_zone|limit_req "   # 确认 zone 定义与 location 引用都在
+sudo tail -f /var/log/nginx/error.log                            # 并发压时应刷出 limiting requests, zone "api_limit"
+```
+验证 HTTP/2：`curl -sI --http2 https://data.xiaodoubao.site/ | grep -i "^HTTP"`。
+
+### 步骤 4 — 部署防爬代码 + 可选 Cloudflare（H3）
+
+**✅ 4a. 部署已改代码**（robots.ts / poweredByHeader）：已构建推送镜像并在服务器 pull + up -d，
+`curl -s https://data.xiaodoubao.site/robots.txt` 已返回 `Disallow: /api/`、响应头不再有 `X-Powered-By`。
+参考命令：
+```bash
+# 开发机
+cd ~/projects/ittf && bash deploy/web/build-and-push.sh
+# 服务器
+docker compose -f ~/doubao_tt/deploy/web/docker-compose.yml --env-file ~/doubao_tt/deploy/web/.env pull web
+docker compose -f ~/doubao_tt/deploy/web/docker-compose.yml --env-file ~/doubao_tt/deploy/web/.env up -d
+curl -s https://data.xiaodoubao.site/robots.txt   # 应出现 Disallow: /api/
+```
+**⬜ 4b.（强烈建议）套 Cloudflare 免费版**：NS 指向 CF、`data` 记录开橙云；缓存 `/_next/static/`、`/static/`、头像；
+回源改回 `TRUSTED_PROXY_IP_HEADER=cf-connecting-ip` + nginx realip 模块还原真实 IP + 安全组只放行 CF 回源 IP；
+用 CF Rate Limiting / Bot Fight Mode 对 `/api/` 加规则。
+
+### ⬜ 步骤 5 — 暴力破解防护（M1）
+
+```bash
+sudo dnf install -y fail2ban
+sudo systemctl enable --now fail2ban
+sudo fail2ban-client status sshd
+```
+核对 `/etc/ssh/sshd_config`：`PasswordAuthentication no`、`PermitRootLogin no`
+（改后 `sudo systemctl reload sshd`，务必先确认密钥登录可用，别把自己锁在外面）。
+
+### ⬜ 步骤 6 — 清理备份、防磁盘写满（M2）
+
+```bash
+cd ~/doubao_tt/data/db/backups && ls -lt        # 先看
+rm -f ittf-before-*20260617* ittf-before-*20260626* ittf-before-*20260627* ittf.db ittf.db-shm ittf.db-wal
+df -h /                                          # 确认释放
+```
+长期：把备份定期 `ossutil cp` 到阿里云 OSS 后删本地，或给 `before-*` 也加保留上限。
+
+### ⬜ 低危加固清单（L）
+
+- L1/L2：`poweredByHeader:false`（已改代码）+ `server_tokens off`（步骤 3a）。
+- L3：`grep TLSv1 /etc/letsencrypt/options-ssl-nginx.conf` 确认无 `TLSv1 TLSv1.1`。
+- L4：nginx 443 开 `http2 on;`。
+- L5：静态/头像用 nginx `alias` 宿主卷或 `proxy_cache`，把流量从 Node 卸载。
+- L6：生产 `location /` 去掉 `Upgrade`/`Connection "upgrade"` 两行。
