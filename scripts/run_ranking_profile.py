@@ -74,7 +74,7 @@ def run(args: argparse.Namespace) -> int:
 
     weekly_before = _file_set(weekly_output_dir, f"women_singles_top{args.top}_week*.json")
     weekly_file = None
-    resume = bool(getattr(args, "resume", False))
+    resume = bool(getattr(args, "resume", False)) and not args.force
     if resume:
         weekly_file = latest_ranking_file(weekly_output_dir, top=args.top)
         if weekly_file is not None:
@@ -89,7 +89,7 @@ def run(args: argparse.Namespace) -> int:
             slow_mo=args.slow_mo,
             output_dir=str(weekly_output_dir),
             checkpoint=args.weekly_checkpoint,
-            force=False,
+            force=args.force,
             rebuild_checkpoint=False,
         )
         rc = run_weekly_wp(weekly_args)
@@ -114,7 +114,7 @@ def run(args: argparse.Namespace) -> int:
         profile_dir=args.profile_dir,
         avatar_dir=args.avatar_dir,
         ranking_only=args.ranking_only,
-        force=False,
+        force=args.force or not resume,
         resume=resume,
         init_session=False,
         headless=args.headless,
@@ -177,6 +177,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--avatar-dir", default="data/player_avatars")
     parser.add_argument("--ranking-only", action="store_true", help="Skip profile refresh after results ranking scrape")
     parser.add_argument("--resume", action="store_true", help="Reuse completed ranking snapshots and continue profile refresh")
+    parser.add_argument("--force", action="store_true", help="Ignore checkpoints and existing products; start a fresh scrape")
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--slow-mo", type=int, default=100)
     parser.add_argument("--cdp-port", type=int, default=9222)

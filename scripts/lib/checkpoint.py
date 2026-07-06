@@ -87,6 +87,7 @@ class CheckpointStore:
         }
         if meta:
             payload["meta"] = meta
+        self.data.get("completed", {}).pop(key, None)
         self.data.setdefault("failed", {})[key] = {
             **payload,
         }

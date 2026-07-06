@@ -920,9 +920,9 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
               }
 
               return (
-                <Link key={opponent.slug} href={route(`/compare?player_a=${slug}&player_b=${opponent.slug}`)} className="block">
+                <DenseLink key={opponent.slug} href={route(`/compare?player_a=${slug}&player_b=${opponent.slug}`)} className="block">
                   {content}
-                </Link>
+                </DenseLink>
               );
             })}
           </div>
