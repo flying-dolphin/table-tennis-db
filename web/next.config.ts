@@ -57,6 +57,8 @@ const nextConfig: NextConfig = {
   // standalone 输出：Next.js 通过 output file tracing 只把运行时真正用到的
   // 依赖打进 .next/standalone/，避免把整个 node_modules（含 dev 依赖）塞进镜像
   output: 'standalone',
+  // 不返回 X-Powered-By: Next.js，少暴露技术栈指纹
+  poweredByHeader: false,
   experimental: {
     typedRoutes: true,
   },
