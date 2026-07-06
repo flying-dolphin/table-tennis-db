@@ -277,6 +277,105 @@ type EventChampion = {
 
 type ChampionPlayer = EventChampion['players'][number];
 
+function championCountryFromPlayers(players: Array<{ countryCode: string | null }>) {
+  const countries = Array.from(new Set(players.map((player) => player.countryCode).filter(Boolean)));
+  return countries.length === 1 ? countries[0] : null;
+}
+
+function loadCurrentFinalChampions(eventId: number): Map<string, EventChampion> {
+  const rows = db
+    .prepare(
+      `
+        SELECT
+          m.sub_event_type_code AS subEventCode,
+          m.current_match_id AS currentMatchId,
+          m.winner_name AS winnerName,
+          msp.player_order AS playerOrder,
+          msp.player_id AS playerId,
+          msp.player_name AS playerName,
+          msp.player_country AS playerCountry,
+          p.slug,
+          p.name_zh AS playerNameZh,
+          p.country_code AS playerCountryCode,
+          REPLACE(REPLACE(p.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+        FROM current_event_matches m
+        JOIN current_event_match_sides ms
+          ON ms.current_match_id = m.current_match_id
+          AND ms.side_no = CASE m.winner_side WHEN 'A' THEN 1 WHEN 'B' THEN 2 END
+        JOIN current_event_match_side_players msp ON msp.current_match_side_id = ms.current_match_side_id
+        LEFT JOIN players p ON p.player_id = msp.player_id
+        WHERE m.event_id = ?
+          AND m.status IN ('completed', 'walkover')
+          AND m.winner_side IN ('A', 'B')
+          AND (
+            m.round_code IN ('F', 'Final', 'FNL', 'FNL-')
+            OR m.round_label IN ('F', 'Final', 'FNL', 'FNL-')
+            OR m.round_label LIKE '%Final%'
+            OR m.round_label LIKE '%决赛%'
+          )
+        ORDER BY m.sub_event_type_code ASC, m.current_match_id DESC, msp.player_order ASC
+      `,
+    )
+    .all(eventId) as Array<{
+    subEventCode: string;
+    currentMatchId: number;
+    winnerName: string | null;
+    playerOrder: number;
+    playerId: number | null;
+    playerName: string;
+    playerCountry: string | null;
+    slug: string | null;
+    playerNameZh: string | null;
+    playerCountryCode: string | null;
+    avatarFile: string | null;
+  }>;
+
+  const bySubEvent = new Map<string, { currentMatchId: number; winnerName: string | null; players: ChampionPlayer[] }>();
+
+  for (const row of rows) {
+    const current = bySubEvent.get(row.subEventCode);
+    if (current && current.currentMatchId !== row.currentMatchId) continue;
+
+    const playerId = row.playerId;
+    const slug = row.slug ?? (playerId != null ? String(playerId) : null);
+    if (playerId == null || !slug) continue;
+
+    const next =
+      current ??
+      {
+        currentMatchId: row.currentMatchId,
+        winnerName: row.winnerName,
+        players: [] as ChampionPlayer[],
+      };
+    next.players.push({
+      playerId,
+      slug,
+      name: row.playerName,
+      nameZh: row.playerNameZh,
+      countryCode: row.playerCountryCode ?? row.playerCountry,
+      avatarFile: filterAvatarFile(row.avatarFile),
+    });
+    bySubEvent.set(row.subEventCode, next);
+  }
+
+  return new Map(
+    Array.from(bySubEvent.entries()).map(([subEventCode, champion]) => {
+      const championName =
+        champion.players.length > 0
+          ? champion.players.map((player) => player.name).join(',')
+          : champion.winnerName;
+      return [
+        subEventCode,
+        {
+          championName,
+          championCountryCode: championCountryFromPlayers(champion.players),
+          players: champion.players,
+        },
+      ];
+    }),
+  );
+}
+
 type EventBracketRound = {
   code: string;
   drawCode?: string | null;
@@ -1449,6 +1548,7 @@ type TeamKnockoutEventOverride = {
 type ManualEventOverride = RoundRobinEventOverride | TeamKnockoutEventOverride;
 
 type EventPresentationMode = 'knockout' | 'staged_round_robin' | 'team_knockout_with_bronze';
+type EventDisplayStatus = 'upcoming' | 'in_progress' | 'finished_pending_promotion' | 'completed';
 
 type EventListRow = {
   eventId: number;
@@ -1467,9 +1567,46 @@ type EventListRow = {
   endDate: string | null;
   location: string | null;
   lifecycleStatus: string | null;
+  timeZone: string | null;
   drawMatches: number;
   importedMatches: number;
+  matchCount: number;
+  displayStatus: EventDisplayStatus;
 };
+
+function localDateInTimeZone(timeZone: string | null | undefined, date = new Date()) {
+  const resolvedTimeZone = timeZone?.trim() || 'UTC';
+  try {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: resolvedTimeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).formatToParts(date);
+    const values = new Map(parts.map((part) => [part.type, part.value]));
+    const year = values.get('year');
+    const month = values.get('month');
+    const day = values.get('day');
+    if (year && month && day) return `${year}-${month}-${day}`;
+  } catch {
+    // Fall through to UTC when legacy rows do not have a valid IANA zone.
+  }
+  return date.toISOString().slice(0, 10);
+}
+
+function eventDisplayStatus(event: {
+  lifecycleStatus: string | null;
+  startDate: string | null;
+  endDate: string | null;
+  timeZone: string | null;
+}) {
+  if (event.lifecycleStatus === 'completed') return 'completed' satisfies EventDisplayStatus;
+
+  const today = localDateInTimeZone(event.timeZone);
+  if (event.startDate && today < event.startDate) return 'upcoming' satisfies EventDisplayStatus;
+  if (event.endDate && today > event.endDate) return 'finished_pending_promotion' satisfies EventDisplayStatus;
+  return 'in_progress' satisfies EventDisplayStatus;
+}
 
 function readManualEventOverride(eventId: number): ManualEventOverride | null {
   const file = path.join(process.cwd(), 'data', 'manual_event_overrides', `${eventId}.json`);
@@ -4293,6 +4430,7 @@ export function getEvents(options?: {
     `(
       EXISTS (SELECT 1 FROM matches m WHERE m.event_id = e.event_id)
       OR EXISTS (SELECT 1 FROM team_ties tt WHERE tt.event_id = e.event_id)
+      OR EXISTS (SELECT 1 FROM current_event_matches cm WHERE cm.event_id = e.event_id)
       OR EXISTS (SELECT 1 FROM current_event_team_ties ctt WHERE ctt.event_id = e.event_id)
       OR EXISTS (SELECT 1 FROM current_event_session_schedule cess WHERE cess.event_id = e.event_id)
     )`
@@ -4335,16 +4473,27 @@ export function getEvents(options?: {
           e.end_date AS endDate,
           e.location,
           e.lifecycle_status AS lifecycleStatus,
-          (
-            SELECT COUNT(*)
-            FROM event_draw_matches edm
-            WHERE edm.event_id = e.event_id
+          e.time_zone AS timeZone,
+          COALESCE(
+            NULLIF((SELECT COUNT(*) FROM event_draw_matches edm WHERE edm.event_id = e.event_id), 0),
+            (SELECT COUNT(*) FROM current_event_brackets ceb WHERE ceb.event_id = e.event_id),
+            0
           ) AS drawMatches,
-          (
-            SELECT COUNT(*)
-            FROM matches m
-            WHERE m.event_id = e.event_id
-          ) AS importedMatches
+          COALESCE(
+            NULLIF((SELECT COUNT(*) FROM matches m WHERE m.event_id = e.event_id), 0),
+            NULLIF((SELECT COUNT(*) FROM current_event_matches cm WHERE cm.event_id = e.event_id), 0),
+            NULLIF((SELECT COUNT(*) FROM team_ties tt WHERE tt.event_id = e.event_id), 0),
+            NULLIF((SELECT COUNT(*) FROM current_event_team_ties ctt WHERE ctt.event_id = e.event_id), 0),
+            0
+          ) AS importedMatches,
+          COALESCE(
+            NULLIF((SELECT COUNT(*) FROM matches m WHERE m.event_id = e.event_id), 0),
+            NULLIF((SELECT COUNT(*) FROM current_event_matches cm WHERE cm.event_id = e.event_id), 0),
+            NULLIF((SELECT COUNT(*) FROM team_ties tt WHERE tt.event_id = e.event_id), 0),
+            NULLIF((SELECT COUNT(*) FROM current_event_team_ties ctt WHERE ctt.event_id = e.event_id), 0),
+            e.total_matches,
+            0
+          ) AS matchCount
         FROM events e
         LEFT JOIN event_categories ec ON ec.id = e.event_category_id
         WHERE ${whereClause}
@@ -4365,6 +4514,7 @@ export function getEvents(options?: {
             : null;
     return {
       ...event,
+      displayStatus: eventDisplayStatus(event),
       presentationMode,
       hasPresentation: presentationMode != null,
     };
@@ -4552,10 +4702,15 @@ export function getEventDetail(
     if (bIdx >= 0) return 1;
     return a.localeCompare(b);
   });
+  const currentFinalChampionMap =
+    useCurrentEventModel && event.lifecycleStatus !== 'completed'
+      ? loadCurrentFinalChampions(eventId)
+      : new Map<string, EventChampion>();
 
   const subEvents = orderedCodes
     .map((code) => {
       const record = existingMap.get(code);
+      const currentFinalChampion = currentFinalChampionMap.get(code) ?? null;
       const drawMatches = drawCountMap.get(code) ?? 0;
       const importedMatches = matchCountMap.get(code) ?? 0;
       const scheduleMatches = scheduleCountMap.get(code) ?? 0;
@@ -4570,6 +4725,13 @@ export function getEventDetail(
         ? loadTeamChampionPlayers(eventId, code, record?.championCountryCode ?? null)
         : [];
       const players = teamPlayers.length > 0 ? teamPlayers : fallbackPlayers;
+      const importedChampion = hasChampion
+        ? {
+            championName: record?.championName ?? null,
+            championCountryCode: record?.championCountryCode ?? null,
+            players,
+          }
+        : null;
 
       return {
         code,
@@ -4579,14 +4741,7 @@ export function getEventDetail(
         drawMatches,
         importedMatches,
         scheduleMatches,
-        champion:
-          hasChampion
-            ? {
-                championName: record?.championName ?? null,
-                championCountryCode: record?.championCountryCode ?? null,
-                players,
-              }
-            : null,
+        champion: currentFinalChampion ?? importedChampion,
       };
     })
     .filter((item): item is NonNullable<typeof item> => item !== null);

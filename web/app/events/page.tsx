@@ -41,9 +41,11 @@ type EventListItem = {
   endDate: string | null;
   location: string | null;
   lifecycleStatus: string | null;
+  displayStatus: "upcoming" | "in_progress" | "finished_pending_promotion" | "completed";
   drawMatches: number;
   importedMatches: number;
-  presentationMode: "knockout" | "staged_round_robin" | null;
+  matchCount: number;
+  presentationMode: "knockout" | "staged_round_robin" | "team_knockout_with_bronze" | null;
   hasPresentation: boolean;
 };
 
@@ -188,10 +190,6 @@ function EventsPageContent() {
   const historyKeyRef = React.useRef<string | null>(null);
   const restoredFromSnapshotRef = React.useRef(false);
   const loadedQuerySignatureRef = React.useRef<string | null>(null);
-
-  const todayStr = React.useMemo(() => {
-    return new Date().toISOString().split("T")[0];
-  }, []);
 
   const persistSnapshot = React.useCallback(() => {
     const currentSignature = buildQuerySignature({
@@ -489,24 +487,9 @@ function EventsPageContent() {
             </div>
            ) : (
              <div>
-               {(() => {
-                 let hasMetFinished = false;
-
-                 return events.map((event) => {
+               {events.map((event) => {
                    const category = getEventCategory(event);
-                   
-                   // 判断当前赛事是否已结束
-                   const isFinished = event.lifecycleStatus === "completed" || (event.endDate && event.endDate < todayStr);
-                   
-                   // 如果之前还没遇到过结束的赛事，且当前赛事也没结束，则视为进行中
-                   // 一旦遇到过结束的赛事，后续所有赛事都不再显示“进行中”
-                   const isOngoing = !hasMetFinished && !isFinished && 
-                                   (event.lifecycleStatus === "in_progress" || 
-                                   (event.startDate && event.startDate <= todayStr));
-                   
-                   if (isFinished) {
-                     hasMetFinished = true;
-                   }
+                   const isOngoing = event.displayStatus === "in_progress";
 
                   return (
                     <Link
@@ -545,7 +528,7 @@ function EventsPageContent() {
                         ) : (
                           <div className="flex flex-col items-end">
                             <span className="text-body-lg font-bold tabular-nums text-text-primary">
-                              {event.importedMatches || event.totalMatches || 0}
+                              {event.matchCount}
                             </span>
                             <span className="text-micro text-text-tertiary">场</span>
                           </div>
@@ -553,8 +536,7 @@ function EventsPageContent() {
                       </div>
                     </Link>
                   );
-                });
-              })()}
+                })}
                <div ref={loadMoreRef} className="py-4 text-center">                {loadingMore ? (
                   <span className="text-body text-text-tertiary">加载中...</span>
                 ) : !hasMore ? (

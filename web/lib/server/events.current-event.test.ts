@@ -3,7 +3,8 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const { getEventDetail, getMatchDetail } = require('./events.ts');
+const { db } = require('./db.ts');
+const { getEventDetail, getEvents, getMatchDetail } = require('./events.ts');
 
 test('current individual bracket uses player names from WTT bracket payload', () => {
   const detail = getEventDetail(3242, 'MS');
@@ -102,6 +103,103 @@ test('current individual bracket links completed matches to current match detail
 
   assert.ok(shaoMeshref, 'expected SHAO Jieni vs MESHREF Dina bracket match');
   assert.equal(shaoMeshref.scheduleMatchId, 'cm:1320');
+});
+
+test('current event champion is inferred from a completed final before sub_events exists', () => {
+  const eventId = 990001;
+  const currentMatchId = 990001;
+
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO events (
+        event_id, year, name, name_zh, total_matches, start_date, end_date,
+        lifecycle_status, time_zone
+      ) VALUES (?, 2026, 'Current Champion Fixture', '当前冠军测试赛事', 1, '2026-07-01', '2026-07-02',
+        'in_progress', 'America/New_York')
+    `).run(eventId);
+
+    db.prepare(`
+      INSERT INTO current_event_matches (
+        current_match_id, event_id, sub_event_type_code, stage_label, stage_code,
+        round_label, round_code, external_match_code, status, match_score,
+        winner_side, winner_name
+      ) VALUES (?, ?, 'WS', 'Main Draw', 'MAIN', 'FNL', 'F', 'FIXTURE-WS-F', 'completed',
+        '4-2', 'A', 'SUN Yingsha')
+    `).run(currentMatchId, eventId);
+
+    const sideA = db.prepare(`
+      INSERT INTO current_event_match_sides (current_match_id, side_no, is_winner)
+      VALUES (?, 1, 1)
+    `).run(currentMatchId).lastInsertRowid;
+    const sideB = db.prepare(`
+      INSERT INTO current_event_match_sides (current_match_id, side_no, is_winner)
+      VALUES (?, 2, 0)
+    `).run(currentMatchId).lastInsertRowid;
+
+    db.prepare(`
+      INSERT INTO current_event_match_side_players (
+        current_match_side_id, player_order, player_id, player_name, player_country
+      ) VALUES (?, 1, 131163, 'SUN Yingsha', 'CHN')
+    `).run(sideA);
+    db.prepare(`
+      INSERT INTO current_event_match_side_players (
+        current_match_side_id, player_order, player_id, player_name, player_country
+      ) VALUES (?, 1, 135049, 'KUAI Man', 'CHN')
+    `).run(sideB);
+
+    const detail = getEventDetail(eventId, 'WS');
+    assert.equal(detail.subEvents[0].champion.championName, 'SUN Yingsha');
+    assert.equal(detail.subEvents[0].champion.championCountryCode, 'CHN');
+    assert.deepEqual(
+      detail.subEvents[0].champion.players.map((player) => ({
+        playerId: player.playerId,
+        name: player.name,
+        nameZh: player.nameZh,
+        countryCode: player.countryCode,
+      })),
+      [{ playerId: 131163, name: 'SUN Yingsha', nameZh: '孙颖莎', countryCode: 'CHN' }],
+    );
+    assert.equal(detail.subEventDetails[0].champion.championName, 'SUN Yingsha');
+
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
+});
+
+test('event list counts current matches for finished current events before promotion', () => {
+  const eventId = 990002;
+
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO events (
+        event_id, year, name, name_zh, total_matches, start_date, end_date,
+        lifecycle_status, time_zone
+      ) VALUES (?, 2026, 'Finished Current Fixture', '已完赛未归档测试赛事', 0, '2026-07-01', '2026-07-02',
+        'in_progress', 'America/New_York')
+    `).run(eventId);
+
+    db.prepare(`
+      INSERT INTO current_event_matches (
+        event_id, sub_event_type_code, stage_label, stage_code, round_label, round_code,
+        external_match_code, status, match_score, winner_side, winner_name
+      ) VALUES
+        (?, 'WS', 'Main Draw', 'MAIN', 'FNL', 'F', 'FIXTURE-LIST-WS-F', 'completed', '4-2', 'A', 'SUN Yingsha'),
+        (?, 'MS', 'Main Draw', 'MAIN', 'FNL', 'F', 'FIXTURE-LIST-MS-F', 'completed', '4-1', 'B', 'MATSUSHIMA Sora')
+    `).run(eventId, eventId);
+
+    const result = getEvents({ year: 2026, limit: 100, ageGroup: 'all' });
+    const event = result.events.find((item) => item.eventId === eventId);
+
+    assert.ok(event, 'expected fixture event in list');
+    assert.equal(event.matchCount, 2);
+    assert.equal(event.importedMatches, 2);
+    assert.equal(event.displayStatus, 'finished_pending_promotion');
+
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
 });
 
 test('current match detail parses comma-separated game scores', () => {
