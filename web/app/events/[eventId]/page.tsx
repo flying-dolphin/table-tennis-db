@@ -938,6 +938,7 @@ function ChampionBanner({
                   alt=""
                   width={14}
                   height={36}
+                  unoptimized
                   className="h-5 w-auto shrink-0 opacity-85"
                 />
               ) : null}
@@ -948,6 +949,7 @@ function ChampionBanner({
                   alt=""
                   width={14}
                   height={36}
+                  unoptimized
                   className="h-5 w-auto shrink-0 opacity-85"
                 />
               ) : null}
@@ -966,6 +968,7 @@ function ChampionBanner({
         alt="冠军奖杯"
         width={120}
         height={140}
+        unoptimized
         className="pointer-events-none absolute bottom-0 left-2 z-20 h-auto w-[100px] drop-shadow-[0_6px_10px_rgba(144,166,201,0.25)] sm:left-3 sm:w-[116px]"
         priority
       />

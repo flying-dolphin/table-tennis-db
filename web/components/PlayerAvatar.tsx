@@ -79,6 +79,7 @@ export function PlayerAvatar({ player, size = "md", className }: PlayerAvatarPro
           width={imageSizes[size]}
           height={imageSizes[size]}
           sizes={`${imageSizes[size]}px`}
+          unoptimized
           className="w-full h-full object-cover"
           onError={handleImageError}
         />

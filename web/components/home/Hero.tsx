@@ -12,6 +12,7 @@ export default function Hero() {
           fill
           className="object-cover opacity-90"
           priority
+          unoptimized
         />
         {/* Softer gradient for better image visibility while maintaining text contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--hero-anchor))/0.8] via-black/10 to-transparent" />
@@ -35,6 +36,7 @@ export default function Hero() {
             src="/images/logo_cleanup.png"
             alt="ITTF Logo"
             fill
+            unoptimized
             className="object-contain scale-110"
           />
         </div>

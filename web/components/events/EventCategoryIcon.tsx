@@ -50,7 +50,7 @@ export function EventSeriesIcon({ category }: { category: string }) {
   if (category === "OLYMPIC") {
     return (
       <div className="relative h-7 w-7">
-        <Image src="/icons/Olympic.svg" alt="Olympics" fill className="object-contain" />
+        <Image src="/icons/Olympic.svg" alt="Olympics" fill unoptimized className="object-contain" />
       </div>
     );
   }
