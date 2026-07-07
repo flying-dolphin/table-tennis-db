@@ -31,7 +31,7 @@ from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import open_page_with_verification
 from lib.page_ops import click_next_page_if_any, guarded_goto
 from lib.dict_translator import DictTranslator
-from lib.country_codes import country_name_for_code, normalize_profile_country
+from lib.country_codes import country_name_for_code, normalize_country_name, normalize_profile_country
 
 logging.basicConfig(
     level=logging.INFO,
@@ -277,6 +277,7 @@ def scrape_player_profile(
     checkpoint: CheckpointStore | None = None,
     category: str | None = None,
     resume: bool = False,
+    country_rev_map: dict[str, str] | None = None,
 ) -> tuple[dict[str, Any] | None, bool]:
     """Scrape player profile page and save to JSON (orig only) and DB."""
     if not profile_url:
@@ -317,7 +318,7 @@ def scrape_player_profile(
         page.wait_for_load_state("networkidle", timeout=10000)
 
         # Extract profile information
-        profile_data = extract_profile_info(page, player_info, profile_url)
+        profile_data = extract_profile_info(page, player_info, profile_url, country_rev_map)
         avatar_meta = download_player_avatar(page, player_info, avatar_dir)
         if avatar_meta:
             profile_data.update(avatar_meta)
@@ -380,7 +381,7 @@ def download_player_avatar(page: Any, player_info: dict[str, Any], avatar_dir: P
         return None
 
 
-def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: str) -> dict[str, Any]:
+def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: str, country_rev_map: dict[str, str] | None = None) -> dict[str, Any]:
     """Extract detailed profile information from player page."""
     profile_data: dict[str, Any] = {
         "player_id": player_info.get("player_id"),
@@ -445,6 +446,17 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
                 country_en = first_line.strip()
                 profile_data["country"] = country_en
                 profile_data["country_en"] = country_en
+                if not profile_data.get("country_code") and country_rev_map:
+                    code = country_rev_map.get(country_en)
+                    if code:
+                        profile_data["country_code"] = code
+                    else:
+                        player_id = profile_data.get("player_id", "?")
+                        name = profile_data.get("name", "?")
+                        raise ValueError(
+                            f"Country '{country_en}' for player {player_id} ({name}) "
+                            f"not found in country_code_map"
+                        )
 
         gender_match = re.search(r'Gender:\s*(\w+)', text_content, re.IGNORECASE)
         if gender_match:
@@ -647,6 +659,15 @@ def run(args: argparse.Namespace) -> int:
         max_player_gap_sec=5.0,
     )
 
+    country_rev_map: dict[str, str] = {}
+    country_map_path = Path(__file__).resolve().parent / "data" / "country_code_map.json"
+    if country_map_path.exists():
+        raw = json.loads(country_map_path.read_text(encoding="utf-8"))
+        for code, entry in raw.items():
+            en = normalize_country_name(entry.get("country_en", ""))
+            if en:
+                country_rev_map[en] = code
+
     player_id_arg = getattr(args, "player_id", None)
     player_name_arg = getattr(args, "player_name", None)
     player_file_arg = getattr(args, "player_file", None)
@@ -700,6 +721,7 @@ def run(args: argparse.Namespace) -> int:
                     checkpoint=checkpoint,
                     category=args.category,
                     resume=bool(args.resume),
+                    country_rev_map=country_rev_map,
                 )
                 if profile_data is None:
                     logger.error("Profile scrape failed: %s", player_name_arg)
@@ -730,6 +752,7 @@ def run(args: argparse.Namespace) -> int:
                         checkpoint=checkpoint,
                         category=args.category,
                         resume=bool(args.resume),
+                        country_rev_map=country_rev_map,
                     )
                     if profile_data is None:
                         logger.error("Profile scrape failed: %s", pname)
@@ -774,6 +797,7 @@ def run(args: argparse.Namespace) -> int:
                             checkpoint=checkpoint,
                             category=args.category,
                             resume=bool(args.resume),
+                            country_rev_map=country_rev_map,
                         )
                         if profile_data is None:
                             logger.error("Profile scrape failed: %s", player.get("english_name", player.get("name")))
