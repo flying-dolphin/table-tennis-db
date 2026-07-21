@@ -40,6 +40,23 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ittf_profile_scraper")
 
+
+class IncompleteProfileError(RuntimeError):
+    """The requested page loaded, but did not contain a complete player profile."""
+
+
+def validate_scraped_profile(profile_data: dict[str, Any], expected_player_id: Any) -> None:
+    actual_player_id = profile_data.get("player_id")
+    if str(actual_player_id or "") != str(expected_player_id or ""):
+        raise IncompleteProfileError(
+            f"profile player_id mismatch: expected {expected_player_id}, got {actual_player_id}"
+        )
+
+    missing_fields = [field for field in ("gender",) if not str(profile_data.get(field) or "").strip()]
+    if missing_fields:
+        raise IncompleteProfileError(f"missing required fields: {', '.join(missing_fields)}")
+
+
 BASE_URL = "https://results.ittf.link"
 PUBLIC_RANKING_BASE = f"{BASE_URL}/index.php/ittf-rankings"
 RANKING_URLS = {
@@ -311,24 +328,31 @@ def scrape_player_profile(
             return profile_data or None, False
 
     try:
-        # Navigate to profile page
-        current_url = str(getattr(page, "url", "") or "")
-        referer = current_url if current_url.startswith(BASE_URL) else None
-        guarded_goto(
-            page,
-            profile_url,
-            delay_cfg,
-            f"open profile: {player_info.get('name', player_id)}",
-            referer=referer,
-            retries=0,
-            retry_risk_responses=False,
-        )
+        profile_data = None
+        for attempt in range(2):
+            current_url = str(getattr(page, "url", "") or "")
+            referer = current_url if current_url.startswith(BASE_URL) else None
+            guarded_goto(
+                page,
+                profile_url,
+                delay_cfg,
+                f"open profile: {player_info.get('name', player_id)}",
+                referer=referer,
+                retries=0,
+                retry_risk_responses=False,
+            )
 
-        # Wait for content to load
-        page.wait_for_load_state("networkidle", timeout=10000)
+            page.wait_for_load_state("networkidle", timeout=10000)
+            profile_data = extract_profile_info(page, player_info, profile_url, country_rev_map)
+            try:
+                validate_scraped_profile(profile_data, player_id)
+                break
+            except IncompleteProfileError:
+                if attempt == 1:
+                    raise
+                logger.warning("Incomplete profile for %s; retrying once", player_id)
 
-        # Extract profile information
-        profile_data = extract_profile_info(page, player_info, profile_url, country_rev_map)
+        assert profile_data is not None
         avatar_meta = download_player_avatar(page, player_info, avatar_dir)
         if avatar_meta:
             profile_data.update(avatar_meta)

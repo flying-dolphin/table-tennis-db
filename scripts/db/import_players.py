@@ -34,6 +34,54 @@ def slugify(name: str) -> str:
     return slug
 
 
+def validate_player_profiles(
+    player_profiles_dir: str,
+    db_path: str | None = None,
+) -> tuple[list[tuple[Path, dict]], list[str]]:
+    """Load profile JSON files and validate fields required by the players table."""
+    profiles: list[tuple[Path, dict]] = []
+    errors: list[str] = []
+    existing_country_codes: dict[str, str] = {}
+
+    if db_path and Path(db_path).is_file():
+        conn = sqlite3.connect(f"file:{Path(db_path).resolve()}?mode=ro", uri=True)
+        try:
+            existing_country_codes = {
+                str(player_id): str(country_code)
+                for player_id, country_code in conn.execute(
+                    "SELECT player_id, country_code FROM players WHERE country_code IS NOT NULL"
+                )
+            }
+        finally:
+            conn.close()
+
+    for json_file in sorted(Path(player_profiles_dir).glob('player_*.json')):
+        try:
+            data = json.loads(json_file.read_text(encoding='utf-8'))
+        except (OSError, json.JSONDecodeError) as exc:
+            errors.append(f"{json_file.name}: invalid JSON: {exc}")
+            continue
+
+        required_values = {
+            'player_id': data.get('player_id'),
+            'name': data.get('name') or data.get('english_name'),
+            'country_code': data.get('country_code') or existing_country_codes.get(str(data.get('player_id') or '')),
+            'gender': data.get('gender'),
+        }
+        missing_fields = [
+            field
+            for field, value in required_values.items()
+            if not str(value or '').strip()
+        ]
+        if missing_fields:
+            errors.append(f"{json_file.name}: missing required fields: {', '.join(missing_fields)}")
+            continue
+
+        profiles.append((json_file, data))
+
+    return profiles, errors
+
+
 def import_players(db_path: str, player_profiles_dir: str) -> dict:
     """
     导入球员数据
@@ -45,6 +93,11 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
             'errors': list
         }
     """
+    profiles, validation_errors = validate_player_profiles(player_profiles_dir, db_path)
+    if validation_errors:
+        return {'inserted': 0, 'skipped': 0, 'errors': validation_errors}
+
+    conn = None
     try:
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
@@ -66,18 +119,12 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                         (normalized, row_player_id),
                     )
 
-        player_profiles_path = Path(player_profiles_dir)
-        json_files = sorted(player_profiles_path.glob('player_*.json'))
-
         inserted = 0
         skipped = 0
         errors = []
 
-        for i, json_file in enumerate(json_files, 1):
+        for i, (json_file, data) in enumerate(profiles, 1):
             try:
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-
                 player_id = data.get('player_id')
                 name = data.get('name') or data.get('english_name')
                 name_zh = data.get('name_zh')
@@ -195,7 +242,11 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
                 errors.append(error_msg)
                 print(f"  [{i:3d}] ERROR: {error_msg}")
 
-        conn.commit()
+        if errors:
+            conn.rollback()
+            inserted = 0
+        else:
+            conn.commit()
         conn.close()
 
         return {
@@ -205,6 +256,9 @@ def import_players(db_path: str, player_profiles_dir: str) -> dict:
         }
 
     except Exception as e:
+        if conn is not None:
+            conn.rollback()
+            conn.close()
         print(f"[ERROR] Failed to import players: {e}")
         return {'inserted': 0, 'skipped': 0, 'errors': [str(e)]}
 
@@ -241,6 +295,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='导入球员数据')
     parser.add_argument('--dir', type=str, default=None,
                         help='球员 JSON 文件目录（默认：data/player_profiles/cn）')
+    parser.add_argument('--validate-only', action='store_true',
+                        help='只校验球员 JSON，不写入数据库')
     args = parser.parse_args()
 
     db_path = Path(config.DB_PATH)
@@ -253,12 +309,22 @@ if __name__ == '__main__':
     print(f"Player profiles dir: {player_profiles_dir}")
     print("=" * 70 + "\n")
 
-    if not db_path.exists():
-        print(f"[ERROR] Database file not found: {db_path}")
-        sys.exit(1)
-
     if not player_profiles_dir.exists():
         print(f"[ERROR] Player profiles directory not found: {player_profiles_dir}")
+        sys.exit(1)
+
+    if args.validate_only:
+        profiles, errors = validate_player_profiles(str(player_profiles_dir), str(db_path))
+        print(f"Validated profiles: {len(profiles)}")
+        print(f"Validation errors: {len(errors)}")
+        for error in errors[:5]:
+            print(f"  - {error}")
+        if len(errors) > 5:
+            print(f"  ... and {len(errors) - 5} more")
+        sys.exit(0 if not errors else 1)
+
+    if not db_path.exists():
+        print(f"[ERROR] Database file not found: {db_path}")
         sys.exit(1)
 
     print("Importing players...")

@@ -221,6 +221,9 @@ run_remote_preflight() {
     local ranking_path="$1"
     local profile_dir="$2"
 
+    echo "==> Validating remote profile payload"
+    ssh "$REMOTE_HOST" "cd '${REMOTE_PROJECT_DIR}' && ${REMOTE_PYTHON} scripts/db/import_players.py --dir '${profile_dir}' --validate-only"
+
     echo "==> Running remote ranking dry-run"
     ssh "$REMOTE_HOST" "cd '${REMOTE_PROJECT_DIR}' && ${REMOTE_PYTHON} scripts/db/import_rankings.py --dry --file '${ranking_path}'"
 

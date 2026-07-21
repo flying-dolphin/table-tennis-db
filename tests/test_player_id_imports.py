@@ -1,5 +1,6 @@
 import json
 import sqlite3
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -9,6 +10,7 @@ from pathlib import Path
 SCRIPTS_DB_DIR = Path(__file__).resolve().parents[1] / "scripts" / "db"
 sys.path.insert(0, str(SCRIPTS_DB_DIR))
 
+import import_players as import_players_module
 from import_players import import_players
 from import_rankings import import_rankings
 from import_sub_events import import_sub_events
@@ -60,6 +62,168 @@ def create_players_table(conn: sqlite3.Connection) -> None:
 
 
 class PlayerIdImportTests(unittest.TestCase):
+    def test_validate_player_profiles_reports_missing_gender_without_database_access(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            profiles_dir = Path(tmp) / "profiles"
+            profiles_dir.mkdir()
+            (profiles_dir / "player_2.json").write_text(
+                json.dumps(
+                    {
+                        "player_id": "2",
+                        "name": "Incomplete Player",
+                        "country_code": "TST",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            _profiles, errors = import_players_module.validate_player_profiles(str(profiles_dir))
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("player_2.json: missing required fields: gender", errors[0])
+
+    def test_validate_player_profiles_accepts_country_code_from_existing_player(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            db_path = root / "test.sqlite"
+            profiles_dir = root / "profiles"
+            profiles_dir.mkdir()
+
+            conn = sqlite3.connect(db_path)
+            create_players_table(conn)
+            conn.execute(
+                "INSERT INTO players (player_id, name, slug, country_code, gender) VALUES (2, 'Legacy Player', '2', 'TST', 'Female')"
+            )
+            conn.commit()
+            conn.close()
+            (profiles_dir / "player_2.json").write_text(
+                json.dumps(
+                    {
+                        "player_id": "2",
+                        "name": "Legacy Player",
+                        "gender": "Female",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            profiles, errors = import_players_module.validate_player_profiles(
+                str(profiles_dir),
+                str(db_path),
+            )
+
+        self.assertEqual(errors, [])
+        self.assertEqual(len(profiles), 1)
+
+    def test_import_players_rolls_back_entire_batch_when_one_profile_is_invalid(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            db_path = root / "test.sqlite"
+            profiles_dir = root / "profiles"
+            profiles_dir.mkdir()
+
+            conn = sqlite3.connect(db_path)
+            create_players_table(conn)
+            conn.commit()
+            conn.close()
+
+            (profiles_dir / "player_1.json").write_text(
+                json.dumps(
+                    {
+                        "player_id": "1",
+                        "name": "Valid Player",
+                        "country_code": "TST",
+                        "gender": "Female",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (profiles_dir / "player_2.json").write_text(
+                json.dumps(
+                    {
+                        "player_id": "2",
+                        "name": "Incomplete Player",
+                        "country_code": "TST",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            result = import_players(str(db_path), str(profiles_dir))
+
+            self.assertEqual(result["inserted"], 0)
+            self.assertEqual(len(result["errors"]), 1)
+            conn = sqlite3.connect(db_path)
+            player_count = conn.execute("SELECT COUNT(*) FROM players").fetchone()[0]
+            conn.close()
+            self.assertEqual(player_count, 0)
+
+    def test_import_players_validate_only_exits_nonzero_for_invalid_payload(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            profiles_dir = Path(tmp) / "profiles"
+            profiles_dir.mkdir()
+            (profiles_dir / "player_2.json").write_text(
+                json.dumps(
+                    {
+                        "player_id": "2",
+                        "name": "Incomplete Player",
+                        "country_code": "TST",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    str(SCRIPTS_DB_DIR / "import_players.py"),
+                    "--dir",
+                    str(profiles_dir),
+                    "--validate-only",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+        self.assertEqual(completed.returncode, 1)
+        self.assertIn("Validation errors: 1", completed.stdout)
+        self.assertIn("player_2.json: missing required fields: gender", completed.stdout)
+
+    def test_import_players_rolls_back_valid_rows_after_sql_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            db_path = root / "test.sqlite"
+            profiles_dir = root / "profiles"
+            profiles_dir.mkdir()
+
+            conn = sqlite3.connect(db_path)
+            create_players_table(conn)
+            conn.commit()
+            conn.close()
+
+            for filename, player_id in (("player_1.json", "1"), ("player_invalid.json", "invalid")):
+                (profiles_dir / filename).write_text(
+                    json.dumps(
+                        {
+                            "player_id": player_id,
+                            "name": "Test Player",
+                            "country_code": "TST",
+                            "gender": "Female",
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+
+            result = import_players(str(db_path), str(profiles_dir))
+
+            self.assertEqual(result["inserted"], 0)
+            self.assertEqual(len(result["errors"]), 1)
+            conn = sqlite3.connect(db_path)
+            player_count = conn.execute("SELECT COUNT(*) FROM players").fetchone()[0]
+            conn.close()
+            self.assertEqual(player_count, 0)
+
     def test_import_players_uses_player_id_slug_for_duplicate_names(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
