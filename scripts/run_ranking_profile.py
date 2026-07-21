@@ -5,10 +5,12 @@ from __future__ import annotations
 
 import argparse
 import logging
+import re
 import sys
 from datetime import date, datetime, time as datetime_time, timedelta
 from pathlib import Path
 
+from db.config import DB_PATH
 from merge_ranking_ids import run as run_merge
 from scrape_rankings import run as run_weekly_wp
 from scrape_results_rankings import run as run_results
@@ -37,8 +39,13 @@ def is_due_window(
 
 def latest_ranking_file(output_dir: Path, before: set[Path] | None = None, top: int | None = None) -> Path | None:
     before = before or set()
-    pattern = f"women_singles_top{top}_week*.json" if top is not None else "women_singles_top*_week*.json"
-    candidates = sorted(output_dir.glob(pattern), key=lambda p: p.stat().st_mtime, reverse=True)
+    top_pattern = str(top) if top is not None else r"\d+"
+    filename_re = re.compile(rf"^women_singles_top{top_pattern}_week\d+\.json$")
+    candidates = sorted(
+        (path for path in output_dir.glob("women_singles_top*_week*.json") if filename_re.fullmatch(path.name)),
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
     for path in candidates:
         if path not in before:
             return path
@@ -125,6 +132,9 @@ def run(args: argparse.Namespace) -> int:
         max_delay=args.max_delay,
         min_player_gap=args.min_player_gap,
         max_player_gap=args.max_player_gap,
+        weekly_file=str(weekly_file),
+        db_path=args.db_path,
+        aliases=args.aliases,
     )
     rc = run_results(results_args)
     if rc != 0:
@@ -170,6 +180,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--merged-output", default=None)
     parser.add_argument("--unresolved-output", default=None)
     parser.add_argument("--aliases", default="scripts/data/player_name_aliases.json", help="Manual player name alias JSON")
+    parser.add_argument("--db-path", default=DB_PATH, help="SQLite database used for missing-player fallback")
     parser.add_argument("--weekly-checkpoint", default="data/rankings/checkpoint_rankings.json")
     parser.add_argument("--results-checkpoint", default="data/rankings/checkpoint_results_rankings.json")
     parser.add_argument("--storage-state", default="data/session/ittf_results_storage_state.json")

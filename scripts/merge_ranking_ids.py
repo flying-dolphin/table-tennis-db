@@ -265,6 +265,8 @@ def merge_rankings_with_results_ids(
     for weekly in weekly_rows:
         row = copy.deepcopy(weekly)
         candidate, status, candidates = _resolve_candidate(row, results_rows, aliases, used_player_ids)
+        if candidate is not None and candidate.get("id_resolution_hint") == "db_profile_rank":
+            status = "db_profile_rank"
         row["id_resolution_status"] = status
 
         if candidate is not None:
@@ -327,7 +329,14 @@ def merge_payloads(
             1
             for row in merged_rows
             if row.get("id_resolution_status")
-            in {"matched", "rank_fallback", "partial_name", "manual_alias", "manual_alias_rank_fallback"}
+            in {
+                "matched",
+                "rank_fallback",
+                "partial_name",
+                "manual_alias",
+                "manual_alias_rank_fallback",
+                "db_profile_rank",
+            }
         ),
         "unresolved": len(unresolved),
     }

@@ -22,7 +22,16 @@ RISK_PATTERNS = [
 
 
 class RiskControlTriggered(RuntimeError):
-    pass
+    def __init__(
+        self,
+        message: str,
+        *,
+        status: int | None = None,
+        retry_after_sec: float | None = None,
+    ) -> None:
+        super().__init__(message)
+        self.status = status
+        self.retry_after_sec = retry_after_sec
 
 
 @dataclass

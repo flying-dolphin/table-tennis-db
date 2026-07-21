@@ -18,7 +18,7 @@ import re
 import sys
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -312,7 +312,17 @@ def scrape_player_profile(
 
     try:
         # Navigate to profile page
-        guarded_goto(page, profile_url, delay_cfg, f"open profile: {player_info.get('name', player_id)}")
+        current_url = str(getattr(page, "url", "") or "")
+        referer = current_url if current_url.startswith(BASE_URL) else None
+        guarded_goto(
+            page,
+            profile_url,
+            delay_cfg,
+            f"open profile: {player_info.get('name', player_id)}",
+            referer=referer,
+            retries=0,
+            retry_risk_responses=False,
+        )
 
         # Wait for content to load
         page.wait_for_load_state("networkidle", timeout=10000)
@@ -331,6 +341,20 @@ def scrape_player_profile(
 
         return profile_data, True
 
+    except RiskControlTriggered as exc:
+        logger.warning("Risk control while scraping profile %s: %s", player_id, exc)
+        if checkpoint is not None:
+            meta: dict[str, Any] = {"profile_url": profile_url}
+            if exc.status is not None:
+                meta["http_status"] = exc.status
+            if exc.retry_after_sec is not None:
+                retry_after = max(0.0, float(exc.retry_after_sec))
+                meta["retry_after_sec"] = retry_after
+                meta["resume_not_before"] = (
+                    datetime.now(timezone.utc) + timedelta(seconds=retry_after)
+                ).isoformat()
+            checkpoint.mark_failed(ck_scrape, str(exc), meta=meta)
+        raise
     except Exception as exc:
         logger.warning("Failed to scrape profile for %s: %s", player_id, exc)
         if checkpoint is not None:

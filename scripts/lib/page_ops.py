@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import logging
+import re
 import time
-from urllib.parse import urljoin
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from typing import Any
+from urllib.parse import urljoin
 
 from .anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep, move_mouse_to_locator
 
@@ -18,7 +21,8 @@ def guarded_goto(
     referer: str | None = None,
     retries: int = 2,
     sleep_first: bool = True,
-) -> None:
+    retry_risk_responses: bool = True,
+) -> Any:
     if sleep_first:
         human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, reason)
 
@@ -27,11 +31,11 @@ def guarded_goto(
         goto_kwargs["referer"] = referer
 
     last_exc: Exception | None = None
+    response: Any = None
     for attempt in range(retries + 1):
         try:
-            page.goto(url, **goto_kwargs)
+            response = page.goto(url, **goto_kwargs)
             last_exc = None
-            break
         except Exception as exc:
             last_exc = exc
             if attempt < retries:
@@ -41,6 +45,25 @@ def guarded_goto(
                     attempt + 1, retries + 1, exc, wait_sec,
                 )
                 time.sleep(wait_sec)
+                continue
+            break
+
+        status = getattr(response, "status", None)
+        if status in {403, 429, 503}:
+            reason_text = getattr(response, "status_text", "") or ""
+            risk = f"HTTP {status}{f' {reason_text}' if reason_text else ''} while opening {url}"
+            headers = getattr(response, "headers", {}) or {}
+            retry_after = _retry_after_seconds(headers.get("retry-after"), attempt)
+            if retry_risk_responses and status in {429, 503} and attempt < retries:
+                logger.warning("%s; retry in %.1fs", risk, retry_after)
+                time.sleep(retry_after)
+                continue
+            raise RiskControlTriggered(
+                risk,
+                status=status,
+                retry_after_sec=retry_after if status in {429, 503} else None,
+            )
+        break
     if last_exc:
         raise last_exc
 
@@ -52,6 +75,22 @@ def guarded_goto(
     risk = detect_risk(page)
     if risk:
         raise RiskControlTriggered(risk)
+    return response
+
+
+def _retry_after_seconds(value: str | None, attempt: int) -> float:
+    if value:
+        try:
+            return max(0.0, float(value))
+        except ValueError:
+            try:
+                target = parsedate_to_datetime(value)
+                if target.tzinfo is None:
+                    target = target.replace(tzinfo=timezone.utc)
+                return max(0.0, (target - datetime.now(timezone.utc)).total_seconds())
+            except (TypeError, ValueError, OverflowError):
+                pass
+    return min(30.0 * (2 ** attempt), 300.0)
 
 
 def _get_active_pagination_page(page: Any) -> int | None:
@@ -91,7 +130,24 @@ def _wait_for_active_pagination_page(
     return False
 
 
-def click_next_page_if_any(page: Any) -> bool:
+def click_next_page_if_any(page: Any, delay_cfg: DelayConfig | None = None) -> bool:
+    if delay_cfg is None:
+        delay_cfg = DelayConfig(0.0, 0.0, 0.0, 0.0)
+    try:
+        pagination = re.search(
+            r"\bPage\s+(\d+)\s+of\s+(\d+)\b",
+            page.content(),
+            re.IGNORECASE,
+        )
+        if pagination and int(pagination.group(1)) >= int(pagination.group(2)):
+            logger.info(
+                "Results pagination is already at the last page (%s/%s)",
+                pagination.group(1),
+                pagination.group(2),
+            )
+            return False
+    except Exception:
+        pass
     current_active_page = _get_active_pagination_page(page)
     expected_active_page = current_active_page + 1 if current_active_page is not None else None
     candidates = [
@@ -125,43 +181,21 @@ def click_next_page_if_any(page: Any) -> bool:
                 continue
 
             href = (loc.get_attribute("href") or "").strip()
-            if href:
-                next_url = urljoin(page.url, href)
-                prev_url = page.url
-                logger.info(
-                    "Navigating to next page: %s (active page %s -> %s)",
-                    next_url,
-                    current_active_page if current_active_page is not None else "?",
-                    expected_active_page if expected_active_page is not None else "?",
-                )
-                page.goto(next_url, wait_until="domcontentloaded", timeout=45000)
-                try:
-                    page.wait_for_load_state("networkidle", timeout=10000)
-                except Exception:
-                    pass
-                if expected_active_page is not None:
-                    if _wait_for_active_pagination_page(page, expected_active_page):
-                        return True
-                    logger.warning(
-                        "Next page active indicator mismatch after goto: expected=%s actual=%s url=%s",
-                        expected_active_page,
-                        _get_active_pagination_page(page),
-                        page.url,
-                    )
-                    continue
-                if page.url != prev_url:
-                    return True
-                return True
-
+            next_url = urljoin(page.url, href) if href else ""
+            loc.scroll_into_view_if_needed()
             move_mouse_to_locator(page, loc)
             logger.info(
-                "Clicked next page button without href; waiting for active page %s",
+                "Clicked next page link%s; waiting for active page %s",
+                f" ({next_url})" if next_url else "",
                 expected_active_page if expected_active_page is not None else "?",
             )
             try:
                 page.wait_for_load_state("networkidle", timeout=10000)
             except Exception:
                 pass
+            risk = detect_risk(page)
+            if risk:
+                raise RiskControlTriggered(risk)
             if expected_active_page is not None:
                 if _wait_for_active_pagination_page(page, expected_active_page):
                     return True
@@ -173,6 +207,9 @@ def click_next_page_if_any(page: Any) -> bool:
                 )
                 continue
             return True
-        except Exception:
+        except RiskControlTriggered:
+            raise
+        except Exception as exc:
+            logger.warning("Next-page candidate failed (%s): %s", sel, exc)
             continue
     return False

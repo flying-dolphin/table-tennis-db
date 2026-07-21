@@ -240,6 +240,30 @@ class MergeRankingIdsTests(unittest.TestCase):
         self.assertEqual(unresolved_payload["total_unresolved"], 0)
         self.assertEqual(merged_payload["player_id_resolution"]["matched"], 1)
 
+    def test_preserves_database_profile_rank_resolution_status(self):
+        weekly_payload = {
+            "rankings": [{"rank": 770, "name": "YEUNG Yee Lam", "country_code": "HKG", "points": 3}]
+        }
+        results_payload = {
+            "rankings": [
+                {
+                    "rank": 770,
+                    "name": "YEUNG Yee Lam",
+                    "country_code": "HKG",
+                    "points": 3,
+                    "player_id": "205829",
+                    "profile_url": "https://results.ittf.link/profile/205829",
+                    "id_resolution_hint": "db_profile_rank",
+                }
+            ]
+        }
+
+        merged_payload, unresolved_payload = merge_payloads(weekly_payload, results_payload)
+
+        self.assertEqual(unresolved_payload["total_unresolved"], 0)
+        self.assertEqual(merged_payload["rankings"][0]["id_resolution_status"], "db_profile_rank")
+        self.assertEqual(merged_payload["player_id_resolution"]["matched"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -27,12 +27,33 @@ class DueWindowTests(unittest.TestCase):
 
 
 class RunRankingProfileTests(unittest.TestCase):
+    def test_latest_ranking_file_ignores_derived_outputs(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_dir = Path(tmpdir)
+            original = output_dir / "women_singles_top1000_week30.json"
+            original.write_text("{}", encoding="utf-8")
+            (output_dir / "women_singles_top1000_week30_with_ids.json").write_text("{}", encoding="utf-8")
+            (output_dir / "women_singles_top1000_week30_with_ids_unresolved.json").write_text(
+                "{}",
+                encoding="utf-8",
+            )
+
+            selected = run_ranking_profile.latest_ranking_file(output_dir, top=1000)
+
+        self.assertEqual(selected, original)
+
     def test_passes_cdp_only_to_weekly_ranking_scraper(self):
         captured_weekly_args = None
+        captured_results_args = None
 
         def fake_weekly(args):
             nonlocal captured_weekly_args
             captured_weekly_args = args
+            return 0
+
+        def fake_results(args):
+            nonlocal captured_results_args
+            captured_results_args = args
             return 0
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -64,11 +85,13 @@ class RunRankingProfileTests(unittest.TestCase):
                 max_player_gap=5.0,
                 merged_output=None,
                 unresolved_output=None,
+                aliases="scripts/data/player_name_aliases.json",
+                db_path=str(tmp / "ittf.db"),
             )
 
             with (
                 patch.object(run_ranking_profile, "run_weekly_wp", side_effect=fake_weekly),
-                patch.object(run_ranking_profile, "run_results", return_value=0),
+                patch.object(run_ranking_profile, "run_results", side_effect=fake_results),
                 patch.object(run_ranking_profile, "latest_ranking_file", return_value=weekly_file),
                 patch.object(run_ranking_profile, "latest_results_file", return_value=results_file),
                 patch.object(run_ranking_profile, "run_merge", return_value=0),
@@ -78,6 +101,10 @@ class RunRankingProfileTests(unittest.TestCase):
         self.assertEqual(rc, 0)
         self.assertIsNotNone(captured_weekly_args)
         self.assertTrue(captured_weekly_args.cdp_only)
+        self.assertIsNotNone(captured_results_args)
+        self.assertEqual(captured_results_args.weekly_file, str(weekly_file))
+        self.assertEqual(captured_results_args.db_path, str(tmp / "ittf.db"))
+        self.assertEqual(captured_results_args.aliases, "scripts/data/player_name_aliases.json")
 
     def test_resume_reuses_existing_weekly_ranking_file(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -112,6 +139,8 @@ class RunRankingProfileTests(unittest.TestCase):
                 max_player_gap=5.0,
                 merged_output=None,
                 unresolved_output=None,
+                aliases="scripts/data/player_name_aliases.json",
+                db_path=str(tmp / "ittf.db"),
             )
 
             with (
