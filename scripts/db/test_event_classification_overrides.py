@@ -25,6 +25,47 @@ IMPORT_EVENTS_CALENDAR = load_module("import_events_calendar_under_test", "impor
 
 
 class EventClassificationOverrideTests(unittest.TestCase):
+    def test_calendar_name_classifier_handles_recent_event_families(self):
+        cases = {
+            "Europe Smash – Sweden 2026": ("WTT Grand Smash", "--"),
+            "Saudi Smash 2024": ("WTT Grand Smash", "--"),
+            "Europe Youth Smash – Sweden 2026": ("WTT Youth Grand Smash", "--"),
+            "ITTF-Americas Central America Youth Championships Tegucigalpa 2026": (
+                "Regional",
+                "Youth Championships",
+            ),
+            "ITTF-Americas South American Championships Santiago 2026": (
+                "Regional",
+                "Senior Championships",
+            ),
+            "ITTF-Americas South American Youth Championships Chapeco 2026": (
+                "Regional",
+                "Youth Championships",
+            ),
+            "ITTF-Americas Youth Championships Guatemala City 2026": (
+                "Continental",
+                "Youth Championships",
+            ),
+            "ITTF-Oceania Youth Championships Ballarat 2026": (
+                "Continental",
+                "Youth Championships",
+            ),
+            "ITTF-Oceania Cup Christchurch 2026": ("Continental", "Senior Cup"),
+            "ITTF-Africa Youth Cup Accra 2026": ("Continental", "Youth Cup"),
+            "ETTU Europe Youth Top 10 Antibes 2026": ("Continental", "Youth Cup"),
+            "European Olympic Singles Qualification Sarajevo 2024": (
+                "Olympic Qualification",
+                "--",
+            ),
+        }
+
+        for name, expected in cases.items():
+            with self.subTest(name=name):
+                self.assertEqual(
+                    expected,
+                    IMPORT_EVENTS_CALENDAR.classify_event_by_name(name),
+                )
+
     def test_calendar_classifies_asian_games_as_continental_games(self):
         event_type, event_kind = IMPORT_EVENTS_CALENDAR.classify_event_by_name("Asian Games Aichi-Nagoya 2026")
 

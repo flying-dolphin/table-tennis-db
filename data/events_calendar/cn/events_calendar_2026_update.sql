@@ -456,9 +456,9 @@ UPDATE events_calendar SET
     event_category_id = (SELECT id FROM event_categories WHERE category_id = 'WTT_CONTENDER')
 WHERE year = 2026 AND name = 'WTT Contender Skopje 2026' AND href LIKE '%3239%';
 UPDATE events_calendar SET 
-    event_type = 'Continental', 
+    event_type = 'Regional',
     event_kind = 'Youth Championships', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'CONTINENTAL_CHAMPS')
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'REGIONAL_YOUTH_CHAMPS')
 WHERE year = 2026 AND name = 'ITTF-Americas Central America Youth Championships Tegucigalpa 2026' AND href LIKE '%3406%';
 UPDATE events_calendar SET 
     event_type = 'WTT Youth Contender Series', 
@@ -486,9 +486,9 @@ UPDATE events_calendar SET
     event_category_id = (SELECT id FROM event_categories WHERE category_id = 'YOUTH_STAR_CONTENDER')
 WHERE year = 2026 AND name = 'WTT Youth Star Contender Rio De Janeiro 2026' AND href LIKE '%3313%';
 UPDATE events_calendar SET 
-    event_type = 'Continental', 
+    event_type = 'Regional',
     event_kind = 'Senior Championships', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'CONTINENTAL_CHAMPS')
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'REGIONAL_CHAMPS')
 WHERE year = 2026 AND name = 'ITTF-Americas South American Championships Santiago 2026';
 UPDATE events_calendar SET 
     event_type = 'WTT Contender Series', 
@@ -637,8 +637,8 @@ UPDATE events_calendar SET
 WHERE year = 2026 AND name = 'XXV Central American and Caribbean Games Santo Domingo 2026';
 UPDATE events_calendar SET 
     event_type = 'Continental', 
-    event_kind = 'Youth Championships', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'YOUTH_CONTINENTAL_CHAMPS')
+    event_kind = 'Youth Cup',
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'YOUTH_CONTINENTAL_CUP')
 WHERE year = 2026 AND name = 'ITTF-Africa Youth Cup Accra 2026';
 UPDATE events_calendar SET 
     event_type = 'WTT Feeder Series', 
@@ -676,9 +676,9 @@ UPDATE events_calendar SET
     event_category_id = NULL
 WHERE year = 2026 AND name = 'ITTF World Para Challenger Spokane 2026' AND href LIKE '%3476%';
 UPDATE events_calendar SET 
-    event_type = 'Continental', 
-    event_kind = 'Senior Championships', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'CONTINENTAL_CHAMPS')
+    event_type = 'WTT Grand Smash',
+    event_kind = '--',
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'WTT_GRAND_SMASH')
 WHERE year = 2026 AND name = 'Europe Smash – Sweden 2026' AND href LIKE '%3246%';
 UPDATE events_calendar SET 
     event_type = 'ITTF Para', 
@@ -693,7 +693,7 @@ WHERE year = 2026 AND name = 'WTT Feeder Berlin 2026' AND href LIKE '%3374%';
 UPDATE events_calendar SET 
     event_type = 'Continental', 
     event_kind = 'Youth Championships', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'CONTINENTAL_CHAMPS')
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'YOUTH_CONTINENTAL_CHAMPS')
 WHERE year = 2026 AND name = 'ITTF-Americas Youth Championships Guatemala City 2026';
 UPDATE events_calendar SET 
     event_type = 'WTT Feeder Series', 
@@ -724,7 +724,7 @@ UPDATE events_calendar SET
     name = 'ITTF-Oceania Youth Championships Ballarat 2026',
     event_type = 'Continental', 
     event_kind = 'Youth Championships', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'CONTINENTAL_CHAMPS')
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'YOUTH_CONTINENTAL_CHAMPS')
 WHERE year = 2026 AND name = 'ITTF-Oceania Youth Championships Ballarat 2026,'; 
 UPDATE events_calendar SET 
     event_type = 'WTT Contender Series', 
@@ -849,7 +849,7 @@ WHERE year = 2026 AND name = 'China Smash 2026' AND href LIKE '%3249%';
 UPDATE events_calendar SET 
     event_type = 'Continental', 
     event_kind = 'Youth Cup', 
-    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'CONTINENTAL_CUP')
+    event_category_id = (SELECT id FROM event_categories WHERE category_id = 'YOUTH_CONTINENTAL_CUP')
 WHERE year = 2026 AND name = 'ETTU Europe Youth Top 10 Antibes 2026';
 UPDATE events_calendar SET 
     event_type = 'WTT Youth Contender Series', 

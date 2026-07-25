@@ -276,9 +276,9 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         return 'WTT Champions', '--'
     elif 'WTT Finals' in name:
         return 'WTT Finals', '--'
-    elif 'WTT Youth Grand Smash' in name or ('Youth Smash' in name):
+    elif 'WTT Youth Grand Smash' in name or 'Youth Smash' in name:
         return 'WTT Youth Grand Smash', '--'
-    elif 'WTT Grand Smash' in name or (('Singapore' in name or 'China' in name or 'United States' in name) and 'Smash' in name and 'Youth' not in name):
+    elif 'Smash' in name:
         return 'WTT Grand Smash', '--'
     elif 'WTT Youth Star Contender' in name:
         return 'WTT Youth Contender Series', 'WTT Youth Star Contender'
@@ -313,9 +313,11 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
     elif 'World Youth Championships' in name or 'World Junior' in name:
         return 'ITTF World Youth Championships', '--'
 
-    # Olympic Qualification
-    elif 'Olympic Qualification' in name or 'Olympic Qualifier' in name:
-        return 'Olympic Games', 'Qualification'
+    # Olympic Qualification — allow qualifiers such as "Olympic Singles Qualification".
+    elif re.search(r'Youth\s+Olympic.*Qualif(?:ication|ier)', name, re.IGNORECASE):
+        return 'Youth Olympic Games Qualification', '--'
+    elif re.search(r'Olympic.*Qualif(?:ication|ier)', name, re.IGNORECASE):
+        return 'Olympic Qualification', '--'
 
     # Youth Olympic Games
     elif 'Youth Olympic Games' in name:
@@ -356,15 +358,27 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
         return 'ITTF Masters', '--'
 
     # ETTU / Continental events
-    elif 'ETTU' in name or 'Europe ' in name:
-        if 'Top 16' in name or 'Top 10' in name:
-            return 'Continental', 'Senior Cup'
+    elif 'ETTU' in name or 'Europe ' in name or 'European ' in name:
+        if 'Youth' in name and (
+            'Cup' in name
+            or 'Top 10' in name
+            or 'Top-10' in name
+            or 'Top 16' in name
+            or 'Top-16' in name
+        ):
+            return 'Continental', 'Youth Cup'
         elif 'U21' in name:
             return 'Continental', 'U21 Championships'
-        elif 'U13' in name:
+        elif 'Youth' in name or 'U13' in name:
             return 'Continental', 'Youth Championships'
-        elif 'European' in name and 'Youth' in name:
-            return 'Continental', 'Youth Championships'
+        elif (
+            'Cup' in name
+            or 'Top 10' in name
+            or 'Top-10' in name
+            or 'Top 16' in name
+            or 'Top-16' in name
+        ):
+            return 'Continental', 'Senior Cup'
         elif 'European' in name and 'Individual' in name:
             return 'Continental', 'Senior Championships'
         elif 'European' in name and 'Team' in name:
@@ -376,7 +390,9 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
     # ITTF Regional events
     elif 'ITTF-Africa' in name:
         if 'North' in name or 'South' in name or 'East' in name or 'West' in name or 'Central' in name:
-            return 'Regional', 'Senior Championships'
+            return 'Regional', 'Youth Championships' if 'Youth' in name else 'Senior Championships'
+        elif 'Youth' in name and 'Cup' in name:
+            return 'Continental', 'Youth Cup'
         elif 'Youth' in name:
             return 'Continental', 'Youth Championships'
         elif 'Cup' in name:
@@ -385,24 +401,42 @@ def classify_event_by_name(name: str) -> tuple[str | None, str | None]:
             return 'Continental', 'Senior Championships'
         return 'Continental', 'Senior Championships'
 
-    elif 'ITTF-Americas' in name or 'ITTF-ATTU' in name or 'ITTF-Oceania' in name:
-        if 'North American' in name:
+    elif 'ITTF-Americas' in name:
+        regional_youth = (
+            'North American Youth' in name
+            or 'Central American Youth' in name
+            or 'Central America Youth' in name
+            or 'South American Youth' in name
+        )
+        if regional_youth:
+            return 'Regional', 'Youth Championships'
+        elif 'North American' in name or 'South American' in name:
             return 'Regional', 'Senior Championships'
-        elif 'South American' in name:
-            return 'Continental', 'Youth Championships' if 'Youth' in name else 'Senior Championships'
-        elif 'Central American' in name or 'Caribbean' in name:
-            return 'Continental', 'Youth Championships' if 'Youth' in name else 'Senior Championships'
-        elif 'Asian' in name or 'ATTU' in name:
-            return 'Continental', 'Youth Championships' if 'Youth' in name else 'Senior Championships'
-        elif 'Oceania' in name:
-            if 'Hopes' in name:
-                return 'Continental', 'Youth Championships'
-            return 'Continental', 'Senior Championships'
-        elif 'Masters' in name:
-            return 'Continental', 'Senior Championships'
+        elif 'Youth' in name and 'Cup' in name:
+            return 'Continental', 'Youth Cup'
+        elif 'Youth' in name:
+            return 'Continental', 'Youth Championships'
         elif 'Cup' in name:
             return 'Continental', 'Senior Cup'
-        elif 'Championships' in name:
+        return 'Continental', 'Senior Championships'
+
+    elif 'ITTF-ATTU' in name:
+        if 'Youth' in name and 'Cup' in name:
+            return 'Continental', 'Youth Cup'
+        elif 'Youth' in name:
+            return 'Continental', 'Youth Championships'
+        elif 'Cup' in name:
+            return 'Continental', 'Senior Cup'
+        return 'Continental', 'Senior Championships'
+
+    elif 'ITTF-Oceania' in name or 'ITTF Oceania' in name:
+        if 'Youth' in name and 'Cup' in name:
+            return 'Continental', 'Youth Cup'
+        elif 'Youth' in name or 'Hopes' in name:
+            return 'Continental', 'Youth Championships'
+        elif 'Cup' in name:
+            return 'Continental', 'Senior Cup'
+        elif 'Masters' in name:
             return 'Continental', 'Senior Championships'
         return 'Continental', 'Senior Championships'
 
