@@ -40,7 +40,7 @@ type CalendarResponse = {
 
 type DayCell = { num: number; out?: boolean };
 type EventChip = { name: string; startCol: number; span: number; color: string };
-type WeekRow = { days: DayCell[]; eventLayers: EventChip[][]; hiddenEventCount: number };
+type WeekRow = { days: DayCell[]; eventLayers: EventChip[][]; hiddenEventCount: number; totalLayerCount: number };
 type MonthCard = {
   id: string;
   year: number;
@@ -292,9 +292,8 @@ function buildMonthWeeks(year: number, month: number, events: EventRange[]): Wee
       if (!placed) layers.push([chip]);
     }
 
-    const visibleLayers = layers.slice(0, 2);
     const hiddenEventCount = layers.slice(2).reduce((count, layer) => count + layer.length, 0);
-    weeks.push({ days, eventLayers: visibleLayers, hiddenEventCount });
+    weeks.push({ days, eventLayers: layers, hiddenEventCount, totalLayerCount: layers.length });
   }
 
   return weeks;
@@ -377,7 +376,7 @@ function renderMonthCardContent(month: MonthCard, isModal: boolean) {
               ))}
             </div>
             <div>
-              {row.eventLayers.map((layer, lIdx) => (
+              {(isModal ? row.eventLayers : row.eventLayers.slice(0, 2)).map((layer, lIdx) => (
                 <div key={lIdx} className={cn("grid grid-cols-7 relative", isModal ? "gap-x-1 mb-1" : "gap-x-0.5 mb-0")}>
                   {layer.map((ev, eIdx) => (
                     <div
@@ -397,8 +396,8 @@ function renderMonthCardContent(month: MonthCard, isModal: boolean) {
                   ))}
                 </div>
               ))}
-              {row.hiddenEventCount > 0 && (
-                <div className={cn("text-right font-medium text-text-tertiary", isModal ? "text-micro pr-1" : "text-[7px] pr-0.5 leading-none")}>
+              {!isModal && row.hiddenEventCount > 0 && (
+                <div className="text-right font-medium text-text-tertiary text-[7px] pr-0.5 leading-none">
                   +{row.hiddenEventCount}
                 </div>
               )}
