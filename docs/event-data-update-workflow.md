@@ -272,8 +272,9 @@ python scripts/runtime/scrape_current_event.py \
 
 live 与 official 结果按 `match_code` 合并，同一场比赛以 official 为准。如果 take-10 和完整
 Official 都失败，抓取仍保留有效 live 比赛并写出 `GetLiveResult.json`；同时
-`_scrape_summary_live.json` 会记录 `degraded=true`、warning、选中的 official 来源以及两路
-诊断信息，方便监控发现降级，不会把 official 失败误当成“没有比赛”并清空数据。
+`_scrape_summary_live.json` 会记录 `degraded=true`、`warnings`、
+`selected_official_source` 和 `official_sources`，方便监控发现降级，不会把 official 失败
+误当成“没有比赛”并清空数据。
 
 完整 Official 始终作为 upsert supplement，而不是删除快照：单次响应缺少某场比赛不会删除
 已有数据库记录，也不会把已经写成 `Official` 的结果降级。不要尝试把静态 take-10 URL 改成
@@ -374,10 +375,10 @@ command -v flock
 flock --version
 ```
 
-所有赛事刷新共用按目标 SQLite DB 路径生成的锁文件。网络抓取在锁外并行执行，只有 DB import
-进入 `flock` 临界区，从而避免同一 session 边界任务及多赛事任务同时写库。import 最多等待
-60 秒；超时会以独立退出码失败，并在 cron 日志中写出 `event_id`、`sources`、`wait_seconds`
-和 lock path，便于区分锁竞争与普通导入错误。
+刷新任务的网络抓取在锁外执行。刷新 import、promote 等写主 SQLite DB 的任务共用按目标 DB
+路径生成的 `flock` 锁，从而避免同一 session 边界任务及多赛事任务同时写主库。主库 writer
+最多等待 60 秒；超时会以独立退出码失败，并在 cron 日志中写出 `event_id`、`sources`、
+`wait_seconds` 和 lock path，便于区分锁竞争与普通写库错误。
 
 cron 生成器依据 `current_event_session_schedule` 安排。每个 session 有一个 **5 小时刷新窗口**
 （从 session 起点开始），窗口内高频任务使用 cron 范围表达式代替逐条条目：

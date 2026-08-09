@@ -311,12 +311,13 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 - `GetEventSchedule.json`：官方基础赛程，用于补充 match code、时间、台号、队伍 roster
 - `MTEAM_standings.json` / `WTEAM_standings.json`：小组积分
 - `GetBrackets_{sub_event}.json`：淘汰赛签表
-- `GetLiveResult.json`：进行中比赛 DOM 结果；默认带 `--include-official`。高频刷新优先读取
+- `GetLiveResult.json`：由 CDN live 列表和各场 matchdata JSON 规范化得到的比赛结果；默认带
+  `--include-official`。高频刷新优先读取
   `{event_id}_take_10_official_results.json`；只有该文件因网络、HTTP、JSON 解析或 payload
   结构问题不可用时，才回退分页读取完整 `GetOfficialResult`。有效的空数组表示“当前没有最近
   完赛结果”，不会触发回退。两路 official 都不可用时仍保留有效 live 数据，并在
   `_scrape_summary_live.json` 写入 `degraded=true`、`warnings`、`selected_official_source`
-  和各来源诊断信息，不会用空结果清空已有比赛
+  和 `official_sources`，不会用空结果清空已有比赛
 - `GetOfficialResult.json`：官方已完结 team tie 和 individual rubber 明细
 
 live 与 official 规范化结果以 `match_code` 合并；同一场比赛由 official 覆盖 live。完整
@@ -393,11 +394,11 @@ Official 结果只作为 upsert 补充，不是删除快照：接口暂时缺少
 开始后 5 分钟、此后每小时以及 `session start + 5h` 窗口结束点安排内部
 `official_reconcile`：它只抓取和导入 `completed`，不运行 `match_details`，用于用完整
 Official 结果持续补齐已完赛状态。除此之外还包含 backup、schedule、standings、brackets 和
-赛后 promote 任务。
+赛后 promote 任务；promote 在最后一个比赛日的最后一个 session 起点后 24 小时执行。
 
-所有刷新任务共用按 SQLite DB 路径生成的 util-linux `flock` 锁。网络抓取在锁外执行，只有
-DB import 串行；锁最多等待 60 秒，超时会在 cron 日志写出 event id、sources、等待秒数和
-lock path。上线安装 cron 前必须确认服务器存在可用的 util-linux `flock`。
+刷新任务的网络抓取在锁外执行；刷新 import、promote 等写主 SQLite DB 的任务共用按 DB 路径
+生成的 util-linux `flock` 锁。主库 writer 最多等待 60 秒，超时会在 cron 日志写出 event id、
+sources、等待秒数和 lock path。上线安装 cron 前必须确认服务器存在可用的 util-linux `flock`。
 
 ### db/promote_current_event.py
 将 `current_event_*` 数据写入历史事实表，重建签表与冠军，并把赛事 lifecycle 更新为 `completed`。
