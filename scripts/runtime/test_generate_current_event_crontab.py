@@ -54,6 +54,38 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         self.assertIn("--sources live", command)
         self.assertIn("--include-official", command)
 
+    def test_official_reconcile_refresh_only_scrapes_and_imports_completed(self):
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        command = cron.build_refresh_command(args, {"official_reconcile"})
+
+        self.assertEqual(2, command.count("--sources completed"))
+        self.assertNotIn("match_details", command)
+        self.assertNotIn("--include-official", command)
+
+    def test_session_official_reconcile_times_run_hourly_and_at_session_end(self):
+        session_start = cron.datetime(2026, 7, 1, 10, 0, 42, 999)
+
+        times = cron.session_official_reconcile_times(session_start)
+
+        self.assertEqual(
+            ["10:05", "11:05", "12:05", "13:05", "14:05", "15:00"],
+            [run_at.strftime("%H:%M") for run_at in times],
+        )
+        self.assertTrue(all(run_at.second == 0 and run_at.microsecond == 0 for run_at in times))
+
     def test_session_refreshes_use_cron_ranges_instead_of_per_tick_jobs(self):
         event = cron.Event(3242, "United States Smash 2026", "America/Los_Angeles")
         schedule = [
@@ -89,6 +121,29 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         self.assertIn(("live",), range_lines)
         self.assertTrue(range_lines[("live",)].startswith("0,10,20,30,40,50 1-5 2 7 * "))
         self.assertNotIn("completed", set().union(*(job.sources for job in refresh_jobs)))
+
+    def test_build_jobs_adds_official_reconcile_after_live_for_each_session(self):
+        event = cron.Event(3242, "Test Event", "Asia/Shanghai")
+        schedule = [
+            cron.SessionDay(
+                local_date=cron.date(2026, 7, 1),
+                morning_session_start="10:00",
+                afternoon_session_start=None,
+                raw_sub_events_text="Main Draw",
+                parsed_rounds_json='[{"stage_code":"MAIN_DRAW","round_code":"R32"}]',
+            )
+        ]
+
+        _main_draw_start, jobs = cron.build_jobs(event, schedule, "Asia/Shanghai")
+        reconcile_jobs = [job for job in jobs if job.sources == {"official_reconcile"}]
+
+        self.assertEqual(
+            ["10:05", "11:05", "12:05", "13:05", "14:05", "15:00"],
+            [job.run_at.strftime("%H:%M") for job in reconcile_jobs],
+        )
+        self.assertTrue(
+            all(job.labels == {"morning-official-reconcile"} for job in reconcile_jobs)
+        )
 
 
 if __name__ == "__main__":

@@ -23,6 +23,7 @@ SCRAPE_IMPORT_SOURCES = {
     "standings": ("standings", "standings"),
     "brackets": ("brackets", "brackets"),
     "live": ("live", "live"),
+    "official_reconcile": ("completed", "completed"),
     "completed": (("completed", "match_details"), "completed"),
     "match_details": ("match_details", ("live", "completed")),
 }
@@ -30,7 +31,17 @@ SCRAPE_IMPORT_SOURCES = {
 # 不经过 scrape/import 流水线、独立命令的 source。
 SPECIAL_SOURCES = {"promote", "backup"}
 
-SOURCE_ORDER = ["backup", "schedule", "standings", "brackets", "live", "match_details", "completed", "promote"]
+SOURCE_ORDER = [
+    "backup",
+    "schedule",
+    "standings",
+    "brackets",
+    "live",
+    "official_reconcile",
+    "match_details",
+    "completed",
+    "promote",
+]
 SESSION_REFRESH_DURATION = timedelta(hours=5)
 
 # 每日 cron 备份保留份数（high-freq 刷新本身不备份，靠这个兜底）。
@@ -286,6 +297,18 @@ def cron_number_field(values: list[int]) -> str:
     return ",".join(str(value) for value in ordered)
 
 
+def session_official_reconcile_times(session_start: datetime) -> list[datetime]:
+    start = session_start.replace(second=0, microsecond=0)
+    session_end = start + SESSION_REFRESH_DURATION
+    run_at = start + timedelta(minutes=5)
+    points: list[datetime] = []
+    while run_at < session_end:
+        points.append(run_at)
+        run_at += timedelta(hours=1)
+    points.append(session_end)
+    return points
+
+
 def build_session_refresh_jobs(session_start: datetime, session_label: str) -> list[CronJob]:
     points: list[tuple[datetime, set[str]]] = []
     run_at = session_start.replace(second=0, microsecond=0)
@@ -416,6 +439,14 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
         for session_label, start in starts:
             session_start = to_target_datetime(day.local_date, start, event_tz, target_tz)
             range_jobs.extend(build_session_refresh_jobs(session_start, session_label))
+            for run_at in session_official_reconcile_times(session_start):
+                range_jobs.append(
+                    CronJob(
+                        run_at=run_at,
+                        sources={"official_reconcile"},
+                        labels={f"{session_label}-official-reconcile"},
+                    )
+                )
 
     # 每个比赛日的首个 session 起点跑一次 DB 备份（在当天首批 live 导入之前），
     # 给无备份的 high-freq 刷新兜底。备份独占该分钟，不与刷新任务合并。
