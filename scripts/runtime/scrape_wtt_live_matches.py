@@ -7,6 +7,7 @@ import re
 import sys
 import time
 import urllib.request
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -16,6 +17,7 @@ import brotli
 from wtt_scrape_shared import (
     DEFAULT_LIVE_EVENT_DATA_DIR,
     build_schedule_unit_index,
+    fetch_all_official_results,
     load_local_schedule_payload,
     normalize_match_code,
     parse_score_pair,
@@ -36,6 +38,22 @@ CDN_HEADERS = {
 }
 
 
+@dataclass(frozen=True)
+class JsonFetchResult:
+    url: str
+    ok: bool
+    payload: Any
+    error: str | None
+
+
+@dataclass(frozen=True)
+class RecentOfficialResult:
+    items: list[dict[str, Any]]
+    selected_source: str | None
+    sources: dict[str, dict[str, Any]]
+    degraded: bool
+
+
 def decode_response_body(response: Any, body: bytes) -> bytes:
     encoding = ""
     try:
@@ -49,23 +67,44 @@ def decode_response_body(response: Any, body: bytes) -> bytes:
     return body
 
 
-def fetch_cdn_json(path: str, retries: int = 2) -> Any:
+def fetch_cdn_json_result(path: str, retries: int = 2) -> JsonFetchResult:
     url = f"{CDN_BASE}{path}"
     for attempt in range(1, retries + 1):
         try:
             req = urllib.request.Request(url, headers=CDN_HEADERS)
             with urllib.request.urlopen(req, timeout=30) as resp:
                 if resp.status == 204:
-                    return None
+                    return JsonFetchResult(
+                        url=url,
+                        ok=False,
+                        payload=None,
+                        error="HTTP 204 No Content",
+                    )
                 body = decode_response_body(resp, resp.read())
                 if body.startswith(b"\xef\xbb\xbf"):
                     body = body[3:]
-                return json.loads(body.decode("utf-8"))
-        except Exception:
+                return JsonFetchResult(
+                    url=url,
+                    ok=True,
+                    payload=json.loads(body.decode("utf-8")),
+                    error=None,
+                )
+        except Exception as exc:
+            error = f"{type(exc).__name__}: {exc}"
             if attempt >= retries:
-                return None
+                return JsonFetchResult(url=url, ok=False, payload=None, error=error)
             time.sleep(0.5 * attempt)
-    return None
+    return JsonFetchResult(
+        url=url,
+        ok=False,
+        payload=None,
+        error="No fetch attempts were made",
+    )
+
+
+def fetch_cdn_json(path: str, retries: int = 2) -> Any:
+    result = fetch_cdn_json_result(path, retries=retries)
+    return result.payload if result.ok else None
 
 
 def fetch_live_events_index() -> list[dict[str, Any]]:
@@ -93,6 +132,67 @@ def fetch_take_10_official(event_id: int) -> list[dict[str, Any]]:
     if isinstance(payload, list):
         return payload
     return []
+
+
+def fetch_recent_official(event_id: int) -> RecentOfficialResult:
+    take_10 = fetch_cdn_json_result(
+        f"/websitestaticapifiles/{event_id}/{event_id}_take_10_official_results.json"
+    )
+    take_10_valid = take_10.ok and isinstance(take_10.payload, list)
+    take_10_error = take_10.error
+    if take_10.ok and not isinstance(take_10.payload, list):
+        take_10_error = (
+            "expected list payload, "
+            f"got {type(take_10.payload).__name__}"
+        )
+
+    sources: dict[str, dict[str, Any]] = {
+        "take_10": {
+            "url": take_10.url,
+            "ok": take_10_valid,
+            "count": len(take_10.payload) if take_10_valid else 0,
+            "error": take_10_error,
+        }
+    }
+    if take_10_valid:
+        return RecentOfficialResult(
+            items=take_10.payload,
+            selected_source="take_10",
+            sources=sources,
+            degraded=False,
+        )
+
+    fallback_meta, fallback_items = fetch_all_official_results(event_id)
+    fallback_valid = bool(fallback_meta.get("ok")) and isinstance(fallback_items, list)
+    fallback_error = fallback_meta.get("error")
+    if fallback_meta.get("ok") and not isinstance(fallback_items, list):
+        fallback_error = (
+            "expected list payload, "
+            f"got {type(fallback_items).__name__}"
+        )
+    elif not fallback_valid and not fallback_error:
+        fallback_error = "full official results unavailable"
+
+    sources["full_official_fallback"] = {
+        "url": fallback_meta.get("url"),
+        "ok": fallback_valid,
+        "count": len(fallback_items) if isinstance(fallback_items, list) else 0,
+        "error": fallback_error,
+        "pages": fallback_meta.get("pages", 0),
+    }
+    if fallback_valid:
+        return RecentOfficialResult(
+            items=fallback_items,
+            selected_source="full_official_fallback",
+            sources=sources,
+            degraded=False,
+        )
+    return RecentOfficialResult(
+        items=[],
+        selected_source=None,
+        sources=sources,
+        degraded=True,
+    )
 
 
 def full_document_code(value: str | None) -> str:
