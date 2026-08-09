@@ -416,11 +416,15 @@ def scrape_event_matches(
                 continue
             match_card = item.get("match_card") if isinstance(item.get("match_card"), dict) else {}
             payload = match_card or item
+            outer_document_code = item.get("documentCode")
             code = normalize_match_code(
-                item.get("documentCode") or match_card.get("documentCode")
+                outer_document_code or match_card.get("documentCode")
             )
             if not code or code in seen_official_codes:
                 continue
+            if match_card and not payload.get("documentCode"):
+                payload = dict(payload)
+                payload.setdefault("documentCode", outer_document_code)
 
             status = (payload.get("resultStatus") or item.get("fullResults") or "OFFICIAL").strip().upper()
             normalized = normalize_cdn_match(payload, status, schedule_unit_index)

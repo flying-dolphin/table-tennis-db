@@ -352,7 +352,6 @@ class OfficialResultMergeTests(unittest.TestCase):
             "documentCode": "MATCH-1",
             "fullResults": "OFFICIAL",
             "match_card": {
-                "documentCode": "MATCH-1",
                 "resultStatus": "OFFICIAL",
                 "resultOverallScores": "3-1",
                 "gameScores": "11-8,11-7,9-11,11-5",
