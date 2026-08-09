@@ -1,4 +1,6 @@
+import json
 import sys
+import tempfile
 import unittest
 from types import SimpleNamespace
 from pathlib import Path
@@ -309,6 +311,139 @@ class FetchRecentOfficialTests(unittest.TestCase):
         self.assertIsNone(result.selected_source)
         self.assertTrue(result.degraded)
         self.assertEqual(result.sources["full_official_fallback"]["error"], "upstream unavailable")
+
+
+class OfficialResultMergeTests(unittest.TestCase):
+    @staticmethod
+    def normalized_match(code: str, status: str, table: str = "Table 1") -> dict:
+        return {
+            "match_code": code,
+            "source_status": status,
+            "table_no": table,
+            "score": "3-1" if status == "OFFICIAL" else "2-1",
+        }
+
+    def test_official_match_replaces_live_match_with_the_same_code(self):
+        live_match = self.normalized_match("MATCH-1", "LIVE")
+        official_match = self.normalized_match("MATCH-1", "OFFICIAL")
+
+        self.assertTrue(hasattr(live, "merge_normalized_matches"))
+        merged = live.merge_normalized_matches([live_match], [official_match])
+
+        self.assertEqual(merged, [official_match])
+
+    def test_keeps_different_match_codes_in_existing_deterministic_order(self):
+        live_match = self.normalized_match("MATCH-2", "LIVE", "Table 2")
+        official_match = self.normalized_match("MATCH-1", "OFFICIAL", "Table 1")
+
+        self.assertTrue(hasattr(live, "merge_normalized_matches"))
+        merged = live.merge_normalized_matches([live_match], [official_match])
+
+        self.assertEqual(merged, [live_match, official_match])
+
+    def test_scrape_uses_recent_official_and_normalizes_full_fallback_item(self):
+        live_card = {
+            "documentCode": "MATCH-1",
+            "resultStatus": "LIVE",
+            "overallScores": "2-1",
+            "tableName": "Live Table",
+        }
+        fallback_item = {
+            "documentCode": "MATCH-1",
+            "fullResults": "OFFICIAL",
+            "match_card": {
+                "documentCode": "MATCH-1",
+                "resultStatus": "OFFICIAL",
+                "resultOverallScores": "3-1",
+                "gameScores": "11-8,11-7,9-11,11-5",
+                "tableName": "Official Table",
+            },
+        }
+        official_result = live.RecentOfficialResult(
+            items=[fallback_item],
+            selected_source="full_official_fallback",
+            sources={"full_official_fallback": {"ok": True, "count": 1}},
+            degraded=False,
+        )
+
+        with (
+            patch.object(live, "fetch_live_match_ids", return_value=[{"documentCode": "MATCH-1"}]),
+            patch.object(live, "fetch_matchdata_card", return_value=live_card),
+            patch.object(live, "fetch_recent_official", return_value=official_result) as fetch_official,
+        ):
+            scraped = live.scrape_event_matches(
+                3242,
+                include_official=True,
+            )
+
+        self.assertIsInstance(scraped, tuple)
+        matches, returned_official_result = scraped
+        fetch_official.assert_called_once_with(3242)
+        self.assertIs(returned_official_result, official_result)
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["source_status"], "OFFICIAL")
+        self.assertEqual(matches[0]["score"], "3-1")
+        self.assertEqual(matches[0]["table_no"], "Official Table")
+
+    def test_failed_official_sources_leave_live_output_and_write_only_warning(self):
+        live_card = {
+            "documentCode": "MATCH-1",
+            "resultStatus": "LIVE",
+            "overallScores": "2-1",
+        }
+        official_result = live.RecentOfficialResult(
+            items=[],
+            selected_source=None,
+            sources={
+                "take_10": {"ok": False, "error": "HTTP 204 No Content"},
+                "full_official_fallback": {"ok": False, "error": "upstream unavailable"},
+            },
+            degraded=True,
+        )
+
+        with (
+            patch.object(live, "fetch_live_match_ids", return_value=[{"documentCode": "MATCH-1"}]),
+            patch.object(live, "fetch_matchdata_card", return_value=live_card),
+            patch.object(live, "fetch_recent_official", return_value=official_result),
+            tempfile.TemporaryDirectory() as tmp_dir,
+        ):
+            scraped = live.scrape_event_matches(
+                3242,
+                include_official=True,
+            )
+            self.assertIsInstance(scraped, tuple)
+            matches, returned_official_result = scraped
+            live.write_outputs(
+                Path(tmp_dir),
+                3242,
+                matches,
+                official_result=returned_official_result,
+                schedule_cache_used=False,
+                with_debug_files=False,
+            )
+            summary = json.loads(
+                (Path(tmp_dir) / "_scrape_summary_live.json").read_text(encoding="utf-8")
+            )
+
+        self.assertEqual([match["match_code"] for match in matches], ["MATCH-1"])
+        self.assertEqual(summary["errors"], [])
+        self.assertEqual(len(summary["warnings"]), 1)
+        self.assertTrue(summary["degraded"])
+        self.assertIsNone(summary["selected_official_source"])
+        self.assertEqual(summary["official_sources"], official_result.sources)
+
+    def test_scrape_without_official_returns_empty_official_result(self):
+        with (
+            patch.object(live, "fetch_live_match_ids", return_value=[]),
+            patch.object(live, "fetch_recent_official") as fetch_official,
+        ):
+            scraped = live.scrape_event_matches(3242)
+
+        self.assertIsInstance(scraped, tuple)
+        matches, official_result = scraped
+        self.assertEqual(matches, [])
+        self.assertEqual(official_result, live.RecentOfficialResult([], None, {}, False))
+        fetch_official.assert_not_called()
 
 
 if __name__ == "__main__":

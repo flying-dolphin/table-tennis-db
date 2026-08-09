@@ -351,15 +351,42 @@ def normalize_cdn_match(
     }
 
 
+def merge_normalized_matches(
+    live_matches: list[dict[str, Any]],
+    official_matches: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    matches_by_code = {
+        match.get("match_code"): match
+        for match in live_matches
+        if match.get("match_code")
+    }
+    matches_by_code.update(
+        {
+            match.get("match_code"): match
+            for match in official_matches
+            if match.get("match_code")
+        }
+    )
+    matches = list(matches_by_code.values())
+    matches.sort(
+        key=lambda m: (
+            m.get("source_status") or "",
+            m.get("table_no") or "",
+            m.get("match_code") or "",
+        )
+    )
+    return matches
+
+
 def scrape_event_matches(
     event_id: int,
     *,
     include_official: bool = False,
     schedule_payload: Any = None,
-) -> list[dict[str, Any]]:
+) -> tuple[list[dict[str, Any]], RecentOfficialResult]:
     schedule_unit_index = build_schedule_unit_index(schedule_payload) if schedule_payload else {}
 
-    matches: list[dict[str, Any]] = []
+    live_matches: list[dict[str, Any]] = []
     seen_codes: set[str] = set()
 
     live_ids = fetch_live_match_ids(event_id)
@@ -378,17 +405,21 @@ def scrape_event_matches(
         normalized = normalize_cdn_match(card, status, schedule_unit_index)
         if normalized["match_code"]:
             seen_codes.add(normalized["match_code"])
-            matches.append(normalized)
+            live_matches.append(normalized)
 
+    official_matches: list[dict[str, Any]] = []
     if include_official:
-        official_items = fetch_take_10_official(event_id)
-        for item in official_items:
+        official_result = fetch_recent_official(event_id)
+        seen_official_codes: set[str] = set()
+        for item in official_result.items:
+            if not isinstance(item, dict):
+                continue
             match_card = item.get("match_card") if isinstance(item.get("match_card"), dict) else {}
             payload = match_card or item
             code = normalize_match_code(
                 item.get("documentCode") or match_card.get("documentCode")
             )
-            if not code or code in seen_codes:
+            if not code or code in seen_official_codes:
                 continue
 
             status = (payload.get("resultStatus") or item.get("fullResults") or "OFFICIAL").strip().upper()
@@ -402,17 +433,12 @@ def scrape_event_matches(
                         normalized["round"] = unit.get("Round")
 
             if normalized.get("match_code"):
-                seen_codes.add(normalized["match_code"])
-                matches.append(normalized)
+                seen_official_codes.add(normalized["match_code"])
+                official_matches.append(normalized)
+    else:
+        official_result = RecentOfficialResult([], None, {}, False)
 
-    matches.sort(
-        key=lambda m: (
-            m.get("source_status") or "",
-            m.get("table_no") or "",
-            m.get("match_code") or "",
-        )
-    )
-    return matches
+    return merge_normalized_matches(live_matches, official_matches), official_result
 
 
 def write_outputs(
@@ -420,6 +446,7 @@ def write_outputs(
     event_id: int,
     matches: list[dict[str, Any]],
     *,
+    official_result: RecentOfficialResult,
     schedule_cache_used: bool,
     with_debug_files: bool,
 ) -> dict[str, Any]:
@@ -460,6 +487,14 @@ def write_outputs(
             }
         ],
         "errors": [],
+        "warnings": (
+            ["Official results are unavailable; retained live matches only."]
+            if official_result.degraded
+            else []
+        ),
+        "degraded": official_result.degraded,
+        "selected_official_source": official_result.selected_source,
+        "official_sources": official_result.sources,
         "fetched_at": summary["fetched_at"],
     }
 
@@ -521,7 +556,7 @@ def main() -> int:
     schedule_payload = load_local_schedule_payload(event_dir)
     schedule_cache_used = bool(schedule_payload)
 
-    matches = scrape_event_matches(
+    matches, official_result = scrape_event_matches(
         args.event_id,
         include_official=bool(args.include_official),
         schedule_payload=schedule_payload,
@@ -531,6 +566,7 @@ def main() -> int:
         event_dir,
         args.event_id,
         matches,
+        official_result=official_result,
         schedule_cache_used=schedule_cache_used,
         with_debug_files=bool(args.with_debug_files),
     )
