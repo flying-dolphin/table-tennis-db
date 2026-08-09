@@ -148,6 +148,8 @@ _ROUND_EN = {
     "BR": "BR", "BRONZE": "BR",
 }
 
+_TYPOGRAPHIC_APOSTROPHES = str.maketrans({"\u2018": "'", "\u2019": "'"})
+
 
 def parse_competition_segment_en(segment: str) -> dict | None:
     """从英文赛事分段解析出 {sub_event_code, stage_code, round_code}。
@@ -158,7 +160,9 @@ def parse_competition_segment_en(segment: str) -> dict | None:
         "Mixed Doubles Final"         -> XD / MAIN_DRAW / F
     无法识别分项时返回 None。
     """
-    seg = " ".join(segment.split()).strip()
+    # WTT's provisional schedule uses typographic apostrophes in e.g.
+    # "Women’s Singles", while the event names below use ASCII apostrophes.
+    seg = " ".join(segment.translate(_TYPOGRAPHIC_APOSTROPHES).split()).strip()
     if not seg:
         return None
 

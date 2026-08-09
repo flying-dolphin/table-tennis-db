@@ -20,10 +20,12 @@ from scrape_results_rankings import (
     build_results_checkpoint_meta,
     click_results_page_offset,
     build_output_payload,
+    describe_results_page_html,
     extract_results_reported_total,
     extract_results_page_urls,
     find_completed_results_output,
     find_resumable_results_output,
+    get_completed_results_offsets,
     find_db_profile_candidates,
     is_results_snapshot_complete,
     parse_results_ranking_html,
@@ -34,6 +36,8 @@ from scrape_results_rankings import (
     results_resume_wait_seconds,
     scrape_results_rankings,
     select_results_display_100,
+    wait_for_results_page_html,
+    wait_for_results_page_ready,
     validate_partial_results_snapshot,
     validate_live_page_against_partial,
     validate_scraped_results_count,
@@ -157,8 +161,130 @@ class ResultsDisplaySizeTests(unittest.TestCase):
 
         self.assertTrue(selected)
 
+    def test_waits_for_table_to_finish_rendering_after_active_page_changes(self):
+        page = MagicMock()
+        page.url = "https://results.ittf.link/ranking/list/58?limitstart58=100"
+        page.content.side_effect = [
+            self._ranking_html(35).replace(
+                "Page 1 of 10 Total: 958",
+                "Page 2 of 10 Total: 980",
+            ),
+            self._ranking_html(35).replace(
+                "Page 1 of 10 Total: 958",
+                "Page 2 of 10 Total: 980",
+            ),
+            self._ranking_html(100).replace(
+                "Page 1 of 10 Total: 958",
+                "Page 2 of 10 Total: 980",
+            ),
+            self._ranking_html(100).replace(
+                "Page 1 of 10 Total: 958",
+                "Page 2 of 10 Total: 980",
+            ),
+        ]
+
+        with patch("scrape_results_rankings.time.sleep"):
+            ready = wait_for_results_page_ready(
+                page,
+                expected_page=2,
+                page_size=100,
+                reported_total=980,
+                timeout_sec=1,
+                poll_sec=0,
+            )
+
+        self.assertTrue(ready)
+        self.assertEqual(page.content.call_count, 4)
+
+    def test_does_not_accept_embedded_rows_when_dom_table_is_incomplete(self):
+        page = MagicMock()
+        page.content.return_value = self._ranking_html(35).replace(
+            "Page 1 of 10 Total: 958",
+            "Page 2 of 10 Total: 980",
+        )
+        fake_rows = [{"rank": rank} for rank in range(101, 201)]
+
+        with patch("scrape_results_rankings.parse_results_ranking_html", return_value=fake_rows):
+            self.assertIsNone(
+                wait_for_results_page_html(
+                    page,
+                    expected_page=2,
+                    page_size=100,
+                    reported_total=980,
+                    timeout_sec=0,
+                    poll_sec=0,
+                )
+            )
+
+    def test_describes_dom_and_parser_counts_for_incomplete_page(self):
+        page_html = self._ranking_html(35).replace(
+            "Page 1 of 10 Total: 958",
+            "Page 3 of 10 Total: 980",
+        )
+
+        diagnostics = describe_results_page_html(page_html, top_n=100)
+
+        self.assertEqual(diagnostics["html_length"], len(page_html))
+        self.assertEqual(diagnostics["pagination"], (3, 10, 980))
+        self.assertEqual(diagnostics["dom_tr_count"], 35)
+        self.assertEqual(diagnostics["dom_valid_rows"], 35)
+        self.assertEqual(diagnostics["embedded_rows"], 0)
+
+    def test_accepts_non_ranking_tbody_row_when_100_ranking_rows_are_valid(self):
+        page = MagicMock()
+        page_html = self._ranking_html(100).replace(
+            "Page 1 of 10 Total: 958",
+            "Page 3 of 10 Total: 980",
+        ).replace(
+            "</tbody>",
+            "<tr><td>table filter placeholder</td></tr></tbody>",
+        )
+        page.content.return_value = page_html
+
+        ready_html = wait_for_results_page_html(
+            page,
+            expected_page=3,
+            page_size=100,
+            reported_total=980,
+            timeout_sec=0,
+            poll_sec=0,
+            stable_samples=1,
+        )
+
+        self.assertEqual(ready_html, page_html)
+
 
 class ResultsTargetPagePlannerTests(unittest.TestCase):
+    def test_ignores_complete_checkpoints_with_incomplete_page_metadata(self):
+        checkpoints = {
+            "0": {
+                "status": "complete",
+                "row_count": 100,
+                "parsed_count": 100,
+                "first_rank": 1,
+                "last_rank": 100,
+            },
+            "100": {
+                "status": "complete",
+                "row_count": 35,
+                "parsed_count": 35,
+                "first_rank": 101,
+                "last_rank": 135,
+            },
+            "900": {
+                "status": "complete",
+                "row_count": 39,
+                "parsed_count": 39,
+                "first_rank": 901,
+                "last_rank": 939,
+            },
+        }
+
+        self.assertEqual(
+            get_completed_results_offsets(checkpoints, page_size=100, reported_total=980),
+            {0},
+        )
+
     @staticmethod
     def _weekly_row(index: int, rank: int | None = None) -> dict:
         return {
@@ -221,7 +347,7 @@ class ResultsTargetPagePlannerTests(unittest.TestCase):
 
     def test_extracts_all_display_100_page_urls_from_footer(self):
         html = """
-        <nav><ul class="pagination">
+        <nav class="fabrikNav"><ul>
           <li><a title="1" href="/ranking">1</a></li>
           <li><a title="2" href="/ranking/list/58?limitstart58=100">2</a></li>
           <li><a title="3" href="/ranking/list/58?limitstart58=200">3</a></li>
@@ -239,6 +365,32 @@ class ResultsTargetPagePlannerTests(unittest.TestCase):
         self.assertEqual(urls[200], "https://results.ittf.link/ranking/list/58?limitstart58=200")
         self.assertEqual(urls[900], "https://results.ittf.link/ranking/list/58?limitstart58=900")
 
+    def test_clicks_pagination_link_from_fabrik_nav_container(self):
+        page = MagicMock()
+        page.url = "https://results.ittf.link/ranking/list/58?limitstart58=100"
+        links = MagicMock()
+        target = MagicMock()
+        target.get_attribute.return_value = "/ranking/list/58?limitstart58=200"
+        target.is_visible.return_value = True
+        links.count.return_value = 1
+        links.nth.return_value = target
+        page.locator.side_effect = lambda selector: links if selector == ".pagination a[href], .fabrikNav a[href]" else MagicMock()
+        page.content.return_value = '<div class="list-footer">Page 3 of 10 Total: 980</div>'
+
+        with patch("scrape_results_rankings.human_sleep"), patch(
+            "scrape_results_rankings.move_mouse_to_locator"
+        ):
+            clicked = click_results_page_offset(
+                page,
+                offset=200,
+                page_size=100,
+                delay_cfg=type("Delay", (), {"min_request_sec": 0, "max_request_sec": 0})(),
+                timeout_sec=0.1,
+                poll_sec=0,
+            )
+
+        self.assertTrue(clicked)
+
     def test_validates_current_page_against_matching_snapshot_offset(self):
         saved = [self._results_row(index) for index in range(900)]
         live_page_nine = [self._results_row(index) for index in range(800, 900)]
@@ -247,6 +399,20 @@ class ResultsTargetPagePlannerTests(unittest.TestCase):
             live_page_nine,
             saved,
             current_page=9,
+            page_size=100,
+        )
+
+        self.assertTrue(matches, reason)
+
+    def test_validates_gapped_snapshot_by_rank_instead_of_list_index(self):
+        saved = [self._results_row(index) for index in range(235)]
+        saved.extend(self._results_row(index) for index in range(300, 338))
+        live_page_three = [self._results_row(index) for index in range(200, 300)]
+
+        matches, reason = validate_live_page_against_partial(
+            live_page_three,
+            saved,
+            current_page=3,
             page_size=100,
         )
 
@@ -296,6 +462,36 @@ class ResultsTargetPagePlannerTests(unittest.TestCase):
         self.assertTrue(clicked)
         click.assert_called_once_with(page, second)
         page.goto.assert_not_called()
+
+    def test_retries_page_content_while_navigation_is_in_progress(self):
+        page = MagicMock()
+        page.url = "https://results.ittf.link/ranking"
+        link = MagicMock()
+        link.get_attribute.return_value = "/ranking/list/58?limitstart58=900"
+        link.is_visible.return_value = True
+        links = MagicMock()
+        links.count.return_value = 1
+        links.nth.return_value = link
+        page.locator.return_value = links
+        page.content.side_effect = [
+            Exception("Page.content: Unable to retrieve content because the page is navigating and changing the content."),
+            '<div class="list-footer">Page 10 of 10 Total: 958</div>',
+        ]
+
+        with patch("scrape_results_rankings.human_sleep"), patch(
+            "scrape_results_rankings.move_mouse_to_locator"
+        ), patch("scrape_results_rankings.time.sleep"):
+            clicked = click_results_page_offset(
+                page,
+                offset=900,
+                page_size=100,
+                delay_cfg=type("Delay", (), {"min_request_sec": 0, "max_request_sec": 0})(),
+                timeout_sec=1,
+                poll_sec=0,
+            )
+
+        self.assertTrue(clicked)
+        self.assertEqual(page.content.call_count, 2)
 
     def test_pagination_click_propagates_http_429_without_retrying(self):
         page = MagicMock()

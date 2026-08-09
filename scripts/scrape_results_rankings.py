@@ -49,6 +49,7 @@ RANKING_URLS = {
     "women": f"{BASE_URL}/index.php/ittf-rankings/ittf-ranking-women-singles",
     "men": f"{BASE_URL}/index.php/ittf-rankings/ittf-ranking-men-singles",
 }
+RESULTS_PAGINATION_LINK_SELECTOR = ".pagination a[href], .fabrikNav a[href]"
 
 
 def normalize_space(value: str) -> str:
@@ -227,21 +228,35 @@ def validate_live_page_against_partial(
     if current_page <= 0 or page_size <= 0:
         return False, "invalid pagination state"
     offset = (current_page - 1) * page_size
-    overlap = min(len(live_rows), max(0, len(saved_rows) - offset))
-    if overlap <= 0:
+    saved_by_rank = {
+        parse_int(row.get("rank")): row
+        for row in saved_rows
+        if isinstance(row, dict) and parse_int(row.get("rank")) > 0
+    }
+    live_by_rank = {
+        parse_int(row.get("rank")): row
+        for row in live_rows
+        if isinstance(row, dict) and parse_int(row.get("rank")) > 0
+    }
+    overlapping_ranks = sorted(
+        rank
+        for rank in live_by_rank.keys() & saved_by_rank.keys()
+        if offset < rank <= offset + page_size
+    )
+    if not overlapping_ranks:
         return None, f"current page offset {offset} has no overlap with {len(saved_rows)} saved rows"
 
-    for relative_index in range(overlap):
-        saved = saved_rows[offset + relative_index]
-        live = live_rows[relative_index]
+    for rank in overlapping_ranks:
+        saved = saved_by_rank[rank]
+        live = live_by_rank[rank]
         saved_id = str(saved.get("player_id") or "")
         live_id = str(live.get("player_id") or "")
         if not saved_id or saved_id != live_id:
             return False, (
-                f"player mismatch at saved row {offset + relative_index + 1}: "
+                f"player mismatch at rank {rank}: "
                 f"saved={saved_id or '?'} live={live_id or '?'}"
             )
-    return True, f"validated {overlap} overlapping rows at offset {offset}"
+    return True, f"validated {len(overlapping_ranks)} overlapping rows at offset {offset}"
 
 
 def select_results_display_100(
@@ -329,6 +344,120 @@ def select_results_display_100(
 
     logger.warning("Display # = 100 did not produce a verified 100-row results ranking page; using actual page state")
     return False
+
+
+def describe_results_page_html(page_html: str, *, top_n: int) -> dict[str, Any]:
+    """Summarize page states that distinguish an incomplete response from parse loss."""
+    soup = BeautifulSoup(page_html, "html.parser")
+    table = soup.select_one("table#list_58_com_fabrik_58") or soup.select_one("table")
+    dom_rows = table.select("tbody tr") if table is not None else []
+    pagination = extract_results_pagination_info(page_html)
+    footer_text = " ".join(
+        node.get_text(" ", strip=True)
+        for node in soup.select(".list-footer, .pagination, .fabrikNav")
+    )
+    return {
+        "html_length": len(page_html),
+        "pagination": pagination,
+        "footer": footer_text,
+        "dom_tr_count": len(dom_rows),
+        "dom_valid_rows": len(_parse_dom_rows(soup, top_n)),
+        "embedded_rows": len(_parse_embedded_fabrik_rows(page_html, top_n)),
+    }
+
+
+def wait_for_results_page_html(
+    page: Any,
+    *,
+    expected_page: int,
+    page_size: int,
+    reported_total: int,
+    timeout_sec: float = 20.0,
+    poll_sec: float = 0.25,
+    stable_samples: int = 2,
+) -> str | None:
+    """Return a stable HTML snapshot whose real DOM table is complete."""
+    if expected_page <= 0 or page_size <= 0 or reported_total <= 0:
+        return None
+
+    offset = (expected_page - 1) * page_size
+    expected_rows = min(page_size, max(0, reported_total - offset))
+    if expected_rows <= 0:
+        return None
+
+    deadline = time.monotonic() + max(0.0, timeout_sec)
+    previous_signature: tuple[int, int, int, int] | None = None
+    consecutive_stable = 0
+    last_page_html = ""
+    while True:
+        try:
+            page_html = page.content()
+            last_page_html = page_html
+            soup = BeautifulSoup(page_html, "html.parser")
+            table = soup.select_one("table#list_58_com_fabrik_58") or soup.select_one("table")
+            dom_rows = table.select("tbody tr") if table is not None else []
+            rows = _parse_dom_rows(soup, expected_rows)
+            pagination = extract_results_pagination_info(page_html)
+            if (
+                pagination is not None
+                and pagination[0] == expected_page
+                and len(rows) == expected_rows
+                and len(dom_rows) >= expected_rows
+            ):
+                signature = (
+                    pagination[0],
+                    len(dom_rows),
+                    parse_int(rows[0].get("rank")) if rows else 0,
+                    parse_int(rows[-1].get("rank")) if rows else 0,
+                )
+                if signature == previous_signature:
+                    consecutive_stable += 1
+                else:
+                    previous_signature = signature
+                    consecutive_stable = 1
+                if consecutive_stable >= max(1, stable_samples):
+                    return page_html
+            else:
+                previous_signature = None
+                consecutive_stable = 0
+        except Exception as exc:
+            logger.debug("Waiting for complete results page %s: %s", expected_page, exc)
+
+        if time.monotonic() >= deadline:
+            break
+        time.sleep(max(0.0, poll_sec))
+    if last_page_html:
+        logger.warning(
+            "Results page %s remained incomplete; diagnostics=%s",
+            expected_page,
+            describe_results_page_html(last_page_html, top_n=expected_rows),
+        )
+    return None
+
+
+def wait_for_results_page_ready(
+    page: Any,
+    *,
+    expected_page: int,
+    page_size: int,
+    reported_total: int,
+    timeout_sec: float = 20.0,
+    poll_sec: float = 0.25,
+    stable_samples: int = 2,
+) -> bool:
+    """Wait until the active page contains a complete, stable result set."""
+    return (
+        wait_for_results_page_html(
+            page,
+            expected_page=expected_page,
+            page_size=page_size,
+            reported_total=reported_total,
+            timeout_sec=timeout_sec,
+            poll_sec=poll_sec,
+            stable_samples=stable_samples,
+        )
+        is not None
+    )
 
 
 def validate_scraped_results_count(
@@ -702,7 +831,7 @@ def build_results_resume_url(page_html: str, source_url: str, offset: int) -> st
 def extract_results_page_urls(page_html: str, source_url: str) -> dict[int, str]:
     soup = BeautifulSoup(page_html, "html.parser")
     urls: dict[int, str] = {0: source_url}
-    for link in soup.select(".pagination a[href]"):
+    for link in soup.select(RESULTS_PAGINATION_LINK_SELECTOR):
         href = urllib.parse.urljoin(source_url, html.unescape(str(link.get("href") or "")))
         parsed = urllib.parse.urlsplit(href)
         for key, value in urllib.parse.parse_qsl(parsed.query, keep_blank_values=True):
@@ -731,7 +860,7 @@ def click_results_page_offset(
     timeout_sec: float = 20.0,
     poll_sec: float = 0.25,
 ) -> bool:
-    links = page.locator(".pagination a[href]")
+    links = page.locator(RESULTS_PAGINATION_LINK_SELECTOR)
     target = None
     for index in range(links.count()):
         candidate = links.nth(index)
@@ -747,16 +876,21 @@ def click_results_page_offset(
         return False
 
     risk_response: Any = None
+    target_response_status: int | None = None
+    target_response_url = ""
 
     def observe_response(response: Any) -> None:
-        nonlocal risk_response
+        nonlocal risk_response, target_response_status, target_response_url
         try:
             status = int(response.status)
             response_offset = extract_results_page_offset(str(response.url))
         except (TypeError, ValueError):
             return
-        if status in {403, 429, 503} and response_offset == offset:
-            risk_response = response
+        if response_offset == offset:
+            target_response_status = status
+            target_response_url = str(response.url)
+            if status in {403, 429, 503}:
+                risk_response = response
 
     page.on("response", observe_response)
     try:
@@ -772,6 +906,14 @@ def click_results_page_offset(
             page.remove_listener("response", observe_response)
         except Exception:
             pass
+
+    if target_response_status is not None:
+        logger.info(
+            "Results offset %d response: status=%s url=%s",
+            offset,
+            target_response_status,
+            target_response_url,
+        )
 
     if risk_response is not None:
         status = int(risk_response.status)
@@ -795,7 +937,15 @@ def click_results_page_offset(
                 status=429 if retry_after is not None else None,
                 retry_after_sec=retry_after,
             )
-        pagination = extract_results_pagination_info(page.content())
+        try:
+            page_html = page.content()
+        except Exception as exc:
+            logger.debug("Waiting for results page navigation to settle: %s", exc)
+            if time.monotonic() >= deadline:
+                break
+            time.sleep(max(0.0, poll_sec))
+            continue
+        pagination = extract_results_pagination_info(page_html)
         if pagination is not None and pagination[0] == expected_page:
             logger.info("Clicked results pagination offset %d; active page=%d", offset, expected_page)
             return True
@@ -829,6 +979,34 @@ def plan_missing_results_page_offsets(
         if not row.get("player_id")
     }
     return sorted(offset for offset in offsets if offset < reported_total)
+
+
+def get_completed_results_offsets(
+    page_checkpoints: dict[str, dict[str, Any]],
+    *,
+    page_size: int,
+    reported_total: int,
+) -> set[int]:
+    """Return only checkpoints whose metadata proves the full page was parsed."""
+    completed: set[int] = set()
+    if page_size <= 0 or reported_total <= 0:
+        return completed
+
+    for raw_offset, checkpoint in page_checkpoints.items():
+        if not isinstance(checkpoint, dict) or checkpoint.get("status") != "complete":
+            continue
+        offset = parse_int(raw_offset, default=-1)
+        if offset < 0 or offset >= reported_total or offset % page_size != 0:
+            continue
+        expected_rows = min(page_size, reported_total - offset)
+        if (
+            parse_int(checkpoint.get("row_count"), default=-1) == expected_rows
+            and parse_int(checkpoint.get("parsed_count"), default=-1) == expected_rows
+            and parse_int(checkpoint.get("first_rank"), default=-1) == offset + 1
+            and parse_int(checkpoint.get("last_rank"), default=-1) == offset + expected_rows
+        ):
+            completed.add(offset)
+    return completed
 
 
 def recover_missing_results_pages(
@@ -1054,6 +1232,52 @@ def scrape_results_rankings(
             raise RuntimeError(
                 f"results ranking total changed during scrape: {reported_total} -> {page_reported_total}"
             )
+
+        pagination = extract_results_pagination_info(page_html)
+        effective_page_size = page_size or 100
+        if page_size is not None and pagination is not None and reported_total is not None:
+            expected_page = pagination[0]
+            ready_page_html = wait_for_results_page_html(
+                page,
+                expected_page=expected_page,
+                page_size=effective_page_size,
+                reported_total=reported_total,
+            )
+            if ready_page_html is None:
+                page_offset = (expected_page - 1) * effective_page_size
+                retry_url = build_results_resume_url(page_html, page.url, page_offset)
+                if retry_url:
+                    logger.warning(
+                        "Results page %s was incomplete; reloading offset %s: %s",
+                        expected_page,
+                        page_offset,
+                        retry_url,
+                    )
+                    guarded_goto(
+                        page,
+                        retry_url,
+                        delay_cfg,
+                        f"reload incomplete results page {expected_page}",
+                        sleep_first=False,
+                        retries=0,
+                        retry_risk_responses=False,
+                    )
+                    ready_page_html = wait_for_results_page_html(
+                        page,
+                        expected_page=expected_page,
+                        page_size=effective_page_size,
+                        reported_total=reported_total,
+                    )
+                    if ready_page_html is None:
+                        raise RuntimeError(
+                            f"results page {expected_page} remained incomplete after reload"
+                        )
+                else:
+                    raise RuntimeError(f"results page {expected_page} is incomplete")
+                page_html = ready_page_html
+            else:
+                page_html = ready_page_html
+
         page_rows = parse_results_ranking_html(page_html, top_n - len(rankings))
         pages_scraped += 1
         if not page_rows:
@@ -1341,6 +1565,38 @@ def run(args: argparse.Namespace) -> int:
                         partial_payload = None
                         output_file = fresh_output_file
                         checkpoint_key = f"results-ranking|{args.category}|top:{args.top}|{output_file.name}"
+                        if live_page_size <= 0 or live_total is None or live_pagination is None:
+                            raise RuntimeError(
+                                "Cannot reset results ranking to offset 0: live pagination is unavailable"
+                            )
+                        if live_pagination[0] != 1:
+                            logger.info(
+                                "Resetting results ranking to offset 0 via pagination control from page %s",
+                                live_pagination[0],
+                            )
+                            if not click_results_page_offset(
+                                page,
+                                offset=0,
+                                page_size=live_page_size,
+                                delay_cfg=delay_cfg,
+                            ):
+                                raise RuntimeError(
+                                    "Cannot reset results ranking to offset 0 via pagination control"
+                                )
+                            reset_html = wait_for_results_page_html(
+                                page,
+                                expected_page=1,
+                                page_size=live_page_size,
+                                reported_total=int(live_total),
+                            )
+                            if reset_html is None:
+                                raise RuntimeError(
+                                    "Results ranking offset 0 remained incomplete after pagination reset"
+                                )
+                            live_html = reset_html
+                            live_total = extract_results_reported_total(live_html)
+                            live_pagination = extract_results_pagination_info(live_html)
+                            display_100_verified = select_results_display_100(page)
                     else:
                         logger.info("Validated partial results snapshot: %s", validation_reason)
                         weekly_path = Path(str(getattr(args, "weekly_file", "") or ""))
@@ -1365,11 +1621,11 @@ def run(args: argparse.Namespace) -> int:
                             )
                             page_urls = extract_results_page_urls(live_html, target_url)
                             existing_page_checkpoints = dict(partial_payload.get("page_checkpoints") or {})
-                            completed_offsets = {
-                                parse_int(offset)
-                                for offset, value in existing_page_checkpoints.items()
-                                if isinstance(value, dict) and value.get("status") == "complete"
-                            }
+                            completed_offsets = get_completed_results_offsets(
+                                existing_page_checkpoints,
+                                page_size=live_page_size,
+                                reported_total=int(live_total or 0),
+                            )
 
                             def fetch_target_page(offset: int) -> list[dict[str, Any]]:
                                 if offset == 0:
@@ -1383,28 +1639,73 @@ def run(args: argparse.Namespace) -> int:
                                     if not page_url:
                                         raise RuntimeError(f"Cannot build results page URL for offset {offset}")
                                     logger.info("Fetching targeted results page offset %d: %s", offset, page_url)
-                                    clicked = click_results_page_offset(
-                                        page,
-                                        offset=offset,
-                                        page_size=live_page_size,
-                                        delay_cfg=delay_cfg,
-                                    )
-                                    if not clicked:
-                                        referer = page.url
-                                        logger.warning(
-                                            "No visible pagination link for offset %d; using one-shot URL fallback",
+                                    expected_page = (offset // live_page_size) + 1
+                                    current_page_html = ""
+                                    current_pagination = None
+                                    try:
+                                        current_page_html = page.content()
+                                        current_pagination = extract_results_pagination_info(current_page_html)
+                                    except Exception:
+                                        pass
+                                    if current_pagination is not None and current_pagination[0] == expected_page:
+                                        logger.info(
+                                            "Targeted results offset %d is already the active page; reusing current page",
                                             offset,
+                                        )
+                                    else:
+                                        clicked = click_results_page_offset(
+                                            page,
+                                            offset=offset,
+                                            page_size=live_page_size,
+                                            delay_cfg=delay_cfg,
+                                        )
+                                        if not clicked:
+                                            referer = page.url
+                                            logger.warning(
+                                                "No visible pagination link for offset %d; using one-shot URL fallback",
+                                                offset,
+                                            )
+                                            guarded_goto(
+                                                page,
+                                                page_url,
+                                                delay_cfg,
+                                                f"fallback fetch targeted results page offset {offset}",
+                                                referer=referer,
+                                                retries=0,
+                                                retry_risk_responses=False,
+                                            )
+                                    target_html = wait_for_results_page_html(
+                                        page,
+                                        expected_page=expected_page,
+                                        page_size=live_page_size,
+                                        reported_total=int(live_total or 0),
+                                    )
+                                    if target_html is None:
+                                        logger.warning(
+                                            "Targeted results page %s was incomplete; reloading offset %s url=%s",
+                                            expected_page,
+                                            offset,
+                                            page.url,
                                         )
                                         guarded_goto(
                                             page,
                                             page_url,
                                             delay_cfg,
-                                            f"fallback fetch targeted results page offset {offset}",
-                                            referer=referer,
+                                            f"reload incomplete targeted results page {expected_page}",
+                                            sleep_first=False,
                                             retries=0,
                                             retry_risk_responses=False,
                                         )
-                                    target_html = page.content()
+                                        target_html = wait_for_results_page_html(
+                                            page,
+                                            expected_page=expected_page,
+                                            page_size=live_page_size,
+                                            reported_total=int(live_total or 0),
+                                        )
+                                        if target_html is None:
+                                            raise RuntimeError(
+                                                f"targeted results page {expected_page} remained incomplete after reload"
+                                            )
                                 target_total = extract_results_reported_total(target_html)
                                 if target_total != live_total:
                                     raise RuntimeError(

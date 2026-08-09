@@ -35,6 +35,21 @@ class ScrapeEventScheduleTests(unittest.TestCase):
 
         self.assertIsNone(args.provider)
 
+    def test_parses_wtt_typographic_apostrophes_in_singles_names(self) -> None:
+        module = load_module()
+
+        parsed = module.parse_competition_en(
+            "Men’s Singles R64 + Women’s Singles R64"
+        )
+
+        self.assertEqual(
+            parsed,
+            [
+                {"sub_event_code": "MS", "stage_code": "MAIN_DRAW", "round_code": "R64"},
+                {"sub_event_code": "WS", "stage_code": "MAIN_DRAW", "round_code": "R64"},
+            ],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

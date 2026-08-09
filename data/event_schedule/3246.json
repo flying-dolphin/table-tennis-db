@@ -4,62 +4,116 @@
     "场次": "资格赛第01场",
     "时间": "09:00",
     "赛事": [
-      "男单资格赛第1轮",
-      "女单资格赛第1轮"
+      "男子单打资格赛第1轮",
+      "女子单打资格赛第1轮"
     ],
     "球台": "3号台",
     "场馆": "Baltiska Hallen",
-    "_parsed": []
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      }
+    ]
   },
   {
     "日期": "8月8日",
     "场次": "资格赛第02场",
     "时间": "15:00",
     "赛事": [
-      "男单资格赛第1轮",
-      "女单资格赛第1轮"
+      "男子单打资格赛第1轮",
+      "女子单打资格赛第1轮"
     ],
     "球台": "3号台",
     "场馆": "Baltiska Hallen",
-    "_parsed": []
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      }
+    ]
   },
   {
     "日期": "8月9日",
     "场次": "资格赛第03场",
     "时间": "10:00",
     "赛事": [
-      "男单资格赛第2轮",
-      "女单资格赛第2轮"
+      "男子单打资格赛第2轮",
+      "女子单打资格赛第2轮"
     ],
     "球台": "3号台",
     "场馆": "Baltiska Hallen",
-    "_parsed": []
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R2"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R2"
+      }
+    ]
   },
   {
     "日期": "8月9日",
     "场次": "资格赛第04场",
     "时间": "17:00",
     "赛事": [
-      "男单资格赛第3轮",
-      "女单资格赛第3轮"
+      "男子单打资格赛第3轮",
+      "女子单打资格赛第3轮"
     ],
     "球台": "3号台",
     "场馆": "Baltiska Hallen",
-    "_parsed": []
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R3"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R3"
+      }
+    ]
   },
   {
     "日期": "8月10日",
     "场次": "第01场",
     "时间": "12:00",
     "赛事": [
-      "男单64强赛",
-      "女单64强赛",
-      "男双24强赛",
-      "女双24强赛"
+      "男子单打64强赛",
+      "女子单打64强赛",
+      "男子双打24强赛",
+      "女子双打24强赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
       {
         "sub_event_code": "MD",
         "stage_code": "MAIN_DRAW",
@@ -77,13 +131,23 @@
     "场次": "第02场",
     "时间": "18:00",
     "赛事": [
-      "男单64强赛",
-      "女单64强赛",
-      "混双24强赛"
+      "男子单打64强赛",
+      "女子单打64强赛",
+      "混合双打24强赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
       {
         "sub_event_code": "XD",
         "stage_code": "MAIN_DRAW",
@@ -96,14 +160,24 @@
     "场次": "第03场",
     "时间": "12:00",
     "赛事": [
-      "男单64强赛",
-      "女单64强赛",
-      "男双24强赛",
-      "女双24强赛"
+      "男子单打64强赛",
+      "女子单打64强赛",
+      "男子双打24强赛",
+      "女子双打24强赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
       {
         "sub_event_code": "MD",
         "stage_code": "MAIN_DRAW",
@@ -121,15 +195,25 @@
     "场次": "第04场",
     "时间": "18:00",
     "赛事": [
-      "男单64强赛",
-      "女单64强赛",
-      "男双24强赛",
-      "女双24强赛",
-      "混双24强赛"
+      "男子单打64强赛",
+      "女子单打64强赛",
+      "男子双打24强赛",
+      "女子双打24强赛",
+      "混合双打24强赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
       {
         "sub_event_code": "MD",
         "stage_code": "MAIN_DRAW",
@@ -152,15 +236,25 @@
     "场次": "第05场",
     "时间": "12:00",
     "赛事": [
-      "男单64强赛",
-      "女单64强赛",
-      "男双16强赛",
-      "女双16强赛",
-      "混双16强赛"
+      "男子单打64强赛",
+      "女子单打64强赛",
+      "男子双打16强赛",
+      "女子双打16强赛",
+      "混合双打16强赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
       {
         "sub_event_code": "MD",
         "stage_code": "MAIN_DRAW",
@@ -183,15 +277,25 @@
     "场次": "第06场",
     "时间": "18:00",
     "赛事": [
-      "男单64强赛",
-      "女单64强赛",
-      "男双16强赛",
-      "女双16强赛",
-      "混双16强赛"
+      "男子单打64强赛",
+      "女子单打64强赛",
+      "男子双打16强赛",
+      "女子双打16强赛",
+      "混合双打16强赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
       {
         "sub_event_code": "MD",
         "stage_code": "MAIN_DRAW",
@@ -214,17 +318,32 @@
     "场次": "第07场",
     "时间": "12:00",
     "赛事": [
-      "男单32强赛",
-      "女单32强赛",
-      "女双四分之一决赛",
-      "男双四分之一决赛",
-      "混双四分之一决赛"
+      "男子单打32强赛",
+      "女子单打32强赛",
+      "女子双打1/4决赛",
+      "男子双打1/4决赛",
+      "混合双打1/4决赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
       {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
         "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "MD",
         "stage_code": "MAIN_DRAW",
         "round_code": "QF"
       },
@@ -240,17 +359,32 @@
     "场次": "第08场",
     "时间": "18:00",
     "赛事": [
-      "男单32强赛",
-      "女单32强赛",
-      "女双四分之一决赛",
-      "男双四分之一决赛",
-      "混双四分之一决赛"
+      "男子单打32强赛",
+      "女子单打32强赛",
+      "女子双打1/4决赛",
+      "男子双打1/4决赛",
+      "混合双打1/4决赛"
     ],
     "球台": "4号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
       {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
         "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "MD",
         "stage_code": "MAIN_DRAW",
         "round_code": "QF"
       },
@@ -266,14 +400,29 @@
     "场次": "第09场",
     "时间": "12:00",
     "赛事": [
-      "男单16强赛",
-      "女单16强赛",
-      "女双半决赛",
-      "混双半决赛"
+      "男子单打16强赛",
+      "女子单打16强赛",
+      "女子双打半决赛",
+      "混合双打半决赛"
     ],
     "球台": "2号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      },
       {
         "sub_event_code": "XD",
         "stage_code": "MAIN_DRAW",
@@ -286,14 +435,29 @@
     "场次": "第10场",
     "时间": "18:00",
     "赛事": [
-      "男单16强赛",
-      "女单16强赛",
-      "男双半决赛",
-      "混双决赛"
+      "男子单打16强赛",
+      "女子单打16强赛",
+      "男子双打半决赛",
+      "混合双打决赛"
     ],
     "球台": "3号台",
     "场馆": "Malmö Arena and Baltiska Hallen",
     "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      },
       {
         "sub_event_code": "XD",
         "stage_code": "MAIN_DRAW",
@@ -306,15 +470,20 @@
     "场次": "第11场",
     "时间": "12:00",
     "赛事": [
-      "男单四分之一决赛",
-      "女单四分之一决赛",
-      "女双决赛"
+      "男子单打1/4决赛",
+      "女子单打1/4决赛",
+      "女子双打决赛"
     ],
     "球台": "1号台",
     "场馆": "Malmö Arena",
     "_parsed": [
       {
         "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "WS",
         "stage_code": "MAIN_DRAW",
         "round_code": "QF"
       },
@@ -330,15 +499,20 @@
     "场次": "第12场",
     "时间": "18:00",
     "赛事": [
-      "男单四分之一决赛",
-      "女单四分之一决赛",
-      "男双决赛"
+      "男子单打1/4决赛",
+      "女子单打1/4决赛",
+      "男子双打决赛"
     ],
     "球台": "1号台",
     "场馆": "Malmö Arena",
     "_parsed": [
       {
         "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "WS",
         "stage_code": "MAIN_DRAW",
         "round_code": "QF"
       },
@@ -354,12 +528,17 @@
     "场次": "第13场",
     "时间": "12:00",
     "赛事": [
-      "女单半决赛",
-      "男单半决赛"
+      "女子单打半决赛",
+      "男子单打半决赛"
     ],
     "球台": "1号台",
     "场馆": "Malmö Arena",
     "_parsed": [
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      },
       {
         "sub_event_code": "MS",
         "stage_code": "MAIN_DRAW",
@@ -372,12 +551,17 @@
     "场次": "第14场",
     "时间": "18:00",
     "赛事": [
-      "女单决赛",
-      "男单决赛"
+      "女子单打决赛",
+      "男子单打决赛"
     ],
     "球台": "1号台",
     "场馆": "Malmö Arena",
     "_parsed": [
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "F"
+      },
       {
         "sub_event_code": "MS",
         "stage_code": "MAIN_DRAW",
