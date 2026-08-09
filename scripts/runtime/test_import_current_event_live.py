@@ -8,7 +8,12 @@ RUNTIME_DIR = Path(__file__).resolve().parent
 if str(RUNTIME_DIR) not in sys.path:
     sys.path.insert(0, str(RUNTIME_DIR))
 
-from import_current_event_live import upsert_live_individual_match
+from import_current_event_live import (
+    sync_team_tie_from_live_match,
+    upsert_live_individual_match,
+    upsert_live_rubber,
+    upsert_live_team_tie,
+)
 from wtt_scrape_shared import normalize_live_result_item
 
 
@@ -16,7 +21,44 @@ SCHEMA = """
 CREATE TABLE current_event_team_ties (
     current_team_tie_id INTEGER PRIMARY KEY AUTOINCREMENT,
     event_id INTEGER NOT NULL,
-    sub_event_type_code TEXT NOT NULL
+    sub_event_type_code TEXT NOT NULL,
+    stage_label TEXT,
+    stage_code TEXT,
+    round_label TEXT,
+    round_code TEXT,
+    group_code TEXT,
+    external_match_code TEXT,
+    session_label TEXT,
+    scheduled_local_at TEXT,
+    scheduled_utc_at TEXT,
+    table_no TEXT,
+    status TEXT NOT NULL DEFAULT 'scheduled',
+    source_status TEXT,
+    source_schedule_status TEXT,
+    match_score TEXT,
+    winner_side TEXT,
+    winner_team_code TEXT,
+    last_synced_at TEXT,
+    created_at TEXT DEFAULT (datetime('now')),
+    updated_at TEXT DEFAULT (datetime('now'))
+);
+CREATE TABLE current_event_team_tie_sides (
+    current_team_tie_side_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    current_team_tie_id INTEGER NOT NULL,
+    side_no INTEGER NOT NULL,
+    team_code TEXT,
+    team_name TEXT,
+    seed INTEGER,
+    qualifier INTEGER,
+    is_winner INTEGER NOT NULL DEFAULT 0
+);
+CREATE TABLE current_event_team_tie_side_players (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    current_team_tie_side_id INTEGER NOT NULL,
+    player_order INTEGER NOT NULL,
+    player_id INTEGER,
+    player_name TEXT NOT NULL,
+    player_country TEXT
 );
 CREATE TABLE current_event_matches (
     current_match_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -80,6 +122,148 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
     def tearDown(self):
         self.conn.close()
 
+    def insert_official_individual_match(self, external_match_code="OFFICIAL-INDIVIDUAL"):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            """
+            INSERT INTO current_event_matches (
+                event_id, sub_event_type_code, external_match_code, status, source_status,
+                match_score, games, winner_side, winner_name, raw_source_payload
+            ) VALUES (3242, 'MS', ?, 'completed', 'Official', '3-1', '["11-8", "11-7"]',
+                      'A', 'Official Winner', '{"source": "official"}')
+            """,
+            (external_match_code,),
+        )
+        current_match_id = int(cursor.lastrowid)
+        for side_no, name, is_winner in (
+            (1, "Official Winner", 1),
+            (2, "Official Runner-up", 0),
+        ):
+            cursor.execute(
+                """
+                INSERT INTO current_event_match_sides (
+                    current_match_id, side_no, team_code, is_winner
+                ) VALUES (?, ?, ?, ?)
+                """,
+                (current_match_id, side_no, "AAA" if side_no == 1 else "BBB", is_winner),
+            )
+            cursor.execute(
+                """
+                INSERT INTO current_event_match_side_players (
+                    current_match_side_id, player_order, player_name, player_country
+                ) VALUES (?, 1, ?, ?)
+                """,
+                (int(cursor.lastrowid), name, "AAA" if side_no == 1 else "BBB"),
+            )
+        return current_match_id
+
+    def insert_official_team_tie(self, external_match_code="OFFICIAL-TEAM-TIE"):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            """
+            INSERT INTO current_event_team_ties (
+                event_id, sub_event_type_code, stage_label, stage_code, round_label, round_code,
+                external_match_code, session_label, table_no, status, source_status, match_score,
+                winner_side, winner_team_code
+            ) VALUES (3242, 'MT', 'Main Draw', 'MAIN_DRAW', 'Final', 'F', ?, 'Match 1',
+                      'T01', 'completed', 'Official', '3-1', 'A', 'AAA')
+            """,
+            (external_match_code,),
+        )
+        current_team_tie_id = int(cursor.lastrowid)
+        for side_no, team_code, player_name, is_winner in (
+            (1, "AAA", "Official A", 1),
+            (2, "BBB", "Official B", 0),
+        ):
+            cursor.execute(
+                """
+                INSERT INTO current_event_team_tie_sides (
+                    current_team_tie_id, side_no, team_code, team_name, is_winner
+                ) VALUES (?, ?, ?, ?, ?)
+                """,
+                (current_team_tie_id, side_no, team_code, team_code, is_winner),
+            )
+            cursor.execute(
+                """
+                INSERT INTO current_event_team_tie_side_players (
+                    current_team_tie_side_id, player_order, player_name, player_country
+                ) VALUES (?, 1, ?, ?)
+                """,
+                (int(cursor.lastrowid), player_name, team_code),
+            )
+        return self.conn.execute(
+            "SELECT * FROM current_event_team_ties WHERE current_team_tie_id = ?",
+            (current_team_tie_id,),
+        ).fetchone()
+
+    def insert_official_rubber(self, tie_row, rubber_order=1):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            """
+            INSERT INTO current_event_matches (
+                event_id, current_team_tie_id, sub_event_type_code, external_match_code,
+                status, source_status, match_score, games, winner_side, raw_source_payload
+            ) VALUES (3242, ?, 'MT', ?, 'completed', 'Completed', '3-0', '["11-8", "11-7"]',
+                      'A', '{"source": "official"}')
+            """,
+            (int(tie_row["current_team_tie_id"]), f'{tie_row["external_match_code"]}::R{rubber_order}'),
+        )
+        current_match_id = int(cursor.lastrowid)
+        for side_no, name, is_winner in (
+            (1, "Official A", 1),
+            (2, "Official B", 0),
+        ):
+            cursor.execute(
+                """
+                INSERT INTO current_event_match_sides (
+                    current_match_id, side_no, team_code, is_winner
+                ) VALUES (?, ?, ?, ?)
+                """,
+                (current_match_id, side_no, "AAA" if side_no == 1 else "BBB", is_winner),
+            )
+            cursor.execute(
+                """
+                INSERT INTO current_event_match_side_players (
+                    current_match_side_id, player_order, player_name, player_country
+                ) VALUES (?, 1, ?, ?)
+                """,
+                (int(cursor.lastrowid), name, "AAA" if side_no == 1 else "BBB"),
+            )
+        return current_match_id
+
+    def live_individual_item(self, external_match_code, source_status="Start List"):
+        return {
+            "match_code": external_match_code,
+            "source_status": source_status,
+            "sub_event": "Men's Singles",
+            "round": "RND1",
+            "score": None if source_status == "Start List" else "1-0",
+            "games": [] if source_status == "Start List" else ["11-5"],
+            "winner_side": None,
+            "sides": [
+                {"organization": "AAA", "display_name": "Live A", "players": [{"name": "Live A"}]},
+                {"organization": "BBB", "display_name": "Live B", "players": [{"name": "Live B"}]},
+            ],
+        }
+
+    def live_team_item(self, external_match_code, source_status="Start List"):
+        return {
+            "match_code": external_match_code,
+            "source_status": source_status,
+            "sub_event": "Men's Teams",
+            "sub_event_name": "Men's Teams - Final - Match 1",
+            "round": "FNL",
+            "table_no": "T01",
+            "session_label": "Match 1",
+            "score": None if source_status == "Start List" else "1-0",
+            "games": [],
+            "winner_side": None,
+            "sides": [
+                {"organization": "AAA", "display_name": "AAA", "players": [{"name": "Live A"}]},
+                {"organization": "BBB", "display_name": "BBB", "players": [{"name": "Live B"}]},
+            ],
+        }
+
     def test_live_singles_result_imports_as_current_match(self):
         item = {
             "match_code": "TTEMSINGLES-----------RND1000100--",
@@ -126,6 +310,154 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
         self.assertEqual("T02", match["table_no"])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_sides").fetchone()[0])
         self.assertEqual(2, self.conn.execute("SELECT COUNT(*) FROM current_event_match_side_players").fetchone()[0])
+
+    def test_live_individual_update_preserves_existing_official_final_result(self):
+        current_match_id = self.insert_official_individual_match()
+        before_match = tuple(
+            self.conn.execute(
+                """
+                SELECT status, source_status, match_score, games, winner_side, winner_name, raw_source_payload
+                FROM current_event_matches WHERE current_match_id = ?
+                """,
+                (current_match_id,),
+            ).fetchone()
+        )
+        before_players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+
+        result = upsert_live_individual_match(
+            self.conn.cursor(),
+            event_id=3242,
+            item=self.live_individual_item("OFFICIAL-INDIVIDUAL"),
+            now="2026-07-02T03:00:00+00:00",
+        )
+
+        self.assertTrue(result)
+        after_match = tuple(
+            self.conn.execute(
+                """
+                SELECT status, source_status, match_score, games, winner_side, winner_name, raw_source_payload
+                FROM current_event_matches WHERE current_match_id = ?
+                """,
+                (current_match_id,),
+            ).fetchone()
+        )
+        after_players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+        self.assertEqual(before_match, after_match)
+        self.assertEqual([tuple(row) for row in before_players], [tuple(row) for row in after_players])
+
+    def test_live_team_tie_update_preserves_official_tie_and_completed_child(self):
+        tie_row = self.insert_official_team_tie()
+        current_match_id = self.insert_official_rubber(tie_row)
+
+        updated_tie = upsert_live_team_tie(
+            self.conn.cursor(),
+            event_id=3242,
+            item=self.live_team_item("OFFICIAL-TEAM-TIE"),
+            now="2026-07-02T03:00:00+00:00",
+        )
+
+        self.assertEqual(
+            ("completed", "Official", "3-1", "A", "AAA"),
+            tuple(updated_tie[key] for key in ("status", "source_status", "match_score", "winner_side", "winner_team_code")),
+        )
+        self.assertEqual(
+            [(1, 1), (2, 0)],
+            [tuple(row) for row in self.conn.execute(
+                "SELECT side_no, is_winner FROM current_event_team_tie_sides WHERE current_team_tie_id = ? ORDER BY side_no",
+                (int(tie_row["current_team_tie_id"]),),
+            )],
+        )
+        child = self.conn.execute(
+            "SELECT status, source_status, match_score, games, winner_side FROM current_event_matches WHERE current_match_id = ?",
+            (current_match_id,),
+        ).fetchone()
+        self.assertEqual(("completed", "Completed", "3-0", '["11-8", "11-7"]', "A"), tuple(child))
+
+    def test_live_rubber_and_parent_sync_preserve_official_completed_rubber(self):
+        tie_row = self.insert_official_team_tie()
+        current_match_id = self.insert_official_rubber(tie_row)
+        before_players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+        live_match = self.live_team_item("OFFICIAL-TEAM-TIE", source_status="Live")
+
+        upsert_live_rubber(
+            self.conn.cursor(),
+            event_id=3242,
+            tie_row=tie_row,
+            live_match=live_match,
+            individual_match={
+                "player_a": "Live A",
+                "player_b": "Live B",
+                "match_score": "1-0",
+                "games": ["11-5"],
+            },
+            rubber_order=1,
+        )
+        sync_team_tie_from_live_match(
+            self.conn.cursor(), int(tie_row["current_team_tie_id"]), live_match
+        )
+
+        rubber = self.conn.execute(
+            """
+            SELECT status, source_status, match_score, games, winner_side, raw_source_payload
+            FROM current_event_matches WHERE current_match_id = ?
+            """,
+            (current_match_id,),
+        ).fetchone()
+        self.assertEqual(
+            ("completed", "Completed", "3-0", '["11-8", "11-7"]', "A", '{"source": "official"}'),
+            tuple(rubber),
+        )
+        after_players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+        self.assertEqual([tuple(row) for row in before_players], [tuple(row) for row in after_players])
+
+    def test_existing_non_final_live_individual_match_still_updates(self):
+        first = self.live_individual_item("NORMAL-LIVE")
+        upsert_live_individual_match(
+            self.conn.cursor(), event_id=3242, item=first, now="2026-07-02T03:00:00+00:00"
+        )
+        update = self.live_individual_item("NORMAL-LIVE", source_status="Live")
+
+        result = upsert_live_individual_match(
+            self.conn.cursor(), event_id=3242, item=update, now="2026-07-02T03:01:00+00:00"
+        )
+
+        self.assertTrue(result)
+        match = self.conn.execute(
+            "SELECT status, source_status, match_score, games FROM current_event_matches WHERE external_match_code = 'NORMAL-LIVE'"
+        ).fetchone()
+        self.assertEqual(("live", "Live", "1-0", '["11-5"]'), tuple(match))
 
     def test_live_start_list_preserves_all_doubles_players(self):
         self.conn.executemany(

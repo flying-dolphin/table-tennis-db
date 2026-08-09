@@ -19,6 +19,14 @@ DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 DEFAULT_LIVE_EVENT_DATA_DIR = PROJECT_ROOT / "data" / "live_event_data"
 TEAM_SUB_EVENTS = {"MT", "WT", "XT"}
 INDIVIDUAL_SUB_EVENTS = {"MS", "WS", "MD", "WD", "XD"}
+FINAL_RESULT_STATUSES = {"completed", "walkover"}
+OFFICIAL_RESULT_SOURCES = {"official", "completed"}
+
+
+def is_official_final_result(row: sqlite3.Row) -> bool:
+    status = str(row["status"] or "").strip().lower()
+    source_status = str(row["source_status"] or "").strip().lower()
+    return status in FINAL_RESULT_STATUSES and source_status in OFFICIAL_RESULT_SOURCES
 
 
 def live_result_path(event_dir: Path) -> Path:
@@ -399,17 +407,28 @@ def upsert_sides(cursor: sqlite3.Cursor, current_team_tie_id: int, sides: list[d
 
 
 def sync_child_matches(cursor: sqlite3.Cursor, current_team_tie_id: int, status: str, source_status: str | None) -> None:
-    cursor.execute(
+    rows = cursor.execute(
         """
-        UPDATE current_event_matches
-        SET status = ?,
-            source_status = COALESCE(?, source_status),
-            last_synced_at = datetime('now'),
-            updated_at = datetime('now')
+        SELECT current_match_id, status, source_status
+        FROM current_event_matches
         WHERE current_team_tie_id = ?
         """,
-        (status, source_status, current_team_tie_id),
-    )
+        (current_team_tie_id,),
+    ).fetchall()
+    for row in rows:
+        if is_official_final_result(row):
+            continue
+        cursor.execute(
+            """
+            UPDATE current_event_matches
+            SET status = ?,
+                source_status = COALESCE(?, source_status),
+                last_synced_at = datetime('now'),
+                updated_at = datetime('now')
+            WHERE current_match_id = ?
+            """,
+            (status, source_status, int(row["current_match_id"])),
+        )
 
 
 def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, now: str) -> sqlite3.Row | None:
@@ -474,6 +493,8 @@ def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, n
             """,
             (current_team_tie_id,),
         ).fetchone()
+        if is_official_final_result(current_row):
+            return current_row
         if not legacy.normalize_external_match_code(item.get("match_code")):
             duplicate_row = cursor.execute(
                 """
@@ -794,12 +815,15 @@ def upsert_live_individual_match(
 
     existing = cursor.execute(
         """
-        SELECT current_match_id
+        SELECT *
         FROM current_event_matches
         WHERE event_id = ? AND external_match_code = ?
         """,
         (event_id, external_match_code),
     ).fetchone()
+
+    if existing and is_official_final_result(existing):
+        return True
 
     values = (
         event_id,
@@ -897,6 +921,13 @@ def upsert_live_individual_match(
 
 
 def sync_team_tie_from_live_match(cursor: sqlite3.Cursor, current_team_tie_id: int, live_match: dict) -> None:
+    tie_row = cursor.execute(
+        "SELECT * FROM current_event_team_ties WHERE current_team_tie_id = ?",
+        (current_team_tie_id,),
+    ).fetchone()
+    if tie_row and is_official_final_result(tie_row):
+        return
+
     status = resolve_live_status(live_match.get("source_status"))
     score = live_match.get("score")
     winner_side = resolve_winner_side(status, live_match.get("winner_side"), score)
@@ -928,6 +959,9 @@ def upsert_live_rubber(
     individual_match: dict,
     rubber_order: int,
 ) -> None:
+    if is_official_final_result(tie_row):
+        return
+
     external_match_code = f"{tie_row['external_match_code']}::R{rubber_order}"
     winner_side = infer_winner_side(individual_match.get("match_score"))
     status = resolve_live_status(live_match.get("source_status"))
@@ -937,12 +971,15 @@ def upsert_live_rubber(
 
     existing = cursor.execute(
         """
-        SELECT current_match_id
+        SELECT *
         FROM current_event_matches
         WHERE event_id = ? AND external_match_code = ?
         """,
         (event_id, external_match_code),
     ).fetchone()
+
+    if existing and is_official_final_result(existing):
+        return
 
     values = (
         event_id,
