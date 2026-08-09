@@ -459,12 +459,12 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
             run_at = to_target_datetime(day.local_date, starts[0][1], event_tz, target_tz)
             add_job(jobs, run_at, "backup", "daily-backup")
 
-    # 在最后一个比赛日的最后一个 session 起点 + 5h 后跑 promote：
+    # 在最后一个比赛日的最后一个 session 起点 + 24h 后跑 promote：
     # 把 current_event_* 复制到历史事实表，并将 lifecycle_status 翻为 completed。
     # 这是 lifecycle 切换的唯一入口；脚本自身幂等，cron 多跑也无害。
     last_day = schedule[-1]
     last_session = second_session_or_fallback(last_day) or time(12, 0)
-    promote_at = to_target_datetime(last_day.local_date, last_session, event_tz, target_tz) + timedelta(hours=5)
+    promote_at = to_target_datetime(last_day.local_date, last_session, event_tz, target_tz) + timedelta(hours=24)
     add_job(jobs, promote_at, "promote", "post-event-promote")
 
     return main_draw_start, dedupe_cron_jobs([*jobs.values(), *range_jobs])
@@ -485,6 +485,50 @@ def dedupe_preserve_order(items: list[str]) -> list[str]:
     return deduped
 
 
+def build_locked_db_writer_command(
+    writer_cmd: list[str],
+    *,
+    project_root: str,
+    command_db_path: str,
+    event_id: str,
+    source_names: str,
+    writer_status_name: str,
+) -> str:
+    db_path = Path(command_db_path)
+    if not db_path.is_absolute():
+        db_path = Path(project_root) / db_path
+    lock_path = f"{db_path}.current-event.lock"
+    writer_runner = (
+        f"{shell_join(writer_cmd)}; {writer_status_name}=$?; "
+        f'if [ "${writer_status_name}" -eq {REFRESH_LOCK_CONFLICT_EXIT_CODE} ]; '
+        f"then exit {IMPORT_CONFLICT_EXIT_CODE_REMAP}; fi; "
+        f'exit "${writer_status_name}"'
+    )
+    locked_writer_cmd = shell_join(
+        [
+            "flock",
+            "--conflict-exit-code",
+            str(REFRESH_LOCK_CONFLICT_EXIT_CODE),
+            "--wait",
+            str(REFRESH_LOCK_WAIT_SECONDS),
+            lock_path,
+            "sh",
+            "-c",
+            writer_runner,
+        ]
+    )
+    timeout_message = (
+        f"ERROR: lock timeout event_id={event_id} sources={source_names} "
+        f"wait_seconds={REFRESH_LOCK_WAIT_SECONDS} lock={lock_path}"
+    )
+    return (
+        f"{{ {locked_writer_cmd}; lock_rc=$?; "
+        f'if [ "$lock_rc" -eq {REFRESH_LOCK_CONFLICT_EXIT_CODE} ]; '
+        f"then echo {shlex.quote(timeout_message)} >&2; fi; "
+        'exit "$lock_rc"; }'
+    )
+
+
 def build_promote_command(args: argparse.Namespace) -> str:
     """`promote` source 对应的独立命令。"""
     python_bin = str(args.python_bin)
@@ -499,7 +543,15 @@ def build_promote_command(args: argparse.Namespace) -> str:
         "--db-path",
         command_db_path,
     ]
-    cmd = f"cd {shlex.quote(project_root)} && {shell_join(promote_cmd)}"
+    locked_promote_cmd = build_locked_db_writer_command(
+        promote_cmd,
+        project_root=project_root,
+        command_db_path=command_db_path,
+        event_id=event_id,
+        source_names="promote",
+        writer_status_name="writer_rc",
+    )
+    cmd = f"cd {shlex.quote(project_root)} && {locked_promote_cmd}"
     if args.log_dir:
         log_file = f"{args.log_dir}/event_{event_id}_promote_$(date +\\%Y\\%m\\%d).log"
         cmd = f"mkdir -p {shlex.quote(args.log_dir)} && {cmd} >> {log_file} 2>&1"
@@ -598,41 +650,19 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         live_root,
     ]
 
-    db_path = Path(command_db_path)
-    if not db_path.is_absolute():
-        db_path = Path(project_root) / db_path
-    lock_path = f"{db_path}.current-event.lock"
-    import_runner = (
-        f"{shell_join(import_cmd)}; import_rc=$?; "
-        f'if [ "$import_rc" -eq {REFRESH_LOCK_CONFLICT_EXIT_CODE} ]; '
-        f"then exit {IMPORT_CONFLICT_EXIT_CODE_REMAP}; fi; "
-        'exit "$import_rc"'
-    )
-    locked_import_cmd = shell_join(
-        [
-            "flock",
-            "--conflict-exit-code",
-            str(REFRESH_LOCK_CONFLICT_EXIT_CODE),
-            "--wait",
-            str(REFRESH_LOCK_WAIT_SECONDS),
-            lock_path,
-            "sh",
-            "-c",
-            import_runner,
-        ]
-    )
     ordered_source_names = ",".join(ordered_sources)
-    timeout_message = (
-        f"ERROR: lock timeout event_id={event_id} sources={ordered_source_names} "
-        f"wait_seconds={REFRESH_LOCK_WAIT_SECONDS} lock={lock_path}"
+    locked_import_cmd = build_locked_db_writer_command(
+        import_cmd,
+        project_root=project_root,
+        command_db_path=command_db_path,
+        event_id=event_id,
+        source_names=ordered_source_names,
+        writer_status_name="import_rc",
     )
     # 抓取不占 DB 锁；只有 import 串行。每条 cron 独立，失败会释放 flock。
     refresh_runner = (
         f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && "
-        f"{{ {locked_import_cmd}; lock_rc=$?; "
-        f'if [ "$lock_rc" -eq {REFRESH_LOCK_CONFLICT_EXIT_CODE} ]; '
-        f"then echo {shlex.quote(timeout_message)} >&2; fi; "
-        'exit "$lock_rc"; }'
+        f"{locked_import_cmd}"
     )
     cmd = shell_join(["sh", "-c", refresh_runner])
 

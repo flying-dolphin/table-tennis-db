@@ -130,6 +130,38 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         self.assertIn('if [ "$lock_rc" -eq 75 ]', command)
         self.assertIn('exit "$lock_rc"', command)
 
+    def test_promote_uses_the_db_writer_lock_and_reports_timeout_without_scraping(self):
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        command = cron.build_refresh_command(args, {"promote"})
+
+        self.assertIn(
+            "flock --conflict-exit-code 75 --wait 60 "
+            "/srv/ittf/data/db/ittf.db.current-event.lock",
+            command,
+        )
+        self.assertIn(
+            "lock timeout event_id=3242 sources=promote wait_seconds=60",
+            command,
+        )
+        self.assertIn(
+            'if [ "$writer_rc" -eq 75 ]; then exit 74; fi',
+            command,
+        )
+        self.assertNotIn("scrape_current_event.py", command)
+
     def test_import_failure_is_not_classified_as_lock_timeout(self):
         args = argparse.Namespace(
             python_bin="/venv/bin/python",
@@ -225,6 +257,30 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         self.assertTrue(
             all(job.labels == {"morning-official-reconcile"} for job in reconcile_jobs)
         )
+
+    def test_promote_runs_24_hours_after_the_last_session_and_not_with_final_reconcile(self):
+        event = cron.Event(3242, "Test Event", "Asia/Shanghai")
+        schedule = [
+            cron.SessionDay(
+                local_date=cron.date(2026, 7, 1),
+                morning_session_start="10:00",
+                afternoon_session_start="18:30",
+                raw_sub_events_text="Main Draw",
+                parsed_rounds_json='[{"stage_code":"MAIN_DRAW","round_code":"F"}]',
+            )
+        ]
+
+        _main_draw_start, jobs = cron.build_jobs(event, schedule, "Asia/Shanghai")
+        promote_job = next(job for job in jobs if "promote" in job.sources)
+        final_reconcile = max(
+            job.run_at for job in jobs if job.sources == {"official_reconcile"}
+        )
+
+        self.assertEqual(
+            cron.datetime(2026, 7, 2, 18, 30, tzinfo=promote_job.run_at.tzinfo),
+            promote_job.run_at,
+        )
+        self.assertNotEqual(final_reconcile, promote_job.run_at)
 
     def test_session_end_brackets_and_official_reconcile_share_the_db_lock(self):
         event = cron.Event(3242, "Test Event", "Asia/Shanghai")
