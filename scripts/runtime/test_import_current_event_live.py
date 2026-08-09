@@ -732,6 +732,71 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
             [tuple(row) for row in players],
         )
 
+    def test_official_parent_sync_preserves_completed_walkover_child_without_rubber_details(self):
+        tie_row = self.insert_official_team_tie()
+        current_match_id = self.insert_official_rubber(tie_row)
+        self.conn.execute(
+            """
+            UPDATE current_event_matches
+            SET status = 'walkover', source_status = 'Completed', match_score = 'WO',
+                games = '["WO"]', winner_side = 'A', raw_source_payload = '{"result": "walkover"}'
+            WHERE current_match_id = ?
+            """,
+            (current_match_id,),
+        )
+        before_players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+        official = self.live_team_item("OFFICIAL-TEAM-TIE", source_status="Official")
+        official["individual_matches"] = []
+
+        tie_row = upsert_live_team_tie(
+            self.conn.cursor(),
+            event_id=3242,
+            item=official,
+            now="2026-07-02T03:01:00+00:00",
+        )
+        for rubber_order, individual_match in enumerate(official["individual_matches"], start=1):
+            upsert_live_rubber(
+                self.conn.cursor(),
+                event_id=3242,
+                tie_row=tie_row,
+                live_match=official,
+                individual_match=individual_match,
+                rubber_order=rubber_order,
+            )
+        sync_team_tie_from_live_match(
+            self.conn.cursor(), int(tie_row["current_team_tie_id"]), official
+        )
+
+        rubber = self.conn.execute(
+            """
+            SELECT status, source_status, match_score, games, winner_side, raw_source_payload
+            FROM current_event_matches WHERE current_match_id = ?
+            """,
+            (current_match_id,),
+        ).fetchone()
+        self.assertEqual(
+            ("walkover", "Completed", "WO", '["WO"]', "A", '{"result": "walkover"}'),
+            tuple(rubber),
+        )
+        after_players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+        self.assertEqual([tuple(row) for row in before_players], [tuple(row) for row in after_players])
+
     def test_existing_non_final_live_individual_match_still_updates(self):
         first = self.live_individual_item("NORMAL-LIVE")
         upsert_live_individual_match(

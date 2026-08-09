@@ -427,7 +427,7 @@ def sync_child_matches(cursor: sqlite3.Cursor, current_team_tie_id: int, status:
         (current_team_tie_id,),
     ).fetchall()
     for row in rows:
-        if should_preserve_official_final_result(row, status, source_status):
+        if is_official_final_result(row["status"], row["source_status"]):
             continue
         cursor.execute(
             """
