@@ -23,10 +23,21 @@ FINAL_RESULT_STATUSES = {"completed", "walkover"}
 OFFICIAL_RESULT_SOURCES = {"official", "completed"}
 
 
-def is_official_final_result(row: sqlite3.Row) -> bool:
-    status = str(row["status"] or "").strip().lower()
-    source_status = str(row["source_status"] or "").strip().lower()
-    return status in FINAL_RESULT_STATUSES and source_status in OFFICIAL_RESULT_SOURCES
+def is_official_final_result(status: str | None, source_status: str | None) -> bool:
+    normalized_status = str(status or "").strip().lower()
+    normalized_source_status = str(source_status or "").strip().lower()
+    return normalized_status in FINAL_RESULT_STATUSES and normalized_source_status in OFFICIAL_RESULT_SOURCES
+
+
+def should_preserve_official_final_result(
+    existing: sqlite3.Row,
+    incoming_status: str | None,
+    incoming_source_status: str | None,
+) -> bool:
+    return is_official_final_result(existing["status"], existing["source_status"]) and not is_official_final_result(
+        incoming_status,
+        incoming_source_status,
+    )
 
 
 def live_result_path(event_dir: Path) -> Path:
@@ -416,7 +427,7 @@ def sync_child_matches(cursor: sqlite3.Cursor, current_team_tie_id: int, status:
         (current_team_tie_id,),
     ).fetchall()
     for row in rows:
-        if is_official_final_result(row):
+        if should_preserve_official_final_result(row, status, source_status):
             continue
         cursor.execute(
             """
@@ -493,7 +504,7 @@ def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, n
             """,
             (current_team_tie_id,),
         ).fetchone()
-        if is_official_final_result(current_row):
+        if should_preserve_official_final_result(current_row, status, item.get("source_status")):
             return current_row
         if not legacy.normalize_external_match_code(item.get("match_code")):
             duplicate_row = cursor.execute(
@@ -821,7 +832,7 @@ def upsert_live_individual_match(
         (event_id, external_match_code),
     ).fetchone()
 
-    if existing and is_official_final_result(existing):
+    if existing and should_preserve_official_final_result(existing, status, item.get("source_status")):
         return True
 
     values = (
@@ -920,14 +931,14 @@ def upsert_live_individual_match(
 
 
 def sync_team_tie_from_live_match(cursor: sqlite3.Cursor, current_team_tie_id: int, live_match: dict) -> None:
+    status = resolve_live_status(live_match.get("source_status"))
     tie_row = cursor.execute(
         "SELECT * FROM current_event_team_ties WHERE current_team_tie_id = ?",
         (current_team_tie_id,),
     ).fetchone()
-    if tie_row and is_official_final_result(tie_row):
+    if tie_row and should_preserve_official_final_result(tie_row, status, live_match.get("source_status")):
         return
 
-    status = resolve_live_status(live_match.get("source_status"))
     score = live_match.get("score")
     winner_side = resolve_winner_side(status, live_match.get("winner_side"), score)
     winner_team_code = winner_team_code_for_tie(cursor, current_team_tie_id, winner_side)
@@ -974,7 +985,7 @@ def upsert_live_rubber(
         (event_id, external_match_code),
     ).fetchone()
 
-    if existing and is_official_final_result(existing):
+    if existing and should_preserve_official_final_result(existing, status, live_match.get("source_status")):
         return
 
     values = (

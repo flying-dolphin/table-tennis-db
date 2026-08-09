@@ -361,6 +361,70 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
         self.assertEqual(before_match, after_match)
         self.assertEqual([tuple(row) for row in before_players], [tuple(row) for row in after_players])
 
+    def test_official_individual_update_can_correct_existing_official_final_result(self):
+        current_match_id = self.insert_official_individual_match()
+        self.conn.execute(
+            """
+            UPDATE current_event_matches
+            SET match_score = '3-0', games = '["11-8", "11-7", "11-6"]'
+            WHERE current_match_id = ?
+            """,
+            (current_match_id,),
+        )
+        official = self.live_individual_item("OFFICIAL-INDIVIDUAL", source_status="oFfIcIaL")
+        official.update(
+            {
+                "score": "3-1",
+                "games": ["11-8", "8-11", "11-6", "11-7"],
+                "winner_side": "A",
+                "sides": [
+                    {
+                        "organization": "AAA",
+                        "display_name": "Corrected Winner",
+                        "players": [{"name": "Corrected Winner"}],
+                    },
+                    {
+                        "organization": "BBB",
+                        "display_name": "Corrected Runner-up",
+                        "players": [{"name": "Corrected Runner-up"}],
+                    },
+                ],
+            }
+        )
+
+        result = upsert_live_individual_match(
+            self.conn.cursor(),
+            event_id=3242,
+            item=official,
+            now="2026-07-02T03:01:00+00:00",
+        )
+
+        self.assertTrue(result)
+        match = self.conn.execute(
+            """
+            SELECT status, source_status, match_score, games, winner_side, winner_name
+            FROM current_event_matches WHERE current_match_id = ?
+            """,
+            (current_match_id,),
+        ).fetchone()
+        self.assertEqual(
+            ("completed", "oFfIcIaL", "3-1", '["11-8", "8-11", "11-6", "11-7"]', "A", "Corrected Winner"),
+            tuple(match),
+        )
+        players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+        self.assertEqual(
+            [(1, 1, "Corrected Winner"), (2, 0, "Corrected Runner-up")],
+            [tuple(row) for row in players],
+        )
+
     def test_live_team_tie_update_preserves_official_tie_and_completed_child(self):
         tie_row = self.insert_official_team_tie()
         current_match_id = self.insert_official_rubber(tie_row)
@@ -388,6 +452,48 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
             (current_match_id,),
         ).fetchone()
         self.assertEqual(("completed", "Completed", "3-0", '["11-8", "11-7"]', "A"), tuple(child))
+
+    def test_official_team_tie_update_can_correct_existing_official_final_result(self):
+        tie_row = self.insert_official_team_tie()
+        self.conn.execute(
+            "UPDATE current_event_team_ties SET match_score = '3-0' WHERE current_team_tie_id = ?",
+            (int(tie_row["current_team_tie_id"]),),
+        )
+        official = self.live_team_item("OFFICIAL-TEAM-TIE", source_status="OFFICIAL")
+        official["score"] = "2-3"
+
+        updated_tie = upsert_live_team_tie(
+            self.conn.cursor(),
+            event_id=3242,
+            item=official,
+            now="2026-07-02T03:01:00+00:00",
+        )
+        sync_team_tie_from_live_match(
+            self.conn.cursor(), int(updated_tie["current_team_tie_id"]), official
+        )
+
+        updated_tie = self.conn.execute(
+            "SELECT * FROM current_event_team_ties WHERE current_team_tie_id = ?",
+            (int(tie_row["current_team_tie_id"]),),
+        ).fetchone()
+        self.assertEqual(
+            ("completed", "OFFICIAL", "2-3", "B", "BBB"),
+            tuple(updated_tie[key] for key in ("status", "source_status", "match_score", "winner_side", "winner_team_code")),
+        )
+        sides = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_team_tie_sides s
+            JOIN current_event_team_tie_side_players p
+              ON p.current_team_tie_side_id = s.current_team_tie_side_id
+            WHERE s.current_team_tie_id = ? ORDER BY s.side_no
+            """,
+            (int(tie_row["current_team_tie_id"]),),
+        ).fetchall()
+        self.assertEqual(
+            [(1, 0, "Live A"), (2, 1, "Live B")],
+            [tuple(row) for row in sides],
+        )
 
     def test_live_rubber_and_parent_sync_preserve_official_completed_rubber(self):
         tie_row = self.insert_official_team_tie()
@@ -441,6 +547,50 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
             (current_match_id,),
         ).fetchall()
         self.assertEqual([tuple(row) for row in before_players], [tuple(row) for row in after_players])
+
+    def test_official_rubber_update_can_correct_existing_official_final_result(self):
+        tie_row = self.insert_official_team_tie()
+        current_match_id = self.insert_official_rubber(tie_row)
+        official = self.live_team_item("OFFICIAL-TEAM-TIE", source_status="Completed")
+
+        upsert_live_rubber(
+            self.conn.cursor(),
+            event_id=3242,
+            tie_row=tie_row,
+            live_match=official,
+            individual_match={
+                "player_a": "Corrected A",
+                "player_b": "Corrected B",
+                "match_score": "3-1",
+                "games": ["11-8", "8-11", "11-6", "11-7"],
+            },
+            rubber_order=1,
+        )
+
+        rubber = self.conn.execute(
+            """
+            SELECT status, source_status, match_score, games, winner_side
+            FROM current_event_matches WHERE current_match_id = ?
+            """,
+            (current_match_id,),
+        ).fetchone()
+        self.assertEqual(
+            ("completed", "Completed", "3-1", '["11-8", "8-11", "11-6", "11-7"]', "A"),
+            tuple(rubber),
+        )
+        players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            WHERE s.current_match_id = ? ORDER BY s.side_no
+            """,
+            (current_match_id,),
+        ).fetchall()
+        self.assertEqual(
+            [(1, 1, "Corrected A"), (2, 0, "Corrected B")],
+            [tuple(row) for row in players],
+        )
 
     def test_live_rubber_inserts_missing_child_under_official_completed_tie(self):
         tie_row = self.insert_official_team_tie()
