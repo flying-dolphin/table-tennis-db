@@ -506,6 +506,82 @@ class ImportCurrentEventLiveTests(unittest.TestCase):
         ).fetchone()
         self.assertEqual(("live", "Live", "1-0", '["11-5"]', "A"), tuple(rubber))
 
+    def test_official_tie_update_writes_rubber_before_parent_child_sync(self):
+        start_list = self.live_team_item("TEAM-TIE-ORDER", source_status="Start List")
+        tie_row = upsert_live_team_tie(
+            self.conn.cursor(),
+            event_id=3242,
+            item=start_list,
+            now="2026-07-02T03:00:00+00:00",
+        )
+        upsert_live_rubber(
+            self.conn.cursor(),
+            event_id=3242,
+            tie_row=tie_row,
+            live_match=start_list,
+            individual_match={
+                "player_a": "Live A",
+                "player_b": "Live B",
+                "match_score": None,
+                "games": [],
+            },
+            rubber_order=1,
+        )
+
+        official = self.live_team_item("TEAM-TIE-ORDER", source_status="Official")
+        official["individual_matches"] = [
+            {
+                "player_a": "Official A",
+                "player_b": "Official B",
+                "match_score": "3-1",
+                "games": ["11-8", "8-11", "11-6", "11-7"],
+            }
+        ]
+        tie_row = upsert_live_team_tie(
+            self.conn.cursor(),
+            event_id=3242,
+            item=official,
+            now="2026-07-02T03:01:00+00:00",
+        )
+        for rubber_order, individual_match in enumerate(official["individual_matches"], start=1):
+            upsert_live_rubber(
+                self.conn.cursor(),
+                event_id=3242,
+                tie_row=tie_row,
+                live_match=official,
+                individual_match=individual_match,
+                rubber_order=rubber_order,
+            )
+        sync_team_tie_from_live_match(
+            self.conn.cursor(), int(tie_row["current_team_tie_id"]), official
+        )
+
+        rubber = self.conn.execute(
+            """
+            SELECT status, source_status, match_score, games, winner_side
+            FROM current_event_matches
+            WHERE event_id = 3242 AND external_match_code = 'TEAM-TIE-ORDER::R1'
+            """
+        ).fetchone()
+        self.assertEqual(
+            ("completed", "Official", "3-1", '["11-8", "8-11", "11-6", "11-7"]', "A"),
+            tuple(rubber),
+        )
+        players = self.conn.execute(
+            """
+            SELECT s.side_no, s.is_winner, p.player_name
+            FROM current_event_match_sides s
+            JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+            JOIN current_event_matches m ON m.current_match_id = s.current_match_id
+            WHERE m.external_match_code = 'TEAM-TIE-ORDER::R1'
+            ORDER BY s.side_no
+            """
+        ).fetchall()
+        self.assertEqual(
+            [(1, 1, "Official A"), (2, 0, "Official B")],
+            [tuple(row) for row in players],
+        )
+
     def test_existing_non_final_live_individual_match_still_updates(self):
         first = self.live_individual_item("NORMAL-LIVE")
         upsert_live_individual_match(

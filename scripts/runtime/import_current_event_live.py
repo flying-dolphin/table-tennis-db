@@ -597,7 +597,6 @@ def upsert_live_team_tie(cursor: sqlite3.Cursor, *, event_id: int, item: dict, n
         current_team_tie_id = int(cursor.lastrowid)
 
     upsert_sides(cursor, current_team_tie_id, sides, winner_side)
-    sync_child_matches(cursor, current_team_tie_id, status, item.get("source_status"))
     return cursor.execute(
         "SELECT * FROM current_event_team_ties WHERE current_team_tie_id = ?",
         (current_team_tie_id,),
