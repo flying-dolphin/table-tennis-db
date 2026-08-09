@@ -1152,29 +1152,37 @@ def find_completed_results_output(
     weekly_file: Path | str | None = None,
 ) -> Path | None:
     prefix = f"results-ranking|{category}|top:{top_n}|"
-    candidates: list[tuple[str, Path]] = []
-    for key, value in checkpoint.data.get("completed", {}).items():
-        if not key.startswith(prefix):
-            continue
-        if isinstance(value, str):
-            continue
-        if not isinstance(value, dict):
-            continue
-        output_file = value.get("meta", {}).get("output_file")
-        if not output_file:
-            continue
-        path = Path(output_file)
-        if path.exists():
-            if weekly_file is not None:
-                complete, reason = is_results_snapshot_complete(path, weekly_file, top_n)
-                if not complete:
-                    logger.warning("Ignoring completed results checkpoint: %s (%s)", path, reason)
-                    continue
-            candidates.append((str(value.get("at", "")), path))
+    candidates: list[tuple[str, Path, str]] = []
+    checkpoint_sections = ["completed"]
+    if weekly_file is not None:
+        checkpoint_sections.append("failed")
+
+    for section in checkpoint_sections:
+        for key, value in checkpoint.data.get(section, {}).items():
+            if not key.startswith(prefix):
+                continue
+            if isinstance(value, str):
+                continue
+            if not isinstance(value, dict):
+                continue
+            output_file = value.get("meta", {}).get("output_file")
+            if not output_file:
+                continue
+            path = Path(output_file)
+            if path.exists():
+                if weekly_file is not None:
+                    complete, reason = is_results_snapshot_complete(path, weekly_file, top_n)
+                    if not complete:
+                        logger.warning("Ignoring %s results checkpoint: %s (%s)", section, path, reason)
+                        continue
+                candidates.append((str(value.get("at", "")), path, section))
     if not candidates:
         return None
     candidates.sort(key=lambda item: item[0], reverse=True)
-    return candidates[0][1]
+    _, path, section = candidates[0]
+    if section == "failed":
+        logger.info("Reusing complete results ranking snapshot from failed downstream run: %s", path)
+    return path
 
 
 def load_results_rankings_snapshot(path: Path, category: str, top_n: int) -> list[dict[str, Any]]:

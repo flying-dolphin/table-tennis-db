@@ -699,6 +699,49 @@ class ResultsCheckpointTests(unittest.TestCase):
 
             self.assertEqual(find_completed_results_output(checkpoint, "women", 1000), snapshot)
 
+    def test_finds_complete_results_output_after_profile_failure(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            weekly = tmp / "women_singles_top1000_week32.json"
+            snapshot = tmp / "results_women_top1000_20260809T162645.json"
+            rankings = [
+                {
+                    "rank": rank,
+                    "name": f"Player {rank}",
+                    "player_id": str(100000 + rank),
+                    "profile_url": (
+                        "https://results.ittf.link/index.php/player-profile/list/60?"
+                        f"vw_profiles___player_id_raw={100000 + rank}"
+                    ),
+                }
+                for rank in range(1, 3)
+            ]
+            weekly.write_text(
+                json.dumps({"total_players": 2, "rankings": [{"rank": 1}, {"rank": 2}]}),
+                encoding="utf-8",
+            )
+            snapshot.write_text(
+                json.dumps(
+                    {
+                        "category": "women",
+                        "total_players": 2,
+                        "site_total_players": 2,
+                        "rankings": rankings,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            checkpoint = CheckpointStore(tmp / "checkpoint.json")
+            key = f"results-ranking|women|top:1000|{snapshot.name}"
+            meta = {"output_file": str(snapshot), "total_players": 2, "site_total_players": 2}
+            checkpoint.mark_done(key, meta=meta)
+            checkpoint.mark_failed(key, "profile scrape failed for Player 2", meta=meta)
+
+            self.assertEqual(
+                find_completed_results_output(checkpoint, "women", 1000, weekly),
+                snapshot,
+            )
+
     def test_rejects_resume_snapshot_shorter_than_weekly_ranking(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp = Path(tmpdir)
