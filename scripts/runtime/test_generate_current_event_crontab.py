@@ -12,6 +12,68 @@ import generate_current_event_crontab as cron
 
 
 class GenerateCurrentEventCrontabTests(unittest.TestCase):
+    def lock_path_args(
+        self,
+        *,
+        project_root: str,
+        db_path: str = "data/db/ittf.db",
+    ) -> argparse.Namespace:
+        return argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root=project_root,
+            live_event_data_root="data/live_event_data",
+            emit_db_path=db_path,
+            db_path=Path(db_path),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+    def assert_promote_and_refresh_use_lock(
+        self,
+        args: argparse.Namespace,
+        expected_lock_path: str,
+    ) -> None:
+        lock_command = (
+            "flock --conflict-exit-code 75 --wait 60 "
+            f"{expected_lock_path}"
+        )
+        promote_command = cron.build_refresh_command(args, {"promote"})
+        refresh_command = cron.build_refresh_command(args, {"official_reconcile"})
+
+        self.assertIn(lock_command, promote_command)
+        self.assertIn(lock_command, refresh_command)
+
+    def test_relative_project_root_keeps_relative_db_lock_path(self):
+        args = self.lock_path_args(project_root="repo")
+
+        self.assert_promote_and_refresh_use_lock(
+            args,
+            "data/db/ittf.db.current-event.lock",
+        )
+
+    def test_absolute_project_root_resolves_relative_db_lock_path(self):
+        args = self.lock_path_args(project_root="/srv/ittf")
+
+        self.assert_promote_and_refresh_use_lock(
+            args,
+            "/srv/ittf/data/db/ittf.db.current-event.lock",
+        )
+
+    def test_absolute_db_path_stays_absolute_for_relative_project_root(self):
+        args = self.lock_path_args(
+            project_root="repo",
+            db_path="/var/lib/ittf/ittf.db",
+        )
+
+        self.assert_promote_and_refresh_use_lock(
+            args,
+            "/var/lib/ittf/ittf.db.current-event.lock",
+        )
+
     def test_match_details_refresh_scrapes_match_details_and_imports_live_and_completed(self):
         args = argparse.Namespace(
             python_bin="/venv/bin/python",

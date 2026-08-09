@@ -495,7 +495,7 @@ def build_locked_db_writer_command(
     writer_status_name: str,
 ) -> str:
     db_path = Path(command_db_path)
-    if not db_path.is_absolute():
+    if not db_path.is_absolute() and Path(project_root).is_absolute():
         db_path = Path(project_root) / db_path
     lock_path = f"{db_path}.current-event.lock"
     writer_runner = (
