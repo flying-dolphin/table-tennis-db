@@ -43,7 +43,9 @@ SOURCE_ORDER = [
     "promote",
 ]
 SESSION_REFRESH_DURATION = timedelta(hours=5)
-REFRESH_LOCK_WAIT_SECONDS = 540
+REFRESH_LOCK_WAIT_SECONDS = 60
+REFRESH_LOCK_CONFLICT_EXIT_CODE = 75
+IMPORT_CONFLICT_EXIT_CODE_REMAP = 74
 
 # 每日 cron 备份保留份数（high-freq 刷新本身不备份，靠这个兜底）。
 DAILY_BACKUP_KEEP = 3
@@ -596,24 +598,43 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         live_root,
     ]
 
-    refresh_cmd = f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && {shell_join(import_cmd)}"
     db_path = Path(command_db_path)
     if not db_path.is_absolute():
         db_path = Path(project_root) / db_path
     lock_path = f"{db_path}.current-event.lock"
-    # 每条 cron 仍是独立进程：失败会释放 flock，不会通过 shell 的 && 阻断其它来源。
-    # DB 级锁同时覆盖同分钟 session 边界和不同赛事对同一个 SQLite 的写入。
-    cmd = shell_join(
+    import_runner = (
+        f"{shell_join(import_cmd)}; import_rc=$?; "
+        f'if [ "$import_rc" -eq {REFRESH_LOCK_CONFLICT_EXIT_CODE} ]; '
+        f"then exit {IMPORT_CONFLICT_EXIT_CODE_REMAP}; fi; "
+        'exit "$import_rc"'
+    )
+    locked_import_cmd = shell_join(
         [
             "flock",
+            "--conflict-exit-code",
+            str(REFRESH_LOCK_CONFLICT_EXIT_CODE),
             "--wait",
             str(REFRESH_LOCK_WAIT_SECONDS),
             lock_path,
             "sh",
             "-c",
-            refresh_cmd,
+            import_runner,
         ]
     )
+    ordered_source_names = ",".join(ordered_sources)
+    timeout_message = (
+        f"ERROR: lock timeout event_id={event_id} sources={ordered_source_names} "
+        f"wait_seconds={REFRESH_LOCK_WAIT_SECONDS} lock={lock_path}"
+    )
+    # 抓取不占 DB 锁；只有 import 串行。每条 cron 独立，失败会释放 flock。
+    refresh_runner = (
+        f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && "
+        f"{{ {locked_import_cmd}; lock_rc=$?; "
+        f'if [ "$lock_rc" -eq {REFRESH_LOCK_CONFLICT_EXIT_CODE} ]; '
+        f"then echo {shlex.quote(timeout_message)} >&2; fi; "
+        'exit "$lock_rc"; }'
+    )
+    cmd = shell_join(["sh", "-c", refresh_runner])
 
     if args.log_dir:
         log_file = f"{args.log_dir}/event_{event_id}_$(date +\\%Y\\%m\\%d).log"

@@ -75,7 +75,7 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         self.assertNotIn("match_details", command)
         self.assertNotIn("--include-official", command)
 
-    def test_refresh_commands_use_the_same_db_lock_with_a_finite_wait(self):
+    def test_refresh_commands_scrape_before_locking_only_the_import(self):
         args = argparse.Namespace(
             python_bin="/venv/bin/python",
             project_root="/srv/ittf",
@@ -92,12 +92,69 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
 
         live_command = cron.build_refresh_command(args, {"live"})
         official_command = cron.build_refresh_command(args, {"official_reconcile"})
-        lock_prefix = (
-            "flock --wait 540 /srv/ittf/data/db/ittf.db.current-event.lock sh -c "
+        lock_command = (
+            "flock --conflict-exit-code 75 --wait 60 "
+            "/srv/ittf/data/db/ittf.db.current-event.lock"
         )
 
-        self.assertTrue(live_command.startswith(lock_prefix))
-        self.assertTrue(official_command.startswith(lock_prefix))
+        for command in (live_command, official_command):
+            scrape_index = command.index("scrape_current_event.py")
+            lock_index = command.index(lock_command)
+            import_index = command.index("import_current_event.py")
+            self.assertLess(scrape_index, lock_index)
+            self.assertLess(lock_index, import_index)
+            self.assertNotIn("scrape_current_event.py", command[lock_index:])
+
+    def test_lock_timeout_has_a_distinct_exit_code_and_clear_context(self):
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        command = cron.build_refresh_command(args, {"official_reconcile"})
+
+        self.assertIn("--conflict-exit-code 75 --wait 60", command)
+        self.assertIn(
+            "lock timeout event_id=3242 sources=official_reconcile wait_seconds=60",
+            command,
+        )
+        self.assertIn('if [ "$lock_rc" -eq 75 ]', command)
+        self.assertIn('exit "$lock_rc"', command)
+
+    def test_import_failure_is_not_classified_as_lock_timeout(self):
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        command = cron.build_refresh_command(args, {"official_reconcile"})
+        timeout_check = 'if [ "$lock_rc" -eq 75 ]'
+
+        self.assertIn(timeout_check, command)
+        self.assertIn(
+            'if [ "$import_rc" -eq 75 ]; then exit 74; fi',
+            command,
+        )
+        self.assertLess(command.index("flock "), command.index("lock_rc=$?"))
+        self.assertLess(command.index("lock_rc=$?"), command.index(timeout_check))
 
     def test_session_official_reconcile_times_run_hourly_and_at_session_end(self):
         session_start = cron.datetime(2026, 7, 1, 10, 0, 42, 999)
