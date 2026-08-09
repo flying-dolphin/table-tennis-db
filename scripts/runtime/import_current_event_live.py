@@ -959,9 +959,6 @@ def upsert_live_rubber(
     individual_match: dict,
     rubber_order: int,
 ) -> None:
-    if is_official_final_result(tie_row):
-        return
-
     external_match_code = f"{tie_row['external_match_code']}::R{rubber_order}"
     winner_side = infer_winner_side(individual_match.get("match_score"))
     status = resolve_live_status(live_match.get("source_status"))
