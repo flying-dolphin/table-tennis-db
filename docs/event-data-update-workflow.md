@@ -1,6 +1,6 @@
 # 赛事数据日常更新流程
 
-最后核对：2026-06-28
+最后核对：2026-08-10
 
 本文档是赛事数据更新的唯一操作说明。数据库维护、部署和脚本总览文档只保留职责说明，并链接到本文档。
 
@@ -265,9 +265,19 @@ python scripts/runtime/scrape_current_event.py \
 - `schedule`：官方赛程和队伍 roster
 - `standings`：小组积分
 - `brackets`：淘汰赛签表
-- `live`：正在进行的比赛；默认带 `--include-official`，会同时拉取最近完赛的
-  official 结果，避免 WTT live 数据缺比赛或缺 score
+- `live`：正在进行的比赛；默认带 `--include-official`。高频路径优先读取静态 take-10
+  official 结果；只有 take-10 因网络、HTTP、JSON 解析或 payload 结构问题不可用时，才回退
+  分页读取完整 `GetOfficialResult`。有效空数组表示本次没有最近完赛结果，不触发回退
 - `completed`：官方完赛结果
+
+live 与 official 结果按 `match_code` 合并，同一场比赛以 official 为准。如果 take-10 和完整
+Official 都失败，抓取仍保留有效 live 比赛并写出 `GetLiveResult.json`；同时
+`_scrape_summary_live.json` 会记录 `degraded=true`、warning、选中的 official 来源以及两路
+诊断信息，方便监控发现降级，不会把 official 失败误当成“没有比赛”并清空数据。
+
+完整 Official 始终作为 upsert supplement，而不是删除快照：单次响应缺少某场比赛不会删除
+已有数据库记录，也不会把已经写成 `Official` 的结果降级。不要尝试把静态 take-10 URL 改成
+`take=20`；该 endpoint 的查询参数不会改变返回上限，因此定时完整对账承担覆盖较早完赛结果的职责。
 
 比赛详情抓取遵循可重试的状态语义：预定比赛在尚未开始时没有 WTT match card
 是正常状态，记录为 `not_published`，不会阻塞后续导入和 cron 安装；网络/HTTP/响应格式错误，
@@ -357,6 +367,18 @@ DB 备份都由 cron 自动完成，**不需要再手动跑**。只在这些情�
 `update_current_event.sh`：接入新赛事、想立刻刷新一次、赛后没装 cron 需要补抓。
 裸 py 仅用于开发机/排障，**不要直接对生产库跑**（无备份）。
 
+安装 cron 前先在服务器确认 util-linux `flock` 可用：
+
+```bash
+command -v flock
+flock --version
+```
+
+所有赛事刷新共用按目标 SQLite DB 路径生成的锁文件。网络抓取在锁外并行执行，只有 DB import
+进入 `flock` 临界区，从而避免同一 session 边界任务及多赛事任务同时写库。import 最多等待
+60 秒；超时会以独立退出码失败，并在 cron 日志中写出 `event_id`、`sources`、`wait_seconds`
+和 lock path，便于区分锁竞争与普通导入错误。
+
 cron 生成器依据 `current_event_session_schedule` 安排。每个 session 有一个 **5 小时刷新窗口**
 （从 session 起点开始），窗口内高频任务使用 cron 范围表达式代替逐条条目：
 
@@ -367,6 +389,10 @@ cron 生成器依据 `current_event_session_schedule` 安排。每个 session �
 - **session 刷新窗口**（`live`）：
   - `live`：每 **10 分钟**刷新一次比分，并带 `--include-official` 合并最近完赛 official
     结果（导入 `live` 表）
+  - `official_reconcile`（内部 source）：在 session 开始后 **5 分钟**执行第一次，之后每小时
+    一次，并在 `session start + 5h` 窗口结束点再执行一次。它只以 `completed` 调用抓取和
+    导入，不带 `match_details` 或 `--include-official`，用完整 Official 结果补齐 take-10
+    覆盖范围之外的完赛记录
 - `promote`：最后一个比赛日的最后一个 session 起点后 24 小时执行
 
 登录生产服务器后也可只装 cron：
