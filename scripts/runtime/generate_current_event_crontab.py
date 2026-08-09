@@ -43,6 +43,7 @@ SOURCE_ORDER = [
     "promote",
 ]
 SESSION_REFRESH_DURATION = timedelta(hours=5)
+REFRESH_LOCK_WAIT_SECONDS = 540
 
 # 每日 cron 备份保留份数（high-freq 刷新本身不备份，靠这个兜底）。
 DAILY_BACKUP_KEEP = 3
@@ -595,7 +596,24 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         live_root,
     ]
 
-    cmd = f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && {shell_join(import_cmd)}"
+    refresh_cmd = f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && {shell_join(import_cmd)}"
+    db_path = Path(command_db_path)
+    if not db_path.is_absolute():
+        db_path = Path(project_root) / db_path
+    lock_path = f"{db_path}.current-event.lock"
+    # 每条 cron 仍是独立进程：失败会释放 flock，不会通过 shell 的 && 阻断其它来源。
+    # DB 级锁同时覆盖同分钟 session 边界和不同赛事对同一个 SQLite 的写入。
+    cmd = shell_join(
+        [
+            "flock",
+            "--wait",
+            str(REFRESH_LOCK_WAIT_SECONDS),
+            lock_path,
+            "sh",
+            "-c",
+            refresh_cmd,
+        ]
+    )
 
     if args.log_dir:
         log_file = f"{args.log_dir}/event_{event_id}_$(date +\\%Y\\%m\\%d).log"

@@ -75,6 +75,30 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         self.assertNotIn("match_details", command)
         self.assertNotIn("--include-official", command)
 
+    def test_refresh_commands_use_the_same_db_lock_with_a_finite_wait(self):
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        live_command = cron.build_refresh_command(args, {"live"})
+        official_command = cron.build_refresh_command(args, {"official_reconcile"})
+        lock_prefix = (
+            "flock --wait 540 /srv/ittf/data/db/ittf.db.current-event.lock sh -c "
+        )
+
+        self.assertTrue(live_command.startswith(lock_prefix))
+        self.assertTrue(official_command.startswith(lock_prefix))
+
     def test_session_official_reconcile_times_run_hourly_and_at_session_end(self):
         session_start = cron.datetime(2026, 7, 1, 10, 0, 42, 999)
 
@@ -143,6 +167,128 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         )
         self.assertTrue(
             all(job.labels == {"morning-official-reconcile"} for job in reconcile_jobs)
+        )
+
+    def test_session_end_brackets_and_official_reconcile_share_the_db_lock(self):
+        event = cron.Event(3242, "Test Event", "Asia/Shanghai")
+        schedule = [
+            cron.SessionDay(
+                local_date=cron.date(2026, 7, 1),
+                morning_session_start="10:00",
+                afternoon_session_start=None,
+                raw_sub_events_text="Main Draw",
+                parsed_rounds_json='[{"stage_code":"MAIN_DRAW","round_code":"R32"}]',
+            ),
+            cron.SessionDay(
+                local_date=cron.date(2026, 7, 2),
+                morning_session_start="10:00",
+                afternoon_session_start=None,
+                raw_sub_events_text="Main Draw",
+                parsed_rounds_json='[{"stage_code":"MAIN_DRAW","round_code":"R16"}]',
+            ),
+        ]
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        _main_draw_start, jobs = cron.build_jobs(event, schedule, "Asia/Shanghai")
+        collision_jobs = [
+            job
+            for job in jobs
+            if job.run_at == cron.datetime(2026, 7, 1, 15, 0, tzinfo=job.run_at.tzinfo)
+        ]
+        collision_sources = {tuple(sorted(job.sources)) for job in collision_jobs}
+        commands = [cron.build_refresh_command(args, job.sources) for job in collision_jobs]
+
+        self.assertIn(("brackets",), collision_sources)
+        self.assertIn(("official_reconcile",), collision_sources)
+        self.assertTrue(
+            all("/srv/ittf/data/db/ittf.db.current-event.lock" in command for command in commands)
+        )
+
+    def test_previous_session_end_and_next_live_share_the_db_lock(self):
+        event = cron.Event(3242, "Test Event", "Asia/Shanghai")
+        schedule = [
+            cron.SessionDay(
+                local_date=cron.date(2026, 7, 1),
+                morning_session_start="10:00",
+                afternoon_session_start="15:00",
+                raw_sub_events_text="Main Draw",
+                parsed_rounds_json='[{"stage_code":"MAIN_DRAW","round_code":"R32"}]',
+            )
+        ]
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        _main_draw_start, jobs = cron.build_jobs(event, schedule, "Asia/Shanghai")
+        official_job = next(
+            job
+            for job in jobs
+            if job.run_at.hour == 15
+            and job.run_at.minute == 0
+            and job.sources == {"official_reconcile"}
+        )
+        next_live_job = next(
+            job
+            for job in jobs
+            if job.run_at.hour == 15 and job.sources == {"live"}
+        )
+
+        official_command = cron.build_refresh_command(args, official_job.sources)
+        live_command = cron.build_refresh_command(args, next_live_job.sources)
+
+        self.assertIn("/srv/ittf/data/db/ittf.db.current-event.lock", official_command)
+        self.assertIn("/srv/ittf/data/db/ittf.db.current-event.lock", live_command)
+        self.assertNotEqual(official_command, live_command)
+
+    def test_cross_midnight_reconcile_times_deduplicate_repeated_sessions(self):
+        event = cron.Event(3242, "Test Event", "Asia/Shanghai")
+        repeated_day = cron.SessionDay(
+            local_date=cron.date(2026, 7, 1),
+            morning_session_start="22:00",
+            afternoon_session_start=None,
+            raw_sub_events_text="Main Draw",
+            parsed_rounds_json='[{"stage_code":"MAIN_DRAW","round_code":"R32"}]',
+        )
+
+        _main_draw_start, jobs = cron.build_jobs(
+            event,
+            [repeated_day, repeated_day],
+            "Asia/Shanghai",
+        )
+        reconcile_jobs = [job for job in jobs if job.sources == {"official_reconcile"}]
+
+        self.assertEqual(
+            [
+                "2026-07-01 22:05",
+                "2026-07-01 23:05",
+                "2026-07-02 00:05",
+                "2026-07-02 01:05",
+                "2026-07-02 02:05",
+                "2026-07-02 03:00",
+            ],
+            [job.run_at.strftime("%Y-%m-%d %H:%M") for job in reconcile_jobs],
         )
 
 
