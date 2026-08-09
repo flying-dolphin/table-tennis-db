@@ -269,6 +269,11 @@ python scripts/runtime/scrape_current_event.py \
   official 结果，避免 WTT live 数据缺比赛或缺 score
 - `completed`：官方完赛结果
 
+比赛详情抓取遵循可重试的状态语义：预定比赛在尚未开始时没有 WTT match card
+是正常状态，记录为 `not_published`，不会阻塞后续导入和 cron 安装；网络/HTTP/响应格式错误，
+或已经处于 `live`、完赛待补全状态却仍然没有详情，则记录为失败并返回非零退出码，要求人工检查。
+结构化结果写入 `data/live_event_data/{event_id}/_scrape_summary_match_details.json`。
+
 导入：
 
 ```bash
@@ -377,6 +382,9 @@ PYENV_ENV_NAME=venv ./deploy/server/install_current_event_crontab.sh <event_id>
 crontab -l | sed -n \
   '/ITTF current-event refresh begin/,/ITTF current-event refresh end/p'
 ```
+
+同一台服务器可以同时安装多个进行中的赛事。每次安装只替换对应赛事的子区块，
+不会删除其他赛事的 current-event cron；旧版单赛事托管区块会在下一次安装时自动迁移。
 
 注意：`promote` 自动任务依赖的脚本已随发布包部署、cron 命令路径与发布布局一致
 （见第 8 节）。但完赛后仍必须人工核对 promote 是否实际成功，不能仅因 crontab 中

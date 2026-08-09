@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Replace the managed high-frequency current-event cron block.
+# Merge this event into the managed high-frequency current-event cron block.
 #
 # 布局：发布在 doubao_tt/ 下，生成的 cron 命令直接 cd 到 PROJECT_ROOT 后用相对路径
 # 调用 scripts/runtime/*.py 和 scripts/db/promote_current_event.py，因此 promote 自动
@@ -22,9 +22,6 @@ LOG_DIR=${LOG_DIR:-${ITTF_DATA_DIR}/logs}
 PYENV_ROOT=${PYENV_ROOT:-${HOME}/.pyenv}
 PYENV_ENV_NAME=${PYENV_ENV_NAME:-}
 PYTHON_BIN=${PYTHON_BIN:-}
-BLOCK_BEGIN="# ITTF current-event refresh begin"
-BLOCK_END="# ITTF current-event refresh end"
-
 usage() {
     echo "Usage: PYENV_ENV_NAME=venv $0 <event_id>" >&2
 }
@@ -49,6 +46,7 @@ if ! [[ "${EVENT_ID}" =~ ^[0-9]+$ ]]; then
 fi
 
 require_file "${RUNTIME_PY_DIR}/generate_current_event_crontab.py"
+require_file "${RUNTIME_PY_DIR}/merge_current_event_crontab.py"
 require_file "${RUNTIME_PY_DIR}/scrape_current_event.py"
 require_file "${RUNTIME_PY_DIR}/import_current_event.py"
 # promote 自动任务依赖以下文件，缺失则装出来的 promote cron 会失败。
@@ -90,18 +88,16 @@ trap 'rm -f "${GENERATED_FILE}" "${CURRENT_FILE}" "${NEXT_FILE}"' EXIT
     --log-dir "${LOG_DIR}" \
     --headless > "${GENERATED_FILE}"
 
-crontab -l 2>/dev/null | sed "/${BLOCK_BEGIN}/,/${BLOCK_END}/d" > "${CURRENT_FILE}" || true
-cp "${CURRENT_FILE}" "${NEXT_FILE}"
+crontab -l 2>/dev/null > "${CURRENT_FILE}" || true
+"${PYTHON_BIN}" "${RUNTIME_PY_DIR}/merge_current_event_crontab.py" \
+    --event-id "${EVENT_ID}" \
+    --generated-file "${GENERATED_FILE}" \
+    < "${CURRENT_FILE}" > "${NEXT_FILE}"
 
 if grep -Eq '^[0-9]+[[:space:]]+[0-9]+[[:space:]]+[0-9*]+[[:space:]]+[0-9*]+[[:space:]]+' "${GENERATED_FILE}"; then
-    {
-        echo "${BLOCK_BEGIN}"
-        cat "${GENERATED_FILE}"
-        echo "${BLOCK_END}"
-    } >> "${NEXT_FILE}"
-    echo "Installed managed current-event cron block for event ${EVENT_ID}."
+    echo "Installed managed current-event cron jobs for event ${EVENT_ID}."
 else
-    echo "No future current-event cron jobs generated for event ${EVENT_ID}; removed existing managed block."
+    echo "No future current-event cron jobs generated for event ${EVENT_ID}; removed its managed jobs."
 fi
 
 crontab "${NEXT_FILE}"

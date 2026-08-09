@@ -194,7 +194,84 @@ class ScrapeWttMatchDetailsTests(unittest.TestCase):
             summary["source_counts"],
         )
 
-    def test_main_allows_partial_match_detail_failures_and_logs_failed_targets(self):
+    def test_unpublished_upcoming_match_is_expected_and_non_fatal(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            event_dir = Path(tmp) / "3242"
+            event_dir.mkdir()
+            (event_dir / "GetEventSchedule.json").write_text("[]", encoding="utf-8")
+            (event_dir / "GetOfficialResult.json").write_text("[]", encoding="utf-8")
+            (event_dir / "GetLiveResult.json").write_text(
+                json.dumps({"summary": {"event_id": 3242}, "matches": []}),
+                encoding="utf-8",
+            )
+
+            with (
+                patch.object(
+                    details,
+                    "select_match_detail_codes",
+                    return_value=[details.MatchDetailTarget("UPCOMING", "upcoming")],
+                ),
+                patch.object(
+                    details,
+                    "fetch_match_card",
+                    return_value=details.MatchCardFetchResult(
+                        "https://static.example/upcoming.json", None, "not_published"
+                    ),
+                ),
+            ):
+                summary = details.scrape_match_details_only(
+                    3242, event_dir, db_path=Path(tmp) / "missing.db"
+                )
+
+        self.assertEqual(0, len(summary["errors"]))
+        self.assertEqual(1, summary["not_published"])
+        self.assertEqual(0, summary["failed"])
+
+    def test_unpublished_live_match_is_failure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            event_dir = Path(tmp) / "3242"
+            event_dir.mkdir()
+            (event_dir / "GetEventSchedule.json").write_text("[]", encoding="utf-8")
+            (event_dir / "GetOfficialResult.json").write_text("[]", encoding="utf-8")
+            (event_dir / "GetLiveResult.json").write_text(
+                json.dumps({"summary": {"event_id": 3242}, "matches": []}),
+                encoding="utf-8",
+            )
+
+            with (
+                patch.object(
+                    details,
+                    "select_match_detail_codes",
+                    return_value=[details.MatchDetailTarget("LIVE", "live")],
+                ),
+                patch.object(
+                    details,
+                    "fetch_match_card",
+                    return_value=details.MatchCardFetchResult(
+                        "https://api.example/live.json", None, "not_published"
+                    ),
+                ),
+            ):
+                summary = details.scrape_match_details_only(
+                    3242, event_dir, db_path=Path(tmp) / "missing.db"
+                )
+
+        self.assertEqual(1, len(summary["errors"]))
+        self.assertEqual(0, summary["not_published"])
+        self.assertEqual(1, summary["failed"])
+
+    def test_fetch_match_card_keeps_technical_failure_after_empty_fallback(self):
+        with patch.object(
+            details,
+            "fetch_matchdata_json",
+            side_effect=[(None, "failed"), (None, "not_published")],
+        ):
+            result = details.fetch_match_card(3242, "LIVE")
+
+        self.assertEqual("failed", result.outcome)
+        self.assertIsNone(result.card)
+
+    def test_main_returns_failure_for_live_match_detail_failure(self):
         with tempfile.TemporaryDirectory() as tmp:
             event_dir = Path(tmp) / "3242"
             event_dir.mkdir()
@@ -245,7 +322,7 @@ class ScrapeWttMatchDetailsTests(unittest.TestCase):
                 rc = details.main()
 
         output = stdout.getvalue()
-        self.assertEqual(0, rc)
+        self.assertEqual(1, rc)
         self.assertIn("WARNING: 1 match detail target(s) could not be fetched", output)
         self.assertIn("TTEMSINGLES-----------R64-001400", output)
         self.assertIn("https://static.example/missing.json", output)

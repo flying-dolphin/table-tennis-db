@@ -308,10 +308,9 @@ function loadCurrentFinalChampions(eventId: number): Map<string, EventChampion> 
           AND m.status IN ('completed', 'walkover')
           AND m.winner_side IN ('A', 'B')
           AND (
+            -- Use the normalized round code; a substring match on the label
+            -- would incorrectly include Semi-Final and Quarter-Final.
             m.round_code IN ('F', 'Final', 'FNL', 'FNL-')
-            OR m.round_label IN ('F', 'Final', 'FNL', 'FNL-')
-            OR m.round_label LIKE '%Final%'
-            OR m.round_label LIKE '%决赛%'
           )
         ORDER BY m.sub_event_type_code ASC, m.current_match_id DESC, msp.player_order ASC
       `,

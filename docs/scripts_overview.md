@@ -318,6 +318,14 @@ CDP_PORT=9224 scripts/run_update_events_calendar.sh 2026
 用法：
 `python scripts/runtime/scrape_current_event.py --event-id 3216`
 
+### runtime/scrape_wtt_match_details.py
+补抓单场比赛详情，用于补全赛程、live 或官方结果中缺失的 match card。
+- `fetched`：成功取得详情并合并到 `GetOfficialResult.json` 或 `GetLiveResult.json`
+- `not_published`：目标仍为 `upcoming` / `db_scheduled`，WTT 尚未发布详情；这是正常的轮询状态，退出码为 0
+- `failed`：网络、HTTP、响应格式或已应有结果的目标抓取失败；写入 summary 并返回非零退出码
+
+因此，比赛开始前详情暂时为空不会中止当前赛事刷新；下一次 cron 会继续重试。
+
 ### runtime/import_current_event.py
 当前 WTT 团体赛事导入总入口。
 

@@ -167,6 +167,58 @@ test('current event champion is inferred from a completed final before sub_event
   assert.throws(() => rollback(), /rollback fixture/);
 });
 
+test('current event does not infer a champion from a completed semifinal', () => {
+  const eventId = 990003;
+  const semifinalMatchId = 990003;
+
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO events (
+        event_id, year, name, name_zh, total_matches, start_date, end_date,
+        lifecycle_status, time_zone
+      ) VALUES (?, 2026, 'Current Semifinal Fixture', '半决赛未结束测试赛事', 2, '2026-07-01', '2026-07-02',
+        'in_progress', 'America/New_York')
+    `).run(eventId);
+
+    db.prepare(`
+      INSERT INTO current_event_matches (
+        current_match_id, event_id, sub_event_type_code, stage_label, stage_code,
+        round_label, round_code, external_match_code, status, match_score,
+        winner_side, winner_name
+      ) VALUES
+        (?, ?, 'WS', 'Main Draw', 'MAIN', 'Women''s Singles - Semi-Final', 'SF', 'FIXTURE-WS-SF', 'completed', '4-2', 'A', 'SUN Yingsha'),
+        (?, ?, 'WS', 'Main Draw', 'MAIN', 'Women''s Singles - Final', 'F', 'FIXTURE-WS-F', 'scheduled', NULL, NULL, NULL)
+    `).run(semifinalMatchId, eventId, semifinalMatchId + 1, eventId);
+
+    const sideA = db.prepare(`
+      INSERT INTO current_event_match_sides (current_match_id, side_no, is_winner)
+      VALUES (?, 1, 1)
+    `).run(semifinalMatchId).lastInsertRowid;
+    const sideB = db.prepare(`
+      INSERT INTO current_event_match_sides (current_match_id, side_no, is_winner)
+      VALUES (?, 2, 0)
+    `).run(semifinalMatchId).lastInsertRowid;
+
+    db.prepare(`
+      INSERT INTO current_event_match_side_players (
+        current_match_side_id, player_order, player_id, player_name, player_country
+      ) VALUES (?, 1, 131163, 'SUN Yingsha', 'CHN')
+    `).run(sideA);
+    db.prepare(`
+      INSERT INTO current_event_match_side_players (
+        current_match_side_id, player_order, player_id, player_name, player_country
+      ) VALUES (?, 1, 135049, 'KUAI Man', 'CHN')
+    `).run(sideB);
+
+    const detail = getEventDetail(eventId, 'WS');
+    assert.equal(detail.subEvents[0].champion, null);
+
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
+});
+
 test('event list counts current matches for finished current events before promotion', () => {
   const eventId = 990002;
 

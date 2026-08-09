@@ -10,6 +10,7 @@ import json
 import sqlite3
 import time
 import urllib.request
+from urllib.error import HTTPError
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -55,6 +56,17 @@ UPCOMING_WINDOW = timedelta(minutes=15)
 class MatchDetailTarget:
     match_code: str
     reason: str
+
+
+@dataclass(frozen=True)
+class MatchCardFetchResult:
+    url: str
+    card: dict[str, Any] | None
+    outcome: str
+    source: str | None = None
+
+
+EXPECTED_NOT_PUBLISHED_REASONS = {"upcoming", "db_scheduled"}
 
 
 def full_document_code(value: str | None) -> str:
@@ -231,19 +243,23 @@ def select_match_detail_codes(
     return selected
 
 
-def fetch_match_card(event_id: int, match_code: str) -> tuple[str, dict[str, Any] | None, str | None]:
+def fetch_match_card(event_id: int, match_code: str) -> MatchCardFetchResult:
     doc_code = full_document_code(match_code)
     url = f"{MATCHDATA_BASE}/{event_id}/{doc_code}.json?q={time.strftime('%Y-%m-%d')}"
-    payload = fetch_matchdata_json(url)
+    payload, static_outcome = fetch_matchdata_json(url)
     if isinstance(payload, dict):
-        return url, payload, "static_matchdata"
+        return MatchCardFetchResult(url, payload, "fetched", "static_matchdata")
     official_url = (
         f"{API_BASE}/GetOfficialResult?EventId={event_id}"
         f"&DocumentCode={doc_code}&include_match_card=true"
     )
-    official_payload = fetch_matchdata_json(official_url)
+    official_payload, official_outcome = fetch_matchdata_json(official_url)
     card = extract_official_match_card(official_payload)
-    return official_url, card, "official_query" if card is not None else None
+    if card is not None:
+        return MatchCardFetchResult(official_url, card, "fetched", "official_query")
+    if "failed" in {static_outcome, official_outcome}:
+        return MatchCardFetchResult(official_url, None, "failed")
+    return MatchCardFetchResult(official_url, None, "not_published")
 
 
 def extract_official_match_card(payload: Any) -> dict[str, Any] | None:
@@ -274,22 +290,28 @@ def decode_response_body(response: Any, body: bytes) -> bytes:
     return body
 
 
-def fetch_matchdata_json(url: str, retries: int = 2) -> Any:
+def fetch_matchdata_json(url: str, retries: int = 2) -> tuple[Any, str]:
     for attempt in range(1, retries + 1):
         try:
             req = urllib.request.Request(url, headers=MATCHDATA_HEADERS)
             with urllib.request.urlopen(req, timeout=30) as resp:
                 if resp.status == 204:
-                    return None
+                    return None, "not_published"
                 body = decode_response_body(resp, resp.read())
                 if body.startswith(b"\xef\xbb\xbf"):
                     body = body[3:]
-                return json.loads(body.decode("utf-8"))
+                return json.loads(body.decode("utf-8")), "fetched"
+        except HTTPError as exc:
+            if exc.code == 404:
+                return None, "not_published"
+            if attempt >= retries:
+                return None, "failed"
+            time.sleep(0.5 * attempt)
         except Exception:
             if attempt >= retries:
-                return None
+                return None, "failed"
             time.sleep(0.5 * attempt)
-    return None
+    return None, "failed"
 
 
 def official_result_item(event_id: int, match_card: dict[str, Any]) -> dict[str, Any]:
@@ -401,8 +423,23 @@ def scrape_match_details_only(event_id: int, event_dir: Path, db_path: Path = DE
     errors: list[dict[str, Any]] = []
     sources: list[dict[str, Any]] = []
     source_counts = {"static_matchdata": 0, "official_query": 0}
+    not_published = 0
+    failed = 0
     for target in targets:
-        url, card, source_kind = fetch_match_card(event_id, target.match_code)
+        raw_result = fetch_match_card(event_id, target.match_code)
+        if isinstance(raw_result, MatchCardFetchResult):
+            result = raw_result
+        else:
+            url, card, source_kind = raw_result
+            result = MatchCardFetchResult(
+                url,
+                card,
+                "fetched" if card is not None else "failed",
+                source_kind if card is not None else None,
+            )
+        url = result.url
+        card = result.card
+        source_kind = result.source
         if source_kind in source_counts:
             source_counts[source_kind] += 1
         sources.append(
@@ -411,11 +448,23 @@ def scrape_match_details_only(event_id: int, event_dir: Path, db_path: Path = DE
                 "reason": target.reason,
                 "url": url,
                 "source": source_kind,
+                "outcome": result.outcome,
                 "ok": card is not None,
             }
         )
         if card is None:
-            errors.append({"match_code": target.match_code, "reason": target.reason, "url": url})
+            if result.outcome == "not_published" and target.reason in EXPECTED_NOT_PUBLISHED_REASONS:
+                not_published += 1
+                continue
+            failed += 1
+            errors.append(
+                {
+                    "match_code": target.match_code,
+                    "reason": target.reason,
+                    "url": url,
+                    "outcome": result.outcome,
+                }
+            )
             continue
         cards.append(card)
 
@@ -427,6 +476,8 @@ def scrape_match_details_only(event_id: int, event_dir: Path, db_path: Path = DE
         "targets": len(targets),
         "fetched": len(cards),
         "source_counts": source_counts,
+        "not_published": not_published,
+        "failed": failed,
         "db_targets": len(db_targets),
         "event_time_zone": event_time_zone,
         "files": [{"kind": "post_match_center", "file": raw_path.name, "size": raw_path.stat().st_size, "count": len(cards)}],
@@ -455,11 +506,9 @@ def print_fetch_errors(errors: list[dict[str, Any]]) -> None:
         )
 
 
-def has_useful_match_detail_output(summary: dict[str, Any]) -> bool:
-    if summary.get("fetched", 0) > 0:
-        return True
-    merge = summary.get("merge") if isinstance(summary.get("merge"), dict) else {}
-    return any((merge.get(key) or 0) > 0 for key in ("official_added", "live_added", "live_updated"))
+def print_not_published_count(count: int) -> None:
+    if count:
+        print(f"  INFO: {count} scheduled match detail target(s) not published yet")
 
 
 def main() -> int:
@@ -480,9 +529,10 @@ def main() -> int:
         f"live_updated={summary['merge']['live_updated']}"
     )
     print_fetch_errors(summary["errors"])
+    print_not_published_count(summary["not_published"])
     print()
     print(f"Done: {len(summary['files'])} file(s), {len(summary['errors'])} error(s)")
-    return 0 if not summary["errors"] or has_useful_match_detail_output(summary) else 1
+    return 0 if not summary["errors"] else 1
 
 
 if __name__ == "__main__":
