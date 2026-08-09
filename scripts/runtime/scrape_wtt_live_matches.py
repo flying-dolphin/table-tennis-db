@@ -383,7 +383,7 @@ def scrape_event_matches(
     *,
     include_official: bool = False,
     schedule_payload: Any = None,
-) -> tuple[list[dict[str, Any]], RecentOfficialResult]:
+) -> tuple[list[dict[str, Any]], RecentOfficialResult, int]:
     schedule_unit_index = build_schedule_unit_index(schedule_payload) if schedule_payload else {}
 
     live_matches: list[dict[str, Any]] = []
@@ -417,14 +417,17 @@ def scrape_event_matches(
             match_card = item.get("match_card") if isinstance(item.get("match_card"), dict) else {}
             payload = match_card or item
             outer_document_code = item.get("documentCode")
+            has_outer_document_code = (
+                isinstance(outer_document_code, str) and bool(outer_document_code.strip())
+            )
             code = normalize_match_code(
-                outer_document_code or match_card.get("documentCode")
+                outer_document_code if has_outer_document_code else match_card.get("documentCode")
             )
             if not code or code in seen_official_codes:
                 continue
-            if match_card and not payload.get("documentCode"):
+            if match_card and has_outer_document_code:
                 payload = dict(payload)
-                payload.setdefault("documentCode", outer_document_code)
+                payload["documentCode"] = outer_document_code
 
             status = (payload.get("resultStatus") or item.get("fullResults") or "OFFICIAL").strip().upper()
             normalized = normalize_cdn_match(payload, status, schedule_unit_index)
@@ -442,7 +445,11 @@ def scrape_event_matches(
     else:
         official_result = RecentOfficialResult([], None, {}, False)
 
-    return merge_normalized_matches(live_matches, official_matches), official_result
+    return (
+        merge_normalized_matches(live_matches, official_matches),
+        official_result,
+        len(live_matches),
+    )
 
 
 def write_outputs(
@@ -451,6 +458,7 @@ def write_outputs(
     matches: list[dict[str, Any]],
     *,
     official_result: RecentOfficialResult,
+    live_matches_count: int,
     schedule_cache_used: bool,
     with_debug_files: bool,
 ) -> dict[str, Any]:
@@ -463,7 +471,7 @@ def write_outputs(
             "cdn_live_matches": {
                 "url": f"{CDN_BASE}/websitestaticapifiles/general/wtt_live_results_event_id.json",
                 "ok": True,
-                "count": len(matches),
+                "count": live_matches_count,
             }
         },
         "matches": len(matches),
@@ -560,7 +568,7 @@ def main() -> int:
     schedule_payload = load_local_schedule_payload(event_dir)
     schedule_cache_used = bool(schedule_payload)
 
-    matches, official_result = scrape_event_matches(
+    matches, official_result, live_matches_count = scrape_event_matches(
         args.event_id,
         include_official=bool(args.include_official),
         schedule_payload=schedule_payload,
@@ -571,6 +579,7 @@ def main() -> int:
         args.event_id,
         matches,
         official_result=official_result,
+        live_matches_count=live_matches_count,
         schedule_cache_used=schedule_cache_used,
         with_debug_files=bool(args.with_debug_files),
     )
