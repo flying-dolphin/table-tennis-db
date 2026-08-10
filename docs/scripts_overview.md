@@ -389,11 +389,12 @@ Official 结果只作为 upsert 补充，不是删除快照：接口暂时缺少
 - `current_event_match_side_players`
 
 ### runtime/generate_current_event_crontab.py
-根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron。按 session 刷新窗口（5 小时）
-周期内每 10 分钟一次 live 刷新（cron 命令显式带 `--include-official`）。每个 session 还会在
-开始后 5 分钟、此后每小时以及 `session start + 5h` 窗口结束点安排内部
+根据 `current_event_session_schedule` 和赛事时区生成赛事专属 cron。按 session 刷新窗口（6 小时）
+周期内每 10 分钟一次 live 刷新（cron 命令显式带 `--include-official`）；brackets 在 Main Draw
+前及比赛阶段每个 session 开始后每小时刷新一次（7 小时窗口）。每个 session 还会在
+开始后 5 分钟、此后每小时以及 `session start + 6h` 窗口结束点安排内部
 `official_reconcile`：它只抓取和导入 `completed`，不运行 `match_details`，用于用完整
-Official 结果持续补齐已完赛状态。除此之外还包含 backup、schedule、standings、brackets 和
+Official 结果持续补齐已完赛状态。除此之外还包含 backup、schedule、standings 和
 赛后 promote 任务；promote 在最后一个比赛日的最后一个 session 起点后 24 小时执行。
 
 刷新任务的网络抓取在锁外执行；刷新 import、promote 等写主 SQLite DB 的任务共用按 DB 路径

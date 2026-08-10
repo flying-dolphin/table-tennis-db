@@ -42,7 +42,8 @@ SOURCE_ORDER = [
     "completed",
     "promote",
 ]
-SESSION_REFRESH_DURATION = timedelta(hours=5)
+SESSION_REFRESH_DURATION = timedelta(hours=6)
+BRACKETS_REFRESH_DURATION = timedelta(hours=7)
 REFRESH_LOCK_WAIT_SECONDS = 60
 REFRESH_LOCK_CONFLICT_EXIT_CODE = 75
 IMPORT_CONFLICT_EXIT_CODE_REMAP = 74
@@ -312,17 +313,23 @@ def session_official_reconcile_times(session_start: datetime) -> list[datetime]:
     return points
 
 
-def build_session_refresh_jobs(session_start: datetime, session_label: str) -> list[CronJob]:
-    points: list[tuple[datetime, set[str]]] = []
+def build_window_refresh_jobs(
+    session_start: datetime,
+    *,
+    step: timedelta,
+    duration: timedelta,
+    sources: set[str],
+    label: str,
+) -> list[CronJob]:
+    points: list[datetime] = []
     run_at = session_start.replace(second=0, microsecond=0)
-    session_end = run_at + SESSION_REFRESH_DURATION
+    session_end = run_at + duration
     while run_at < session_end:
-        sources = {"live"}
-        points.append((run_at, sources))
-        run_at += timedelta(minutes=10)
+        points.append(run_at)
+        run_at += step
 
     buckets: dict[tuple[date, frozenset[str], int], set[int]] = {}
-    for point_at, sources in points:
+    for point_at in points:
         key = (point_at.date(), frozenset(sources), point_at.hour)
         buckets.setdefault(key, set()).add(point_at.minute)
 
@@ -335,15 +342,15 @@ def build_session_refresh_jobs(session_start: datetime, session_label: str) -> l
             tuple(sorted(minutes)),
             hour,
         )
-        for (bucket_date, sources, hour), minutes in buckets.items()
+        for (bucket_date, _sources, hour), minutes in buckets.items()
     )
     idx = 0
     while idx < len(sortable):
-        bucket_date, source_key, sources, minutes, hour = sortable[idx]
+        bucket_date, source_key, source_names, minutes, hour = sortable[idx]
         hours = [hour]
         idx += 1
         while idx < len(sortable):
-            next_date, next_source_key, next_sources, next_minutes, next_hour = sortable[idx]
+            next_date, next_source_key, _next_names, next_minutes, next_hour = sortable[idx]
             if (
                 next_date != bucket_date
                 or next_source_key != source_key
@@ -365,8 +372,8 @@ def build_session_refresh_jobs(session_start: datetime, session_label: str) -> l
         grouped.append(
             CronJob(
                 run_at=run_date_time,
-                sources=set(sources),
-                labels={f"{session_label}-refresh-window"},
+                sources=set(source_names),
+                labels={label},
                 minute_field=cron_number_field(list(minutes)),
                 hour_field=cron_number_field(hours),
                 day_field=str(bucket_date.day),
@@ -425,23 +432,48 @@ def build_jobs(event: Event, schedule: list[SessionDay], target_time_zone: str) 
             run_at = to_target_datetime(day.local_date, second_start, event_tz, target_tz) + timedelta(hours=5)
             add_job(jobs, run_at, "standings", "standings")
 
+    # brackets：Main Draw 前一天及比赛阶段，每个 session 开始后每小时刷新一次（7 小时窗口）。
     pre_main_day = next((day for day in schedule if day.local_date == main_draw_start - timedelta(days=1)), None)
     if pre_main_day:
         second_start = second_session_or_fallback(pre_main_day)
         if second_start:
-            run_at = to_target_datetime(pre_main_day.local_date, second_start, event_tz, target_tz) + timedelta(hours=5)
-            add_job(jobs, run_at, "brackets", "pre-main-draw-brackets")
+            session_start = to_target_datetime(pre_main_day.local_date, second_start, event_tz, target_tz)
+            range_jobs.extend(
+                build_window_refresh_jobs(
+                    session_start,
+                    step=timedelta(hours=1),
+                    duration=BRACKETS_REFRESH_DURATION,
+                    sources={"brackets"},
+                    label="pre-main-draw-brackets",
+                )
+            )
 
     for day in schedule:
         starts = session_starts(day)
         if day.local_date >= main_draw_start:
             for session_label, start in starts:
-                run_at = to_target_datetime(day.local_date, start, event_tz, target_tz) + timedelta(hours=5)
-                add_job(jobs, run_at, "brackets", f"{session_label}-brackets")
+                session_start = to_target_datetime(day.local_date, start, event_tz, target_tz)
+                range_jobs.extend(
+                    build_window_refresh_jobs(
+                        session_start,
+                        step=timedelta(hours=1),
+                        duration=BRACKETS_REFRESH_DURATION,
+                        sources={"brackets"},
+                        label=f"{session_label}-brackets",
+                    )
+                )
 
         for session_label, start in starts:
             session_start = to_target_datetime(day.local_date, start, event_tz, target_tz)
-            range_jobs.extend(build_session_refresh_jobs(session_start, session_label))
+            range_jobs.extend(
+                build_window_refresh_jobs(
+                    session_start,
+                    step=timedelta(minutes=10),
+                    duration=SESSION_REFRESH_DURATION,
+                    sources={"live"},
+                    label=f"{session_label}-refresh-window",
+                )
+            )
             for run_at in session_official_reconcile_times(session_start):
                 range_jobs.append(
                     CronJob(
@@ -591,86 +623,101 @@ def build_refresh_command(args: argparse.Namespace, sources: set[str]) -> str:
         return build_promote_command(args)
     if sources == {"backup"}:
         return build_backup_command(args)
-    # promote 不会和其它 source 合并到同一个分钟点（晚于所有 session 24h），保险起见忽略
+
+    units: list[str] = []
+
+    # add_job / dedupe_cron_jobs 会把同一分钟点的 source 合并进一个 CronJob，因此
+    # promote/backup 这类 SPECIAL_SOURCES 也可能与普通 source 出现在同一 job 里。
+    # 之前这里只构造普通 scrape+import 命令，special source 被静默丢弃（例如
+    # backup+schedule 合并时备份不再执行）。现在把每个 special source 的独立命令
+    # 也追加进去，用 `;` 串联，保证单条失败不影响其余。
     ordered_sources = [source for source in SOURCE_ORDER if source in sources and source not in SPECIAL_SOURCES]
-    scrape_sources: list[str] = []
-    import_sources: list[str] = []
-    for source in ordered_sources:
-        scrape_source, import_source = SCRAPE_IMPORT_SOURCES[source]
-        if isinstance(scrape_source, tuple):
-            scrape_sources.extend(scrape_source)
-        else:
-            scrape_sources.append(scrape_source)
-        if isinstance(import_source, tuple):
-            import_sources.extend(import_source)
-        else:
-            import_sources.append(import_source)
-    scrape_sources = dedupe_preserve_order(scrape_sources)
-    import_sources = dedupe_preserve_order(import_sources)
+    if ordered_sources:
+        scrape_sources: list[str] = []
+        import_sources: list[str] = []
+        for source in ordered_sources:
+            scrape_source, import_source = SCRAPE_IMPORT_SOURCES[source]
+            if isinstance(scrape_source, tuple):
+                scrape_sources.extend(scrape_source)
+            else:
+                scrape_sources.append(scrape_source)
+            if isinstance(import_source, tuple):
+                import_sources.extend(import_source)
+            else:
+                import_sources.append(import_source)
+        scrape_sources = dedupe_preserve_order(scrape_sources)
+        import_sources = dedupe_preserve_order(import_sources)
 
-    python_bin = str(args.python_bin)
-    project_root = str(args.project_root)
-    live_root = str(args.live_event_data_root)
-    command_db_path = str(args.emit_db_path or args.db_path)
-    runtime_python_dir = str(args.runtime_python_dir).rstrip("/")
-    event_id = str(args.event_id)
+        python_bin = str(args.python_bin)
+        project_root = str(args.project_root)
+        live_root = str(args.live_event_data_root)
+        command_db_path = str(args.emit_db_path or args.db_path)
+        runtime_python_dir = str(args.runtime_python_dir).rstrip("/")
+        event_id = str(args.event_id)
 
-    scrape_cmd = [
-        python_bin,
-        f"{runtime_python_dir}/scrape_current_event.py",
-        "--event-id",
-        event_id,
-        "--sources",
-        *scrape_sources,
-        "--live-event-data-root",
-        live_root,
-        "--db-path",
-        command_db_path,
-    ]
-    if "live" in scrape_sources:
-        scrape_cmd.append("--include-official")
-    browser_sources = {"standings", "live"}
-    if browser_sources.intersection(sources):
-        if args.headless:
-            scrape_cmd.append("--headless")
-        if args.use_cdp:
-            scrape_cmd.append("--use-cdp")
-        scrape_cmd.extend(["--cdp-port", str(args.cdp_port)])
+        scrape_cmd = [
+            python_bin,
+            f"{runtime_python_dir}/scrape_current_event.py",
+            "--event-id",
+            event_id,
+            "--sources",
+            *scrape_sources,
+            "--live-event-data-root",
+            live_root,
+            "--db-path",
+            command_db_path,
+        ]
+        if "live" in scrape_sources:
+            scrape_cmd.append("--include-official")
+        browser_sources = {"standings", "live"}
+        if browser_sources.intersection(sources):
+            if args.headless:
+                scrape_cmd.append("--headless")
+            if args.use_cdp:
+                scrape_cmd.append("--use-cdp")
+            scrape_cmd.extend(["--cdp-port", str(args.cdp_port)])
 
-    import_cmd = [
-        python_bin,
-        f"{runtime_python_dir}/import_current_event.py",
-        "--event-id",
-        event_id,
-        "--sources",
-        *import_sources,
-        "--db-path",
-        command_db_path,
-        "--live-event-data-root",
-        live_root,
-    ]
+        import_cmd = [
+            python_bin,
+            f"{runtime_python_dir}/import_current_event.py",
+            "--event-id",
+            event_id,
+            "--sources",
+            *import_sources,
+            "--db-path",
+            command_db_path,
+            "--live-event-data-root",
+            live_root,
+        ]
 
-    ordered_source_names = ",".join(ordered_sources)
-    locked_import_cmd = build_locked_db_writer_command(
-        import_cmd,
-        project_root=project_root,
-        command_db_path=command_db_path,
-        event_id=event_id,
-        source_names=ordered_source_names,
-        writer_status_name="import_rc",
-    )
-    # 抓取不占 DB 锁；只有 import 串行。每条 cron 独立，失败会释放 flock。
-    refresh_runner = (
-        f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && "
-        f"{locked_import_cmd}"
-    )
-    cmd = shell_join(["sh", "-c", refresh_runner])
+        ordered_source_names = ",".join(ordered_sources)
+        locked_import_cmd = build_locked_db_writer_command(
+            import_cmd,
+            project_root=project_root,
+            command_db_path=command_db_path,
+            event_id=event_id,
+            source_names=ordered_source_names,
+            writer_status_name="import_rc",
+        )
+        # 抓取不占 DB 锁；只有 import 串行。每条 cron 独立，失败会释放 flock。
+        refresh_runner = (
+            f"cd {shlex.quote(project_root)} && {shell_join(scrape_cmd)} && "
+            f"{locked_import_cmd}"
+        )
+        unit = shell_join(["sh", "-c", refresh_runner])
 
-    if args.log_dir:
-        log_file = f"{args.log_dir}/event_{event_id}_$(date +\\%Y\\%m\\%d).log"
-        cmd = f"mkdir -p {shlex.quote(args.log_dir)} && {cmd} >> {log_file} 2>&1"
+        if args.log_dir:
+            log_file = f"{args.log_dir}/event_{event_id}_$(date +\\%Y\\%m\\%d).log"
+            unit = f"mkdir -p {shlex.quote(args.log_dir)} && {unit} >> {log_file} 2>&1"
 
-    return cmd
+        units.append(unit)
+
+    if "backup" in sources:
+        units.append(build_backup_command(args))
+    if "promote" in sources:
+        units.append(build_promote_command(args))
+
+    return "; ".join(units)
 
 
 def cron_line(job: CronJob, command: str) -> str:

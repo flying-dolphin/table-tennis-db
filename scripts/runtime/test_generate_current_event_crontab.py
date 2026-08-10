@@ -256,7 +256,7 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         times = cron.session_official_reconcile_times(session_start)
 
         self.assertEqual(
-            ["10:05", "11:05", "12:05", "13:05", "14:05", "15:00"],
+            ["10:05", "11:05", "12:05", "13:05", "14:05", "15:05", "16:00"],
             [run_at.strftime("%H:%M") for run_at in times],
         )
         self.assertTrue(all(run_at.second == 0 and run_at.microsecond == 0 for run_at in times))
@@ -294,8 +294,34 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
 
         self.assertEqual(1, len(refresh_jobs))
         self.assertIn(("live",), range_lines)
-        self.assertTrue(range_lines[("live",)].startswith("0,10,20,30,40,50 1-5 2 7 * "))
+        self.assertTrue(range_lines[("live",)].startswith("0,10,20,30,40,50 1-6 2 7 * "))
         self.assertNotIn("completed", set().union(*(job.sources for job in refresh_jobs)))
+
+    def test_brackets_run_hourly_within_a_seven_hour_window(self):
+        event = cron.Event(3242, "Test Event", "Asia/Shanghai")
+        schedule = [
+            cron.SessionDay(
+                local_date=cron.date(2026, 7, 1),
+                morning_session_start="10:00",
+                afternoon_session_start=None,
+                raw_sub_events_text="Main Draw",
+                parsed_rounds_json='[{"stage_code":"MAIN_DRAW","round_code":"R32"}]',
+            )
+        ]
+
+        _main_draw_start, jobs = cron.build_jobs(event, schedule, "Asia/Shanghai")
+        brackets_jobs = [job for job in jobs if job.sources == {"brackets"}]
+
+        self.assertEqual(1, len(brackets_jobs))
+        brackets_job = brackets_jobs[0]
+        self.assertEqual("0", brackets_job.minute_field)
+        self.assertEqual("10-16", brackets_job.hour_field)
+        self.assertEqual("1", brackets_job.day_field)
+        self.assertEqual("7", brackets_job.month_field)
+        self.assertEqual(
+            cron.datetime(2026, 7, 1, 16, 0, tzinfo=brackets_job.run_at.tzinfo),
+            brackets_job.end_at,
+        )
 
     def test_build_jobs_adds_official_reconcile_after_live_for_each_session(self):
         event = cron.Event(3242, "Test Event", "Asia/Shanghai")
@@ -313,7 +339,7 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         reconcile_jobs = [job for job in jobs if job.sources == {"official_reconcile"}]
 
         self.assertEqual(
-            ["10:05", "11:05", "12:05", "13:05", "14:05", "15:00"],
+            ["10:05", "11:05", "12:05", "13:05", "14:05", "15:05", "16:00"],
             [job.run_at.strftime("%H:%M") for job in reconcile_jobs],
         )
         self.assertTrue(
@@ -344,7 +370,7 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         )
         self.assertNotEqual(final_reconcile, promote_job.run_at)
 
-    def test_session_end_brackets_and_official_reconcile_share_the_db_lock(self):
+    def test_brackets_final_hour_and_official_reconcile_share_the_db_lock(self):
         event = cron.Event(3242, "Test Event", "Asia/Shanghai")
         schedule = [
             cron.SessionDay(
@@ -377,16 +403,26 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         )
 
         _main_draw_start, jobs = cron.build_jobs(event, schedule, "Asia/Shanghai")
-        collision_jobs = [
+        reconcile_end = max(
+            job.run_at for job in jobs if job.sources == {"official_reconcile"}
+        )
+        brackets_job = next(
             job
             for job in jobs
-            if job.run_at == cron.datetime(2026, 7, 1, 15, 0, tzinfo=job.run_at.tzinfo)
-        ]
+            if job.sources == {"brackets"} and job.end_at == reconcile_end
+        )
+        reconcile_end_job = next(
+            job
+            for job in jobs
+            if job.sources == {"official_reconcile"} and job.run_at == reconcile_end
+        )
+        collision_jobs = (brackets_job, reconcile_end_job)
         collision_sources = {tuple(sorted(job.sources)) for job in collision_jobs}
         commands = [cron.build_refresh_command(args, job.sources) for job in collision_jobs]
 
         self.assertIn(("brackets",), collision_sources)
         self.assertIn(("official_reconcile",), collision_sources)
+        self.assertEqual(reconcile_end, brackets_job.end_at)
         self.assertTrue(
             all("/srv/ittf/data/db/ittf.db.current-event.lock" in command for command in commands)
         )
@@ -420,7 +456,7 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         official_job = next(
             job
             for job in jobs
-            if job.run_at.hour == 15
+            if job.run_at.hour == 16
             and job.run_at.minute == 0
             and job.sources == {"official_reconcile"}
         )
@@ -436,6 +472,48 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
         self.assertIn("/srv/ittf/data/db/ittf.db.current-event.lock", official_command)
         self.assertIn("/srv/ittf/data/db/ittf.db.current-event.lock", live_command)
         self.assertNotEqual(official_command, live_command)
+
+    def test_merged_job_keeps_backup_command_when_combined_with_regular_source(self):
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        command = cron.build_refresh_command(args, {"backup", "schedule"})
+
+        self.assertIn("scrape_current_event.py --event-id 3242 --sources schedule", command)
+        self.assertIn("import_current_event.py --event-id 3242 --sources schedule", command)
+        self.assertIn("ittf-cron-backup-$(date +\\%Y\\%m\\%d_\\%H\\%M\\%S).db", command)
+
+    def test_merged_job_keeps_promote_command_when_combined_with_regular_source(self):
+        args = argparse.Namespace(
+            python_bin="/venv/bin/python",
+            project_root="/srv/ittf",
+            live_event_data_root="data/live_event_data",
+            emit_db_path=None,
+            db_path=Path("data/db/ittf.db"),
+            runtime_python_dir="scripts/runtime",
+            event_id=3242,
+            headless=True,
+            use_cdp=False,
+            cdp_port=9223,
+            log_dir=None,
+        )
+
+        command = cron.build_refresh_command(args, {"brackets", "promote"})
+
+        self.assertIn("scrape_current_event.py --event-id 3242 --sources brackets", command)
+        self.assertIn("promote_current_event.py --event-id 3242 --db-path", command)
+        self.assertNotIn("--sources brackets promote", command)
 
     def test_cross_midnight_reconcile_times_deduplicate_repeated_sessions(self):
         event = cron.Event(3242, "Test Event", "Asia/Shanghai")
@@ -461,7 +539,8 @@ class GenerateCurrentEventCrontabTests(unittest.TestCase):
                 "2026-07-02 00:05",
                 "2026-07-02 01:05",
                 "2026-07-02 02:05",
-                "2026-07-02 03:00",
+                "2026-07-02 03:05",
+                "2026-07-02 04:00",
             ],
             [job.run_at.strftime("%Y-%m-%d %H:%M") for job in reconcile_jobs],
         )

@@ -380,18 +380,19 @@ flock --version
 最多等待 60 秒；超时会以独立退出码失败，并在 cron 日志中写出 `event_id`、`sources`、
 `wait_seconds` 和 lock path，便于区分锁竞争与普通写库错误。
 
-cron 生成器依据 `current_event_session_schedule` 安排。每个 session 有一个 **5 小时刷新窗口**
+cron 生成器依据 `current_event_session_schedule` 安排。每个 session 有一个 **6 小时刷新窗口**
 （从 session 起点开始），窗口内高频任务使用 cron 范围表达式代替逐条条目：
 
 - `backup`：每个比赛日首个 session 起点做一次 DB 备份（保留最近 3 份）
 - `schedule`：每日刷新（`session_start + 7h`）
 - `standings`：Main Draw 前刷新（`session_start + 5h`）
-- `brackets`：Main Draw 前及比赛阶段刷新（`session_start + 5h`）
+- `brackets`：Main Draw 前及比赛阶段，每个 session 开始后**每小时**刷新一次，共 **7 小时**
+  窗口（`session_start` 起，逐小时至 `session_start + 7h`）
 - **session 刷新窗口**（`live`）：
   - `live`：每 **10 分钟**刷新一次比分，并带 `--include-official` 合并最近完赛 official
     结果（导入 `live` 表）
   - `official_reconcile`（内部 source）：在 session 开始后 **5 分钟**执行第一次，之后每小时
-    一次，并在 `session start + 5h` 窗口结束点再执行一次。它只以 `completed` 调用抓取和
+    一次，并在 `session start + 6h` 窗口结束点再执行一次。它只以 `completed` 调用抓取和
     导入，不带 `match_details` 或 `--include-official`，用完整 Official 结果补齐 take-10
     覆盖范围之外的完赛记录
 - `promote`：最后一个比赛日的最后一个 session 起点后 24 小时执行
