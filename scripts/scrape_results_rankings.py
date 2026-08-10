@@ -529,6 +529,45 @@ def is_results_snapshot_complete(
     return True, f"results snapshot complete: site rows {site_total}, expected {expected}"
 
 
+def is_results_snapshot_usable(
+    snapshot_path: Path | str,
+    weekly_path: Path | str,
+    top_n: int,
+    reported_total: int | None = None,
+    tolerance: int | None = None,
+) -> tuple[bool, str]:
+    strict_ok, strict_reason = is_results_snapshot_complete(
+        snapshot_path, weekly_path, top_n, reported_total
+    )
+    if strict_ok:
+        return True, strict_reason
+    if tolerance is None:
+        tolerance = max(5, round(top_n * 0.02))
+    try:
+        snapshot = json.loads(Path(snapshot_path).read_text(encoding="utf-8"))
+        weekly = json.loads(Path(weekly_path).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False, strict_reason
+    rankings = snapshot.get("rankings")
+    weekly_rankings = weekly.get("rankings")
+    if not isinstance(rankings, list) or not isinstance(weekly_rankings, list):
+        return False, strict_reason
+    rows_valid, rows_reason = validate_results_rows(rankings, require_order=False)
+    if not rows_valid:
+        return False, strict_reason
+    weekly_total = parse_int(weekly.get("total_players"), default=len(weekly_rankings))
+    snapshot_total = parse_int(snapshot.get("site_total_players"), default=len(rankings))
+    if len(rankings) < snapshot_total:
+        return False, strict_reason
+    shortfall = max(0, min(top_n, weekly_total or len(weekly_rankings)) - snapshot_total)
+    if shortfall <= tolerance:
+        return True, (
+            f"results snapshot usable: site rows {snapshot_total}, "
+            f"weekly expected {weekly_total}, shortfall {shortfall} within tolerance {tolerance}"
+        )
+    return False, strict_reason
+
+
 def find_db_profile_candidates(db_path: Path | str, weekly: dict[str, Any]) -> list[dict[str, Any]]:
     country_code = str(weekly.get("country_code") or weekly.get("country") or "").upper()
     weekly_names = normalize_key_name_variants(str(weekly.get("english_name") or weekly.get("name") or ""))
@@ -1820,6 +1859,15 @@ def run(args: argparse.Namespace) -> int:
                 return 5
 
             if resume_output is None:
+                weekly_file = getattr(args, "weekly_file", None)
+                if weekly_file:
+                    usable, reason = is_results_snapshot_usable(
+                        output_file, weekly_file, args.top
+                    )
+                    if not usable:
+                        raise RuntimeError(
+                            f"refusing to mark results ranking snapshot done: {reason}"
+                        )
                 completed_payload = json.loads(output_file.read_text(encoding="utf-8"))
                 checkpoint.mark_done(
                     checkpoint_key,

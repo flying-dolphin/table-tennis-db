@@ -28,6 +28,7 @@ from scrape_results_rankings import (
     get_completed_results_offsets,
     find_db_profile_candidates,
     is_results_snapshot_complete,
+    is_results_snapshot_usable,
     parse_results_ranking_html,
     plan_missing_results_page_offsets,
     recover_missing_players_from_db,
@@ -824,6 +825,127 @@ class ResultsCheckpointTests(unittest.TestCase):
             complete, reason = is_results_snapshot_complete(results, weekly, top_n=1)
 
         self.assertFalse(complete)
+        self.assertIn("player ID", reason)
+
+    @staticmethod
+    def _valid_result_rows(count: int) -> list[dict]:
+        return [
+            {
+                "rank": rank,
+                "name": f"Player {rank}",
+                "player_id": str(100000 + rank),
+                "profile_url": (
+                    "https://results.ittf.link/profile?"
+                    f"vw_profiles___player_id_raw={100000 + rank}"
+                ),
+            }
+            for rank in range(1, count + 1)
+        ]
+
+    def test_usable_accepts_snapshot_covering_weekly_total(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            weekly = tmp / "women_singles_top1000_week30.json"
+            results = tmp / "results_women_top1000.json"
+            weekly.write_text(
+                json.dumps({"total_players": 958, "rankings": [{"rank": rank} for rank in range(1, 959)]}),
+                encoding="utf-8",
+            )
+            results.write_text(
+                json.dumps(
+                    {
+                        "total_players": 958,
+                        "site_total_players": 958,
+                        "rankings": self._valid_result_rows(958),
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            usable, reason = is_results_snapshot_usable(results, weekly, top_n=1000)
+
+        self.assertTrue(usable, reason)
+
+    def test_usable_rejects_snapshot_with_large_weekly_shortfall(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            weekly = tmp / "women_singles_top1000_week30.json"
+            results = tmp / "results_women_top1000.json"
+            weekly.write_text(
+                json.dumps({"total_players": 958, "rankings": [{"rank": rank} for rank in range(1, 959)]}),
+                encoding="utf-8",
+            )
+            results.write_text(
+                json.dumps(
+                    {
+                        "total_players": 200,
+                        "site_total_players": 200,
+                        "rankings": self._valid_result_rows(200),
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            usable, reason = is_results_snapshot_usable(results, weekly, top_n=1000)
+
+        self.assertFalse(usable)
+        self.assertIn("200", reason)
+        self.assertIn("958", reason)
+
+    def test_usable_accepts_small_genuine_weekly_shortfall(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            weekly = tmp / "women_singles_top1000_week28.json"
+            results = tmp / "results_women_top1000.json"
+            weekly.write_text(
+                json.dumps({"total_players": 937, "rankings": [{"rank": rank} for rank in range(1, 938)]}),
+                encoding="utf-8",
+            )
+            results.write_text(
+                json.dumps(
+                    {
+                        "total_players": 936,
+                        "site_total_players": 936,
+                        "rankings": self._valid_result_rows(936),
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            usable, reason = is_results_snapshot_usable(results, weekly, top_n=1000)
+
+        self.assertTrue(usable, reason)
+
+    def test_usable_rejects_invalid_rows_even_within_tolerance(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            weekly = tmp / "women_singles_top1_week30.json"
+            results = tmp / "results_women_top1.json"
+            weekly.write_text(
+                json.dumps({"total_players": 1, "rankings": [{"rank": 1}]}),
+                encoding="utf-8",
+            )
+            results.write_text(
+                json.dumps(
+                    {
+                        "total_players": 1,
+                        "site_total_players": 1,
+                        "rankings": [
+                            {
+                                "rank": 1,
+                                "name": "Player One",
+                                "player_id": "111",
+                                "profile_url": "https://results.ittf.link/profile?vw_profiles___player_id_raw=222",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            usable, reason = is_results_snapshot_usable(results, weekly, top_n=1)
+
+        self.assertFalse(usable)
         self.assertIn("player ID", reason)
 
     def test_completed_checkpoint_ignores_incomplete_snapshot(self):

@@ -13,7 +13,7 @@ from pathlib import Path
 from db.config import DB_PATH
 from merge_ranking_ids import run as run_merge
 from scrape_rankings import run as run_weekly_wp
-from scrape_results_rankings import run as run_results
+from scrape_results_rankings import is_results_snapshot_usable, run as run_results
 
 logging.basicConfig(
     level=logging.INFO,
@@ -52,13 +52,34 @@ def latest_ranking_file(output_dir: Path, before: set[Path] | None = None, top: 
     return candidates[0] if candidates else None
 
 
-def latest_results_file(output_dir: Path, before: set[Path] | None = None) -> Path | None:
+def latest_results_file(
+    output_dir: Path,
+    before: set[Path] | None = None,
+    *,
+    weekly_file: Path | None = None,
+    top: int | None = None,
+) -> Path | None:
     before = before or set()
+    weekly = Path(weekly_file) if weekly_file else None
     candidates = sorted(output_dir.glob("results_*_top*_*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+
+    def is_complete(path: Path) -> bool:
+        if weekly is None or top is None or not weekly.is_file():
+            return True
+        complete, reason = is_results_snapshot_usable(path, weekly, top)
+        if not complete:
+            logger.warning("Ignoring incomplete results snapshot %s: %s", path.name, reason)
+        return complete
+
     for path in candidates:
-        if path not in before:
+        if path not in before and is_complete(path):
             return path
-    return candidates[0] if candidates else None
+    for path in candidates:
+        if is_complete(path):
+            return path
+    if candidates:
+        logger.error("No complete results snapshot matches weekly file; all candidates failed validation")
+    return None
 
 
 def _file_set(path: Path, pattern: str) -> set[Path]:
@@ -140,7 +161,7 @@ def run(args: argparse.Namespace) -> int:
     if rc != 0:
         logger.error("results.ittf.link ranking scrape failed with rc=%s", rc)
         return rc
-    results_file = latest_results_file(results_output_dir, results_before)
+    results_file = latest_results_file(results_output_dir, results_before, weekly_file=weekly_file, top=args.top)
     if results_file is None:
         logger.error("results ranking output file not found")
         return 5
