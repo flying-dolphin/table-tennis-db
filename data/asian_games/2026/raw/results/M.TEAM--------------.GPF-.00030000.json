@@ -7,8 +7,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "RUNNING",
-    "StatusDesc": "Running",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-20T18:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -31,7 +31,7 @@
     "UnitDescS": "MT Gr.F M 3",
     "UnitDescA": "Match 3",
     "UnitNum": "6",
-    "IsLive": true,
+    "IsLive": false,
     "ShowResults": true,
     "HasActions": false,
     "HasActionsSumm": false,
@@ -41,7 +41,7 @@
   },
   "Results": {
     "Result": "",
-    "ResDetail": "3-0",
+    "ResDetail": "3-0,3-0,3-2",
     "Duration": "",
     "CurrentPeriod": 0,
     "Current": "",
@@ -100,7 +100,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "23min",
+        "Value": "1h35min",
         "Extensions": []
       }
     ],
@@ -203,11 +203,11 @@
       "Org": "IRI",
       "StartOrder": "1",
       "StartSortOrder": 1,
-      "Rk": "",
+      "Rk": "1",
       "RkEq": false,
-      "RkPo": 0,
-      "WLT": "T",
-      "Result": "1",
+      "RkPo": 1,
+      "WLT": "W",
+      "Result": "3",
       "ResDetail": "",
       "ResInfo": "",
       "IRM": "OK",
@@ -236,7 +236,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "3",
+          "Value": "4",
           "Extensions": []
         },
         {
@@ -250,21 +250,21 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "11",
+          "Value": "34",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "42",
+          "Value": "124",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "23",
+          "Value": "66",
           "Extensions": []
         },
         {
@@ -700,10 +700,10 @@
       "Org": "IND",
       "StartOrder": "2",
       "StartSortOrder": 2,
-      "Rk": "",
+      "Rk": "2",
       "RkEq": false,
-      "RkPo": 0,
-      "WLT": "T",
+      "RkPo": 2,
+      "WLT": "L",
       "Result": "0",
       "ResDetail": "",
       "ResInfo": "",
@@ -726,7 +726,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "3",
+          "Value": "5",
           "Extensions": []
         },
         {
@@ -747,21 +747,21 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "19",
+          "Value": "58",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "23",
+          "Value": "77",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "12",
+          "Value": "43",
           "Extensions": []
         },
         {
@@ -1913,8 +1913,8 @@
         "isH2H": true,
         "Type": "A",
         "Medal": "",
-        "Status": "RUNNING",
-        "StatusDesc": "Running",
+        "Status": "OFFICIAL",
+        "StatusDesc": "Official",
         "DateTimeRaw": "2026-09-20T18:30:00+09:00",
         "HideStartDate": false,
         "Estimated": true,
@@ -1937,14 +1937,14 @@
         "UnitDescS": "MT Gr.F M 3 M2",
         "UnitDescA": "Match 3 M2",
         "UnitNum": "",
-        "IsLive": true,
+        "IsLive": false,
         "ShowResults": true
       },
       "Results": {
         "Result": "",
-        "ResDetail": "",
-        "Duration": "3min",
-        "CurrentPeriod": 1,
+        "ResDetail": "11:2, 11:6, 11:6",
+        "Duration": "15min",
+        "CurrentPeriod": 3,
         "Extensions": [
           {
             "Type": "UNIT_INFO",
@@ -1964,14 +1964,14 @@
             "Type": "UNIT_INFO",
             "Code": "ReceivedDuration",
             "Pos": 0,
-            "Value": "0min",
+            "Value": "18min",
             "Extensions": []
           },
           {
             "Type": "UNIT_INFO",
             "Code": "ResultDetailWinner",
             "Pos": 0,
-            "Value": "",
+            "Value": "11:2, 11:6, 11:6",
             "Extensions": []
           },
           {
@@ -1999,9 +1999,9 @@
         "Periods": [
           {
             "Order": 1,
-            "Duration": "00:03:00",
+            "Duration": "00:04:00",
             "Distance": "0",
-            "ResHome": "8",
+            "ResHome": "11",
             "ResAway": "2",
             "TotHome": "",
             "TotAway": "",
@@ -2011,10 +2011,10 @@
           },
           {
             "Order": 2,
-            "Duration": "00:00:00",
+            "Duration": "00:06:00",
             "Distance": "0",
-            "ResHome": "0",
-            "ResAway": "0",
+            "ResHome": "11",
+            "ResAway": "6",
             "TotHome": "",
             "TotAway": "",
             "Extensions": [],
@@ -2023,10 +2023,10 @@
           },
           {
             "Order": 3,
-            "Duration": "00:00:00",
+            "Duration": "00:05:00",
             "Distance": "0",
-            "ResHome": "0",
-            "ResAway": "0",
+            "ResHome": "11",
+            "ResAway": "6",
             "TotHome": "",
             "TotAway": "",
             "Extensions": [],
@@ -2066,12 +2066,12 @@
           "Org": "IRI",
           "StartOrder": "1",
           "StartSortOrder": 1,
-          "Rk": "",
+          "Rk": "1",
           "RkEq": false,
-          "RkPo": 0,
-          "WLT": "T",
-          "Result": "0",
-          "ResDetail": "",
+          "RkPo": 1,
+          "WLT": "W",
+          "Result": "3",
+          "ResDetail": "3",
           "ResInfo": "",
           "IRM": "OK",
           "Qualified": "",
@@ -2160,16 +2160,16 @@
             }
           ],
           "Stats": {
-            "ST_BL": "7",
-            "ST_GDO": "0",
-            "ST_GLL": "0",
-            "ST_MCPL": "1",
+            "ST_BL": "9",
+            "ST_GDO": "4",
+            "ST_GLL": "4",
+            "ST_MCPL": "4",
             "ST_MCPW": "7",
-            "ST_PLOPS": "",
-            "ST_PLOS": "2",
-            "ST_PW": "8",
-            "ST_PWOPS": "4",
-            "ST_PWOS": "4"
+            "ST_PLOPS": "8",
+            "ST_PLOS": "6",
+            "ST_PW": "33",
+            "ST_PWOPS": "15",
+            "ST_PWOS": "18"
           },
           "Name": "FARAJI Benyamin",
           "NameS": "FARAJI B",
@@ -2188,7 +2188,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "8",
+              "Result": "11",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2199,24 +2199,24 @@
               "Status": "OK",
               "Extensions": [],
               "Stats": {
-                "ST_BL": "7",
+                "ST_BL": "9",
                 "ST_GDO": "0",
                 "ST_GLL": "0",
                 "ST_MCPL": "1",
                 "ST_MCPW": "7",
                 "ST_PLOPS": "",
                 "ST_PLOS": "2",
-                "ST_PW": "8",
-                "ST_PWOPS": "4",
-                "ST_PWOS": "4"
+                "ST_PW": "11",
+                "ST_PWOPS": "6",
+                "ST_PWOS": "5"
               }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "1",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 1,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2224,7 +2224,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "11",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2233,14 +2233,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "5",
+                "ST_GDO": "4",
+                "ST_GLL": "4",
+                "ST_MCPL": "4",
+                "ST_MCPW": "6",
+                "ST_PLOPS": "4",
+                "ST_PLOS": "2",
+                "ST_PW": "11",
+                "ST_PWOPS": "5",
+                "ST_PWOS": "6"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "1",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 1,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2248,7 +2260,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "11",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2257,7 +2269,19 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "5",
+                "ST_GDO": "2",
+                "ST_GLL": "2",
+                "ST_MCPL": "2",
+                "ST_MCPW": "3",
+                "ST_PLOPS": "4",
+                "ST_PLOS": "2",
+                "ST_PW": "11",
+                "ST_PWOPS": "4",
+                "ST_PWOS": "7"
+              }
             },
             {
               "Category": "",
@@ -2317,12 +2341,12 @@
           "Org": "IND",
           "StartOrder": "2",
           "StartSortOrder": 2,
-          "Rk": "",
+          "Rk": "2",
           "RkEq": false,
-          "RkPo": 0,
-          "WLT": "T",
+          "RkPo": 2,
+          "WLT": "L",
           "Result": "0",
-          "ResDetail": "",
+          "ResDetail": "0",
           "ResInfo": "",
           "IRM": "OK",
           "Qualified": "",
@@ -2357,7 +2381,7 @@
               "Type": "RESULT_INFO",
               "Code": "CardT",
               "Pos": 0,
-              "Value": "0",
+              "Value": "1",
               "Extensions": []
             },
             {
@@ -2392,7 +2416,7 @@
               "Type": "RESULT_INFO",
               "Code": "Timeout",
               "Pos": 0,
-              "Value": "0",
+              "Value": "1",
               "Extensions": []
             },
             {
@@ -2411,16 +2435,16 @@
             }
           ],
           "Stats": {
-            "ST_BL": "0",
+            "ST_BL": "4",
             "ST_GDO": "0",
-            "ST_GLL": "7",
+            "ST_GLL": "9",
             "ST_MCPL": "7",
-            "ST_MCPW": "1",
-            "ST_PLOPS": "4",
-            "ST_PLOS": "4",
-            "ST_PW": "2",
-            "ST_PWOPS": "2",
-            "ST_PWOS": ""
+            "ST_MCPW": "4",
+            "ST_PLOPS": "18",
+            "ST_PLOS": "15",
+            "ST_PW": "14",
+            "ST_PWOPS": "6",
+            "ST_PWOS": "8"
           },
           "Name": "THAKKAR Manav",
           "NameS": "THAKKAR M",
@@ -2452,11 +2476,11 @@
               "Stats": {
                 "ST_BL": "0",
                 "ST_GDO": "0",
-                "ST_GLL": "7",
+                "ST_GLL": "9",
                 "ST_MCPL": "7",
                 "ST_MCPW": "1",
-                "ST_PLOPS": "4",
-                "ST_PLOS": "4",
+                "ST_PLOPS": "5",
+                "ST_PLOS": "6",
                 "ST_PW": "2",
                 "ST_PWOPS": "2",
                 "ST_PWOS": ""
@@ -2465,9 +2489,9 @@
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "2",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2475,7 +2499,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "6",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2484,14 +2508,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "4",
+                "ST_GDO": "0",
+                "ST_GLL": "5",
+                "ST_MCPL": "6",
+                "ST_MCPW": "4",
+                "ST_PLOPS": "6",
+                "ST_PLOS": "5",
+                "ST_PW": "6",
+                "ST_PWOPS": "2",
+                "ST_PWOS": "4"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "2",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2499,7 +2535,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "6",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2508,7 +2544,19 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "2",
+                "ST_GDO": "0",
+                "ST_GLL": "5",
+                "ST_MCPL": "3",
+                "ST_MCPW": "2",
+                "ST_PLOPS": "7",
+                "ST_PLOS": "4",
+                "ST_PW": "6",
+                "ST_PWOPS": "2",
+                "ST_PWOS": "4"
+              }
             },
             {
               "Category": "",
@@ -2575,8 +2623,8 @@
         "isH2H": true,
         "Type": "A",
         "Medal": "",
-        "Status": "START_LIST",
-        "StatusDesc": "Start List",
+        "Status": "OFFICIAL",
+        "StatusDesc": "Official",
         "DateTimeRaw": "2026-09-20T18:30:00+09:00",
         "HideStartDate": false,
         "Estimated": true,
@@ -2600,13 +2648,13 @@
         "UnitDescA": "Match 3 M3",
         "UnitNum": "",
         "IsLive": false,
-        "ShowResults": false
+        "ShowResults": true
       },
       "Results": {
         "Result": "",
-        "ResDetail": "",
-        "Duration": "",
-        "CurrentPeriod": 0,
+        "ResDetail": "12:10, 13:15, 11:3, 10:12, 11:2",
+        "Duration": "38min",
+        "CurrentPeriod": 5,
         "Extensions": [
           {
             "Type": "UNIT_INFO",
@@ -2626,14 +2674,14 @@
             "Type": "UNIT_INFO",
             "Code": "ReceivedDuration",
             "Pos": 0,
-            "Value": "0min",
+            "Value": "43min",
             "Extensions": []
           },
           {
             "Type": "UNIT_INFO",
             "Code": "ResultDetailWinner",
             "Pos": 0,
-            "Value": "",
+            "Value": "12:10, 13:15, 11:3, 10:12, 11:2",
             "Extensions": []
           },
           {
@@ -2647,7 +2695,7 @@
             "Type": "UNIT_INFO",
             "Code": "ServerHomeAway",
             "Pos": 0,
-            "Value": "",
+            "Value": "1",
             "Extensions": []
           },
           {
@@ -2661,10 +2709,10 @@
         "Periods": [
           {
             "Order": 1,
-            "Duration": "00:00:00",
+            "Duration": "00:08:00",
             "Distance": "0",
-            "ResHome": "0",
-            "ResAway": "0",
+            "ResHome": "12",
+            "ResAway": "10",
             "TotHome": "",
             "TotAway": "",
             "Extensions": [],
@@ -2673,10 +2721,10 @@
           },
           {
             "Order": 2,
-            "Duration": "00:00:00",
+            "Duration": "00:14:00",
             "Distance": "0",
-            "ResHome": "0",
-            "ResAway": "0",
+            "ResHome": "13",
+            "ResAway": "15",
             "TotHome": "",
             "TotAway": "",
             "Extensions": [],
@@ -2685,10 +2733,10 @@
           },
           {
             "Order": 3,
-            "Duration": "00:00:00",
+            "Duration": "00:04:00",
             "Distance": "0",
-            "ResHome": "0",
-            "ResAway": "0",
+            "ResHome": "11",
+            "ResAway": "3",
             "TotHome": "",
             "TotAway": "",
             "Extensions": [],
@@ -2697,10 +2745,10 @@
           },
           {
             "Order": 4,
-            "Duration": "00:00:00",
+            "Duration": "00:07:00",
             "Distance": "0",
-            "ResHome": "0",
-            "ResAway": "0",
+            "ResHome": "10",
+            "ResAway": "12",
             "TotHome": "",
             "TotAway": "",
             "Extensions": [],
@@ -2709,10 +2757,10 @@
           },
           {
             "Order": 5,
-            "Duration": "00:00:00",
+            "Duration": "00:05:00",
             "Distance": "0",
-            "ResHome": "0",
-            "ResAway": "0",
+            "ResHome": "11",
+            "ResAway": "2",
             "TotHome": "",
             "TotAway": "",
             "Extensions": [],
@@ -2728,12 +2776,12 @@
           "Org": "IRI",
           "StartOrder": "1",
           "StartSortOrder": 1,
-          "Rk": "",
+          "Rk": "1",
           "RkEq": false,
-          "RkPo": 0,
-          "WLT": "T",
-          "Result": "",
-          "ResDetail": "",
+          "RkPo": 1,
+          "WLT": "W",
+          "Result": "3",
+          "ResDetail": "3",
           "ResInfo": "",
           "IRM": "OK",
           "Qualified": "",
@@ -2768,7 +2816,7 @@
               "Type": "RESULT_INFO",
               "Code": "CardT",
               "Pos": 0,
-              "Value": "0",
+              "Value": "1",
               "Extensions": []
             },
             {
@@ -2803,7 +2851,7 @@
               "Type": "RESULT_INFO",
               "Code": "Timeout",
               "Pos": 0,
-              "Value": "0",
+              "Value": "1",
               "Extensions": []
             },
             {
@@ -2817,10 +2865,22 @@
               "Type": "SERVICE",
               "Code": "Server",
               "Pos": 0,
-              "Value": "false",
+              "Value": "true",
               "Extensions": []
             }
           ],
+          "Stats": {
+            "ST_BL": "9",
+            "ST_GDO": "1",
+            "ST_GLL": "5",
+            "ST_MCPL": "5",
+            "ST_MCPW": "7",
+            "ST_PLOPS": "23",
+            "ST_PLOS": "19",
+            "ST_PW": "57",
+            "ST_PWOPS": "28",
+            "ST_PWOS": "29"
+          },
           "Name": "ALAMIAN Nima",
           "NameS": "ALAMIAN N",
           "OrgDesc": "Islamic Republic of Iran",
@@ -2828,9 +2888,9 @@
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "1",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 1,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2838,7 +2898,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "12",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2847,14 +2907,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "4",
+                "ST_GDO": "1",
+                "ST_GLL": "1",
+                "ST_MCPL": "4",
+                "ST_MCPW": "4",
+                "ST_PLOPS": "5",
+                "ST_PLOS": "5",
+                "ST_PW": "12",
+                "ST_PWOPS": "6",
+                "ST_PWOS": "6"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "2",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2862,7 +2934,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "13",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2871,14 +2943,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "3",
+                "ST_GDO": "0",
+                "ST_GLL": "2",
+                "ST_MCPL": "3",
+                "ST_MCPW": "4",
+                "ST_PLOPS": "7",
+                "ST_PLOS": "8",
+                "ST_PW": "13",
+                "ST_PWOPS": "7",
+                "ST_PWOS": "6"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "1",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 1,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2886,7 +2970,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "11",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2895,14 +2979,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "8",
+                "ST_GDO": "0",
+                "ST_GLL": "0",
+                "ST_MCPL": "2",
+                "ST_MCPW": "5",
+                "ST_PLOPS": "2",
+                "ST_PLOS": "1",
+                "ST_PW": "11",
+                "ST_PWOPS": "6",
+                "ST_PWOS": "5"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "2",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2910,7 +3006,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "10",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2919,14 +3015,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "2",
+                "ST_GDO": "0",
+                "ST_GLL": "5",
+                "ST_MCPL": "5",
+                "ST_MCPW": "4",
+                "ST_PLOPS": "7",
+                "ST_PLOS": "5",
+                "ST_PW": "10",
+                "ST_PWOPS": "4",
+                "ST_PWOS": "6"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "1",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 1,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -2934,7 +3042,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "11",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -2943,7 +3051,19 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "9",
+                "ST_GDO": "1",
+                "ST_GLL": "1",
+                "ST_MCPL": "1",
+                "ST_MCPW": "7",
+                "ST_PLOPS": "2",
+                "ST_PLOS": "",
+                "ST_PW": "11",
+                "ST_PWOPS": "5",
+                "ST_PWOS": "6"
+              }
             }
           ],
           "FreeResInfo": "",
@@ -2955,12 +3075,12 @@
           "Org": "IND",
           "StartOrder": "2",
           "StartSortOrder": 2,
-          "Rk": "",
+          "Rk": "2",
           "RkEq": false,
-          "RkPo": 0,
-          "WLT": "T",
-          "Result": "",
-          "ResDetail": "",
+          "RkPo": 2,
+          "WLT": "L",
+          "Result": "2",
+          "ResDetail": "2",
           "ResInfo": "",
           "IRM": "OK",
           "Qualified": "",
@@ -2995,7 +3115,7 @@
               "Type": "RESULT_INFO",
               "Code": "CardT",
               "Pos": 0,
-              "Value": "0",
+              "Value": "1",
               "Extensions": []
             },
             {
@@ -3030,7 +3150,7 @@
               "Type": "RESULT_INFO",
               "Code": "Timeout",
               "Pos": 0,
-              "Value": "0",
+              "Value": "1",
               "Extensions": []
             },
             {
@@ -3048,6 +3168,18 @@
               "Extensions": []
             }
           ],
+          "Stats": {
+            "ST_BL": "5",
+            "ST_GDO": "3",
+            "ST_GLL": "9",
+            "ST_MCPL": "7",
+            "ST_MCPW": "5",
+            "ST_PLOPS": "29",
+            "ST_PLOS": "28",
+            "ST_PW": "42",
+            "ST_PWOPS": "19",
+            "ST_PWOS": "23"
+          },
           "Name": "DESAI Harmeet",
           "NameS": "DESAI H",
           "OrgDesc": "India",
@@ -3055,9 +3187,9 @@
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "2",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -3065,7 +3197,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "10",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -3074,14 +3206,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "1",
+                "ST_GDO": "0",
+                "ST_GLL": "4",
+                "ST_MCPL": "4",
+                "ST_MCPW": "4",
+                "ST_PLOPS": "6",
+                "ST_PLOS": "6",
+                "ST_PW": "10",
+                "ST_PWOPS": "5",
+                "ST_PWOS": "5"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "1",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 1,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -3089,7 +3233,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "15",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -3098,14 +3242,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "2",
+                "ST_GDO": "3",
+                "ST_GLL": "3",
+                "ST_MCPL": "4",
+                "ST_MCPW": "3",
+                "ST_PLOPS": "6",
+                "ST_PLOS": "7",
+                "ST_PW": "15",
+                "ST_PWOPS": "8",
+                "ST_PWOS": "7"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "2",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -3113,7 +3269,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "3",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -3122,14 +3278,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "0",
+                "ST_GDO": "0",
+                "ST_GLL": "8",
+                "ST_MCPL": "5",
+                "ST_MCPW": "2",
+                "ST_PLOPS": "5",
+                "ST_PLOS": "6",
+                "ST_PW": "3",
+                "ST_PWOPS": "1",
+                "ST_PWOS": "2"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "1",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 1,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -3137,7 +3305,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "12",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -3146,14 +3314,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "5",
+                "ST_GDO": "2",
+                "ST_GLL": "2",
+                "ST_MCPL": "4",
+                "ST_MCPW": "5",
+                "ST_PLOPS": "6",
+                "ST_PLOS": "4",
+                "ST_PW": "12",
+                "ST_PWOPS": "5",
+                "ST_PWOS": "7"
+              }
             },
             {
               "Category": "",
               "Distance": "0",
-              "Rk": "0",
+              "Rk": "2",
               "RkEq": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "RkAcc": "0",
               "RkAccEq": false,
               "RkAccPo": 0,
@@ -3161,7 +3341,7 @@
               "LegRkEq": false,
               "LegRkPo": 0,
               "AttResult": "",
-              "Result": "0",
+              "Result": "2",
               "Diff": "",
               "LegResult": "",
               "AcumulatedResult": "",
@@ -3170,14 +3350,26 @@
               "RecordInd": "",
               "RecordBest": "",
               "Status": "OK",
-              "Extensions": []
+              "Extensions": [],
+              "Stats": {
+                "ST_BL": "1",
+                "ST_GDO": "0",
+                "ST_GLL": "9",
+                "ST_MCPL": "7",
+                "ST_MCPW": "1",
+                "ST_PLOPS": "6",
+                "ST_PLOS": "5",
+                "ST_PW": "2",
+                "ST_PWOPS": "",
+                "ST_PWOS": "2"
+              }
             }
           ],
           "FreeResInfo": "",
           "Medal": ""
         }
       ],
-      "HasStats": false
+      "HasStats": true
     },
     {
       "Info": {
@@ -3189,8 +3381,8 @@
         "isH2H": true,
         "Type": "A",
         "Medal": "",
-        "Status": "START_LIST",
-        "StatusDesc": "Start List",
+        "Status": "CANCELED",
+        "StatusDesc": "Cancelled",
         "DateTimeRaw": "2026-09-20T18:30:00+09:00",
         "HideStartDate": false,
         "Estimated": true,
@@ -3214,7 +3406,7 @@
         "UnitDescA": "Match 3 M4",
         "UnitNum": "",
         "IsLive": false,
-        "ShowResults": false
+        "ShowResults": true
       },
       "Results": {
         "Result": "",
@@ -3803,8 +3995,8 @@
         "isH2H": true,
         "Type": "A",
         "Medal": "",
-        "Status": "START_LIST",
-        "StatusDesc": "Start List",
+        "Status": "CANCELED",
+        "StatusDesc": "Cancelled",
         "DateTimeRaw": "2026-09-20T18:30:00+09:00",
         "HideStartDate": false,
         "Estimated": true,
@@ -3828,7 +4020,7 @@
         "UnitDescA": "Match 3 M5",
         "UnitNum": "",
         "IsLive": false,
-        "ShowResults": false
+        "ShowResults": true
       },
       "Results": {
         "Result": "",
