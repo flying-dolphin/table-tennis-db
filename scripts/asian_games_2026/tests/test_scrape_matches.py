@@ -110,6 +110,25 @@ class ScrapeMatchesTests(unittest.TestCase):
         self.assertEqual(len(normalized["sides"]), 2)
         self.assertNotIn("rubbers", normalized)
 
+    def test_round_one_uses_structured_phase_code(self) -> None:
+        detail = {
+            "Info": {
+                "Key": "W.DOUBLES-----------.R64-.000600--",
+                "EventDesc": "Women's Doubles",
+                "Phase": "W.DOUBLES-----------.R64-",
+                "PhaseDesc": "Women's Doubles Round 1",
+                "DateTimeRaw": "2026-09-21T18:30:00+09:00",
+                "Status": "START_LIST",
+            },
+            "Results": {},
+            "Competitors": [],
+        }
+
+        normalized = normalize_detail(detail)
+
+        self.assertEqual(normalized["stage_code"], "MAIN_DRAW")
+        self.assertEqual(normalized["round_code"], "R64")
+
 
 if __name__ == "__main__":
     unittest.main()

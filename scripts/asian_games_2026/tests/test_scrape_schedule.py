@@ -76,6 +76,27 @@ class ScrapeScheduleTests(unittest.TestCase):
         self.assertEqual(item["日期"], "9月20日")
         self.assertEqual(item["时间"], "23:30")
 
+    def test_round_one_uses_structured_phase_code(self) -> None:
+        rows = {
+            "2026-09-21": [
+                {
+                    "isH2H": True,
+                    "DateTimeRaw": "2026-09-21T18:30:00+09:00",
+                    "EventDesc": "Women's Doubles",
+                    "Phase": "W.DOUBLES-----------.R64-",
+                    "PhaseDesc": "Women's Doubles Round 1",
+                    "VenueDesc": "SKY HALL TOYOTA",
+                }
+            ]
+        }
+
+        item = build_schedule(rows)[0]
+
+        self.assertEqual(
+            item["_parsed"],
+            [{"sub_event_code": "WD", "stage_code": "MAIN_DRAW", "round_code": "R64"}],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

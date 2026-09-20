@@ -19,6 +19,7 @@ from scripts.asian_games_2026.common import (
     convert_source_timestamp,
     fetch_json,
     normalize_status,
+    phase_round_meta,
 )
 
 
@@ -30,22 +31,12 @@ BRACKET_EVENTS = {
     "XD": "X.DOUBLES-----------",
 }
 
-ROUND_META = {
-    "R64": ("MAIN_DRAW", "R64", 20),
-    "R32": ("MAIN_DRAW", "R32", 30),
-    "8FNL": ("MAIN_DRAW", "R16", 40),
-    "QFNL": ("MAIN_DRAW", "QF", 50),
-    "SFNL": ("MAIN_DRAW", "SF", 60),
-    "FNL": ("MAIN_DRAW", "F", 80),
-}
-
-
 def _phase_round(code: str) -> tuple[str, str, int]:
-    suffix = code.rsplit(".", 1)[-1].replace("-", "").upper()
-    try:
-        return ROUND_META[suffix]
-    except KeyError as exc:
-        raise ValueError(f"unsupported bracket phase: {code}") from exc
+    metadata = phase_round_meta(code)
+    if metadata is None or metadata[3] is None:
+        raise ValueError(f"unsupported bracket phase: {code}")
+    stage_code, round_code, _, round_order = metadata
+    return stage_code, round_code, round_order
 
 
 def _winner_side(match: dict[str, Any]) -> str | None:

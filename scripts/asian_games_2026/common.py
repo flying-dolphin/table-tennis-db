@@ -77,6 +77,15 @@ STATUS_MAP = {
     "CANCELED": "cancelled",
 }
 
+PHASE_ROUND_META = {
+    "R64": ("MAIN_DRAW", "R64", 20),
+    "R32": ("MAIN_DRAW", "R32", 30),
+    "8FNL": ("MAIN_DRAW", "R16", 40),
+    "QFNL": ("MAIN_DRAW", "QF", 50),
+    "SFNL": ("MAIN_DRAW", "SF", 60),
+    "FNL": ("MAIN_DRAW", "F", 80),
+}
+
 
 @dataclass(frozen=True)
 class ConvertedTimestamp:
@@ -152,7 +161,28 @@ def sub_event_code(event_desc: str | None) -> str:
     return SUB_EVENT_CODES.get((event_desc or "").strip(), "UNKNOWN")
 
 
-def round_meta(phase_desc: str | None) -> tuple[str, str, str | None]:
+def phase_round_meta(phase_code: str | None) -> tuple[str, str, str | None, int | None] | None:
+    suffix = (phase_code or "").rsplit(".", 1)[-1].replace("-", "").upper()
+    if suffix in PHASE_ROUND_META:
+        stage_code, round_code, round_order = PHASE_ROUND_META[suffix]
+        return stage_code, round_code, None, round_order
+
+    group = re.fullmatch(r"GP([A-Z0-9]+)", suffix)
+    if group:
+        return "MAIN_DRAW", "RR", group.group(1).upper(), None
+    return None
+
+
+def round_meta(
+    phase_desc: str | None,
+    *,
+    phase_code: str | None = None,
+) -> tuple[str, str, str | None]:
+    structured = phase_round_meta(phase_code)
+    if structured:
+        stage_code, round_code, group_code, _ = structured
+        return stage_code, round_code, group_code
+
     phase = (phase_desc or "").strip()
     group = re.search(r"\bGroup\s+([A-Z0-9]+)\b", phase, re.IGNORECASE)
     if group:

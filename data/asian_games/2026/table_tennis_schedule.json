@@ -26,9 +26,13 @@
     "场次": "",
     "时间": "11:30",
     "赛事": [
+      "男团小组赛C组",
       "男团小组赛F组",
+      "男团小组赛B组",
+      "男团小组赛D组",
       "男团小组赛E组",
-      "男团小组赛G组"
+      "男团小组赛G组",
+      "男团小组赛A组"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -45,13 +49,41 @@
     "场次": "",
     "时间": "15:00",
     "赛事": [
-      "女团小组赛F组"
+      "女团小组赛D组",
+      "女团小组赛E组",
+      "女团小组赛F组",
+      "女团小组赛A组",
+      "女团小组赛B组",
+      "女团小组赛C组"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
     "_parsed": [
       {
         "sub_event_code": "WT",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "RR"
+      }
+    ]
+  },
+  {
+    "日期": "9月20日",
+    "场次": "",
+    "时间": "17:30",
+    "赛事": [
+      "男团小组赛F组",
+      "男团小组赛G组",
+      "男团小组赛A组",
+      "男团小组赛B组",
+      "男团小组赛C组",
+      "男团小组赛D组",
+      "男团小组赛E组"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "MT",
         "stage_code": "MAIN_DRAW",
         "round_code": "RR"
       }
@@ -111,8 +143,8 @@
     "_parsed": [
       {
         "sub_event_code": "WD",
-        "stage_code": "UNKNOWN",
-        "round_code": "UNKNOWN"
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
       }
     ]
   },

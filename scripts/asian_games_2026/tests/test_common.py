@@ -29,6 +29,13 @@ class CommonTests(unittest.TestCase):
         self.assertEqual(common.round_meta("Women's Team Group B"), ("MAIN_DRAW", "RR", "B"))
         self.assertEqual(common.round_meta("Men's Singles Round of 32"), ("MAIN_DRAW", "R32", None))
         self.assertEqual(common.round_meta("Mixed Doubles Quarter-Finals"), ("MAIN_DRAW", "QF", None))
+        self.assertEqual(
+            common.round_meta(
+                "Women's Doubles Round 1",
+                phase_code="W.DOUBLES-----------.R64-",
+            ),
+            ("MAIN_DRAW", "R64", None),
+        )
         self.assertEqual(common.normalize_status("START_LIST"), "scheduled")
         self.assertEqual(common.normalize_status("RUNNING"), "live")
         self.assertEqual(common.normalize_status("OFFICIAL"), "completed")

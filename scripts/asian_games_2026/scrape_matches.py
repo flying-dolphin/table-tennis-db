@@ -103,7 +103,10 @@ def _match_sides(competitors: list[dict[str, Any]], winner_side: str | None) -> 
 
 def _base(info: dict[str, Any]) -> dict[str, Any]:
     timestamp = convert_source_timestamp(str(info["DateTimeRaw"]))
-    stage_code, round_code, group_code = round_meta(str(info.get("PhaseDesc") or ""))
+    stage_code, round_code, group_code = round_meta(
+        str(info.get("PhaseDesc") or ""),
+        phase_code=str(info.get("Phase") or "") or None,
+    )
     return {
         "external_match_code": str(info.get("Key") or info.get("ResCode") or ""),
         "sub_event_type_code": sub_event_code(str(info.get("EventDesc") or "")),

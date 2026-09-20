@@ -59,9 +59,13 @@ def fetch_schedule(*, raw_root: Path = RAW_ROOT) -> dict[str, list[dict[str, Any
     return rows_by_date
 
 
-def _parsed_round(event_desc: str, phase_desc: str) -> dict[str, str] | None:
+def _parsed_round(
+    event_desc: str,
+    phase_desc: str,
+    phase_code: str | None = None,
+) -> dict[str, str] | None:
     event_code = sub_event_code(event_desc)
-    stage_code, round_code, _ = round_meta(phase_desc)
+    stage_code, round_code, _ = round_meta(phase_desc, phase_code=phase_code)
     if event_code == "UNKNOWN":
         return None
     return {
@@ -98,7 +102,7 @@ def build_schedule(rows_by_date: dict[str, list[dict[str, Any]]]) -> list[dict[s
             event_zh = translate_phase(event_desc, phase_desc)
             if event_zh not in slot["events"]:
                 slot["events"].append(event_zh)
-            parsed = _parsed_round(event_desc, phase_desc)
+            parsed = _parsed_round(event_desc, phase_desc, str(row.get("Phase") or "") or None)
             if parsed:
                 parsed_key = tuple(parsed.values())
                 if parsed_key not in slot["parsed_keys"]:

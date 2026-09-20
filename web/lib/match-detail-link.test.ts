@@ -19,6 +19,13 @@ test('links unscored bracket matches when explicitly allowed', () => {
   assert.equal(matchDetailPath({ hasScore: false, allowUnscored: true, matchId: 6395 }), '/matches/6395');
 });
 
+test('does not link bye bracket matches even when a current match id exists', () => {
+  assert.equal(
+    matchDetailPath({ hasScore: false, allowUnscored: true, isBye: true, scheduleMatchId: 'cm:1757' }),
+    null,
+  );
+});
+
 test('does not link unscored matches without an explicit opt-in', () => {
   assert.equal(matchDetailPath({ hasScore: false, scheduleMatchId: 'cm:1371' }), null);
 });

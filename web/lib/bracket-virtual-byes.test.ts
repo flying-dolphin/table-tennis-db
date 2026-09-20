@@ -3,7 +3,34 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const { expandVirtualByeNodes, isVirtualByeMatch, realBracketMatchCount } = require('./bracket-virtual-byes.ts');
+const { expandVirtualByeNodes, isByeMatch, isVirtualByeMatch, realBracketMatchCount } = require('./bracket-virtual-byes.ts');
+
+test('recognizes an official bracket BYE as a bye match', () => {
+  const match = {
+    matchId: 100,
+    scheduleMatchId: 'cm:1757',
+    externalUnitCode: 'M.SINGLES-----------.R64-.000100--',
+    drawRound: 'R64',
+    roundLabel: '64 强',
+    roundOrder: 20,
+    matchScore: null,
+    games: [],
+    sides: [
+      {
+        sideNo: 1,
+        isWinner: true,
+        players: [{ playerId: 1, slug: null, name: 'WANG Chuqin', nameZh: '王楚钦', countryCode: 'CHN' }],
+      },
+      {
+        sideNo: 2,
+        isWinner: false,
+        players: [{ playerId: null, slug: null, name: 'BYE', nameZh: null, countryCode: 'BYE' }],
+      },
+    ],
+  };
+
+  assert.equal(isByeMatch(match), true);
+});
 
 test('expands a partial previous round with virtual bye nodes', () => {
   const rounds = [

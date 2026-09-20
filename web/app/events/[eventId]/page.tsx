@@ -37,7 +37,7 @@ import { getCurrentBeijingDate, regroupScheduleDaysByBeijingDate } from "@/lib/s
 import { getDefaultScheduleDate } from "@/lib/schedule-default-date";
 import { groupChinaScheduleMatches } from "@/lib/schedule-match-groups";
 import { scheduleSidePrimaryLabel } from "@/lib/schedule-side-label";
-import { expandVirtualByeNodes, isVirtualByeMatch, realBracketMatchCount } from "@/lib/bracket-virtual-byes";
+import { expandVirtualByeNodes, isByeMatch, realBracketMatchCount } from "@/lib/bracket-virtual-byes";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -1924,11 +1924,12 @@ function DrawMatchCard({
   const [sideA, sideB] = [...match.sides].sort((a, b) => a.sideNo - b.sideNo);
   const sides = [sideA, sideB].filter(Boolean);
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
-  const isVirtualBye = isVirtualByeMatch(match);
+  const isBye = isByeMatch(match);
   const hasScore = Boolean(match.matchScore?.trim());
   const matchHref = matchDetailPath({
     hasScore,
     allowUnscored: true,
+    isBye,
     scheduleMatchId: match.scheduleMatchId,
     matchId: !match.externalUnitCode ? match.matchId : null,
   });
@@ -1962,7 +1963,7 @@ function DrawMatchCard({
               </span>
             ) : null}
             <span className="flex w-3 shrink-0 items-center justify-center">
-              {side.isWinner && !isVirtualBye ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
+              {side.isWinner && !isBye ? <CheckCircle2 size={10} className="text-[#2d6cf6]" strokeWidth={2.5} /> : null}
             </span>
           </div>
         );

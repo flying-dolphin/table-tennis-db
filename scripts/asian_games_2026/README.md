@@ -32,13 +32,22 @@
 
 ## 定时任务
 
+如需预览将要安装的 cron 内容，可单独运行：
+
 ```bash
 .venv/bin/python -m scripts.asian_games_2026.generate_crontab
+```
+
+实际安装定时任务只需运行：
+
+```bash
 bash scripts/asian_games_2026/install_crontab.sh
 ```
 
+安装脚本会自动调用 `generate_crontab`，并只替换自身标记区块，不修改其他任务。
+
 cron 使用 `CRON_TZ=Asia/Shanghai`，比赛日每五分钟刷新，23:30 做当日全量核对，
-9 月 29 日 02:00 执行最终归档。安装脚本只替换自身标记区块，不修改其他任务。
+9 月 29 日 02:00 执行最终归档。
 
 ## 赛事结束归档
 

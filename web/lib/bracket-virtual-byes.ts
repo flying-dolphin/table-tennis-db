@@ -38,6 +38,23 @@ export function isVirtualByeMatch(match: BracketMatchLike) {
   return match.isVirtualBye === true || (match.externalUnitCode ?? "").startsWith("virtual-bye:");
 }
 
+function isByeLabel(value: string | null | undefined) {
+  const normalized = value?.trim();
+  return normalized?.toUpperCase() === "BYE" || normalized === "轮空";
+}
+
+export function isByeMatch(match: BracketMatchLike) {
+  if (isVirtualByeMatch(match)) return true;
+
+  return match.sides.some(
+    (side) =>
+      side.players.length > 0 &&
+      side.players.every(
+        (player) => isByeLabel(player.name) || isByeLabel(player.nameZh) || isByeLabel(player.countryCode),
+      ),
+  );
+}
+
 export function realBracketMatchCount(round: { matches: BracketMatchLike[] }) {
   return round.matches.filter((match) => !isVirtualByeMatch(match)).length;
 }
