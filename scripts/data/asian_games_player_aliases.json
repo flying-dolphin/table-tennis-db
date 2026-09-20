@@ -1,0 +1,32 @@
+{
+  "aliases": [
+    {
+      "country_code": "MAC",
+      "source_name": "KUAN Cheok",
+      "canonical_name": "KUAN Cheok Lam",
+      "sub_event_codes": ["WT", "WD", "XD"],
+      "note": "Asian Games source truncates the athlete name"
+    },
+    {
+      "country_code": "SGP",
+      "source_name": "TAN Zhao",
+      "canonical_name": "TAN Zhao Yun",
+      "sub_event_codes": ["WT", "WD"],
+      "note": "Asian Games source omits the given-name suffix"
+    },
+    {
+      "country_code": "PRK",
+      "source_name": "PYON Song",
+      "canonical_name": "PYON Song Gyong",
+      "sub_event_codes": ["WT", "WD", "XD", "WS"],
+      "note": "Asian Games source omits the given-name suffix"
+    },
+    {
+      "country_code": "SGP",
+      "source_name": "TAN Zhao",
+      "canonical_name": "TAN Zhao Ray",
+      "sub_event_codes": ["MT", "MD"],
+      "note": "Asian Games source omits the given-name suffix"
+    }
+  ]
+}
