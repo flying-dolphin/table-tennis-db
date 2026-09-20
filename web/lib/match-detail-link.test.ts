@@ -14,6 +14,15 @@ test('links current individual matches directly without tie prefix', () => {
   assert.equal(matchDetailPath({ hasScore: true, scheduleMatchId: 'cm:1371', matchId: 6395 }), '/matches/cm:1371');
 });
 
+test('links unscored bracket matches when explicitly allowed', () => {
+  assert.equal(matchDetailPath({ hasScore: false, allowUnscored: true, scheduleMatchId: 'cm:1371' }), '/matches/cm:1371');
+  assert.equal(matchDetailPath({ hasScore: false, allowUnscored: true, matchId: 6395 }), '/matches/6395');
+});
+
+test('does not link unscored matches without an explicit opt-in', () => {
+  assert.equal(matchDetailPath({ hasScore: false, scheduleMatchId: 'cm:1371' }), null);
+});
+
 test('links team ties with tie prefix', () => {
   assert.equal(matchDetailPath({ hasScore: true, scheduleMatchId: 11, matchId: 4921, kind: 'tie' }), '/matches/tie:11');
   assert.equal(

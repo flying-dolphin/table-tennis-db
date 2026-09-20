@@ -1,12 +1,13 @@
 type MatchDetailLinkInput = {
   hasScore: boolean;
+  allowUnscored?: boolean;
   scheduleMatchId?: number | string | null;
   matchId?: number | string | null;
   kind?: 'match' | 'tie';
 };
 
-export function matchDetailPath({ hasScore, scheduleMatchId, matchId, kind = 'match' }: MatchDetailLinkInput) {
-  if (!hasScore) return null;
+export function matchDetailPath({ hasScore, allowUnscored = false, scheduleMatchId, matchId, kind = 'match' }: MatchDetailLinkInput) {
+  if (!hasScore && !allowUnscored) return null;
 
   if (typeof scheduleMatchId === 'string' && scheduleMatchId.startsWith('cm:')) {
     return `/matches/${scheduleMatchId}`;

@@ -196,6 +196,34 @@ function scorePartsFromMatchScore(matchScore: string | null) {
   };
 }
 
+function DoublesCountryStack({ side }: { side: MatchSide }) {
+  const countryCodes = side.players.map((player) => player.countryCode?.trim() || null);
+  const sharedCountry = countryCodes.length > 1 && countryCodes.every((code) => code && code === countryCodes[0]);
+
+  if (sharedCountry) {
+    const countryCode = countryCodes[0];
+    return (
+      <div className="flex w-[2.3rem] shrink-0 flex-col items-start text-micro font-bold uppercase leading-tight tracking-wider text-text-tertiary">
+        <span className="flex h-[1.15rem] items-center">
+          {countryCode && isStandardTeamCode(countryCode) ? <Flag code={countryCode} className="shrink-0 rounded-[1px] text-[0.8rem]" /> : null}
+        </span>
+        <span className="flex h-[1.15rem] items-center">{countryCode}</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex w-[2.3rem] shrink-0 flex-col items-start gap-0.5 text-micro font-bold uppercase leading-tight tracking-wider text-text-tertiary">
+      {countryCodes.map((countryCode, index) => (
+        <span key={`${countryCode ?? "country"}-${index}`} className="flex min-h-[1.15rem] items-center gap-1">
+          {countryCode && isStandardTeamCode(countryCode) ? <Flag code={countryCode} className="shrink-0 rounded-[1px] text-[0.8rem]" /> : null}
+          <span>{countryCode || "—"}</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function GameScoreTable({
   games,
   sideA,
@@ -247,19 +275,34 @@ function GameScoreTable({
             {rows.map((row, rowIndex) => (
               <tr key={rowIndex} className={cn(rowIndex === 0 ? "border-b border-border-subtle" : "")}>
                 <td className="px-4 py-4 text-left">
-                  <p className="line-clamp-1 text-body font-bold text-text-primary" title={row.side ? sideTitle(row.side) : ""}>
-                    {row.side ? sideTitle(row.side) : "待定"}
-                  </p>
-                  <p className="mt-0.5 flex items-center gap-1.5 text-micro font-bold uppercase tracking-wider text-text-tertiary">
-                    {showFlags
-                      ? row.side?.players.map((player, index) =>
-                          player.countryCode && isStandardTeamCode(player.countryCode) ? (
-                            <Flag key={`${player.countryCode}-${index}`} code={player.countryCode} className="shrink-0 rounded-[1px] text-[0.8rem]" />
-                          ) : null,
-                        )
-                      : null}
-                    <span>{row.side ? sideCountries(row.side) || "—" : "TBD"}</span>
-                  </p>
+                  {row.side && row.side.players.length > 1 ? (
+                    <div className="flex items-start gap-2">
+                      <DoublesCountryStack side={row.side} />
+                      <div className="min-w-0 flex-1 space-y-0.5 text-body font-bold leading-tight text-text-primary">
+                        {row.side.players.map((player, index) => (
+                          <span key={`${player.playerId ?? "player"}-${index}`} className="block break-words">
+                            {displayPlayerName(player)}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <p className="line-clamp-1 text-body font-bold text-text-primary" title={row.side ? sideTitle(row.side) : ""}>
+                        {row.side ? sideTitle(row.side) : "待定"}
+                      </p>
+                      <p className="mt-0.5 flex items-center gap-1.5 text-micro font-bold uppercase tracking-wider text-text-tertiary">
+                        {showFlags
+                          ? row.side?.players.map((player, index) =>
+                              player.countryCode && isStandardTeamCode(player.countryCode) ? (
+                                <Flag key={`${player.countryCode}-${index}`} code={player.countryCode} className="shrink-0 rounded-[1px] text-[0.8rem]" />
+                              ) : null,
+                            )
+                          : null}
+                        <span>{row.side ? sideCountries(row.side) || "—" : "TBD"}</span>
+                      </p>
+                    </>
+                  )}
                 </td>
                 {games.map((game, index) => {
                   const own = row.isA ? game.player : game.opponent;
@@ -879,15 +922,17 @@ function MatchContent() {
         </div>
       </section>
       <section className="px-4">
-        <div className="relative z-10 -mt-8 overflow-hidden rounded-md border border-border-subtle bg-white shadow-[0_12px_30px_rgba(84,112,156,0.20)]">
-          <GameScoreTable
-            games={data.match.games}
-            sideA={sideA}
-            sideB={sideB}
-            matchScore={data.match.matchScore}
-            attached
-          />
-        </div>
+        {data.match.games.length > 0 || data.match.matchScore ? (
+          <div className="relative z-10 -mt-8 overflow-hidden rounded-md border border-border-subtle bg-white shadow-[0_12px_30px_rgba(84,112,156,0.20)]">
+            <GameScoreTable
+              games={data.match.games}
+              sideA={sideA}
+              sideB={sideB}
+              matchScore={data.match.matchScore}
+              attached
+            />
+          </div>
+        ) : null}
         </section>
 
       {showCompare ? <SinglesComparePanel playerA={sideA.players[0]} playerB={sideB.players[0]} /> : null}

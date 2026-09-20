@@ -27,6 +27,14 @@ function normalizePlayerCountryHistoryKey(playerName: string, currentCountry: st
   return `${playerName.trim().toLowerCase()}|${(currentCountry ?? '').trim().toUpperCase()}`;
 }
 
+function normalizePlayerDisplayLookupKey(playerName: string) {
+  return playerName
+    .normalize('NFKD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .replace(/[\p{P}\p{S}\s]+/gu, '');
+}
+
 function loadPlayerCountryHistory() {
   if (cachedPlayerCountryHistory) return cachedPlayerCountryHistory;
 
@@ -138,12 +146,9 @@ function loadPlayerDisplayMap(playerIds: number[]) {
   );
 }
 
-function loadPlayerDisplayMapByNames(playerNames: string[]) {
-  const normalizedNames = Array.from(new Set(playerNames.map((name) => name.trim()).filter(Boolean)));
-  if (normalizedNames.length === 0) {
-    return new Map<string, { playerId: number; slug: string | null; nameZh: string | null; avatarFile: string | null }>();
-  }
+type PlayerDisplayMeta = { playerId: number; slug: string | null; nameZh: string | null; avatarFile: string | null };
 
+function loadPlayerDisplayNameIndex() {
   const rows = db
     .prepare(
       `
@@ -154,10 +159,9 @@ function loadPlayerDisplayMapByNames(playerNames: string[]) {
           name_zh AS nameZh,
           REPLACE(REPLACE(avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
         FROM players
-        WHERE name IN (${normalizedNames.map(() => '?').join(', ')})
       `,
     )
-    .all(...normalizedNames) as Array<{
+    .all() as Array<{
     playerId: number;
     name: string;
     slug: string | null;
@@ -165,17 +169,40 @@ function loadPlayerDisplayMapByNames(playerNames: string[]) {
     avatarFile: string | null;
   }>;
 
-  return new Map(
-    rows.map((row) => [
-      row.name.trim(),
-      {
-        playerId: row.playerId,
-        slug: row.slug,
-        nameZh: row.nameZh,
-        avatarFile: filterAvatarFile(row.avatarFile),
-      },
-    ]),
-  );
+  const index = new Map<string, PlayerDisplayMeta>();
+  const ambiguous = new Set<string>();
+  for (const row of rows) {
+    const key = normalizePlayerDisplayLookupKey(row.name);
+    if (!key || ambiguous.has(key)) continue;
+    const meta = {
+      playerId: row.playerId,
+      slug: row.slug,
+      nameZh: row.nameZh,
+      avatarFile: filterAvatarFile(row.avatarFile),
+    };
+    const existing = index.get(key);
+    if (existing && existing.playerId !== meta.playerId) {
+      index.delete(key);
+      ambiguous.add(key);
+      continue;
+    }
+    index.set(key, meta);
+  }
+
+  return index;
+}
+
+function loadPlayerDisplayMapByNames(playerNames: string[]) {
+  const keys = Array.from(new Set(playerNames.map(normalizePlayerDisplayLookupKey).filter(Boolean)));
+  const index = loadPlayerDisplayNameIndex();
+  return new Map(keys.flatMap((key) => {
+    const meta = index.get(key);
+    return meta ? [[key, meta] as const] : [];
+  }));
+}
+
+function getPlayerDisplayMeta(playerMap: Map<string, PlayerDisplayMeta>, playerName: string | null | undefined) {
+  return playerName ? playerMap.get(normalizePlayerDisplayLookupKey(playerName)) : undefined;
 }
 
 function loadTeamChampionPlayers(eventId: number, subEventCode: string, championCountryCode: string | null): ChampionPlayer[] {
@@ -473,6 +500,17 @@ type WttBracketCompetitorPlace = {
   } | null;
 };
 
+type BornanBracketCompetitor = {
+  Reg?: string | null;
+  Name?: string | null;
+  Org?: string | null;
+  Members?: Array<{
+    Reg?: string | null;
+    Name?: string | null;
+    Org?: string | null;
+  }> | null;
+};
+
 function scheduleMatchStatusPriority(status: string) {
   switch (status) {
     case 'completed':
@@ -757,6 +795,7 @@ function loadCurrentTeamTieMandatoryPlayerSides(eventId: number) {
     playerNameZh: string | null;
     avatarFile: string | null;
   }>;
+  const fallbackPlayerDisplayMap = loadPlayerDisplayMapByNames(rows.map((row) => row.playerName));
 
   const ties = new Map<
     number,
@@ -772,13 +811,14 @@ function loadCurrentTeamTieMandatoryPlayerSides(eventId: number) {
       (player) => `${player.playerId ?? ''}|${player.name}|${player.countryCode ?? ''}` === playerKey,
     );
     if (!exists) {
+      const fallbackDisplay = getPlayerDisplayMeta(fallbackPlayerDisplayMap, row.playerName);
       side.players.push({
-        playerId: row.playerId,
-        slug: row.slug,
+        playerId: row.playerId ?? fallbackDisplay?.playerId ?? null,
+        slug: row.slug ?? fallbackDisplay?.slug ?? null,
         name: row.playerName,
-        nameZh: row.playerNameZh,
+        nameZh: row.playerNameZh ?? fallbackDisplay?.nameZh ?? null,
         countryCode: row.playerCountry,
-        avatarFile: filterAvatarFile(row.avatarFile),
+        avatarFile: filterAvatarFile(row.avatarFile) ?? fallbackDisplay?.avatarFile ?? null,
       });
     }
     sides.set(row.sideNo, side);
@@ -2048,9 +2088,46 @@ type OfficialScheduleResult = {
 function parseBracketPayload(rawSourcePayload: string | null): { competitorPlaces: WttBracketCompetitorPlace[] } {
   if (!rawSourcePayload) return { competitorPlaces: [] };
   try {
-    const payload = JSON.parse(rawSourcePayload) as { CompetitorPlace?: unknown };
-    const places = Array.isArray(payload.CompetitorPlace) ? payload.CompetitorPlace : [];
-    return { competitorPlaces: places as WttBracketCompetitorPlace[] };
+    const payload = JSON.parse(rawSourcePayload) as {
+      CompetitorPlace?: unknown;
+      Home?: BornanBracketCompetitor | null;
+      Away?: BornanBracketCompetitor | null;
+    };
+    if (Array.isArray(payload.CompetitorPlace)) {
+      return { competitorPlaces: payload.CompetitorPlace as WttBracketCompetitorPlace[] };
+    }
+    const bornanCompetitors = [payload.Home, payload.Away];
+    if (!bornanCompetitors.some((competitor) => competitor && typeof competitor === 'object')) {
+      return { competitorPlaces: [] };
+    }
+    return {
+      competitorPlaces: bornanCompetitors.map((competitor, index) => {
+        const members = Array.isArray(competitor?.Members) && competitor.Members.length > 0
+          ? competitor.Members
+          : competitor?.Name && competitor.Org !== 'BYE'
+            ? [{ Reg: competitor.Reg, Name: competitor.Name, Org: competitor.Org }]
+            : [];
+        return {
+          Pos: index + 1,
+          Competitor: {
+            Code: competitor?.Reg ?? null,
+            Organization: competitor?.Org ?? null,
+            Description: { TeamName: competitor?.Name ?? null },
+            Composition: {
+              Athlete: members.map((member) => ({
+                Code: member.Reg ?? null,
+                Description: {
+                  FamilyName: member.Name ?? null,
+                  GivenName: null,
+                  Organization: member.Org ?? competitor?.Org ?? null,
+                  IfId: member.Reg ?? null,
+                },
+              })),
+            },
+          },
+        };
+      }),
+    };
   } catch {
     return { competitorPlaces: [] };
   }
@@ -2083,12 +2160,27 @@ function collectBracketPlayerIds(rawSourcePayload: string | null) {
   return ids;
 }
 
+function collectBracketPlayerNames(rawSourcePayload: string | null) {
+  const { competitorPlaces } = parseBracketPayload(rawSourcePayload);
+  const names: string[] = [];
+  for (const place of competitorPlaces) {
+    const athletesRaw = place.Competitor?.Composition?.Athlete;
+    const athletes = Array.isArray(athletesRaw) ? athletesRaw : athletesRaw ? [athletesRaw] : [];
+    for (const athlete of athletes) {
+      const name = formatBracketAthleteName(athlete);
+      if (name) names.push(name);
+    }
+  }
+  return names;
+}
+
 function playersFromCurrentBracketPayload(
   rawSourcePayload: string | null,
   sideNo: 1 | 2,
   fallbackTeamCode: string | null,
   fallbackPlaceholder: string | null,
   playerMap: Map<number, { slug: string | null; nameZh: string | null; avatarFile: string | null }>,
+  playerNameMap: Map<string, { playerId: number; slug: string | null; nameZh: string | null; avatarFile: string | null }>,
 ): SidePlayer[] {
   const { competitorPlaces } = parseBracketPayload(rawSourcePayload);
   const place =
@@ -2105,11 +2197,12 @@ function playersFromCurrentBracketPayload(
       if (!name) return null;
       const playerId = playerIdFromBracketAthlete(athlete);
       const playerMeta = playerId != null ? playerMap.get(playerId) : undefined;
+      const fallbackMeta = getPlayerDisplayMeta(playerNameMap, name);
       return {
-        playerId,
-        slug: playerMeta?.slug ?? null,
+        playerId: playerMeta ? playerId : fallbackMeta?.playerId ?? null,
+        slug: playerMeta?.slug ?? fallbackMeta?.slug ?? null,
         name,
-        nameZh: playerMeta?.nameZh ?? null,
+        nameZh: playerMeta?.nameZh ?? fallbackMeta?.nameZh ?? null,
         countryCode: athlete.Description?.Organization?.trim() || teamCode,
       };
     })
@@ -2187,6 +2280,9 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
   const playerMap = loadPlayerDisplayMap(
     Array.from(new Set(rows.flatMap((row) => collectBracketPlayerIds(row.rawSourcePayload)))),
   );
+  const playerNameMap = loadPlayerDisplayMapByNames(
+    Array.from(new Set(rows.flatMap((row) => collectBracketPlayerNames(row.rawSourcePayload)))),
+  );
 
   return Array.from(
     rows.reduce((map, row) => {
@@ -2213,13 +2309,27 @@ function buildCurrentBracketForSubEvent(eventId: number, subEventCode: string): 
             sideNo: 1,
             isWinner: row.winnerSide === 'A',
             previousUnit: row.sideAPreviousUnit,
-            players: playersFromCurrentBracketPayload(row.rawSourcePayload, 1, row.sideATeamCode, row.sideAPlaceholder, playerMap),
+            players: playersFromCurrentBracketPayload(
+              row.rawSourcePayload,
+              1,
+              row.sideATeamCode,
+              row.sideAPlaceholder,
+              playerMap,
+              playerNameMap,
+            ),
           },
           {
             sideNo: 2,
             isWinner: row.winnerSide === 'B',
             previousUnit: row.sideBPreviousUnit,
-            players: playersFromCurrentBracketPayload(row.rawSourcePayload, 2, row.sideBTeamCode, row.sideBPlaceholder, playerMap),
+            players: playersFromCurrentBracketPayload(
+              row.rawSourcePayload,
+              2,
+              row.sideBTeamCode,
+              row.sideBPlaceholder,
+              playerMap,
+              playerNameMap,
+            ),
           },
         ],
       });
@@ -3141,7 +3251,7 @@ function buildCurrentIndividualScheduleMatchDetail(currentMatchId: number) {
         players: [],
       };
     if (row.playerName) {
-      const fallbackDisplay = fallbackPlayerDisplayMap.get(row.playerName.trim());
+      const fallbackDisplay = getPlayerDisplayMeta(fallbackPlayerDisplayMap, row.playerName);
       current.players.push({
         playerId: row.playerId ?? fallbackDisplay?.playerId ?? null,
         slug: row.slug ?? fallbackDisplay?.slug ?? null,
@@ -3152,6 +3262,36 @@ function buildCurrentIndividualScheduleMatchDetail(currentMatchId: number) {
       });
     }
     sideMap.set(row.sideNo, current);
+  }
+
+  // 未开始的单项比赛有时只有签表 payload 中的双方，current_event_match_sides
+  // 仍然只有空 side 记录。详情页需要沿用签表展示态，避免跳转后双方为空白。
+  if (sideMap.size === 0 || Array.from(sideMap.values()).some((side) => side.players.length === 0)) {
+    const bracketMatch = buildCurrentBracketForSubEvent(currentMatch.eventId, currentMatch.subEventTypeCode)
+      .flatMap((round) => round.matches)
+      .find(
+        (match) => normalizeExternalMatchCode(match.externalUnitCode) === normalizeExternalMatchCode(currentMatch.externalMatchCode),
+      );
+    if (bracketMatch) {
+      for (const bracketSide of bracketMatch.sides) {
+        const current =
+          sideMap.get(bracketSide.sideNo) ??
+          {
+            sideNo: bracketSide.sideNo,
+            isWinner: bracketSide.isWinner,
+            teamCode: bracketSide.players[0]?.countryCode ?? null,
+            seed: null,
+            qualifier: null,
+            placeholderText: null,
+            players: [],
+          };
+        if (current.players.length === 0) {
+          current.players = bracketSide.players.map((player) => ({ ...player, avatarFile: null }));
+        }
+        current.teamCode = current.teamCode ?? bracketSide.players[0]?.countryCode ?? null;
+        sideMap.set(bracketSide.sideNo, current);
+      }
+    }
   }
 
   return {
@@ -3381,7 +3521,7 @@ export function getScheduleMatchDetail(scheduleMatchId: number | string) {
           players: [],
         };
       if (row.playerName) {
-        const fallbackDisplay = fallbackPlayerDisplayMap.get(row.playerName.trim());
+        const fallbackDisplay = getPlayerDisplayMeta(fallbackPlayerDisplayMap, row.playerName);
         current.players.push({
           playerId: row.playerId ?? fallbackDisplay?.playerId ?? null,
           slug: row.slug ?? fallbackDisplay?.slug ?? null,
@@ -3431,7 +3571,7 @@ export function getScheduleMatchDetail(scheduleMatchId: number | string) {
         current.sides.push(side);
       }
       if (row.playerName) {
-        const fallbackDisplay = fallbackPlayerDisplayMap.get(row.playerName.trim());
+        const fallbackDisplay = getPlayerDisplayMeta(fallbackPlayerDisplayMap, row.playerName);
         side.players.push({
           playerId: row.playerId ?? fallbackDisplay?.playerId ?? null,
           slug: row.slug ?? fallbackDisplay?.slug ?? null,

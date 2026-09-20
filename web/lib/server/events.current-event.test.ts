@@ -91,6 +91,142 @@ test('current individual bracket uses player names from WTT bracket payload', ()
   assert.notEqual(firstMatch.sides[0].players[0]?.name, 'CHN');
 });
 
+test('Asian Games current brackets parse Bornan singles and doubles competitors', () => {
+  const eventId = 990040;
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO events (
+        event_id, year, name, name_zh, start_date, end_date, lifecycle_status, time_zone
+      ) VALUES (?, 2026, 'Bornan Bracket Fixture', '亚运签表测试', '2026-09-20', '2026-09-28',
+        'in_progress', 'Asia/Tokyo')
+    `).run(eventId);
+
+    const insertBracket = db.prepare(`
+      INSERT INTO current_event_brackets (
+        event_id, sub_event_type_code, draw_code, bracket_code, stage_code, round_code,
+        round_order, bracket_position, external_unit_code, status, winner_side,
+        side_a_previous_unit, side_b_previous_unit, side_a_team_code, side_b_team_code,
+        side_b_placeholder, raw_source_payload
+      ) VALUES (?, ?, 'MAIN', ?, 'MAIN_DRAW', ?, ?, 1, ?, 'scheduled', ?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    insertBracket.run(
+      eventId,
+      'MS',
+      'M.SINGLES-----------.R64-',
+      'R64',
+      20,
+      'M.SINGLES-----------.R64-.000100--',
+      'A',
+      null,
+      null,
+      'CHN',
+      'BYE',
+      'BYE',
+      JSON.stringify({
+        Home: { Reg: '16273238', Name: 'WANG Chuqin', Org: 'CHN', Win: true },
+        Away: { Reg: '7', Name: '', Org: 'BYE', Win: false },
+        Info: { Key: 'M.SINGLES-----------.R64-.000100--', IsBye: true },
+      }),
+    );
+    insertBracket.run(
+      eventId,
+      'MD',
+      'M.DOUBLES-----------.R32-',
+      'R32',
+      30,
+      'M.DOUBLES-----------.R32-.000100--',
+      null,
+      'M.DOUBLES-----------.R64-.000100--',
+      'M.DOUBLES-----------.R64-.000200--',
+      'CHN',
+      'JPN',
+      null,
+      JSON.stringify({
+        Home: {
+          Reg: 'TTEMDOUBLES----CHN01', Name: 'HUANG Youzheng / LIN Shidong', Org: 'CHN', Win: false,
+          Members: [
+            { Reg: '16272951', Name: 'LIN Shidong', Org: 'CHN' },
+            { Reg: '16272436', Name: 'HUANG Youzheng', Org: 'CHN' },
+          ],
+        },
+        Away: {
+          Reg: 'TTEMDOUBLES----JPN01', Name: 'HARIMOTO Tomokazu', Org: 'JPN', Win: false,
+          Members: [{ Reg: '380315', Name: 'HARIMOTO Tomokazu', Org: 'JPN' }],
+        },
+        Info: { Key: 'M.DOUBLES-----------.R32-.000100--', IsBye: false },
+      }),
+    );
+
+    const singles = getEventDetail(eventId, 'MS').bracket[0].matches[0];
+    assert.deepEqual(
+      singles.sides[0].players.map((player) => ({
+        playerId: player.playerId,
+        name: player.name,
+        nameZh: player.nameZh,
+        countryCode: player.countryCode,
+      })),
+      [{ playerId: 121558, name: 'WANG Chuqin', nameZh: '王楚钦', countryCode: 'CHN' }],
+    );
+    assert.equal(singles.sides[1].players[0]?.name, 'BYE');
+
+    const doubles = getEventDetail(eventId, 'MD').bracket[0].matches[0];
+    assert.deepEqual(
+      doubles.sides[0].players.map((player) => [player.playerId, player.name, player.nameZh, player.countryCode]),
+      [
+        [137237, 'LIN Shidong', '林诗栋', 'CHN'],
+        [137238, 'HUANG Youzheng', '黄友政', 'CHN'],
+      ],
+    );
+    assert.equal(doubles.sides[0].previousUnit, 'M.DOUBLES-----------.R64-.000100--');
+    assert.equal(doubles.sides[1].previousUnit, 'M.DOUBLES-----------.R64-.000200--');
+
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
+});
+
+test('current brackets resolve case and spacing variants against player names', () => {
+  const eventId = 990041;
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO events (
+        event_id, year, name, name_zh, start_date, end_date, lifecycle_status, time_zone
+      ) VALUES (?, 2026, 'Bracket Name Variant Fixture', '签表名称变体测试', '2026-09-20', '2026-09-28',
+        'in_progress', 'Asia/Tokyo')
+    `).run(eventId);
+    db.prepare(`
+      INSERT INTO current_event_brackets (
+        event_id, sub_event_type_code, draw_code, bracket_code, stage_code, round_code,
+        round_order, bracket_position, external_unit_code, status, side_a_team_code, side_b_team_code,
+        raw_source_payload
+      ) VALUES (?, 'MS', 'MAIN', 'M.SINGLES-----------.R64-', 'MAIN_DRAW', 'R64', 20, 1,
+        'M.SINGLES-----------.R64-.000100--', 'scheduled', 'TPE', 'TPE', ?)
+    `).run(
+      eventId,
+      JSON.stringify({
+        Home: { Reg: '15725713', Name: 'FENG Yi-hsin', Org: 'TPE', Win: false },
+        Away: { Reg: '15725714', Name: 'LIN Yun-ju', Org: 'TPE', Win: false },
+        Info: { Key: 'M.SINGLES-----------.R64-.000100--' },
+      }),
+    );
+
+    const match = getEventDetail(eventId, 'MS').bracket[0].matches[0];
+    assert.deepEqual(
+      match.sides.map((side) => side.players.map((player) => [player.playerId, player.name, player.nameZh])),
+      [
+        [[122727, 'FENG Yi-hsin', '冯翊新']],
+        [[121582, 'LIN Yun-ju', '林昀儒']],
+      ],
+    );
+
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
+});
+
 test('Asian Games defaults to the team event when no sub-event is requested', () => {
   assert.equal(getEventDetail(6666).selectedSubEvent, 'WT');
 });
@@ -179,6 +315,28 @@ test('current individual bracket links completed matches to current match detail
 
   assert.ok(shaoMeshref, 'expected SHAO Jieni vs MESHREF Dina bracket match');
   assert.equal(shaoMeshref.scheduleMatchId, 'cm:1320');
+});
+
+test('current individual detail falls back to bracket players when scheduled sides are empty', () => {
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      DELETE FROM current_event_match_side_players
+      WHERE current_match_side_id IN (
+        SELECT current_match_side_id FROM current_event_match_sides WHERE current_match_id = 1454
+      )
+    `).run();
+
+    const detail = getMatchDetail('cm:1454');
+    assert.ok(detail, 'expected current match detail');
+    assert.deepEqual(
+      detail.sides.map((side) => side.players.map((player) => player.name)),
+      [['MESHREF Dina'], ['SHI Xunyao']],
+    );
+
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
 });
 
 test('current event champion is inferred from a completed final before sub_events exists', () => {
@@ -388,6 +546,73 @@ test('current team tie detail shows all played rubbers and hides unplayed cancel
       ],
     );
     assert.deepEqual(detail.rubbers[0].games, [{ player: 11, opponent: 1 }]);
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
+});
+
+test('current team tie detail enriches aggregate players when current rows only have names', () => {
+  const eventId = 990030;
+  const tieId = eventId;
+  const playerNames = [
+    ['HAYATA Hina', 'HARIMOTO Miwa', 'HASHIMOTO Honoka'],
+    ['WANG Manyu', 'SUN Yingsha', 'KUAI Man'],
+  ];
+  const expectedNameZh = [
+    ['早田希娜', '张本美和', '桥本帆乃香'],
+    ['王曼昱', '孙颖莎', '蒯曼'],
+  ];
+
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO events (
+        event_id, year, name, name_zh, start_date, end_date, lifecycle_status, time_zone
+      ) VALUES (?, 2026, 'Team Tie Name Fallback Fixture', '团体赛姓名回填测试', '2026-09-20', '2026-09-20',
+        'in_progress', 'Asia/Tokyo')
+    `).run(eventId);
+    db.prepare(`
+      INSERT INTO current_event_team_ties (
+        current_team_tie_id, event_id, sub_event_type_code, status, match_score, winner_side
+      ) VALUES (?, ?, 'WT', 'completed', '3-0', 'A')
+    `).run(tieId, eventId);
+
+    for (const [sideNo, teamCode] of [[1, 'JPN'], [2, 'CHN']]) {
+      db.prepare(`
+        INSERT INTO current_event_team_tie_sides (current_team_tie_id, side_no, team_code, is_winner)
+        VALUES (?, ?, ?, ?)
+      `).run(tieId, sideNo, teamCode, sideNo === 1 ? 1 : 0);
+    }
+
+    for (let index = 0; index < playerNames[0].length; index += 1) {
+      const matchId = eventId + index + 1;
+      db.prepare(`
+        INSERT INTO current_event_matches (
+          current_match_id, event_id, current_team_tie_id, sub_event_type_code,
+          external_match_code, status, match_score, games, winner_side
+        ) VALUES (?, ?, ?, 'WT', ?, 'completed', '3-0', ?, 'A')
+      `).run(matchId, eventId, tieId, `FIXTURE-WT-NAME-${index + 1}`, JSON.stringify([{ player: 11, opponent: 1 }]));
+
+      for (const [sideNo, teamCode] of [[1, 'JPN'], [2, 'CHN']]) {
+        const matchSideId = db.prepare(`
+          INSERT INTO current_event_match_sides (current_match_id, side_no, team_code, is_winner)
+          VALUES (?, ?, ?, ?)
+        `).run(matchId, sideNo, teamCode, sideNo === 1 ? 1 : 0).lastInsertRowid;
+        db.prepare(`
+          INSERT INTO current_event_match_side_players (
+            current_match_side_id, player_order, player_name, player_country
+          ) VALUES (?, 1, ?, ?)
+        `).run(matchSideId, playerNames[sideNo - 1][index], teamCode);
+      }
+    }
+
+    const detail = getScheduleMatchDetail(tieId);
+
+    assert.ok(detail, 'expected aggregate team-tie detail');
+    assert.deepEqual(
+      detail.sides.map((side) => side.players.map((player) => player.nameZh)),
+      expectedNameZh,
+    );
     throw new Error('rollback fixture');
   });
 

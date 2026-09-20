@@ -396,11 +396,13 @@ function resolveScheduleDateForSubEvent({
   days,
   subEventCode,
   eventTimeZone,
+  lifecycleStatus,
   preferredDate,
 }: {
   days: EventDetail["scheduleDays"];
   subEventCode: string;
   eventTimeZone: string | null;
+  lifecycleStatus: string | null;
   preferredDate: string | null;
 }) {
   const filteredDays = filterScheduleDaysBySubEvent(days, eventTimeZone, subEventCode);
@@ -410,7 +412,9 @@ function resolveScheduleDateForSubEvent({
   if (preferredDate && filteredDays.some((day) => day.localDate === preferredDate)) {
     return preferredDate;
   }
-  return getDefaultScheduleDate(filteredDays);
+  return getDefaultScheduleDate(filteredDays, undefined, {
+    preferLatest: lifecycleStatus === "completed",
+  });
 }
 
 function zonedLocalDateTimeToDate(localDate: string, localTime: string, timeZone: string) {
@@ -1458,6 +1462,7 @@ function ScheduleByDateView({
   days,
   selectedSubEvent,
   eventTimeZone,
+  lifecycleStatus,
   selectedDate,
   onSelectDate,
   eventReturnHref,
@@ -1465,6 +1470,7 @@ function ScheduleByDateView({
   days: EventDetail["scheduleDays"];
   selectedSubEvent: string;
   eventTimeZone: string | null;
+  lifecycleStatus: string | null;
   selectedDate: string | null;
   onSelectDate: (date: string | null) => void;
   eventReturnHref: string;
@@ -1475,8 +1481,11 @@ function ScheduleByDateView({
   );
 
   const defaultSelectedDate = React.useMemo(
-    () => getDefaultScheduleDate(filteredDays),
-    [filteredDays],
+    () =>
+      getDefaultScheduleDate(filteredDays, undefined, {
+        preferLatest: lifecycleStatus === "completed",
+      }),
+    [filteredDays, lifecycleStatus],
   );
 
   React.useEffect(() => {
@@ -1919,6 +1928,7 @@ function DrawMatchCard({
   const hasScore = Boolean(match.matchScore?.trim());
   const matchHref = matchDetailPath({
     hasScore,
+    allowUnscored: true,
     scheduleMatchId: match.scheduleMatchId,
     matchId: !match.externalUnitCode ? match.matchId : null,
   });
@@ -2307,9 +2317,8 @@ function TeamTieNodeCard({
 }) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
-  const hasScore = tie.scoreA > 0 || tie.scoreB > 0;
   const tieHref =
-    hasScore && tie.scheduleMatchId != null
+    tie.scheduleMatchId != null
       ? withFromQuery(`/matches/tie:${tie.scheduleMatchId}`, eventReturnHref)
       : null;
   return (
@@ -2367,9 +2376,8 @@ function DrawTeamTieCard({
 }) {
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
-  const hasScore = tie.scoreA > 0 || tie.scoreB > 0;
   const tieHref =
-    hasScore && tie.scheduleMatchId != null
+    tie.scheduleMatchId != null
       ? withFromQuery(`/matches/tie:${tie.scheduleMatchId}`, eventReturnHref)
       : null;
   return (
@@ -3026,10 +3034,23 @@ function TeamTieCard({
   const titleText = title || tie.roundZh || tie.round || "循环赛";
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
+  const tieHref =
+    tie.scheduleMatchId != null
+      ? withFromQuery(`/matches/tie:${tie.scheduleMatchId}`, eventReturnHref)
+      : null;
   return (
     <div className="cv-auto-tie rounded-[1.35rem] bg-white px-4 py-3.5 ring-1 ring-[#e8edf8]">
       <div className="flex items-center justify-between gap-2">
-        <span className="shrink-0 text-[0.85rem] font-bold text-slate-500">{titleText}</span>
+        {tieHref ? (
+          <Link
+            href={route(tieHref)}
+            className="shrink-0 text-[0.85rem] font-bold text-slate-500 transition hover:text-[#2d6cf6]"
+          >
+            {titleText}
+          </Link>
+        ) : (
+          <span className="shrink-0 text-[0.85rem] font-bold text-slate-500">{titleText}</span>
+        )}
         <div className="flex items-center gap-1.5 min-w-0">
           {showTeamLinks ? (
             <Link href={route(buildTeamRosterHref(eventId, subEventCode, tie.teamA.code, eventReturnHref))} className="inline-flex items-center gap-1 shrink-0">
@@ -3610,6 +3631,7 @@ function EventDetailContent() {
           days: data.scheduleDays,
           subEventCode: value,
           eventTimeZone: data.event.timeZone,
+          lifecycleStatus: data.event.lifecycleStatus,
           preferredDate: null,
         }),
       );
@@ -3625,6 +3647,7 @@ function EventDetailContent() {
           days: data.scheduleDays,
           subEventCode: currentSubEvent,
           eventTimeZone: data.event.timeZone,
+          lifecycleStatus: data.event.lifecycleStatus,
           preferredDate: current,
         }),
       );
@@ -3718,6 +3741,7 @@ function EventDetailContent() {
                   days={data.scheduleDays}
                   selectedSubEvent={resolvedSubEvent}
                   eventTimeZone={data.event.timeZone}
+                  lifecycleStatus={data.event.lifecycleStatus}
                   selectedDate={selectedDate}
                   onSelectDate={handleSelectDate}
                   eventReturnHref={eventReturnHref}
