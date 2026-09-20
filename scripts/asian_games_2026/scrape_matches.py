@@ -230,6 +230,15 @@ def load_schedule_raw(raw_root: Path) -> dict[str, list[dict[str, Any]]]:
     return rows_by_date
 
 
+def _cached_detail_status(path: Path) -> str | None:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    info = payload.get("Info") if isinstance(payload, dict) else None
+    return str(info.get("Status") or "").upper() if isinstance(info, dict) else None
+
+
 def capture_details(rows_by_date: dict[str, list[dict[str, Any]]], *, raw_root: Path, all_linked: bool) -> dict[str, dict[str, Any]]:
     result_dir = raw_root / "results"
     result_dir.mkdir(parents=True, exist_ok=True)
@@ -243,7 +252,13 @@ def capture_details(rows_by_date: dict[str, list[dict[str, Any]]], *, raw_root: 
         # Running units must be refreshed. Official units are immutable in the
         # normal loop and are fetched once; the final --all-linked sweep forces
         # a reconciliation of every linked result.
-        if cached_path.exists() and source_status in {"OFFICIAL", "FINISHED"} and not all_linked:
+        cached_status = _cached_detail_status(cached_path) if cached_path.exists() else None
+        if (
+            cached_path.exists()
+            and source_status in {"OFFICIAL", "FINISHED"}
+            and cached_status in {"OFFICIAL", "FINISHED"}
+            and not all_linked
+        ):
             continue
         payload = fetch_json(api_path(f"/results/{key}"))
         if not isinstance(payload, dict) or not payload.get("Info"):

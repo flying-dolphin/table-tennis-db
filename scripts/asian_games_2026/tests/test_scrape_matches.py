@@ -1,8 +1,13 @@
 from __future__ import annotations
 
+import json
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from scripts.asian_games_2026.scrape_matches import (
+    capture_details,
     normalize_detail,
     select_detail_units,
 )
@@ -16,6 +21,30 @@ def competitor(name: str, org: str, result: str, *, wlt: str = "", members=None)
 
 
 class ScrapeMatchesTests(unittest.TestCase):
+    @patch("scripts.asian_games_2026.scrape_matches.fetch_json")
+    def test_refetches_cached_running_detail_when_schedule_is_official(self, fetch_json) -> None:
+        key = "M.TEAM--------------.GPA-.00020000"
+        refreshed = {"Info": {"Key": key, "Status": "OFFICIAL"}}
+        fetch_json.return_value = refreshed
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            raw_root = Path(temp_dir)
+            cached_path = raw_root / "results" / f"{key}.json"
+            cached_path.parent.mkdir(parents=True)
+            cached_path.write_text(
+                json.dumps({"Info": {"Key": key, "Status": "RUNNING"}}),
+                encoding="utf-8",
+            )
+
+            capture_details(
+                {"2026-09-20": [{"Key": key, "isH2H": True, "ShowLink": True, "Status": "OFFICIAL"}]},
+                raw_root=raw_root,
+                all_linked=False,
+            )
+
+            fetch_json.assert_called_once()
+            self.assertEqual(json.loads(cached_path.read_text(encoding="utf-8"))["Info"]["Status"], "OFFICIAL")
+
     def test_selects_linked_parent_results(self) -> None:
         rows = [
             {"Key": "running", "isH2H": True, "ShowLink": True, "Status": "RUNNING"},
