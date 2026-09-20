@@ -14,6 +14,9 @@ from scripts.asian_games_2026.common import DEFAULT_DB_PATH, EVENT_ID, PROJECT_R
 from scripts.asian_games_2026.refresh import run_refresh
 
 
+INDIVIDUAL_BRACKET_CODES = ("MS", "WS", "MD", "WD", "XD")
+
+
 class FinalizeError(RuntimeError):
     pass
 
@@ -68,12 +71,23 @@ def validate_current(conn: sqlite3.Connection, *, force: bool = False) -> dict[s
            AND winner_side IS NULL AND UPPER(IFNULL(match_score,'')) NOT LIKE '%WO%'""",
         (EVENT_ID,),
     ).fetchone()[0]
+    bracket_counts = {
+        str(code): int(count)
+        for code, count in conn.execute(
+            """SELECT sub_event_type_code, COUNT(*) FROM current_event_brackets
+               WHERE event_id=? GROUP BY sub_event_type_code""",
+            (EVENT_ID,),
+        )
+    }
+    missing_brackets = [code for code in INDIVIDUAL_BRACKET_CODES if bracket_counts.get(code, 0) == 0]
     report = {
         "completed_matches": completed,
         "pending_units": pending,
         "completed_ties_without_roster": ties_without_roster,
         "completed_matches_invalid_sides": invalid_sides,
         "completed_matches_missing_winner": missing_winners,
+        "individual_bracket_nodes": sum(bracket_counts.get(code, 0) for code in INDIVIDUAL_BRACKET_CODES),
+        "missing_individual_brackets": missing_brackets,
     }
     errors = []
     if completed == 0:
@@ -86,6 +100,8 @@ def validate_current(conn: sqlite3.Connection, *, force: bool = False) -> dict[s
         errors.append(f"{invalid_sides} completed matches do not have two sides")
     if missing_winners:
         errors.append(f"{missing_winners} completed matches have no winner")
+    if missing_brackets:
+        errors.append(f"missing individual brackets: {', '.join(missing_brackets)}")
     if errors and not force:
         raise FinalizeError("; ".join(errors))
     report["forced_errors"] = errors if force else []

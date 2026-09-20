@@ -9,6 +9,7 @@
 
 ```bash
 .venv/bin/python -m scripts.asian_games_2026.scrape_schedule
+.venv/bin/python -m scripts.asian_games_2026.scrape_brackets
 .venv/bin/python -m scripts.asian_games_2026.scrape_matches
 .venv/bin/python -m scripts.asian_games_2026.import_current
 ```
@@ -21,6 +22,10 @@
 
 团体主记录的完整提报名单写入 `current_event_team_tie_side_players`；每场实际或
 计划对阵球员写入 `current_event_match_side_players`，两者不会混用。
+
+男单、女单、男双、女双和混双签表来自官方 `/brackets/{event-code}` 接口，写入
+`current_event_brackets`。原始响应保存在 `data/asian_games/2026/raw/brackets/`，
+标准化快照为 `data/asian_games/2026/normalized/current_brackets.json`。
 
 ## 定时任务
 
@@ -49,5 +54,5 @@ cron 使用 `CRON_TZ=Asia/Shanghai`，比赛日每五分钟刷新，23:30 做当
 如历史数据已经存在且需要重建，显式增加 `--replace`。`--force` 会绕过亚运会
 完整性拦截，仅应用于人工核查后的异常场景。
 
-原始官方响应保存在 `data/asian_games/2026/raw/`，标准化快照位于
+其他原始官方响应保存在 `data/asian_games/2026/raw/`，比赛标准化快照位于
 `data/asian_games/2026/normalized/current_matches.json`。

@@ -14,11 +14,12 @@ from scripts.asian_games_2026.common import DEFAULT_DB_PATH
 def run_refresh(*, db_path: Path, all_linked: bool = False) -> None:
     commands = [
         [sys.executable, "-m", "scripts.asian_games_2026.scrape_schedule"],
+        [sys.executable, "-m", "scripts.asian_games_2026.scrape_brackets"],
         [sys.executable, "-m", "scripts.asian_games_2026.scrape_matches"],
         [sys.executable, "-m", "scripts.asian_games_2026.import_current", "--db-path", str(db_path)],
     ]
     if all_linked:
-        commands[1].append("--all-linked")
+        commands[2].append("--all-linked")
     for command in commands:
         subprocess.run(command, check=True)
 

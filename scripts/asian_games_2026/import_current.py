@@ -15,27 +15,14 @@ from scripts.asian_games_2026.common import (
     EVENT_ID,
     NORMALIZED_ROOT,
     SOURCE_TIME_ZONE,
-    normalized_name,
 )
+from scripts.asian_games_2026.player_resolution import player_resolver
 
 STATUS_PRIORITY = {"cancelled": 10, "scheduled": 20, "live": 30, "completed": 40, "walkover": 40}
 
 
 def merge_status(existing: str | None, incoming: str) -> str:
     return existing if STATUS_PRIORITY.get(existing or "", 0) > STATUS_PRIORITY.get(incoming, 0) else incoming
-
-
-def player_resolver(conn: sqlite3.Connection):
-    index: dict[tuple[str, str], list[int]] = {}
-    for player_id, name, country_code in conn.execute("SELECT player_id, name, country_code FROM players"):
-        key = (str(country_code or "").upper(), normalized_name(name))
-        index.setdefault(key, []).append(int(player_id))
-
-    def resolve(country: str | None, name: str | None) -> int | None:
-        values = index.get(((country or "").upper(), normalized_name(name)), [])
-        return values[0] if len(values) == 1 else None
-
-    return resolve
 
 
 def _upsert_parent(conn: sqlite3.Connection, table: str, id_column: str, item: dict[str, Any], *, tie_id: int | None = None) -> int:
@@ -93,7 +80,13 @@ def _upsert_parent(conn: sqlite3.Connection, table: str, id_column: str, item: d
     return int(cursor.lastrowid)
 
 
-def _replace_tie_sides(conn: sqlite3.Connection, tie_id: int, sides: list[dict[str, Any]], resolve) -> None:
+def _replace_tie_sides(
+    conn: sqlite3.Connection,
+    tie_id: int,
+    sides: list[dict[str, Any]],
+    resolve,
+    sub_event_type_code: str | None,
+) -> None:
     if not sides:
         return
     conn.execute("DELETE FROM current_event_team_tie_sides WHERE current_team_tie_id=?", (tie_id,))
@@ -108,12 +101,18 @@ def _replace_tie_sides(conn: sqlite3.Connection, tie_id: int, sides: list[dict[s
                 """INSERT INTO current_event_team_tie_side_players
                    (current_team_tie_side_id, player_order, player_id, player_name, player_country)
                    VALUES (?,?,?,?,?)""",
-                (cursor.lastrowid, player.get("order") or order, resolve(player.get("country"), player.get("name")),
+                (cursor.lastrowid, player.get("order") or order, resolve(player.get("country"), player.get("name"), sub_event_type_code),
                  player.get("name"), player.get("country")),
             )
 
 
-def _replace_match_sides(conn: sqlite3.Connection, match_id: int, sides: list[dict[str, Any]], resolve) -> None:
+def _replace_match_sides(
+    conn: sqlite3.Connection,
+    match_id: int,
+    sides: list[dict[str, Any]],
+    resolve,
+    sub_event_type_code: str | None,
+) -> None:
     if not sides:
         return
     conn.execute("DELETE FROM current_event_match_sides WHERE current_match_id=?", (match_id,))
@@ -128,18 +127,131 @@ def _replace_match_sides(conn: sqlite3.Connection, match_id: int, sides: list[di
                 """INSERT INTO current_event_match_side_players
                    (current_match_side_id, player_order, player_id, player_name, player_country)
                    VALUES (?,?,?,?,?)""",
-                (cursor.lastrowid, player.get("order") or order, resolve(player.get("country"), player.get("name")),
+                (cursor.lastrowid, player.get("order") or order, resolve(player.get("country"), player.get("name"), sub_event_type_code),
                  player.get("name"), player.get("country")),
             )
 
 
-def import_snapshot(conn: sqlite3.Connection, snapshot: dict[str, Any]) -> dict[str, int]:
+def collect_unresolved_players(conn: sqlite3.Connection, event_id: int = EVENT_ID) -> list[str]:
+    rows = conn.execute(
+        """
+        WITH observations AS (
+            SELECT p.player_name, p.player_country, p.player_id
+            FROM current_event_team_tie_side_players p
+            JOIN current_event_team_tie_sides s ON s.current_team_tie_side_id = p.current_team_tie_side_id
+            JOIN current_event_team_ties t ON t.current_team_tie_id = s.current_team_tie_id
+            WHERE t.event_id = ?
+            UNION ALL
+            SELECT p.player_name, p.player_country, p.player_id
+            FROM current_event_match_side_players p
+            JOIN current_event_match_sides s ON s.current_match_side_id = p.current_match_side_id
+            JOIN current_event_matches m ON m.current_match_id = s.current_match_id
+            WHERE m.event_id = ?
+        )
+        SELECT player_country, player_name, COUNT(*) AS occurrences
+        FROM observations
+        WHERE player_id IS NULL
+        GROUP BY player_country, player_name
+        ORDER BY player_country, player_name
+        """,
+        (event_id, event_id),
+    ).fetchall()
+    return [
+        f"{row[0] or '?'}:{row[1]} ({row[2]})"
+        for row in rows
+        if row[1]
+    ]
+
+
+def collect_missing_player_translations(conn: sqlite3.Connection, event_id: int = EVENT_ID) -> list[str]:
+    rows = conn.execute(
+        """
+        WITH observations AS (
+            SELECT p.player_name, p.player_country, p.player_id
+            FROM current_event_team_tie_side_players p
+            JOIN current_event_team_tie_sides s ON s.current_team_tie_side_id = p.current_team_tie_side_id
+            JOIN current_event_team_ties t ON t.current_team_tie_id = s.current_team_tie_id
+            WHERE t.event_id = ?
+            UNION ALL
+            SELECT p.player_name, p.player_country, p.player_id
+            FROM current_event_match_side_players p
+            JOIN current_event_match_sides s ON s.current_match_side_id = p.current_match_side_id
+            JOIN current_event_matches m ON m.current_match_id = s.current_match_id
+            WHERE m.event_id = ?
+        )
+        SELECT o.player_country, o.player_name, COUNT(*) AS occurrences
+        FROM observations o
+        JOIN players pl ON pl.player_id = o.player_id
+        WHERE o.player_id IS NOT NULL
+          AND NULLIF(TRIM(pl.name_zh), '') IS NULL
+        GROUP BY o.player_country, o.player_name, o.player_id
+        ORDER BY o.player_country, o.player_name
+        """,
+        (event_id, event_id),
+    ).fetchall()
+    return [
+        f"{row[0] or '?'}:{row[1]} ({row[2]})"
+        for row in rows
+        if row[1]
+    ]
+
+
+def _replace_brackets(conn: sqlite3.Connection, snapshot: dict[str, Any]) -> int:
+    if snapshot.get("event_id") not in (None, EVENT_ID):
+        raise ValueError(f"bracket snapshot event_id must be {EVENT_ID}")
+    sub_events = [str(code) for code in snapshot.get("sub_events") or []]
+    rows = [row for row in snapshot.get("brackets") or [] if isinstance(row, dict)]
+    if not sub_events:
+        if rows:
+            raise ValueError("bracket snapshot with rows must declare sub_events")
+        return 0
+    invalid_codes = sorted({str(row.get("sub_event_type_code") or "") for row in rows} - set(sub_events))
+    if invalid_codes:
+        raise ValueError(f"bracket rows outside declared sub_events: {', '.join(invalid_codes)}")
+    placeholders = ",".join("?" for _ in sub_events)
+    conn.execute(
+        f"DELETE FROM current_event_brackets WHERE event_id=? AND sub_event_type_code IN ({placeholders})",
+        (EVENT_ID, *sub_events),
+    )
+    collected_at = snapshot.get("scraped_at")
+    conn.executemany(
+        """INSERT INTO current_event_brackets (
+               event_id, sub_event_type_code, draw_code, bracket_code, stage_code, round_code,
+               round_order, bracket_position, external_unit_code, scheduled_date, scheduled_time,
+               match_score, winner_side, status, side_a_previous_unit, side_b_previous_unit,
+               side_a_team_code, side_b_team_code, side_a_placeholder, side_b_placeholder,
+               raw_source_payload, last_synced_at, created_at, updated_at
+           ) VALUES (
+               :event_id, :sub_event_type_code, :draw_code, :bracket_code, :stage_code, :round_code,
+               :round_order, :bracket_position, :external_unit_code, :scheduled_date, :scheduled_time,
+               :match_score, :winner_side, :status, :side_a_previous_unit, :side_b_previous_unit,
+               :side_a_team_code, :side_b_team_code, :side_a_placeholder, :side_b_placeholder,
+               :raw_source_payload, COALESCE(:last_synced_at, datetime('now')), datetime('now'), datetime('now')
+           )""",
+        [
+            {
+                **row,
+                "event_id": EVENT_ID,
+                "raw_source_payload": json.dumps(row.get("raw_source_payload"), ensure_ascii=False),
+                "last_synced_at": collected_at,
+            }
+            for row in rows
+        ],
+    )
+    return len(rows)
+
+
+def import_snapshot(
+    conn: sqlite3.Connection,
+    snapshot: dict[str, Any],
+    bracket_snapshot: dict[str, Any] | None = None,
+) -> dict[str, int]:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys=ON")
     if conn.execute("SELECT 1 FROM events WHERE event_id=?", (EVENT_ID,)).fetchone() is None:
         raise ValueError(f"events table has no event_id={EVENT_ID}")
     resolve = player_resolver(conn)
-    counts = {"team_ties": 0, "matches": 0, "roster_players": 0, "match_players": 0}
+    counts = {"team_ties": 0, "matches": 0, "brackets": 0, "roster_players": 0, "match_players": 0}
     conn.execute("BEGIN")
     try:
         conn.execute(
@@ -149,19 +261,39 @@ def import_snapshot(conn: sqlite3.Connection, snapshot: dict[str, Any]) -> dict[
         )
         for tie in snapshot.get("team_ties") or []:
             tie_id = _upsert_parent(conn, "current_event_team_ties", "current_team_tie_id", tie)
-            _replace_tie_sides(conn, tie_id, tie.get("sides") or [], resolve)
+            _replace_tie_sides(
+                conn,
+                tie_id,
+                tie.get("sides") or [],
+                resolve,
+                tie.get("sub_event_type_code"),
+            )
             counts["team_ties"] += 1
             counts["roster_players"] += sum(len(s.get("nominated_players") or []) for s in tie.get("sides") or [])
             for match in tie.get("rubbers") or []:
                 match_id = _upsert_parent(conn, "current_event_matches", "current_match_id", match, tie_id=tie_id)
-                _replace_match_sides(conn, match_id, match.get("sides") or [], resolve)
+                _replace_match_sides(
+                    conn,
+                    match_id,
+                    match.get("sides") or [],
+                    resolve,
+                    match.get("sub_event_type_code"),
+                )
                 counts["matches"] += 1
                 counts["match_players"] += sum(len(s.get("players") or []) for s in match.get("sides") or [])
         for match in snapshot.get("matches") or []:
             match_id = _upsert_parent(conn, "current_event_matches", "current_match_id", match)
-            _replace_match_sides(conn, match_id, match.get("sides") or [], resolve)
+            _replace_match_sides(
+                conn,
+                match_id,
+                match.get("sides") or [],
+                resolve,
+                match.get("sub_event_type_code"),
+            )
             counts["matches"] += 1
             counts["match_players"] += sum(len(s.get("players") or []) for s in match.get("sides") or [])
+        if bracket_snapshot is not None:
+            counts["brackets"] = _replace_brackets(conn, bracket_snapshot)
         conn.commit()
     except Exception:
         conn.rollback()
@@ -173,18 +305,28 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="导入 2026 亚运会当前比赛数据")
     parser.add_argument("--db-path", type=Path, default=DEFAULT_DB_PATH)
     parser.add_argument("--input", type=Path, default=NORMALIZED_ROOT / "current_matches.json")
+    parser.add_argument("--brackets-input", type=Path, default=NORMALIZED_ROOT / "current_brackets.json")
     args = parser.parse_args()
+    unresolved_players: list[str] = []
+    missing_player_translations: list[str] = []
     try:
         snapshot = json.loads(args.input.read_text(encoding="utf-8"))
+        bracket_snapshot = json.loads(args.brackets_input.read_text(encoding="utf-8"))
         conn = sqlite3.connect(args.db_path)
         try:
-            counts = import_snapshot(conn, snapshot)
+            counts = import_snapshot(conn, snapshot, bracket_snapshot)
+            unresolved_players = collect_unresolved_players(conn)
+            missing_player_translations = collect_missing_player_translations(conn)
         finally:
             conn.close()
     except (OSError, ValueError, sqlite3.Error, json.JSONDecodeError) as exc:
         print(f"当前赛事导入失败：{exc}", file=sys.stderr)
         return 1
     print("导入完成：" + ", ".join(f"{key}={value}" for key, value in counts.items()))
+    if unresolved_players:
+        print("未匹配运动员：" + "、".join(unresolved_players), file=sys.stderr)
+    if missing_player_translations:
+        print("已匹配但缺少中文名：" + "、".join(missing_player_translations), file=sys.stderr)
     return 0
 
 
