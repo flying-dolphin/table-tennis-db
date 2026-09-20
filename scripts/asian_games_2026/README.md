@@ -26,6 +26,9 @@
 男单、女单、男双、女双和混双签表来自官方 `/brackets/{event-code}` 接口，写入
 `current_event_brackets`。原始响应保存在 `data/asian_games/2026/raw/brackets/`，
 标准化快照为 `data/asian_games/2026/normalized/current_brackets.json`。
+导入时会使用 `scripts/data/asian_games_player_aliases.json` 解析签表中的源名称，
+并将解析结果写入现有 `current_event_brackets.raw_source_payload` 的
+`_resolved_players` 字段；无需新增表。修改别名后重新运行导入即可修复已有签表数据。
 
 ## 定时任务
 

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import sqlite3
 import unittest
 from pathlib import Path
@@ -225,6 +226,52 @@ class ImportCurrentTests(unittest.TestCase):
             "SELECT raw_source_payload FROM current_event_brackets WHERE sub_event_type_code='MS'"
         ).fetchone()[0]
         self.assertIn('"WANG Chuqin"', raw)
+
+    def test_import_resolves_bracket_aliases_into_payload_metadata(self) -> None:
+        self.conn.execute(
+            "INSERT INTO players(player_id,name,slug,country_code,gender,name_zh) VALUES (132886,'PYON Song Gyong','132886','PRK','Female','边松景')"
+        )
+        self.conn.commit()
+        row = {
+            "event_id": 6666,
+            "sub_event_type_code": "WS",
+            "draw_code": "MAIN",
+            "bracket_code": "W.SINGLES-----------.R64-",
+            "stage_code": "MAIN_DRAW",
+            "round_code": "R64",
+            "round_order": 20,
+            "bracket_position": 1,
+            "external_unit_code": "W.SINGLES-----------.R64-.000100--",
+            "scheduled_date": None,
+            "scheduled_time": None,
+            "match_score": None,
+            "winner_side": None,
+            "status": "scheduled",
+            "side_a_previous_unit": None,
+            "side_b_previous_unit": None,
+            "side_a_team_code": "PRK",
+            "side_b_team_code": "BYE",
+            "side_a_placeholder": None,
+            "side_b_placeholder": "BYE",
+            "raw_source_payload": {
+                "Home": {"Reg": "6935349", "Name": "PYON Song", "Org": "PRK"},
+                "Away": {"Reg": "7", "Name": "", "Org": "BYE"},
+                "Info": {"Key": "W.SINGLES-----------.R64-.000100--"},
+            },
+        }
+        import_snapshot(
+            self.conn,
+            {"team_ties": [], "matches": []},
+            {"event_id": 6666, "sub_events": ["WS"], "brackets": [row]},
+        )
+
+        raw = self.conn.execute(
+            "SELECT raw_source_payload FROM current_event_brackets WHERE sub_event_type_code='WS'"
+        ).fetchone()[0]
+        payload = json.loads(raw)
+        self.assertEqual(payload["Home"]["Name"], "PYON Song")
+        self.assertEqual(payload["_resolved_players"]["sides"][0]["players"][0]["player_id"], 132886)
+        self.assertEqual(payload["_resolved_players"]["sides"][1]["players"], [])
 
 
 if __name__ == "__main__":

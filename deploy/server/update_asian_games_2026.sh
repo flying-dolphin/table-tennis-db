@@ -97,6 +97,7 @@ require_dir() {
 
 require_dir scripts/asian_games_2026
 require_dir data/asian_games/2026
+require_file scripts/data/asian_games_player_aliases.json
 require_file data/event_schedule/${EVENT_ID}.json
 require_file data/asian_games/2026/normalized/current_matches.json
 require_file data/asian_games/2026/normalized/current_brackets.json
@@ -113,8 +114,8 @@ Target: ${REMOTE_HOST}:${REMOTE_PROJECT_DIR}
 Python: ${REMOTE_PYTHON}
 Event:  ${EVENT_ID} (${EVENT_TIME_ZONE}, lifecycle=${EVENT_LIFECYCLE})
 
-1. Stage and upload scripts/asian_games_2026, data/asian_games/2026,
-   and data/event_schedule/${EVENT_ID}.json.
+1. Stage and upload scripts/asian_games_2026, the Asian Games player alias
+   dictionary, data/asian_games/2026, and data/event_schedule/${EVENT_ID}.json.
 2. Back up data/db/ittf.db on the server and retain the newest
    ${REMOTE_DB_BACKUPS_KEEP} Asian Games backups.
 3. Idempotently create/update events.${EVENT_ID}; this does not depend on
@@ -153,6 +154,7 @@ stage_bundle() {
 
     echo "==> Staging Asian Games 2026 files"
     mkdir -p "${staging_dir}/scripts/asian_games_2026"
+    mkdir -p "${staging_dir}/scripts/data"
     mkdir -p "${staging_dir}/data/asian_games/2026"
     mkdir -p "${staging_dir}/data/event_schedule"
     tar --exclude='__pycache__' --exclude='*.pyc' --exclude='*.swp' \
@@ -163,6 +165,8 @@ stage_bundle() {
         | tar -xf - -C "${staging_dir}/data/asian_games/2026"
     cp "data/event_schedule/${EVENT_ID}.json" \
         "${staging_dir}/data/event_schedule/${EVENT_ID}.json"
+    cp "scripts/data/asian_games_player_aliases.json" \
+        "${staging_dir}/scripts/data/asian_games_player_aliases.json"
     tar -czf "$archive_path" -C "$staging_dir" .
 
     echo "==> Uploading bundle to ${REMOTE_HOST}:${remote_archive}"

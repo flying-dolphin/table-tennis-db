@@ -511,6 +511,18 @@ type BornanBracketCompetitor = {
   }> | null;
 };
 
+type ResolvedBracketPlayer = {
+  source_name: string;
+  source_country: string | null;
+  source_registration_id: string | null;
+  player_id: number | null;
+};
+
+type ResolvedBracketSide = {
+  side_no: number;
+  players: ResolvedBracketPlayer[];
+};
+
 function scheduleMatchStatusPriority(status: string) {
   switch (status) {
     case 'completed':
@@ -2085,6 +2097,22 @@ type OfficialScheduleResult = {
   }>;
 };
 
+function parseResolvedBracketPlayers(rawSourcePayload: string | null): Map<number, ResolvedBracketPlayer[]> | null {
+  if (!rawSourcePayload) return null;
+  try {
+    const payload = JSON.parse(rawSourcePayload) as { _resolved_players?: { sides?: ResolvedBracketSide[] } };
+    const sides = payload._resolved_players?.sides;
+    if (!Array.isArray(sides)) return null;
+    return new Map(
+      sides
+        .filter((side) => side && Number.isFinite(Number(side.side_no)) && Array.isArray(side.players))
+        .map((side) => [Number(side.side_no), side.players]),
+    );
+  } catch {
+    return null;
+  }
+}
+
 function parseBracketPayload(rawSourcePayload: string | null): { competitorPlaces: WttBracketCompetitorPlace[] } {
   if (!rawSourcePayload) return { competitorPlaces: [] };
   try {
@@ -2147,6 +2175,13 @@ function playerIdFromBracketAthlete(athlete: WttBracketAthlete) {
 }
 
 function collectBracketPlayerIds(rawSourcePayload: string | null) {
+  const resolvedSides = parseResolvedBracketPlayers(rawSourcePayload);
+  if (resolvedSides) {
+    return Array.from(resolvedSides.values())
+      .flat()
+      .map((player) => player.player_id)
+      .filter((playerId): playerId is number => Number.isFinite(playerId));
+  }
   const { competitorPlaces } = parseBracketPayload(rawSourcePayload);
   const ids: number[] = [];
   for (const place of competitorPlaces) {
@@ -2161,6 +2196,10 @@ function collectBracketPlayerIds(rawSourcePayload: string | null) {
 }
 
 function collectBracketPlayerNames(rawSourcePayload: string | null) {
+  const resolvedSides = parseResolvedBracketPlayers(rawSourcePayload);
+  if (resolvedSides) {
+    return Array.from(resolvedSides.values()).flat().map((player) => player.source_name).filter(Boolean);
+  }
   const { competitorPlaces } = parseBracketPayload(rawSourcePayload);
   const names: string[] = [];
   for (const place of competitorPlaces) {
@@ -2182,6 +2221,27 @@ function playersFromCurrentBracketPayload(
   playerMap: Map<number, { slug: string | null; nameZh: string | null; avatarFile: string | null }>,
   playerNameMap: Map<string, { playerId: number; slug: string | null; nameZh: string | null; avatarFile: string | null }>,
 ): SidePlayer[] {
+  const resolvedSides = parseResolvedBracketPlayers(rawSourcePayload);
+  const resolvedPlayers = resolvedSides?.get(sideNo);
+  if (resolvedPlayers) {
+    const teamCode = resolvedPlayers[0]?.source_country ?? fallbackTeamCode;
+    const players = resolvedPlayers.map((player): SidePlayer => {
+      const playerMeta = player.player_id != null ? playerMap.get(player.player_id) : undefined;
+      return {
+        playerId: player.player_id,
+        slug: playerMeta?.slug ?? null,
+        name: player.source_name,
+        nameZh: playerMeta?.nameZh ?? null,
+        countryCode: player.source_country ?? teamCode,
+      };
+    });
+    if (players.length > 0) return players;
+    const fallbackName = fallbackPlaceholder || fallbackTeamCode;
+    return fallbackName
+      ? [{ playerId: null, slug: null, name: fallbackName, nameZh: null, countryCode: teamCode }]
+      : [];
+  }
+
   const { competitorPlaces } = parseBracketPayload(rawSourcePayload);
   const place =
     competitorPlaces.find((item) => Number(item.Pos) === sideNo) ??

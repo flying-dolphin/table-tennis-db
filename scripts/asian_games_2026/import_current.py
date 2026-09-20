@@ -132,6 +132,51 @@ def _replace_match_sides(
             )
 
 
+def _resolved_bracket_players(
+    raw_source_payload: object,
+    resolve,
+    sub_event_type_code: str | None,
+) -> dict[str, object]:
+    payload = raw_source_payload if isinstance(raw_source_payload, dict) else {}
+    sides: list[dict[str, object]] = []
+    for side_no, side_key in ((1, "Home"), (2, "Away")):
+        competitor = payload.get(side_key)
+        if not isinstance(competitor, dict):
+            sides.append({"side_no": side_no, "players": []})
+            continue
+        members = competitor.get("Members")
+        source_players = members if isinstance(members, list) and members else [competitor]
+        players: list[dict[str, object]] = []
+        for source_player in source_players:
+            if not isinstance(source_player, dict):
+                continue
+            name = str(source_player.get("Name") or "").strip()
+            country = str(source_player.get("Org") or competitor.get("Org") or "").strip().upper()
+            if not name or country == "BYE":
+                continue
+            players.append(
+                {
+                    "source_name": name,
+                    "source_country": country or None,
+                    "source_registration_id": str(source_player.get("Reg") or "").strip() or None,
+                    "player_id": resolve(country, name, sub_event_type_code),
+                }
+            )
+        sides.append({"side_no": side_no, "players": players})
+    return {"version": 1, "sides": sides}
+
+
+def _bracket_payload_with_resolution(item: dict[str, Any], resolve) -> str:
+    raw_payload = item.get("raw_source_payload")
+    payload = dict(raw_payload) if isinstance(raw_payload, dict) else {}
+    payload["_resolved_players"] = _resolved_bracket_players(
+        raw_payload,
+        resolve,
+        item.get("sub_event_type_code"),
+    )
+    return json.dumps(payload, ensure_ascii=False)
+
+
 def collect_unresolved_players(conn: sqlite3.Connection, event_id: int = EVENT_ID) -> list[str]:
     rows = conn.execute(
         """
@@ -160,6 +205,33 @@ def collect_unresolved_players(conn: sqlite3.Connection, event_id: int = EVENT_I
         f"{row[0] or '?'}:{row[1]} ({row[2]})"
         for row in rows
         if row[1]
+    ]
+
+
+def collect_unresolved_bracket_players(conn: sqlite3.Connection, event_id: int = EVENT_ID) -> list[str]:
+    observations: dict[tuple[str, str], int] = {}
+    rows = conn.execute(
+        "SELECT raw_source_payload FROM current_event_brackets WHERE event_id = ?",
+        (event_id,),
+    ).fetchall()
+    for (raw_payload,) in rows:
+        try:
+            payload = json.loads(raw_payload or "{}")
+        except json.JSONDecodeError:
+            continue
+        resolved = payload.get("_resolved_players") if isinstance(payload, dict) else None
+        sides = resolved.get("sides", []) if isinstance(resolved, dict) else []
+        for side in sides:
+            for player in side.get("players", []) if isinstance(side, dict) else []:
+                if not isinstance(player, dict) or player.get("player_id") is not None:
+                    continue
+                country = str(player.get("source_country") or "?")
+                name = str(player.get("source_name") or "").strip()
+                if name:
+                    observations[(country, name)] = observations.get((country, name), 0) + 1
+    return [
+        f"{country}:{name} ({count})"
+        for (country, name), count in sorted(observations.items())
     ]
 
 
@@ -196,7 +268,42 @@ def collect_missing_player_translations(conn: sqlite3.Connection, event_id: int 
     ]
 
 
-def _replace_brackets(conn: sqlite3.Connection, snapshot: dict[str, Any]) -> int:
+def collect_missing_bracket_translations(conn: sqlite3.Connection, event_id: int = EVENT_ID) -> list[str]:
+    players = {
+        row[0]: row[1]
+        for row in conn.execute("SELECT player_id, name_zh FROM players").fetchall()
+    }
+    observations: dict[tuple[str, str, int], int] = {}
+    rows = conn.execute(
+        "SELECT raw_source_payload FROM current_event_brackets WHERE event_id = ?",
+        (event_id,),
+    ).fetchall()
+    for (raw_payload,) in rows:
+        try:
+            payload = json.loads(raw_payload or "{}")
+        except json.JSONDecodeError:
+            continue
+        resolved = payload.get("_resolved_players") if isinstance(payload, dict) else None
+        sides = resolved.get("sides", []) if isinstance(resolved, dict) else []
+        for side in sides:
+            for player in side.get("players", []) if isinstance(side, dict) else []:
+                if not isinstance(player, dict):
+                    continue
+                player_id = player.get("player_id")
+                if not isinstance(player_id, int) or str(players.get(player_id) or "").strip():
+                    continue
+                country = str(player.get("source_country") or "?")
+                name = str(player.get("source_name") or "").strip()
+                if name:
+                    key = (country, name, player_id)
+                    observations[key] = observations.get(key, 0) + 1
+    return [
+        f"{country}:{name} ({count})"
+        for (country, name, _player_id), count in sorted(observations.items())
+    ]
+
+
+def _replace_brackets(conn: sqlite3.Connection, snapshot: dict[str, Any], resolve) -> int:
     if snapshot.get("event_id") not in (None, EVENT_ID):
         raise ValueError(f"bracket snapshot event_id must be {EVENT_ID}")
     sub_events = [str(code) for code in snapshot.get("sub_events") or []]
@@ -232,7 +339,7 @@ def _replace_brackets(conn: sqlite3.Connection, snapshot: dict[str, Any]) -> int
             {
                 **row,
                 "event_id": EVENT_ID,
-                "raw_source_payload": json.dumps(row.get("raw_source_payload"), ensure_ascii=False),
+                "raw_source_payload": _bracket_payload_with_resolution(row, resolve),
                 "last_synced_at": collected_at,
             }
             for row in rows
@@ -293,7 +400,7 @@ def import_snapshot(
             counts["matches"] += 1
             counts["match_players"] += sum(len(s.get("players") or []) for s in match.get("sides") or [])
         if bracket_snapshot is not None:
-            counts["brackets"] = _replace_brackets(conn, bracket_snapshot)
+            counts["brackets"] = _replace_brackets(conn, bracket_snapshot, resolve)
         conn.commit()
     except Exception:
         conn.rollback()
@@ -308,7 +415,9 @@ def main() -> int:
     parser.add_argument("--brackets-input", type=Path, default=NORMALIZED_ROOT / "current_brackets.json")
     args = parser.parse_args()
     unresolved_players: list[str] = []
+    unresolved_bracket_players: list[str] = []
     missing_player_translations: list[str] = []
+    missing_bracket_translations: list[str] = []
     try:
         snapshot = json.loads(args.input.read_text(encoding="utf-8"))
         bracket_snapshot = json.loads(args.brackets_input.read_text(encoding="utf-8"))
@@ -316,7 +425,9 @@ def main() -> int:
         try:
             counts = import_snapshot(conn, snapshot, bracket_snapshot)
             unresolved_players = collect_unresolved_players(conn)
+            unresolved_bracket_players = collect_unresolved_bracket_players(conn)
             missing_player_translations = collect_missing_player_translations(conn)
+            missing_bracket_translations = collect_missing_bracket_translations(conn)
         finally:
             conn.close()
     except (OSError, ValueError, sqlite3.Error, json.JSONDecodeError) as exc:
@@ -325,8 +436,12 @@ def main() -> int:
     print("导入完成：" + ", ".join(f"{key}={value}" for key, value in counts.items()))
     if unresolved_players:
         print("未匹配运动员：" + "、".join(unresolved_players), file=sys.stderr)
+    if unresolved_bracket_players:
+        print("未匹配签表运动员：" + "、".join(unresolved_bracket_players), file=sys.stderr)
     if missing_player_translations:
         print("已匹配但缺少中文名：" + "、".join(missing_player_translations), file=sys.stderr)
+    if missing_bracket_translations:
+        print("已匹配签表运动员但缺少中文名：" + "、".join(missing_bracket_translations), file=sys.stderr)
     return 0
 
 
