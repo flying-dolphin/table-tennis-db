@@ -4,7 +4,79 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 const { db } = require('./db.ts');
-const { getEventDetail, getEvents, getMatchDetail } = require('./events.ts');
+const { getEventDetail, getEvents, getMatchDetail, getScheduleMatchDetail } = require('./events.ts');
+
+function insertCompletedTeamTieFixture(eventId) {
+  const tieId = eventId;
+  db.prepare(`
+    INSERT INTO events (
+      event_id, year, name, name_zh, start_date, end_date, lifecycle_status, time_zone
+    ) VALUES (?, 2026, 'Team Tie Fixture', '团体赛测试', '2026-09-20', '2026-09-20',
+      'in_progress', 'Asia/Tokyo')
+  `).run(eventId);
+  db.prepare(`
+    INSERT INTO current_event_team_ties (
+      current_team_tie_id, event_id, sub_event_type_code, external_match_code,
+      scheduled_local_at, scheduled_utc_at, status, match_score, winner_side, winner_team_code
+    ) VALUES (?, ?, 'WT', 'FIXTURE-WT-1', '2026-09-20T10:00:00',
+      '2026-09-20T01:00:00Z', 'completed', '3-0', 'A', 'JPN')
+  `).run(tieId, eventId);
+
+  for (const [sideNo, teamCode, names] of [
+    [1, 'JPN', ['Roster A1', 'Roster A2', 'Roster A3', 'Roster A4', 'Roster A5']],
+    [2, 'KOR', ['Roster B1', 'Roster B2', 'Roster B3', 'Roster B4', 'Roster B5']],
+  ]) {
+    const sideId = db.prepare(`
+      INSERT INTO current_event_team_tie_sides (current_team_tie_id, side_no, team_code, is_winner)
+      VALUES (?, ?, ?, ?)
+    `).run(tieId, sideNo, teamCode, sideNo === 1 ? 1 : 0).lastInsertRowid;
+    names.forEach((name, index) => {
+      db.prepare(`
+        INSERT INTO current_event_team_tie_side_players (
+          current_team_tie_side_id, player_order, player_name, player_country
+        ) VALUES (?, ?, ?, ?)
+      `).run(sideId, index + 1, name, teamCode);
+    });
+  }
+
+  const insertMatch = db.prepare(`
+    INSERT INTO current_event_matches (
+      current_match_id, event_id, current_team_tie_id, sub_event_type_code,
+      external_match_code, scheduled_local_at, scheduled_utc_at, status,
+      match_score, games, winner_side, winner_name
+    ) VALUES (?, ?, ?, 'WT', ?, '2026-09-20T10:00:00', '2026-09-20T01:00:00Z', ?, ?, ?, ?, ?)
+  `);
+  for (let index = 1; index <= 5; index += 1) {
+    const matchId = eventId + index;
+    const played = index <= 3;
+    insertMatch.run(
+      matchId,
+      eventId,
+      tieId,
+      `FIXTURE-WT-1${index}`,
+      played ? 'completed' : 'cancelled',
+      played ? '3-0' : null,
+      played ? JSON.stringify([{ player: 11, opponent: index }]) : '[]',
+      played ? 'A' : null,
+      played ? `Actual A${index}` : null,
+    );
+    for (const [sideNo, teamCode, playerName] of [
+      [1, 'JPN', played ? `Actual A${index}` : `Planned A${index}`],
+      [2, 'KOR', played ? `Actual B${index}` : `Planned B${index}`],
+    ]) {
+      const matchSideId = db.prepare(`
+        INSERT INTO current_event_match_sides (current_match_id, side_no, team_code, is_winner)
+        VALUES (?, ?, ?, ?)
+      `).run(matchId, sideNo, teamCode, played && sideNo === 1 ? 1 : 0).lastInsertRowid;
+      db.prepare(`
+        INSERT INTO current_event_match_side_players (
+          current_match_side_id, player_order, player_name, player_country
+        ) VALUES (?, 1, ?, ?)
+      `).run(matchSideId, playerName, teamCode);
+    }
+  }
+  return { tieId };
+}
 
 test('current individual bracket uses player names from WTT bracket payload', () => {
   const detail = getEventDetail(3242, 'MS');
@@ -17,6 +89,10 @@ test('current individual bracket uses player names from WTT bracket payload', ()
   assert.equal(firstMatch.sides[0].players[0]?.nameZh, '王楚钦');
   assert.equal(firstMatch.sides[0].players[0]?.countryCode, 'CHN');
   assert.notEqual(firstMatch.sides[0].players[0]?.name, 'CHN');
+});
+
+test('Asian Games defaults to the team event when no sub-event is requested', () => {
+  assert.equal(getEventDetail(6666).selectedSubEvent, 'WT');
 });
 
 test('current bracket preserves draw groups and feeder previous units', () => {
@@ -267,6 +343,55 @@ test('current match detail parses comma-separated game scores', () => {
     { player: 8, opponent: 11 },
     { player: 5, opponent: 11 },
   ]);
+});
+
+test('current team schedule keeps the tie score and lists all mandatory-rubber players', () => {
+  const eventId = 990010;
+  const rollback = db.transaction(() => {
+    const { tieId } = insertCompletedTeamTieFixture(eventId);
+    const detail = getEventDetail(eventId, 'WT');
+    const scheduleMatch = detail.scheduleDays.flatMap((day) => day.matches)[0];
+
+    assert.equal(scheduleMatch.scheduleMatchId, tieId, 'schedule must keep the aggregate team-tie link');
+    assert.equal(scheduleMatch.matchScore, '3-0', 'schedule must keep the aggregate team score');
+    assert.deepEqual(
+      scheduleMatch.sides.map((side) => side.players.map((player) => player.name)),
+      [['Actual A1', 'Actual A2', 'Actual A3'], ['Actual B1', 'Actual B2', 'Actual B3']],
+    );
+    assert.deepEqual(scheduleMatch.games, [], 'team-tie list must not expose individual game scores');
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
+});
+
+test('current team tie detail shows all played rubbers and hides unplayed cancellations', () => {
+  const eventId = 990020;
+  const rollback = db.transaction(() => {
+    const { tieId } = insertCompletedTeamTieFixture(eventId);
+    const detail = getScheduleMatchDetail(tieId);
+
+    assert.ok(detail, 'expected aggregate team-tie detail');
+    assert.equal(detail.match.scheduleMatchId, tieId);
+    assert.equal(detail.match.matchScore, '3-0');
+    assert.deepEqual(
+      detail.sides.map((side) => side.players.map((player) => player.name)),
+      [['Actual A1', 'Actual A2', 'Actual A3'], ['Actual B1', 'Actual B2', 'Actual B3']],
+    );
+    assert.equal(detail.rubbers.length, 3, 'cancelled M4/M5 must not be displayed');
+    assert.deepEqual(
+      detail.rubbers.map((rubber) => rubber.sides.map((side) => side.players.map((player) => player.name))),
+      [
+        [['Actual A1'], ['Actual B1']],
+        [['Actual A2'], ['Actual B2']],
+        [['Actual A3'], ['Actual B3']],
+      ],
+    );
+    assert.deepEqual(detail.rubbers[0].games, [{ player: 11, opponent: 1 }]);
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
 });
 
 test('historical individual bracket keeps match id for match-detail links', () => {

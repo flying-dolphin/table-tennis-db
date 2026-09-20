@@ -34,7 +34,9 @@ import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label
 import { shouldShowBeijingTimeForEvent, shouldUseScheduleTabs } from "@/lib/event-view-mode";
 import { matchDetailPath } from "@/lib/match-detail-link";
 import { getCurrentBeijingDate, regroupScheduleDaysByBeijingDate } from "@/lib/schedule-beijing-days";
+import { getDefaultScheduleDate } from "@/lib/schedule-default-date";
 import { groupChinaScheduleMatches } from "@/lib/schedule-match-groups";
+import { scheduleSidePrimaryLabel } from "@/lib/schedule-side-label";
 import { expandVirtualByeNodes, isVirtualByeMatch, realBracketMatchCount } from "@/lib/bracket-virtual-byes";
 
 function cn(...inputs: ClassValue[]) {
@@ -382,23 +384,6 @@ function formatBeijingTimeLabel(value: string | null, scheduledLocalAt?: string 
   return `北京时间 ${month}/${day} ${hour}:${minute}`;
 }
 
-function getDefaultScheduleDate(days: Array<{ localDate: string }>) {
-  if (days.length === 0) return null;
-
-  const today = getCurrentBeijingDate();
-  const firstDate = days[0].localDate;
-  const lastDate = days[days.length - 1].localDate;
-
-  if (today <= firstDate) return firstDate;
-  if (today >= lastDate) return lastDate;
-
-  const todayMatch = days.find((day) => day.localDate === today);
-  if (todayMatch) return todayMatch.localDate;
-
-  const nextAvailableDate = days.find((day) => day.localDate > today);
-  return nextAvailableDate?.localDate ?? lastDate;
-}
-
 function filterScheduleDaysBySubEvent(
   days: EventDetail["scheduleDays"],
   eventTimeZone: string | null,
@@ -726,14 +711,6 @@ function scheduleRoundLabel(match: EventScheduleMatch) {
     return `${match.stageNameZh || "资格赛"} · ${roundLabel}`;
   }
   return roundLabel || match.sessionLabel || "轮次待定";
-}
-
-function scheduleSideLabel(side: EventScheduleMatch["sides"][number] | undefined) {
-  if (!side) return "待定";
-  if (side.players.length > 0) return side.players.map(displayPlayerName).join(" / ");
-  if (side.placeholderText) return side.placeholderText.toUpperCase() === "BYE" ? "轮空" : side.placeholderText;
-  if (side.teamCode) return side.teamCode;
-  return "待定";
 }
 
 function scheduleSideCountryLabel(side: EventScheduleMatch["sides"][number] | undefined) {
@@ -1335,10 +1312,12 @@ function ScheduleMatchCard({
   const isCurrentScheduleMatch =
     (typeof match.scheduleMatchId === "string" && match.scheduleMatchId.startsWith("cm:")) ||
     (typeof match.scheduleMatchId === "number" && match.scheduleMatchId > 0);
+  const isTeamMatch =
+    match.subEventTypeCode === "MT" || match.subEventTypeCode === "WT" || match.subEventTypeCode === "XT";
   const matchHref = matchDetailPath({
     hasScore,
     scheduleMatchId: match.scheduleMatchId,
-    kind: match.subEventTypeCode === "MT" || match.subEventTypeCode === "WT" || match.subEventTypeCode === "XT" ? "tie" : "match",
+    kind: isTeamMatch ? "tie" : "match",
   });
   const cardClassName = "cv-auto block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm";
 
@@ -1365,7 +1344,12 @@ function ScheduleMatchCard({
         {sideRows.map((side) => {
           const score = scoreParts[side.sideNo - 1] ?? null;
           const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
-          const label = scheduleSideLabel(side);
+          const label = scheduleSidePrimaryLabel({
+            isTeamMatch,
+            teamCode: side.teamCode,
+            playerNames: side.players.map(displayPlayerName),
+            placeholderText: side.placeholderText,
+          });
           const countryLabel = scheduleSideCountryLabel(side);
           const isWinner = side.isWinner || (match.winnerSide === (side.sideNo === 1 ? 'A' : 'B'));
           const countryCode = side.teamCode || side.players[0]?.countryCode || null;
@@ -3626,12 +3610,12 @@ function EventDetailContent() {
           days: data.scheduleDays,
           subEventCode: value,
           eventTimeZone: data.event.timeZone,
-          preferredDate: selectedDate,
+          preferredDate: null,
         }),
       );
     }
     setSelectedSubEvent(value);
-  }, [data, selectedDate, useScheduleTabs, viewMode]);
+  }, [data, useScheduleTabs, viewMode]);
 
   const handleChangeViewMode = React.useCallback((value: ViewMode) => {
     shouldSyncUrlRef.current = true;

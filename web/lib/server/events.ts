@@ -712,6 +712,81 @@ function mergeHistoricalScheduleMatches(matches: EventScheduleMatch[]) {
   return merged.sort(compareScheduleMatches);
 }
 
+function loadCurrentTeamTieMandatoryPlayerSides(eventId: number) {
+  const rows = db
+    .prepare(
+      `
+        WITH ranked_rubbers AS (
+          SELECT
+            m.current_match_id,
+            m.current_team_tie_id,
+            ROW_NUMBER() OVER (
+              PARTITION BY m.current_team_tie_id
+              ORDER BY COALESCE(m.external_match_code, ''), m.current_match_id
+            ) AS rubberNo
+          FROM current_event_matches m
+          WHERE m.event_id = ?
+            AND m.current_team_tie_id IS NOT NULL
+        )
+        SELECT
+          rr.current_team_tie_id AS tieId,
+          s.side_no AS sideNo,
+          s.team_code AS teamCode,
+          p.player_id AS playerId,
+          p.player_name AS playerName,
+          p.player_country AS playerCountry,
+          pl.slug,
+          pl.name_zh AS playerNameZh,
+          REPLACE(REPLACE(pl.avatar_file, 'data\\player_avatars\\', ''), 'data/player_avatars/', '') AS avatarFile
+        FROM ranked_rubbers rr
+        JOIN current_event_match_sides s ON s.current_match_id = rr.current_match_id
+        JOIN current_event_match_side_players p ON p.current_match_side_id = s.current_match_side_id
+        LEFT JOIN players pl ON pl.player_id = p.player_id
+        WHERE rr.rubberNo <= 3
+        ORDER BY rr.current_team_tie_id ASC, s.side_no ASC, rr.rubberNo ASC, p.player_order ASC
+      `,
+    )
+    .all(eventId) as Array<{
+    tieId: number;
+    sideNo: number;
+    teamCode: string | null;
+    playerId: number | null;
+    playerName: string;
+    playerCountry: string | null;
+    slug: string | null;
+    playerNameZh: string | null;
+    avatarFile: string | null;
+  }>;
+
+  const ties = new Map<
+    number,
+    Map<number, { teamCode: string | null; players: Array<SidePlayer & { avatarFile: string | null }> }>
+  >();
+  for (const row of rows) {
+    const sides =
+      ties.get(row.tieId) ??
+      new Map<number, { teamCode: string | null; players: Array<SidePlayer & { avatarFile: string | null }> }>();
+    const side = sides.get(row.sideNo) ?? { teamCode: row.teamCode, players: [] };
+    const playerKey = `${row.playerId ?? ''}|${row.playerName}|${row.playerCountry ?? ''}`;
+    const exists = side.players.some(
+      (player) => `${player.playerId ?? ''}|${player.name}|${player.countryCode ?? ''}` === playerKey,
+    );
+    if (!exists) {
+      side.players.push({
+        playerId: row.playerId,
+        slug: row.slug,
+        name: row.playerName,
+        nameZh: row.playerNameZh,
+        countryCode: row.playerCountry,
+        avatarFile: filterAvatarFile(row.avatarFile),
+      });
+    }
+    sides.set(row.sideNo, side);
+    ties.set(row.tieId, sides);
+  }
+  return ties;
+}
+
 function buildCurrentScheduleMatches(eventId: number) {
   const scheduleRows = db
     .prepare(
@@ -893,10 +968,22 @@ function buildCurrentScheduleMatches(eventId: number) {
     scheduleMatchMap.set(row.scheduleMatchId, current);
   }
 
+  const mandatoryPlayerSides = loadCurrentTeamTieMandatoryPlayerSides(eventId);
+
   return Array.from(scheduleMatchMap.values())
     .map((match) => ({
       ...match,
-      sides: [...match.sides].sort((left, right) => left.sideNo - right.sideNo),
+      sides: [...match.sides]
+        .map((side) => {
+          if (typeof match.scheduleMatchId !== 'number') return side;
+          const mandatorySide = mandatoryPlayerSides.get(match.scheduleMatchId)?.get(side.sideNo);
+          return {
+            ...side,
+            teamCode: side.teamCode ?? mandatorySide?.teamCode ?? null,
+            players: mandatorySide?.players ?? [],
+          };
+        })
+        .sort((left, right) => left.sideNo - right.sideNo),
     }))
     .sort(compareScheduleMatches);
 }
@@ -3262,11 +3349,8 @@ export function getScheduleMatchDetail(scheduleMatchId: number | string) {
       avatarFile: string | null;
     }>;
 
-    const finalRubberStatuses = new Set(['completed', 'walkover', 'cancelled']);
-    const filteredRubberRows =
-      finalRubberStatuses.has(currentMatch.status)
-        ? rubberRows.filter((row) => finalRubberStatuses.has(row.status))
-        : rubberRows;
+    const playedRubberStatuses = new Set(['completed', 'walkover', 'live']);
+    const filteredRubberRows = rubberRows.filter((row) => playedRubberStatuses.has(row.status));
 
     const fallbackPlayerDisplayMap = loadPlayerDisplayMapByNames(
       [
@@ -3308,6 +3392,13 @@ export function getScheduleMatchDetail(scheduleMatchId: number | string) {
         });
       }
       sideMap.set(row.sideNo, current);
+    }
+
+    const mandatoryPlayerSides = loadCurrentTeamTieMandatoryPlayerSides(currentMatch.eventId).get(scheduleMatchId);
+    for (const side of sideMap.values()) {
+      const mandatorySide = mandatoryPlayerSides?.get(side.sideNo);
+      side.teamCode = side.teamCode ?? mandatorySide?.teamCode ?? null;
+      side.players = mandatorySide?.players ?? [];
     }
 
     const rubberMap = new Map<
@@ -4746,7 +4837,8 @@ export function getEventDetail(
     .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const override = readManualEventOverride(eventId);
-  const preferredDefault = override?.sub_event_type_code ?? 'WS';
+  // Asian Games opens on team competition; preserve that event's established default.
+  const preferredDefault = override?.sub_event_type_code ?? (eventId === 6666 ? 'WT' : 'WS');
   const selectedSubEvent =
     requestedSubEvent && subEvents.some((item) => item.code === requestedSubEvent)
       ? requestedSubEvent

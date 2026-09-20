@@ -7,7 +7,7 @@ const { getPlayerBySlug } = require('./players.ts');
 const { getPlayerAggregateStats } = require('./stats.ts');
 
 test('does not count a team-final rubber win as a major title', () => {
-  const player = getPlayerBySlug('harimoto-miwa');
+  const player = getPlayerBySlug('136711');
   assert.ok(player, 'expected HARIMOTO Miwa in the player database');
 
   const stats = getPlayerAggregateStats([player.playerId]).get(player.playerId);

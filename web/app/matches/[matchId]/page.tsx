@@ -13,6 +13,7 @@ import { Flag } from "@/components/Flag";
 import { getVisibleSideAvatarPlayers } from "@/lib/match-side-avatars";
 import { matchStatusLabel } from "@/lib/match-status-label";
 import { formatSubEventLabel } from "@/lib/sub-event-label";
+import { getGameScoreCellState } from "@/lib/game-score-cell";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -175,11 +176,6 @@ function sideCountries(side: { players: MatchPlayer[]; teamCode?: string | null 
   return Array.from(new Set(side.players.map((player) => player.countryCode).filter(Boolean))).join(" / ");
 }
 
-function scoreLabel(games: Array<{ player: number; opponent: number }>) {
-  if (games.length === 0) return "局分待补";
-  return games.map((game) => `${game.player}-${game.opponent}`).join(", ");
-}
-
 function isStandardTeamCode(teamCode: string | null | undefined) {
   return typeof teamCode === "string" && /^[A-Z]{3}$/.test(teamCode);
 }
@@ -206,12 +202,16 @@ function GameScoreTable({
   sideB,
   matchScore,
   attached = false,
+  showFlags = false,
+  highlightBothSides = false,
 }: {
   games: Array<{ player: number; opponent: number }>;
   sideA: MatchSide | undefined;
   sideB: MatchSide | undefined;
   matchScore: string | null;
   attached?: boolean;
+  showFlags?: boolean;
+  highlightBothSides?: boolean;
 }) {
   const total = scorePartsFromMatchScore(matchScore);
   const rows: Array<{ side: MatchSide | undefined; isA: boolean; total: string }> = [
@@ -250,20 +250,29 @@ function GameScoreTable({
                   <p className="line-clamp-1 text-body font-bold text-text-primary" title={row.side ? sideTitle(row.side) : ""}>
                     {row.side ? sideTitle(row.side) : "待定"}
                   </p>
-                  <p className="mt-0.5 text-micro font-bold uppercase tracking-wider text-text-tertiary">
-                    {row.side ? sideCountries(row.side) || "—" : "TBD"}
+                  <p className="mt-0.5 flex items-center gap-1.5 text-micro font-bold uppercase tracking-wider text-text-tertiary">
+                    {showFlags
+                      ? row.side?.players.map((player, index) =>
+                          player.countryCode && isStandardTeamCode(player.countryCode) ? (
+                            <Flag key={`${player.countryCode}-${index}`} code={player.countryCode} className="shrink-0 rounded-[1px] text-[0.8rem]" />
+                          ) : null,
+                        )
+                      : null}
+                    <span>{row.side ? sideCountries(row.side) || "—" : "TBD"}</span>
                   </p>
                 </td>
                 {games.map((game, index) => {
                   const own = row.isA ? game.player : game.opponent;
-                  // 高亮顶部选手（sideA）赢下的每一局，与设计稿保持一致。
-                  const highlight = row.isA && game.player > game.opponent;
+                  const opponent = row.isA ? game.opponent : game.player;
+                  const scoreState = getGameScoreCellState(own, opponent);
                   return (
                     <td
                       key={index}
                       className={cn(
                         "px-1 py-4 text-center font-numeric text-body-lg font-black tabular-nums",
-                        highlight ? "text-brand-strong" : "text-text-primary",
+                        (highlightBothSides ? scoreState === "winner" : row.isA && scoreState === "winner")
+                          ? "text-brand-strong"
+                          : "text-text-primary",
                       )}
                     >
                       {own}
@@ -616,42 +625,31 @@ function TieSideCard({ side, hasResult }: { side: TieSide; hasResult: boolean })
 
 function TieRubberCard({ rubber, index }: { rubber: TieRubber; index: number }) {
   const [sideA, sideB] = [...rubber.sides].sort((left, right) => left.sideNo - right.sideNo);
-  const scoreParts = rubber.matchScore?.split("-") ?? [];
+  const tableSides: [MatchSide | undefined, MatchSide | undefined] = [sideA, sideB].map((side) =>
+    side
+      ? {
+          sideNo: side.sideNo,
+          isWinner: rubber.winnerSide === (side.sideNo === 1 ? "A" : "B"),
+          players: side.players,
+        }
+      : undefined,
+  ) as [MatchSide | undefined, MatchSide | undefined];
 
   return (
-    <section className="rounded-lg border border-white/60 bg-white/75 p-4 shadow-sm overflow-hidden">
-      <div className="mb-3 flex items-center justify-between gap-3">
+    <section className="overflow-hidden rounded-lg border border-white/60 bg-white shadow-sm">
+      <div className="flex items-center justify-between gap-3 px-4 pb-3 pt-4">
         <h3 className="text-heading-2 font-black text-text-primary">第 {index + 1} 盘</h3>
         <span className="font-numeric text-[1.2rem] font-black text-text-primary tabular-nums">{rubber.matchScore || "-"}</span>
       </div>
-
-      <div className="space-y-3">
-        {[sideA, sideB].filter(Boolean).map((side) => {
-          const score = scoreParts[side.sideNo - 1] ?? "-";
-          const isWinner = rubber.winnerSide === (side.sideNo === 1 ? "A" : "B");
-          const teamCode = side.teamCode || side.players[0]?.countryCode || null;
-          return (
-            <div key={side.sideNo} className="rounded-md bg-surface-secondary/70 px-3 py-3">
-              <div className="flex items-center gap-3">
-                <div className="min-w-0 flex-1">
-                  <p className={cn("line-clamp-1 text-body font-black", isWinner ? "text-text-primary" : "text-text-secondary")} title={sideTitle(side)}>
-                    {sideTitle(side) || "阵容待补"}
-                  </p>
-                  <div className="mt-0.5 flex items-center gap-1.5 line-clamp-1 text-micro font-bold uppercase tracking-wider text-text-tertiary">
-                    {isStandardTeamCode(teamCode) ? <Flag code={teamCode} /> : null}
-                    <span>{sideCountries(side) || side.teamCode || "国家待补"}</span>
-                  </div>
-                </div>
-                <span className={cn("font-numeric text-[1.15rem] font-black tabular-nums", isWinner ? "text-brand-deep" : "text-text-tertiary")}>{score}</span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="mt-3 rounded-md bg-white/70 px-3 py-2 text-[0.9rem] font-medium text-text-secondary">
-        局分：{scoreLabel(rubber.games)}
-      </div>
+      <GameScoreTable
+        games={rubber.games}
+        sideA={tableSides[0]}
+        sideB={tableSides[1]}
+        matchScore={rubber.matchScore}
+        attached
+        showFlags
+        highlightBothSides
+      />
     </section>
   );
 }
