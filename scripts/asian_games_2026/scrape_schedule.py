@@ -12,9 +12,11 @@ import argparse
 import sys
 import urllib.error
 from collections import OrderedDict
-from datetime import datetime
+from datetime import datetime, timezone
+from uuid import uuid4
 from pathlib import Path
 from typing import Any
+from scripts.asian_games_2026.schedule_capture import digest
 
 from scripts.asian_games_2026.common import (
     DISPLAY_SCHEDULE_PATH,
@@ -47,15 +49,29 @@ def parse_schedule_days(payload: Any) -> list[str]:
 
 
 def fetch_schedule(*, raw_root: Path = RAW_ROOT) -> dict[str, list[dict[str, Any]]]:
+    manifest = raw_root / 'schedule' / 'capture.json'
+    atomic_write_json(manifest, {'complete': False})
     days_payload = fetch_json(api_path("/schedule/days"))
     atomic_write_json(raw_root / "schedule" / "days.json", days_payload)
     rows_by_date: dict[str, list[dict[str, Any]]] = {}
     for day in parse_schedule_days(days_payload):
         payload = fetch_json(api_path(f"/schedule/daily/{day}"))
-        if not isinstance(payload, list):
+        if not isinstance(payload, list) or any(not isinstance(row, dict) for row in payload):
             raise ValueError(f"daily schedule response for {day} is not an array")
+        for row in payload:
+            if row.get('isH2H') is True:
+                if not all(row.get(field) for field in ('Key', 'DateTimeRaw', 'EventDesc', 'PhaseDesc', 'Status')):
+                    raise ValueError(f'incomplete competition row for {day}')
+                if datetime.fromisoformat(row['DateTimeRaw']).date().isoformat() != day:
+                    raise ValueError(f'competition date mismatch for {day}')
         atomic_write_json(raw_root / "schedule" / f"{day}.json", payload)
         rows_by_date[day] = [item for item in payload if isinstance(item, dict)]
+    atomic_write_json(manifest, {
+        'complete': True, 'batch_id': str(uuid4()),
+        'completed_at': datetime.now(timezone.utc).isoformat(),
+        'dates': sorted(rows_by_date),
+        'hashes': {day: digest(rows) for day, rows in rows_by_date.items()},
+    })
     return rows_by_date
 
 

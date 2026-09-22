@@ -17,6 +17,7 @@ from scripts.asian_games_2026.common import (
     SOURCE_TIME_ZONE,
 )
 from scripts.asian_games_2026.player_resolution import player_resolver
+from scripts.asian_games_2026.placeholder_cleanup import cleanup_placeholders
 
 STATUS_PRIORITY = {"cancelled": 10, "scheduled": 20, "live": 30, "completed": 40, "walkover": 40}
 
@@ -401,6 +402,7 @@ def import_snapshot(
             counts["match_players"] += sum(len(s.get("players") or []) for s in match.get("sides") or [])
         if bracket_snapshot is not None:
             counts["brackets"] = _replace_brackets(conn, bracket_snapshot, resolve)
+        counts['removed_placeholders'] = cleanup_placeholders(conn, snapshot)
         conn.commit()
     except Exception:
         conn.rollback()

@@ -10,6 +10,7 @@ import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from scripts.asian_games_2026.schedule_capture import verified_capture
 
 from scripts.asian_games_2026.common import (
     EVENT_ID,
@@ -288,6 +289,12 @@ def main() -> int:
         rows_by_date = load_schedule_raw(args.raw_root)
         details = capture_details(rows_by_date, raw_root=args.raw_root, all_linked=args.all_linked)
         snapshot = build_snapshot(rows_by_date, details)
+        snapshot['schedule_capture'] = verified_capture(args.raw_root, rows_by_date)
+        if snapshot['schedule_capture']:
+            snapshot['schedule_capture']['schedule_keys'] = [
+                row['Key'] for rows in rows_by_date.values() for row in rows
+                if row.get('isH2H') is True and row.get('Key')
+            ]
         atomic_write_json(args.output, snapshot)
         atomic_write_json(
             STATE_ROOT / "latest_scrape.json",
