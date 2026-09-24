@@ -1,0 +1,887 @@
+{
+  "Info": {
+    "IsPhase": false,
+    "Disc": "TTE",
+    "DiscDesc": "Table Tennis",
+    "Key": "M.DOUBLES-----------.R64-.000300--",
+    "isH2H": true,
+    "Type": "D",
+    "Medal": "",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
+    "DateTimeRaw": "2026-09-23T11:25:00+09:00",
+    "HideStartDate": false,
+    "Estimated": false,
+    "EstText": "",
+    "HideLocation": false,
+    "Venue": "SHT",
+    "VenueDesc": "SKY HALL TOYOTA",
+    "VenueDescS": "SKY HALL TOYOTA",
+    "Loc": "003",
+    "LocDesc": "Table 3",
+    "LocDescS": "Table 3",
+    "Event": "M.DOUBLES-----------",
+    "EventDesc": "Men's Doubles",
+    "Phase": "M.DOUBLES-----------.R64-",
+    "PhaseOrder": 6,
+    "PhaseDesc": "Men's Doubles Round 1",
+    "PhaseDescS": "MD Rnd1",
+    "PhaseDescA": "Round 1",
+    "UnitDesc": "Men's Doubles Round 1 Match 3",
+    "UnitDescS": "MD Rnd1 M 3",
+    "UnitDescA": "Match 3",
+    "UnitNum": "3",
+    "IsLive": false,
+    "ShowResults": true,
+    "HasActions": false,
+    "HasActionsSumm": false,
+    "HasSummary": false,
+    "HasFleetOverall": false,
+    "HasStats": true
+  },
+  "Results": {
+    "Result": "3-0",
+    "ResDetail": "11:6, 11:8, 11:6",
+    "Duration": "10min",
+    "CurrentPeriod": 3,
+    "Current": "",
+    "Last": "",
+    "Extensions": [
+      {
+        "Type": "UNIT_INFO",
+        "Code": "InfoMatch",
+        "Pos": 0,
+        "Value": "0",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "InfoTeam",
+        "Pos": 0,
+        "Value": "0",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ReceivedDuration",
+        "Pos": 0,
+        "Value": "14min",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ResultDetailWinner",
+        "Pos": 0,
+        "Value": "11:6, 11:8, 11:6",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "RoundNum",
+        "Pos": 0,
+        "Value": "",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ServerHomeAway",
+        "Pos": 0,
+        "Value": "2",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "SubMatchNum",
+        "Pos": 0,
+        "Value": "",
+        "Extensions": []
+      }
+    ],
+    "Periods": [
+      {
+        "Order": 1,
+        "Duration": "00:03:00",
+        "Distance": "0",
+        "ResHome": "11",
+        "ResAway": "6",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 1",
+        "DescS": "1"
+      },
+      {
+        "Order": 2,
+        "Duration": "00:04:00",
+        "Distance": "0",
+        "ResHome": "11",
+        "ResAway": "8",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 2",
+        "DescS": "2"
+      },
+      {
+        "Order": 3,
+        "Duration": "00:03:00",
+        "Distance": "0",
+        "ResHome": "11",
+        "ResAway": "6",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 3",
+        "DescS": "3"
+      },
+      {
+        "Order": 4,
+        "Duration": "00:00:00",
+        "Distance": "0",
+        "ResHome": "0",
+        "ResAway": "0",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 4",
+        "DescS": "4"
+      },
+      {
+        "Order": 5,
+        "Duration": "00:00:00",
+        "Distance": "0",
+        "ResHome": "0",
+        "ResAway": "0",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 5",
+        "DescS": "5"
+      }
+    ],
+    "Officials": [
+      {
+        "Reg": "9205492",
+        "Org": "IND",
+        "Order": 1,
+        "Function": "UM",
+        "Extensions": [],
+        "Bib": "",
+        "FuncOrder": "10",
+        "OrgDesc": "India",
+        "Name": "DHARMALA Venkata",
+        "NameS": "DHARMALA Venkata",
+        "FuncDesc": "Umpire"
+      },
+      {
+        "Reg": "7985435",
+        "Org": "JPN",
+        "Order": 2,
+        "Function": "UM",
+        "Extensions": [],
+        "Bib": "",
+        "FuncOrder": "10",
+        "OrgDesc": "Japan",
+        "Name": "MIZUNO Yoshiki",
+        "NameS": "MIZUNO Y",
+        "FuncDesc": "Umpire"
+      }
+    ],
+    "Paralympic": false
+  },
+  "Competitors": [
+    {
+      "Reg": "TTEMDOUBLES----MAC01",
+      "Bib": "",
+      "Org": "MAC",
+      "StartOrder": "1",
+      "StartSortOrder": 1,
+      "Rk": "1",
+      "RkEq": false,
+      "RkPo": 1,
+      "WLT": "W",
+      "Result": "3",
+      "ResDetail": "3",
+      "ResInfo": "",
+      "IRM": "OK",
+      "Qualified": "",
+      "RecordInd": "",
+      "RecordBest": "",
+      "Lane": "",
+      "Seed": "0",
+      "Diff": "",
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ],
+      "Stats": {
+        "ST_BL": "6",
+        "ST_GDO": "2",
+        "ST_MCPW": "5",
+        "ST_PLOS": "10",
+        "ST_PW": "33",
+        "ST_PWOS": "17"
+      },
+      "Name": "ZHENG Hong Wai/CHAN Chi In",
+      "NameS": "ZHENG H/CHAN C",
+      "OrgDesc": "Macao, China",
+      "Splits": [
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "1",
+          "RkEq": false,
+          "RkPo": 1,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "11",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "5",
+            "ST_GDO": "0",
+            "ST_MCPW": "3",
+            "ST_PLOS": "4",
+            "ST_PW": "11",
+            "ST_PWOS": "5"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "1",
+          "RkEq": false,
+          "RkPo": 1,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "11",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "5",
+            "ST_GDO": "2",
+            "ST_MCPW": "4",
+            "ST_PLOS": "3",
+            "ST_PW": "11",
+            "ST_PWOS": "6"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "1",
+          "RkEq": false,
+          "RkPo": 1,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "11",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "6",
+            "ST_GDO": "0",
+            "ST_MCPW": "5",
+            "ST_PLOS": "3",
+            "ST_PW": "11",
+            "ST_PWOS": "6"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        }
+      ],
+      "FreeResInfo": "",
+      "Medal": "",
+      "Members": [
+        {
+          "Reg": "5718521",
+          "Org": "MAC",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "05/12/2007",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Right/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 1,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "ZHENG Hong Wai",
+          "NameS": "ZHENG H",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Reg": "5718625",
+          "Org": "MAC",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "07/05/2003",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Left/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 2,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "CHAN Chi In",
+          "NameS": "CHAN C",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ]
+    },
+    {
+      "Reg": "TTEMDOUBLES----BAN01",
+      "Bib": "",
+      "Org": "BAN",
+      "StartOrder": "2",
+      "StartSortOrder": 2,
+      "Rk": "2",
+      "RkEq": false,
+      "RkPo": 2,
+      "WLT": "L",
+      "Result": "0",
+      "ResDetail": "0",
+      "ResInfo": "",
+      "IRM": "OK",
+      "Qualified": "",
+      "RecordInd": "",
+      "RecordBest": "",
+      "Lane": "",
+      "Seed": "0",
+      "Diff": "",
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "true",
+          "Extensions": []
+        }
+      ],
+      "Stats": {
+        "ST_BL": "2",
+        "ST_GDO": "0",
+        "ST_MCPW": "3",
+        "ST_PLOS": "16",
+        "ST_PW": "20",
+        "ST_PWOS": "10"
+      },
+      "Name": "RIDOY Mohutasin/BAWM Ramhimlian",
+      "NameS": "RIDOY M/BAWM R",
+      "OrgDesc": "Bangladesh",
+      "Splits": [
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "2",
+          "RkEq": false,
+          "RkPo": 2,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "6",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "0",
+            "ST_GDO": "0",
+            "ST_MCPW": "1",
+            "ST_PLOS": "6",
+            "ST_PW": "6",
+            "ST_PWOS": "2"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "2",
+          "RkEq": false,
+          "RkPo": 2,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "8",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "2",
+            "ST_GDO": "0",
+            "ST_MCPW": "3",
+            "ST_PLOS": "5",
+            "ST_PW": "8",
+            "ST_PWOS": "5"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "2",
+          "RkEq": false,
+          "RkPo": 2,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "6",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "0",
+            "ST_GDO": "0",
+            "ST_MCPW": "2",
+            "ST_PLOS": "5",
+            "ST_PW": "6",
+            "ST_PWOS": "3"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        }
+      ],
+      "FreeResInfo": "",
+      "Medal": "",
+      "Members": [
+        {
+          "Reg": "13982093",
+          "Org": "BAN",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "18/11/2004",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Right/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 1,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "RIDOY Mohutasin",
+          "NameS": "RIDOY M",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Reg": "975500",
+          "Org": "BAN",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "03/12/2005",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Right/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 2,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "BAWM Ramhimlian",
+          "NameS": "BAWM R",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ]
+    }
+  ],
+  "Legends": {
+    "records": [],
+    "irms": [],
+    "qs": [],
+    "funcs": [
+      {
+        "DescS": "AA01",
+        "Desc": "Athlete"
+      }
+    ]
+  }
+}

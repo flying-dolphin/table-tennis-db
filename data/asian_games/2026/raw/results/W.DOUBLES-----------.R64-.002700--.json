@@ -1,0 +1,887 @@
+{
+  "Info": {
+    "IsPhase": false,
+    "Disc": "TTE",
+    "DiscDesc": "Table Tennis",
+    "Key": "W.DOUBLES-----------.R64-.002700--",
+    "isH2H": true,
+    "Type": "D",
+    "Medal": "",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
+    "DateTimeRaw": "2026-09-21T18:30:00+09:00",
+    "HideStartDate": false,
+    "Estimated": false,
+    "EstText": "",
+    "HideLocation": false,
+    "Venue": "SHT",
+    "VenueDesc": "SKY HALL TOYOTA",
+    "VenueDescS": "SKY HALL TOYOTA",
+    "Loc": "007",
+    "LocDesc": "Table 7",
+    "LocDescS": "Table 7",
+    "Event": "W.DOUBLES-----------",
+    "EventDesc": "Women's Doubles",
+    "Phase": "W.DOUBLES-----------.R64-",
+    "PhaseOrder": 6,
+    "PhaseDesc": "Women's Doubles Round 1",
+    "PhaseDescS": "WD Rnd1",
+    "PhaseDescA": "Round 1",
+    "UnitDesc": "Women's Doubles Round 1 Match 27",
+    "UnitDescS": "WD Rnd1 M 27",
+    "UnitDescA": "Match 27",
+    "UnitNum": "27",
+    "IsLive": false,
+    "ShowResults": true,
+    "HasActions": false,
+    "HasActionsSumm": false,
+    "HasSummary": false,
+    "HasFleetOverall": false,
+    "HasStats": true
+  },
+  "Results": {
+    "Result": "3-0",
+    "ResDetail": "11:7, 11:3, 11:8",
+    "Duration": "17min",
+    "CurrentPeriod": 3,
+    "Current": "",
+    "Last": "",
+    "Extensions": [
+      {
+        "Type": "UNIT_INFO",
+        "Code": "InfoMatch",
+        "Pos": 0,
+        "Value": "0",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "InfoTeam",
+        "Pos": 0,
+        "Value": "0",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ReceivedDuration",
+        "Pos": 0,
+        "Value": "20min",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ResultDetailWinner",
+        "Pos": 0,
+        "Value": "11:7, 11:3, 11:8",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "RoundNum",
+        "Pos": 0,
+        "Value": "",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ServerHomeAway",
+        "Pos": 0,
+        "Value": "2",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "SubMatchNum",
+        "Pos": 0,
+        "Value": "",
+        "Extensions": []
+      }
+    ],
+    "Periods": [
+      {
+        "Order": 1,
+        "Duration": "00:06:00",
+        "Distance": "0",
+        "ResHome": "11",
+        "ResAway": "7",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 1",
+        "DescS": "1"
+      },
+      {
+        "Order": 2,
+        "Duration": "00:06:00",
+        "Distance": "0",
+        "ResHome": "11",
+        "ResAway": "3",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 2",
+        "DescS": "2"
+      },
+      {
+        "Order": 3,
+        "Duration": "00:05:00",
+        "Distance": "0",
+        "ResHome": "11",
+        "ResAway": "8",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 3",
+        "DescS": "3"
+      },
+      {
+        "Order": 4,
+        "Duration": "00:00:00",
+        "Distance": "0",
+        "ResHome": "0",
+        "ResAway": "0",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 4",
+        "DescS": "4"
+      },
+      {
+        "Order": 5,
+        "Duration": "00:00:00",
+        "Distance": "0",
+        "ResHome": "0",
+        "ResAway": "0",
+        "TotHome": "",
+        "TotAway": "",
+        "Extensions": [],
+        "Desc": "Game 5",
+        "DescS": "5"
+      }
+    ],
+    "Officials": [
+      {
+        "Reg": "7985109",
+        "Org": "JPN",
+        "Order": 1,
+        "Function": "UM",
+        "Extensions": [],
+        "Bib": "",
+        "FuncOrder": "10",
+        "OrgDesc": "Japan",
+        "Name": "MORIKAWA Yumiko",
+        "NameS": "MORIKAWA Y",
+        "FuncDesc": "Umpire"
+      },
+      {
+        "Reg": "7986320",
+        "Org": "JPN",
+        "Order": 2,
+        "Function": "UM",
+        "Extensions": [],
+        "Bib": "",
+        "FuncOrder": "10",
+        "OrgDesc": "Japan",
+        "Name": "HAYASHI Satsuki",
+        "NameS": "HAYASHI S",
+        "FuncDesc": "Umpire"
+      }
+    ],
+    "Paralympic": false
+  },
+  "Competitors": [
+    {
+      "Reg": "TTEWDOUBLES----INA01",
+      "Bib": "",
+      "Org": "INA",
+      "StartOrder": "1",
+      "StartSortOrder": 1,
+      "Rk": "1",
+      "RkEq": false,
+      "RkPo": 1,
+      "WLT": "W",
+      "Result": "3",
+      "ResDetail": "3",
+      "ResInfo": "",
+      "IRM": "OK",
+      "Qualified": "",
+      "RecordInd": "",
+      "RecordBest": "",
+      "Lane": "",
+      "Seed": "0",
+      "Diff": "",
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ],
+      "Stats": {
+        "ST_BL": "8",
+        "ST_GDO": "1",
+        "ST_MCPW": "4",
+        "ST_PLOS": "10",
+        "ST_PW": "33",
+        "ST_PWOS": "16"
+      },
+      "Name": "MAHARANI Ni/SUDARNITA Komang",
+      "NameS": "MAHARANI N/SUDARNITA K",
+      "OrgDesc": "Indonesia",
+      "Splits": [
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "1",
+          "RkEq": false,
+          "RkPo": 1,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "11",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "4",
+            "ST_GDO": "1",
+            "ST_MCPW": "3",
+            "ST_PLOS": "4",
+            "ST_PW": "11",
+            "ST_PWOS": "6"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "1",
+          "RkEq": false,
+          "RkPo": 1,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "11",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "8",
+            "ST_GDO": "0",
+            "ST_MCPW": "4",
+            "ST_PLOS": "2",
+            "ST_PW": "11",
+            "ST_PWOS": "4"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "1",
+          "RkEq": false,
+          "RkPo": 1,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "11",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "3",
+            "ST_GDO": "1",
+            "ST_MCPW": "3",
+            "ST_PLOS": "4",
+            "ST_PW": "11",
+            "ST_PWOS": "6"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        }
+      ],
+      "FreeResInfo": "",
+      "Medal": "",
+      "Members": [
+        {
+          "Reg": "6318908",
+          "Org": "INA",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "02/09/2008",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Right/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 1,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "MAHARANI Ni",
+          "NameS": "MAHARANI N",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Reg": "991515",
+          "Org": "INA",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "06/02/2001",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Right/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 2,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "SUDARNITA Komang",
+          "NameS": "SUDARNITA K",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ]
+    },
+    {
+      "Reg": "TTEWDOUBLES----SYR01",
+      "Bib": "",
+      "Org": "SYR",
+      "StartOrder": "2",
+      "StartSortOrder": 2,
+      "Rk": "2",
+      "RkEq": false,
+      "RkPo": 2,
+      "WLT": "L",
+      "Result": "0",
+      "ResDetail": "0",
+      "ResInfo": "",
+      "IRM": "OK",
+      "Qualified": "",
+      "RecordInd": "",
+      "RecordBest": "",
+      "Lane": "",
+      "Seed": "0",
+      "Diff": "",
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "true",
+          "Extensions": []
+        }
+      ],
+      "Stats": {
+        "ST_BL": "1",
+        "ST_GDO": "0",
+        "ST_MCPW": "2",
+        "ST_PLOS": "17",
+        "ST_PW": "18",
+        "ST_PWOS": "8"
+      },
+      "Name": "ZAZA Hend/ABBOUD Rashel",
+      "NameS": "ZAZA H/ABBOUD R",
+      "OrgDesc": "Syrian Arab Republic",
+      "Splits": [
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "2",
+          "RkEq": false,
+          "RkPo": 2,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "7",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "1",
+            "ST_GDO": "0",
+            "ST_MCPW": "2",
+            "ST_PLOS": "5",
+            "ST_PW": "7",
+            "ST_PWOS": "3"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "2",
+          "RkEq": false,
+          "RkPo": 2,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "3",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "0",
+            "ST_GDO": "0",
+            "ST_MCPW": "1",
+            "ST_PLOS": "7",
+            "ST_PW": "3",
+            "ST_PWOS": "1"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "2",
+          "RkEq": false,
+          "RkPo": 2,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "8",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": [],
+          "Stats": {
+            "ST_BL": "1",
+            "ST_GDO": "0",
+            "ST_MCPW": "2",
+            "ST_PLOS": "5",
+            "ST_PW": "8",
+            "ST_PWOS": "4"
+          }
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        },
+        {
+          "Category": "",
+          "Distance": "0",
+          "Rk": "0",
+          "RkEq": false,
+          "RkPo": 0,
+          "RkAcc": "0",
+          "RkAccEq": false,
+          "RkAccPo": 0,
+          "LegRk": "0",
+          "LegRkEq": false,
+          "LegRkPo": 0,
+          "AttResult": "",
+          "Result": "0",
+          "Diff": "",
+          "LegResult": "",
+          "AcumulatedResult": "",
+          "AcumulatedDiff": "",
+          "IRM": "OK",
+          "RecordInd": "",
+          "RecordBest": "",
+          "Status": "OK",
+          "Extensions": []
+        }
+      ],
+      "FreeResInfo": "",
+      "Medal": "",
+      "Members": [
+        {
+          "Reg": "2267365",
+          "Org": "SYR",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "01/01/2009",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Right/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 1,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "ZAZA Hend",
+          "NameS": "ZAZA H",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Reg": "2269484",
+          "Org": "SYR",
+          "Bib": "",
+          "Function": "AA01",
+          "Position": "",
+          "Captain": false,
+          "Extensions": [
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "DateOfBirth",
+              "Pos": 0,
+              "Value": "07/03/2013",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Hand/Grip",
+              "Pos": 0,
+              "Value": "Right/",
+              "Extensions": []
+            },
+            {
+              "Type": "MEMBER_INFO",
+              "Code": "Height",
+              "Pos": 0,
+              "Value": "",
+              "Extensions": []
+            }
+          ],
+          "Order": 2,
+          "Substitute": false,
+          "Result": "0",
+          "Guides": [],
+          "Name": "ABBOUD Rashel",
+          "NameS": "ABBOUD R",
+          "MedClass": "",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ]
+    }
+  ],
+  "Legends": {
+    "records": [],
+    "irms": [],
+    "qs": [],
+    "funcs": [
+      {
+        "DescS": "AA01",
+        "Desc": "Athlete"
+      }
+    ]
+  }
+}

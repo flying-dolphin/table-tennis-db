@@ -27,12 +27,12 @@
     "时间": "11:30",
     "赛事": [
       "男团小组赛C组",
-      "男团小组赛F组",
-      "男团小组赛B组",
       "男团小组赛D组",
       "男团小组赛E组",
+      "男团小组赛F组",
       "男团小组赛G组",
-      "男团小组赛A组"
+      "男团小组赛A组",
+      "男团小组赛B组"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -172,7 +172,7 @@
     "场次": "",
     "时间": "09:00",
     "赛事": [
-      "女团16强赛"
+      "Women's Team Round 1"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -189,7 +189,7 @@
     "场次": "",
     "时间": "11:30",
     "赛事": [
-      "男团16强赛"
+      "Men's Team Round 1"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -206,7 +206,24 @@
     "场次": "",
     "时间": "14:10",
     "赛事": [
-      "混双64强赛"
+      "Mixed Doubles Round 1"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      }
+    ]
+  },
+  {
+    "日期": "9月22日",
+    "场次": "",
+    "时间": "14:40",
+    "赛事": [
+      "Mixed Doubles Round 1"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -223,19 +240,19 @@
     "场次": "",
     "时间": "18:20",
     "赛事": [
-      "男团四分之一决赛",
-      "女团四分之一决赛"
+      "女团四分之一决赛",
+      "男团四分之一决赛"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
     "_parsed": [
       {
-        "sub_event_code": "MT",
+        "sub_event_code": "WT",
         "stage_code": "MAIN_DRAW",
         "round_code": "QF"
       },
       {
-        "sub_event_code": "WT",
+        "sub_event_code": "MT",
         "stage_code": "MAIN_DRAW",
         "round_code": "QF"
       }
@@ -246,7 +263,24 @@
     "场次": "",
     "时间": "09:00",
     "赛事": [
-      "混双32强赛"
+      "Mixed Doubles Round 2"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      }
+    ]
+  },
+  {
+    "日期": "9月23日",
+    "场次": "",
+    "时间": "09:40",
+    "赛事": [
+      "Mixed Doubles Round 2"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -263,7 +297,7 @@
     "场次": "",
     "时间": "10:25",
     "赛事": [
-      "男双64强赛"
+      "Men's Doubles Round 1"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -280,7 +314,24 @@
     "场次": "",
     "时间": "11:05",
     "赛事": [
-      "女单64强赛"
+      "Women's Singles Round 1"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      }
+    ]
+  },
+  {
+    "日期": "9月23日",
+    "场次": "",
+    "时间": "11:50",
+    "赛事": [
+      "Women's Singles Round 1"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -297,7 +348,7 @@
     "场次": "",
     "时间": "12:45",
     "赛事": [
-      "混双16强赛"
+      "Mixed Doubles Round 3"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -313,6 +364,29 @@
     "日期": "9月23日",
     "场次": "",
     "时间": "16:00",
+    "赛事": [
+      "女团半决赛",
+      "男团半决赛"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "WT",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      },
+      {
+        "sub_event_code": "MT",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      }
+    ]
+  },
+  {
+    "日期": "9月23日",
+    "场次": "",
+    "时间": "18:30",
     "赛事": [
       "男团半决赛",
       "女团半决赛"
@@ -337,7 +411,24 @@
     "场次": "",
     "时间": "09:00",
     "赛事": [
-      "女双32强赛"
+      "Women's Doubles Round 2"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      }
+    ]
+  },
+  {
+    "日期": "9月24日",
+    "场次": "",
+    "时间": "09:40",
+    "赛事": [
+      "Women's Doubles Round 2"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -354,7 +445,41 @@
     "场次": "",
     "时间": "10:20",
     "赛事": [
-      "男单64强赛"
+      "Men's Singles Round 1"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      }
+    ]
+  },
+  {
+    "日期": "9月24日",
+    "场次": "",
+    "时间": "11:05",
+    "赛事": [
+      "Men's Singles Round 1"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      }
+    ]
+  },
+  {
+    "日期": "9月24日",
+    "场次": "",
+    "时间": "11:50",
+    "赛事": [
+      "Men's Singles Round 1"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -422,7 +547,24 @@
     "场次": "",
     "时间": "10:00",
     "赛事": [
-      "男双32强赛"
+      "Men's Doubles Round 2"
+    ],
+    "球台": "",
+    "场馆": "SKY HALL TOYOTA",
+    "_parsed": [
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      }
+    ]
+  },
+  {
+    "日期": "9月25日",
+    "场次": "",
+    "时间": "10:45",
+    "赛事": [
+      "Men's Doubles Round 2"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -439,7 +581,7 @@
     "场次": "",
     "时间": "11:30",
     "赛事": [
-      "女单32强赛"
+      "Women's Singles Round 2"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
@@ -454,68 +596,17 @@
   {
     "日期": "9月25日",
     "场次": "",
-    "时间": "13:00",
+    "时间": "12:15",
     "赛事": [
-      "男单32强赛"
+      "Women's Singles Round 2"
     ],
     "球台": "",
     "场馆": "SKY HALL TOYOTA",
     "_parsed": [
       {
-        "sub_event_code": "MS",
+        "sub_event_code": "WS",
         "stage_code": "MAIN_DRAW",
         "round_code": "R32"
-      }
-    ]
-  },
-  {
-    "日期": "9月25日",
-    "场次": "",
-    "时间": "14:30",
-    "赛事": [
-      "女双16强赛"
-    ],
-    "球台": "",
-    "场馆": "SKY HALL TOYOTA",
-    "_parsed": [
-      {
-        "sub_event_code": "WD",
-        "stage_code": "MAIN_DRAW",
-        "round_code": "R16"
-      }
-    ]
-  },
-  {
-    "日期": "9月25日",
-    "场次": "",
-    "时间": "16:00",
-    "赛事": [
-      "男双16强赛"
-    ],
-    "球台": "",
-    "场馆": "SKY HALL TOYOTA",
-    "_parsed": [
-      {
-        "sub_event_code": "MD",
-        "stage_code": "MAIN_DRAW",
-        "round_code": "R16"
-      }
-    ]
-  },
-  {
-    "日期": "9月25日",
-    "场次": "",
-    "时间": "17:30",
-    "赛事": [
-      "混双半决赛"
-    ],
-    "球台": "",
-    "场馆": "SKY HALL TOYOTA",
-    "_parsed": [
-      {
-        "sub_event_code": "XD",
-        "stage_code": "MAIN_DRAW",
-        "round_code": "SF"
       }
     ]
   },

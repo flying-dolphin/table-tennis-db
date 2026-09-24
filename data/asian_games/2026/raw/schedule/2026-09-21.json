@@ -1,8 +1,8 @@
 [
   {
     "Orgs": [
-      "IND",
-      "PAK"
+      "PAK",
+      "IND"
     ],
     "IsPhase": false,
     "ResCode": "W.TEAM--------------.GPF-.00060000",
@@ -13,8 +13,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -36,9 +36,9 @@
     "UnitDesc": "Women's Team Group F Match 6",
     "UnitDescS": "WT Gr.F M 6",
     "UnitDescA": "Match 6",
-    "UnitNum": "8",
+    "UnitNum": "24",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -67,236 +67,10 @@
       }
     ],
     "Home": {
-      "Org": "IND",
-      "Reg": "TTEWTEAM-------IND01",
-      "Name": "India",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "India",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "AKULA Sreeja",
-          "NameS": "AKULA Sreeja",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "MUKHERJEE Sutirtha",
-          "NameS": "MUKHERJEE Sutirtha",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "DAS Syndrela",
-          "NameS": "DAS Syndrela",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "GHORPADE Yashaswini",
-          "NameS": "GHORPADE Yashaswini",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "CHITALE Diya",
-          "NameS": "CHITALE Diya",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "W.TEAM--------------.GPF-.00020000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------IND01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------INA01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "3-0"
-            }
-          ]
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 2,
-          "Value": "W.TEAM--------------.GPF-.00030000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 2,
-              "Value": "TTEWTEAM-------IND01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 2,
-              "Value": "TTEWTEAM-------SGP01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 2,
-              "Value": "3-2"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Away": {
       "Org": "PAK",
       "Reg": "TTEWTEAM-------PAK01",
       "Name": "Pakistan",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Pakistan",
@@ -348,7 +122,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "2",
           "Extensions": []
         },
         {
@@ -362,28 +136,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "50",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "41",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "19",
           "Extensions": []
         },
         {
@@ -484,7 +258,233 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
+          "Value": "BCA",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
           "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ]
+    },
+    "Away": {
+      "Org": "IND",
+      "Reg": "TTEWTEAM-------IND01",
+      "Name": "India",
+      "Result": "3",
+      "Winner": true,
+      "HasData": true,
+      "NameS": "India",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "AKULA Sreeja",
+          "NameS": "AKULA Sreeja",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "MUKHERJEE Sutirtha",
+          "NameS": "MUKHERJEE Sutirtha",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "DAS Syndrela",
+          "NameS": "DAS Syndrela",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "GHORPADE Yashaswini",
+          "NameS": "GHORPADE Yashaswini",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "CHITALE Diya",
+          "NameS": "CHITALE Diya",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "8",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "2",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "9",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "22",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "99",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "49",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "W.TEAM--------------.GPF-.00020000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------IND01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------INA01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "3-0"
+            }
+          ]
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 2,
+          "Value": "W.TEAM--------------.GPF-.00030000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 2,
+              "Value": "TTEWTEAM-------IND01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 2,
+              "Value": "TTEWTEAM-------SGP01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 2,
+              "Value": "3-2"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "ZXY",
           "Extensions": []
         },
         {
@@ -564,15 +564,15 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "43min",
         "Extensions": []
       }
     ]
   },
   {
     "Orgs": [
-      "KAZ",
-      "MDV"
+      "MDV",
+      "KAZ"
     ],
     "IsPhase": false,
     "ResCode": "W.TEAM--------------.GPC-.00030000",
@@ -583,8 +583,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -606,9 +606,9 @@
     "UnitDesc": "Women's Team Group C Match 3",
     "UnitDescS": "WT Gr.C M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "3",
+    "UnitNum": "15",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -637,210 +637,10 @@
       }
     ],
     "Home": {
-      "Org": "KAZ",
-      "Reg": "TTEWTEAM-------KAZ01",
-      "Name": "Kazakhstan",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "Kazakhstan",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "KAZ",
-          "Bib": "",
-          "Name": "AKASHEVA Zauresh",
-          "NameS": "AKASHEVA Zauresh",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "KAZ",
-          "Bib": "",
-          "Name": "MIRKADIROVA Sarvinoz",
-          "NameS": "MIRKADIROVA Sarvinoz",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "KAZ",
-          "Bib": "",
-          "Name": "KOSHKUMBAYEVA Zhanerke",
-          "NameS": "KOSHKUMBAYEVA Zhanerke",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "KAZ",
-          "Bib": "",
-          "Name": "ROMANOVSKAYA Angelina",
-          "NameS": "ROMANOVSKAYA Angelina",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "KAZ",
-          "Bib": "",
-          "Name": "ZHAXYLYKOVA Albina",
-          "NameS": "ZHAXYLYKOVA Albina",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "W.TEAM--------------.GPC-.00020000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------KAZ01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------KOR01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "0-3"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Away": {
       "Org": "MDV",
       "Reg": "TTEWTEAM-------MDV01",
       "Name": "Maldives",
-      "Result": "",
+      "Result": "1",
       "Winner": false,
       "HasData": true,
       "NameS": "Maldives",
@@ -892,42 +692,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "7",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "70",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "97",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "51",
           "Extensions": []
         },
         {
@@ -1002,7 +802,207 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
+          "Value": "CBA",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
           "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ]
+    },
+    "Away": {
+      "Org": "KAZ",
+      "Reg": "TTEWTEAM-------KAZ01",
+      "Name": "Kazakhstan",
+      "Result": "3",
+      "Winner": true,
+      "HasData": true,
+      "NameS": "Kazakhstan",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "KAZ",
+          "Bib": "",
+          "Name": "AKASHEVA Zauresh",
+          "NameS": "AKASHEVA Zauresh",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "KAZ",
+          "Bib": "",
+          "Name": "MIRKADIROVA Sarvinoz",
+          "NameS": "MIRKADIROVA Sarvinoz",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "KAZ",
+          "Bib": "",
+          "Name": "KOSHKUMBAYEVA Zhanerke",
+          "NameS": "KOSHKUMBAYEVA Zhanerke",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "KAZ",
+          "Bib": "",
+          "Name": "ROMANOVSKAYA Angelina",
+          "NameS": "ROMANOVSKAYA Angelina",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "KAZ",
+          "Bib": "",
+          "Name": "ZHAXYLYKOVA Albina",
+          "NameS": "ZHAXYLYKOVA Albina",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "9",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "2",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "7",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "46",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "144",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "74",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "W.TEAM--------------.GPC-.00020000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------KAZ01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------KOR01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "0-3"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "YZX",
           "Extensions": []
         },
         {
@@ -1082,15 +1082,15 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "1h41min",
         "Extensions": []
       }
     ]
   },
   {
     "Orgs": [
-      "SGP",
-      "INA"
+      "INA",
+      "SGP"
     ],
     "IsPhase": false,
     "ResCode": "W.TEAM--------------.GPF-.00050000",
@@ -1101,8 +1101,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -1124,9 +1124,9 @@
     "UnitDesc": "Women's Team Group F Match 5",
     "UnitDescS": "WT Gr.F M 5",
     "UnitDescA": "Match 5",
-    "UnitNum": "7",
+    "UnitNum": "22",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -1155,236 +1155,10 @@
       }
     ],
     "Home": {
-      "Org": "SGP",
-      "Reg": "TTEWTEAM-------SGP01",
-      "Name": "Singapore",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "Singapore",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "SGP",
-          "Bib": "",
-          "Name": "LOY Ming",
-          "NameS": "LOY Ming",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "SGP",
-          "Bib": "",
-          "Name": "SER Lin Qian",
-          "NameS": "SER Lin Qian",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "SGP",
-          "Bib": "",
-          "Name": "ZENG Jian",
-          "NameS": "ZENG Jian",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "SGP",
-          "Bib": "",
-          "Name": "TAN Zhao",
-          "NameS": "TAN Zhao",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "SGP",
-          "Bib": "",
-          "Name": "LAI Chloe",
-          "NameS": "LAI Chloe",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "W.TEAM--------------.GPF-.00010000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------SGP01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------PAK01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "3-0"
-            }
-          ]
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 2,
-          "Value": "W.TEAM--------------.GPF-.00030000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 2,
-              "Value": "TTEWTEAM-------SGP01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 2,
-              "Value": "TTEWTEAM-------IND01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 2,
-              "Value": "2-3"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Away": {
       "Org": "INA",
       "Reg": "TTEWTEAM-------INA01",
       "Name": "Indonesia",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Indonesia",
@@ -1444,7 +1218,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
@@ -1458,28 +1232,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "54",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "73",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "34",
           "Extensions": []
         },
         {
@@ -1580,7 +1354,233 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
+          "Value": "BAC",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
           "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ]
+    },
+    "Away": {
+      "Org": "SGP",
+      "Reg": "TTEWTEAM-------SGP01",
+      "Name": "Singapore",
+      "Result": "3",
+      "Winner": true,
+      "HasData": true,
+      "NameS": "Singapore",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "SGP",
+          "Bib": "",
+          "Name": "LOY Ming Ying",
+          "NameS": "LOY Ming Ying",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "SGP",
+          "Bib": "",
+          "Name": "SER Lin Qian",
+          "NameS": "SER Lin Qian",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "SGP",
+          "Bib": "",
+          "Name": "ZENG Jian",
+          "NameS": "ZENG Jian",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "SGP",
+          "Bib": "",
+          "Name": "TAN Zhao Yun",
+          "NameS": "TAN Zhao Yun",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "SGP",
+          "Bib": "",
+          "Name": "LAI Chloe",
+          "NameS": "LAI Chloe",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "8",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "3",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "8",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "39",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "109",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "55",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "W.TEAM--------------.GPF-.00010000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------SGP01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------PAK01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "3-0"
+            }
+          ]
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 2,
+          "Value": "W.TEAM--------------.GPF-.00030000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 2,
+              "Value": "TTEWTEAM-------SGP01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 2,
+              "Value": "TTEWTEAM-------IND01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 2,
+              "Value": "2-3"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "ZYX",
           "Extensions": []
         },
         {
@@ -1660,7 +1660,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "1h24min",
         "Extensions": []
       }
     ]
@@ -1679,8 +1679,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -1702,9 +1702,9 @@
     "UnitDesc": "Women's Team Group E Match 6",
     "UnitDescS": "WT Gr.E M 6",
     "UnitDescA": "Match 6",
-    "UnitNum": "6",
+    "UnitNum": "23",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -1736,8 +1736,8 @@
       "Org": "THA",
       "Reg": "TTEWTEAM-------THA01",
       "Name": "Thailand",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Thailand",
       "Medal": "",
@@ -1796,42 +1796,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "10",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "10",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "15",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "99",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "52",
           "Extensions": []
         },
         {
@@ -1932,7 +1932,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "BCA",
           "Extensions": []
         },
         {
@@ -1962,7 +1962,7 @@
       "Org": "LBN",
       "Reg": "TTEWTEAM-------LBN01",
       "Name": "Lebanon",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Lebanon",
@@ -2006,7 +2006,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
@@ -2020,28 +2020,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "47",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "34",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "19",
           "Extensions": []
         },
         {
@@ -2142,7 +2142,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "ZXY",
           "Extensions": []
         },
         {
@@ -2222,15 +2222,15 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "44min",
         "Extensions": []
       }
     ]
   },
   {
     "Orgs": [
-      "HKG",
-      "QAT"
+      "QAT",
+      "HKG"
     ],
     "IsPhase": false,
     "ResCode": "W.TEAM--------------.GPE-.00050000",
@@ -2241,8 +2241,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -2264,9 +2264,9 @@
     "UnitDesc": "Women's Team Group E Match 5",
     "UnitDescS": "WT Gr.E M 5",
     "UnitDescA": "Match 5",
-    "UnitNum": "5",
+    "UnitNum": "21",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -2295,236 +2295,10 @@
       }
     ],
     "Home": {
-      "Org": "HKG",
-      "Reg": "TTEWTEAM-------HKG01",
-      "Name": "Hong Kong, China",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "Hong Kong, China",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "HKG",
-          "Bib": "",
-          "Name": "DOO Hoi Kem",
-          "NameS": "DOO Hoi Kem",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "HKG",
-          "Bib": "",
-          "Name": "LAM Yee Lok",
-          "NameS": "LAM Yee Lok",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "HKG",
-          "Bib": "",
-          "Name": "LEE Hoi Man Karen",
-          "NameS": "LEE Hoi Man Karen",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "HKG",
-          "Bib": "",
-          "Name": "NG Wing Lam",
-          "NameS": "NG Wing Lam",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "HKG",
-          "Bib": "",
-          "Name": "SU Tsz Tung",
-          "NameS": "SU Tsz Tung",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "W.TEAM--------------.GPE-.00010000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------HKG01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEWTEAM-------LBN01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "3-0"
-            }
-          ]
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 2,
-          "Value": "W.TEAM--------------.GPE-.00030000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 2,
-              "Value": "TTEWTEAM-------HKG01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 2,
-              "Value": "TTEWTEAM-------THA01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 2,
-              "Value": "3-2"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Away": {
       "Org": "QAT",
       "Reg": "TTEWTEAM-------QAT01",
       "Name": "Qatar",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Qatar",
@@ -2584,7 +2358,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
@@ -2598,28 +2372,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "54",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "37",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "16",
           "Extensions": []
         },
         {
@@ -2720,7 +2494,233 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
+          "Value": "BAC",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
           "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ]
+    },
+    "Away": {
+      "Org": "HKG",
+      "Reg": "TTEWTEAM-------HKG01",
+      "Name": "Hong Kong, China",
+      "Result": "3",
+      "Winner": true,
+      "HasData": true,
+      "NameS": "Hong Kong, China",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "HKG",
+          "Bib": "",
+          "Name": "DOO Hoi Kem",
+          "NameS": "DOO Hoi Kem",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "HKG",
+          "Bib": "",
+          "Name": "LAM Yee Lok",
+          "NameS": "LAM Yee Lok",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "HKG",
+          "Bib": "",
+          "Name": "LEE Hoi Man Karen",
+          "NameS": "LEE Hoi Man Karen",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "HKG",
+          "Bib": "",
+          "Name": "NG Wing Lam",
+          "NameS": "NG Wing Lam",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "HKG",
+          "Bib": "",
+          "Name": "SU Tsz Tung",
+          "NameS": "SU Tsz Tung",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "10",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "4",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "7",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "21",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "99",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "45",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "W.TEAM--------------.GPE-.00010000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------HKG01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEWTEAM-------LBN01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "3-0"
+            }
+          ]
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 2,
+          "Value": "W.TEAM--------------.GPE-.00030000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 2,
+              "Value": "TTEWTEAM-------HKG01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 2,
+              "Value": "TTEWTEAM-------THA01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 2,
+              "Value": "3-2"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "YXZ",
           "Extensions": []
         },
         {
@@ -2800,7 +2800,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "48min",
         "Extensions": []
       }
     ]
@@ -2819,8 +2819,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -2842,9 +2842,9 @@
     "UnitDesc": "Women's Team Group D Match 3",
     "UnitDescS": "WT Gr.D M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "4",
+    "UnitNum": "16",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -2876,8 +2876,8 @@
       "Org": "PRK",
       "Reg": "TTEWTEAM-------PRK01",
       "Name": "Democratic People's Republic of Korea",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "DPR Korea",
       "Medal": "",
@@ -2893,8 +2893,8 @@
         {
           "Org": "PRK",
           "Bib": "",
-          "Name": "PYON Song",
-          "NameS": "PYON Song",
+          "Name": "PYON Song Gyong",
+          "NameS": "PYON Song Gyong",
           "FuncDesc": "Athlete",
           "PosDesc": ""
         },
@@ -2928,42 +2928,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "10",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "10",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "13",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "99",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "50",
           "Extensions": []
         },
         {
@@ -3038,7 +3038,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "ABC",
           "Extensions": []
         },
         {
@@ -3068,7 +3068,7 @@
       "Org": "BAN",
       "Reg": "TTEWTEAM-------BAN01",
       "Name": "Bangladesh",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Bangladesh",
@@ -3112,7 +3112,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
@@ -3126,28 +3126,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "49",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "28",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "15",
           "Extensions": []
         },
         {
@@ -3222,7 +3222,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "YXZ",
           "Extensions": []
         },
         {
@@ -3302,7 +3302,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "46min",
         "Extensions": []
       }
     ]
@@ -3321,8 +3321,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -3344,9 +3344,9 @@
     "UnitDesc": "Women's Team Group A Match 3",
     "UnitDescS": "WT Gr.A M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "1",
+    "UnitNum": "13",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -3377,11 +3377,11 @@
     "Home": {
       "Org": "MAC",
       "Reg": "TTEWTEAM-------MAC01",
-      "Name": "Macau, China",
-      "Result": "",
-      "Winner": false,
+      "Name": "Macao, China",
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
-      "NameS": "Macau, China",
+      "NameS": "Macao, China",
       "Medal": "",
       "Members": [
         {
@@ -3403,8 +3403,8 @@
         {
           "Org": "MAC",
           "Bib": "",
-          "Name": "KUAN Cheok",
-          "NameS": "KUAN Cheok",
+          "Name": "KUAN Cheok Lam",
+          "NameS": "KUAN Cheok Lam",
           "FuncDesc": "Athlete",
           "PosDesc": ""
         }
@@ -3422,42 +3422,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "10",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "10",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "36",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "156",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "78",
           "Extensions": []
         },
         {
@@ -3532,7 +3532,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "ACB",
           "Extensions": []
         },
         {
@@ -3562,7 +3562,7 @@
       "Org": "NEP",
       "Reg": "TTEWTEAM-------NEP01",
       "Name": "Nepal",
-      "Result": "",
+      "Result": "1",
       "Winner": false,
       "HasData": true,
       "NameS": "Nepal",
@@ -3606,42 +3606,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "6",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "2",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "78",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "79",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "43",
           "Extensions": []
         },
         {
@@ -3716,7 +3716,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "ZXY",
           "Extensions": []
         },
         {
@@ -3796,7 +3796,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "1h33min",
         "Extensions": []
       }
     ]
@@ -3815,8 +3815,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T10:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -3838,9 +3838,9 @@
     "UnitDesc": "Women's Team Group B Match 3",
     "UnitDescS": "WT Gr.B M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "2",
+    "UnitNum": "14",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -3872,8 +3872,8 @@
       "Org": "UZB",
       "Reg": "TTEWTEAM-------UZB01",
       "Name": "Uzbekistan",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Uzbekistan",
       "Medal": "",
@@ -3916,42 +3916,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "10",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "2",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "8",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "40",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "139",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "78",
           "Extensions": []
         },
         {
@@ -4026,7 +4026,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "BCA",
           "Extensions": []
         },
         {
@@ -4056,7 +4056,7 @@
       "Org": "MGL",
       "Reg": "TTEWTEAM-------MGL01",
       "Name": "Mongolia",
-      "Result": "",
+      "Result": "1",
       "Winner": false,
       "HasData": true,
       "NameS": "Mongolia",
@@ -4108,42 +4108,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "7",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "61",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "94",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "54",
           "Extensions": []
         },
         {
@@ -4218,7 +4218,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "XYZ",
           "Extensions": []
         },
         {
@@ -4298,7 +4298,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "1h38min",
         "Extensions": []
       }
     ]
@@ -4317,8 +4317,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T12:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -4340,9 +4340,9 @@
     "UnitDesc": "Men's Team Group B Match 3",
     "UnitDescS": "MT Gr.B M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "2",
+    "UnitNum": "16",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -4374,8 +4374,8 @@
       "Org": "UZB",
       "Reg": "TTEMTEAM-------UZB01",
       "Name": "Uzbekistan",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Uzbekistan",
       "Medal": "",
@@ -4418,42 +4418,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "8",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "7",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "29",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "111",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "62",
           "Extensions": []
         },
         {
@@ -4528,7 +4528,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "BAC",
           "Extensions": []
         },
         {
@@ -4558,7 +4558,7 @@
       "Org": "MDV",
       "Reg": "TTEMTEAM-------MDV01",
       "Name": "Maldives",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Maldives",
@@ -4610,7 +4610,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
@@ -4624,28 +4624,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "49",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "71",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "42",
           "Extensions": []
         },
         {
@@ -4720,7 +4720,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "ZYX",
           "Extensions": []
         },
         {
@@ -4800,15 +4800,15 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "1h4min",
         "Extensions": []
       }
     ]
   },
   {
     "Orgs": [
-      "QAT",
-      "MAC"
+      "MAC",
+      "QAT"
     ],
     "IsPhase": false,
     "ResCode": "M.TEAM--------------.GPA-.00030000",
@@ -4819,8 +4819,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T12:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -4842,9 +4842,9 @@
     "UnitDesc": "Men's Team Group A Match 3",
     "UnitDescS": "MT Gr.A M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "1",
+    "UnitNum": "15",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -4873,213 +4873,13 @@
       }
     ],
     "Home": {
-      "Org": "QAT",
-      "Reg": "TTEMTEAM-------QAT01",
-      "Name": "Qatar",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "Qatar",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "QAT",
-          "Bib": "",
-          "Name": "ABDULHUSSEIN Abdullah",
-          "NameS": "ABDULHUSSEIN Abdullah",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "QAT",
-          "Bib": "",
-          "Name": "ALNASER Rawad",
-          "NameS": "ALNASER Rawad",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "QAT",
-          "Bib": "",
-          "Name": "AHUSSEIN Mohammed",
-          "NameS": "AHUSSEIN Mohammed",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "QAT",
-          "Bib": "",
-          "Name": "AL-KUWARI Sultan",
-          "NameS": "AL-KUWARI Sultan",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "QAT",
-          "Bib": "",
-          "Name": "KORANI Ahmed",
-          "NameS": "KORANI Ahmed",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "M.TEAM--------------.GPA-.00020000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------QAT01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------CHN01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "0-3"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Away": {
       "Org": "MAC",
       "Reg": "TTEMTEAM-------MAC01",
-      "Name": "Macau, China",
-      "Result": "",
+      "Name": "Macao, China",
+      "Result": "2",
       "Winner": false,
       "HasData": true,
-      "NameS": "Macau, China",
+      "NameS": "Macao, China",
       "Medal": "",
       "Members": [
         {
@@ -5093,8 +4893,8 @@
         {
           "Org": "MAC",
           "Bib": "",
-          "Name": "ZHENG Hong",
-          "NameS": "ZHENG Hong",
+          "Name": "ZHENG Hong Wai",
+          "NameS": "ZHENG Hong Wai",
           "FuncDesc": "Athlete",
           "PosDesc": ""
         },
@@ -5120,42 +4920,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "7",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "6",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "79",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "184",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "100",
           "Extensions": []
         },
         {
@@ -5230,7 +5030,207 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
+          "Value": "ACB",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
           "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ]
+    },
+    "Away": {
+      "Org": "QAT",
+      "Reg": "TTEMTEAM-------QAT01",
+      "Name": "Qatar",
+      "Result": "3",
+      "Winner": true,
+      "HasData": true,
+      "NameS": "Qatar",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "QAT",
+          "Bib": "",
+          "Name": "ABDULHUSSEIN Abdullah",
+          "NameS": "ABDULHUSSEIN Abdullah",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "QAT",
+          "Bib": "",
+          "Name": "ALNASER Rawad",
+          "NameS": "ALNASER Rawad",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "QAT",
+          "Bib": "",
+          "Name": "AHUSSEIN Mohammed",
+          "NameS": "AHUSSEIN Mohammed",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "QAT",
+          "Bib": "",
+          "Name": "AL-KUWARI Sultan",
+          "NameS": "AL-KUWARI Sultan",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "QAT",
+          "Bib": "",
+          "Name": "KORANI Ahmed",
+          "NameS": "KORANI Ahmed",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "5",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "5",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "5",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "84",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "177",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "98",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "M.TEAM--------------.GPA-.00020000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------QAT01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------CHN01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "0-3"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "XYZ",
           "Extensions": []
         },
         {
@@ -5310,7 +5310,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "2h33min",
         "Extensions": []
       }
     ]
@@ -5329,8 +5329,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T12:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -5352,9 +5352,9 @@
     "UnitDesc": "Men's Team Group D Match 3",
     "UnitDescS": "MT Gr.D M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "4",
+    "UnitNum": "18",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -5386,8 +5386,8 @@
       "Org": "MGL",
       "Reg": "TTEMTEAM-------MGL01",
       "Name": "Mongolia",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Mongolia",
       "Medal": "",
@@ -5438,42 +5438,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "8",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "8",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "62",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "160",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "88",
           "Extensions": []
         },
         {
@@ -5548,7 +5548,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "BAC",
           "Extensions": []
         },
         {
@@ -5578,7 +5578,7 @@
       "Org": "YEM",
       "Reg": "TTEMTEAM-------YEM01",
       "Name": "Yemen",
-      "Result": "",
+      "Result": "1",
       "Winner": false,
       "HasData": true,
       "NameS": "Yemen",
@@ -5622,42 +5622,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "6",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "72",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "138",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "76",
           "Extensions": []
         },
         {
@@ -5732,7 +5732,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "XZY",
           "Extensions": []
         },
         {
@@ -5812,7 +5812,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "2h9min",
         "Extensions": []
       }
     ]
@@ -5831,8 +5831,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T12:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -5854,9 +5854,9 @@
     "UnitDesc": "Men's Team Group C Match 3",
     "UnitDescS": "MT Gr.C M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "3",
+    "UnitNum": "17",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -5888,8 +5888,8 @@
       "Org": "BRN",
       "Reg": "TTEMTEAM-------BRN01",
       "Name": "Bahrain",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Bahrain",
       "Medal": "",
@@ -5940,42 +5940,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "9",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "6",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "26",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "110",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "63",
           "Extensions": []
         },
         {
@@ -6050,7 +6050,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "BCA",
           "Extensions": []
         },
         {
@@ -6080,7 +6080,7 @@
       "Org": "NEP",
       "Reg": "TTEMTEAM-------NEP01",
       "Name": "Nepal",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Nepal",
@@ -6124,7 +6124,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
@@ -6138,28 +6138,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "5",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "47",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "68",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "42",
           "Extensions": []
         },
         {
@@ -6234,7 +6234,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "XYZ",
           "Extensions": []
         },
         {
@@ -6314,7 +6314,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "1h9min",
         "Extensions": []
       }
     ]
@@ -6333,8 +6333,8 @@
     "isH2H": true,
     "Type": "D",
     "Medal": "",
-    "Status": "START_LIST",
-    "StatusDesc": "Start List",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T18:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -6356,9 +6356,9 @@
     "UnitDesc": "Women's Doubles Round 1 Match 6",
     "UnitDescS": "WD Rnd1 M 6",
     "UnitDescA": "Match 6",
-    "UnitNum": "1",
+    "UnitNum": "6",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -6390,7 +6390,7 @@
       "Org": "BAN",
       "Reg": "TTEWDOUBLES----BAN01",
       "Name": "TUSHI Samanta / MAHI Nowrin",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "TUSHI S / MAHI N",
@@ -6413,7 +6413,26 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "1",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "2",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "6",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -6498,8 +6517,8 @@
       "Org": "PRK",
       "Reg": "TTEWDOUBLES----PRK01",
       "Name": "KIM Kum Yong / CHA Su Yong",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "KIM K / CHA S",
       "Medal": "",
@@ -6521,7 +6540,26 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -6597,7 +6635,7 @@
           "Type": "SERVICE",
           "Code": "Server",
           "Pos": 0,
-          "Value": "false",
+          "Value": "true",
           "Extensions": []
         }
       ]
@@ -6621,14 +6659,14 @@
         "Type": "UNIT_INFO",
         "Code": "ReceivedDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "13min",
         "Extensions": []
       },
       {
         "Type": "UNIT_INFO",
         "Code": "ResultDetailWinner",
         "Pos": 0,
-        "Value": "",
+        "Value": "11:1, 11:2, 11:6",
         "Extensions": []
       },
       {
@@ -6642,7 +6680,7 @@
         "Type": "UNIT_INFO",
         "Code": "ServerHomeAway",
         "Pos": 0,
-        "Value": "",
+        "Value": "2",
         "Extensions": []
       },
       {
@@ -6668,8 +6706,8 @@
     "isH2H": true,
     "Type": "D",
     "Medal": "",
-    "Status": "START_LIST",
-    "StatusDesc": "Start List",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T18:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -6691,9 +6729,9 @@
     "UnitDesc": "Women's Doubles Round 1 Match 11",
     "UnitDescS": "WD Rnd1 M 11",
     "UnitDescA": "Match 11",
-    "UnitNum": "2",
+    "UnitNum": "11",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -6725,8 +6763,8 @@
       "Org": "INA",
       "Reg": "TTEWDOUBLES----INA02",
       "Name": "PUTRI Cindy / RASMI Citra",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "PUTRI C / RASMI C",
       "Medal": "",
@@ -6748,7 +6786,38 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "14",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "9",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "9",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -6756,6 +6825,32 @@
           "Pos": 0,
           "Value": "",
           "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "W.DOUBLES-----------.8FNL.000300--",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEWDOUBLES----INA02"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEWDOUBLES----SGP01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": ""
+            }
+          ]
         },
         {
           "Type": "RESULT_INFO",
@@ -6775,7 +6870,7 @@
           "Type": "RESULT_INFO",
           "Code": "CardT",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
@@ -6810,7 +6905,7 @@
           "Type": "RESULT_INFO",
           "Code": "Timeout",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
@@ -6833,7 +6928,7 @@
       "Org": "MDV",
       "Reg": "TTEWDOUBLES----MDV01",
       "Name": "NAZIM Aishath / ALI Fathimath",
-      "Result": "",
+      "Result": "2",
       "Winner": false,
       "HasData": true,
       "NameS": "NAZIM A / ALI F",
@@ -6856,7 +6951,38 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "12",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "8",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "9",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -6883,7 +7009,7 @@
           "Type": "RESULT_INFO",
           "Code": "CardT",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
@@ -6918,7 +7044,7 @@
           "Type": "RESULT_INFO",
           "Code": "Timeout",
           "Pos": 0,
-          "Value": "0",
+          "Value": "1",
           "Extensions": []
         },
         {
@@ -6932,7 +7058,7 @@
           "Type": "SERVICE",
           "Code": "Server",
           "Pos": 0,
-          "Value": "false",
+          "Value": "true",
           "Extensions": []
         }
       ]
@@ -6956,14 +7082,14 @@
         "Type": "UNIT_INFO",
         "Code": "ReceivedDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "39min",
         "Extensions": []
       },
       {
         "Type": "UNIT_INFO",
         "Code": "ResultDetailWinner",
         "Pos": 0,
-        "Value": "",
+        "Value": "14:12, 11:8, 9:11, 9:11, 11:9",
         "Extensions": []
       },
       {
@@ -6977,7 +7103,7 @@
         "Type": "UNIT_INFO",
         "Code": "ServerHomeAway",
         "Pos": 0,
-        "Value": "",
+        "Value": "2",
         "Extensions": []
       },
       {
@@ -7003,8 +7129,8 @@
     "isH2H": true,
     "Type": "D",
     "Medal": "",
-    "Status": "START_LIST",
-    "StatusDesc": "Start List",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T18:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -7026,9 +7152,9 @@
     "UnitDesc": "Women's Doubles Round 1 Match 22",
     "UnitDescS": "WD Rnd1 M 22",
     "UnitDescA": "Match 22",
-    "UnitNum": "3",
+    "UnitNum": "22",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -7059,9 +7185,9 @@
     "Home": {
       "Org": "PRK",
       "Reg": "TTEWDOUBLES----PRK02",
-      "Name": "PYON Song / CHOE Jong Im",
-      "Result": "",
-      "Winner": false,
+      "Name": "PYON Song Gyong / CHOE Jong Im",
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "PYON S / CHOE J",
       "Medal": "",
@@ -7069,8 +7195,8 @@
         {
           "Org": "PRK",
           "Bib": "",
-          "Name": "PYON Song",
-          "NameS": "PYON Song",
+          "Name": "PYON Song Gyong",
+          "NameS": "PYON Song Gyong",
           "FuncDesc": "Athlete",
           "PosDesc": ""
         },
@@ -7083,7 +7209,26 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -7168,7 +7313,7 @@
       "Org": "PAK",
       "Reg": "TTEWDOUBLES----PAK02",
       "Name": "KHAN Fatima / KHAN Aleena",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "KHAN F / KHAN A",
@@ -7191,7 +7336,26 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "5",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "1",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "4",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -7267,7 +7431,7 @@
           "Type": "SERVICE",
           "Code": "Server",
           "Pos": 0,
-          "Value": "false",
+          "Value": "true",
           "Extensions": []
         }
       ]
@@ -7291,14 +7455,14 @@
         "Type": "UNIT_INFO",
         "Code": "ReceivedDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "12min",
         "Extensions": []
       },
       {
         "Type": "UNIT_INFO",
         "Code": "ResultDetailWinner",
         "Pos": 0,
-        "Value": "",
+        "Value": "11:5, 11:1, 11:4",
         "Extensions": []
       },
       {
@@ -7312,7 +7476,7 @@
         "Type": "UNIT_INFO",
         "Code": "ServerHomeAway",
         "Pos": 0,
-        "Value": "",
+        "Value": "2",
         "Extensions": []
       },
       {
@@ -7338,8 +7502,8 @@
     "isH2H": true,
     "Type": "D",
     "Medal": "",
-    "Status": "START_LIST",
-    "StatusDesc": "Start List",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T18:30:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -7361,9 +7525,9 @@
     "UnitDesc": "Women's Doubles Round 1 Match 27",
     "UnitDescS": "WD Rnd1 M 27",
     "UnitDescA": "Match 27",
-    "UnitNum": "4",
+    "UnitNum": "27",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -7395,8 +7559,8 @@
       "Org": "INA",
       "Reg": "TTEWDOUBLES----INA01",
       "Name": "MAHARANI Ni / SUDARNITA Komang",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "MAHARANI N / SUDARNITA K",
       "Medal": "",
@@ -7418,7 +7582,26 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        },
+        {
+          "Rk": "1",
+          "RkPo": 1,
+          "Res": "11",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -7503,7 +7686,7 @@
       "Org": "SYR",
       "Reg": "TTEWDOUBLES----SYR01",
       "Name": "ZAZA Hend / ABBOUD Rashel",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "ZAZA H / ABBOUD R",
@@ -7526,7 +7709,26 @@
           "PosDesc": ""
         }
       ],
-      "Splits": [],
+      "Splits": [
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "7",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "3",
+          "Extensions": []
+        },
+        {
+          "Rk": "2",
+          "RkPo": 2,
+          "Res": "8",
+          "Extensions": []
+        }
+      ],
       "Extensions": [
         {
           "Type": "COMPETITOR_INFO",
@@ -7582,6 +7784,577 @@
           "Code": "DrawLetter",
           "Pos": 0,
           "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "true",
+          "Extensions": []
+        }
+      ]
+    },
+    "Extensions": [
+      {
+        "Type": "UNIT_INFO",
+        "Code": "InfoMatch",
+        "Pos": 0,
+        "Value": "0",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "InfoTeam",
+        "Pos": 0,
+        "Value": "0",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ReceivedDuration",
+        "Pos": 0,
+        "Value": "20min",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ResultDetailWinner",
+        "Pos": 0,
+        "Value": "11:7, 11:3, 11:8",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "RoundNum",
+        "Pos": 0,
+        "Value": "",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "ServerHomeAway",
+        "Pos": 0,
+        "Value": "2",
+        "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "SubMatchNum",
+        "Pos": 0,
+        "Value": "",
+        "Extensions": []
+      }
+    ]
+  },
+  {
+    "Orgs": [
+      "PAK",
+      "IND"
+    ],
+    "IsPhase": false,
+    "ResCode": "M.TEAM--------------.GPF-.00050000",
+    "ShowLink": true,
+    "Disc": "TTE",
+    "DiscDesc": "Table Tennis",
+    "Key": "M.TEAM--------------.GPF-.00050000",
+    "isH2H": true,
+    "Type": "T",
+    "Medal": "",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
+    "DateTimeRaw": "2026-09-21T19:00:00+09:00",
+    "HideStartDate": false,
+    "Estimated": false,
+    "EstText": "",
+    "HideLocation": false,
+    "Venue": "SHT",
+    "VenueDesc": "SKY HALL TOYOTA",
+    "VenueDescS": "SKY HALL TOYOTA",
+    "Loc": "001",
+    "LocDesc": "Table 1",
+    "LocDescS": "Table 1",
+    "Event": "M.TEAM--------------",
+    "EventDesc": "Men's Team",
+    "Phase": "M.TEAM--------------.GPF-",
+    "PhaseOrder": 16,
+    "PhaseDesc": "Men's Team Group F",
+    "PhaseDescS": "MT Gr.F",
+    "PhaseDescA": "Group F",
+    "UnitDesc": "Men's Team Group F Match 5",
+    "UnitDescS": "MT Gr.F M 5",
+    "UnitDescA": "Match 5",
+    "UnitNum": "24",
+    "IsLive": false,
+    "ShowResults": true,
+    "Periods": [
+      {
+        "Order": 1,
+        "Desc": "Game 1",
+        "DescS": "1"
+      },
+      {
+        "Order": 2,
+        "Desc": "Game 2",
+        "DescS": "2"
+      },
+      {
+        "Order": 3,
+        "Desc": "Game 3",
+        "DescS": "3"
+      },
+      {
+        "Order": 4,
+        "Desc": "Game 4",
+        "DescS": "4"
+      },
+      {
+        "Order": 5,
+        "Desc": "Game 5",
+        "DescS": "5"
+      }
+    ],
+    "Home": {
+      "Org": "PAK",
+      "Reg": "TTEMTEAM-------PAK01",
+      "Name": "Pakistan",
+      "Result": "0",
+      "Winner": false,
+      "HasData": true,
+      "NameS": "Pakistan",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "PAK",
+          "Bib": "",
+          "Name": "KHAN Abbas",
+          "NameS": "KHAN Abbas",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "PAK",
+          "Bib": "",
+          "Name": "BILAL Taha",
+          "NameS": "BILAL Taha",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "PAK",
+          "Bib": "",
+          "Name": "KHAN Abdal",
+          "NameS": "KHAN Abdal",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "PAK",
+          "Bib": "",
+          "Name": "KHAN Muhammad",
+          "NameS": "KHAN Muhammad",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "PAK",
+          "Bib": "",
+          "Name": "KHAN Taimur",
+          "NameS": "KHAN Taimur",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "3",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "4",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "47",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "44",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "22",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "M.TEAM--------------.GPF-.00020000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------PAK01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------IRI01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "0-3"
+            }
+          ]
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 2,
+          "Value": "M.TEAM--------------.GPF-.00040000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 2,
+              "Value": "TTEMTEAM-------PAK01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 2,
+              "Value": "TTEMTEAM-------INA01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 2,
+              "Value": "0-3"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "BAC",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ]
+    },
+    "Away": {
+      "Org": "IND",
+      "Reg": "TTEMTEAM-------IND01",
+      "Name": "India",
+      "Result": "3",
+      "Winner": true,
+      "HasData": true,
+      "NameS": "India",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "DESAI Harmeet",
+          "NameS": "DESAI Harmeet",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "GNANASEKARAN Sathiyan",
+          "NameS": "GNANASEKARAN Sathiyan",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "THAKKAR Manav",
+          "NameS": "THAKKAR Manav",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "SHAH Manush",
+          "NameS": "SHAH Manush",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IND",
+          "Bib": "",
+          "Name": "JAIN Payas",
+          "NameS": "JAIN Payas",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "10",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "3",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "7",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "22",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "99",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "52",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "M.TEAM--------------.GPF-.00010000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------IND01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------INA01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "3-0"
+            }
+          ]
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 2,
+          "Value": "M.TEAM--------------.GPF-.00030000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 2,
+              "Value": "TTEMTEAM-------IND01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 2,
+              "Value": "TTEMTEAM-------IRI01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 2,
+              "Value": "0-3"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "XYZ",
           "Extensions": []
         },
         {
@@ -7656,13 +8429,20 @@
         "Pos": 0,
         "Value": "",
         "Extensions": []
+      },
+      {
+        "Type": "UNIT_INFO",
+        "Code": "TeamMatchDuration",
+        "Pos": 0,
+        "Value": "51min",
+        "Extensions": []
       }
     ]
   },
   {
     "Orgs": [
-      "IRI",
-      "INA"
+      "INA",
+      "IRI"
     ],
     "IsPhase": false,
     "ResCode": "M.TEAM--------------.GPF-.00060000",
@@ -7673,8 +8453,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T19:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -7696,9 +8476,9 @@
     "UnitDesc": "Men's Team Group F Match 6",
     "UnitDescS": "MT Gr.F M 6",
     "UnitDescA": "Match 6",
-    "UnitNum": "3",
+    "UnitNum": "26",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -7727,236 +8507,10 @@
       }
     ],
     "Home": {
-      "Org": "IRI",
-      "Reg": "TTEMTEAM-------IRI01",
-      "Name": "Islamic Republic of Iran",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "IR Iran",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "IRI",
-          "Bib": "",
-          "Name": "HABIBI Mohammad",
-          "NameS": "HABIBI Mohammad",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IRI",
-          "Bib": "",
-          "Name": "ALAMIYAN Noshad",
-          "NameS": "ALAMIYAN Noshad",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IRI",
-          "Bib": "",
-          "Name": "ALAMIAN Nima",
-          "NameS": "ALAMIAN Nima",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IRI",
-          "Bib": "",
-          "Name": "FARAJI Benyamin",
-          "NameS": "FARAJI Benyamin",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IRI",
-          "Bib": "",
-          "Name": "GHAFFARI Aryan",
-          "NameS": "GHAFFARI Aryan",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "M.TEAM--------------.GPF-.00020000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------IRI01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------PAK01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "3-0"
-            }
-          ]
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 2,
-          "Value": "M.TEAM--------------.GPF-.00030000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 2,
-              "Value": "TTEMTEAM-------IRI01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 2,
-              "Value": "TTEMTEAM-------IND01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 2,
-              "Value": "3-0"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Away": {
       "Org": "INA",
       "Reg": "TTEMTEAM-------INA01",
       "Name": "Indonesia",
-      "Result": "",
+      "Result": "1",
       "Winner": false,
       "HasData": true,
       "NameS": "Indonesia",
@@ -8016,42 +8570,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "9",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "2",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "7",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "68",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "134",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "78",
           "Extensions": []
         },
         {
@@ -8152,7 +8706,233 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
+          "Value": "CAB",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Timeout",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "MemberServer",
+          "Pos": 0,
           "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "SERVICE",
+          "Code": "Server",
+          "Pos": 0,
+          "Value": "false",
+          "Extensions": []
+        }
+      ]
+    },
+    "Away": {
+      "Org": "IRI",
+      "Reg": "TTEMTEAM-------IRI01",
+      "Name": "Islamic Republic of Iran",
+      "Result": "3",
+      "Winner": true,
+      "HasData": true,
+      "NameS": "IR Iran",
+      "Medal": "",
+      "Members": [
+        {
+          "Org": "IRI",
+          "Bib": "",
+          "Name": "HABIBI Mohammad",
+          "NameS": "HABIBI Mohammad",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IRI",
+          "Bib": "",
+          "Name": "ALAMIYAN Noshad",
+          "NameS": "ALAMIYAN Noshad",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IRI",
+          "Bib": "",
+          "Name": "ALAMIAN Nima",
+          "NameS": "ALAMIAN Nima",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IRI",
+          "Bib": "",
+          "Name": "FARAJI Benyamin",
+          "NameS": "FARAJI Benyamin",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        },
+        {
+          "Org": "IRI",
+          "Bib": "",
+          "Name": "GHAFFARI Aryan",
+          "NameS": "GHAFFARI Aryan",
+          "FuncDesc": "Athlete",
+          "PosDesc": ""
+        }
+      ],
+      "Splits": [],
+      "Extensions": [
+        {
+          "Type": "COMPETITOR_INFO",
+          "Code": "Hand/Grip",
+          "Pos": 0,
+          "Value": "",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_BL",
+          "Pos": 0,
+          "Value": "8",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_GDO",
+          "Pos": 0,
+          "Value": "2",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_MCPW",
+          "Pos": 0,
+          "Value": "6",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PLOS",
+          "Pos": 0,
+          "Value": "56",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PW",
+          "Pos": 0,
+          "Value": "159",
+          "Extensions": []
+        },
+        {
+          "Type": "COMPETITOR_STATS",
+          "Code": "ST_PWOS",
+          "Pos": 0,
+          "Value": "91",
+          "Extensions": []
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 1,
+          "Value": "M.TEAM--------------.GPF-.00020000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------IRI01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 1,
+              "Value": "TTEMTEAM-------PAK01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 1,
+              "Value": "3-0"
+            }
+          ]
+        },
+        {
+          "Type": "PREV_RESULT",
+          "Code": "UNIT_KEY",
+          "Pos": 2,
+          "Value": "M.TEAM--------------.GPF-.00030000",
+          "Extensions": [
+            {
+              "Type": "RESULT",
+              "Code": "Register",
+              "Pos": 2,
+              "Value": "TTEMTEAM-------IRI01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "RegisterOpp",
+              "Pos": 2,
+              "Value": "TTEMTEAM-------IND01"
+            },
+            {
+              "Type": "RESULT",
+              "Code": "Result",
+              "Pos": 2,
+              "Value": "3-0"
+            }
+          ]
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card1",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "Card2",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardT",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CardY",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardRed",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "CoachCardYellow",
+          "Pos": 0,
+          "Value": "0",
+          "Extensions": []
+        },
+        {
+          "Type": "RESULT_INFO",
+          "Code": "DrawLetter",
+          "Pos": 0,
+          "Value": "XYZ",
           "Extensions": []
         },
         {
@@ -8232,7 +9012,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "2h7min",
         "Extensions": []
       }
     ]
@@ -8251,8 +9031,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T19:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -8274,9 +9054,9 @@
     "UnitDesc": "Men's Team Group G Match 6",
     "UnitDescS": "MT Gr. G M 6",
     "UnitDescA": "Match 6",
-    "UnitNum": "5",
+    "UnitNum": "27",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -8308,8 +9088,8 @@
       "Org": "SGP",
       "Reg": "TTEMTEAM-------SGP01",
       "Name": "Singapore",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Singapore",
       "Medal": "",
@@ -8349,8 +9129,8 @@
         {
           "Org": "SGP",
           "Bib": "",
-          "Name": "PANG Yew",
-          "NameS": "PANG Yew",
+          "Name": "PANG Yew En",
+          "NameS": "PANG Yew En",
           "FuncDesc": "Athlete",
           "PosDesc": ""
         }
@@ -8368,42 +9148,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "9",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "9",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "31",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "111",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "60",
           "Extensions": []
         },
         {
@@ -8504,7 +9284,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "BCA",
           "Extensions": []
         },
         {
@@ -8534,7 +9314,7 @@
       "Org": "BAN",
       "Reg": "TTEMTEAM-------BAN01",
       "Name": "Bangladesh",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Bangladesh",
@@ -8578,7 +9358,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
@@ -8592,28 +9372,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "6",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "51",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "72",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "41",
           "Extensions": []
         },
         {
@@ -8714,7 +9494,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "ZYX",
           "Extensions": []
         },
         {
@@ -8794,7 +9574,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "1h8min",
         "Extensions": []
       }
     ]
@@ -8813,8 +9593,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T19:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -8836,9 +9616,9 @@
     "UnitDesc": "Men's Team Group E Match 3",
     "UnitDescS": "MT Gr.E M 3",
     "UnitDescA": "Match 3",
-    "UnitNum": "1",
+    "UnitNum": "19",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -8870,8 +9650,8 @@
       "Org": "THA",
       "Reg": "TTEMTEAM-------THA01",
       "Name": "Thailand",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Thailand",
       "Medal": "",
@@ -8914,42 +9694,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "8",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "9",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "30",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "108",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "51",
           "Extensions": []
         },
         {
@@ -9024,7 +9804,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "CBA",
           "Extensions": []
         },
         {
@@ -9054,7 +9834,7 @@
       "Org": "KGZ",
       "Reg": "TTEMTEAM-------KGZ01",
       "Name": "Kyrgyzstan",
-      "Result": "",
+      "Result": "0",
       "Winner": false,
       "HasData": true,
       "NameS": "Kyrgyzstan",
@@ -9098,7 +9878,7 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "3",
           "Extensions": []
         },
         {
@@ -9112,28 +9892,28 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "57",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "56",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "26",
           "Extensions": []
         },
         {
@@ -9208,7 +9988,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "YXZ",
           "Extensions": []
         },
         {
@@ -9288,585 +10068,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
-        "Extensions": []
-      }
-    ]
-  },
-  {
-    "Orgs": [
-      "IND",
-      "PAK"
-    ],
-    "IsPhase": false,
-    "ResCode": "M.TEAM--------------.GPF-.00050000",
-    "ShowLink": true,
-    "Disc": "TTE",
-    "DiscDesc": "Table Tennis",
-    "Key": "M.TEAM--------------.GPF-.00050000",
-    "isH2H": true,
-    "Type": "T",
-    "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
-    "DateTimeRaw": "2026-09-21T19:00:00+09:00",
-    "HideStartDate": false,
-    "Estimated": false,
-    "EstText": "",
-    "HideLocation": false,
-    "Venue": "SHT",
-    "VenueDesc": "SKY HALL TOYOTA",
-    "VenueDescS": "SKY HALL TOYOTA",
-    "Loc": "001",
-    "LocDesc": "Table 1",
-    "LocDescS": "Table 1",
-    "Event": "M.TEAM--------------",
-    "EventDesc": "Men's Team",
-    "Phase": "M.TEAM--------------.GPF-",
-    "PhaseOrder": 16,
-    "PhaseDesc": "Men's Team Group F",
-    "PhaseDescS": "MT Gr.F",
-    "PhaseDescA": "Group F",
-    "UnitDesc": "Men's Team Group F Match 5",
-    "UnitDescS": "MT Gr.F M 5",
-    "UnitDescA": "Match 5",
-    "UnitNum": "2",
-    "IsLive": false,
-    "ShowResults": false,
-    "Periods": [
-      {
-        "Order": 1,
-        "Desc": "Game 1",
-        "DescS": "1"
-      },
-      {
-        "Order": 2,
-        "Desc": "Game 2",
-        "DescS": "2"
-      },
-      {
-        "Order": 3,
-        "Desc": "Game 3",
-        "DescS": "3"
-      },
-      {
-        "Order": 4,
-        "Desc": "Game 4",
-        "DescS": "4"
-      },
-      {
-        "Order": 5,
-        "Desc": "Game 5",
-        "DescS": "5"
-      }
-    ],
-    "Home": {
-      "Org": "IND",
-      "Reg": "TTEMTEAM-------IND01",
-      "Name": "India",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "India",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "DESAI Harmeet",
-          "NameS": "DESAI Harmeet",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "GNANASEKARAN Sathiyan",
-          "NameS": "GNANASEKARAN Sathiyan",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "THAKKAR Manav",
-          "NameS": "THAKKAR Manav",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "SHAH Manush",
-          "NameS": "SHAH Manush",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "IND",
-          "Bib": "",
-          "Name": "JAIN Payas",
-          "NameS": "JAIN Payas",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "M.TEAM--------------.GPF-.00010000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------IND01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------INA01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "3-0"
-            }
-          ]
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 2,
-          "Value": "M.TEAM--------------.GPF-.00030000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 2,
-              "Value": "TTEMTEAM-------IND01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 2,
-              "Value": "TTEMTEAM-------IRI01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 2,
-              "Value": "0-3"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Away": {
-      "Org": "PAK",
-      "Reg": "TTEMTEAM-------PAK01",
-      "Name": "Pakistan",
-      "Result": "",
-      "Winner": false,
-      "HasData": true,
-      "NameS": "Pakistan",
-      "Medal": "",
-      "Members": [
-        {
-          "Org": "PAK",
-          "Bib": "",
-          "Name": "KHAN Abbas",
-          "NameS": "KHAN Abbas",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "PAK",
-          "Bib": "",
-          "Name": "BILAL Taha",
-          "NameS": "BILAL Taha",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "PAK",
-          "Bib": "",
-          "Name": "KHAN Abdal",
-          "NameS": "KHAN Abdal",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "PAK",
-          "Bib": "",
-          "Name": "KHAN Muhammad",
-          "NameS": "KHAN Muhammad",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        },
-        {
-          "Org": "PAK",
-          "Bib": "",
-          "Name": "KHAN Muhammad",
-          "NameS": "KHAN Muhammad",
-          "FuncDesc": "Athlete",
-          "PosDesc": ""
-        }
-      ],
-      "Splits": [],
-      "Extensions": [
-        {
-          "Type": "COMPETITOR_INFO",
-          "Code": "Hand/Grip",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_BL",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_GDO",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_MCPW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PLOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PW",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "COMPETITOR_STATS",
-          "Code": "ST_PWOS",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 1,
-          "Value": "M.TEAM--------------.GPF-.00020000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------PAK01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 1,
-              "Value": "TTEMTEAM-------IRI01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 1,
-              "Value": "0-3"
-            }
-          ]
-        },
-        {
-          "Type": "PREV_RESULT",
-          "Code": "UNIT_KEY",
-          "Pos": 2,
-          "Value": "M.TEAM--------------.GPF-.00040000",
-          "Extensions": [
-            {
-              "Type": "RESULT",
-              "Code": "Register",
-              "Pos": 2,
-              "Value": "TTEMTEAM-------PAK01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "RegisterOpp",
-              "Pos": 2,
-              "Value": "TTEMTEAM-------INA01"
-            },
-            {
-              "Type": "RESULT",
-              "Code": "Result",
-              "Pos": 2,
-              "Value": "0-3"
-            }
-          ]
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card1",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Card2",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardT",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CardY",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardRed",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "CoachCardYellow",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "DrawLetter",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "RESULT_INFO",
-          "Code": "Timeout",
-          "Pos": 0,
-          "Value": "0",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "MemberServer",
-          "Pos": 0,
-          "Value": "",
-          "Extensions": []
-        },
-        {
-          "Type": "SERVICE",
-          "Code": "Server",
-          "Pos": 0,
-          "Value": "false",
-          "Extensions": []
-        }
-      ]
-    },
-    "Extensions": [
-      {
-        "Type": "UNIT_INFO",
-        "Code": "InfoMatch",
-        "Pos": 0,
-        "Value": "0",
-        "Extensions": []
-      },
-      {
-        "Type": "UNIT_INFO",
-        "Code": "InfoTeam",
-        "Pos": 0,
-        "Value": "0",
-        "Extensions": []
-      },
-      {
-        "Type": "UNIT_INFO",
-        "Code": "ReceivedDuration",
-        "Pos": 0,
-        "Value": "0min",
-        "Extensions": []
-      },
-      {
-        "Type": "UNIT_INFO",
-        "Code": "ResultDetailWinner",
-        "Pos": 0,
-        "Value": "",
-        "Extensions": []
-      },
-      {
-        "Type": "UNIT_INFO",
-        "Code": "RoundNum",
-        "Pos": 0,
-        "Value": "",
-        "Extensions": []
-      },
-      {
-        "Type": "UNIT_INFO",
-        "Code": "ServerHomeAway",
-        "Pos": 0,
-        "Value": "",
-        "Extensions": []
-      },
-      {
-        "Type": "UNIT_INFO",
-        "Code": "SubMatchNum",
-        "Pos": 0,
-        "Value": "",
-        "Extensions": []
-      },
-      {
-        "Type": "UNIT_INFO",
-        "Code": "TeamMatchDuration",
-        "Pos": 0,
-        "Value": "0min",
+        "Value": "55min",
         "Extensions": []
       }
     ]
@@ -9885,8 +10087,8 @@
     "isH2H": true,
     "Type": "T",
     "Medal": "",
-    "Status": "SCHEDULED",
-    "StatusDesc": "Scheduled",
+    "Status": "OFFICIAL",
+    "StatusDesc": "Official",
     "DateTimeRaw": "2026-09-21T19:00:00+09:00",
     "HideStartDate": false,
     "Estimated": false,
@@ -9908,9 +10110,9 @@
     "UnitDesc": "Men's Team Group G Match 5",
     "UnitDescS": "MT Gr. G M 5",
     "UnitDescA": "Match 5",
-    "UnitNum": "4",
+    "UnitNum": "25",
     "IsLive": false,
-    "ShowResults": false,
+    "ShowResults": true,
     "Periods": [
       {
         "Order": 1,
@@ -9942,8 +10144,8 @@
       "Org": "KAZ",
       "Reg": "TTEMTEAM-------KAZ01",
       "Name": "Kazakhstan",
-      "Result": "",
-      "Winner": false,
+      "Result": "3",
+      "Winner": true,
       "HasData": true,
       "NameS": "Kazakhstan",
       "Medal": "",
@@ -10002,42 +10204,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "9",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "11",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "44",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "167",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "100",
           "Extensions": []
         },
         {
@@ -10138,7 +10340,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "ABC",
           "Extensions": []
         },
         {
@@ -10168,7 +10370,7 @@
       "Org": "LAO",
       "Reg": "TTEMTEAM-------LAO01",
       "Name": "Lao People's Democratic Republic",
-      "Result": "",
+      "Result": "1",
       "Winner": false,
       "HasData": true,
       "NameS": "Lao PDR",
@@ -10220,42 +10422,42 @@
           "Type": "COMPETITOR_STATS",
           "Code": "ST_BL",
           "Pos": 0,
-          "Value": "0",
+          "Value": "6",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_GDO",
           "Pos": 0,
-          "Value": "0",
+          "Value": "4",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_MCPW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "6",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PLOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "67",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PW",
           "Pos": 0,
-          "Value": "0",
+          "Value": "118",
           "Extensions": []
         },
         {
           "Type": "COMPETITOR_STATS",
           "Code": "ST_PWOS",
           "Pos": 0,
-          "Value": "0",
+          "Value": "74",
           "Extensions": []
         },
         {
@@ -10356,7 +10558,7 @@
           "Type": "RESULT_INFO",
           "Code": "DrawLetter",
           "Pos": 0,
-          "Value": "",
+          "Value": "XYZ",
           "Extensions": []
         },
         {
@@ -10436,7 +10638,7 @@
         "Type": "UNIT_INFO",
         "Code": "TeamMatchDuration",
         "Pos": 0,
-        "Value": "0min",
+        "Value": "2h18min",
         "Extensions": []
       }
     ]

@@ -160,9 +160,9 @@
               "Org": "LAO",
               "OrgDesc": "Lao People's Democratic Republic",
               "Name": "SISOMBOUN Choutiphone",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -172,9 +172,9 @@
               "Org": "MGL",
               "OrgDesc": "Mongolia",
               "Name": "BATMUNKH Bolor-erdene",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -183,17 +183,17 @@
               "Key": "W.SINGLES-----------.R64-.000300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:05:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -207,21 +207,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:4, 11:8, 11:3, 11:6",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:05",
                   "Extensions": []
                 }
               ]
@@ -379,9 +379,9 @@
               "Org": "NEP",
               "OrgDesc": "Nepal",
               "Name": "THAPA Evana",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -391,9 +391,9 @@
               "Org": "UZB",
               "OrgDesc": "Uzbekistan",
               "Name": "KAMALOVA Arujan",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -402,17 +402,17 @@
               "Key": "W.SINGLES-----------.R64-.000600--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:05:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -426,21 +426,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:3, 11:6, 11:2, 11:8",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:05",
                   "Extensions": []
                 }
               ]
@@ -452,9 +452,9 @@
               "Org": "IRI",
               "OrgDesc": "Islamic Republic of Iran",
               "Name": "ASHTARI Mahshid",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -464,9 +464,9 @@
               "Org": "INA",
               "OrgDesc": "Indonesia",
               "Name": "RASMI Citra",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -475,17 +475,17 @@
               "Key": "W.SINGLES-----------.R64-.000700--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:05:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -499,21 +499,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "3:11, 11:7, 11:9, 11:9, 12:10",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:05",
                   "Extensions": []
                 }
               ]
@@ -671,9 +671,9 @@
               "Org": "MDV",
               "OrgDesc": "Maldives",
               "Name": "ALI Fathimath",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -683,9 +683,9 @@
               "Org": "PRK",
               "OrgDesc": "Democratic People's Republic of Korea",
               "Name": "KIM Kum Yong",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -694,17 +694,17 @@
               "Key": "W.SINGLES-----------.R64-.001000--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:05:00+09:00",
+              "Loc": "004",
+              "LocDesc": "Table 4",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -718,21 +718,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:5, 11:1, 11:3, 11:7",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:05",
                   "Extensions": []
                 }
               ]
@@ -744,9 +744,9 @@
               "Org": "MAC",
               "OrgDesc": "Macao, China",
               "Name": "LEONG On Na",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -756,9 +756,9 @@
               "Org": "BAN",
               "OrgDesc": "Bangladesh",
               "Name": "SOMA Sonam",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -767,17 +767,17 @@
               "Key": "W.SINGLES-----------.R64-.001100--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:05:00+09:00",
+              "Loc": "005",
+              "LocDesc": "Table 5",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -791,21 +791,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:3, 11:5, 11:1, 11:4",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:05",
                   "Extensions": []
                 }
               ]
@@ -963,9 +963,9 @@
               "Org": "SYR",
               "OrgDesc": "Syrian Arab Republic",
               "Name": "ZAZA Hend",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -975,9 +975,9 @@
               "Org": "PAK",
               "OrgDesc": "Pakistan",
               "Name": "KHAN Kalsoom",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -986,17 +986,17 @@
               "Key": "W.SINGLES-----------.R64-.001400--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:05:00+09:00",
+              "Loc": "006",
+              "LocDesc": "Table 6",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1010,21 +1010,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:3, 11:3, 11:2, 11:6",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:05",
                   "Extensions": []
                 }
               ]
@@ -1036,9 +1036,9 @@
               "Org": "LBN",
               "OrgDesc": "Lebanon",
               "Name": "AZAR Talia",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1048,9 +1048,9 @@
               "Org": "THA",
               "OrgDesc": "Thailand",
               "Name": "SAWETTABUT Suthasini",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1059,17 +1059,17 @@
               "Key": "W.SINGLES-----------.R64-.001500--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:05:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1083,21 +1083,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:10, 11:4, 11:4, 11:1",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:05",
                   "Extensions": []
                 }
               ]
@@ -1255,9 +1255,9 @@
               "Org": "INA",
               "OrgDesc": "Indonesia",
               "Name": "NEBUCHADNEZZAR Almaira",
-              "Res": "",
+              "Res": "3",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1267,9 +1267,9 @@
               "Org": "IRI",
               "OrgDesc": "Islamic Republic of Iran",
               "Name": "ILOUKHANI Setayesh",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1278,17 +1278,17 @@
               "Key": "W.SINGLES-----------.R64-.001800--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:50:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1302,21 +1302,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "9:11, 10:12, 8:11, 11:6, 11:1, 12:10, 11:5",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:50",
                   "Extensions": []
                 }
               ]
@@ -1328,9 +1328,9 @@
               "Org": "MGL",
               "OrgDesc": "Mongolia",
               "Name": "SANJAA Burenjargal",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1340,9 +1340,9 @@
               "Org": "UZB",
               "OrgDesc": "Uzbekistan",
               "Name": "ERKEBAEVA Asel",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1351,17 +1351,17 @@
               "Key": "W.SINGLES-----------.R64-.001900--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:50:00+09:00",
+              "Loc": "004",
+              "LocDesc": "Table 4",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1375,21 +1375,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:7, 11:1, 8:11, 11:3, 11:6",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:50",
                   "Extensions": []
                 }
               ]
@@ -1547,9 +1547,9 @@
               "Org": "KAZ",
               "OrgDesc": "Kazakhstan",
               "Name": "MIRKADIROVA Sarvinoz",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1558,10 +1558,10 @@
               "Reg": "6935349",
               "Org": "PRK",
               "OrgDesc": "Democratic People's Republic of Korea",
-              "Name": "PYON Song",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Name": "PYON Song Gyong",
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1570,17 +1570,17 @@
               "Key": "W.SINGLES-----------.R64-.002200--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:50:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1594,21 +1594,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:12, 11:7, 11:9, 11:9, 11:6",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:50",
                   "Extensions": []
                 }
               ]
@@ -1620,9 +1620,9 @@
               "Org": "TPE",
               "OrgDesc": "Chinese Taipei",
               "Name": "CHEN Szu-yu",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1632,9 +1632,9 @@
               "Org": "NEP",
               "OrgDesc": "Nepal",
               "Name": "SHRESTHA Nabita",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1643,17 +1643,17 @@
               "Key": "W.SINGLES-----------.R64-.002300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:50:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1667,21 +1667,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "9:11, 11:4, 11:4, 11:0, 11:3",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:50",
                   "Extensions": []
                 }
               ]
@@ -1839,9 +1839,9 @@
               "Org": "SRI",
               "OrgDesc": "Sri Lanka",
               "Name": "SWARNA Bimandee",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1851,9 +1851,9 @@
               "Org": "KGZ",
               "OrgDesc": "Kyrgyzstan",
               "Name": "AIAZBEKOVA Nurkyz",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1862,17 +1862,17 @@
               "Key": "W.SINGLES-----------.R64-.002600--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:50:00+09:00",
+              "Loc": "005",
+              "LocDesc": "Table 5",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1886,21 +1886,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:4, 11:9, 11:2, 9:11, 11:4",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:50",
                   "Extensions": []
                 }
               ]
@@ -1912,9 +1912,9 @@
               "Org": "LBN",
               "OrgDesc": "Lebanon",
               "Name": "CHIRI Bissan",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1924,9 +1924,9 @@
               "Org": "SYR",
               "OrgDesc": "Syrian Arab Republic",
               "Name": "ABBOUD Rashel",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -1935,17 +1935,17 @@
               "Key": "W.SINGLES-----------.R64-.002700--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:50:00+09:00",
+              "Loc": "006",
+              "LocDesc": "Table 6",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -1959,21 +1959,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:8, 12:10, 11:9, 11:6",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:50",
                   "Extensions": []
                 }
               ]
@@ -2131,9 +2131,9 @@
               "Org": "BAN",
               "OrgDesc": "Bangladesh",
               "Name": "MAHI Nowrin",
-              "Res": "",
+              "Res": "2",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -2143,9 +2143,9 @@
               "Org": "MDV",
               "OrgDesc": "Maldives",
               "Name": "NAZIM Aishath",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "4",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": ""
@@ -2154,17 +2154,17 @@
               "Key": "W.SINGLES-----------.R64-.003000--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T12:50:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -2178,21 +2178,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "9:11, 12:10, 7:11, 11:6, 11:5, 11:9",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:50",
                   "Extensions": []
                 }
               ]
@@ -2379,17 +2379,17 @@
               "Key": "W.SINGLES-----------.R32-.000100--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2417,7 +2417,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2425,10 +2425,10 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "4586815",
+              "Org": "MGL",
+              "OrgDesc": "Mongolia",
+              "Name": "BATMUNKH Bolor-erdene",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2452,17 +2452,17 @@
               "Key": "W.SINGLES-----------.R32-.000200--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "004",
+              "LocDesc": "Table 4",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2490,7 +2490,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2510,10 +2510,10 @@
               "Medal": ""
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "4655094",
+              "Org": "UZB",
+              "OrgDesc": "Uzbekistan",
+              "Name": "KAMALOVA Arujan",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2525,17 +2525,17 @@
               "Key": "W.SINGLES-----------.R32-.000300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "005",
+              "LocDesc": "Table 5",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2563,7 +2563,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2571,10 +2571,10 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "4820871",
+              "Org": "INA",
+              "OrgDesc": "Indonesia",
+              "Name": "RASMI Citra",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2598,17 +2598,17 @@
               "Key": "W.SINGLES-----------.R32-.000400--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2636,7 +2636,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2656,10 +2656,10 @@
               "Medal": ""
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "5067587",
+              "Org": "PRK",
+              "OrgDesc": "Democratic People's Republic of Korea",
+              "Name": "KIM Kum Yong",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2671,17 +2671,17 @@
               "Key": "W.SINGLES-----------.R32-.000500--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2709,7 +2709,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2717,10 +2717,10 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "5718727",
+              "Org": "MAC",
+              "OrgDesc": "Macao, China",
+              "Name": "LEONG On Na",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2744,17 +2744,17 @@
               "Key": "W.SINGLES-----------.R32-.000600--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "006",
+              "LocDesc": "Table 6",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2782,7 +2782,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2802,10 +2802,10 @@
               "Medal": ""
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "2267365",
+              "Org": "SYR",
+              "OrgDesc": "Syrian Arab Republic",
+              "Name": "ZAZA Hend",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2817,17 +2817,17 @@
               "Key": "W.SINGLES-----------.R32-.000700--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2855,7 +2855,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2863,10 +2863,10 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "12969577",
+              "Org": "THA",
+              "OrgDesc": "Thailand",
+              "Name": "SAWETTABUT Suthasini",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2890,17 +2890,17 @@
               "Key": "W.SINGLES-----------.R32-.000800--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T12:30:00+09:00",
+              "Loc": "009",
+              "LocDesc": "Table 9",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -2928,7 +2928,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:30",
                   "Extensions": []
                 }
               ]
@@ -2948,10 +2948,10 @@
               "Medal": ""
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "8656334",
+              "Org": "IRI",
+              "OrgDesc": "Islamic Republic of Iran",
+              "Name": "ILOUKHANI Setayesh",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -2963,17 +2963,17 @@
               "Key": "W.SINGLES-----------.R32-.000900--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3001,7 +3001,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]
@@ -3009,10 +3009,10 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "4655228",
+              "Org": "UZB",
+              "OrgDesc": "Uzbekistan",
+              "Name": "ERKEBAEVA Asel",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -3036,17 +3036,17 @@
               "Key": "W.SINGLES-----------.R32-.001000--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "004",
+              "LocDesc": "Table 4",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3074,7 +3074,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]
@@ -3094,10 +3094,10 @@
               "Medal": ""
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "6935349",
+              "Org": "PRK",
+              "OrgDesc": "Democratic People's Republic of Korea",
+              "Name": "PYON Song Gyong",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -3109,17 +3109,17 @@
               "Key": "W.SINGLES-----------.R32-.001100--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3147,7 +3147,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]
@@ -3155,10 +3155,10 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "2008192",
+              "Org": "TPE",
+              "OrgDesc": "Chinese Taipei",
+              "Name": "CHEN Szu-yu",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -3182,17 +3182,17 @@
               "Key": "W.SINGLES-----------.R32-.001200--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3220,7 +3220,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]
@@ -3240,10 +3240,10 @@
               "Medal": ""
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "13407574",
+              "Org": "SRI",
+              "OrgDesc": "Sri Lanka",
+              "Name": "SWARNA Bimandee",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -3255,17 +3255,17 @@
               "Key": "W.SINGLES-----------.R32-.001300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "005",
+              "LocDesc": "Table 5",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3293,7 +3293,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]
@@ -3301,10 +3301,10 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "2269484",
+              "Org": "SYR",
+              "OrgDesc": "Syrian Arab Republic",
+              "Name": "ABBOUD Rashel",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -3328,17 +3328,17 @@
               "Key": "W.SINGLES-----------.R32-.001400--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3366,7 +3366,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]
@@ -3386,10 +3386,10 @@
               "Medal": ""
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
+              "Reg": "6869850",
+              "Org": "MDV",
+              "OrgDesc": "Maldives",
+              "Name": "NAZIM Aishath",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -3401,17 +3401,17 @@
               "Key": "W.SINGLES-----------.R32-.001500--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "008",
+              "LocDesc": "Table 8",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3439,7 +3439,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]
@@ -3474,17 +3474,17 @@
               "Key": "W.SINGLES-----------.R32-.001600--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T13:15:00+09:00",
+              "Loc": "009",
+              "LocDesc": "Table 9",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -3512,7 +3512,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15",
                   "Extensions": []
                 }
               ]

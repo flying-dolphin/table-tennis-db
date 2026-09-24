@@ -22,16 +22,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "16562726",
-                  "Org": "KOR",
-                  "OrgDesc": "Republic of Korea",
-                  "Name": "LIM Jonghoon"
-                },
-                {
                   "Reg": "16564280",
                   "Org": "KOR",
                   "OrgDesc": "Republic of Korea",
                   "Name": "SHIN Yubin"
+                },
+                {
+                  "Reg": "16562726",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "LIM Jonghoon"
                 }
               ]
             },
@@ -121,16 +121,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "11919904",
-                  "Org": "QAT",
-                  "OrgDesc": "Qatar",
-                  "Name": "MOHAMED Aia"
-                },
-                {
                   "Reg": "11899060",
                   "Org": "QAT",
                   "OrgDesc": "Qatar",
                   "Name": "AHUSSEIN Mohammed"
+                },
+                {
+                  "Reg": "11919904",
+                  "Org": "QAT",
+                  "OrgDesc": "Qatar",
+                  "Name": "MOHAMED Aia"
                 }
               ]
             },
@@ -188,9 +188,9 @@
               "Org": "MGL",
               "OrgDesc": "Mongolia",
               "Name": "MYANDAL Temuulen / BATMUNKH Bolor-erdene",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -213,25 +213,25 @@
               "Reg": "TTEXDOUBLES----MAC02",
               "Org": "MAC",
               "OrgDesc": "Macao, China",
-              "Name": "ZHENG Hong / LEONG On Na",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Name": "ZHENG Hong Wai / LEONG On Na",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
+                  "Reg": "5718521",
+                  "Org": "MAC",
+                  "OrgDesc": "Macao, China",
+                  "Name": "ZHENG Hong Wai"
+                },
+                {
                   "Reg": "5718727",
                   "Org": "MAC",
                   "OrgDesc": "Macao, China",
                   "Name": "LEONG On Na"
-                },
-                {
-                  "Reg": "5718521",
-                  "Org": "MAC",
-                  "OrgDesc": "Macao, China",
-                  "Name": "ZHENG Hong"
                 }
               ]
             },
@@ -239,17 +239,17 @@
               "Key": "X.DOUBLES-----------.R64-.000300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:40:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -263,21 +263,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:9, 11:8, 11:6",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:40",
                   "Extensions": []
                 }
               ]
@@ -387,7 +387,7 @@
                   "Reg": "2841764",
                   "Org": "SGP",
                   "OrgDesc": "Singapore",
-                  "Name": "PANG Yew"
+                  "Name": "PANG Yew En"
                 },
                 {
                   "Reg": "15947225",
@@ -463,9 +463,9 @@
               "Org": "JPN",
               "OrgDesc": "Japan",
               "Name": "SHINOZUKA Hiroto / ITO Mima",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -489,9 +489,9 @@
               "Org": "UZB",
               "OrgDesc": "Uzbekistan",
               "Name": "DILSHODOV Diyorbek / ERKEBAEVA Asel",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -514,17 +514,17 @@
               "Key": "X.DOUBLES-----------.R64-.000600--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:40:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -538,21 +538,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:3, 11:6, 11:3",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:40",
                   "Extensions": []
                 }
               ]
@@ -912,24 +912,24 @@
               "Org": "PAK",
               "OrgDesc": "Pakistan",
               "Name": "KHAN Muhammad / KHAN Kalsoom",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "9959500",
-                  "Org": "PAK",
-                  "OrgDesc": "Pakistan",
-                  "Name": "KHAN Muhammad"
-                },
-                {
                   "Reg": "13493711",
                   "Org": "PAK",
                   "OrgDesc": "Pakistan",
                   "Name": "KHAN Kalsoom"
+                },
+                {
+                  "Reg": "9959500",
+                  "Org": "PAK",
+                  "OrgDesc": "Pakistan",
+                  "Name": "KHAN Muhammad"
                 }
               ]
             },
@@ -938,24 +938,24 @@
               "Org": "NEP",
               "OrgDesc": "Nepal",
               "Name": "MAHARJAN Rubin / THAPA Evana",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "11268141",
-                  "Org": "NEP",
-                  "OrgDesc": "Nepal",
-                  "Name": "THAPA Evana"
-                },
-                {
                   "Reg": "11357083",
                   "Org": "NEP",
                   "OrgDesc": "Nepal",
                   "Name": "MAHARJAN Rubin"
+                },
+                {
+                  "Reg": "11268141",
+                  "Org": "NEP",
+                  "OrgDesc": "Nepal",
+                  "Name": "THAPA Evana"
                 }
               ]
             },
@@ -963,17 +963,17 @@
               "Key": "X.DOUBLES-----------.R64-.001100--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:10:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -987,21 +987,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:6, 11:8, 11:4",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:10",
                   "Extensions": []
                 }
               ]
@@ -1024,7 +1024,7 @@
               "Reg": "TTEXDOUBLES----HKG02",
               "Org": "HKG",
               "OrgDesc": "Hong Kong, China",
-              "Name": "YIU Kwan To / NG Wing",
+              "Name": "YIU Kwan To / NG Wing Lam",
               "Res": "",
               "Win": true,
               "RkPo": 0,
@@ -1108,16 +1108,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "6111949",
-                  "Org": "INA",
-                  "OrgDesc": "Indonesia",
-                  "Name": "JUNINDRA Muhammad"
-                },
-                {
                   "Reg": "451609",
                   "Org": "INA",
                   "OrgDesc": "Indonesia",
                   "Name": "NEBUCHADNEZZAR Almaira"
+                },
+                {
+                  "Reg": "6111949",
+                  "Org": "INA",
+                  "OrgDesc": "Indonesia",
+                  "Name": "JUNINDRA Muhammad"
                 }
               ]
             },
@@ -1187,9 +1187,9 @@
               "Org": "IRI",
               "OrgDesc": "Islamic Republic of Iran",
               "Name": "GHAFFARI Aryan / ASHTARI Mahshid",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -1213,24 +1213,24 @@
               "Org": "THA",
               "OrgDesc": "Thailand",
               "Name": "SANGUANSIN Phakpoom / PARANANG Orawan",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "4625533",
-                  "Org": "THA",
-                  "OrgDesc": "Thailand",
-                  "Name": "PARANANG Orawan"
-                },
-                {
                   "Reg": "7384856",
                   "Org": "THA",
                   "OrgDesc": "Thailand",
                   "Name": "SANGUANSIN Phakpoom"
+                },
+                {
+                  "Reg": "4625533",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "PARANANG Orawan"
                 }
               ]
             },
@@ -1238,17 +1238,17 @@
               "Key": "X.DOUBLES-----------.R64-.001400--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:10:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -1262,21 +1262,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "13:15, 12:10, 11:5, 11:3",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:10",
                   "Extensions": []
                 }
               ]
@@ -1395,16 +1395,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "16272951",
-                  "Org": "CHN",
-                  "OrgDesc": "People's Republic of China",
-                  "Name": "LIN Shidong"
-                },
-                {
                   "Reg": "16276904",
                   "Org": "CHN",
                   "OrgDesc": "People's Republic of China",
                   "Name": "KUAI Man"
+                },
+                {
+                  "Reg": "16272951",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "LIN Shidong"
                 }
               ]
             },
@@ -1461,7 +1461,7 @@
               "Reg": "TTEXDOUBLES----HKG01",
               "Org": "HKG",
               "OrgDesc": "Hong Kong, China",
-              "Name": "WONG Chun / DOO Hoi Kem",
+              "Name": "WONG Chun Ting / DOO Hoi Kem",
               "Res": "",
               "Win": true,
               "RkPo": 0,
@@ -1560,7 +1560,7 @@
               "Reg": "TTEXDOUBLES----MAC01",
               "Org": "MAC",
               "OrgDesc": "Macao, China",
-              "Name": "MAK Tin Ian / KUAN Cheok",
+              "Name": "MAK Tin Ian / KUAN Cheok Lam",
               "Res": "",
               "Win": true,
               "RkPo": 0,
@@ -1569,16 +1569,16 @@
               "Medal": "",
               "Members": [
                 {
+                  "Reg": "5718955",
+                  "Org": "MAC",
+                  "OrgDesc": "Macao, China",
+                  "Name": "KUAN Cheok Lam"
+                },
+                {
                   "Reg": "5718418",
                   "Org": "MAC",
                   "OrgDesc": "Macao, China",
                   "Name": "MAK Tin Ian"
-                },
-                {
-                  "Reg": "5718955",
-                  "Org": "MAC",
-                  "OrgDesc": "Macao, China",
-                  "Name": "KUAN Cheok"
                 }
               ]
             },
@@ -1636,24 +1636,24 @@
               "Org": "LAO",
               "OrgDesc": "Lao People's Democratic Republic",
               "Name": "XAYSAVATH Xaysana / SISOMBOUN Choutiphone",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "980414",
-                  "Org": "LAO",
-                  "OrgDesc": "Lao People's Democratic Republic",
-                  "Name": "XAYSAVATH Xaysana"
-                },
-                {
                   "Reg": "609605",
                   "Org": "LAO",
                   "OrgDesc": "Lao People's Democratic Republic",
                   "Name": "SISOMBOUN Choutiphone"
+                },
+                {
+                  "Reg": "980414",
+                  "Org": "LAO",
+                  "OrgDesc": "Lao People's Democratic Republic",
+                  "Name": "XAYSAVATH Xaysana"
                 }
               ]
             },
@@ -1662,24 +1662,24 @@
               "Org": "BAN",
               "OrgDesc": "Bangladesh",
               "Name": "RIDOY Mohutasin / MAHI Nowrin",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "13982093",
-                  "Org": "BAN",
-                  "OrgDesc": "Bangladesh",
-                  "Name": "RIDOY Mohutasin"
-                },
-                {
                   "Reg": "11973732",
                   "Org": "BAN",
                   "OrgDesc": "Bangladesh",
                   "Name": "MAHI Nowrin"
+                },
+                {
+                  "Reg": "13982093",
+                  "Org": "BAN",
+                  "OrgDesc": "Bangladesh",
+                  "Name": "RIDOY Mohutasin"
                 }
               ]
             },
@@ -1687,17 +1687,17 @@
               "Key": "X.DOUBLES-----------.R64-.001900--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:40:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -1711,21 +1711,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:6, 9:11, 11:8, 11:2",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:40",
                   "Extensions": []
                 }
               ]
@@ -1911,9 +1911,9 @@
               "Org": "NEP",
               "OrgDesc": "Nepal",
               "Name": "KAPALI Sanyog / SHRESTHA Nabita",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -1937,9 +1937,9 @@
               "Org": "MGL",
               "OrgDesc": "Mongolia",
               "Name": "ANKHBAYAR Bilguun / SER-OD Ankhmaa",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -1962,17 +1962,17 @@
               "Key": "X.DOUBLES-----------.R64-.002200--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:10:00+09:00",
+              "Loc": "006",
+              "LocDesc": "Table 6",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -1986,21 +1986,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2:11, 11:6, 11:6, 11:9",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:10",
                   "Extensions": []
                 }
               ]
@@ -2012,9 +2012,9 @@
               "Org": "SRI",
               "OrgDesc": "Sri Lanka",
               "Name": "KULAPPUWAWADU Chanul / SWARNA Bimandee",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -2038,24 +2038,24 @@
               "Org": "QAT",
               "OrgDesc": "Qatar",
               "Name": "ABDULHUSSEIN Abdullah / ALI Maryam",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "11296865",
-                  "Org": "QAT",
-                  "OrgDesc": "Qatar",
-                  "Name": "ALI Maryam"
-                },
-                {
                   "Reg": "11275827",
                   "Org": "QAT",
                   "OrgDesc": "Qatar",
                   "Name": "ABDULHUSSEIN Abdullah"
+                },
+                {
+                  "Reg": "11296865",
+                  "Org": "QAT",
+                  "OrgDesc": "Qatar",
+                  "Name": "ALI Maryam"
                 }
               ]
             },
@@ -2063,17 +2063,17 @@
               "Key": "X.DOUBLES-----------.R64-.002300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:10:00+09:00",
+              "Loc": "008",
+              "LocDesc": "Table 8",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -2087,21 +2087,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "7:11, 12:10, 11:3, 11:4",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:10",
                   "Extensions": []
                 }
               ]
@@ -2133,16 +2133,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "12185132",
-                  "Org": "IND",
-                  "OrgDesc": "India",
-                  "Name": "CHITALE Diya"
-                },
-                {
                   "Reg": "12171959",
                   "Org": "IND",
                   "OrgDesc": "India",
                   "Name": "SHAH Manush"
+                },
+                {
+                  "Reg": "12185132",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "CHITALE Diya"
                 }
               ]
             },
@@ -2208,16 +2208,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "380921",
-                  "Org": "JPN",
-                  "OrgDesc": "Japan",
-                  "Name": "HARIMOTO Miwa"
-                },
-                {
                   "Reg": "380420",
                   "Org": "JPN",
                   "OrgDesc": "Japan",
                   "Name": "MATSUSHIMA Sora"
+                },
+                {
+                  "Reg": "380921",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "HARIMOTO Miwa"
                 }
               ]
             },
@@ -2298,7 +2298,7 @@
               "Reg": "TTEXDOUBLES----PRK02",
               "Org": "PRK",
               "OrgDesc": "Democratic People's Republic of Korea",
-              "Name": "U Tae Ryong / PYON Song",
+              "Name": "U Tae Ryong / PYON Song Gyong",
               "Res": "",
               "Win": true,
               "RkPo": 0,
@@ -2307,16 +2307,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "6935349",
-                  "Org": "PRK",
-                  "OrgDesc": "Democratic People's Republic of Korea",
-                  "Name": "PYON Song"
-                },
-                {
                   "Reg": "6932766",
                   "Org": "PRK",
                   "OrgDesc": "Democratic People's Republic of Korea",
                   "Name": "U Tae Ryong"
+                },
+                {
+                  "Reg": "6935349",
+                  "Org": "PRK",
+                  "OrgDesc": "Democratic People's Republic of Korea",
+                  "Name": "PYON Song Gyong"
                 }
               ]
             },
@@ -2374,9 +2374,9 @@
               "Org": "INA",
               "OrgDesc": "Indonesia",
               "Name": "PRATAMA Affan / PUTRI Cindy",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -2400,9 +2400,9 @@
               "Org": "IRI",
               "OrgDesc": "Islamic Republic of Iran",
               "Name": "FARAJI Benyamin / ILOUKHANI Setayesh",
-              "Res": "",
+              "Res": "2",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -2425,17 +2425,17 @@
               "Key": "X.DOUBLES-----------.R64-.002700--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:40:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -2449,21 +2449,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "12:14, 6:11, 11:5, 11:9, 11:8",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:40",
                   "Extensions": []
                 }
               ]
@@ -2495,16 +2495,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "16564496",
-                  "Org": "KOR",
-                  "OrgDesc": "Republic of Korea",
-                  "Name": "KIM Nayeong"
-                },
-                {
                   "Reg": "16562520",
                   "Org": "KOR",
                   "OrgDesc": "Republic of Korea",
                   "Name": "OH Junsung"
+                },
+                {
+                  "Reg": "16564496",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "KIM Nayeong"
                 }
               ]
             },
@@ -2570,16 +2570,16 @@
               "Medal": "",
               "Members": [
                 {
+                  "Reg": "15946702",
+                  "Org": "SGP",
+                  "OrgDesc": "Singapore",
+                  "Name": "LOY Ming Ying"
+                },
+                {
                   "Reg": "15947019",
                   "Org": "SGP",
                   "OrgDesc": "Singapore",
                   "Name": "QUEK Yong"
-                },
-                {
-                  "Reg": "15946702",
-                  "Org": "SGP",
-                  "OrgDesc": "Singapore",
-                  "Name": "LOY Ming"
                 }
               ]
             },
@@ -2649,24 +2649,24 @@
               "Org": "KAZ",
               "OrgDesc": "Kazakhstan",
               "Name": "GERASSIMENKO Kirill / AKASHEVA Zauresh",
-              "Res": "",
+              "Res": "1",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "1564267",
-                  "Org": "KAZ",
-                  "OrgDesc": "Kazakhstan",
-                  "Name": "AKASHEVA Zauresh"
-                },
-                {
                   "Reg": "1562569",
                   "Org": "KAZ",
                   "OrgDesc": "Kazakhstan",
                   "Name": "GERASSIMENKO Kirill"
+                },
+                {
+                  "Reg": "1564267",
+                  "Org": "KAZ",
+                  "OrgDesc": "Kazakhstan",
+                  "Name": "AKASHEVA Zauresh"
                 }
               ]
             },
@@ -2675,24 +2675,24 @@
               "Org": "TPE",
               "OrgDesc": "Chinese Taipei",
               "Name": "FENG Yi-hsin / YEH Yi-tian",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "15725713",
-                  "Org": "TPE",
-                  "OrgDesc": "Chinese Taipei",
-                  "Name": "FENG Yi-hsin"
-                },
-                {
                   "Reg": "15753718",
                   "Org": "TPE",
                   "OrgDesc": "Chinese Taipei",
                   "Name": "YEH Yi-tian"
+                },
+                {
+                  "Reg": "15725713",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "FENG Yi-hsin"
                 }
               ]
             },
@@ -2700,17 +2700,17 @@
               "Key": "X.DOUBLES-----------.R64-.003000--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-22T15:10:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-22",
                   "Extensions": []
                 },
                 {
@@ -2724,21 +2724,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:13, 11:5, 11:8, 11:3",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "15:10",
                   "Extensions": []
                 }
               ]
@@ -2758,16 +2758,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "4655094",
-                  "Org": "UZB",
-                  "OrgDesc": "Uzbekistan",
-                  "Name": "KAMALOVA Arujan"
-                },
-                {
                   "Reg": "4654456",
                   "Org": "UZB",
                   "OrgDesc": "Uzbekistan",
                   "Name": "ISKANDAROV Shokhrukh"
+                },
+                {
+                  "Reg": "4655094",
+                  "Org": "UZB",
+                  "OrgDesc": "Uzbekistan",
+                  "Name": "KAMALOVA Arujan"
                 }
               ]
             },
@@ -2930,24 +2930,24 @@
               "Org": "KOR",
               "OrgDesc": "Republic of Korea",
               "Name": "LIM Jonghoon / SHIN Yubin",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "16562726",
-                  "Org": "KOR",
-                  "OrgDesc": "Republic of Korea",
-                  "Name": "LIM Jonghoon"
-                },
-                {
                   "Reg": "16564280",
                   "Org": "KOR",
                   "OrgDesc": "Republic of Korea",
                   "Name": "SHIN Yubin"
+                },
+                {
+                  "Reg": "16562726",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "LIM Jonghoon"
                 }
               ]
             },
@@ -2956,24 +2956,24 @@
               "Org": "QAT",
               "OrgDesc": "Qatar",
               "Name": "AHUSSEIN Mohammed / MOHAMED Aia",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "11919904",
-                  "Org": "QAT",
-                  "OrgDesc": "Qatar",
-                  "Name": "MOHAMED Aia"
-                },
-                {
                   "Reg": "11899060",
                   "Org": "QAT",
                   "OrgDesc": "Qatar",
                   "Name": "AHUSSEIN Mohammed"
+                },
+                {
+                  "Reg": "11919904",
+                  "Org": "QAT",
+                  "OrgDesc": "Qatar",
+                  "Name": "MOHAMED Aia"
                 }
               ]
             },
@@ -2981,17 +2981,17 @@
               "Key": "X.DOUBLES-----------.R32-.000100--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -3005,21 +3005,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:3, 11:5, 11:5",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:00",
                   "Extensions": []
                 }
               ]
@@ -3027,25 +3027,39 @@
           },
           {
             "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
+              "Reg": "TTEXDOUBLES----MAC02",
+              "Org": "MAC",
+              "OrgDesc": "Macao, China",
+              "Name": "ZHENG Hong Wai / LEONG On Na",
+              "Res": "2",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
-              "Medal": ""
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "5718521",
+                  "Org": "MAC",
+                  "OrgDesc": "Macao, China",
+                  "Name": "ZHENG Hong Wai"
+                },
+                {
+                  "Reg": "5718727",
+                  "Org": "MAC",
+                  "OrgDesc": "Macao, China",
+                  "Name": "LEONG On Na"
+                }
+              ]
             },
             "Away": {
               "Reg": "TTEXDOUBLES----KAZ02",
               "Org": "KAZ",
               "OrgDesc": "Kazakhstan",
               "Name": "KHARKI Iskender / MIRKADIROVA Sarvinoz",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -3068,17 +3082,17 @@
               "Key": "X.DOUBLES-----------.R32-.000200--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "004",
+              "LocDesc": "Table 4",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -3092,21 +3106,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "9:11, 11:8, 8:11, 11:6, 11:5",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:00",
                   "Extensions": []
                 }
               ]
@@ -3118,9 +3132,9 @@
               "Org": "SGP",
               "OrgDesc": "Singapore",
               "Name": "PANG Yew / ZENG Jian",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -3129,7 +3143,7 @@
                   "Reg": "2841764",
                   "Org": "SGP",
                   "OrgDesc": "Singapore",
-                  "Name": "PANG Yew"
+                  "Name": "PANG Yew En"
                 },
                 {
                   "Reg": "15947225",
@@ -3140,32 +3154,46 @@
               ]
             },
             "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
+              "Reg": "TTEXDOUBLES----JPN02",
+              "Org": "JPN",
+              "OrgDesc": "Japan",
+              "Name": "SHINOZUKA Hiroto / ITO Mima",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
               "IRM": "OK",
               "Extensions": [],
-              "Medal": ""
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "381170",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "ITO Mima"
+                },
+                {
+                  "Reg": "380768",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "SHINOZUKA Hiroto"
+                }
+              ]
             },
             "Info": {
               "Key": "X.DOUBLES-----------.R32-.000300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "OFFICIAL",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-23",
                   "Extensions": []
                 },
                 {
@@ -3179,21 +3207,21 @@
                   "Type": "UNIT_INFO",
                   "Code": "ResultDetailWinner",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "11:8, 11:4, 11:6",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "ShowDateTimeLoc",
                   "Pos": 0,
-                  "Value": "True",
+                  "Value": "False",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:00",
                   "Extensions": []
                 }
               ]
@@ -3205,9 +3233,9 @@
               "Org": "KGZ",
               "OrgDesc": "Kyrgyzstan",
               "Name": "KASYMOV Atai / AIAZBEKOVA Nurkyz",
-              "Res": "",
+              "Res": "0",
               "Win": false,
-              "RkPo": 0,
+              "RkPo": 2,
               "IRM": "OK",
               "Extensions": [],
               "Medal": "",
@@ -3223,6 +3251,2139 @@
                   "Org": "KGZ",
                   "OrgDesc": "Kyrgyzstan",
                   "Name": "AIAZBEKOVA Nurkyz"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----TPE01",
+              "Org": "TPE",
+              "OrgDesc": "Chinese Taipei",
+              "Name": "LIN Yun-ju / CHENG I-ching",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "665537",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "CHENG I-ching"
+                },
+                {
+                  "Reg": "4735886",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "LIN Yun-ju"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.000400--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "005",
+              "LocDesc": "Table 5",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:7, 11:4, 11:4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:00",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----IND02",
+              "Org": "IND",
+              "OrgDesc": "India",
+              "Name": "DESAI Harmeet / GHORPADE Yashaswini",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "10232271",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "GHORPADE Yashaswini"
+                },
+                {
+                  "Reg": "10214830",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "DESAI Harmeet"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----MDV02",
+              "Org": "MDV",
+              "OrgDesc": "Maldives",
+              "Name": "ISMAIL Mohamed / ALI Fathimath",
+              "Res": "2",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "6871630",
+                  "Org": "MDV",
+                  "OrgDesc": "Maldives",
+                  "Name": "ALI Fathimath"
+                },
+                {
+                  "Reg": "6879283",
+                  "Org": "MDV",
+                  "OrgDesc": "Maldives",
+                  "Name": "ISMAIL Mohamed"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.000500--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "006",
+              "LocDesc": "Table 6",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "9:11, 11:6, 11:7, 9:11, 11:6",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:00",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "1",
+              "Org": "NEP",
+              "OrgDesc": "Nepal",
+              "Name": "MAHARJAN Rubin / THAPA Evana",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "11357083",
+                  "Org": "NEP",
+                  "OrgDesc": "Nepal",
+                  "Name": "MAHARJAN Rubin"
+                },
+                {
+                  "Reg": "11268141",
+                  "Org": "NEP",
+                  "OrgDesc": "Nepal",
+                  "Name": "THAPA Evana"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----HKG02",
+              "Org": "HKG",
+              "OrgDesc": "Hong Kong, China",
+              "Name": "YIU Kwan To / NG Wing Lam",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "11119894",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "NG Wing Lam"
+                },
+                {
+                  "Reg": "11120693",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "YIU Kwan To"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.000600--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:2, 11:6, 11:7",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:00",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----INA01",
+              "Org": "INA",
+              "OrgDesc": "Indonesia",
+              "Name": "JUNINDRA Muhammad / NEBUCHADNEZZAR Almaira",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "451609",
+                  "Org": "INA",
+                  "OrgDesc": "Indonesia",
+                  "Name": "NEBUCHADNEZZAR Almaira"
+                },
+                {
+                  "Reg": "6111949",
+                  "Org": "INA",
+                  "OrgDesc": "Indonesia",
+                  "Name": "JUNINDRA Muhammad"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----THA01",
+              "Org": "THA",
+              "OrgDesc": "Thailand",
+              "Name": "SANGUANSIN Phakpoom / PARANANG Orawan",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "7384856",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "SANGUANSIN Phakpoom"
+                },
+                {
+                  "Reg": "4625533",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "PARANANG Orawan"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.000700--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "008",
+              "LocDesc": "Table 8",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:3, 12:10, 11:9",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:00",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----PRK01",
+              "Org": "PRK",
+              "OrgDesc": "Democratic People's Republic of Korea",
+              "Name": "RI Jong Sik / KIM Kum Yong",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "15241975",
+                  "Org": "PRK",
+                  "OrgDesc": "Democratic People's Republic of Korea",
+                  "Name": "RI Jong Sik"
+                },
+                {
+                  "Reg": "5067587",
+                  "Org": "PRK",
+                  "OrgDesc": "Democratic People's Republic of Korea",
+                  "Name": "KIM Kum Yong"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----CHN01",
+              "Org": "CHN",
+              "OrgDesc": "People's Republic of China",
+              "Name": "LIN Shidong / KUAI Man",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16276904",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "KUAI Man"
+                },
+                {
+                  "Reg": "16272951",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "LIN Shidong"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.000800--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:00:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:3, 11:8, 11:9",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:00",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----HKG01",
+              "Org": "HKG",
+              "OrgDesc": "Hong Kong, China",
+              "Name": "WONG Chun Ting / DOO Hoi Kem",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "11118638",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "DOO Hoi Kem"
+                },
+                {
+                  "Reg": "11120243",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "WONG Chun Ting"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----MAC01",
+              "Org": "MAC",
+              "OrgDesc": "Macao, China",
+              "Name": "MAK Tin Ian / KUAN Cheok Lam",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "5718955",
+                  "Org": "MAC",
+                  "OrgDesc": "Macao, China",
+                  "Name": "KUAN Cheok Lam"
+                },
+                {
+                  "Reg": "5718418",
+                  "Org": "MAC",
+                  "OrgDesc": "Macao, China",
+                  "Name": "MAK Tin Ian"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.000900--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "005",
+              "LocDesc": "Table 5",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:5, 11:5, 11:9",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----BAN01",
+              "Org": "BAN",
+              "OrgDesc": "Bangladesh",
+              "Name": "RIDOY Mohutasin / MAHI Nowrin",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "11973732",
+                  "Org": "BAN",
+                  "OrgDesc": "Bangladesh",
+                  "Name": "MAHI Nowrin"
+                },
+                {
+                  "Reg": "13982093",
+                  "Org": "BAN",
+                  "OrgDesc": "Bangladesh",
+                  "Name": "RIDOY Mohutasin"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----THA02",
+              "Org": "THA",
+              "OrgDesc": "Thailand",
+              "Name": "PREECHAYAN Thitaphat / VIJITVIRIYAGUL Kulapassr",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "12970602",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "VIJITVIRIYAGUL Kulapassr"
+                },
+                {
+                  "Reg": "7385907",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "PREECHAYAN Thitaphat"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.001000--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "006",
+              "LocDesc": "Table 6",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:4, 11:9, 11:4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----MDV01",
+              "Org": "MDV",
+              "OrgDesc": "Maldives",
+              "Name": "AHMED Moosa / NAZIM Aishath",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "4995868",
+                  "Org": "MDV",
+                  "OrgDesc": "Maldives",
+                  "Name": "AHMED Moosa"
+                },
+                {
+                  "Reg": "6869850",
+                  "Org": "MDV",
+                  "OrgDesc": "Maldives",
+                  "Name": "NAZIM Aishath"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----MGL02",
+              "Org": "MGL",
+              "OrgDesc": "Mongolia",
+              "Name": "ANKHBAYAR Bilguun / SER-OD Ankhmaa",
+              "Res": "2",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "4576115",
+                  "Org": "MGL",
+                  "OrgDesc": "Mongolia",
+                  "Name": "SER-OD Ankhmaa"
+                },
+                {
+                  "Reg": "1468986",
+                  "Org": "MGL",
+                  "OrgDesc": "Mongolia",
+                  "Name": "ANKHBAYAR Bilguun"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.001100--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "7:11, 5:11, 11:9, 11:9, 11:9",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----SRI01",
+              "Org": "SRI",
+              "OrgDesc": "Sri Lanka",
+              "Name": "KULAPPUWAWADU Chanul / SWARNA Bimandee",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "13407574",
+                  "Org": "SRI",
+                  "OrgDesc": "Sri Lanka",
+                  "Name": "SWARNA Bimandee"
+                },
+                {
+                  "Reg": "13407022",
+                  "Org": "SRI",
+                  "OrgDesc": "Sri Lanka",
+                  "Name": "KULAPPUWAWADU Chanul"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----IND01",
+              "Org": "IND",
+              "OrgDesc": "India",
+              "Name": "SHAH Manush / CHITALE Diya",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "12171959",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "SHAH Manush"
+                },
+                {
+                  "Reg": "12185132",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "CHITALE Diya"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.001200--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "009",
+              "LocDesc": "Table 9",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:8, 12:10, 11:4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----JPN01",
+              "Org": "JPN",
+              "OrgDesc": "Japan",
+              "Name": "MATSUSHIMA Sora / HARIMOTO Miwa",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "380420",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "MATSUSHIMA Sora"
+                },
+                {
+                  "Reg": "380921",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "HARIMOTO Miwa"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----PRK02",
+              "Org": "PRK",
+              "OrgDesc": "Democratic People's Republic of Korea",
+              "Name": "U Tae Ryong / PYON Song Gyong",
+              "Res": "2",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "6932766",
+                  "Org": "PRK",
+                  "OrgDesc": "Democratic People's Republic of Korea",
+                  "Name": "U Tae Ryong"
+                },
+                {
+                  "Reg": "6935349",
+                  "Org": "PRK",
+                  "OrgDesc": "Democratic People's Republic of Korea",
+                  "Name": "PYON Song Gyong"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.001300--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:13, 14:12, 7:11, 12:10, 11:2",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----INA02",
+              "Org": "INA",
+              "OrgDesc": "Indonesia",
+              "Name": "PRATAMA Affan / PUTRI Cindy",
+              "Res": "1",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "434463",
+                  "Org": "INA",
+                  "OrgDesc": "Indonesia",
+                  "Name": "PRATAMA Affan"
+                },
+                {
+                  "Reg": "15261238",
+                  "Org": "INA",
+                  "OrgDesc": "Indonesia",
+                  "Name": "PUTRI Cindy"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----KOR02",
+              "Org": "KOR",
+              "OrgDesc": "Republic of Korea",
+              "Name": "OH Junsung / KIM Nayeong",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16562520",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "OH Junsung"
+                },
+                {
+                  "Reg": "16564496",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "KIM Nayeong"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.001400--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:8, 9:11, 18:16, 11:8",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----SGP02",
+              "Org": "SGP",
+              "OrgDesc": "Singapore",
+              "Name": "QUEK Yong / LOY Ming",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "15946702",
+                  "Org": "SGP",
+                  "OrgDesc": "Singapore",
+                  "Name": "LOY Ming Ying"
+                },
+                {
+                  "Reg": "15947019",
+                  "Org": "SGP",
+                  "OrgDesc": "Singapore",
+                  "Name": "QUEK Yong"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----TPE02",
+              "Org": "TPE",
+              "OrgDesc": "Chinese Taipei",
+              "Name": "FENG Yi-hsin / YEH Yi-tian",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "15753718",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "YEH Yi-tian"
+                },
+                {
+                  "Reg": "15725713",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "FENG Yi-hsin"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.001500--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:4, 11:9, 12:10",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----UZB02",
+              "Org": "UZB",
+              "OrgDesc": "Uzbekistan",
+              "Name": "ISKANDAROV Shokhrukh / KAMALOVA Arujan",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "4654456",
+                  "Org": "UZB",
+                  "OrgDesc": "Uzbekistan",
+                  "Name": "ISKANDAROV Shokhrukh"
+                },
+                {
+                  "Reg": "4655094",
+                  "Org": "UZB",
+                  "OrgDesc": "Uzbekistan",
+                  "Name": "KAMALOVA Arujan"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----CHN02",
+              "Org": "CHN",
+              "OrgDesc": "People's Republic of China",
+              "Name": "WANG Chuqin / SUN Yingsha",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16277232",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "SUN Yingsha"
+                },
+                {
+                  "Reg": "16273238",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "WANG Chuqin"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.R32-.001600--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T10:40:00+09:00",
+              "Loc": "004",
+              "LocDesc": "Table 4",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:4, 14:12, 11:2",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "10:40",
+                  "Extensions": []
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Code": "X.DOUBLES-----------.8FNL",
+        "Desc": "Round 3",
+        "Matches": [
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----KOR01",
+              "Org": "KOR",
+              "OrgDesc": "Republic of Korea",
+              "Name": "LIM Jonghoon / SHIN Yubin",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16564280",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "SHIN Yubin"
+                },
+                {
+                  "Reg": "16562726",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "LIM Jonghoon"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----KAZ02",
+              "Org": "KAZ",
+              "OrgDesc": "Kazakhstan",
+              "Name": "KHARKI Iskender / MIRKADIROVA Sarvinoz",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "1564436",
+                  "Org": "KAZ",
+                  "OrgDesc": "Kazakhstan",
+                  "Name": "MIRKADIROVA Sarvinoz"
+                },
+                {
+                  "Reg": "1563957",
+                  "Org": "KAZ",
+                  "OrgDesc": "Kazakhstan",
+                  "Name": "KHARKI Iskender"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000100--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "005",
+              "LocDesc": "Table 5",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:5, 11:4, 11:6",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----JPN02",
+              "Org": "JPN",
+              "OrgDesc": "Japan",
+              "Name": "SHINOZUKA Hiroto / ITO Mima",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "381170",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "ITO Mima"
+                },
+                {
+                  "Reg": "380768",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "SHINOZUKA Hiroto"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----TPE01",
+              "Org": "TPE",
+              "OrgDesc": "Chinese Taipei",
+              "Name": "LIN Yun-ju / CHENG I-ching",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "665537",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "CHENG I-ching"
+                },
+                {
+                  "Reg": "4735886",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "LIN Yun-ju"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000200--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "006",
+              "LocDesc": "Table 6",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:5, 11:9, 11:3",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----IND02",
+              "Org": "IND",
+              "OrgDesc": "India",
+              "Name": "DESAI Harmeet / GHORPADE Yashaswini",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "10232271",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "GHORPADE Yashaswini"
+                },
+                {
+                  "Reg": "10214830",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "DESAI Harmeet"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----HKG02",
+              "Org": "HKG",
+              "OrgDesc": "Hong Kong, China",
+              "Name": "YIU Kwan To / NG Wing Lam",
+              "Res": "1",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "11119894",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "NG Wing Lam"
+                },
+                {
+                  "Reg": "11120693",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "YIU Kwan To"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000300--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "007",
+              "LocDesc": "Table 7",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:6, 11:5, 10:12, 11:7",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----THA01",
+              "Org": "THA",
+              "OrgDesc": "Thailand",
+              "Name": "SANGUANSIN Phakpoom / PARANANG Orawan",
+              "Res": "1",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "7384856",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "SANGUANSIN Phakpoom"
+                },
+                {
+                  "Reg": "4625533",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "PARANANG Orawan"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----CHN01",
+              "Org": "CHN",
+              "OrgDesc": "People's Republic of China",
+              "Name": "LIN Shidong / KUAI Man",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16276904",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "KUAI Man"
+                },
+                {
+                  "Reg": "16272951",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "LIN Shidong"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000400--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "008",
+              "LocDesc": "Table 8",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:2, 10:12, 11:4, 11:8",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----HKG01",
+              "Org": "HKG",
+              "OrgDesc": "Hong Kong, China",
+              "Name": "WONG Chun Ting / DOO Hoi Kem",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "11118638",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "DOO Hoi Kem"
+                },
+                {
+                  "Reg": "11120243",
+                  "Org": "HKG",
+                  "OrgDesc": "Hong Kong, China",
+                  "Name": "WONG Chun Ting"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----THA02",
+              "Org": "THA",
+              "OrgDesc": "Thailand",
+              "Name": "PREECHAYAN Thitaphat / VIJITVIRIYAGUL Kulapassr",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "12970602",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "VIJITVIRIYAGUL Kulapassr"
+                },
+                {
+                  "Reg": "7385907",
+                  "Org": "THA",
+                  "OrgDesc": "Thailand",
+                  "Name": "PREECHAYAN Thitaphat"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000500--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "004",
+              "LocDesc": "Table 4",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:6, 11:7, 11:5",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----MDV01",
+              "Org": "MDV",
+              "OrgDesc": "Maldives",
+              "Name": "AHMED Moosa / NAZIM Aishath",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "4995868",
+                  "Org": "MDV",
+                  "OrgDesc": "Maldives",
+                  "Name": "AHMED Moosa"
+                },
+                {
+                  "Reg": "6869850",
+                  "Org": "MDV",
+                  "OrgDesc": "Maldives",
+                  "Name": "NAZIM Aishath"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----IND01",
+              "Org": "IND",
+              "OrgDesc": "India",
+              "Name": "SHAH Manush / CHITALE Diya",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "12171959",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "SHAH Manush"
+                },
+                {
+                  "Reg": "12185132",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "CHITALE Diya"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000600--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:0, 11:7, 11:6",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----JPN01",
+              "Org": "JPN",
+              "OrgDesc": "Japan",
+              "Name": "MATSUSHIMA Sora / HARIMOTO Miwa",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "380420",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "MATSUSHIMA Sora"
+                },
+                {
+                  "Reg": "380921",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "HARIMOTO Miwa"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----KOR02",
+              "Org": "KOR",
+              "OrgDesc": "Republic of Korea",
+              "Name": "OH Junsung / KIM Nayeong",
+              "Res": "2",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16562520",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "OH Junsung"
+                },
+                {
+                  "Reg": "16564496",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "KIM Nayeong"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000700--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "9:11, 11:5, 9:11, 11:6, 14:12",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          },
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----TPE02",
+              "Org": "TPE",
+              "OrgDesc": "Chinese Taipei",
+              "Name": "FENG Yi-hsin / YEH Yi-tian",
+              "Res": "0",
+              "Win": false,
+              "RkPo": 2,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "15753718",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "YEH Yi-tian"
+                },
+                {
+                  "Reg": "15725713",
+                  "Org": "TPE",
+                  "OrgDesc": "Chinese Taipei",
+                  "Name": "FENG Yi-hsin"
+                }
+              ]
+            },
+            "Away": {
+              "Reg": "TTEXDOUBLES----CHN02",
+              "Org": "CHN",
+              "OrgDesc": "People's Republic of China",
+              "Name": "WANG Chuqin / SUN Yingsha",
+              "Res": "3",
+              "Win": true,
+              "RkPo": 1,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16277232",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "SUN Yingsha"
+                },
+                {
+                  "Reg": "16273238",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "WANG Chuqin"
+                }
+              ]
+            },
+            "Info": {
+              "Key": "X.DOUBLES-----------.8FNL.000800--",
+              "HideStartDate": false,
+              "HideLocation": false,
+              "DateTimeRaw": "2026-09-23T13:45:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "OFFICIAL",
+              "IsBye": false,
+              "Extensions": [
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "DateFormatted",
+                  "Pos": 0,
+                  "Value": "2026-09-23",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "Order",
+                  "Pos": 0,
+                  "Value": "4",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ResultDetailWinner",
+                  "Pos": 0,
+                  "Value": "11:1, 11:7, 11:6",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "ShowDateTimeLoc",
+                  "Pos": 0,
+                  "Value": "False",
+                  "Extensions": []
+                },
+                {
+                  "Type": "UNIT_INFO",
+                  "Code": "TimeFormatted",
+                  "Pos": 0,
+                  "Value": "13:45",
+                  "Extensions": []
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Code": "X.DOUBLES-----------.QFNL",
+        "Desc": "Quarterfinals",
+        "Matches": [
+          {
+            "Home": {
+              "Reg": "TTEXDOUBLES----KOR01",
+              "Org": "KOR",
+              "OrgDesc": "Republic of Korea",
+              "Name": "LIM Jonghoon / SHIN Yubin",
+              "Res": "",
+              "Win": false,
+              "RkPo": 0,
+              "IRM": "OK",
+              "Extensions": [],
+              "Medal": "",
+              "Members": [
+                {
+                  "Reg": "16564280",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "SHIN Yubin"
+                },
+                {
+                  "Reg": "16562726",
+                  "Org": "KOR",
+                  "OrgDesc": "Republic of Korea",
+                  "Name": "LIM Jonghoon"
                 }
               ]
             },
@@ -3253,27 +5414,27 @@
               ]
             },
             "Info": {
-              "Key": "X.DOUBLES-----------.R32-.000400--",
+              "Key": "X.DOUBLES-----------.QFNL.000100--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T10:00:00+09:00",
+              "Loc": "002",
+              "LocDesc": "Table 2",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "Order",
                   "Pos": 0,
-                  "Value": "5",
+                  "Value": "3",
                   "Extensions": []
                 },
                 {
@@ -3294,7 +5455,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:00",
                   "Extensions": []
                 }
               ]
@@ -3328,281 +5489,6 @@
               ]
             },
             "Away": {
-              "Reg": "TTEXDOUBLES----MDV02",
-              "Org": "MDV",
-              "OrgDesc": "Maldives",
-              "Name": "ISMAIL Mohamed / ALI Fathimath",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "6871630",
-                  "Org": "MDV",
-                  "OrgDesc": "Maldives",
-                  "Name": "ALI Fathimath"
-                },
-                {
-                  "Reg": "6879283",
-                  "Org": "MDV",
-                  "OrgDesc": "Maldives",
-                  "Name": "ISMAIL Mohamed"
-                }
-              ]
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.000500--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "TTEXDOUBLES----HKG02",
-              "Org": "HKG",
-              "OrgDesc": "Hong Kong, China",
-              "Name": "YIU Kwan To / NG Wing",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "11119894",
-                  "Org": "HKG",
-                  "OrgDesc": "Hong Kong, China",
-                  "Name": "NG Wing Lam"
-                },
-                {
-                  "Reg": "11120693",
-                  "Org": "HKG",
-                  "OrgDesc": "Hong Kong, China",
-                  "Name": "YIU Kwan To"
-                }
-              ]
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.000600--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "TTEXDOUBLES----INA01",
-              "Org": "INA",
-              "OrgDesc": "Indonesia",
-              "Name": "JUNINDRA Muhammad / NEBUCHADNEZZAR Almaira",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "6111949",
-                  "Org": "INA",
-                  "OrgDesc": "Indonesia",
-                  "Name": "JUNINDRA Muhammad"
-                },
-                {
-                  "Reg": "451609",
-                  "Org": "INA",
-                  "OrgDesc": "Indonesia",
-                  "Name": "NEBUCHADNEZZAR Almaira"
-                }
-              ]
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.000700--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "TTEXDOUBLES----PRK01",
-              "Org": "PRK",
-              "OrgDesc": "Democratic People's Republic of Korea",
-              "Name": "RI Jong Sik / KIM Kum Yong",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "15241975",
-                  "Org": "PRK",
-                  "OrgDesc": "Democratic People's Republic of Korea",
-                  "Name": "RI Jong Sik"
-                },
-                {
-                  "Reg": "5067587",
-                  "Org": "PRK",
-                  "OrgDesc": "Democratic People's Republic of Korea",
-                  "Name": "KIM Kum Yong"
-                }
-              ]
-            },
-            "Away": {
               "Reg": "TTEXDOUBLES----CHN01",
               "Org": "CHN",
               "OrgDesc": "People's Republic of China",
@@ -3615,41 +5501,41 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "16272951",
-                  "Org": "CHN",
-                  "OrgDesc": "People's Republic of China",
-                  "Name": "LIN Shidong"
-                },
-                {
                   "Reg": "16276904",
                   "Org": "CHN",
                   "OrgDesc": "People's Republic of China",
                   "Name": "KUAI Man"
+                },
+                {
+                  "Reg": "16272951",
+                  "Org": "CHN",
+                  "OrgDesc": "People's Republic of China",
+                  "Name": "LIN Shidong"
                 }
               ]
             },
             "Info": {
-              "Key": "X.DOUBLES-----------.R32-.000800--",
+              "Key": "X.DOUBLES-----------.QFNL.000200--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T10:00:00+09:00",
+              "Loc": "008",
+              "LocDesc": "Table 8",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "Order",
                   "Pos": 0,
-                  "Value": "5",
+                  "Value": "3",
                   "Extensions": []
                 },
                 {
@@ -3670,7 +5556,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:00",
                   "Extensions": []
                 }
               ]
@@ -3681,7 +5567,7 @@
               "Reg": "TTEXDOUBLES----HKG01",
               "Org": "HKG",
               "OrgDesc": "Hong Kong, China",
-              "Name": "WONG Chun / DOO Hoi Kem",
+              "Name": "WONG Chun Ting / DOO Hoi Kem",
               "Res": "",
               "Win": false,
               "RkPo": 0,
@@ -3704,267 +5590,6 @@
               ]
             },
             "Away": {
-              "Reg": "TTEXDOUBLES----MAC01",
-              "Org": "MAC",
-              "OrgDesc": "Macao, China",
-              "Name": "MAK Tin Ian / KUAN Cheok",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "5718418",
-                  "Org": "MAC",
-                  "OrgDesc": "Macao, China",
-                  "Name": "MAK Tin Ian"
-                },
-                {
-                  "Reg": "5718955",
-                  "Org": "MAC",
-                  "OrgDesc": "Macao, China",
-                  "Name": "KUAN Cheok"
-                }
-              ]
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.000900--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "TTEXDOUBLES----THA02",
-              "Org": "THA",
-              "OrgDesc": "Thailand",
-              "Name": "PREECHAYAN Thitaphat / VIJITVIRIYAGUL Kulapassr",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "12970602",
-                  "Org": "THA",
-                  "OrgDesc": "Thailand",
-                  "Name": "VIJITVIRIYAGUL Kulapassr"
-                },
-                {
-                  "Reg": "7385907",
-                  "Org": "THA",
-                  "OrgDesc": "Thailand",
-                  "Name": "PREECHAYAN Thitaphat"
-                }
-              ]
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.001000--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "TTEXDOUBLES----MDV01",
-              "Org": "MDV",
-              "OrgDesc": "Maldives",
-              "Name": "AHMED Moosa / NAZIM Aishath",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "4995868",
-                  "Org": "MDV",
-                  "OrgDesc": "Maldives",
-                  "Name": "AHMED Moosa"
-                },
-                {
-                  "Reg": "6869850",
-                  "Org": "MDV",
-                  "OrgDesc": "Maldives",
-                  "Name": "NAZIM Aishath"
-                }
-              ]
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.001100--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
               "Reg": "TTEXDOUBLES----IND01",
               "Org": "IND",
               "OrgDesc": "India",
@@ -3977,41 +5602,41 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "12185132",
-                  "Org": "IND",
-                  "OrgDesc": "India",
-                  "Name": "CHITALE Diya"
-                },
-                {
                   "Reg": "12171959",
                   "Org": "IND",
                   "OrgDesc": "India",
                   "Name": "SHAH Manush"
+                },
+                {
+                  "Reg": "12185132",
+                  "Org": "IND",
+                  "OrgDesc": "India",
+                  "Name": "CHITALE Diya"
                 }
               ]
             },
             "Info": {
-              "Key": "X.DOUBLES-----------.R32-.001200--",
+              "Key": "X.DOUBLES-----------.QFNL.000300--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T10:00:00+09:00",
+              "Loc": "003",
+              "LocDesc": "Table 3",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
                   "Type": "UNIT_INFO",
                   "Code": "Order",
                   "Pos": 0,
-                  "Value": "5",
+                  "Value": "3",
                   "Extensions": []
                 },
                 {
@@ -4032,7 +5657,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:00",
                   "Extensions": []
                 }
               ]
@@ -4052,291 +5677,16 @@
               "Medal": "",
               "Members": [
                 {
-                  "Reg": "380921",
-                  "Org": "JPN",
-                  "OrgDesc": "Japan",
-                  "Name": "HARIMOTO Miwa"
-                },
-                {
                   "Reg": "380420",
                   "Org": "JPN",
                   "OrgDesc": "Japan",
                   "Name": "MATSUSHIMA Sora"
-                }
-              ]
-            },
-            "Away": {
-              "Reg": "TTEXDOUBLES----PRK02",
-              "Org": "PRK",
-              "OrgDesc": "Democratic People's Republic of Korea",
-              "Name": "U Tae Ryong / PYON Song",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "6935349",
-                  "Org": "PRK",
-                  "OrgDesc": "Democratic People's Republic of Korea",
-                  "Name": "PYON Song"
                 },
                 {
-                  "Reg": "6932766",
-                  "Org": "PRK",
-                  "OrgDesc": "Democratic People's Republic of Korea",
-                  "Name": "U Tae Ryong"
-                }
-              ]
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.001300--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "TTEXDOUBLES----KOR02",
-              "Org": "KOR",
-              "OrgDesc": "Republic of Korea",
-              "Name": "OH Junsung / KIM Nayeong",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "16564496",
-                  "Org": "KOR",
-                  "OrgDesc": "Republic of Korea",
-                  "Name": "KIM Nayeong"
-                },
-                {
-                  "Reg": "16562520",
-                  "Org": "KOR",
-                  "OrgDesc": "Republic of Korea",
-                  "Name": "OH Junsung"
-                }
-              ]
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.001400--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "TTEXDOUBLES----SGP02",
-              "Org": "SGP",
-              "OrgDesc": "Singapore",
-              "Name": "QUEK Yong / LOY Ming",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "15947019",
-                  "Org": "SGP",
-                  "OrgDesc": "Singapore",
-                  "Name": "QUEK Yong"
-                },
-                {
-                  "Reg": "15946702",
-                  "Org": "SGP",
-                  "OrgDesc": "Singapore",
-                  "Name": "LOY Ming"
-                }
-              ]
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.R32-.001500--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "TTEXDOUBLES----UZB02",
-              "Org": "UZB",
-              "OrgDesc": "Uzbekistan",
-              "Name": "ISKANDAROV Shokhrukh / KAMALOVA Arujan",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": "",
-              "Members": [
-                {
-                  "Reg": "4655094",
-                  "Org": "UZB",
-                  "OrgDesc": "Uzbekistan",
-                  "Name": "KAMALOVA Arujan"
-                },
-                {
-                  "Reg": "4654456",
-                  "Org": "UZB",
-                  "OrgDesc": "Uzbekistan",
-                  "Name": "ISKANDAROV Shokhrukh"
+                  "Reg": "380921",
+                  "Org": "JPN",
+                  "OrgDesc": "Japan",
+                  "Name": "HARIMOTO Miwa"
                 }
               ]
             },
@@ -4367,908 +5717,20 @@
               ]
             },
             "Info": {
-              "Key": "X.DOUBLES-----------.R32-.001600--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "5",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "Code": "X.DOUBLES-----------.8FNL",
-        "Desc": "Round 3",
-        "Matches": [
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000100--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000200--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000300--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000400--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000500--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000600--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000700--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.8FNL.000800--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "4",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "Code": "X.DOUBLES-----------.QFNL",
-        "Desc": "Quarterfinals",
-        "Matches": [
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.QFNL.000100--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "3",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.QFNL.000200--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "3",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
-              "Key": "X.DOUBLES-----------.QFNL.000300--",
-              "HideStartDate": false,
-              "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
-              "IsBye": false,
-              "Extensions": [
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "DateFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "Order",
-                  "Pos": 0,
-                  "Value": "3",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ResultDetailWinner",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "ShowDateTimeLoc",
-                  "Pos": 0,
-                  "Value": "True",
-                  "Extensions": []
-                },
-                {
-                  "Type": "UNIT_INFO",
-                  "Code": "TimeFormatted",
-                  "Pos": 0,
-                  "Value": "",
-                  "Extensions": []
-                }
-              ]
-            }
-          },
-          {
-            "Home": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Away": {
-              "Reg": "",
-              "Org": "",
-              "OrgDesc": "",
-              "Name": "",
-              "Res": "",
-              "Win": false,
-              "RkPo": 0,
-              "IRM": "OK",
-              "Extensions": [],
-              "Medal": ""
-            },
-            "Info": {
               "Key": "X.DOUBLES-----------.QFNL.000400--",
               "HideStartDate": false,
               "HideLocation": false,
-              "DateTimeRaw": "",
-              "Loc": "",
-              "LocDesc": "",
-              "Status": "",
+              "DateTimeRaw": "2026-09-25T10:00:00+09:00",
+              "Loc": "001",
+              "LocDesc": "Table 1",
+              "Status": "START_LIST",
               "IsBye": false,
               "Extensions": [
                 {
                   "Type": "UNIT_INFO",
                   "Code": "DateFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "2026-09-25",
                   "Extensions": []
                 },
                 {
@@ -5296,7 +5758,7 @@
                   "Type": "UNIT_INFO",
                   "Code": "TimeFormatted",
                   "Pos": 0,
-                  "Value": "",
+                  "Value": "10:00",
                   "Extensions": []
                 }
               ]
