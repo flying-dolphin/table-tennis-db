@@ -351,6 +351,37 @@ def _replace_brackets(conn: sqlite3.Connection, snapshot: dict[str, Any], resolv
     return len(rows)
 
 
+def _confirmed_bye_codes(bracket_snapshot: dict[str, Any] | None) -> set[str]:
+    if bracket_snapshot is None:
+        return set()
+    return {
+        str(row["external_unit_code"])
+        for row in bracket_snapshot.get("brackets") or []
+        if isinstance(row, dict)
+        and row.get("external_unit_code")
+        and isinstance(row.get("raw_source_payload"), dict)
+        and (row["raw_source_payload"].get("Info") or {}).get("IsBye") is True
+    }
+
+
+def _remove_confirmed_bye_placeholders(conn: sqlite3.Connection, bye_codes: set[str]) -> int:
+    removed = 0
+    for code in bye_codes:
+        cursor = conn.execute(
+            """DELETE FROM current_event_matches
+               WHERE event_id=? AND external_match_code=? AND current_team_tie_id IS NULL
+                 AND status='scheduled' AND source_status='PROVISIONAL'
+                 AND NULLIF(TRIM(match_score), '') IS NULL AND winner_side IS NULL
+                 AND NOT EXISTS (
+                   SELECT 1 FROM current_event_match_sides s
+                   WHERE s.current_match_id=current_event_matches.current_match_id
+                 )""",
+            (EVENT_ID, code),
+        )
+        removed += cursor.rowcount
+    return removed
+
+
 def import_snapshot(
     conn: sqlite3.Connection,
     snapshot: dict[str, Any],
@@ -361,6 +392,7 @@ def import_snapshot(
     if conn.execute("SELECT 1 FROM events WHERE event_id=?", (EVENT_ID,)).fetchone() is None:
         raise ValueError(f"events table has no event_id={EVENT_ID}")
     resolve = player_resolver(conn)
+    bye_codes = _confirmed_bye_codes(bracket_snapshot)
     counts = {"team_ties": 0, "matches": 0, "brackets": 0, "roster_players": 0, "match_players": 0}
     conn.execute("BEGIN")
     try:
@@ -392,6 +424,8 @@ def import_snapshot(
                 counts["matches"] += 1
                 counts["match_players"] += sum(len(s.get("players") or []) for s in match.get("sides") or [])
         for match in snapshot.get("matches") or []:
+            if match.get("external_match_code") in bye_codes:
+                continue
             match_id = _upsert_parent(conn, "current_event_matches", "current_match_id", match)
             _replace_match_sides(
                 conn,
@@ -404,6 +438,7 @@ def import_snapshot(
             counts["match_players"] += sum(len(s.get("players") or []) for s in match.get("sides") or [])
         if bracket_snapshot is not None:
             counts["brackets"] = _replace_brackets(conn, bracket_snapshot, resolve)
+        counts["removed_bye_matches"] = _remove_confirmed_bye_placeholders(conn, bye_codes)
         counts['removed_placeholders'] = cleanup_placeholders(conn, snapshot)
         conn.commit()
     except Exception:

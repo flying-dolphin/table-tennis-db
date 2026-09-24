@@ -523,6 +523,39 @@ test('current team schedule keeps the tie score and lists all mandatory-rubber p
   assert.throws(() => rollback(), /rollback fixture/);
 });
 
+test('current individual schedule excludes confirmed bracket byes', () => {
+  const eventId = 990011;
+  const rollback = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO events (event_id, year, name, lifecycle_status, time_zone)
+      VALUES (?, 2026, 'Bye schedule fixture', 'in_progress', 'Asia/Tokyo')
+    `).run(eventId);
+    db.prepare(`
+      INSERT INTO current_event_matches
+        (event_id, sub_event_type_code, external_match_code, scheduled_local_at, status, source_status)
+      VALUES (?, 'MS', ?, '2026-09-24T11:20:00', 'scheduled', 'PROVISIONAL')
+    `).run(eventId, 'BYE-UNIT');
+    db.prepare(`
+      INSERT INTO current_event_matches
+        (event_id, sub_event_type_code, external_match_code, scheduled_local_at, status, source_status)
+      VALUES (?, 'MS', ?, '2026-09-24T11:20:00', 'scheduled', 'PROVISIONAL')
+    `).run(eventId, 'PENDING-UNIT');
+    db.prepare(`
+      INSERT INTO current_event_brackets
+        (event_id, sub_event_type_code, external_unit_code, raw_source_payload)
+      VALUES (?, 'MS', 'BYE-UNIT', ?)
+    `).run(eventId, JSON.stringify({ Info: { IsBye: true } }));
+
+    const detail = getEventDetail(eventId, 'MS');
+    const codes = detail.scheduleDays.flatMap((day) => day.matches.map((match) => match.externalMatchCode));
+    assert.deepEqual(codes, ['PENDING-UNIT']);
+    assert.ok(detail.bracket.flatMap((round) => round.matches).some((match) => match.externalUnitCode === 'BYE-UNIT'));
+    throw new Error('rollback fixture');
+  });
+
+  assert.throws(() => rollback(), /rollback fixture/);
+});
+
 test('current team tie detail shows all played rubbers and hides unplayed cancellations', () => {
   const eventId = 990020;
   const rollback = db.transaction(() => {

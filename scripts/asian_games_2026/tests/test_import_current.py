@@ -94,6 +94,45 @@ class ImportCurrentTests(unittest.TestCase):
         self.assertEqual(self.conn.execute("SELECT COUNT(*) FROM current_event_match_sides").fetchone()[0], 2)
         self.assertEqual(self.conn.execute("SELECT status FROM current_event_matches").fetchone()[0], "completed")
 
+    def test_confirmed_bye_is_removed_from_matches_but_kept_in_bracket(self) -> None:
+        bye_code = "M.SINGLES-----------.R64-.000100--"
+        pending_code = "M.SINGLES-----------.R32-.000100--"
+        def match(code):
+            return {
+                "external_match_code": code, "sub_event_type_code": "MS",
+                "status": "scheduled", "source_status": "PROVISIONAL",
+                "scheduled_local_at": "2026-09-24T11:20:00", "sides": [],
+                "raw_source_payload": {"Info": {"Key": code, "IsAlt": True}},
+            }
+        snapshot = {"team_ties": [], "matches": [match(bye_code), match(pending_code)]}
+        import_snapshot(self.conn, snapshot)
+        bracket = {
+            "event_id": 6666, "sub_events": ["MS"],
+            "brackets": [{
+                "sub_event_type_code": "MS", "draw_code": "MAIN",
+                "bracket_code": "M.SINGLES-----------.R64-", "stage_code": "MAIN_DRAW",
+                "round_code": "R64", "round_order": 20, "bracket_position": 1,
+                "external_unit_code": bye_code, "scheduled_date": "2026-09-24",
+                "scheduled_time": "11:20", "match_score": None, "winner_side": "A",
+                "status": "completed", "side_a_previous_unit": None,
+                "side_b_previous_unit": None, "side_a_team_code": "CHN",
+                "side_b_team_code": "BYE", "side_a_placeholder": None,
+                "side_b_placeholder": "BYE",
+                "raw_source_payload": {"Info": {"Key": bye_code, "IsBye": True}},
+            }],
+        }
+
+        import_snapshot(self.conn, snapshot, bracket)
+        import_snapshot(self.conn, snapshot, bracket)
+
+        codes = [row[0] for row in self.conn.execute(
+            "SELECT external_match_code FROM current_event_matches WHERE event_id=6666"
+        )]
+        self.assertEqual(codes, [pending_code])
+        self.assertEqual(self.conn.execute(
+            "SELECT count(*) FROM current_event_brackets WHERE external_unit_code=?", (bye_code,)
+        ).fetchone()[0], 1)
+
     def test_import_resolves_variant_roster_names_and_preserves_ambiguous_match_names(self) -> None:
         self.conn.executemany(
             "INSERT INTO players(player_id,name,slug,country_code,gender) VALUES (?,?,?,?,?)",

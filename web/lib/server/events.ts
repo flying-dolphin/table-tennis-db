@@ -927,6 +927,13 @@ function buildCurrentScheduleMatches(eventId: number) {
         LEFT JOIN players pl ON pl.player_id = p.player_id
         WHERE m.event_id = ?
           AND m.current_team_tie_id IS NULL
+          AND NOT EXISTS (
+            SELECT 1 FROM current_event_brackets b
+            WHERE b.event_id = m.event_id
+              AND b.sub_event_type_code = m.sub_event_type_code
+              AND b.external_unit_code = m.external_match_code
+              AND json_extract(b.raw_source_payload, '$.Info.IsBye') = 1
+          )
         ORDER BY scheduledLocalAt ASC, scheduleMatchId ASC, sideNo ASC, playerOrder ASC
       `,
     )
