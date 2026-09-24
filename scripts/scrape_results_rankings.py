@@ -26,7 +26,7 @@ from lib.capture import save_json
 from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import verify_cdp_session_or_prompt
-from lib.page_ops import _retry_after_seconds, click_next_page_if_any, guarded_goto
+from lib.page_ops import _retry_after_seconds, guarded_goto
 
 from db.config import DB_PATH
 from scrape_events import select_browser_profiles
@@ -849,22 +849,24 @@ def results_resume_wait_seconds(
 
 def build_results_resume_url(page_html: str, source_url: str, offset: int) -> str | None:
     soup = BeautifulSoup(page_html, "html.parser")
-    link = soup.select_one("a[rel='next'][href], a[title='End'][href]")
-    if link is None:
-        return None
-    href = urllib.parse.urljoin(source_url, html.unescape(str(link.get("href") or "")))
-    if not href:
-        return None
-    parsed = urllib.parse.urlsplit(href)
-    query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
-    limit_keys = [key for key, _value in query if re.fullmatch(r"limitstart\d+", key)]
-    if not limit_keys:
-        return None
-    limit_key = limit_keys[0]
-    updated_query = [(key, str(offset) if key == limit_key else value) for key, value in query]
-    return urllib.parse.urlunsplit(
-        (parsed.scheme, parsed.netloc, parsed.path, urllib.parse.urlencode(updated_query), parsed.fragment)
-    )
+    links = soup.select("a[rel='next'][href], a[title='End'][href], .pagination a[href], .fabrikNav a[href]")
+    candidates = [
+        urllib.parse.urljoin(source_url, html.unescape(str(link.get("href") or "")))
+        for link in links
+    ]
+    candidates.append(source_url)
+    for href in candidates:
+        parsed = urllib.parse.urlsplit(href)
+        query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+        limit_keys = [key for key, _value in query if re.fullmatch(r"limitstart\d+", key)]
+        if not limit_keys:
+            continue
+        limit_key = limit_keys[0]
+        updated_query = [(key, str(offset) if key == limit_key else value) for key, value in query]
+        return urllib.parse.urlunsplit(
+            (parsed.scheme, parsed.netloc, parsed.path, urllib.parse.urlencode(updated_query), parsed.fragment)
+        )
+    return None
 
 
 def extract_results_page_urls(page_html: str, source_url: str) -> dict[int, str]:
@@ -936,6 +938,7 @@ def click_results_page_offset(
         human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, f"before clicking results offset {offset}")
         target.scroll_into_view_if_needed()
         move_mouse_to_locator(page, target)
+        target.click()
         try:
             page.wait_for_load_state("networkidle", timeout=15000)
         except Exception:
@@ -1234,6 +1237,52 @@ def load_results_rankings_snapshot(path: Path, category: str, top_n: int) -> lis
     return rankings[:top_n]
 
 
+def reset_fresh_results_to_first_page(
+    page: Any,
+    *,
+    delay_cfg: DelayConfig,
+    page_size: int,
+) -> None:
+    """Ensure a fresh scrape starts at rank 1, even with a reused CDP tab."""
+    page_html = page.content()
+    pagination = extract_results_pagination_info(page_html)
+    first_rows = parse_results_ranking_html(page_html, 1)
+    if pagination is not None and pagination[0] == 1 and first_rows and parse_int(first_rows[0].get("rank")) == 1:
+        return
+    if pagination is None or pagination[2] <= 0 or page_size <= 0:
+        raise RuntimeError("Cannot verify results ranking starts at page 1")
+
+    logger.info("Fresh results ranking starts at page %d; resetting to page 1", pagination[0])
+    clicked = click_results_page_offset(
+        page,
+        offset=0,
+        page_size=page_size,
+        delay_cfg=delay_cfg,
+    )
+    if not clicked:
+        first_page_url = build_results_resume_url(page_html, page.url, 0)
+        if not first_page_url:
+            raise RuntimeError("Cannot reset results ranking to page 1: no pagination URL")
+        guarded_goto(
+            page,
+            first_page_url,
+            delay_cfg,
+            "reset fresh results ranking to page 1",
+            retries=0,
+            retry_risk_responses=False,
+        )
+
+    first_html = wait_for_results_page_html(
+        page,
+        expected_page=1,
+        page_size=page_size,
+        reported_total=pagination[2],
+    )
+    first_page_rows = parse_results_ranking_html(first_html, 1) if first_html else []
+    if not first_page_rows or parse_int(first_page_rows[0].get("rank")) != 1:
+        raise RuntimeError("Results ranking page 1 remained incomplete after reset")
+
+
 def scrape_results_rankings(
     page: Any,
     category: str,
@@ -1255,6 +1304,13 @@ def scrape_results_rankings(
     }
     reported_total = initial_reported_total
     page_checkpoints = dict(initial_page_checkpoints or {})
+
+    if not rankings:
+        reset_fresh_results_to_first_page(
+            page,
+            delay_cfg=delay_cfg,
+            page_size=page_size or 100,
+        )
 
     while len(rankings) < top_n:
         risk = detect_risk(page)
@@ -1329,6 +1385,8 @@ def scrape_results_rankings(
         pages_scraped += 1
         if not page_rows:
             break
+        if not rankings and parse_int(page_rows[0].get("rank")) != 1:
+            raise RuntimeError("Fresh results ranking does not start at rank 1")
 
         for row in page_rows:
             player_id = str(row.get("player_id") or "")
@@ -1360,7 +1418,7 @@ def scrape_results_rankings(
         next_page_url = None if reached_expected_total else build_results_resume_url(
             page_html,
             page.url,
-            len(rankings),
+            page_offset + len(page_rows),
         )
         save_json(
             output_file,
@@ -1377,8 +1435,12 @@ def scrape_results_rankings(
         )
         if reached_expected_total:
             break
-        human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, "before next results ranking page")
-        if not click_next_page_if_any(page, delay_cfg):
+        if not click_results_page_offset(
+            page,
+            offset=page_offset + effective_page_size,
+            page_size=effective_page_size,
+            delay_cfg=delay_cfg,
+        ):
             break
 
     validate_scraped_results_count(rankings, top_n, reported_total)
