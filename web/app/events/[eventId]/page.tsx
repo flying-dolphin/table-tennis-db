@@ -2375,6 +2375,27 @@ function DrawTeamTieCard({
   tie: TeamTie;
   eventReturnHref: string;
 }) {
+  const byeA = tie.teamA.code === "BYE";
+  const byeB = tie.teamB.code === "BYE";
+  if (byeA || byeB) {
+    return (
+      <div className="rounded-[0.6rem] border border-[#dce7f5] bg-white px-1.5 py-1 shadow-sm">
+        {[tie.teamA, tie.teamB].map((team, index) => (
+          <div key={index} className="flex h-5 items-center gap-1">
+            {team.code === "BYE" ? (
+              <span className="text-[0.7rem] text-slate-400">轮空</span>
+            ) : (
+              <>
+                {isStandardTeamCode(team.code) ? <Flag code={team.code} className="shrink-0 scale-[0.85] origin-left" /> : null}
+                <span className="min-w-0 flex-1 truncate text-[0.7rem] font-bold text-slate-900">{team.code}</span>
+                <span className="shrink-0 text-[0.6rem] text-[#2d6cf6]">直接晋级</span>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+  }
   const winnerA = tie.winnerCode === tie.teamA.code;
   const winnerB = tie.winnerCode === tie.teamB.code;
   const tieHref =

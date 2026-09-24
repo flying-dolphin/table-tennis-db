@@ -10,6 +10,45 @@ const {
   orderTeamRoundsByFeeders,
 } = require('../team-knockout-bracket.ts');
 
+test('Asian Games team byes complete the bracket without creating schedule matches', () => {
+  const { db } = require('./db.ts');
+  db.exec('BEGIN');
+  try {
+    for (const [code, byePositions] of [['WT', [1, 4, 5, 8]], ['MT', [1, 8]]]) {
+      const eventId = code === 'WT' ? 966661 : 966662;
+      db.prepare("INSERT INTO events(event_id,year,name,lifecycle_status,time_zone) VALUES (?,2026,'Team bye fixture','in_progress','Asia/Tokyo')").run(eventId);
+      for (let position = 1; position <= 8; position++) {
+        const external = `${code}.8FNL.${String(position).padStart(4, '0')}0000`;
+        const bye = byePositions.includes(position);
+        const a = `A${position}`;
+        const b = bye ? 'BYE' : `B${position}`;
+        db.prepare(`INSERT INTO current_event_brackets(event_id,sub_event_type_code,external_unit_code,
+          stage_code,round_code,round_order,bracket_position,side_a_team_code,side_b_team_code,winner_side,status)
+          VALUES (?, ?, ?, 'MAIN_DRAW','R16',40,?,?,?,'A','completed')`).run(eventId, code, external, position, a, b);
+        if (!bye) {
+          const id = db.prepare(`INSERT INTO current_event_team_ties(event_id,sub_event_type_code,external_match_code,
+            stage_code,round_code,status,match_score,winner_side,winner_team_code,scheduled_local_at)
+            VALUES (?,?,?,'MAIN_DRAW','R16','completed','3-0','A',?,'2026-09-22T10:00:00')`).run(eventId, code, external, a).lastInsertRowid;
+          for (const [side, team] of [[1, a], [2, b]]) {
+            db.prepare('INSERT INTO current_event_team_tie_sides(current_team_tie_id,side_no,team_code) VALUES (?,?,?)').run(id, side, team);
+          }
+        }
+      }
+      const detail = getEventDetail(eventId, code);
+      const round = detail.teamKnockoutView.rounds.find((r) => r.code === 'R16');
+      assert.equal(round.ties.length, 8);
+      const byes = round.ties.filter((t) => t.teamA.code === 'BYE' || t.teamB.code === 'BYE');
+      assert.equal(byes.length, byePositions.length);
+      assert.ok(byes.every((t) => t.scheduleMatchId === null && t.winnerCode));
+      const teams = new Set(round.ties.flatMap((t) => [t.teamA.code, t.teamB.code]).filter((c) => c !== 'BYE'));
+      assert.equal(teams.size, code === 'WT' ? 12 : 14);
+      assert.equal(db.prepare('SELECT count(*) n FROM current_event_team_ties WHERE event_id=?').get(eventId).n, 8 - byePositions.length);
+    }
+  } finally {
+    db.exec('ROLLBACK');
+  }
+});
+
 function normalizeTeamRoundCode(code) {
   const rawCode = code.includes(':') ? code.slice(code.lastIndexOf(':') + 1) : code;
   const aliases = {

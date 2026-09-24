@@ -9,6 +9,7 @@ from scripts.asian_games_2026.import_current import (
     collect_missing_player_translations,
     collect_unresolved_players,
     import_snapshot,
+    _resolved_bracket_players,
 )
 
 
@@ -16,6 +17,16 @@ ROOT = Path(__file__).resolve().parents[3]
 
 
 class ImportCurrentTests(unittest.TestCase):
+    def test_team_names_are_not_resolved_as_players(self):
+        from unittest.mock import Mock
+        resolve = Mock()
+        result = _resolved_bracket_players({
+            'Home': {'Name': 'China', 'Org': 'CHN'},
+            'Away': {'Name': '', 'Org': 'BYE'},
+        }, resolve, 'WT')
+        resolve.assert_not_called()
+        self.assertTrue(all(not side['players'] for side in result['sides']))
+
     def setUp(self) -> None:
         self.conn = sqlite3.connect(":memory:")
         self.conn.executescript((ROOT / "scripts/db/schema.sql").read_text(encoding="utf-8"))

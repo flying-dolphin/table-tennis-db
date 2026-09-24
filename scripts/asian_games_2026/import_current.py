@@ -146,7 +146,9 @@ def _resolved_bracket_players(
             sides.append({"side_no": side_no, "players": []})
             continue
         members = competitor.get("Members")
-        source_players = members if isinstance(members, list) and members else [competitor]
+        source_players = members if isinstance(members, list) and members else (
+            [] if sub_event_type_code in {'MT', 'WT', 'XT'} else [competitor]
+        )
         players: list[dict[str, object]] = []
         for source_player in source_players:
             if not isinstance(source_player, dict):

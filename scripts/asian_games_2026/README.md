@@ -23,9 +23,11 @@
 团体主记录的完整提报名单写入 `current_event_team_tie_side_players`；每场实际或
 计划对阵球员写入 `current_event_match_side_players`，两者不会混用。
 
-男单、女单、男双、女双和混双签表来自官方 `/brackets/{event-code}` 接口，写入
+男团、女团及男单、女单、男双、女双和混双签表来自官方 `/brackets/{event-code}` 接口，写入
 `current_event_brackets`。原始响应保存在 `data/asian_games/2026/raw/brackets/`，
 标准化快照为 `data/asian_games/2026/normalized/current_brackets.json`。
+团体轮空位置仅存入签表，由签表展示补齐完整签位，不创建赛程比赛；页面显示
+“轮空／直接晋级”，不显示比分或比赛详情链接。团体名称不参与运动员匹配。
 导入时会使用 `scripts/data/asian_games_player_aliases.json` 解析签表中的源名称，
 并将解析结果写入现有 `current_event_brackets.raw_source_payload` 的
 `_resolved_players` 字段；无需新增表。修改别名后重新运行导入即可修复已有签表数据。

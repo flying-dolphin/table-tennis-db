@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture and normalize the official Asian Games individual brackets."""
+"""Capture and normalize the official Asian Games individual and team brackets."""
 
 from __future__ import annotations
 
@@ -24,6 +24,8 @@ from scripts.asian_games_2026.common import (
 
 
 BRACKET_EVENTS = {
+    "MT": "M.TEAM--------------",
+    "WT": "W.TEAM--------------",
     "MS": "M.SINGLES-----------",
     "WS": "W.SINGLES-----------",
     "MD": "M.DOUBLES-----------",
@@ -159,7 +161,7 @@ def capture_brackets(*, raw_root: Path) -> dict[str, Any]:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="抓取亚运会乒乓球单项签表")
+    parser = argparse.ArgumentParser(description="抓取亚运会乒乓球单项和团体签表")
     parser.add_argument("--raw-root", type=Path, default=RAW_ROOT)
     parser.add_argument("--output", type=Path, default=NORMALIZED_ROOT / "current_brackets.json")
     return parser

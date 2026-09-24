@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from scripts.asian_games_2026.scrape_brackets import normalize_bracket_payload
+from scripts.asian_games_2026.scrape_brackets import BRACKET_EVENTS, normalize_bracket_payload
 
 
 def competitor(name: str, org: str, *, reg: str = "", win: bool = False, members=None):
@@ -32,6 +32,20 @@ def bracket_match(key: str, home: dict, away: dict, *, status: str = "", is_bye:
 
 
 class ScrapeBracketsTests(unittest.TestCase):
+    def test_team_brackets_include_byes_without_scheduled_matches(self):
+        for code, official in [('WT', 'W.TEAM--------------'), ('MT', 'M.TEAM--------------')]:
+            self.assertEqual(BRACKET_EVENTS.get(code), official)
+            payload = [{'Code': 'MAINDRAW', 'Phases': [{
+                'Code': official + '.8FNL', 'Matches': [bracket_match(
+                    official + '.8FNL.00010000', competitor('China', 'CHN', win=True),
+                    competitor('', 'BYE'), status='OFFICIAL', is_bye=True)]}]}]
+            row = normalize_bracket_payload(payload, sub_event_type_code=code)[0]
+            self.assertEqual(row['round_code'], 'R16')
+            self.assertEqual(row['side_b_team_code'], 'BYE')
+            self.assertEqual(row['winner_side'], 'A')
+            self.assertIsNone(row['scheduled_date'])
+            self.assertIsNone(row['match_score'])
+
     def test_normalizes_rounds_byes_and_feeder_links(self) -> None:
         payload = [
             {
