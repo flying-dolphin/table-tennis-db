@@ -24,6 +24,7 @@ import { twMerge } from "tailwind-merge";
 import { PlayerAvatar } from "@/components/PlayerAvatar";
 import { DenseLink as Link } from "@/components/DenseLink";
 import { Flag } from "@/components/Flag";
+import { ScheduleMatchCardLayout, scheduleMatchCardClassName } from "@/components/events/ScheduleMatchCardLayout";
 import {
   buildTeamBracketRounds,
   buildTeamRoundFeeders,
@@ -665,26 +666,6 @@ function sideGamesLabel(games: Array<{ player: number; opponent: number }>) {
   return games.map((game) => `${game.player}-${game.opponent}`).join(", ");
 }
 
-function scheduleStatusMeta(status: string) {
-  const normalized = status.toLowerCase();
-  if (normalized === "completed") {
-    return { label: "已完结", className: "bg-emerald-50 text-emerald-700 ring-emerald-100" };
-  }
-  if (normalized === "live") {
-    return { label: "进行中", className: "bg-rose-50 text-rose-700 ring-rose-100" };
-  }
-  if (normalized === "pending_update") {
-    return { label: "待更新", className: "bg-amber-50 text-amber-700 ring-amber-100" };
-  }
-  if (normalized === "cancelled") {
-    return { label: "已取消", className: "bg-slate-100 text-slate-500 ring-slate-200" };
-  }
-  if (normalized === "walkover") {
-    return { label: "退赛", className: "bg-amber-50 text-amber-700 ring-amber-100" };
-  }
-  return { label: "未开始", className: "bg-blue-50 text-[#2d6cf6] ring-blue-100" };
-}
-
 function resolveScheduleDisplayStatus(match: EventScheduleMatch) {
   const normalized = match.status.toLowerCase();
   const isNotStarted =
@@ -1306,7 +1287,6 @@ function ScheduleMatchCard({
   eventReturnHref: string;
 }) {
   const [sideA, sideB] = [...match.sides].sort((left, right) => left.sideNo - right.sideNo);
-  const meta = scheduleStatusMeta(resolveScheduleDisplayStatus(match));
   const { scoreParts, suffixLabel, suffixSideNo } = parseDisplayMatchScore(match.matchScore);
   const sideRows = [sideA, sideB].filter(Boolean);
   const shouldShowLiveScore = match.status === "live" && scoreParts.some(Boolean);
@@ -1323,28 +1303,18 @@ function ScheduleMatchCard({
     scheduleMatchId: match.scheduleMatchId,
     kind: isTeamMatch ? "tie" : "match",
   });
-  const cardClassName = "cv-auto block rounded-2xl bg-white px-3.5 py-3 ring-1 ring-[#e8edf8] shadow-sm";
-
   const cardContent = (
-    <>
-      <div className="flex items-center justify-between gap-2">
-        <div className="flex min-w-0 items-center gap-2 text-[0.82rem] font-bold text-slate-500">
-          {match.tableNo ? <span className="rounded-full bg-[#f3f6fb] px-2">{match.tableNo}</span> : null}
-          <Clock3 size={14} className="shrink-0 text-[#7d95c7]" />
-          <span>{primaryTimeLabel}</span>
-        </div>
-        <span className={cn("shrink-0 rounded-full px-2.5 py-1 text-[0.72rem] font-black ring-1", meta.className)}>
-          {meta.label}
-        </span>
-      </div>
-
-      <div className="mt-2 flex items-center justify-between gap-3">
-        <p className="min-w-0 truncate text-[0.8rem] font-bold text-slate-400">
-          {formatSubEventLabel(match.subEventTypeCode, match.subEventNameZh)} · {scheduleRoundLabel(match)}
+    <ScheduleMatchCardLayout
+      timeLabel={primaryTimeLabel}
+      tableNo={match.tableNo}
+      status={resolveScheduleDisplayStatus(match)}
+      subEventLabel={`${formatSubEventLabel(match.subEventTypeCode, match.subEventNameZh)} · ${scheduleRoundLabel(match)}`}
+      footer={match.games.length > 0 ? (
+        <p className="mt-3 border-t border-slate-100 pt-2 text-[0.78rem] font-medium text-slate-500">
+          局分：{sideGamesLabel(match.games)}
         </p>
-      </div>
-
-      <div className="mt-3 space-y-2.5">
+      ) : null}
+    >
         {sideRows.map((side) => {
           const score = scoreParts[side.sideNo - 1] ?? null;
           const showSuffix = suffixLabel && suffixSideNo === side.sideNo;
@@ -1387,23 +1357,15 @@ function ScheduleMatchCard({
             </div>
           );
         })}
-      </div>
-
-      {match.games.length > 0 ? (
-        <p className="mt-3 border-t border-slate-100 pt-2 text-[0.78rem] font-medium text-slate-500">
-          局分：{sideGamesLabel(match.games)}
-        </p>
-      ) : null}
-
-    </>
+    </ScheduleMatchCardLayout>
   );
 
   if (!matchHref) {
-    return <div className={cardClassName}>{cardContent}</div>;
+    return <div className={scheduleMatchCardClassName}>{cardContent}</div>;
   }
 
   return (
-    <Link href={route(withFromQuery(matchHref, eventReturnHref))} className={cn(cardClassName, "transition active:scale-[0.99]")}>
+    <Link href={route(withFromQuery(matchHref, eventReturnHref))} className={cn(scheduleMatchCardClassName, "transition active:scale-[0.99]")}>
       {cardContent}
     </Link>
   );

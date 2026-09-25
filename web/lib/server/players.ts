@@ -347,6 +347,193 @@ export function getPlayerOpponents(
   };
 }
 
+function getPlayerCurrentMatches(playerId: number) {
+  const now = Date.now();
+  const rows = db.prepare(`
+    SELECT
+      m.current_match_id AS matchId,
+      m.event_id AS eventId,
+      e.name AS eventName,
+      e.name_zh AS eventNameZh,
+      ec.event_series AS eventSeries,
+      e.category_name_zh AS categoryNameZh,
+      m.sub_event_type_code AS subEventTypeCode,
+      st.name_zh AS subEventNameZh,
+      COALESCE(rc.name_zh, m.round_label) AS roundNameZh,
+      m.scheduled_utc_at AS scheduledUtcAt,
+      m.scheduled_local_at AS scheduledLocalAt,
+      e.time_zone AS eventTimeZone,
+      m.status,
+      player_side.side_no AS playerSideNo,
+      opponent.player_name AS opponentName,
+      opponent_player.name_zh AS opponentNameZh,
+      opponent_side.team_code AS opponentTeamCode
+    FROM current_event_matches m
+    JOIN events e ON e.event_id = m.event_id
+    LEFT JOIN event_categories ec ON ec.id = e.event_category_id
+    LEFT JOIN sub_event_types st ON st.code = m.sub_event_type_code
+    LEFT JOIN round_codes rc ON rc.code = m.round_code
+    JOIN current_event_match_sides player_side ON player_side.current_match_id = m.current_match_id
+    JOIN current_event_match_side_players player_entry
+      ON player_entry.current_match_side_id = player_side.current_match_side_id
+      AND player_entry.player_id = ?
+    LEFT JOIN current_event_match_sides opponent_side
+      ON opponent_side.current_match_id = m.current_match_id
+      AND opponent_side.side_no <> player_side.side_no
+    LEFT JOIN current_event_match_side_players opponent
+      ON opponent.current_match_side_id = opponent_side.current_match_side_id
+    LEFT JOIN players opponent_player ON opponent_player.player_id = opponent.player_id
+    WHERE m.status IN ('scheduled', 'live')
+      AND (m.status = 'live' OR m.scheduled_utc_at IS NOT NULL OR m.scheduled_local_at IS NOT NULL)
+      AND e.lifecycle_status IN ('upcoming', 'draw_published', 'in_progress')
+    ORDER BY
+      CASE WHEN m.status = 'live' THEN 0 ELSE 1 END,
+      COALESCE(m.scheduled_utc_at, m.scheduled_local_at, '') ASC,
+      m.current_match_id ASC,
+      opponent.player_order ASC
+  `).all(playerId) as Array<{
+    matchId: number;
+    eventId: number;
+    eventName: string | null;
+    eventNameZh: string | null;
+    eventSeries: string | null;
+    categoryNameZh: string | null;
+    subEventTypeCode: string;
+    subEventNameZh: string | null;
+    roundNameZh: string | null;
+    scheduledUtcAt: string | null;
+    scheduledLocalAt: string | null;
+    eventTimeZone: string | null;
+    status: 'scheduled' | 'live';
+    playerSideNo: number;
+    opponentName: string | null;
+    opponentNameZh: string | null;
+    opponentTeamCode: string | null;
+  }>;
+
+  const matches = new Map<number, {
+    matchId: number;
+    eventId: number;
+    eventName: string | null;
+    eventNameZh: string | null;
+    eventSeries: string | null;
+    categoryNameZh: string | null;
+    subEventTypeCode: string;
+    subEventNameZh: string | null;
+    roundNameZh: string | null;
+    scheduledUtcAt: string | null;
+    scheduledLocalAt: string | null;
+    status: 'scheduled' | 'live';
+    playerSideNo: number;
+    opponentNames: string[];
+    sides: Array<{
+      sideNo: number;
+      teamCode: string | null;
+      placeholderText: string | null;
+      players: Array<{ name: string; countryCode: string | null }>;
+    }>;
+  }>();
+
+  for (const row of rows) {
+    if (row.status === 'live' && row.scheduledUtcAt) {
+      const scheduledAt = new Date(row.scheduledUtcAt).getTime();
+      // A table tennis match left "live" long after its start is stale source data.
+      if (!Number.isFinite(scheduledAt) || now - scheduledAt > 12 * 60 * 60 * 1000) continue;
+    }
+    if (row.status === 'scheduled') {
+      if (row.scheduledUtcAt) {
+        const scheduledAt = new Date(row.scheduledUtcAt).getTime();
+        if (!Number.isFinite(scheduledAt) || scheduledAt <= now) continue;
+      } else {
+        if (!row.scheduledLocalAt || !row.eventTimeZone || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(row.scheduledLocalAt)) continue;
+        let localNow: string;
+        try {
+          const parts = new Intl.DateTimeFormat('en-US', {
+            timeZone: row.eventTimeZone,
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+          }).formatToParts(now);
+          const value = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
+          localNow = `${value('year')}-${value('month')}-${value('day')}T${value('hour')}:${value('minute')}`;
+        } catch {
+          continue;
+        }
+        if (row.scheduledLocalAt.slice(0, 16) <= localNow) continue;
+      }
+    }
+    let match = matches.get(row.matchId);
+    if (!match) {
+      match = {
+        matchId: row.matchId,
+        eventId: row.eventId,
+        eventName: row.eventName,
+        eventNameZh: row.eventNameZh,
+        eventSeries: row.eventSeries,
+        categoryNameZh: row.categoryNameZh,
+        subEventTypeCode: row.subEventTypeCode,
+        subEventNameZh: row.subEventNameZh,
+        roundNameZh: row.roundNameZh,
+        scheduledUtcAt: row.scheduledUtcAt,
+        scheduledLocalAt: row.scheduledLocalAt,
+        status: row.status,
+        playerSideNo: row.playerSideNo,
+        opponentNames: [],
+        sides: [],
+      };
+      matches.set(row.matchId, match);
+    }
+    const opponentName = row.opponentNameZh?.trim() || row.opponentName?.trim();
+    if (opponentName && !match.opponentNames.includes(opponentName)) {
+      match.opponentNames.push(opponentName);
+    } else if (!opponentName && row.opponentTeamCode && match.opponentNames.length === 0) {
+      match.opponentNames.push(row.opponentTeamCode);
+    }
+  }
+
+  if (matches.size > 0) {
+    const matchIds = Array.from(matches.keys());
+    const sideRows = db.prepare(`
+      SELECT
+        side.current_match_id AS matchId,
+        side.side_no AS sideNo,
+        side.team_code AS teamCode,
+        side.placeholder_text AS placeholderText,
+        entry.player_name AS playerName,
+        player.name_zh AS playerNameZh,
+        entry.player_country AS playerCountry
+      FROM current_event_match_sides side
+      LEFT JOIN current_event_match_side_players entry
+        ON entry.current_match_side_id = side.current_match_side_id
+      LEFT JOIN players player ON player.player_id = entry.player_id
+      WHERE side.current_match_id IN (${matchIds.map(() => '?').join(', ')})
+      ORDER BY side.current_match_id, side.side_no, entry.player_order
+    `).all(...matchIds) as Array<{
+      matchId: number;
+      sideNo: number;
+      teamCode: string | null;
+      placeholderText: string | null;
+      playerName: string | null;
+      playerNameZh: string | null;
+      playerCountry: string | null;
+    }>;
+
+    for (const row of sideRows) {
+      const match = matches.get(row.matchId);
+      if (!match) continue;
+      let side = match.sides.find((item) => item.sideNo === row.sideNo);
+      if (!side) {
+        side = { sideNo: row.sideNo, teamCode: row.teamCode, placeholderText: row.placeholderText, players: [] };
+        match.sides.push(side);
+      }
+      if (row.playerName) {
+        side.players.push({ name: row.playerNameZh?.trim() || row.playerName, countryCode: row.playerCountry });
+      }
+    }
+  }
+
+  return Array.from(matches.values());
+}
+
 export function getPlayerDetail(slug: string) {
   const player = getPlayerBySlug(slug);
   if (!player) return null;
@@ -530,5 +717,6 @@ export function getPlayerDetail(slug: string) {
     player,
     stats,
     events,
+    currentMatches: getPlayerCurrentMatches(player.playerId),
   };
 }

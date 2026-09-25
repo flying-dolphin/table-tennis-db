@@ -4,12 +4,13 @@ import React, { useDeferredValue, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
-import { ArrowUpRight, ChevronRight, ChevronDown, List, Search, Trophy, X, UsersRound } from "lucide-react";
+import { ArrowUpRight, CalendarClock, ChevronRight, ChevronDown, List, Search, Trophy, X, UsersRound } from "lucide-react";
 import { DenseLink } from "@/components/DenseLink";
 import { Flag } from "@/components/Flag";
 import { PlayerBackButton } from "@/components/player/PlayerBackButton";
 import { formatSubEventLabel, getSubEventShortName } from "@/lib/sub-event-label";
 import { EventCategoryIcon, getEventCategory } from "@/components/events/EventCategoryIcon";
+import { ScheduleMatchCardLayout, scheduleMatchCardClassName, scheduleStatusMeta } from "@/components/events/ScheduleMatchCardLayout";
 import { getPlayerDetailAvatarSources } from "@/lib/avatar-paths";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -88,6 +89,30 @@ export type PlayerDetail = {
   player: Player;
   stats: PlayerStats;
   events: EventRecord[];
+  currentMatches: CurrentMatch[];
+};
+
+type CurrentMatch = {
+  matchId: number;
+  eventId: number;
+  eventName: string | null;
+  eventNameZh: string | null;
+  eventSeries: string | null;
+  categoryNameZh: string | null;
+  subEventTypeCode: string;
+  subEventNameZh: string | null;
+  roundNameZh: string | null;
+  scheduledUtcAt: string | null;
+  scheduledLocalAt: string | null;
+  status: "scheduled" | "live";
+  playerSideNo: number;
+  opponentNames: string[];
+  sides: Array<{
+    sideNo: number;
+    teamCode: string | null;
+    placeholderText: string | null;
+    players: Array<{ name: string; countryCode: string | null }>;
+  }>;
 };
 
 type OpponentSortField = "matches" | "winRate";
@@ -253,25 +278,26 @@ function HeroBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
-type RecordsTab = "events" | "opponents";
+type RecordsTab = "events" | "opponents" | "current";
 
 function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange: (tab: RecordsTab) => void }) {
   return (
-    <div className="flex justify-around border-b border-border-subtle px-1">
+    <div className="flex border-b border-border-subtle" aria-label="运动员比赛信息">
       <button
         type="button"
         onClick={() => onChange("events")}
+        aria-pressed={activeTab === "events"}
         className={cn(
-          "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
+          "relative flex h-14 min-w-0 flex-1 items-center justify-center gap-1.5 px-1 text-body font-bold transition-colors sm:gap-2",
           activeTab === "events" ? "text-brand-dark" : "text-text-tertiary hover:text-text-primary",
         )}
       >
-        <List size={18} />
+        <List size={17} className="shrink-0" />
         比赛记录
         <span
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-colors",
+            "pointer-events-none absolute inset-x-2 bottom-0 h-[3px] rounded-full transition-colors",
             activeTab === "events" ? "bg-brand-dark" : "bg-transparent",
           )}
         />
@@ -279,18 +305,38 @@ function RecordsTabs({ activeTab, onChange }: { activeTab: RecordsTab; onChange:
       <button
         type="button"
         onClick={() => onChange("opponents")}
+        aria-pressed={activeTab === "opponents"}
         className={cn(
-          "relative flex h-14 items-center justify-center gap-2 px-4 font-bold transition-colors",
+          "relative flex h-14 min-w-0 flex-1 items-center justify-center gap-1.5 px-1 text-body font-bold transition-colors sm:gap-2",
           activeTab === "opponents" ? "text-brand-dark" : "text-text-tertiary hover:text-text-primary",
         )}
       >
-        <UsersRound size={18} />
+        <UsersRound size={17} className="shrink-0" />
         对手
         <span
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute inset-x-4 bottom-0 h-[3px] rounded-full transition-colors",
+            "pointer-events-none absolute inset-x-2 bottom-0 h-[3px] rounded-full transition-colors",
             activeTab === "opponents" ? "bg-brand-dark" : "bg-transparent",
+          )}
+        />
+      </button>
+      <button
+        type="button"
+        onClick={() => onChange("current")}
+        aria-pressed={activeTab === "current"}
+        className={cn(
+          "relative flex h-14 min-w-0 flex-1 items-center justify-center gap-1.5 px-1 text-body font-bold transition-colors sm:gap-2",
+          activeTab === "current" ? "text-brand-dark" : "text-text-tertiary hover:text-text-primary",
+        )}
+      >
+        <CalendarClock size={17} className="shrink-0" />
+        当前比赛
+        <span
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-x-2 bottom-0 h-[3px] rounded-full transition-colors",
+            activeTab === "current" ? "bg-brand-dark" : "bg-transparent",
           )}
         />
       </button>
@@ -718,6 +764,82 @@ function PlayerEventRecords({ events }: { events: EventRecord[] }) {
   );
 }
 
+function formatCurrentMatchTime(match: CurrentMatch) {
+  if (match.scheduledUtcAt) {
+    const date = new Date(match.scheduledUtcAt);
+    if (!Number.isNaN(date.getTime())) {
+      const label = new Intl.DateTimeFormat("zh-CN", {
+        timeZone: "Asia/Shanghai",
+        month: "numeric",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }).format(date);
+      return `北京时间 ${label}`;
+    }
+  }
+  return match.scheduledLocalAt ? `当地时间 ${match.scheduledLocalAt.replace("T", " ")}` : "时间待更新";
+}
+
+function PlayerCurrentMatches({ matches }: { matches: CurrentMatch[] }) {
+  if (matches.length === 0) {
+    return (
+      <div className="rounded-xl border border-[#e8edf8] bg-white px-5 py-12 text-center shadow-sm">
+        <CalendarClock size={28} className="mx-auto text-[#8fa3cc]" aria-hidden="true" />
+        <p className="mt-3 text-body font-bold text-text-primary">暂无当前比赛</p>
+        <p className="mt-1 text-caption text-text-tertiary">已确定时间的比赛会显示在这里</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-2.5">
+      <p className="px-1 text-caption font-medium text-text-tertiary">进行中及已排定时间的比赛</p>
+      {matches.map((match) => {
+        const scheduledAt = match.scheduledUtcAt ? new Date(match.scheduledUtcAt).getTime() : NaN;
+        const pendingUpdate = match.status === "scheduled" && Number.isFinite(scheduledAt) && scheduledAt < Date.now();
+        const status = pendingUpdate ? "pending_update" : match.status;
+        const statusLabel = scheduleStatusMeta(status).label;
+        const opponentLabel = match.opponentNames.length > 0 ? match.opponentNames.join(" / ") : "对手待定";
+
+        return (
+          <DenseLink
+            key={match.matchId}
+            href={route(`/matches/cm:${match.matchId}`)}
+            aria-label={`${match.eventNameZh || match.eventName || "赛事"}，${formatSubEventLabel(match.subEventTypeCode, match.subEventNameZh)}，对手 ${opponentLabel}，${statusLabel}`}
+            className={cn(scheduleMatchCardClassName, "group transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-strong")}
+          >
+            <ScheduleMatchCardLayout
+              eventName={match.eventNameZh || match.eventName || "未命名赛事"}
+              timeLabel={formatCurrentMatchTime(match)}
+              status={status}
+              subEventLabel={`${formatSubEventLabel(match.subEventTypeCode, match.subEventNameZh)}${match.roundNameZh ? ` · ${match.roundNameZh}` : ""}`}
+            >
+              {[1, 2].map((sideNo) => {
+                const side = match.sides.find((item) => item.sideNo === sideNo);
+                const isPlayerSide = sideNo === match.playerSideNo;
+                const label = side?.players.map((item) => item.name).join(" / ") || side?.teamCode || side?.placeholderText || (isPlayerSide ? "运动员待定" : "对手待定");
+                const countryCode = side?.teamCode || side?.players[0]?.countryCode || null;
+                return (
+                  <div key={sideNo} className="flex items-center gap-2">
+                    <div className="flex w-12 shrink-0 items-center justify-center">
+                      <Flag code={countryCode} className="shrink-0 scale-[1.18] origin-center" />
+                    </div>
+                    <p className={cn("min-w-0 flex-1 truncate text-[1rem] font-black leading-tight", isPlayerSide ? "text-slate-950" : "text-slate-700")}>
+                      {label}
+                    </p>
+                  </div>
+                );
+              })}
+            </ScheduleMatchCardLayout>
+          </DenseLink>
+        );
+      })}
+    </div>
+  );
+}
+
 function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean }) {
   const [keyword, setKeyword] = useState("");
   const deferredKeyword = useDeferredValue(keyword);
@@ -725,11 +847,14 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
   const [sortOrder, setSortOrder] = useState<OpponentSortOrder>("desc");
   const [opponents, setOpponents] = useState<TopOpponent[]>([]);
   const [hasMore, setHasMore] = useState(true);
-  const [initialLoading, setInitialLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const loadMoreRef = React.useRef<HTMLDivElement | null>(null);
   const requestKeyRef = React.useRef("");
+  const loadedQueryKeyRef = React.useRef<string | null>(null);
+  const pendingQueryKeyRef = React.useRef<string | null>(null);
+  const queryKey = `${slug}|${deferredKeyword.trim()}|${sortBy}|${sortOrder}`;
 
   const loadOpponents = React.useCallback(
     async (mode: "reset" | "append", offset: number) => {
@@ -742,7 +867,7 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
         sortOrder,
       });
 
-      const requestKey = `${slug}|${deferredKeyword.trim()}|${sortBy}|${sortOrder}|${offset}`;
+      const requestKey = `${queryKey}|${offset}`;
       requestKeyRef.current = requestKey;
 
       setError(null);
@@ -762,6 +887,7 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
         const data = json.data as OpponentResponse;
         setOpponents((current) => (mode === "append" ? [...current, ...data.items] : data.items));
         setHasMore(data.hasMore);
+        if (mode === "reset") loadedQueryKeyRef.current = queryKey;
       } catch (err) {
         console.error(err);
         if (requestKeyRef.current === requestKey) {
@@ -771,18 +897,21 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
         if (requestKeyRef.current === requestKey) {
           if (mode === "reset") setInitialLoading(false);
           else setLoadingMore(false);
+          if (mode === "reset") pendingQueryKeyRef.current = null;
         }
       }
     },
-    [active, deferredKeyword, slug, sortBy, sortOrder],
+    [active, deferredKeyword, queryKey, slug, sortBy, sortOrder],
   );
 
   React.useEffect(() => {
-    if (!active || !slug) return;
+    if (!active || !slug || loadedQueryKeyRef.current === queryKey || pendingQueryKeyRef.current === queryKey) return;
+    pendingQueryKeyRef.current = queryKey;
     setOpponents([]);
     setHasMore(true);
+    setInitialLoading(true);
     void loadOpponents("reset", 0);
-  }, [active, deferredKeyword, loadOpponents, slug, sortBy, sortOrder]);
+  }, [active, loadOpponents, queryKey, slug]);
 
   React.useEffect(() => {
     if (!active || !hasMore || initialLoading || loadingMore) return;
@@ -869,7 +998,19 @@ function PlayerTopOpponents({ slug, active }: { slug: string; active: boolean })
       </div>
 
       {initialLoading ? (
-        <div className="py-10 text-center text-caption font-medium text-text-tertiary">加载中...</div>
+        <div role="status" aria-label="正在加载对手" className="flex flex-col animate-pulse">
+          {Array.from({ length: 10 }, (_, index) => (
+            <div
+              key={index}
+              aria-hidden="true"
+              className="grid min-h-[3.6rem] grid-cols-[minmax(0,1fr)_4.25rem_4.25rem] items-center gap-3 border-b border-border-subtle px-1"
+            >
+              <div className="h-4 w-3/5 rounded bg-surface-secondary" />
+              <div className="mx-auto h-4 w-6 rounded bg-surface-secondary" />
+              <div className="mx-auto h-4 w-10 rounded bg-surface-secondary" />
+            </div>
+          ))}
+        </div>
       ) : error ? (
         <div className="py-10 text-center text-caption font-medium text-state-danger">{error}</div>
       ) : opponents.length === 0 ? (
@@ -1049,11 +1190,15 @@ export default function PlayerDetailPageClient({ slug }: PlayerDetailPageClientP
       <section className="px-5 pt-5 pb-2">
         <RecordsTabs activeTab={recordsTab} onChange={setRecordsTab} />
         <div className="mt-3">
-          {recordsTab === "events" ? (
+          <div hidden={recordsTab !== "events"}>
             <PlayerEventRecords events={detail.events} />
-          ) : (
+          </div>
+          <div hidden={recordsTab !== "opponents"}>
             <PlayerTopOpponents slug={detail.player.slug} active={recordsTab === "opponents"} />
-          )}
+          </div>
+          <div hidden={recordsTab !== "current"}>
+            <PlayerCurrentMatches matches={detail.currentMatches ?? []} />
+          </div>
         </div>
       </section>
     </main>
