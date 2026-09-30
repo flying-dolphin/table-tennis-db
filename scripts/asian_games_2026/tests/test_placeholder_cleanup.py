@@ -114,5 +114,100 @@ class PlaceholderCleanupTests(unittest.TestCase):
         self.assertEqual(self.exists(), 0)
 
 
+class VanishedGroupCleanupTests(unittest.TestCase):
+    """Whole-group ghost slots (e.g. MT group H withdrawn upstream) may use cross-group evidence."""
+    tearDown = test_import_current.ImportCurrentTests.tearDown
+
+    def setUp(self):
+        test_import_current.ImportCurrentTests.setUp(self)
+        base = dict(sub_event_type_code='MT', stage_code='MAIN_DRAW', round_code='RR',
+                    scheduled_local_at='2020-09-20T10:00:00', status='scheduled',
+                    source_status='PROVISIONAL', sides=[], rubbers=[])
+        self.ghosts = [dict(base, external_match_code=f'MT.GPH.{n}', group_code='H') for n in (1, 2)]
+        self.official_a = dict(base, external_match_code='MT.GPA.1', group_code='A',
+                               scheduled_local_at='2020-09-20T12:30:00', source_status='OFFICIAL',
+                               status='completed', match_score='3-1',
+                               sides=[dict(side_no=1, team_code='CHN'), dict(side_no=2, team_code='KOR')])
+        import_snapshot(self.conn, {'team_ties': self.ghosts})
+
+    def snapshot(self, batch, ties=None, keys=None):
+        ties = [self.official_a] if ties is None else ties
+        keys = [t['external_match_code'] for t in ties] if keys is None else keys
+        return dict(team_ties=ties, matches=[], schedule_capture=dict(
+            complete=True, batch_id=batch, completed_at=f'2026-09-22T00:00:0{batch}Z',
+            dates=['2020-09-20'], schedule_keys=keys))
+
+    def ghost_count(self):
+        return self.conn.execute(
+            "SELECT count(*) FROM current_event_team_ties WHERE external_match_code LIKE 'MT.GPH.%'").fetchone()[0]
+
+    def test_whole_group_ghosts_removed_after_two_complete_captures(self):
+        from scripts.asian_games_2026.placeholder_cleanup import VANISHED_GROUP_REASON
+        import_snapshot(self.conn, self.snapshot('1'))
+        self.assertEqual(self.ghost_count(), 2)
+        import_snapshot(self.conn, self.snapshot('2'))
+        self.assertEqual(self.ghost_count(), 0)
+        reasons = [r[0] for r in self.conn.execute('SELECT reason FROM asian_games_placeholder_audit')]
+        self.assertEqual(reasons, [VANISHED_GROUP_REASON, VANISHED_GROUP_REASON])
+
+    def test_single_capture_does_not_remove(self):
+        import_snapshot(self.conn, self.snapshot('1'))
+        import_snapshot(self.conn, self.snapshot('1'))
+        self.assertEqual(self.ghost_count(), 2)
+        self.assertEqual(self.conn.execute('SELECT count(*) FROM asian_games_placeholder_audit').fetchone()[0], 0)
+
+    def test_no_official_evidence_in_same_date_round_does_not_remove(self):
+        for change in ({'scheduled_local_at': '2020-09-21T12:30:00'},  # other date
+                       {'round_code': 'R16', 'group_code': None},      # other round
+                       {'stage_code': 'QUAL'},                         # other stage
+                       {'sub_event_type_code': 'WT'},                  # other event
+                       {'source_status': 'PROVISIONAL'},               # not official
+                       {'sides': [dict(side_no=1, team_code='CHN'), dict(side_no=2, team_code='BYE')]}):
+            with self.subTest(change=change):
+                self.conn.execute('DELETE FROM asian_games_placeholder_missing')
+                self.conn.execute('DELETE FROM asian_games_cleanup_batches')
+                self.conn.commit()
+                other = dict(self.official_a, **change)
+                snap_dates = ['2020-09-20', '2020-09-21']
+                for batch in ('1', '2'):
+                    snap = self.snapshot(batch, ties=[other])
+                    snap['schedule_capture']['dates'] = snap_dates
+                    import_snapshot(self.conn, snap)
+                self.assertEqual(self.ghost_count(), 2)
+                self.conn.execute("DELETE FROM current_event_team_ties WHERE external_match_code='MT.GPA.1'")
+                self.conn.commit()
+
+    def test_group_with_remaining_fixture_uses_same_group_rule_only(self):
+        # Another group H fixture still exists (in payload, or only as a stored schedule key),
+        # so the group has not vanished and cross-group evidence from group A is not enough.
+        survivor = dict(self.ghosts[0], external_match_code='MT.GPH.3', source_status='SCHEDULED')
+        for ties, keys in (([self.official_a, survivor], None),
+                           ([self.official_a], ['MT.GPA.1', 'MT.GPH.3'])):
+            with self.subTest(keys=keys):
+                self.conn.execute('DELETE FROM asian_games_placeholder_missing')
+                self.conn.execute('DELETE FROM asian_games_cleanup_batches')
+                self.conn.commit()
+                import_snapshot(self.conn, {'team_ties': [survivor]})
+                for batch in ('1', '2'):
+                    import_snapshot(self.conn, self.snapshot(batch, ties=ties, keys=keys))
+                self.assertEqual(self.ghost_count(), 3)
+        self.assertEqual(self.conn.execute('SELECT count(*) FROM asian_games_placeholder_audit').fetchone()[0], 0)
+
+    def test_reappearance_resets_vanished_group_streak(self):
+        import_snapshot(self.conn, self.snapshot('1'))
+        import_snapshot(self.conn, self.snapshot('2', ties=[self.official_a, self.ghosts[0]]))
+        import_snapshot(self.conn, self.snapshot('3'))
+        self.assertEqual(self.ghost_count(), 2)
+        import_snapshot(self.conn, self.snapshot('4'))
+        self.assertEqual(self.ghost_count(), 0)
+
+    def test_incomplete_capture_does_not_remove_vanished_group(self):
+        for batch in ('1', '2'):
+            snap = self.snapshot(batch)
+            snap['schedule_capture']['complete'] = False
+            import_snapshot(self.conn, snap)
+        self.assertEqual(self.ghost_count(), 2)
+
+
 if __name__ == '__main__':
     unittest.main()
