@@ -93,6 +93,7 @@ export type PlayerDetail = {
 };
 
 type CurrentMatch = {
+  kind: "match" | "tie";
   matchId: number;
   eventId: number;
   eventName: string | null;
@@ -805,8 +806,8 @@ function PlayerCurrentMatches({ matches }: { matches: CurrentMatch[] }) {
 
         return (
           <DenseLink
-            key={match.matchId}
-            href={route(`/matches/cm:${match.matchId}`)}
+            key={`${match.kind}:${match.matchId}`}
+            href={route(match.kind === "tie" ? `/matches/tie:${match.matchId}` : `/matches/cm:${match.matchId}`)}
             aria-label={`${match.eventNameZh || match.eventName || "赛事"}，${formatSubEventLabel(match.subEventTypeCode, match.subEventNameZh)}，对手 ${opponentLabel}，${statusLabel}`}
             className={cn(scheduleMatchCardClassName, "group transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-strong")}
           >
