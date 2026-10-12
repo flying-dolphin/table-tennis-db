@@ -200,6 +200,7 @@ publish_runtime() {
     copy_file_to_staging "scripts/db/config.py" "${staging_dir}/scripts/db/config.py"
     copy_file_to_staging "scripts/db/import_players.py" "${staging_dir}/scripts/db/import_players.py"
     copy_file_to_staging "scripts/db/import_rankings.py" "${staging_dir}/scripts/db/import_rankings.py"
+    copy_file_to_staging "scripts/db/update_inactive_player_ages.py" "${staging_dir}/scripts/db/update_inactive_player_ages.py"
     copy_file_to_staging "scripts/lib/career_best.py" "${staging_dir}/scripts/lib/career_best.py"
 
     tar -czf "$archive_path" -C "$staging_dir" .
@@ -544,6 +545,9 @@ upload_data_and_import() {
 
     echo "==> Running remote imports"
     ssh "$REMOTE_HOST" "cd '${REMOTE_PROJECT_DIR}' && ${REMOTE_PYTHON} scripts/db/import_players.py --dir '${remote_profile_dir}' && ${REMOTE_PYTHON} scripts/db/import_rankings.py --file '${remote_ranking_path}'"
+
+    echo "==> Updating inactive player ages on remote"
+    ssh "$REMOTE_HOST" "cd '${REMOTE_PROJECT_DIR}' && ${REMOTE_PYTHON} scripts/db/update_inactive_player_ages.py"
 
     verify_remote_import "$remote_ranking_path"
     publish_remote_payload_data "$remote_payload_dir" "$ranking_basename"

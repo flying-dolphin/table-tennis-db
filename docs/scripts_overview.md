@@ -61,6 +61,16 @@
 球员档案完整流程主入口：调用 scrape_profiles.py → translate_profiles.py。
 用法：`python run_profiles.py --category women --top 50`
 
+### run_update_rankings_profiles.py
+Rankings & Profiles 一键更新编排器（推荐日常入口）。带阶段级断点续跑，用 `data/rankings/update_pipeline_state.json` 记录进度。
+串联 9 个阶段：抓 ranking+results+merge → 检查 unresolved → 按 scope 抓 profile → 翻译 ranking/profile → import players → 更新非世排球员年龄 → import rankings → deploy。
+profile 抓取 scope：`weekly`（默认，top100 + CHN）/ `monthly`（全部世排）/ `auto`（距上次全量 ≥30 天自动全量）。
+用法：`python scripts/run_update_rankings_profiles.py --cdp-port 9223 --cdp-only`
+
+### db/update_inactive_player_ages.py
+为非世排（不在最新 ranking snapshot）且已有 birth_year 的球员按 `当前年份 - birth_year` 更新年龄，每年最多执行一次（状态文件 `data/rankings/inactive_ages_state.json`，`--force` 可强制）。
+本地入库阶段和线上部署阶段各执行一次。
+
 ### translate_profiles.py
 翻译球员档案中的特定字段（经统一 `Translator`，默认 `--mode dict` 仅词典；可选 `--mode both/llm`）。
 翻译字段：name（球员名）、country（国家）、gender（性别）、style/playing_hand/grip（握拍相关）。

@@ -44,6 +44,38 @@ python scripts/validate_translation_dict.py --input scripts/data/translation_dic
 
 ## 2. Rankings 和 Profiles 更新流程
 
+### 2.0 一键更新（推荐）
+
+从抓取到发布的完整流程已封装为一个入口，带阶段级断点续跑：
+
+```bash
+python scripts/run_update_rankings_profiles.py --cdp-port 9223 --cdp-only
+```
+
+它会自动串联 9 个阶段，并用 `data/rankings/update_pipeline_state.json` 记录进度：
+
+1. `scrape_rankings` — 抓 ranking + results + merge player_id（不抓 profile）
+2. `resolve_ids` — 检查 unresolved；>0 则生成 review 文件并暂停，提示处理别名后重跑
+3. `scrape_profiles` — 按 scope 抓 profile
+4. `translate_rankings` → `translate_profiles` → `import_players` → `update_ages` → `import_rankings` → `deploy`
+
+特性：
+
+- **断点续跑**：中途失败，下次原样重跑即从失败阶段继续，已完成阶段自动跳过。
+- **scope 差异化抓 profile**（`--scope auto|weekly|monthly`）：
+  - `weekly`（默认）：只抓 `rank ≤ 100` 或 `country_code == CHN` 的球员。
+  - `monthly`：抓全部在世排中的球员。
+  - `auto`：距上次全量 ≥30 天自动全量，否则 weekly。
+- `--skip-deploy`：只跑本地阶段，不发布线上。
+- `--reset`：清空阶段进度重新开始（保留月度全量标记）。
+- `--dry-run`：只预览计划，不执行。
+
+非世排球员年龄每年自动更新一次（`scripts/db/update_inactive_player_ages.py` 按 birth_year 计算），本地入库阶段和线上部署阶段各执行一次。
+
+---
+
+以下为手动分步流程，供排查或特殊场景使用。
+
 ### 2.1 数据流
 
 ```text

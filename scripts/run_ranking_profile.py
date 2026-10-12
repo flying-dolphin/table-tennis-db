@@ -156,6 +156,7 @@ def run(args: argparse.Namespace) -> int:
         weekly_file=str(weekly_file),
         db_path=args.db_path,
         aliases=args.aliases,
+        profile_scope=getattr(args, "profile_scope", "weekly"),
     )
     rc = run_results(results_args)
     if rc != 0:
@@ -208,6 +209,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--profile-dir", default="data/player_profiles")
     parser.add_argument("--avatar-dir", default="data/player_avatars")
     parser.add_argument("--ranking-only", action="store_true", help="Skip profile refresh after results ranking scrape")
+    parser.add_argument(
+        "--profile-scope",
+        choices=("weekly", "monthly"),
+        default="weekly",
+        help="Which ranked players get a profile scrape (default: weekly=top100+CHN; monthly=all ranked)",
+    )
     parser.add_argument("--resume", action="store_true", help="Reuse completed ranking snapshots and continue profile refresh")
     parser.add_argument("--force", action="store_true", help="Ignore checkpoints and existing products; start a fresh scrape")
     parser.add_argument("--headless", action="store_true")
