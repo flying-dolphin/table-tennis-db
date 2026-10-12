@@ -5,11 +5,14 @@
 from __future__ import annotations
 
 import argparse
+import sqlite3
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone
+from contextlib import closing
+from datetime import date, datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from wtt_scrape_shared import discover_event_sub_events, resolve_standings_team_codes
 
@@ -35,6 +38,33 @@ def run_step(cmd: list[str]) -> int:
     if rc != 0:
         print(f"[current-event] ERROR step failed rc={rc} command={rendered}", flush=True)
     return rc
+
+
+def advance_event_lifecycle(db_path: Path, event_id: int, *, now: datetime | None = None) -> None:
+    """Advance started events after import; only promote may mark them completed."""
+    with closing(sqlite3.connect(f"{db_path.resolve().as_uri()}?mode=rw", uri=True)) as conn, conn:
+        row = conn.execute(
+            "SELECT lifecycle_status, start_date, time_zone FROM events WHERE event_id = ?",
+            (event_id,),
+        ).fetchone()
+        if not row or row[0] not in ("upcoming", "draw_published"):
+            return
+        try:
+            start_date = date.fromisoformat((row[1] or "")[:10])
+            event_tz = ZoneInfo((row[2] or "").strip())
+        except (ValueError, ZoneInfoNotFoundError):
+            print(f"[current-event] WARNING lifecycle unchanged event_id={event_id}: invalid start_date/time_zone", flush=True)
+            return
+        today = (now or datetime.now(timezone.utc)).astimezone(event_tz).date()
+        if today < start_date:
+            return
+        updated = conn.execute(
+            "UPDATE events SET lifecycle_status = 'in_progress' "
+            "WHERE event_id = ? AND lifecycle_status IN ('upcoming', 'draw_published')",
+            (event_id,),
+        ).rowcount
+        if updated:
+            print(f"[current-event] lifecycle event_id={event_id}: {row[0]} -> in_progress (event-local date={today})", flush=True)
 
 
 def main() -> int:
@@ -148,6 +178,7 @@ def main() -> int:
         if rc != 0:
             return rc
 
+    advance_event_lifecycle(args.db_path, args.event_id)
     return 0
 
 
