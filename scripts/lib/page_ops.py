@@ -21,7 +21,7 @@ def guarded_goto(
     referer: str | None = None,
     retries: int = 2,
     sleep_first: bool = True,
-    retry_risk_responses: bool = True,
+    retry_risk_responses: bool = False,
 ) -> Any:
     if sleep_first:
         human_sleep(delay_cfg.min_request_sec, delay_cfg.max_request_sec, reason)
@@ -54,7 +54,7 @@ def guarded_goto(
             risk = f"HTTP {status}{f' {reason_text}' if reason_text else ''} while opening {url}"
             headers = getattr(response, "headers", {}) or {}
             retry_after = _retry_after_seconds(headers.get("retry-after"), attempt)
-            if retry_risk_responses and status in {429, 503} and attempt < retries:
+            if retry_risk_responses and status == 503 and attempt < retries:
                 logger.warning("%s; retry in %.1fs", risk, retry_after)
                 time.sleep(retry_after)
                 continue

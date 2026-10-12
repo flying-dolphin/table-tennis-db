@@ -347,10 +347,32 @@ export function getPlayerOpponents(
   };
 }
 
-function getPlayerCurrentMatches(playerId: number) {
+type CurrentMatchRow = {
+  kind: 'match' | 'tie';
+  matchId: number;
+  eventId: number;
+  eventName: string | null;
+  eventNameZh: string | null;
+  eventSeries: string | null;
+  categoryNameZh: string | null;
+  subEventTypeCode: string;
+  subEventNameZh: string | null;
+  roundNameZh: string | null;
+  scheduledUtcAt: string | null;
+  scheduledLocalAt: string | null;
+  eventTimeZone: string | null;
+  status: 'scheduled' | 'live';
+  playerSideNo: number;
+  opponentName: string | null;
+  opponentNameZh: string | null;
+  opponentTeamCode: string | null;
+};
+
+function getPlayerCurrentMatches(player: { playerId: number; name: string; countryCode: string }) {
   const now = Date.now();
   const rows = db.prepare(`
     SELECT
+      'match' AS kind,
       m.current_match_id AS matchId,
       m.event_id AS eventId,
       e.name AS eventName,
@@ -376,7 +398,11 @@ function getPlayerCurrentMatches(playerId: number) {
     JOIN current_event_match_sides player_side ON player_side.current_match_id = m.current_match_id
     JOIN current_event_match_side_players player_entry
       ON player_entry.current_match_side_id = player_side.current_match_side_id
-      AND player_entry.player_id = ?
+      AND (player_entry.player_id = ? OR (
+        player_entry.player_id IS NULL
+        AND player_entry.player_name = ?
+        AND player_entry.player_country = ?
+      ))
     LEFT JOIN current_event_match_sides opponent_side
       ON opponent_side.current_match_id = m.current_match_id
       AND opponent_side.side_no <> player_side.side_no
@@ -384,6 +410,7 @@ function getPlayerCurrentMatches(playerId: number) {
       ON opponent.current_match_side_id = opponent_side.current_match_side_id
     LEFT JOIN players opponent_player ON opponent_player.player_id = opponent.player_id
     WHERE m.status IN ('scheduled', 'live')
+      AND m.current_team_tie_id IS NULL
       AND (m.status = 'live' OR m.scheduled_utc_at IS NOT NULL OR m.scheduled_local_at IS NOT NULL)
       AND e.lifecycle_status IN ('upcoming', 'draw_published', 'in_progress')
     ORDER BY
@@ -391,27 +418,51 @@ function getPlayerCurrentMatches(playerId: number) {
       COALESCE(m.scheduled_utc_at, m.scheduled_local_at, '') ASC,
       m.current_match_id ASC,
       opponent.player_order ASC
-  `).all(playerId) as Array<{
-    matchId: number;
-    eventId: number;
-    eventName: string | null;
-    eventNameZh: string | null;
-    eventSeries: string | null;
-    categoryNameZh: string | null;
-    subEventTypeCode: string;
-    subEventNameZh: string | null;
-    roundNameZh: string | null;
-    scheduledUtcAt: string | null;
-    scheduledLocalAt: string | null;
-    eventTimeZone: string | null;
-    status: 'scheduled' | 'live';
-    playerSideNo: number;
-    opponentName: string | null;
-    opponentNameZh: string | null;
-    opponentTeamCode: string | null;
-  }>;
+  `).all(player.playerId, player.name, player.countryCode) as CurrentMatchRow[];
 
-  const matches = new Map<number, {
+  const tieRows = db.prepare(`
+    SELECT
+      'tie' AS kind,
+      tie.current_team_tie_id AS matchId,
+      tie.event_id AS eventId,
+      e.name AS eventName,
+      e.name_zh AS eventNameZh,
+      ec.event_series AS eventSeries,
+      e.category_name_zh AS categoryNameZh,
+      tie.sub_event_type_code AS subEventTypeCode,
+      st.name_zh AS subEventNameZh,
+      COALESCE(rc.name_zh, tie.round_label) AS roundNameZh,
+      tie.scheduled_utc_at AS scheduledUtcAt,
+      tie.scheduled_local_at AS scheduledLocalAt,
+      e.time_zone AS eventTimeZone,
+      tie.status,
+      player_side.side_no AS playerSideNo,
+      NULL AS opponentName,
+      NULL AS opponentNameZh,
+      opponent_side.team_code AS opponentTeamCode
+    FROM current_event_team_ties tie
+    JOIN events e ON e.event_id = tie.event_id
+    LEFT JOIN event_categories ec ON ec.id = e.event_category_id
+    LEFT JOIN sub_event_types st ON st.code = tie.sub_event_type_code
+    LEFT JOIN round_codes rc ON rc.code = tie.round_code
+    JOIN current_event_team_tie_sides player_side ON player_side.current_team_tie_id = tie.current_team_tie_id
+    JOIN current_event_team_tie_side_players player_entry
+      ON player_entry.current_team_tie_side_id = player_side.current_team_tie_side_id
+      AND (player_entry.player_id = ? OR (
+        player_entry.player_id IS NULL
+        AND player_entry.player_name = ?
+        AND player_entry.player_country = ?
+      ))
+    LEFT JOIN current_event_team_tie_sides opponent_side
+      ON opponent_side.current_team_tie_id = tie.current_team_tie_id
+      AND opponent_side.side_no <> player_side.side_no
+    WHERE tie.status IN ('scheduled', 'live')
+      AND (tie.status = 'live' OR tie.scheduled_utc_at IS NOT NULL OR tie.scheduled_local_at IS NOT NULL)
+      AND e.lifecycle_status IN ('upcoming', 'draw_published', 'in_progress')
+  `).all(player.playerId, player.name, player.countryCode) as CurrentMatchRow[];
+
+  const matches = new Map<string, {
+    kind: 'match' | 'tie';
     matchId: number;
     eventId: number;
     eventName: string | null;
@@ -434,7 +485,7 @@ function getPlayerCurrentMatches(playerId: number) {
     }>;
   }>();
 
-  for (const row of rows) {
+  for (const row of [...rows, ...tieRows]) {
     if (row.status === 'live' && row.scheduledUtcAt) {
       const scheduledAt = new Date(row.scheduledUtcAt).getTime();
       // A table tennis match left "live" long after its start is stale source data.
@@ -461,9 +512,11 @@ function getPlayerCurrentMatches(playerId: number) {
         if (row.scheduledLocalAt.slice(0, 16) <= localNow) continue;
       }
     }
-    let match = matches.get(row.matchId);
+    const key = `${row.kind}:${row.matchId}`;
+    let match = matches.get(key);
     if (!match) {
       match = {
+        kind: row.kind,
         matchId: row.matchId,
         eventId: row.eventId,
         eventName: row.eventName,
@@ -480,7 +533,7 @@ function getPlayerCurrentMatches(playerId: number) {
         opponentNames: [],
         sides: [],
       };
-      matches.set(row.matchId, match);
+      matches.set(key, match);
     }
     const opponentName = row.opponentNameZh?.trim() || row.opponentName?.trim();
     if (opponentName && !match.opponentNames.includes(opponentName)) {
@@ -491,8 +544,9 @@ function getPlayerCurrentMatches(playerId: number) {
   }
 
   if (matches.size > 0) {
-    const matchIds = Array.from(matches.keys());
-    const sideRows = db.prepare(`
+    const matchIds = Array.from(matches.values()).filter((match) => match.kind === 'match').map((match) => match.matchId);
+    const tieIds = Array.from(matches.values()).filter((match) => match.kind === 'tie').map((match) => match.matchId);
+    const sideRows = matchIds.length ? db.prepare(`
       SELECT
         side.current_match_id AS matchId,
         side.side_no AS sideNo,
@@ -515,10 +569,10 @@ function getPlayerCurrentMatches(playerId: number) {
       playerName: string | null;
       playerNameZh: string | null;
       playerCountry: string | null;
-    }>;
+    }> : [];
 
     for (const row of sideRows) {
-      const match = matches.get(row.matchId);
+      const match = matches.get(`match:${row.matchId}`);
       if (!match) continue;
       let side = match.sides.find((item) => item.sideNo === row.sideNo);
       if (!side) {
@@ -529,9 +583,30 @@ function getPlayerCurrentMatches(playerId: number) {
         side.players.push({ name: row.playerNameZh?.trim() || row.playerName, countryCode: row.playerCountry });
       }
     }
+
+    if (tieIds.length > 0) {
+      const tieSideRows = db.prepare(`
+        SELECT current_team_tie_id AS matchId, side_no AS sideNo, team_code AS teamCode
+        FROM current_event_team_tie_sides
+        WHERE current_team_tie_id IN (${tieIds.map(() => '?').join(', ')})
+        ORDER BY current_team_tie_id, side_no
+      `).all(...tieIds) as Array<{ matchId: number; sideNo: number; teamCode: string | null }>;
+      for (const row of tieSideRows) {
+        matches.get(`tie:${row.matchId}`)?.sides.push({
+          sideNo: row.sideNo,
+          teamCode: row.teamCode,
+          placeholderText: null,
+          players: [],
+        });
+      }
+    }
   }
 
-  return Array.from(matches.values());
+  return Array.from(matches.values()).sort((left, right) =>
+    Number(right.status === 'live') - Number(left.status === 'live') ||
+    (left.scheduledUtcAt ?? left.scheduledLocalAt ?? '').localeCompare(right.scheduledUtcAt ?? right.scheduledLocalAt ?? '') ||
+    left.matchId - right.matchId,
+  );
 }
 
 export function getPlayerDetail(slug: string) {
@@ -717,6 +792,6 @@ export function getPlayerDetail(slug: string) {
     player,
     stats,
     events,
-    currentMatches: getPlayerCurrentMatches(player.playerId),
+    currentMatches: getPlayerCurrentMatches(player),
   };
 }
