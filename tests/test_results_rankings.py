@@ -4,7 +4,6 @@ import sqlite3
 import tempfile
 import unittest
 from argparse import Namespace
-from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -14,8 +13,9 @@ sys.path.insert(0, str(SCRIPTS_DIR))
 
 from lib.checkpoint import CheckpointStore
 from lib.anti_bot import RiskControlTriggered
+import scrape_results_rankings as rankings
 from scrape_results_rankings import (
-    add_risk_cooldown_meta,
+    add_risk_meta,
     build_results_resume_url,
     build_results_checkpoint_meta,
     click_results_page_offset,
@@ -29,12 +29,14 @@ from scrape_results_rankings import (
     find_db_profile_candidates,
     is_results_snapshot_complete,
     is_results_snapshot_usable,
+    log_existing_results_tabs,
     parse_results_ranking_html,
     plan_missing_results_page_offsets,
     recover_missing_players_from_db,
     recover_missing_profiles_with_browser,
     recover_missing_results_pages,
-    results_resume_wait_seconds,
+    navigate_results_page_offset,
+    require_results_display_100,
     scrape_results_rankings,
     select_results_display_100,
     wait_for_results_page_html,
@@ -103,6 +105,11 @@ class ParseResultsRankingHtmlTests(unittest.TestCase):
 
 
 class ResultsDisplaySizeTests(unittest.TestCase):
+    def setUp(self):
+        ready = patch("scrape_results_rankings.wait_for_results_display_ready", return_value=True)
+        ready.start()
+        self.addCleanup(ready.stop)
+
     @staticmethod
     def _ranking_html(row_count: int, total_pages: int = 10, total: int = 958) -> str:
         rows = "".join(
@@ -133,6 +140,23 @@ class ResultsDisplaySizeTests(unittest.TestCase):
         self.assertTrue(selected)
         locator.select_option.assert_called_once_with("100")
 
+    def test_reports_existing_manual_ranking_tab_without_navigation(self):
+        manual = MagicMock()
+        manual.url = "https://results.ittf.link/index.php/ittf-rankings/ittf-ranking-women-singles/list/58?limitstart58=0"
+        manual.content.return_value = self._ranking_html(100)
+        manual.locator.return_value.first.count.return_value = 1
+        manual.locator.return_value.first.input_value.return_value = "100"
+        active = MagicMock()
+        context = MagicMock()
+        context.pages = [manual, active]
+
+        with self.assertLogs("ittf_results_rankings", level="INFO") as logs:
+            log_existing_results_tabs(context, active, "women")
+
+        self.assertIn("selected=100", logs.output[0])
+        self.assertIn("dom_valid_rows': 100", logs.output[0])
+        manual.goto.assert_not_called()
+
     def test_rejects_display_100_when_page_still_contains_25_rows(self):
         page = MagicMock()
         locator = MagicMock()
@@ -142,9 +166,70 @@ class ResultsDisplaySizeTests(unittest.TestCase):
         page.locator.return_value.first = locator
         page.content.return_value = self._ranking_html(25, total_pages=39)
 
-        selected = select_results_display_100(page, timeout_sec=0, poll_sec=0)
+        page.url = "https://results.ittf.link/ranking"
+        with self.assertLogs("ittf_results_rankings", level="WARNING") as logs:
+            selected = select_results_display_100(page, timeout_sec=0, poll_sec=0)
 
         self.assertFalse(selected)
+        self.assertIn("selected=100", logs.output[-1])
+        self.assertIn("dom_valid_rows': 25", logs.output[-1])
+
+    def test_rejects_100_row_table_with_stale_25_row_pagination_links(self):
+        page = MagicMock()
+        page.url = "https://results.ittf.link/ranking"
+        locator = MagicMock()
+        locator.count.return_value = 1
+        locator.is_visible.return_value = True
+        locator.input_value.return_value = "100"
+        page.locator.return_value.first = locator
+        page.content.return_value = self._ranking_html(100) + (
+            '<div class="pagination"><a rel="next" href="/ranking?limitstart58=25">Next</a></div>'
+        )
+
+        with self.assertLogs("ittf_results_rankings", level="WARNING") as logs:
+            selected = select_results_display_100(page, timeout_sec=0, poll_sec=0)
+
+        self.assertFalse(selected)
+        self.assertIn("pagination_offsets': [25]", logs.output[-1])
+
+    def test_requires_verified_display_100(self):
+        page = MagicMock()
+        with patch("scrape_results_rankings.select_results_display_100", return_value=False):
+            with self.assertRaisesRegex(RuntimeError, "Display # = 100"):
+                require_results_display_100(page)
+
+    def test_navigates_distant_page_using_pagination_controls(self):
+        page = MagicMock()
+        page.url = "https://results.ittf.link/ranking"
+        current_page = 1
+
+        def current_html():
+            return f'<div class="list-footer">Page {current_page} of 10 Total: 997</div>'
+
+        def click(_page, *, offset, **_kwargs):
+            nonlocal current_page
+            if offset != current_page * 100:
+                return False
+            current_page += 1
+            return True
+
+        page.content.side_effect = current_html
+        with patch("scrape_results_rankings.click_results_page_offset", side_effect=click) as clicks, patch(
+            "scrape_results_rankings.wait_for_results_page_html", side_effect=lambda *_a, **_kw: current_html()
+        ):
+            navigate_results_page_offset(
+                page,
+                offset=300,
+                page_size=100,
+                reported_total=997,
+                delay_cfg=MagicMock(),
+            )
+
+        self.assertEqual(current_page, 4)
+        attempted_offsets = [call.kwargs["offset"] for call in clicks.call_args_list]
+        self.assertIn(100, attempted_offsets)
+        self.assertIn(200, attempted_offsets)
+        self.assertEqual(attempted_offsets[-1], 300)
 
     def test_verifies_display_100_while_browser_is_on_last_page(self):
         page = MagicMock()
@@ -197,6 +282,25 @@ class ResultsDisplaySizeTests(unittest.TestCase):
         self.assertTrue(ready)
         self.assertEqual(page.content.call_count, 4)
 
+    def test_page_wait_stops_immediately_on_rate_limit_and_uses_site_countdown(self):
+        page = MagicMock()
+        page.url = "https://results.ittf.link/ranking"
+        page.inner_text.return_value = "429 Too many requests. 3525s remaining"
+        page.title.return_value = "Too many requests"
+
+        with self.assertRaises(RiskControlTriggered) as raised:
+            wait_for_results_page_html(
+                page,
+                expected_page=2,
+                page_size=100,
+                reported_total=997,
+                timeout_sec=0,
+            )
+
+        self.assertEqual(raised.exception.status, 429)
+        self.assertEqual(raised.exception.retry_after_sec, 3525)
+        page.content.assert_not_called()
+
     def test_does_not_accept_embedded_rows_when_dom_table_is_incomplete(self):
         page = MagicMock()
         page.content.return_value = self._ranking_html(35).replace(
@@ -229,6 +333,8 @@ class ResultsDisplaySizeTests(unittest.TestCase):
         self.assertEqual(diagnostics["pagination"], (3, 10, 980))
         self.assertEqual(diagnostics["dom_tr_count"], 35)
         self.assertEqual(diagnostics["dom_valid_rows"], 35)
+        self.assertEqual(diagnostics["first_rank"], 1)
+        self.assertEqual(diagnostics["last_rank"], 35)
         self.assertEqual(diagnostics["embedded_rows"], 0)
 
     def test_accepts_non_ranking_tbody_row_when_100_ranking_rows_are_valid(self):
@@ -636,40 +742,93 @@ class ResultsTargetPagePlannerTests(unittest.TestCase):
         self.assertEqual(len(recovered), 201)
 
 
-class ResultsCheckpointTests(unittest.TestCase):
-    def test_risk_checkpoint_records_retry_after_and_resume_not_before(self):
-        now = datetime(2026, 7, 21, 4, 0, tzinfo=timezone.utc)
+class ResultsDisplayInitializationTests(unittest.TestCase):
+    def test_waits_for_list_and_change_handler_before_selecting(self):
+        page = MagicMock()
+        page.evaluate.side_effect = [
+            {"ready": False, "list_ready": False, "change_handlers": 0},
+            {"ready": False, "list_ready": True, "change_handlers": 0},
+            {"ready": True, "list_ready": True, "change_handlers": 1},
+        ]
+        locator = page.locator.return_value.first
+        locator.count.return_value = 1
+        locator.is_visible.return_value = True
+        locator.input_value.side_effect = ["25", "100"]
+        locator.select_option.side_effect = lambda *_: self.assertEqual(page.evaluate.call_count, 3)
+        page.content.return_value = ResultsDisplaySizeTests._ranking_html(100)
+        self.assertTrue(select_results_display_100(page, timeout_sec=1, poll_sec=0))
+        locator.select_option.assert_called_once_with("100")
+        page.goto.assert_not_called()
 
-        meta = add_risk_cooldown_meta(
+    def test_uninitialized_display_stops_without_selecting(self):
+        page = MagicMock()
+        page.evaluate.return_value = {"ready": False, "list_ready": False, "change_handlers": 0}
+        self.assertFalse(select_results_display_100(page, timeout_sec=0, poll_sec=0))
+        page.locator.return_value.first.select_option.assert_not_called()
+        page.goto.assert_not_called()
+
+    def test_risk_response_stops_during_initialization_and_removes_listeners(self):
+        page = MagicMock()
+        listeners = {}
+        page.on.side_effect = lambda event, callback: listeners.update({event: callback})
+        response = MagicMock(status=429, url="https://results.ittf.link/ranking")
+        response.headers = {"retry-after": "3600"}
+        response.request.resource_type = "document"
+        def snapshot(*_, **_kwargs):
+            listeners["response"](response)
+            return {"ready": False}
+        page.evaluate.side_effect = snapshot
+        with self.assertRaises(RiskControlTriggered):
+            select_results_display_100(page, timeout_sec=1, poll_sec=0)
+        page.locator.return_value.first.select_option.assert_not_called()
+        self.assertEqual(page.remove_listener.call_count, 4)
+
+
+class ResultsCheckpointTests(unittest.TestCase):
+    def test_run_preserves_partial_snapshot_when_display_100_cannot_be_verified(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            snapshot = root / "results_women_top1000_partial.json"
+            snapshot.write_text('{"category":"women","rankings":[{"rank":1}]}', encoding="utf-8")
+            original = snapshot.read_bytes()
+            args = Namespace(
+                output_dir=str(root), output=None, checkpoint=str(root / "checkpoint.json"),
+                category="women", top=1000, force=False, resume=True, weekly_file=str(root / "weekly.json"),
+                min_delay=0, max_delay=0, min_player_gap=0, max_player_gap=0,
+                cdp_port=9223, cdp_only=True, headless=False, slow_mo=0,
+                storage_state=str(root / "storage.json"), ranking_only=True,
+            )
+            profile = {
+                "viewport_choices": [{"width": 1280, "height": 800}], "dpr_choices": [1],
+                "user_agent": "test", "sec_ch_ua": "test", "sec_ch_ua_platform": "Windows",
+            }
+            page = MagicMock()
+            with patch("patchright.sync_api.sync_playwright"), patch(
+                "scrape_results_rankings.find_completed_results_output", return_value=None
+            ), patch("scrape_results_rankings.find_resumable_results_output", return_value=snapshot), patch(
+                "scrape_results_rankings.select_browser_profiles", return_value=[profile]
+            ), patch("scrape_results_rankings.open_browser_page", return_value=(True, MagicMock(), MagicMock(), page)), patch(
+                "scrape_results_rankings.verify_cdp_session_or_prompt"
+            ), patch("scrape_results_rankings.select_results_display_100", return_value=False), patch(
+                "scrape_results_rankings.navigate_results_page_offset"
+            ) as navigate, patch("scrape_results_rankings.close_browser_page"):
+                rc = rankings.run(args)
+
+            self.assertEqual(rc, 4)
+            self.assertEqual(snapshot.read_bytes(), original)
+            navigate.assert_not_called()
+            checkpoint = json.loads((root / "checkpoint.json").read_text(encoding="utf-8"))
+            self.assertIn("Display # = 100", next(iter(checkpoint["failed"].values()))["reason"])
+
+    def test_risk_checkpoint_records_retry_after_without_resume_cooldown(self):
+        meta = add_risk_meta(
             {"output_file": "partial.json"},
             RiskControlTriggered("HTTP 429", status=429, retry_after_sec=300),
-            now=now,
         )
 
         self.assertEqual(meta["http_status"], 429)
         self.assertEqual(meta["retry_after_sec"], 300)
-        self.assertEqual(
-            meta["resume_not_before"],
-            (now + timedelta(seconds=300)).isoformat(),
-        )
-
-    def test_resume_wait_seconds_reads_failed_checkpoint_cooldown(self):
-        now = datetime(2026, 7, 21, 4, 0, tzinfo=timezone.utc)
-        checkpoint = MagicMock()
-        checkpoint.data = {
-            "failed": {
-                "ranking-key": {
-                    "meta": {
-                        "resume_not_before": (now + timedelta(seconds=180)).isoformat(),
-                    }
-                }
-            }
-        }
-
-        self.assertEqual(
-            results_resume_wait_seconds(checkpoint, "ranking-key", now=now),
-            180,
-        )
+        self.assertNotIn("resume_not_before", meta)
 
     def test_checkpoint_meta_preserves_page_progress(self):
         meta = build_results_checkpoint_meta(
@@ -1147,7 +1306,7 @@ class ResultsCheckpointTests(unittest.TestCase):
             "https://results.ittf.link/index.php/ranking/list/58?resetfilters=0&limitstart58=825",
         )
 
-    def test_scrape_continues_from_existing_rows_without_refetching_them(self):
+    def test_scrape_rejects_unverified_25_row_page(self):
         existing = [
             {
                 "rank": rank,
@@ -1170,22 +1329,18 @@ class ResultsCheckpointTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output = Path(tmpdir) / "partial.json"
-            rows = scrape_results_rankings(
-                page,
-                "women",
-                826,
-                type("Delay", (), {"min_request_sec": 0, "max_request_sec": 0})(),
-                output,
-                initial_rankings=existing,
-                initial_pages_scraped=33,
-                initial_reported_total=958,
-            )
-            payload = json.loads(output.read_text(encoding="utf-8"))
-
-        self.assertEqual(len(rows), 826)
-        self.assertEqual(rows[824]["rank"], 825)
-        self.assertEqual(rows[825]["rank"], 826)
-        self.assertEqual(payload["pages_scraped"], 34)
+            with self.assertRaisesRegex(ValueError, "Display # = 100"):
+                scrape_results_rankings(
+                    page,
+                    "women",
+                    826,
+                    type("Delay", (), {"min_request_sec": 0, "max_request_sec": 0})(),
+                    output,
+                    initial_rankings=existing,
+                    initial_pages_scraped=33,
+                    initial_reported_total=958,
+                )
+            self.assertFalse(output.exists())
 
     def test_scrape_stops_at_reported_total_on_last_page(self):
         existing = [
@@ -1211,7 +1366,7 @@ class ResultsCheckpointTests(unittest.TestCase):
         )
 
         with tempfile.TemporaryDirectory() as tmpdir, patch(
-            "scrape_results_rankings.click_next_page_if_any"
+            "scrape_results_rankings.click_results_page_offset"
         ) as next_page, patch("scrape_results_rankings.human_sleep"):
             output = Path(tmpdir) / "partial.json"
             result = scrape_results_rankings(

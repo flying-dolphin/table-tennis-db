@@ -36,6 +36,43 @@ class GuardedNavigationTests(unittest.TestCase):
         self.assertEqual(raised.exception.retry_after_sec, 300)
         sleep.assert_not_called()
 
+    def test_guarded_goto_never_retries_429_by_default(self):
+        response = MagicMock(status=429, status_text="Too Many Requests", headers={"retry-after": "3525"})
+        page = MagicMock()
+        page.goto.return_value = response
+
+        with patch("lib.page_ops.time.sleep"):
+            with self.assertRaises(RiskControlTriggered) as raised:
+                guarded_goto(
+                    page,
+                    "https://results.ittf.link/ranking",
+                    self.delay,
+                    "test",
+                    retries=2,
+                    sleep_first=False,
+                )
+
+        self.assertEqual(page.goto.call_count, 1)
+        self.assertEqual(raised.exception.retry_after_sec, 3525)
+
+    def test_guarded_goto_does_not_retry_503_by_default(self):
+        response = MagicMock(status=503, status_text="Service Unavailable", headers={"retry-after": "600"})
+        page = MagicMock()
+        page.goto.return_value = response
+
+        with patch("lib.page_ops.time.sleep"):
+            with self.assertRaises(RiskControlTriggered):
+                guarded_goto(
+                    page,
+                    "https://results.ittf.link/ranking",
+                    self.delay,
+                    "test",
+                    retries=2,
+                    sleep_first=False,
+                )
+
+        self.assertEqual(page.goto.call_count, 1)
+
     def test_retry_after_is_not_capped_below_server_instruction(self):
         self.assertEqual(_retry_after_seconds("600", attempt=0), 600)
 

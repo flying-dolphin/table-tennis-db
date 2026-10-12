@@ -25,7 +25,7 @@ import sys
 import time
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, urljoin, urlparse
+from urllib.parse import parse_qs, urlparse
 
 from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep
 from lib.browser_runtime import close_browser_page, open_browser_page
@@ -290,6 +290,9 @@ def wait_for_pagination_or_total_info(page: Any, timeout_sec: float = 20.0) -> t
     deadline = time.time() + timeout_sec
     last_info: tuple[int | None, int | None, int | None] = (None, None, None)
     while time.time() < deadline:
+        risk = detect_risk(page)
+        if risk:
+            raise RiskControlTriggered(risk)
         last_info = get_pagination_or_total_info(page)
         current_page, total_pages, total_records = last_info
         if current_page is not None and total_pages is not None and total_records is not None:
@@ -335,6 +338,8 @@ def reload_and_retry_display_100(page: Any, reason: str) -> None:
 def read_initial_page_info(page: Any, event_id: str) -> tuple[int, int, int]:
     try:
         return wait_for_pagination_or_total_info(page, timeout_sec=8.0)
+    except RiskControlTriggered:
+        raise
     except RuntimeError:
         logger.warning(
             "Event %s: initial pagination/total info not ready before Display # decision. Diagnostics: %s",
@@ -400,6 +405,8 @@ def wait_for_pagination_info_after_retry(page: Any, event_id: str) -> tuple[int,
     for attempt in range(1, 4):
         try:
             return wait_for_pagination_or_total_info(page)
+        except RiskControlTriggered:
+            raise
         except RuntimeError as exc:
             reason = f"Event {event_id}: cannot read pagination/total info"
             if attempt == 1:
@@ -430,19 +437,8 @@ def click_start_page_if_needed(page: Any, current_page: int, expected_page: int 
             if loc.count() == 0 or not loc.is_visible():
                 continue
 
-            href = (loc.get_attribute("href") or "").strip()
-            if href:
-                start_url = urljoin(page.url, href)
-                logger.info(
-                    "Current page is %s, expected %s. Navigating Start: %s",
-                    current_page,
-                    expected_page,
-                    start_url,
-                )
-                page.goto(start_url, wait_until="domcontentloaded", timeout=45000)
-            else:
-                logger.info("Current page is %s, expected %s. Clicking Start.", current_page, expected_page)
-                loc.click()
+            logger.info("Current page is %s, expected %s. Clicking Start.", current_page, expected_page)
+            loc.click()
 
             try:
                 page.wait_for_load_state("networkidle", timeout=12000)
@@ -451,6 +447,8 @@ def click_start_page_if_needed(page: Any, current_page: int, expected_page: int 
             time.sleep(random.uniform(1.0, 2.0))
             new_page, _, _ = wait_for_pagination_info_after_retry(page, event_id="unknown")
             return new_page == expected_page
+        except RiskControlTriggered:
+            raise
         except Exception as exc:
             logger.warning("Failed to jump Start via %s: %s", selector, exc)
             continue
@@ -469,6 +467,8 @@ def scrape_event_url(
 
     try:
         first_page, total_pages, total_records = read_initial_page_info(page, event_id)
+    except RiskControlTriggered:
+        raise
     except RuntimeError:
         ensure_display_100_with_retry(page)
         first_page, total_pages, total_records = wait_for_pagination_info_after_retry(page, event_id)

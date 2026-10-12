@@ -23,7 +23,13 @@ def try_connect_cdp(
         browser = playwright.chromium.connect_over_cdp(cdp_url)
         contexts = browser.contexts
         context = contexts[0] if contexts else browser.new_context()
-        logger.info("%s: connected to existing Chrome via CDP at %s", log_prefix, cdp_url)
+        logger.info(
+            "%s: connected to existing Chrome via CDP at %s; contexts=%d selected_context_pages=%d",
+            log_prefix,
+            cdp_url,
+            len(contexts),
+            len(context.pages),
+        )
         return True, browser, context
     except Exception as exc:
         logger.warning("%s: CDP handshake failed: %s", log_prefix, exc)
@@ -59,6 +65,8 @@ def open_browser_page(
         logger.info("%s: launched new browser", log_prefix)
 
     page = context.new_page()
+    if via_cdp:
+        logger.info("%s: opened a new tab in the selected CDP context", log_prefix)
     return via_cdp, browser, context, page
 
 

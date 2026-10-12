@@ -27,7 +27,7 @@ def ranking_page(first_rank: int, last_rank: int, page_number: int) -> str:
 class ResultsRankingStartPageTests(unittest.TestCase):
     def test_click_results_page_offset_clicks_target_link(self) -> None:
         class Link:
-            clicked = False
+            click_count = 0
 
             def count(self):
                 return 1
@@ -46,8 +46,11 @@ class ResultsRankingStartPageTests(unittest.TestCase):
             def scroll_into_view_if_needed(self):
                 pass
 
+            def bounding_box(self):
+                return None
+
             def click(self):
-                self.clicked = True
+                self.click_count += 1
 
         class Page:
             url = rankings.RANKING_URLS["women"]
@@ -65,12 +68,11 @@ class ResultsRankingStartPageTests(unittest.TestCase):
                 pass
 
             def content(self):
-                return ranking_page(101, 186, 2) if link.clicked else ranking_page(1, 100, 1)
+                return ranking_page(101, 186, 2) if link.click_count else ranking_page(1, 100, 1)
 
         link = Link()
         with (
             patch.object(rankings, "human_sleep"),
-            patch.object(rankings, "move_mouse_to_locator"),
             patch.object(rankings, "detect_risk", return_value=None),
         ):
             reached = rankings.click_results_page_offset(
@@ -82,7 +84,81 @@ class ResultsRankingStartPageTests(unittest.TestCase):
                 poll_sec=0,
             )
         self.assertTrue(reached)
-        self.assertTrue(link.clicked)
+        self.assertEqual(link.click_count, 1)
+
+    def test_click_results_page_offset_clicks_once_with_mouse(self) -> None:
+        class Link:
+            locator_clicks = 0
+
+            def count(self):
+                return 1
+
+            def nth(self, _index):
+                return self
+
+            def get_attribute(self, name):
+                if name == "href":
+                    return "/index.php/ittf-rankings/ittf-ranking-women-singles/list/58?limitstart58=100"
+                return None
+
+            def is_visible(self):
+                return True
+
+            def scroll_into_view_if_needed(self):
+                pass
+
+            def bounding_box(self):
+                return {"x": 10, "y": 10, "width": 20, "height": 20}
+
+            def click(self):
+                self.locator_clicks += 1
+
+        class Mouse:
+            clicks = 0
+
+            def move(self, *_args):
+                pass
+
+            def click(self, *_args):
+                self.clicks += 1
+
+        class Page:
+            url = rankings.RANKING_URLS["women"]
+            mouse = Mouse()
+
+            def locator(self, _selector):
+                return link
+
+            def on(self, *_args):
+                pass
+
+            def remove_listener(self, *_args):
+                pass
+
+            def wait_for_load_state(self, *_args, **_kwargs):
+                pass
+
+            def content(self):
+                return ranking_page(101, 186, 2) if self.mouse.clicks else ranking_page(1, 100, 1)
+
+        link = Link()
+        page = Page()
+        with (
+            patch.object(rankings, "human_sleep"),
+            patch.object(rankings, "detect_risk", return_value=None),
+            patch("lib.anti_bot.time.sleep"),
+        ):
+            reached = rankings.click_results_page_offset(
+                page,
+                offset=100,
+                page_size=100,
+                delay_cfg=rankings.DelayConfig(0, 0, 0, 0),
+                timeout_sec=0,
+                poll_sec=0,
+            )
+        self.assertTrue(reached)
+        self.assertEqual(page.mouse.clicks, 1)
+        self.assertEqual(link.locator_clicks, 0)
 
     def test_reset_url_can_use_previous_link_on_last_page(self) -> None:
         html = (
@@ -93,7 +169,7 @@ class ResultsRankingStartPageTests(unittest.TestCase):
         self.assertIsNotNone(url)
         self.assertIn("limitstart58=0", url)
 
-    def test_fresh_reset_uses_url_when_first_page_link_is_not_visible(self) -> None:
+    def test_fresh_reset_stops_when_first_page_link_is_not_visible(self) -> None:
         last_html = (
             ranking_page(101, 186, 2)
             .replace('rel="next"', 'title="Previous"')
@@ -109,21 +185,15 @@ class ResultsRankingStartPageTests(unittest.TestCase):
 
         page = Page()
 
-        def navigate(_page, url, *_args, **_kwargs):
-            self.assertIn("limitstart58=0", url)
-            page.html = ranking_page(1, 100, 1)
-
         with (
             patch.object(rankings, "click_results_page_offset", return_value=False),
-            patch.object(rankings, "guarded_goto", side_effect=navigate) as goto,
-            patch.object(rankings, "wait_for_results_page_html", side_effect=lambda page, **_: page.content()),
         ):
-            rankings.reset_fresh_results_to_first_page(
-                page,
-                delay_cfg=rankings.DelayConfig(0, 0, 0, 0),
-                page_size=100,
-            )
-        self.assertEqual(goto.call_count, 1)
+            with self.assertRaisesRegex(RuntimeError, "pagination control"):
+                rankings.reset_fresh_results_to_first_page(
+                    page,
+                    delay_cfg=rankings.DelayConfig(0, 0, 0, 0),
+                    page_size=100,
+                )
 
     def test_fresh_scrape_resets_last_page_before_saving(self) -> None:
         first_html = ranking_page(1, 100, 1)

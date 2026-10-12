@@ -24,7 +24,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Optional
 
-from lib.anti_bot import DelayConfig, human_sleep, move_mouse_to_locator, type_like_human
+from lib.anti_bot import DelayConfig, RiskControlTriggered, detect_risk, human_sleep, move_mouse_to_locator, type_like_human
 from lib.page_ops import guarded_goto
 
 BASE_URL = "https://results.ittf.link"
@@ -333,6 +333,8 @@ def select_and_load_player_events(
     logger.info("导航到搜索页: %s", SEARCH_URL)
     try:
         guarded_goto(page, SEARCH_URL, delay_cfg, "open search page")
+    except RiskControlTriggered:
+        raise
     except Exception as e:
         logger.warning("guarded_goto 失败: %s，尝试直接 goto", e)
         page.goto(SEARCH_URL, wait_until="domcontentloaded", timeout=20000)
@@ -356,6 +358,9 @@ def select_and_load_player_events(
             pass
 
     human_sleep(1.0, 2.0, "after form submit")
+    risk = detect_risk(page)
+    if risk:
+        raise RiskControlTriggered(risk)
     return True
 
 
@@ -371,6 +376,9 @@ def collect_events_with_pagination(
     reached_cutoff = False
 
     for page_num in range(1, max_pages + 1):
+        risk = detect_risk(page)
+        if risk:
+            raise RiskControlTriggered(risk)
         raw_events = parse_event_rows(page)
         if not raw_events:
             logger.debug("第 %d 页无赛事，停止翻页", page_num)
@@ -592,6 +600,9 @@ def run() -> int:
                         dry_run=not args.apply,
                     )
                     total_updated += updated
+                except RiskControlTriggered as e:
+                    logger.error("风控触发，停止抓取: %s", e)
+                    return 3
                 except Exception as e:
                     logger.error("处理 %s 时出错: %s", pf.name, e)
 
