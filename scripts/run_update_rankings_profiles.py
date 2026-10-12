@@ -12,7 +12,7 @@
 阶段：
   1. scrape_rankings      抓 ranking + results + merge player_id（不抓 profile）
   2. resolve_ids          检查 unresolved；有则暂停，提示人工处理别名后重跑
-  3. scrape_profiles      按 scope 抓 profile（weekly=top100+CHN / monthly=全部世排）
+  3. scrape_profiles      按 scope 抓 profile（weekly=top100+CHN+数据库缺失选手 / monthly=全部世排）
   4. translate_rankings   翻译 ranking
   5. translate_profiles   增量翻译 profile
   6. import_players       本地入库 players
@@ -39,6 +39,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from uuid import uuid4
+from lib.profile_coverage import missing_ranking_player_ids
+from db.config import DB_PATH
 
 ROOT = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR = Path(__file__).resolve().parent
@@ -55,6 +57,7 @@ logger = logging.getLogger("ittf_update_pipeline")
 STATE_FILE = ROOT / "data" / "rankings" / "update_pipeline_state.json"
 DEFAULT_ALIASES = "scripts/data/player_name_aliases.json"
 REVIEW_OUTPUT = ROOT / "data" / "review" / "ranking_profile_review.json"
+PROFILE_DIR = ROOT / "data" / "player_profiles"
 
 STATUS_PENDING = "pending"
 STATUS_RUNNING = "running"
@@ -286,6 +289,19 @@ def stage_scrape_profiles(args: argparse.Namespace, state: dict) -> dict:
     if rc != 0:
         raise PipelineError(f"scrape_profiles 失败，退出码 {rc}")
 
+    merged_file = Path(state["stages"]["scrape_rankings"]["meta"]["merged_file"])
+    missing_ids = missing_ranking_player_ids(
+        merged_file,
+        DB_PATH,
+        PROFILE_DIR / "orig",
+    )
+    if missing_ids:
+        sample = sorted(missing_ids)[:10]
+        raise PipelineError(
+            f"profile 抓取后仍有 {len(missing_ids)} 位排名选手既未入库也无 profile，"
+            f"示例 player_id={sample}"
+        )
+
     if scope == "monthly":
         state["last_full_profile_refresh"] = utc_now_iso()
         save_state(STATE_FILE, state)
@@ -316,6 +332,18 @@ def stage_translate_profiles(args: argparse.Namespace, state: dict) -> dict:
 
 
 def stage_import_players(args: argparse.Namespace, state: dict) -> dict:
+    merged_file = Path(state["stages"]["scrape_rankings"]["meta"]["merged_file"])
+    missing_ids = missing_ranking_player_ids(
+        merged_file,
+        DB_PATH,
+        PROFILE_DIR / "cn",
+    )
+    if missing_ids:
+        sample = sorted(missing_ids)[:10]
+        raise PipelineError(
+            f"导入 players 前仍有 {len(missing_ids)} 位排名选手没有数据库记录或中文 profile，"
+            f"示例 player_id={sample}"
+        )
     rc = run_cmd(py("scripts/db/import_players.py", "--dir", "data/player_profiles/cn"))
     if rc != 0:
         raise PipelineError(f"import_players 失败，退出码 {rc}")
@@ -418,6 +446,27 @@ def run(args: argparse.Namespace) -> int:
     if state.get("parameters") != {"category": args.category, "top": args.top}:
         logger.error("续跑参数与本轮 category/top 不一致，请使用原参数或 --reset 开启新一轮")
         return 2
+
+    # Earlier runs could mark weekly profile scraping complete without covering
+    # ranking players absent from the database. Reopen that stage on resume.
+    if state.get("scope") == "weekly" and stage_status(state, "scrape_profiles") in _COMPLETE_STATUSES:
+        merged_file = Path(state.get("stages", {}).get("scrape_rankings", {}).get("meta", {}).get("merged_file", ""))
+        if merged_file.is_file():
+            missing_ids = missing_ranking_player_ids(
+                merged_file,
+                DB_PATH,
+                PROFILE_DIR / "orig",
+            )
+            if missing_ids:
+                logger.info(
+                    "恢复 weekly profile 覆盖：发现 %d 位排名选手既未入库也无 profile，重跑抓取阶段",
+                    len(missing_ids),
+                )
+                start = STAGES.index("scrape_profiles")
+                for stage in STAGES[start:]:
+                    state["stages"].pop(stage, None)
+                if not args.dry_run:
+                    save_state(STATE_FILE, state)
 
     scope = state.get("scope") or "weekly"
     since_ts = state.get("since_ts")

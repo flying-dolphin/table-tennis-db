@@ -27,6 +27,7 @@ from lib.checkpoint import CheckpointStore, utc_now_iso
 from lib.name_normalizer import normalize_player_name
 from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import _retry_after_seconds
+from lib.profile_coverage import database_player_ids
 
 from db.config import DB_PATH
 from scrape_events import select_browser_profiles
@@ -1634,6 +1635,7 @@ def select_profiles_to_refresh(
     rankings: list[dict[str, Any]],
     scope: str | None,
     weekly_top_n: int = WEEKLY_PROFILE_TOP_N,
+    db_path: Path | str | None = None,
 ) -> list[dict[str, Any]]:
     """Pick which ranked players get a profile scrape this run.
 
@@ -1645,10 +1647,16 @@ def select_profiles_to_refresh(
         return list(rankings)
 
     selected: list[dict[str, Any]] = []
+    existing_player_ids = database_player_ids(db_path) if db_path else set()
     for row in rankings:
         rank = parse_int(row.get("rank"))
         country_code = str(row.get("country_code") or "").strip().upper()
-        if rank <= weekly_top_n or country_code in WEEKLY_PROFILE_COUNTRY_CODES:
+        player_id = parse_int(row.get("player_id"), default=-1)
+        if (
+            rank <= weekly_top_n
+            or country_code in WEEKLY_PROFILE_COUNTRY_CODES
+            or (db_path is not None and player_id not in existing_player_ids)
+        ):
             selected.append(row)
     return selected
 
@@ -2094,7 +2102,7 @@ def run(args: argparse.Namespace) -> int:
 
             if not args.ranking_only:
                 scope = getattr(args, "profile_scope", None) or PROFILE_SCOPE_WEEKLY
-                profile_targets = select_profiles_to_refresh(rankings, scope)
+                profile_targets = select_profiles_to_refresh(rankings, scope, db_path=args.db_path)
                 logger.info(
                     "Profile refresh scope=%s: selected %d/%d ranked players",
                     scope,
@@ -2200,7 +2208,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--profile-scope",
         choices=PROFILE_SCOPE_CHOICES,
         default=PROFILE_SCOPE_WEEKLY,
-        help="Which ranked players get a profile scrape: weekly=top100+CHN, monthly=all ranked (default: weekly)",
+        help="Which ranked players get a profile scrape: weekly=top100+CHN+players missing from DB, monthly=all ranked (default: weekly)",
     )
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--resume", action="store_true", help="Reuse a completed results ranking snapshot from checkpoint and continue profiles")
