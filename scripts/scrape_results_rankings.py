@@ -63,6 +63,13 @@ def log_results_resource_failure(request: Any) -> None:
         request.resource_type, request.url, request.failure,
     )
 
+# Profile refresh scoping: how many ranked players get a profile scrape per run.
+PROFILE_SCOPE_WEEKLY = "weekly"
+PROFILE_SCOPE_MONTHLY = "monthly"
+PROFILE_SCOPE_CHOICES = (PROFILE_SCOPE_WEEKLY, PROFILE_SCOPE_MONTHLY)
+WEEKLY_PROFILE_TOP_N = 100
+WEEKLY_PROFILE_COUNTRY_CODES = frozenset({"CHN"})
+
 
 def normalize_space(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
@@ -1623,6 +1630,29 @@ def scrape_results_rankings(
     return rankings[:top_n]
 
 
+def select_profiles_to_refresh(
+    rankings: list[dict[str, Any]],
+    scope: str | None,
+    weekly_top_n: int = WEEKLY_PROFILE_TOP_N,
+) -> list[dict[str, Any]]:
+    """Pick which ranked players get a profile scrape this run.
+
+    - ``weekly``: top N (default 100) plus every Chinese (CHN) player.
+    - ``monthly``: every player still present in the ranking snapshot.
+    """
+    scope = (scope or PROFILE_SCOPE_WEEKLY).lower()
+    if scope == PROFILE_SCOPE_MONTHLY:
+        return list(rankings)
+
+    selected: list[dict[str, Any]] = []
+    for row in rankings:
+        rank = parse_int(row.get("rank"))
+        country_code = str(row.get("country_code") or "").strip().upper()
+        if rank <= weekly_top_n or country_code in WEEKLY_PROFILE_COUNTRY_CODES:
+            selected.append(row)
+    return selected
+
+
 def refresh_profiles(
     page: Any,
     rankings: list[dict[str, Any]],
@@ -2063,7 +2093,15 @@ def run(args: argparse.Namespace) -> int:
                 logger.info("Saved results ranking snapshot: %s", output_file)
 
             if not args.ranking_only:
-                refreshed = refresh_profiles(page, rankings, args, delay_cfg, checkpoint)
+                scope = getattr(args, "profile_scope", None) or PROFILE_SCOPE_WEEKLY
+                profile_targets = select_profiles_to_refresh(rankings, scope)
+                logger.info(
+                    "Profile refresh scope=%s: selected %d/%d ranked players",
+                    scope,
+                    len(profile_targets),
+                    len(rankings),
+                )
+                refreshed = refresh_profiles(page, profile_targets, args, delay_cfg, checkpoint)
                 logger.info("Profile refresh complete: %d scraped now", refreshed)
                 recovered = recover_missing_profiles_with_browser(
                     page,
@@ -2158,6 +2196,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--db-path", default=DB_PATH, help="SQLite database used for missing-player fallback")
     parser.add_argument("--aliases", default="scripts/data/player_name_aliases.json", help="Manual player name alias JSON")
     parser.add_argument("--ranking-only", action="store_true", help="Only scrape ranking snapshot; skip profile refresh")
+    parser.add_argument(
+        "--profile-scope",
+        choices=PROFILE_SCOPE_CHOICES,
+        default=PROFILE_SCOPE_WEEKLY,
+        help="Which ranked players get a profile scrape: weekly=top100+CHN, monthly=all ranked (default: weekly)",
+    )
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--resume", action="store_true", help="Reuse a completed results ranking snapshot from checkpoint and continue profiles")
     parser.add_argument("--init-session", action="store_true")

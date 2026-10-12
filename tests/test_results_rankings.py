@@ -38,6 +38,7 @@ from scrape_results_rankings import (
     navigate_results_page_offset,
     require_results_display_100,
     scrape_results_rankings,
+    select_profiles_to_refresh,
     select_results_display_100,
     wait_for_results_page_html,
     wait_for_results_page_ready,
@@ -102,6 +103,53 @@ class ParseResultsRankingHtmlTests(unittest.TestCase):
         self.assertEqual(rows[0]["name"], "WANG Manyu")
         self.assertEqual(rows[0]["country_code"], "CHN")
         self.assertEqual(rows[0]["player_id"], "121411")
+
+
+class ProfileScopeSelectionTests(unittest.TestCase):
+    @staticmethod
+    def _row(rank: int, country_code: str) -> dict:
+        return {
+            "rank": rank,
+            "name": f"Player {rank}",
+            "country_code": country_code,
+            "player_id": str(100000 + rank),
+            "profile_url": f"https://results.ittf.link/profile?vw_profiles___player_id_raw={100000 + rank}",
+        }
+
+    def test_weekly_selects_top_100_and_all_chn_players(self):
+        rankings = [
+            self._row(1, "JPN"),
+            self._row(100, "KOR"),
+            self._row(101, "GER"),
+            self._row(250, "CHN"),
+            self._row(900, "CHN"),
+            self._row(901, "USA"),
+        ]
+
+        selected = select_profiles_to_refresh(rankings, "weekly")
+
+        self.assertEqual([row["rank"] for row in selected], [1, 100, 250, 900])
+
+    def test_monthly_selects_every_ranked_player(self):
+        rankings = [self._row(rank, "AAA") for rank in range(1, 5)]
+
+        selected = select_profiles_to_refresh(rankings, "monthly")
+
+        self.assertEqual(len(selected), 4)
+
+    def test_unknown_scope_defaults_to_weekly(self):
+        rankings = [self._row(1, "JPN"), self._row(150, "CHN"), self._row(500, "USA")]
+
+        selected = select_profiles_to_refresh(rankings, None)
+
+        self.assertEqual([row["rank"] for row in selected], [1, 150])
+
+    def test_weekly_respects_custom_top_n(self):
+        rankings = [self._row(rank, "AAA") for rank in range(1, 11)]
+
+        selected = select_profiles_to_refresh(rankings, "weekly", weekly_top_n=5)
+
+        self.assertEqual([row["rank"] for row in selected], [1, 2, 3, 4, 5])
 
 
 class ResultsDisplaySizeTests(unittest.TestCase):

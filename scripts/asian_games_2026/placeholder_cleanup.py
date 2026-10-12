@@ -6,6 +6,13 @@ from zoneinfo import ZoneInfo
 from scripts.asian_games_2026.common import EVENT_ID, SOURCE_TIME_ZONE
 
 
+SAME_GROUP_REASON = ('Empty provisional slot absent from two complete captures; '
+                     'same date/event/round has official opponents; no sides, score, winner or rubbers')
+VANISHED_GROUP_REASON = ('Empty provisional slot absent from two complete captures; '
+                         'its whole group has no fixture in the capture and other groups of the same '
+                         'date/event/stage/round have official opponents; no sides, score, winner or rubbers')
+
+
 def cleanup_placeholders(conn, snapshot):
     # These small integration-owned tables are created within the import transaction.
     conn.execute('''CREATE TABLE IF NOT EXISTS asian_games_cleanup_batches (
@@ -59,6 +66,29 @@ def cleanup_placeholders(conn, snapshot):
             key = scope(tie)
             if key[0] in capture['dates'] and key[0] <= today and key[2] and key[3]:
                 scopes.add(key)
+    # Groups that still have any fixture in this capture (payload rows, or stored rows whose
+    # code is an official schedule key). Only a candidate whose whole group vanished may use
+    # cross-group evidence from the same date/event/stage/round.
+    def group_key(item):
+        return (item.get('sub_event_type_code'), item.get('stage_code'),
+                item.get('round_code'), item.get('group_code'))
+
+    live_groups = {group_key(item) for item in ties + (snapshot.get('matches') or [])}
+    for table in ('current_event_team_ties', 'current_event_matches'):
+        rows = conn.execute(
+            'SELECT external_match_code, sub_event_type_code, stage_code, round_code, group_code '
+            f'FROM {table} WHERE event_id=?', (EVENT_ID,)).fetchall()
+        live_groups.update(group_key(dict(row)) for row in rows if row['external_match_code'] in keys)
+    wide_scopes = {key[:4] for key in scopes}
+
+    def evidence(row):
+        if scope(row) in scopes:
+            return SAME_GROUP_REASON
+        if (str(row.get('group_code') or '').strip() and group_key(row) not in live_groups
+                and scope(row)[:4] in wide_scopes):
+            return VANISHED_GROUP_REASON
+        return None
+
     candidates = conn.execute('''SELECT t.* FROM current_event_team_ties t
         WHERE event_id=? AND status='scheduled' AND source_status='PROVISIONAL'
         AND NULLIF(TRIM(match_score),'') IS NULL AND winner_side IS NULL
@@ -67,22 +97,24 @@ def cleanup_placeholders(conn, snapshot):
                         WHERE s.current_team_tie_id=t.current_team_tie_id)
         AND NOT EXISTS (SELECT 1 FROM current_event_matches m
                         WHERE m.current_team_tie_id=t.current_team_tie_id)''', (EVENT_ID,)).fetchall()
-    eligible = {row['current_team_tie_id']: dict(row) for row in candidates
-                if row['external_match_code'] not in present and scope(dict(row)) in scopes}
+    eligible = {}
+    for row in map(dict, candidates):
+        reason = evidence(row) if row['external_match_code'] not in present else None
+        if reason:
+            eligible[row['current_team_tie_id']] = (row, reason)
     # A successful intervening snapshot without qualifying evidence breaks the streak.
     for row in conn.execute('SELECT tie_id FROM asian_games_placeholder_missing').fetchall():
         if row[0] not in eligible:
             conn.execute('DELETE FROM asian_games_placeholder_missing WHERE tie_id=?', (row[0],))
     removed = 0
-    for tie_id, original in eligible.items():
+    for tie_id, (original, reason) in eligible.items():
         prior = conn.execute('SELECT batch_id FROM asian_games_placeholder_missing WHERE tie_id=?', (tie_id,)).fetchone()
         if prior is None:
             conn.execute('INSERT INTO asian_games_placeholder_missing VALUES (?,?)', (tie_id, batch))
             continue
         conn.execute('''INSERT INTO asian_games_placeholder_audit
             (tie_id,batch_id,previous_batch_id,reason,original_json) VALUES (?,?,?,?,?)''',
-            (tie_id, batch, prior[0], 'Empty provisional slot absent from two complete captures; '
-             'same date/event/round has official opponents; no sides, score, winner or rubbers',
+            (tie_id, batch, prior[0], reason,
              json.dumps(original, ensure_ascii=False)))
         conn.execute('DELETE FROM current_event_team_ties WHERE current_team_tie_id=?', (tie_id,))
         removed += 1

@@ -1,0 +1,664 @@
+[
+  {
+    "日期": "10月1日",
+    "场次": "资格赛场次01",
+    "时间": "11:00",
+    "赛事": [
+      "男子单打资格赛第一轮",
+      "女子单打资格赛第一轮"
+    ],
+    "球台": "3号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      }
+    ]
+  },
+  {
+    "日期": "10月1日",
+    "场次": "资格赛场次02",
+    "时间": "18:00",
+    "赛事": [
+      "男子单打资格赛第一轮",
+      "女子单打资格赛第一轮"
+    ],
+    "球台": "3号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      }
+    ]
+  },
+  {
+    "日期": "10月2日",
+    "场次": "资格赛场次03",
+    "时间": "11:00",
+    "赛事": [
+      "男子单打资格赛第一轮",
+      "女子单打资格赛第一轮"
+    ],
+    "球台": "3号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R1"
+      }
+    ]
+  },
+  {
+    "日期": "10月2日",
+    "场次": "资格赛场次04",
+    "时间": "18:00",
+    "赛事": [
+      "男子单打资格赛第二轮",
+      "女子单打资格赛第二轮"
+    ],
+    "球台": "3号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R2"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R2"
+      }
+    ]
+  },
+  {
+    "日期": "10月3日",
+    "场次": "资格赛场次05",
+    "时间": "11:00",
+    "赛事": [
+      "男子单打资格赛第二轮",
+      "女子单打资格赛第二轮"
+    ],
+    "球台": "3号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R2"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R2"
+      }
+    ]
+  },
+  {
+    "日期": "10月3日",
+    "场次": "资格赛场次06",
+    "时间": "18:00",
+    "赛事": [
+      "男子单打资格赛第三轮",
+      "女子单打资格赛第三轮"
+    ],
+    "球台": "3号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R3"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "PRELIMINARY",
+        "round_code": "R3"
+      }
+    ]
+  },
+  {
+    "日期": "10月4日",
+    "场次": "场次01",
+    "时间": "11:00",
+    "赛事": [
+      "男子单打64进32",
+      "女子单打64进32",
+      "混合双打24进16"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      }
+    ]
+  },
+  {
+    "日期": "10月4日",
+    "场次": "场次02",
+    "时间": "18:00",
+    "赛事": [
+      "男子单打64进32",
+      "女子单打64进32",
+      "混合双打24进16"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      }
+    ]
+  },
+  {
+    "日期": "10月5日",
+    "场次": "场次03",
+    "时间": "11:00",
+    "赛事": [
+      "男子双打24进16",
+      "女子双打24进16",
+      "男子单打64进32",
+      "女子单打64进32"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      }
+    ]
+  },
+  {
+    "日期": "10月5日",
+    "场次": "场次04",
+    "时间": "18:00",
+    "赛事": [
+      "男子双打24进16",
+      "女子双打24进16",
+      "男子单打64进32",
+      "女子单打64进32"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R64"
+      }
+    ]
+  },
+  {
+    "日期": "10月6日",
+    "场次": "场次05",
+    "时间": "11:00",
+    "赛事": [
+      "混合双打16进8",
+      "男子双打24进16",
+      "女子双打24进16",
+      "男子单打32进16",
+      "女子单打32进16"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      }
+    ]
+  },
+  {
+    "日期": "10月6日",
+    "场次": "场次06",
+    "时间": "18:00",
+    "赛事": [
+      "混合双打16进8",
+      "男子双打24进16",
+      "女子双打24进16",
+      "男子单打32进16",
+      "女子单打32进16"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R24"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      }
+    ]
+  },
+  {
+    "日期": "10月7日",
+    "场次": "场次07",
+    "时间": "11:00",
+    "赛事": [
+      "女子双打16进8",
+      "男子双打16进8",
+      "男子单打32进16",
+      "女子单打32进16",
+      "混合双打四分之一决赛"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      }
+    ]
+  },
+  {
+    "日期": "10月7日",
+    "场次": "场次08",
+    "时间": "18:00",
+    "赛事": [
+      "女子双打16进8",
+      "男子双打16进8",
+      "男子单打32进16",
+      "女子单打32进16",
+      "混合双打四分之一决赛"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R32"
+      },
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      }
+    ]
+  },
+  {
+    "日期": "10月8日",
+    "场次": "场次09",
+    "时间": "11:00",
+    "赛事": [
+      "女子双打四分之一决赛",
+      "男子双打四分之一决赛",
+      "女子单打16进8",
+      "男子单打16进8",
+      "混合双打半决赛"
+    ],
+    "球台": "4号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      }
+    ]
+  },
+  {
+    "日期": "10月8日",
+    "场次": "场次10",
+    "时间": "18:00",
+    "赛事": [
+      "女子双打四分之一决赛",
+      "男子双打四分之一决赛",
+      "女子单打16进8",
+      "男子单打16进8",
+      "混合双打半决赛"
+    ],
+    "球台": "2号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "R16"
+      },
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      }
+    ]
+  },
+  {
+    "日期": "10月9日",
+    "场次": "场次11",
+    "时间": "11:00",
+    "赛事": [
+      "男子双打半决赛",
+      "女子双打半决赛",
+      "女子单打四分之一决赛",
+      "男子单打四分之一决赛"
+    ],
+    "球台": "2号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      },
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      }
+    ]
+  },
+  {
+    "日期": "10月9日",
+    "场次": "场次12",
+    "时间": "18:00",
+    "赛事": [
+      "男子单打四分之一决赛",
+      "女子单打四分之一决赛",
+      "混合双打决赛"
+    ],
+    "球台": "1号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      },
+      {
+        "sub_event_code": "XD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "F"
+      }
+    ]
+  },
+  {
+    "日期": "10月10日",
+    "场次": "场次13",
+    "时间": "12:00",
+    "赛事": [
+      "女子双打决赛",
+      "男子单打四分之一决赛"
+    ],
+    "球台": "1号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "WD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "F"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "QF"
+      }
+    ]
+  },
+  {
+    "日期": "10月10日",
+    "场次": "场次14",
+    "时间": "17:00",
+    "赛事": [
+      "女子单打半决赛",
+      "男子双打决赛"
+    ],
+    "球台": "1号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      },
+      {
+        "sub_event_code": "MD",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "F"
+      }
+    ]
+  },
+  {
+    "日期": "10月11日",
+    "场次": "场次15",
+    "时间": "12:00",
+    "赛事": [
+      "男子单打半决赛"
+    ],
+    "球台": "1号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "SF"
+      }
+    ]
+  },
+  {
+    "日期": "10月11日",
+    "场次": "场次16",
+    "时间": "17:00",
+    "赛事": [
+      "女子单打决赛",
+      "男子单打决赛"
+    ],
+    "球台": "1号台",
+    "场馆": "Shougang Park",
+    "_parsed": [
+      {
+        "sub_event_code": "WS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "F"
+      },
+      {
+        "sub_event_code": "MS",
+        "stage_code": "MAIN_DRAW",
+        "round_code": "F"
+      }
+    ]
+  }
+]

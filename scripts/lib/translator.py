@@ -17,7 +17,7 @@
 
     translator = LLMTranslator()  # 默认 MiniMax
     translator = LLMTranslator(provider="kimi", model="moonshot-v1-32k")
-    translator = LLMTranslator(provider="qwen", model="qwen-plus")
+    translator = LLMTranslator(provider="qwen", model="qwen3.8-flash")
     results = translator.translate({"Ma Long": "Ma Long", "event_name": "World Championships"})
     # => {"Ma Long": "马龙", "event_name": "世界锦标赛"}
 """
@@ -74,7 +74,7 @@ class LLMTranslator:
         },
         "qwen": {
             "api_url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
-            "default_model": "qwen3.5-plus",
+            "default_model": "qwen3.8-flash",
             "env_key": "DASHSCOPE_API_KEY",
             "request_timeout": 240,
             "max_batch_size": 4096,

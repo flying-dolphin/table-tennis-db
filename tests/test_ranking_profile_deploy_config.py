@@ -12,6 +12,7 @@ class RankingProfileDeployConfigTests(unittest.TestCase):
         required_paths = [
             "scripts/db/import_players.py",
             "scripts/db/import_rankings.py",
+            "scripts/db/update_inactive_player_ages.py",
             "scripts/db/config.py",
             "scripts/lib/career_best.py",
         ]
@@ -72,6 +73,15 @@ class RankingProfileDeployConfigTests(unittest.TestCase):
         self.assertIn("ranking_entries", update_script)
         self.assertIn("ranking_snapshots", update_script)
         self.assertIn("expected_entries", update_script)
+
+    def test_data_update_script_updates_inactive_player_ages_after_imports(self):
+        update_script = (ROOT / "deploy" / "server" / "update_rankings_profiles.sh").read_text(encoding="utf-8")
+
+        imports_pos = update_script.index("==> Running remote imports")
+        ages_pos = update_script.index("==> Updating inactive player ages on remote")
+
+        self.assertLess(imports_pos, ages_pos)
+        self.assertIn("scripts/db/update_inactive_player_ages.py", update_script)
 
 
 if __name__ == "__main__":
