@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import re
 import sys
@@ -183,8 +184,22 @@ def run(args: argparse.Namespace) -> int:
         if unresolved_output.exists():
             unresolved_output.unlink()
             logger.info("无不resolved记录，已删除报告文件: %s", unresolved_output)
-    else:
+    elif merge_rc == 1:
         logger.warning("合并完成但存在未resolved记录，详见: %s", unresolved_output)
+    else:
+        logger.error("Ranking merge failed with rc=%s", merge_rc)
+        return merge_rc
+    if getattr(args, "output_manifest", None):
+        manifest = Path(args.output_manifest)
+        manifest.parent.mkdir(parents=True, exist_ok=True)
+        temporary = manifest.with_suffix(manifest.suffix + ".tmp")
+        temporary.write_text(json.dumps({
+            "weekly_file": str(weekly_file.resolve()),
+            "results_file": str(results_file.resolve()),
+            "merged_file": str(merged_output.resolve()),
+            "unresolved_file": str(unresolved_output.resolve()),
+        }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        temporary.replace(manifest)
     return 0
 
 
@@ -199,6 +214,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--top", type=int, default=1000)
     parser.add_argument("--weekly-output-dir", default="data/rankings/orig")
     parser.add_argument("--results-output-dir", default="data/rankings/id_snapshots")
+    parser.add_argument("--output-manifest", help="Write exact output paths after successful merge")
     parser.add_argument("--merged-output", default=None)
     parser.add_argument("--unresolved-output", default=None)
     parser.add_argument("--aliases", default="scripts/data/player_name_aliases.json", help="Manual player name alias JSON")

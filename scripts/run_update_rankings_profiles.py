@@ -5,6 +5,9 @@
 
 把日常更新的抓取 → 合并 → 翻译 → 入库 → 发布 串联成一个入口，
 并用状态文件记录每个阶段的执行结果，失败后下次运行自动从断点继续。
+每轮更新使用 data/rankings/runs/<run_id>/ 下的独立快照和 checkpoint；
+续跑仅复用本轮产物，--reset 创建新一轮。缺少 run_id 的旧状态会安全重启。
+子脚本通过 outputs.json 返回实际产物路径，后续阶段及发布显式使用这些路径。
 
 阶段：
   1. scrape_rankings      抓 ranking + results + merge player_id（不抓 profile）
@@ -30,11 +33,12 @@ from __future__ import annotations
 import argparse
 import json
 import logging
-import re
+import shutil
 import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
+from uuid import uuid4
 
 ROOT = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR = Path(__file__).resolve().parent
@@ -104,10 +108,12 @@ def load_state(state_file: Path) -> dict:
 def save_state(state_file: Path, state: dict) -> None:
     state["updated_at"] = utc_now_iso()
     state_file.parent.mkdir(parents=True, exist_ok=True)
-    state_file.write_text(
+    temporary = state_file.with_suffix(state_file.suffix + ".tmp")
+    temporary.write_text(
         json.dumps(state, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    temporary.replace(state_file)
 
 
 def stage_status(state: dict, stage: str) -> str:
@@ -115,11 +121,14 @@ def stage_status(state: dict, stage: str) -> str:
 
 
 def set_stage(state: dict, stage: str, status: str, meta: dict | None = None) -> None:
+    previous = state["stages"].get(stage, {})
     state["stages"][stage] = {
         "status": status,
         "at": utc_now_iso(),
-        "meta": meta or {},
+        "meta": previous.get("meta", {}) if meta is None else meta,
     }
+    if status == STATUS_RUNNING:
+        state["stages"][stage]["previous_status"] = previous.get("status", STATUS_PENDING)
     save_state(STATE_FILE, state)
 
 
@@ -145,23 +154,6 @@ def first_incomplete_stage(state: dict) -> str | None:
 # --------------------------------------------------------------------------- #
 # 文件发现
 # --------------------------------------------------------------------------- #
-
-def latest_weekly_file(orig_dir: Path, top: int) -> Path | None:
-    pat = re.compile(rf"^women_singles_top{top}_week\d+\.json$")
-    candidates = [p for p in orig_dir.glob("women_singles_top*_week*.json") if pat.fullmatch(p.name)]
-    return max(candidates, key=lambda p: p.stat().st_mtime) if candidates else None
-
-
-def latest_results_file(results_dir: Path, category: str, top: int) -> Path | None:
-    candidates = list(results_dir.glob(f"results_{category}_top{top}_*.json"))
-    return max(candidates, key=lambda p: p.stat().st_mtime) if candidates else None
-
-
-def latest_merged_file(orig_dir: Path, top: int) -> Path | None:
-    pat = re.compile(rf"^women_singles_top{top}_week\d+_with_ids\.json$")
-    candidates = [p for p in orig_dir.glob("women_singles_top*_week*_with_ids.json") if pat.fullmatch(p.name)]
-    return max(candidates, key=lambda p: p.stat().st_mtime) if candidates else None
-
 
 def unresolved_count(path: Path) -> int:
     if not path.exists():
@@ -191,36 +183,59 @@ def py(*args: object) -> list[str]:
 # 各阶段实现
 # --------------------------------------------------------------------------- #
 
-def stage_scrape_rankings(args: argparse.Namespace, state: dict) -> dict:
-    cmd = py(
+def ranking_command(args: argparse.Namespace, state: dict) -> list[str]:
+    """All ranking/profile work is confined to this run's products and checkpoints."""
+    run_dir = ROOT / "data" / "rankings" / "runs" / state["run_id"]
+    return py(
         "scripts/run_ranking_profile.py",
         "--category", args.category,
-        "--top", str(args.top),
-        "--cdp-port", str(args.cdp_port),
-        "--ranking-only",
+        "--top", args.top,
+        "--cdp-port", args.cdp_port,
+        "--weekly-output-dir", run_dir / "orig",
+        "--results-output-dir", run_dir / "id_snapshots",
+        "--weekly-checkpoint", run_dir / "checkpoint_rankings.json",
+        "--results-checkpoint", run_dir / "checkpoint_results_rankings.json",
+        "--aliases", args.aliases,
+        "--output-manifest", run_dir / "outputs.json",
+        # Empty run directories force a new scrape; retries can reuse only this run.
+        "--resume",
+        *(["--cdp-only"] if args.cdp_only else []),
     )
-    if args.cdp_only:
-        cmd.append("--cdp-only")
-    # 重试失败/中断阶段时复用已抓取的快照，避免重新抓取。
-    if stage_status(state, "scrape_rankings") in (STATUS_FAILED, STATUS_RUNNING):
-        cmd.append("--resume")
+
+
+def stage_scrape_rankings(args: argparse.Namespace, state: dict) -> dict:
+    cmd = ranking_command(args, state) + ["--ranking-only"]
+    run_dir = ROOT / "data" / "rankings" / "runs" / state["run_id"]
+    (run_dir / "outputs.json").unlink(missing_ok=True)
     rc = run_cmd(cmd)
     if rc != 0:
         raise PipelineError(f"scrape_rankings 失败，退出码 {rc}")
 
-    weekly_dir = ROOT / "data" / "rankings" / "orig"
-    results_dir = ROOT / "data" / "rankings" / "id_snapshots"
-    weekly_file = latest_weekly_file(weekly_dir, args.top)
-    results_file = latest_results_file(results_dir, args.category, args.top)
-    merged_file = latest_merged_file(weekly_dir, args.top)
-    if merged_file is None:
-        raise PipelineError("scrape_rankings 完成但未找到 _with_ids.json 合并文件")
+    try:
+        products = json.loads((run_dir / "outputs.json").read_text(encoding="utf-8"))
+        weekly_file = Path(products["weekly_file"])
+        results_file = Path(products["results_file"])
+        merged_file = Path(products["merged_file"])
+        unresolved_file = Path(products["unresolved_file"])
+        for path in (weekly_file, results_file, merged_file, unresolved_file):
+            if not path.resolve().is_relative_to(run_dir.resolve()):
+                raise ValueError(f"快照不属于本轮: {path}")
+        if not all(path.is_file() for path in (weekly_file, results_file, merged_file)):
+            raise ValueError("本轮输出文件缺失")
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        raise PipelineError(f"无法确认本轮抓取产物: {exc}") from exc
 
+    # Keep conventional archive locations for existing standalone tools.
+    for source, subdir in [(weekly_file, "orig"), (merged_file, "orig"),
+                           (results_file, "id_snapshots")]:
+        destination = ROOT / "data" / "rankings" / subdir / source.name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
     return {
-        "weekly_file": str(weekly_file) if weekly_file else None,
-        "results_file": str(results_file) if results_file else None,
+        "weekly_file": str(weekly_file),
+        "results_file": str(results_file),
         "merged_file": str(merged_file),
-        "unresolved_file": str(merged_file.with_name(merged_file.stem + "_unresolved.json")),
+        "unresolved_file": str(unresolved_file),
     }
 
 
@@ -231,22 +246,20 @@ def stage_resolve_ids(args: argparse.Namespace, state: dict) -> dict:
     weekly_file = Path(meta["weekly_file"]) if meta.get("weekly_file") else None
     results_file = Path(meta["results_file"]) if meta.get("results_file") else None
 
-    # 断点续跑时先重新合并，以拾取人工修改的别名。
-    if stage_status(state, "resolve_ids") == STATUS_NEEDS_REVIEW:
-        if weekly_file and results_file and weekly_file.exists() and results_file.exists():
-            logger.info("检测到人工处理，重新执行 merge 拾取别名变更")
-            rc = run_cmd(py(
-                "scripts/merge_ranking_ids.py",
-                "--weekly", str(weekly_file),
-                "--results", str(results_file),
-                "--output", str(merged_file),
-                "--unresolved-output", str(unresolved_file),
-                "--aliases", args.aliases,
-            ))
-            if rc not in (0, 1):
-                raise PipelineError(f"重新 merge 失败，退出码 {rc}")
-        else:
-            logger.warning("缺少 weekly/results 文件，无法重新 merge，直接读取 unresolved 报告")
+    # Reconcile from explicit inputs on every attempt. Alias edits must also be
+    # picked up after a crash during review/merge, regardless of the stage status.
+    if not (weekly_file and results_file and weekly_file.is_file() and results_file.is_file()):
+        raise PipelineError("缺少本轮 weekly/results 文件，无法校验 player_id 合并结果")
+    rc = run_cmd(py(
+        "scripts/merge_ranking_ids.py",
+        "--weekly", weekly_file,
+        "--results", results_file,
+        "--output", merged_file,
+        "--unresolved-output", unresolved_file,
+        "--aliases", args.aliases,
+    ))
+    if rc not in (0, 1):
+        raise PipelineError(f"重新 merge 失败，退出码 {rc}")
 
     if unresolved_count(unresolved_file) == 0:
         return {}
@@ -268,16 +281,7 @@ def stage_resolve_ids(args: argparse.Namespace, state: dict) -> dict:
 
 def stage_scrape_profiles(args: argparse.Namespace, state: dict) -> dict:
     scope = state.get("scope") or "weekly"
-    cmd = py(
-        "scripts/run_ranking_profile.py",
-        "--category", args.category,
-        "--top", str(args.top),
-        "--cdp-port", str(args.cdp_port),
-        "--resume",
-        "--profile-scope", scope,
-    )
-    if args.cdp_only:
-        cmd.append("--cdp-only")
+    cmd = ranking_command(args, state) + ["--profile-scope", scope]
     rc = run_cmd(cmd)
     if rc != 0:
         raise PipelineError(f"scrape_profiles 失败，退出码 {rc}")
@@ -342,6 +346,7 @@ def stage_deploy(args: argparse.Namespace, state: dict) -> dict:
     rc = run_cmd([
         "bash", "deploy/server/update_rankings_profiles.sh",
         "--changed-since", since_ts,
+        "--ranking-file", state["stages"]["translate_rankings"]["meta"]["cn_file"],
     ])
     if rc != 0:
         raise PipelineError(f"deploy 失败，退出码 {rc}")
@@ -378,7 +383,10 @@ def resolve_scope(args: argparse.Namespace, state: dict) -> str:
 def run(args: argparse.Namespace) -> int:
     state = load_state(STATE_FILE)
 
-    if args.reset:
+    legacy = bool(state.get("since_ts")) and not state.get("run_id")
+    if legacy:
+        logger.warning("旧状态缺少本轮快照归属信息，将重新抓取以避免复用历史数据")
+    if args.reset or legacy:
         # 清空阶段进度，但保留「月度全量」这类长周期标记。
         last_full = state.get("last_full_profile_refresh", "")
         state = {
@@ -397,11 +405,19 @@ def run(args: argparse.Namespace) -> int:
             state["since_ts"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             state["scope"] = resolve_scope(args, state)
             state["stages"] = {}
-            save_state(STATE_FILE, state)
+            state["run_id"] = uuid4().hex
+            state["parameters"] = {"category": args.category, "top": args.top}
+            if not args.dry_run:
+                save_state(STATE_FILE, state)
         elif args.scope in ("weekly", "monthly"):
             # 显式指定 scope 覆盖（例如 skip-deploy 后手动指定范围续跑）。
             state["scope"] = args.scope
-            save_state(STATE_FILE, state)
+            if not args.dry_run:
+                save_state(STATE_FILE, state)
+
+    if state.get("parameters") != {"category": args.category, "top": args.top}:
+        logger.error("续跑参数与本轮 category/top 不一致，请使用原参数或 --reset 开启新一轮")
+        return 2
 
     scope = state.get("scope") or "weekly"
     since_ts = state.get("since_ts")

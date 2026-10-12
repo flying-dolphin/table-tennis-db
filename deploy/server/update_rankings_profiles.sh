@@ -9,6 +9,7 @@
 # Usage:
 #   deploy/server/update_rankings_profiles.sh
 #   deploy/server/update_rankings_profiles.sh --changed-since "2026-06-25 00:00:00"
+#   deploy/server/update_rankings_profiles.sh --ranking-file data/rankings/cn/FILE.json
 #   deploy/server/update_rankings_profiles.sh --publish-only
 #   deploy/server/update_rankings_profiles.sh --skip-publish
 #
@@ -37,6 +38,7 @@ LOCAL_LOG_DIR=${LOCAL_LOG_DIR:-logs/deploy}
 LOG_FILE=${LOG_FILE:-${LOCAL_LOG_DIR}/ranking-profile-${RUN_ID}.log}
 REMOTE_IMPORT_LOG_DIR=${REMOTE_IMPORT_LOG_DIR:-${REMOTE_DATA_DIR}/ittf_logs}
 
+RANKING_FILE=""
 PUBLISH_ONLY=0
 SKIP_PUBLISH=0
 
@@ -53,6 +55,14 @@ while [ "$#" -gt 0 ]; do
                 exit 2
             fi
             CHANGED_SINCE="$2"
+            shift
+            ;;
+        --ranking-file)
+            if [ "$#" -lt 2 ]; then
+                echo "ERROR: --ranking-file requires a path" >&2
+                exit 2
+            fi
+            RANKING_FILE="$2"
             shift
             ;;
         --publish-only)
@@ -461,11 +471,15 @@ upload_data_and_import() {
     local country_history_file country_history_changed remote_payload_dir remote_ranking_path remote_profile_dir
     local manifest_path remote_manifest_log_path
     local profile_files=()
-    ranking_file="$(latest_ranking_file)"
+    ranking_file="$RANKING_FILE"
+    if [ -z "$ranking_file" ]; then
+        ranking_file="$(latest_ranking_file)"
+    fi
     if [ -z "$ranking_file" ]; then
         echo "ERROR: no ranking JSON found in data/rankings/cn" >&2
         exit 1
     fi
+    require_file "$ranking_file"
     require_dir "data/player_profiles/cn"
     require_file "data/player_country_history.json"
 
