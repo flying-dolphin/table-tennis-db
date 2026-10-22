@@ -1,0 +1,1420 @@
+{
+  "M.TEAM--------------.QFNL.00020000": {
+    "Key": "M.TEAM--------------.QFNL.00020000",
+    "Desc": "Men's Teams - Quarterfinals - Match 2",
+    "Time": "Wed 21, 10:00",
+    "Loc": "T1",
+    "LocDesc": "Table 1",
+    "Venue": "Olympic Town, Tashkent",
+    "RTime": "10:00",
+    "Status": 1,
+    "IsTeam": true,
+    "HasComps": true,
+    "Home": {
+      "Reg": "TMHKGA3688",
+      "Org": "HKG",
+      "OrgDesc": "Hong Kong, China",
+      "Desc": "Hong Kong, China",
+      "Res": "0",
+      "Win": false,
+      "RkPo": 2,
+      "Splits": [
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        }
+      ]
+    },
+    "Away": {
+      "Reg": "TMTPEA3676",
+      "Org": "TPE",
+      "OrgDesc": "Chinese Taipei",
+      "Desc": "Chinese Taipei",
+      "Res": "3",
+      "Win": true,
+      "RkPo": 1,
+      "Splits": [
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        }
+      ]
+    },
+    "HasStats": false,
+    "SubMatches": [
+      {
+        "Home": {
+          "Reg": "200044",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei",
+          "Desc": "KUO Guan-Hong",
+          "Res": "3",
+          "Win": false,
+          "RkPo": 1,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": "8"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMHKGA3688"
+        },
+        "Away": {
+          "Reg": "112620",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China",
+          "Desc": "WONG Chun Ting",
+          "Res": "1",
+          "Win": false,
+          "RkPo": 2,
+          "Splits": [
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": "7"
+            },
+            {
+              "Win": false,
+              "Res": "7"
+            },
+            {
+              "Win": false,
+              "Res": "6"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMTPEA3676"
+        },
+        "HasComps": true,
+        "HasStats": true,
+        "Duration": "26m49s"
+      },
+      {
+        "Home": {
+          "Reg": "122727",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei",
+          "Desc": "FENG Yi-Hsin",
+          "Res": "3",
+          "Win": false,
+          "RkPo": 1,
+          "Splits": [
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": "7"
+            },
+            {
+              "Win": true,
+              "Res": "12"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMHKGA3688"
+        },
+        "Away": {
+          "Reg": "133867",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China",
+          "Desc": "CHAN Baldwin",
+          "Res": "1",
+          "Win": false,
+          "RkPo": 2,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": "4"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": "10"
+            },
+            {
+              "Win": false,
+              "Res": "9"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMTPEA3676"
+        },
+        "HasComps": true,
+        "HasStats": true,
+        "Duration": "32m30s"
+      },
+      {
+        "Home": {
+          "Reg": "145043",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei",
+          "Desc": "HSU Hsien-Chia",
+          "Res": "3",
+          "Win": false,
+          "RkPo": 1,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": "7"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": "5"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            }
+          ],
+          "TeamReg": "TMHKGA3688"
+        },
+        "Away": {
+          "Reg": "115546",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China",
+          "Desc": "LAM Siu Hang",
+          "Res": "2",
+          "Win": false,
+          "RkPo": 2,
+          "Splits": [
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": "6"
+            },
+            {
+              "Win": false,
+              "Res": "5"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": "9"
+            }
+          ],
+          "TeamReg": "TMTPEA3676"
+        },
+        "HasComps": true,
+        "HasStats": true,
+        "Duration": "36m43s"
+      },
+      {
+        "Home": {
+          "Reg": "200044",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei",
+          "Desc": "KUO Guan-Hong",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMHKGA3688"
+        },
+        "Away": {
+          "Reg": "133867",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China",
+          "Desc": "CHAN Baldwin",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMTPEA3676"
+        },
+        "HasComps": true,
+        "HasStats": false,
+        "Duration": ""
+      },
+      {
+        "Home": {
+          "Reg": "122727",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei",
+          "Desc": "FENG Yi-Hsin",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMHKGA3688"
+        },
+        "Away": {
+          "Reg": "112620",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China",
+          "Desc": "WONG Chun Ting",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TMTPEA3676"
+        },
+        "HasComps": true,
+        "HasStats": false,
+        "Duration": ""
+      }
+    ]
+  },
+  "W.TEAM--------------.GP04.00050000": {
+    "Key": "W.TEAM--------------.GP04.00050000",
+    "Desc": "Women's Teams - Group 4 - Match 5",
+    "Time": "Mon 19, 18:45",
+    "Loc": "T3",
+    "LocDesc": "Table 3",
+    "Venue": "Olympic Town, Tashkent",
+    "RTime": "18:45",
+    "Status": 1,
+    "IsTeam": true,
+    "HasComps": true,
+    "Home": {
+      "Reg": "TWKUWA3760",
+      "Org": "KUW",
+      "OrgDesc": "Kuwait",
+      "Desc": "Kuwait",
+      "Res": "0",
+      "Win": false,
+      "RkPo": 2,
+      "Splits": [
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        }
+      ]
+    },
+    "Away": {
+      "Reg": "TWMASA3720",
+      "Org": "MAS",
+      "OrgDesc": "Malaysia",
+      "Desc": "Malaysia",
+      "Res": "3",
+      "Win": true,
+      "RkPo": 1,
+      "Splits": [
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        },
+        {
+          "Win": false,
+          "Res": ""
+        }
+      ]
+    },
+    "HasStats": false,
+    "SubMatches": [
+      {
+        "Home": {
+          "Reg": "111953",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait",
+          "Desc": "ABDULRAHEEM Maryam",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 2,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": "3"
+            },
+            {
+              "Win": false,
+              "Res": "5"
+            },
+            {
+              "Win": false,
+              "Res": "3"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWKUWA3760"
+        },
+        "Away": {
+          "Reg": "132724",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia",
+          "Desc": "CHANG Li Sian",
+          "Res": "3",
+          "Win": false,
+          "RkPo": 1,
+          "Splits": [
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWMASA3720"
+        },
+        "HasComps": true,
+        "HasStats": true,
+        "Duration": "13m39s"
+      },
+      {
+        "Home": {
+          "Reg": "206112",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait",
+          "Desc": "ABEDALI Jana",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 2,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": "4"
+            },
+            {
+              "Win": false,
+              "Res": "3"
+            },
+            {
+              "Win": false,
+              "Res": "3"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWKUWA3760"
+        },
+        "Away": {
+          "Reg": "132892",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia",
+          "Desc": "LYNE Karen",
+          "Res": "3",
+          "Win": false,
+          "RkPo": 1,
+          "Splits": [
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWMASA3720"
+        },
+        "HasComps": true,
+        "HasStats": true,
+        "Duration": "12m27s"
+      },
+      {
+        "Home": {
+          "Reg": "112054",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait",
+          "Desc": "ALSHAMMARI Menwah",
+          "Res": "RET",
+          "Win": false,
+          "RkPo": 2,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": "2"
+            },
+            {
+              "Win": false,
+              "Res": "0"
+            },
+            {
+              "Win": false,
+              "Res": "0"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWKUWA3760"
+        },
+        "Away": {
+          "Reg": "144473",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia",
+          "Desc": "LI YING Im",
+          "Res": "3",
+          "Win": false,
+          "RkPo": 1,
+          "Splits": [
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": true,
+              "Res": "11"
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWMASA3720"
+        },
+        "HasComps": true,
+        "HasStats": true,
+        "Duration": "5m58s"
+      },
+      {
+        "Home": {
+          "Reg": "111953",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait",
+          "Desc": "ABDULRAHEEM Maryam",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWKUWA3760"
+        },
+        "Away": {
+          "Reg": "132892",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia",
+          "Desc": "LYNE Karen",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWMASA3720"
+        },
+        "HasComps": true,
+        "HasStats": false,
+        "Duration": ""
+      },
+      {
+        "Home": {
+          "Reg": "206112",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait",
+          "Desc": "ABEDALI Jana",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWKUWA3760"
+        },
+        "Away": {
+          "Reg": "132724",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia",
+          "Desc": "CHANG Li Sian",
+          "Res": "0",
+          "Win": false,
+          "RkPo": 0,
+          "Splits": [
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            },
+            {
+              "Win": false,
+              "Res": ""
+            }
+          ],
+          "TeamReg": "TWMASA3720"
+        },
+        "HasComps": true,
+        "HasStats": false,
+        "Duration": ""
+      }
+    ]
+  },
+  "W.DOUBLES-----------.R64-.000200--": {
+    "Key": "W.DOUBLES-----------.R64-.000200--",
+    "Desc": "Women's Doubles - Round of 64 - Match 2",
+    "Time": "Wed 21, 10:00",
+    "Loc": "T5",
+    "LocDesc": "Table 5",
+    "Venue": "Olympic Town, Tashkent",
+    "RTime": "10:00",
+    "Status": 1,
+    "IsTeam": false,
+    "HasComps": true,
+    "Home": {
+      "Reg": "D7741",
+      "Org": "IRI",
+      "OrgDesc": "Islamic Rep. of Iran",
+      "Desc": "SHAHSAVARI Neda/YARISERAJI Fatemeh",
+      "Members": [
+        {
+          "Reg": "108526",
+          "Org": "IRI",
+          "Desc": "SHAHSAVARI Neda"
+        },
+        {
+          "Reg": "202407",
+          "Org": "IRI",
+          "Desc": "YARISERAJI Fatemeh"
+        }
+      ],
+      "Res": "3",
+      "Win": true,
+      "RkPo": 1,
+      "Splits": [
+        {
+          "Win": false,
+          "Res": "8"
+        },
+        {
+          "Win": true,
+          "Res": "11"
+        },
+        {
+          "Win": false,
+          "Res": "6"
+        },
+        {
+          "Win": true,
+          "Res": "11"
+        },
+        {
+          "Win": true,
+          "Res": "11"
+        }
+      ]
+    },
+    "Away": {
+      "Reg": "D7891",
+      "Org": "MAC",
+      "OrgDesc": "Macau, China",
+      "Desc": "CHONG Iok Teng/LEONG I Nam",
+      "Members": [
+        {
+          "Reg": "210381",
+          "Org": "MAC",
+          "Desc": "CHONG Iok Teng"
+        },
+        {
+          "Reg": "221636",
+          "Org": "MAC",
+          "Desc": "LEONG I Nam"
+        }
+      ],
+      "Res": "2",
+      "Win": false,
+      "RkPo": 2,
+      "Splits": [
+        {
+          "Win": true,
+          "Res": "11"
+        },
+        {
+          "Win": false,
+          "Res": "5"
+        },
+        {
+          "Win": true,
+          "Res": "11"
+        },
+        {
+          "Win": false,
+          "Res": "2"
+        },
+        {
+          "Win": false,
+          "Res": "0"
+        }
+      ]
+    },
+    "HasStats": true,
+    "Duration": "29m41s"
+  },
+  "entries": [
+    {
+      "Reg": "TMHKGA3688",
+      "Name": "Hong Kong, China",
+      "Gender": "M",
+      "Members": [
+        {
+          "Reg": "112620",
+          "Name": "WONG Chun Ting",
+          "Gender": "M",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "115545",
+          "Name": "KWAN Man Ho",
+          "Gender": "M",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "132325",
+          "Name": "YIU Kwan To",
+          "Gender": "M",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "133867",
+          "Name": "CHAN Baldwin",
+          "Gender": "M",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "115546",
+          "Name": "LAM Siu Hang",
+          "Gender": "M",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    },
+    {
+      "Reg": "TMKUWA3755",
+      "Name": "Kuwait",
+      "Gender": "M",
+      "Members": [
+        {
+          "Reg": "206123",
+          "Name": "ALOTAIBI Meshal",
+          "Gender": "M",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        },
+        {
+          "Reg": "203382",
+          "Name": "ALHADAD Abdullah",
+          "Gender": "M",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        },
+        {
+          "Reg": "116701",
+          "Name": "ALBAHRANI Abdullah",
+          "Gender": "M",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        },
+        {
+          "Reg": "114327",
+          "Name": "ALMKEEMY Abdullah",
+          "Gender": "M",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        },
+        {
+          "Reg": "116702",
+          "Name": "ALKANDERI Meshal",
+          "Gender": "M",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    },
+    {
+      "Reg": "TMMASA3719",
+      "Name": "Malaysia",
+      "Gender": "M",
+      "Members": [
+        {
+          "Reg": "131932",
+          "Name": "CHOONG Javen",
+          "Gender": "M",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        },
+        {
+          "Reg": "144712",
+          "Name": "IM Jin Zhen",
+          "Gender": "M",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        },
+        {
+          "Reg": "202977",
+          "Name": "YAP Rui Zhe",
+          "Gender": "M",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        },
+        {
+          "Reg": "136377",
+          "Name": "WONG Qi Shen",
+          "Gender": "M",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    },
+    {
+      "Reg": "TMTPEA3676",
+      "Name": "Chinese Taipei",
+      "Gender": "M",
+      "Members": [
+        {
+          "Reg": "145043",
+          "Name": "HSU Hsien-Chia",
+          "Gender": "M",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "146266",
+          "Name": "TSAI Tien-Yu",
+          "Gender": "M",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "200044",
+          "Name": "KUO Guan-Hong",
+          "Gender": "M",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "144705",
+          "Name": "HUNG Jing-Kai",
+          "Gender": "M",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "122727",
+          "Name": "FENG Yi-Hsin",
+          "Gender": "M",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    },
+    {
+      "Reg": "TWHKGA3687",
+      "Name": "Hong Kong, China",
+      "Gender": "W",
+      "Members": [
+        {
+          "Reg": "132318",
+          "Name": "NG Wing Lam",
+          "Gender": "W",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "132320",
+          "Name": "LEE Hoi Man",
+          "Gender": "W",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "135187",
+          "Name": "KONG Tsz Lam",
+          "Gender": "W",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "115543",
+          "Name": "DOO Hoi Kem",
+          "Gender": "W",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        },
+        {
+          "Reg": "206252",
+          "Name": "SU Tsz Tung",
+          "Gender": "W",
+          "Org": "HKG",
+          "OrgDesc": "Hong Kong, China"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    },
+    {
+      "Reg": "TWKUWA3760",
+      "Name": "Kuwait",
+      "Gender": "W",
+      "Members": [
+        {
+          "Reg": "206112",
+          "Name": "ABEDALI Jana",
+          "Gender": "W",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        },
+        {
+          "Reg": "112054",
+          "Name": "ALSHAMMARI Menwah",
+          "Gender": "W",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        },
+        {
+          "Reg": "111953",
+          "Name": "ABDULRAHEEM Maryam",
+          "Gender": "W",
+          "Org": "KUW",
+          "OrgDesc": "Kuwait"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    },
+    {
+      "Reg": "TWMASA3720",
+      "Name": "Malaysia",
+      "Gender": "W",
+      "Members": [
+        {
+          "Reg": "132724",
+          "Name": "CHANG Li Sian",
+          "Gender": "W",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        },
+        {
+          "Reg": "132892",
+          "Name": "LYNE Karen",
+          "Gender": "W",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        },
+        {
+          "Reg": "144473",
+          "Name": "LI YING Im",
+          "Gender": "W",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        },
+        {
+          "Reg": "134085",
+          "Name": "TEE Ai Xin",
+          "Gender": "W",
+          "Org": "MAS",
+          "OrgDesc": "Malaysia"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    },
+    {
+      "Reg": "TWTPEA3677",
+      "Name": "Chinese Taipei",
+      "Gender": "W",
+      "Members": [
+        {
+          "Reg": "145033",
+          "Name": "PENG Yu-Han",
+          "Gender": "W",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "136987",
+          "Name": "YEH Yi-Tian",
+          "Gender": "W",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "114105",
+          "Name": "CHEN Szu-Yu",
+          "Gender": "W",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "124165",
+          "Name": "CHIEN Tung-Chuan",
+          "Gender": "W",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        },
+        {
+          "Reg": "201874",
+          "Name": "WU Ying Syuan",
+          "Gender": "W",
+          "Org": "TPE",
+          "OrgDesc": "Chinese Taipei"
+        }
+      ],
+      "HasMembers": true,
+      "Info": {
+        "Seed": "",
+        "Seeded": false,
+        "WRPoints": 0,
+        "WRPosition": 0
+      }
+    }
+  ],
+  "brackets": [
+    {
+      "Code": "MAIN",
+      "Desc": "Main Draw",
+      "isDoubles": false,
+      "Phases": [
+        {
+          "Code": "W.SINGLES-----------.R128",
+          "Desc": "Round of 128",
+          "Matches": [
+            {
+              "Home": {
+                "Reg": "136711",
+                "Org": "JPN",
+                "Desc": "HARIMOTO Miwa",
+                "Res": "0",
+                "Win": true,
+                "RkPo": 1,
+                "Splits": []
+              },
+              "Away": {
+                "Reg": "25",
+                "Org": "BYE",
+                "Desc": "",
+                "Res": "0",
+                "Win": false,
+                "RkPo": 0,
+                "Splits": []
+              },
+              "Info": {
+                "Time": "Tue 20, 14:45",
+                "Loc": "",
+                "LocDesc": "",
+                "HasTBD": false,
+                "Status": "OFFICIAL",
+                "Code": "W.SINGLES-----------.R128.000100--",
+                "IsBye": true
+              }
+            },
+            {
+              "Home": {
+                "Reg": "221183",
+                "Org": "UZB",
+                "Desc": "GULIMOVA Maftuna",
+                "Res": "0",
+                "Win": false,
+                "RkPo": 2,
+                "Splits": []
+              },
+              "Away": {
+                "Reg": "132126",
+                "Org": "MGL",
+                "Desc": "BATMUNKH Bolor-Erdene",
+                "Res": "3",
+                "Win": true,
+                "RkPo": 1,
+                "Splits": []
+              },
+              "Info": {
+                "Time": "Tue 20, 14:45, T1",
+                "Loc": "T1",
+                "LocDesc": "Table 1",
+                "HasTBD": false,
+                "Status": "OFFICIAL",
+                "Code": "W.SINGLES-----------.R128.000200--",
+                "IsBye": false
+              }
+            }
+          ]
+        },
+        {
+          "Code": "W.SINGLES-----------.R64-",
+          "Desc": "Round of 64",
+          "Matches": [
+            {
+              "Home": {
+                "Reg": "136711",
+                "Org": "JPN",
+                "Desc": "HARIMOTO Miwa",
+                "Res": "3",
+                "Win": true,
+                "RkPo": 1,
+                "Splits": []
+              },
+              "Away": {
+                "Reg": "132126",
+                "Org": "MGL",
+                "Desc": "BATMUNKH Bolor-Erdene",
+                "Res": "0",
+                "Win": false,
+                "RkPo": 2,
+                "Splits": []
+              },
+              "Info": {
+                "Time": "Wed 21, 16:30, T6",
+                "Loc": "T6",
+                "LocDesc": "Table 6",
+                "HasTBD": false,
+                "Status": "OFFICIAL",
+                "Code": "W.SINGLES-----------.R64-.000100--",
+                "IsBye": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
