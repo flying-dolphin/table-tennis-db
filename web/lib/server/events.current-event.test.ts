@@ -228,7 +228,7 @@ test('current brackets resolve case and spacing variants against player names', 
 });
 
 test('Asian Games defaults to the team event when no sub-event is requested', () => {
-  assert.equal(getEventDetail(6666).selectedSubEvent, 'WT');
+  assert.equal(getEventDetail(3473).selectedSubEvent, 'WT');
 });
 
 test('current bracket preserves draw groups and feeder previous units', () => {

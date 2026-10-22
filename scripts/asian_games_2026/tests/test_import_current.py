@@ -30,7 +30,7 @@ class ImportCurrentTests(unittest.TestCase):
     def setUp(self) -> None:
         self.conn = sqlite3.connect(":memory:")
         self.conn.executescript((ROOT / "scripts/db/schema.sql").read_text(encoding="utf-8"))
-        self.conn.execute("INSERT INTO events(event_id, year, name) VALUES (6666, 2026, 'Asian Games')")
+        self.conn.execute("INSERT INTO events(event_id, year, name) VALUES (3473, 2026, 'Asian Games')")
         for code in ("MT", "WT", "MS", "WS", "MD", "WD", "XD"):
             self.conn.execute("INSERT OR IGNORE INTO sub_event_types(code,name,name_zh) VALUES (?,?,?)", (code, code, code))
         self.conn.execute(
@@ -68,7 +68,7 @@ class ImportCurrentTests(unittest.TestCase):
         ).fetchall()
         self.assertEqual([tuple(row) for row in players], [("HARIMOTO Miwa", 136711), ("UNKNOWN Player", None)])
         self.assertEqual(["JPN:HARIMOTO Miwa (1)"], collect_missing_player_translations(self.conn))
-        event = self.conn.execute("SELECT time_zone,lifecycle_status FROM events WHERE event_id=6666").fetchone()
+        event = self.conn.execute("SELECT time_zone,lifecycle_status FROM events WHERE event_id=3473").fetchone()
         self.assertEqual(tuple(event), ("Asia/Tokyo", "in_progress"))
 
     def test_imports_match_sides_and_games(self) -> None:
@@ -107,7 +107,7 @@ class ImportCurrentTests(unittest.TestCase):
         snapshot = {"team_ties": [], "matches": [match(bye_code), match(pending_code)]}
         import_snapshot(self.conn, snapshot)
         bracket = {
-            "event_id": 6666, "sub_events": ["MS"],
+            "event_id": 3473, "sub_events": ["MS"],
             "brackets": [{
                 "sub_event_type_code": "MS", "draw_code": "MAIN",
                 "bracket_code": "M.SINGLES-----------.R64-", "stage_code": "MAIN_DRAW",
@@ -126,7 +126,7 @@ class ImportCurrentTests(unittest.TestCase):
         import_snapshot(self.conn, snapshot, bracket)
 
         codes = [row[0] for row in self.conn.execute(
-            "SELECT external_match_code FROM current_event_matches WHERE event_id=6666"
+            "SELECT external_match_code FROM current_event_matches WHERE event_id=3473"
         )]
         self.assertEqual(codes, [pending_code])
         self.assertEqual(self.conn.execute(
@@ -223,11 +223,11 @@ class ImportCurrentTests(unittest.TestCase):
         self.conn.execute(
             """INSERT INTO current_event_brackets
                (event_id,sub_event_type_code,external_unit_code,round_code,bracket_position)
-               VALUES (6666,'MS','stale-ms','R64',1), (6666,'MT','keep-mt','QF',1)"""
+               VALUES (3473,'MS','stale-ms','R64',1), (3473,'MT','keep-mt','QF',1)"""
         )
         self.conn.commit()
         row = {
-            "event_id": 6666,
+            "event_id": 3473,
             "sub_event_type_code": "MS",
             "draw_code": "MAIN",
             "bracket_code": "M.SINGLES-----------.R64-",
@@ -253,7 +253,7 @@ class ImportCurrentTests(unittest.TestCase):
                 "Info": {"Key": "M.SINGLES-----------.R64-.000100--", "IsBye": True},
             },
         }
-        brackets = {"event_id": 6666, "sub_events": ["MS"], "brackets": [row]}
+        brackets = {"event_id": 3473, "sub_events": ["MS"], "brackets": [row]}
 
         counts = import_snapshot(self.conn, {"team_ties": [], "matches": []}, brackets)
         second_counts = import_snapshot(self.conn, {"team_ties": [], "matches": []}, brackets)
@@ -283,7 +283,7 @@ class ImportCurrentTests(unittest.TestCase):
         )
         self.conn.commit()
         row = {
-            "event_id": 6666,
+            "event_id": 3473,
             "sub_event_type_code": "WS",
             "draw_code": "MAIN",
             "bracket_code": "W.SINGLES-----------.R64-",
@@ -312,7 +312,7 @@ class ImportCurrentTests(unittest.TestCase):
         import_snapshot(
             self.conn,
             {"team_ties": [], "matches": []},
-            {"event_id": 6666, "sub_events": ["WS"], "brackets": [row]},
+            {"event_id": 3473, "sub_events": ["WS"], "brackets": [row]},
         )
 
         raw = self.conn.execute(

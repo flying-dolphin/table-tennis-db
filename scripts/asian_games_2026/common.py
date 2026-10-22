@@ -18,11 +18,12 @@ DATA_ROOT = PROJECT_ROOT / "data" / "asian_games" / "2026"
 RAW_ROOT = DATA_ROOT / "raw"
 NORMALIZED_ROOT = DATA_ROOT / "normalized"
 STATE_ROOT = DATA_ROOT / "state"
-EVENT_SCHEDULE_PATH = PROJECT_ROOT / "data" / "event_schedule" / "6666.json"
+
+EVENT_ID = 3473
+
+EVENT_SCHEDULE_PATH = PROJECT_ROOT / "data" / "event_schedule" / f"{EVENT_ID}.json"
 DISPLAY_SCHEDULE_PATH = DATA_ROOT / "table_tennis_schedule.json"
 DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
-
-EVENT_ID = 6666
 CHAMPIONSHIP_CODE = "AG2026"
 DISCIPLINE_CODE = "TTE"
 LANGUAGE = "en"

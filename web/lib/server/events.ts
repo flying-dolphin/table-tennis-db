@@ -5045,7 +5045,7 @@ export function getEventDetail(
 
   const override = readManualEventOverride(eventId);
   // Asian Games opens on team competition; preserve that event's established default.
-  const preferredDefault = override?.sub_event_type_code ?? (eventId === 6666 ? 'WT' : 'WS');
+  const preferredDefault = override?.sub_event_type_code ?? (eventId === 3473 ? 'WT' : 'WS');
   const selectedSubEvent =
     requestedSubEvent && subEvents.some((item) => item.code === requestedSubEvent)
       ? requestedSubEvent

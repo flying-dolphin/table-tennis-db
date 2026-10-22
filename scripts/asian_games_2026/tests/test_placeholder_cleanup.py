@@ -70,7 +70,7 @@ class PlaceholderCleanupTests(unittest.TestCase):
 
     def test_child_match_prevents_cleanup(self):
         tie_id = self.conn.execute("SELECT current_team_tie_id FROM current_event_team_ties").fetchone()[0]
-        self.conn.execute("INSERT INTO current_event_matches(event_id,current_team_tie_id,sub_event_type_code,external_match_code) VALUES (6666,?,'WT','rubber')", (tie_id,))
+        self.conn.execute("INSERT INTO current_event_matches(event_id,current_team_tie_id,sub_event_type_code,external_match_code) VALUES (3473,?,'WT','rubber')", (tie_id,))
         self.conn.commit()
         for batch in ('1', '2'):
             import_snapshot(self.conn, self.snapshot(batch))
