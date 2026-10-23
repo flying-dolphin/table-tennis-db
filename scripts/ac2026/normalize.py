@@ -17,7 +17,8 @@ STATUS = {1: "completed", 2: "live", 4: "scheduled", "OFFICIAL": "completed",
 
 def round_meta(key: str, draw: str | None = None) -> dict:
     phase = key.split(".")[2].rstrip("-")
-    stages = {"MAIN": "MAIN_DRAW", "PREL": "PRELIMINARY", "5-8": "POSITION_DRAW"}
+    stages = {"MAIN": "MAIN_DRAW", "PREL": "PRELIMINARY", "5-8": "POSITION_DRAW",
+              "CONS": "POSITION_DRAW", "9-16": "POSITION_DRAW"}
     if draw and draw not in stages:
         raise ValueError(f"unsupported draw: {draw}")
     stage = stages.get(draw or "MAIN", "MAIN_DRAW")
@@ -31,8 +32,9 @@ def round_meta(key: str, draw: str | None = None) -> dict:
         order, label = int(phase[3:]) * 10, "Preliminary"
     elif phase == "58":
         stage, code, order, label = "POSITION_DRAW", "R1", 10, "Pos 5-8"
-    elif phase in ("916", "1732", "2532", "2528", "2728", "2526"):
-        low, high = int(phase[:-2]), int(phase[-2:])
+    elif phase in ("916", "1616", "1314", "1516", "1732", "2532", "2528", "2728", "2526"):
+        # Bornan's 1616 is explicitly labelled Pos. 13-16, not Pos. 16-16.
+        low, high = (13, 16) if phase == "1616" else (int(phase[:-2]), int(phase[-2:]))
         stage, code = "POSITION_DRAW", f"P{low}_{high}"
         order, label = 100 - (high - low), f"Pos. {low}-{high}"
     else:
@@ -40,7 +42,9 @@ def round_meta(key: str, draw: str | None = None) -> dict:
         orders = {"R256": 10, "R128": 20, "R64": 30, "R32": 40, "R16": 50, "QF": 60, "SF": 70, "F": 80}
         if code not in orders:
             raise ValueError(f"unsupported phase: {key}")
-        order, label = orders[code], "Main Draw"
+        order = orders[code]
+        label = {"MAIN_DRAW": "Main Draw", "PRELIMINARY": "Preliminary",
+                 "POSITION_DRAW": "Position Draw"}[stage]
     return {"stage_code": stage, "stage_label": label, "round_code": code,
             "round_label": ROUND_NAMES[code][0], "round_order": order, "group_code": group}
 

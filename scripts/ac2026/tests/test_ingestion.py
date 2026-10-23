@@ -14,7 +14,7 @@ from unittest.mock import patch
 from scripts.ac2026.common import EVENT_NAME, ROOT, PROJECTS, ROUND_NAMES, read_json, timestamp, write_json
 from scripts.ac2026.finalize import validate_current
 from scripts.ac2026.import_current import import_snapshot
-from scripts.ac2026.normalize import (competitor_players, normalize_brackets,
+from scripts.ac2026.normalize import (build_snapshot, competitor_players, normalize_brackets,
     normalize_match, normalize_team, result_fields, round_meta)
 from scripts.ac2026.scrape import capture, load_capture
 from scripts.ac2026.refresh import event_lock
@@ -42,6 +42,73 @@ def snapshot():
 
 
 class NormalizeTests(unittest.TestCase):
+    def test_position_draw_9_to_16(self):
+        phase = copy.deepcopy(samples()["brackets"][0]["Phases"][0])
+        phase["Code"] = "X.DOUBLES-----------.916-"
+        rows = normalize_brackets([{"Code": "9-16", "Phases": [phase]}], "XD")
+        self.assertEqual(len(rows), len(phase["Matches"]))
+        for row in rows:
+            self.assertEqual(row["draw_code"], "9-16")
+            self.assertEqual(row["stage_code"], "POSITION_DRAW")
+            self.assertEqual(row["round_code"], "P9_16")
+            self.assertIsNone(row["side_a_previous_unit"])
+            self.assertIsNone(row["side_b_previous_unit"])
+        self.assertEqual(round_meta("X.DOUBLES-----------.FNL-", "9-16")["stage_label"], "Position Draw")
+
+    def test_consolation_projects_build_complete_snapshot(self):
+        projects = {"M.DOUBLES-----------": ("MD", ["916-", "1616", "1314"]),
+                    "W.DOUBLES-----------": ("WD", ["916-", "1616", "1516"]),
+                    "X.DOUBLES-----------": ("XD", ["1616", "1314"])}
+        payloads = {"champ.json": {"events": [{"Key": k} for k in PROJECTS], "dates": []},
+                    "match/live.json": []}
+        for pk in PROJECTS:
+            for section in ("entries", "groups", "brackets"):
+                payloads[f"{section}/{pk}.json"] = []
+        expected = {"916-": "P9_16", "1616": "P13_16", "1314": "P13_14", "1516": "P15_16"}
+        for pk, (code, phases) in projects.items():
+            draws = []
+            for phase_code in reversed(phases):
+                phase = copy.deepcopy(samples()["brackets"][0]["Phases"][0])
+                phase["Code"] = f"{pk}.{phase_code}"
+                for index, match in enumerate(phase["Matches"], 1):
+                    match["Info"]["Code"] = f"{pk}.{phase_code}.{index:04d}00--"
+                draws.append(phase)
+            payloads[f"brackets/{pk}.json"] = [{"Code": "CONS", "Phases": draws}]
+        result = build_snapshot({"batch_id": "cons", "captured_at": "2026-10-23T00:00:00Z",
+                                 "full": True, "files": {}}, payloads)
+        self.assertEqual(result["issues"], [])
+        self.assertEqual(set(result["bracket_projects"]), {"MD", "WD", "XD"})
+        for pk, (code, phases) in projects.items():
+            rows = [r for r in result["brackets"] if r["sub_event_type_code"] == code]
+            count = len(samples()["brackets"][0]["Phases"][0]["Matches"])
+            self.assertEqual([r["round_code"] for r in rows],
+                             [expected[p] for p in phases for _ in range(count)])
+            for row in rows:
+                self.assertEqual(row["draw_code"], "CONS")
+                self.assertEqual(row["stage_code"], "POSITION_DRAW")
+                self.assertIsNone(row["side_a_previous_unit"])
+                self.assertIsNone(row["side_b_previous_unit"])
+                self.assertEqual(row["raw_source_payload"]["_original"]["Info"]["Code"],
+                                 row["external_unit_code"])
+
+    def test_consolation_round_semantics_and_parallel_finals(self):
+        for phase, code in (("1616", "P13_16"), ("1314", "P13_14"), ("1516", "P15_16")):
+            for draw in (None, "CONS"):
+                meta = round_meta(f"X.DOUBLES-----------.{phase}", draw)
+                self.assertEqual(meta["round_code"], code)
+                self.assertEqual(meta["stage_code"], "POSITION_DRAW")
+                self.assertEqual(meta["round_label"], ROUND_NAMES[code][0])
+        first = round_meta("X.DOUBLES-----------.1616", "CONS")
+        finals = [round_meta(f"X.DOUBLES-----------.{p}", "CONS") for p in ("1314", "1516")]
+        self.assertLess(first["round_order"], finals[0]["round_order"])
+        self.assertEqual(finals[0]["round_order"], finals[1]["round_order"])
+        self.assertEqual(ROUND_NAMES["P13_16"], ("Pos. 13-16", "第13至16名排位赛"))
+        self.assertEqual(round_meta("X.DOUBLES-----------.FNL-", "CONS")["stage_label"], "Position Draw")
+        with self.assertRaisesRegex(ValueError, "unsupported draw"):
+            round_meta("X.DOUBLES-----------.FNL-", "UNKNOWN")
+        with self.assertRaisesRegex(ValueError, "unsupported phase"):
+            round_meta("X.DOUBLES-----------.9999", "CONS")
+
     def test_first_live_game_is_not_skipped_at_zero_sets(self):
         f = samples()
         row = f[REVERSED]
@@ -152,6 +219,21 @@ class NormalizeTests(unittest.TestCase):
 
 
 class ImportTests(unittest.TestCase):
+    def test_consolation_rounds_import_without_schema_change(self):
+        s = snapshot()
+        s["brackets"] = []
+        for phase_code, round_code in (("1616", "P13_16"), ("1314", "P13_14"), ("1516", "P15_16")):
+            phase = copy.deepcopy(samples()["brackets"][0]["Phases"][0])
+            phase["Code"] = f"X.DOUBLES-----------.{phase_code}"
+            for index, match in enumerate(phase["Matches"], 1):
+                match["Info"]["Code"] = f"X.DOUBLES-----------.{phase_code}.{index:04d}00--"
+            s["brackets"].extend(normalize_brackets([{"Code": "CONS", "Phases": [phase]}], "XD"))
+        import_snapshot(self.conn, s)
+        stored = self.conn.execute("SELECT DISTINCT draw_code,stage_code,round_code FROM current_event_brackets").fetchall()
+        self.assertEqual({tuple(r) for r in stored},
+                         {("CONS", "POSITION_DRAW", r) for r in ("P13_16", "P13_14", "P15_16")})
+        self.assertEqual(self.conn.execute("PRAGMA foreign_key_check").fetchall(), [])
+
     def setUp(self):
         self.conn = sqlite3.connect(":memory:")
         self.conn.executescript((ROOT / "scripts/db/schema.sql").read_text())
